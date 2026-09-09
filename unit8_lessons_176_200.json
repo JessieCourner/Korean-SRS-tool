@@ -1,0 +1,429 @@
+{
+  "lessons": [
+    {
+      "unit": 8,
+      "lesson_number": 176,
+      "title": "Trying in vain with ~아/어 봤자",
+      "pattern": "~아/어 봤자",
+      "explanation": "Practice for the HTSK Lesson 176 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "지금 가___ 늦을 거예요.",
+          "translation": "Even if we go now, it will be late.",
+          "answer": "봐야",
+          "hint": "Focus: ~아/어 봤자",
+          "explanation": "The target form is ~아/어 봤자."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 177,
+      "title": "The literary infix ~오~",
+      "pattern": "literary ~오~",
+      "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "문학 작품에서 옛 표현을 자주 ___ 수 있어요.",
+          "translation": "You can often see old-style expressions in literary works.",
+          "answer": "볼",
+          "hint": "Focus: literary ~오~",
+          "explanation": "The target form is literary ~오~."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 178,
+      "title": "~구요",
+      "pattern": "~구요",
+      "explanation": "Practice for the HTSK Lesson 178 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "저는 학생이___, 친구는 회사원이에요.",
+          "translation": "I am a student, and my friend is an office worker.",
+          "answer": "구요",
+          "hint": "Focus: ~구요",
+          "explanation": "The target form is ~구요."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 179,
+      "title": "마련",
+      "pattern": "마련",
+      "explanation": "Practice for the HTSK Lesson 179 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "사람은 누구나 실수하기 ___이에요.",
+          "translation": "Everyone is bound to make mistakes.",
+          "answer": "마련",
+          "hint": "Focus: 마련",
+          "explanation": "The target form is 마련."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 180,
+      "title": "It seems with ~듯하다",
+      "pattern": "~듯하다",
+      "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "비가 올 ___해요.",
+          "translation": "It seems like it will rain.",
+          "answer": "듯",
+          "hint": "Focus: ~듯하다",
+          "explanation": "The target form is ~듯하다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 181,
+      "title": "Even with ~조차",
+      "pattern": "~조차",
+      "explanation": "Practice for the HTSK Lesson 181 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "물 ___ 없어요.",
+          "translation": "We do not even have water.",
+          "answer": "조차",
+          "hint": "Focus: ~조차",
+          "explanation": "The target form is ~조차."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 182,
+      "title": "Being characteristically ~답다",
+      "pattern": "~답다",
+      "explanation": "Practice for the HTSK Lesson 182 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "한국 사람___ 행동이에요.",
+          "translation": "That is behavior characteristic of a Korean person.",
+          "answer": "답게",
+          "hint": "Focus: ~답다",
+          "explanation": "The target form is ~답다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 183,
+      "title": "Adjectives with ~롭다",
+      "pattern": "~롭다",
+      "explanation": "Practice for the HTSK Lesson 183 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "cards": [
+        {
+          "prompt": "평화___ 삶을 원해요.",
+          "translation": "I want a peaceful life.",
+          "answer": "로운",
+          "hint": "Focus: ~롭다",
+          "explanation": "The target form is ~롭다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 184,
+      "title": "At least with ~(이)나마",
+      "pattern": "~(이)나마",
+      "explanation": "Practice for the HTSK Lesson 184 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "작___ 도움이 되고 싶어요.",
+          "translation": "I want to be of at least a small help.",
+          "answer": "은",
+          "hint": "Focus: ~(이)나마",
+          "explanation": "The target form is ~(이)나마."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 185,
+      "title": "Combining ~는데 and ~다가",
+      "pattern": "~는데 + ~다가",
+      "explanation": "Practice for the HTSK Lesson 185 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "집에 가___ 친구를 만났어요.",
+          "translation": "I was going home when I met a friend.",
+          "answer": "다가",
+          "hint": "Focus: ~는데 + ~다가",
+          "explanation": "The target form is ~는데 + ~다가."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 186,
+      "title": "Sequential action (advanced)",
+      "pattern": "advanced sequential action",
+      "explanation": "Practice for the HTSK Lesson 186 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "숙제를 하___ 잠을 잤어요.",
+          "translation": "After doing homework, I went to sleep.",
+          "answer": "고서",
+          "hint": "Focus: advanced sequential action",
+          "explanation": "The target form is advanced sequential action."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 187,
+      "title": "Another sequential action form",
+      "pattern": "advanced sequential action",
+      "explanation": "Practice for the HTSK Lesson 187 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "직접 만나___ 진심을 알았어요.",
+          "translation": "Only after meeting in person did I understand the sincerity.",
+          "answer": "고서야",
+          "hint": "Focus: advanced sequential action",
+          "explanation": "The target form is advanced sequential action."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 188,
+      "title": "Contrast with ~(으)나",
+      "pattern": "~(으)나",
+      "explanation": "Practice for the HTSK Lesson 188 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "비가 오___ 행사는 계속돼요.",
+          "translation": "Although it rains, the event continues.",
+          "answer": "나",
+          "hint": "Focus: ~(으)나",
+          "explanation": "The target form is ~(으)나."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 189,
+      "title": "Further uses of ~(으)나",
+      "pattern": "~(으)나",
+      "explanation": "Practice for the HTSK Lesson 189 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "작___ 큰 문제예요.",
+          "translation": "Whether small or large, it is a problem.",
+          "answer": "으나",
+          "hint": "Focus: ~(으)나",
+          "explanation": "The target form is ~(으)나."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 190,
+      "title": "하나 마나",
+      "pattern": "하나 마나",
+      "explanation": "Practice for the HTSK Lesson 190 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "그 사람에게 말하___예요.",
+          "translation": "There is no point telling that person.",
+          "answer": "나 마나",
+          "hint": "Focus: 하나 마나",
+          "explanation": "The target form is 하나 마나."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 191,
+      "title": "Halfheartedly with ~는 둥 마는 둥",
+      "pattern": "~는 둥 마는 둥",
+      "explanation": "Practice for the HTSK Lesson 191 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "cards": [
+        {
+          "prompt": "그는 숙제를 하___ 해서 혼났어요.",
+          "translation": "He was scolded for doing his homework halfheartedly.",
+          "answer": "는 둥 마는 둥",
+          "hint": "Focus: ~는 둥 마는 둥",
+          "explanation": "The target form is ~는 둥 마는 둥."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 192,
+      "title": "Contracted reported speech",
+      "pattern": "~ㄴ/는다고 하다",
+      "explanation": "Practice for the HTSK Lesson 192 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "엄마가 밥 먹으___ 하셨어요.",
+          "translation": "Mom said to eat.",
+          "answer": "래",
+          "hint": "Focus: ~ㄴ/는다고 하다",
+          "explanation": "The target form is ~ㄴ/는다고 하다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 193,
+      "title": "Soft command with ~(으)렴",
+      "pattern": "~(으)렴",
+      "explanation": "Practice for the HTSK Lesson 193 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "어서 오___.",
+          "translation": "Come in, dear.",
+          "answer": "렴",
+          "hint": "Focus: ~(으)렴",
+          "explanation": "The target form is ~(으)렴."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 194,
+      "title": "Counters 회/차 and 제",
+      "pattern": "제~회 / 제~차",
+      "explanation": "Practice for the HTSK Lesson 194 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "이번이 제3___예요.",
+          "translation": "This is the third time.",
+          "answer": "회",
+          "hint": "Focus: 제~회 / 제~차",
+          "explanation": "The target form is 제~회 / 제~차."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 195,
+      "title": "Expressive ~기 그지없다",
+      "pattern": "~기 그지없다",
+      "explanation": "Practice for the HTSK Lesson 195 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "감사하___ 없어요.",
+          "translation": "I cannot be more grateful.",
+          "answer": "기 그지",
+          "hint": "Focus: ~기 그지없다",
+          "explanation": "The target form is ~기 그지없다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 196,
+      "title": "Simultaneous roles with 겸",
+      "pattern": "겸",
+      "explanation": "Practice for the HTSK Lesson 196 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "여행___ 공부하러 왔어요.",
+          "translation": "I came both to travel and to study.",
+          "answer": "겸",
+          "hint": "Focus: 겸",
+          "explanation": "The target form is 겸."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 197,
+      "title": "Formal/legal 바",
+      "pattern": "바",
+      "explanation": "Practice for the HTSK Lesson 197 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "제가 아는 ___를 말씀드리겠습니다.",
+          "translation": "I will tell you what I know.",
+          "answer": "바",
+          "hint": "Focus: 바",
+          "explanation": "The target form is 바."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 198,
+      "title": "~ㄴ/은 셈이다",
+      "pattern": "~ㄴ/은 셈이다",
+      "explanation": "Practice for the HTSK Lesson 198 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "이제 다 끝난 ___이에요.",
+          "translation": "It is as if everything is finished now.",
+          "answer": "셈",
+          "hint": "Focus: ~ㄴ/은 셈이다",
+          "explanation": "The target form is ~ㄴ/은 셈이다."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 199,
+      "title": "~은/는커녕",
+      "pattern": "~은/는커녕",
+      "explanation": "Practice for the HTSK Lesson 199 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "밥___ 물도 못 먹었어요.",
+          "translation": "I could not even drink water, let alone eat.",
+          "answer": "은커녕",
+          "hint": "Focus: ~은/는커녕",
+          "explanation": "The target form is ~은/는커녕."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "lesson_number": 200,
+      "title": "부리다",
+      "pattern": "부리다",
+      "explanation": "Practice for the HTSK Lesson 200 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "cards": [
+        {
+          "prompt": "그는 재주를 잘 ___.",
+          "translation": "He makes good use of his talents.",
+          "answer": "부려요",
+          "hint": "Focus: 부리다",
+          "explanation": "The target form is 부리다."
+        }
+      ]
+    }
+  ]
+}

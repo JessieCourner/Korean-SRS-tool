@@ -1,0 +1,429 @@
+{
+  "lessons": [
+    {
+      "unit": 7,
+      "lesson_number": 151,
+      "title": "Korean onomatopoeia",
+      "pattern": "onomatopoeia",
+      "explanation": "Original practice for the HTSK Lesson 151 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "비가 주룩주룩 와요.",
+          "translation": "It is raining steadily.",
+          "answer": "주룩주룩",
+          "hint": "Focus: onomatopoeia",
+          "explanation": "The target form is onomatopoeia."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 152,
+      "title": "Korean mimetic words",
+      "pattern": "mimetic words",
+      "explanation": "Original practice for the HTSK Lesson 152 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "아기가 방긋방긋 웃어요.",
+          "translation": "The baby smiles brightly.",
+          "answer": "방긋방긋",
+          "hint": "Focus: mimetic words",
+          "explanation": "The target form is mimetic words."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 153,
+      "title": "Purpose with ~려",
+      "pattern": "~려",
+      "explanation": "Original practice for the HTSK Lesson 153 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "무엇을 하___고 여기 왔어요?",
+          "translation": "What did you come here to do?",
+          "answer": "려고",
+          "hint": "Focus: ~려",
+          "explanation": "The target form is ~려."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 154,
+      "title": "~려 combined with ~다가",
+      "pattern": "~려다가",
+      "explanation": "Original practice for the HTSK Lesson 154 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "집에 가___다가 친구를 만났어요.",
+          "translation": "I was about to go home when I met a friend.",
+          "answer": "려고",
+          "hint": "Focus: ~려다가",
+          "explanation": "The target form is ~려다가."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 155,
+      "title": "~려 with ~는 and ~던",
+      "pattern": "~려는 / ~려던",
+      "explanation": "Original practice for the HTSK Lesson 155 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "막 떠나___던 참이었어요.",
+          "translation": "I was just about to leave.",
+          "answer": "려",
+          "hint": "Focus: ~려는 / ~려던",
+          "explanation": "The target form is ~려는 / ~려던."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 156,
+      "title": "Further uses of ~(으)려",
+      "pattern": "참, ~(으)려",
+      "explanation": "Original practice for the HTSK Lesson 156 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "무엇을 하___고 했어요?",
+          "translation": "What were you trying to do?",
+          "answer": "려고",
+          "hint": "Focus: 참, ~(으)려",
+          "explanation": "The target form is 참, ~(으)려."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 157,
+      "title": "Complex noun usage",
+      "pattern": "noun grammar",
+      "explanation": "Original practice for the HTSK Lesson 157 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "그 일은 생각할 ___이 많아요.",
+          "translation": "That matter gives us much to think about.",
+          "answer": "거리",
+          "hint": "Focus: noun grammar",
+          "explanation": "The target form is noun grammar."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 158,
+      "title": "With 위주",
+      "pattern": "위주로",
+      "explanation": "Original practice for the HTSK Lesson 158 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "이 식당은 채식 메뉴 ___ 운영해요.",
+          "translation": "This restaurant operates mainly around vegetarian menus.",
+          "answer": "위주로",
+          "hint": "Focus: 위주로",
+          "explanation": "The target form is 위주로."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 159,
+      "title": "Abbreviated negation ~치 않다",
+      "pattern": "~치 않다",
+      "explanation": "Original practice for the HTSK Lesson 159 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "걱정___ 않아도 돼요.",
+          "translation": "You do not have to worry.",
+          "answer": "치",
+          "hint": "Focus: ~치 않다",
+          "explanation": "The target form is ~치 않다."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 160,
+      "title": "Complex questions with ~느냐",
+      "pattern": "~느냐",
+      "explanation": "Original practice for the HTSK Lesson 160 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "왜 그렇게 하___고 물어봤어요.",
+          "translation": "I asked why they did it that way.",
+          "answer": "느냐",
+          "hint": "Focus: ~느냐",
+          "explanation": "The target form is ~느냐."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 161,
+      "title": "Describing nouns with ~느냐는",
+      "pattern": "~느냐는",
+      "explanation": "Original practice for the HTSK Lesson 161 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "어디에 가___는 질문을 받았어요.",
+          "translation": "I was asked where I was going.",
+          "answer": "느냐",
+          "hint": "Focus: ~느냐는",
+          "explanation": "The target form is ~느냐는."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 162,
+      "title": "Depending on with ~느냐에 따라서",
+      "pattern": "~느냐에 따라서",
+      "explanation": "Original practice for the HTSK Lesson 162 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "어떻게 공부하___ 결과가 달라져요.",
+          "translation": "The result differs depending on how you study.",
+          "answer": "느냐에 따라서",
+          "hint": "Focus: ~느냐에 따라서",
+          "explanation": "The target form is ~느냐에 따라서."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 163,
+      "title": "Colloquial ~말이지",
+      "pattern": "~말이지",
+      "explanation": "Original practice for the HTSK Lesson 163 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "내일 꼭 오___ .",
+          "translation": "I am telling you to come tomorrow.",
+          "answer": "란 말이지",
+          "hint": "Focus: ~말이지",
+          "explanation": "The target form is ~말이지."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 164,
+      "title": "Emphasis with ~단 말이지",
+      "pattern": "~단 말이지",
+      "explanation": "Original practice for the HTSK Lesson 164 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "그건 제 책이___ .",
+          "translation": "I am telling you, that is my book.",
+          "answer": "란 말이지",
+          "hint": "Focus: ~단 말이지",
+          "explanation": "The target form is ~단 말이지."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 165,
+      "title": "Relief with ~(으)니 말이지",
+      "pattern": "~(으)니 말이지",
+      "explanation": "Original practice for the HTSK Lesson 165 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "길이 안 막히___ 다행이에요.",
+          "translation": "Luckily, the road was not congested.",
+          "answer": "니 말이지",
+          "hint": "Focus: ~(으)니 말이지",
+          "explanation": "The target form is ~(으)니 말이지."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 166,
+      "title": "Emphasis with ~(이)야말로",
+      "pattern": "~(이)야말로",
+      "explanation": "Original practice for the HTSK Lesson 166 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "한국어___ 제가 좋아하는 언어예요.",
+          "translation": "Korean is precisely the language I like.",
+          "answer": "야말로",
+          "hint": "Focus: ~(이)야말로",
+          "explanation": "The target form is ~(이)야말로."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 167,
+      "title": "Whether to or not with ~ㄹ/을까 말까",
+      "pattern": "~ㄹ/을까 말까",
+      "explanation": "Original practice for the HTSK Lesson 167 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "갈___ 고민하고 있어요.",
+          "translation": "I am wondering whether to go or not.",
+          "answer": "까 말까",
+          "hint": "Focus: ~ㄹ/을까 말까",
+          "explanation": "The target form is ~ㄹ/을까 말까."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 168,
+      "title": "Whether...or with ~거나 말거나",
+      "pattern": "~거나 말거나",
+      "explanation": "Original practice for the HTSK Lesson 168 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "네가 오___ 상관없어요.",
+          "translation": "Whether you come or not, it does not matter.",
+          "answer": "거나 말거나",
+          "hint": "Focus: ~거나 말거나",
+          "explanation": "The target form is ~거나 말거나."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 169,
+      "title": "Almost doing with ~ㄹ/을락 말락",
+      "pattern": "~ㄹ/을락 말락",
+      "explanation": "Original practice for the HTSK Lesson 169 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "비가 올___ 해요.",
+          "translation": "It looks like it is just about to rain.",
+          "answer": "락 말락",
+          "hint": "Focus: ~ㄹ/을락 말락",
+          "explanation": "The target form is ~ㄹ/을락 말락."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 170,
+      "title": "After doing with ~고야 말다",
+      "pattern": "~고야 말다",
+      "explanation": "Original practice for the HTSK Lesson 170 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "결국 그 일을 하___ 말았어요.",
+          "translation": "In the end, I ended up doing it.",
+          "answer": "고야",
+          "hint": "Focus: ~고야 말다",
+          "explanation": "The target form is ~고야 말다."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 171,
+      "title": "New use of 싶다 with ~다",
+      "pattern": "~다 싶다",
+      "explanation": "Original practice for the HTSK Lesson 171 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "이제 충분하___ 싶어요.",
+          "translation": "I feel that this is enough now.",
+          "answer": "다 싶",
+          "hint": "Focus: ~다 싶다",
+          "explanation": "The target form is ~다 싶다."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 172,
+      "title": "Thinking it might be with ~으면 싶다",
+      "pattern": "~으면 싶다",
+      "explanation": "Original practice for the HTSK Lesson 172 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "이번 주에 쉬___ 싶어요.",
+          "translation": "I would like to rest this week.",
+          "answer": "었으면",
+          "hint": "Focus: ~으면 싶다",
+          "explanation": "The target form is ~으면 싶다."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 173,
+      "title": "Questioning with 싶다",
+      "pattern": "~ㄹ까 싶다",
+      "explanation": "Original practice for the HTSK Lesson 173 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "내일 다시 오___ 싶어요.",
+          "translation": "I am thinking that I might come again tomorrow.",
+          "answer": "ㄹ까",
+          "hint": "Focus: ~ㄹ까 싶다",
+          "explanation": "The target form is ~ㄹ까 싶다."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 174,
+      "title": "Humble response to praise",
+      "pattern": "humble expressions",
+      "explanation": "Original practice for the HTSK Lesson 174 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "아니에요, 아직 멀___ .",
+          "translation": "No, I still have a long way to go.",
+          "answer": "었어요",
+          "hint": "Focus: humble expressions",
+          "explanation": "The target form is humble expressions."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "lesson_number": 175,
+      "title": "No exceptions with ~치고",
+      "pattern": "~치고",
+      "explanation": "Original practice for the HTSK Lesson 175 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-7/",
+      "cards": [
+        {
+          "prompt": "학생___ 공부를 싫어하는 사람은 드물어요.",
+          "translation": "Among students, people who dislike studying are rare.",
+          "answer": "치고",
+          "hint": "Focus: ~치고",
+          "explanation": "The target form is ~치고."
+        }
+      ]
+    }
+  ]
+}

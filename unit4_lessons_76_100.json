@@ -1,0 +1,779 @@
+{
+  "lessons": [
+    {
+      "unit": 4,
+      "lesson_number": 76,
+      "title": "Background and contrast with ~는데",
+      "pattern": "~는데",
+      "explanation": "Original practice for the HTSK Lesson 76 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "날씨가 좋___ 공원에 갔어요.",
+          "translation": "The weather was nice, so I went to the park.",
+          "answer": "은데",
+          "hint": "Focus: ~는데",
+          "explanation": "The target form is ~는데."
+        },
+        {
+          "prompt": "제가 지금 바쁘___ 나중에 전화할게요.",
+          "translation": "I am busy now, so I will call later.",
+          "answer": "은데",
+          "hint": "Focus: ~는데",
+          "explanation": "The target form is ~는데."
+        },
+        {
+          "prompt": "한국어를 공부하___ 재미있어요.",
+          "translation": "I study Korean, and it is interesting.",
+          "answer": "는데",
+          "hint": "Focus: ~는데",
+          "explanation": "The target form is ~는데."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 77,
+      "title": "~는데 versus ~는 데",
+      "pattern": "~는데 / ~는 데",
+      "explanation": "Original practice for the HTSK Lesson 77 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "공부하___ 시간이 필요해요.",
+          "translation": "I need time to study.",
+          "answer": "는 데",
+          "hint": "Focus: ~는데 / ~는 데",
+          "explanation": "The target form is ~는데 / ~는 데."
+        },
+        {
+          "prompt": "비가 오___ 우산이 없어요.",
+          "translation": "It is raining, but I have no umbrella.",
+          "answer": "는데",
+          "hint": "Focus: ~는데 / ~는 데",
+          "explanation": "The target form is ~는데 / ~는 데."
+        },
+        {
+          "prompt": "여기 사___ 편리해요.",
+          "translation": "Living here is convenient.",
+          "answer": "는데",
+          "hint": "Focus: ~는데 / ~는 데",
+          "explanation": "The target form is ~는데 / ~는 데."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 78,
+      "title": "Because of / due to",
+      "pattern": "~에 의하다, ~(으)로 인하다",
+      "explanation": "Original practice for the HTSK Lesson 78 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "법률___ 결정된 일이에요.",
+          "translation": "It was decided according to the law.",
+          "answer": "에 의해",
+          "hint": "Focus: ~에 의하다, ~(으)로 인하다",
+          "explanation": "The target form is ~에 의하다, ~(으)로 인하다."
+        },
+        {
+          "prompt": "사고___ 길이 막혔어요.",
+          "translation": "The road was blocked due to an accident.",
+          "answer": "로 인해",
+          "hint": "Focus: ~에 의하다, ~(으)로 인하다",
+          "explanation": "The target form is ~에 의하다, ~(으)로 인하다."
+        },
+        {
+          "prompt": "전문가의 의견___ 계획을 바꿨어요.",
+          "translation": "We changed the plan according to the expert's opinion.",
+          "answer": "에 의해",
+          "hint": "Focus: ~에 의하다, ~(으)로 인하다",
+          "explanation": "The target form is ~에 의하다, ~(으)로 인하다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 79,
+      "title": "Useful vocabulary: 그대로, 인기, 당연하다",
+      "pattern": "그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체",
+      "explanation": "Original practice for the HTSK Lesson 79 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "이대로 ___ 두세요.",
+          "translation": "Please leave it as it is.",
+          "answer": "그대로",
+          "hint": "Focus: 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체",
+          "explanation": "The target form is 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체."
+        },
+        {
+          "prompt": "이 가수는 젊은 사람들에게 ___가 많아요.",
+          "translation": "This singer is popular among young people.",
+          "answer": "인기",
+          "hint": "Focus: 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체",
+          "explanation": "The target form is 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체."
+        },
+        {
+          "prompt": "그렇게 생각하는 것이 ___해요.",
+          "translation": "It is natural to think that way.",
+          "answer": "당연",
+          "hint": "Focus: 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체",
+          "explanation": "The target form is 그대로, 인기, 당연하다, 알맞다, 어쩌다, 전체."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 80,
+      "title": "Prohibition with ~아/어서는 안 되다 and ~(으)면 안 되다",
+      "pattern": "~아/어서는 안 되다 / ~(으)면 안 되다",
+      "explanation": "Original practice for the HTSK Lesson 80 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "여기에서 사진을 찍어서는 ___요.",
+          "translation": "You must not take pictures here.",
+          "answer": "안 돼",
+          "hint": "Focus: ~아/어서는 안 되다 / ~(으)면 안 되다",
+          "explanation": "The target form is ~아/어서는 안 되다 / ~(으)면 안 되다."
+        },
+        {
+          "prompt": "수업 중에 자___ 안 돼요.",
+          "translation": "You must not sleep during class.",
+          "answer": "면",
+          "hint": "Focus: ~아/어서는 안 되다 / ~(으)면 안 되다",
+          "explanation": "The target form is ~아/어서는 안 되다 / ~(으)면 안 되다."
+        },
+        {
+          "prompt": "이 약을 먹고 운전하___ 안 돼요.",
+          "translation": "You must not drive after taking this medicine.",
+          "answer": "면",
+          "hint": "Focus: ~아/어서는 안 되다 / ~(으)면 안 되다",
+          "explanation": "The target form is ~아/어서는 안 되다 / ~(으)면 안 되다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 81,
+      "title": "Reason with ~(으)니까 and ~(으)니",
+      "pattern": "~(으)니까 / ~(으)니",
+      "explanation": "Original practice for the HTSK Lesson 81 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "늦었___ 빨리 가세요.",
+          "translation": "Since you are late, go quickly.",
+          "answer": "으니까",
+          "hint": "Focus: ~(으)니까 / ~(으)니",
+          "explanation": "The target form is ~(으)니까 / ~(으)니."
+        },
+        {
+          "prompt": "시간이 없___ 택시를 탔어요.",
+          "translation": "Since I had no time, I took a taxi.",
+          "answer": "으니까",
+          "hint": "Focus: ~(으)니까 / ~(으)니",
+          "explanation": "The target form is ~(으)니까 / ~(으)니."
+        },
+        {
+          "prompt": "날씨가 좋___ 산책합시다.",
+          "translation": "Since the weather is nice, let's take a walk.",
+          "answer": "으니",
+          "hint": "Focus: ~(으)니까 / ~(으)니",
+          "explanation": "The target form is ~(으)니까 / ~(으)니."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 82,
+      "title": "Realization with ~구나/~군요",
+      "pattern": "~구나, ~군요",
+      "explanation": "Original practice for the HTSK Lesson 82 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "정말 맛있___요!",
+          "translation": "Oh, it really is delicious!",
+          "answer": "군",
+          "hint": "Focus: ~구나, ~군요",
+          "explanation": "The target form is ~구나, ~군요."
+        },
+        {
+          "prompt": "오늘이 생일이___요!",
+          "translation": "Oh, today is your birthday!",
+          "answer": "군",
+          "hint": "Focus: ~구나, ~군요",
+          "explanation": "The target form is ~구나, ~군요."
+        },
+        {
+          "prompt": "한국어를 잘하___요!",
+          "translation": "I see you speak Korean well!",
+          "answer": "시는군",
+          "hint": "Focus: ~구나, ~군요",
+          "explanation": "The target form is ~구나, ~군요."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 83,
+      "title": "Surprise with ~네(요)",
+      "pattern": "~네(요)",
+      "explanation": "Original practice for the HTSK Lesson 83 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "오늘 날씨가 좋___요!",
+          "translation": "Oh, the weather is nice today!",
+          "answer": "네",
+          "hint": "Focus: ~네(요)",
+          "explanation": "The target form is ~네(요)."
+        },
+        {
+          "prompt": "생각보다 어렵___요.",
+          "translation": "Oh, it is more difficult than I thought.",
+          "answer": "네요",
+          "hint": "Focus: ~네(요)",
+          "explanation": "The target form is ~네(요)."
+        },
+        {
+          "prompt": "여기 사람이 많___요.",
+          "translation": "Wow, there are many people here.",
+          "answer": "네요",
+          "hint": "Focus: ~네(요)",
+          "explanation": "The target form is ~네(요)."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 84,
+      "title": "As soon as with ~자마자 and ~자",
+      "pattern": "~자마자 / ~자",
+      "explanation": "Original practice for the HTSK Lesson 84 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "집에 오___ 샤워했어요.",
+          "translation": "As soon as I came home, I showered.",
+          "answer": "자마자",
+          "hint": "Focus: ~자마자 / ~자",
+          "explanation": "The target form is ~자마자 / ~자."
+        },
+        {
+          "prompt": "수업이 끝나___ 학생들이 나갔어요.",
+          "translation": "As soon as class ended, the students left.",
+          "answer": "자자",
+          "hint": "Focus: ~자마자 / ~자",
+          "explanation": "The target form is ~자마자 / ~자."
+        },
+        {
+          "prompt": "도착하___ 연락해 주세요.",
+          "translation": "Please contact me as soon as you arrive.",
+          "answer": "자마자",
+          "hint": "Focus: ~자마자 / ~자",
+          "explanation": "The target form is ~자마자 / ~자."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 85,
+      "title": "Knowing how with ~ㄹ/을 줄 알다/모르다",
+      "pattern": "~ㄹ/을 줄 알다/모르다, 알다시피",
+      "explanation": "Original practice for the HTSK Lesson 85 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "저는 수영할 줄 ___요.",
+          "translation": "I know how to swim.",
+          "answer": "알아",
+          "hint": "Focus: ~ㄹ/을 줄 알다/모르다, 알다시피",
+          "explanation": "The target form is ~ㄹ/을 줄 알다/모르다, 알다시피."
+        },
+        {
+          "prompt": "동생은 운전할 줄 ___요.",
+          "translation": "My younger sibling does not know how to drive.",
+          "answer": "몰라",
+          "hint": "Focus: ~ㄹ/을 줄 알다/모르다, 알다시피",
+          "explanation": "The target form is ~ㄹ/을 줄 알다/모르다, 알다시피."
+        },
+        {
+          "prompt": "___, 저는 매운 음식을 좋아해요.",
+          "translation": "As you know, I like spicy food.",
+          "answer": "알다시피",
+          "hint": "Focus: ~ㄹ/을 줄 알다/모르다, 알다시피",
+          "explanation": "The target form is ~ㄹ/을 줄 알다/모르다, 알다시피."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 86,
+      "title": "Not A but B with ~는 게 아니라",
+      "pattern": "~는 게 아니라",
+      "explanation": "Original practice for the HTSK Lesson 86 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "쉬는 게 ___ 공부하는 거예요.",
+          "translation": "It is not resting but studying.",
+          "answer": "아니라",
+          "hint": "Focus: ~는 게 아니라",
+          "explanation": "The target form is ~는 게 아니라."
+        },
+        {
+          "prompt": "제가 한 게 아니라 친구가 ___요.",
+          "translation": "It was not me but my friend who did it.",
+          "answer": "했어",
+          "hint": "Focus: ~는 게 아니라",
+          "explanation": "The target form is ~는 게 아니라."
+        },
+        {
+          "prompt": "한국어를 배우는 게 아니라 ___를 배워요.",
+          "translation": "I am not learning Korean but Japanese.",
+          "answer": "일본어",
+          "hint": "Focus: ~는 게 아니라",
+          "explanation": "The target form is ~는 게 아니라."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 87,
+      "title": "Deciding to with ~기로 하다",
+      "pattern": "~기로 하다",
+      "explanation": "Original practice for the HTSK Lesson 87 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "매일 운동하___ 했어요.",
+          "translation": "I decided to exercise every day.",
+          "answer": "기로",
+          "hint": "Focus: ~기로 하다",
+          "explanation": "The target form is ~기로 하다."
+        },
+        {
+          "prompt": "다음 달에 이사하___ 했어요.",
+          "translation": "I decided to move next month.",
+          "answer": "기로",
+          "hint": "Focus: ~기로 하다",
+          "explanation": "The target form is ~기로 하다."
+        },
+        {
+          "prompt": "친구와 만나___ 했어요.",
+          "translation": "I decided to meet my friend.",
+          "answer": "기로",
+          "hint": "Focus: ~기로 하다",
+          "explanation": "The target form is ~기로 하다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 88,
+      "title": "While doing / after changing with ~다가",
+      "pattern": "~다가 / ~았/었다가",
+      "explanation": "Original practice for the HTSK Lesson 88 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "책을 읽___ 잠들었어요.",
+          "translation": "I fell asleep while reading a book.",
+          "answer": "다가",
+          "hint": "Focus: ~다가 / ~았/었다가",
+          "explanation": "The target form is ~다가 / ~았/었다가."
+        },
+        {
+          "prompt": "집에 가___ 친구를 만났어요.",
+          "translation": "While going home, I met a friend.",
+          "answer": "다가",
+          "hint": "Focus: ~다가 / ~았/었다가",
+          "explanation": "The target form is ~다가 / ~았/었다가."
+        },
+        {
+          "prompt": "입었___ 벗었어요.",
+          "translation": "I put it on and then took it off.",
+          "answer": "다가",
+          "hint": "Focus: ~다가 / ~았/었다가",
+          "explanation": "The target form is ~다가 / ~았/었다가."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 89,
+      "title": "Comparisons with 비교하다 and ~에 비해",
+      "pattern": "비교하다, ~에 비해",
+      "explanation": "Original practice for the HTSK Lesson 89 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "작년___ 올해가 더 따뜻해요.",
+          "translation": "Compared with last year, this year is warmer.",
+          "answer": "에 비해",
+          "hint": "Focus: 비교하다, ~에 비해",
+          "explanation": "The target form is 비교하다, ~에 비해."
+        },
+        {
+          "prompt": "두 도시를 ___해 봤어요.",
+          "translation": "I compared the two cities.",
+          "answer": "비교",
+          "hint": "Focus: 비교하다, ~에 비해",
+          "explanation": "The target form is 비교하다, ~에 비해."
+        },
+        {
+          "prompt": "가격___ 품질이 좋아요.",
+          "translation": "The quality is good compared with the price.",
+          "answer": "에 비해",
+          "hint": "Focus: 비교하다, ~에 비해",
+          "explanation": "The target form is 비교하다, ~에 비해."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 90,
+      "title": "Reminding / shared knowledge with ~잖다",
+      "pattern": "~잖다 / ~잖아요",
+      "explanation": "Original practice for the HTSK Lesson 90 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "오늘 비가 오___요.",
+          "translation": "It is raining today, you know.",
+          "answer": "잖",
+          "hint": "Focus: ~잖다 / ~잖아요",
+          "explanation": "The target form is ~잖다 / ~잖아요."
+        },
+        {
+          "prompt": "이것은 네 책이___요.",
+          "translation": "This is your book, remember.",
+          "answer": "잖",
+          "hint": "Focus: ~잖다 / ~잖아요",
+          "explanation": "The target form is ~잖다 / ~잖아요."
+        },
+        {
+          "prompt": "한국어가 재미있___요.",
+          "translation": "Korean is interesting, you know.",
+          "answer": "잖아",
+          "hint": "Focus: ~잖다 / ~잖아요",
+          "explanation": "The target form is ~잖다 / ~잖아요."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 91,
+      "title": "Giving a reason or correction with ~거든(요)",
+      "pattern": "~거든(요)",
+      "explanation": "Original practice for the HTSK Lesson 91 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "오늘은 못 가요. 약속이 있___요.",
+          "translation": "I cannot go today. I have an appointment, you see.",
+          "answer": "거든",
+          "hint": "Focus: ~거든(요)",
+          "explanation": "The target form is ~거든(요)."
+        },
+        {
+          "prompt": "왜 늦었어요? 길이 막혔___요.",
+          "translation": "Why were you late? The traffic was bad, you see.",
+          "answer": "거든",
+          "hint": "Focus: ~거든(요)",
+          "explanation": "The target form is ~거든(요)."
+        },
+        {
+          "prompt": "제가 도와줄게요. 시간이 많___요.",
+          "translation": "I will help you. I have plenty of time, you see.",
+          "answer": "거든",
+          "hint": "Focus: ~거든(요)",
+          "explanation": "The target form is ~거든(요)."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 92,
+      "title": "To the extent / so that with ~도록",
+      "pattern": "~도록",
+      "explanation": "Original practice for the HTSK Lesson 92 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "잊지 않___ 메모했어요.",
+          "translation": "I made a note so that I would not forget.",
+          "answer": "도록",
+          "hint": "Focus: ~도록",
+          "explanation": "The target form is ~도록."
+        },
+        {
+          "prompt": "목소리가 들리___ 크게 말해 주세요.",
+          "translation": "Please speak loudly so that I can hear you.",
+          "answer": "도록",
+          "hint": "Focus: ~도록",
+          "explanation": "The target form is ~도록."
+        },
+        {
+          "prompt": "늦지 않___ 서두르세요.",
+          "translation": "Hurry so that you are not late.",
+          "answer": "도록",
+          "hint": "Focus: ~도록",
+          "explanation": "The target form is ~도록."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 93,
+      "title": "Seeking agreement with ~지/~죠",
+      "pattern": "~지요 / ~죠",
+      "explanation": "Original practice for the HTSK Lesson 93 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "오늘 춥___?",
+          "translation": "It is cold today, right?",
+          "answer": "죠",
+          "hint": "Focus: ~지요 / ~죠",
+          "explanation": "The target form is ~지요 / ~죠."
+        },
+        {
+          "prompt": "이 영화 재미있___요.",
+          "translation": "This movie is interesting, isn't it?",
+          "answer": "지",
+          "hint": "Focus: ~지요 / ~죠",
+          "explanation": "The target form is ~지요 / ~죠."
+        },
+        {
+          "prompt": "우리 내일 만나___요.",
+          "translation": "We are meeting tomorrow, right?",
+          "answer": "죠",
+          "hint": "Focus: ~지요 / ~죠",
+          "explanation": "The target form is ~지요 / ~죠."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 94,
+      "title": "Coming to be with ~게 되다",
+      "pattern": "~게 되다",
+      "explanation": "Original practice for the HTSK Lesson 94 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "한국에서 일하___ 되었어요.",
+          "translation": "I came to work in Korea.",
+          "answer": "게",
+          "hint": "Focus: ~게 되다",
+          "explanation": "The target form is ~게 되다."
+        },
+        {
+          "prompt": "매일 운동하___ 됐어요.",
+          "translation": "I ended up exercising every day.",
+          "answer": "게",
+          "hint": "Focus: ~게 되다",
+          "explanation": "The target form is ~게 되다."
+        },
+        {
+          "prompt": "그 사실을 알___ 되었어요.",
+          "translation": "I came to know that fact.",
+          "answer": "게",
+          "hint": "Focus: ~게 되다",
+          "explanation": "The target form is ~게 되다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 95,
+      "title": "Only / not only with 뿐 and 뿐만 아니라",
+      "pattern": "뿐, ~뿐만 아니라",
+      "explanation": "Original practice for the HTSK Lesson 95 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "물___ 마셨어요.",
+          "translation": "I drank only water.",
+          "answer": "뿐",
+          "hint": "Focus: 뿐, ~뿐만 아니라",
+          "explanation": "The target form is 뿐, ~뿐만 아니라."
+        },
+        {
+          "prompt": "이것은 시작___이에요.",
+          "translation": "This is only the beginning.",
+          "answer": "뿐",
+          "hint": "Focus: 뿐, ~뿐만 아니라",
+          "explanation": "The target form is 뿐, ~뿐만 아니라."
+        },
+        {
+          "prompt": "한국어뿐만 아니라 영어___ 공부해요.",
+          "translation": "I study not only Korean but also English.",
+          "answer": "도",
+          "hint": "Focus: 뿐, ~뿐만 아니라",
+          "explanation": "The target form is 뿐, ~뿐만 아니라."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 96,
+      "title": "If you want to with ~(으)려면",
+      "pattern": "~(으)려면",
+      "explanation": "Original practice for the HTSK Lesson 96 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "한국어를 잘하___ 매일 연습하세요.",
+          "translation": "If you want to speak Korean well, practice every day.",
+          "answer": "려면",
+          "hint": "Focus: ~(으)려면",
+          "explanation": "The target form is ~(으)려면."
+        },
+        {
+          "prompt": "건강해지___ 운동해야 해요.",
+          "translation": "If you want to become healthy, you have to exercise.",
+          "answer": "려면",
+          "hint": "Focus: ~(으)려면",
+          "explanation": "The target form is ~(으)려면."
+        },
+        {
+          "prompt": "지하철을 타___ 이쪽으로 가세요.",
+          "translation": "If you want to take the subway, go this way.",
+          "answer": "려면",
+          "hint": "Focus: ~(으)려면",
+          "explanation": "The target form is ~(으)려면."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 97,
+      "title": "Colloquial 갖다 versus 가지다",
+      "pattern": "갖다 / 가지다",
+      "explanation": "Original practice for the HTSK Lesson 97 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "저는 시간이 ___ 있어요.",
+          "translation": "I have time.",
+          "answer": "가지고",
+          "hint": "Focus: 갖다 / 가지다",
+          "explanation": "The target form is 갖다 / 가지다."
+        },
+        {
+          "prompt": "무슨 생각을 ___ 있어요?",
+          "translation": "What are you thinking about?",
+          "answer": "갖고",
+          "hint": "Focus: 갖다 / 가지다",
+          "explanation": "The target form is 갖다 / 가지다."
+        },
+        {
+          "prompt": "관심을 ___ 있어요.",
+          "translation": "I have interest in it.",
+          "answer": "가지고",
+          "hint": "Focus: 갖다 / 가지다",
+          "explanation": "The target form is 갖다 / 가지다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 98,
+      "title": "Pretending with 척하다",
+      "pattern": "~는 척하다",
+      "explanation": "Original practice for the HTSK Lesson 98 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "모르는 ___하지 마세요.",
+          "translation": "Do not pretend not to know.",
+          "answer": "척",
+          "hint": "Focus: ~는 척하다",
+          "explanation": "The target form is ~는 척하다."
+        },
+        {
+          "prompt": "괜찮은 ___했어요.",
+          "translation": "I pretended to be okay.",
+          "answer": "척",
+          "hint": "Focus: ~는 척하다",
+          "explanation": "The target form is ~는 척하다."
+        },
+        {
+          "prompt": "자는 ___하고 들었어요.",
+          "translation": "I listened while pretending to sleep.",
+          "answer": "척",
+          "hint": "Focus: ~는 척하다",
+          "explanation": "The target form is ~는 척하다."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 99,
+      "title": "Even if with ~더라도",
+      "pattern": "~더라도",
+      "explanation": "Original practice for the HTSK Lesson 99 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "늦___ 꼭 오세요.",
+          "translation": "Even if you are late, please come.",
+          "answer": "더라도",
+          "hint": "Focus: ~더라도",
+          "explanation": "The target form is ~더라도."
+        },
+        {
+          "prompt": "힘들___ 포기하지 않을 거예요.",
+          "translation": "Even if it is difficult, I will not give up.",
+          "answer": "더라도",
+          "hint": "Focus: ~더라도",
+          "explanation": "The target form is ~더라도."
+        },
+        {
+          "prompt": "비가 오___ 출발합시다.",
+          "translation": "Even if it rains, let's depart.",
+          "answer": "더라도",
+          "hint": "Focus: ~더라도",
+          "explanation": "The target form is ~더라도."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "lesson_number": 100,
+      "title": "Expectation and supposition with ~ㄹ/을 텐데",
+      "pattern": "~ㄹ/을 텐데(요), ~ㄹ/을 테니까",
+      "explanation": "Original practice for the HTSK Lesson 100 focus. Use the official lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-100/",
+      "cards": [
+        {
+          "prompt": "내일 비가 올 ___요.",
+          "translation": "It will probably rain tomorrow.",
+          "answer": "텐데",
+          "hint": "Focus: ~ㄹ/을 텐데(요), ~ㄹ/을 테니까",
+          "explanation": "The target form is ~ㄹ/을 텐데(요), ~ㄹ/을 테니까."
+        },
+        {
+          "prompt": "제가 도와줄 ___ 걱정하지 마세요.",
+          "translation": "I will help you, so do not worry.",
+          "answer": "테니까",
+          "hint": "Focus: ~ㄹ/을 텐데(요), ~ㄹ/을 테니까",
+          "explanation": "The target form is ~ㄹ/을 텐데(요), ~ㄹ/을 테니까."
+        },
+        {
+          "prompt": "지금쯤 도착했을 ___요.",
+          "translation": "They probably arrived by now.",
+          "answer": "텐데",
+          "hint": "Focus: ~ㄹ/을 텐데(요), ~ㄹ/을 테니까",
+          "explanation": "The target form is ~ㄹ/을 텐데(요), ~ㄹ/을 테니까."
+        }
+      ]
+    }
+  ]
+}

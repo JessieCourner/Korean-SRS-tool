@@ -1,0 +1,283 @@
+{
+  "lessons": [
+    {
+      "unit": 5,
+      "lesson_number": 117,
+      "title": "Recalling experience with ~던가",
+      "pattern": "~던가",
+      "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "내가 이 책을 읽었___?",
+          "translation": "Did I read this book?",
+          "answer": "던가",
+          "hint": "Focus: ~던가",
+          "explanation": "The target form is ~던가."
+        },
+        {
+          "prompt": "그 식당이 맛있___?",
+          "translation": "Was that restaurant delicious?",
+          "answer": "던가",
+          "hint": "Focus: ~던가",
+          "explanation": "The target form is ~던가."
+        },
+        {
+          "prompt": "어제 비가 왔___?",
+          "translation": "Did it rain yesterday?",
+          "answer": "던가",
+          "hint": "Focus: ~던가",
+          "explanation": "The target form is ~던가."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 118,
+      "title": "Stating an experienced fact with ~더라",
+      "pattern": "~더라",
+      "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "그 영화가 정말 재미있___ .",
+          "translation": "That movie was really interesting, I found.",
+          "answer": "더라",
+          "hint": "Focus: ~더라",
+          "explanation": "The target form is ~더라."
+        },
+        {
+          "prompt": "서울은 생각보다 춥___ .",
+          "translation": "Seoul was colder than I thought, I found.",
+          "answer": "더라",
+          "hint": "Focus: ~더라",
+          "explanation": "The target form is ~더라."
+        },
+        {
+          "prompt": "그 카페에 사람이 많___ .",
+          "translation": "That café had many people, I noticed.",
+          "answer": "더라",
+          "hint": "Focus: ~더라",
+          "explanation": "The target form is ~더라."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 119,
+      "title": "Change or result with ~더니",
+      "pattern": "~더니",
+      "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "아침에는 춥___ 오후에는 따뜻해졌어요.",
+          "translation": "It was cold in the morning, but became warm in the afternoon.",
+          "answer": "더니",
+          "hint": "Focus: ~더니",
+          "explanation": "The target form is ~더니."
+        },
+        {
+          "prompt": "열심히 공부하___ 시험에 합격했어요.",
+          "translation": "After studying hard, I passed the exam.",
+          "answer": "더니",
+          "hint": "Focus: ~더니",
+          "explanation": "The target form is ~더니."
+        },
+        {
+          "prompt": "비가 오___ 지금은 맑아요.",
+          "translation": "It rained, but now it is clear.",
+          "answer": "더니",
+          "hint": "Focus: ~더니",
+          "explanation": "The target form is ~더니."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 120,
+      "title": "Surprise with ~다니",
+      "pattern": "~다니",
+      "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "네가 한국에 간___ 정말 놀랐어.",
+          "translation": "I am surprised that you went to Korea.",
+          "answer": "다니",
+          "hint": "Focus: ~다니",
+          "explanation": "The target form is ~다니."
+        },
+        {
+          "prompt": "이렇게 늦게 온___ 믿을 수 없어요.",
+          "translation": "I cannot believe that you came this late.",
+          "answer": "다니",
+          "hint": "Focus: ~다니",
+          "explanation": "The target form is ~다니."
+        },
+        {
+          "prompt": "그 사람이 우승했___ 대단해요.",
+          "translation": "It is amazing that that person won.",
+          "answer": "다니",
+          "hint": "Focus: ~다니",
+          "explanation": "The target form is ~다니."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 121,
+      "title": "As time passes with ~다 보면",
+      "pattern": "~다 보면",
+      "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "매일 연습하___ 잘하게 될 거예요.",
+          "translation": "If you keep practicing every day, you will get better.",
+          "answer": "다 보면",
+          "hint": "Focus: ~다 보면",
+          "explanation": "The target form is ~다 보면."
+        },
+        {
+          "prompt": "한국에서 살___ 익숙해질 거예요.",
+          "translation": "As you live in Korea, you will get used to it.",
+          "answer": "다 보면",
+          "hint": "Focus: ~다 보면",
+          "explanation": "The target form is ~다 보면."
+        },
+        {
+          "prompt": "계속 읽___ 이해할 수 있어요.",
+          "translation": "If you keep reading, you can understand it.",
+          "answer": "다 보면",
+          "hint": "Focus: ~다 보면",
+          "explanation": "The target form is ~다 보면."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 122,
+      "title": "Unexpected result with ~다 보니",
+      "pattern": "~다 보니",
+      "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "공부하___ 시간이 늦었어요.",
+          "translation": "As I studied, it became late.",
+          "answer": "다 보니",
+          "hint": "Focus: ~다 보니",
+          "explanation": "The target form is ~다 보니."
+        },
+        {
+          "prompt": "걷___ 예쁜 가게를 발견했어요.",
+          "translation": "While walking, I found a pretty shop.",
+          "answer": "다 보니",
+          "hint": "Focus: ~다 보니",
+          "explanation": "The target form is ~다 보니."
+        },
+        {
+          "prompt": "일하___ 친구를 잊어버렸어요.",
+          "translation": "As I worked, I forgot my friend.",
+          "answer": "다 보니",
+          "hint": "Focus: ~다 보니",
+          "explanation": "The target form is ~다 보니."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 123,
+      "title": "After trying with ~아/어 보니까",
+      "pattern": "~아/어 보니까",
+      "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "직접 먹어 보___ 맛있었어요.",
+          "translation": "After trying it myself, I found it delicious.",
+          "answer": "니까",
+          "hint": "Focus: ~아/어 보니까",
+          "explanation": "The target form is ~아/어 보니까."
+        },
+        {
+          "prompt": "한국에 가 보___ 정말 좋았어요.",
+          "translation": "After going to Korea, I found it really great.",
+          "answer": "니까",
+          "hint": "Focus: ~아/어 보니까",
+          "explanation": "The target form is ~아/어 보니까."
+        },
+        {
+          "prompt": "이 방법을 써 보___ 편리했어요.",
+          "translation": "After trying this method, I found it convenient.",
+          "answer": "니까",
+          "hint": "Focus: ~아/어 보니까",
+          "explanation": "The target form is ~아/어 보니까."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 124,
+      "title": "Worth doing with ~ㄹ/을 만하다",
+      "pattern": "~ㄹ/을 만하다, 가치가 있다",
+      "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "이 영화는 볼 ___해요.",
+          "translation": "This movie is worth watching.",
+          "answer": "만",
+          "hint": "Focus: ~ㄹ/을 만하다, 가치가 있다",
+          "explanation": "The target form is ~ㄹ/을 만하다, 가치가 있다."
+        },
+        {
+          "prompt": "이 식당은 다시 갈 ___해요.",
+          "translation": "This restaurant is worth going to again.",
+          "answer": "만",
+          "hint": "Focus: ~ㄹ/을 만하다, 가치가 있다",
+          "explanation": "The target form is ~ㄹ/을 만하다, 가치가 있다."
+        },
+        {
+          "prompt": "이 책은 읽을 가치가 ___요.",
+          "translation": "This book is worth reading.",
+          "answer": "있어",
+          "hint": "Focus: ~ㄹ/을 만하다, 가치가 있다",
+          "explanation": "The target form is ~ㄹ/을 만하다, 가치가 있다."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 125,
+      "title": "Insisting with ~ㄴ/는다니까",
+      "pattern": "~ㄴ/는다니까",
+      "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/",
+      "cards": [
+        {
+          "prompt": "내가 간___!",
+          "translation": "I told you I am going!",
+          "answer": "다니까",
+          "hint": "Focus: ~ㄴ/는다니까",
+          "explanation": "The target form is ~ㄴ/는다니까."
+        },
+        {
+          "prompt": "정말 괜찮___니까요.",
+          "translation": "I am telling you, it is really okay.",
+          "answer": "다",
+          "hint": "Focus: ~ㄴ/는다니까",
+          "explanation": "The target form is ~ㄴ/는다니까."
+        },
+        {
+          "prompt": "숙제를 했다___요.",
+          "translation": "I said I did my homework!",
+          "answer": "다니까",
+          "hint": "Focus: ~ㄴ/는다니까",
+          "explanation": "The target form is ~ㄴ/는다니까."
+        }
+      ]
+    }
+  ]
+}

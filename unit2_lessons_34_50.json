@@ -1,0 +1,531 @@
+{
+  "lessons": [
+    {
+      "unit": 2,
+      "lesson_number": 34,
+      "title": "Useful intermediate vocabulary",
+      "pattern": "자기/자신, 훨씬, 관련하다, 주위, 일단, 전혀/별로",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 34 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "이 문제는 ___의 일이 아니에요.",
+          "translation": "This problem is not my own matter.",
+          "answer": "자기",
+          "hint": "자기",
+          "explanation": "Use the pattern 자기/자신, 훨씬, 관련하다, 주위, 일단, 전혀/별로."
+        },
+        {
+          "prompt": "이 수업은 한국 문화와 ___이 있어요.",
+          "translation": "This class is related to Korean culture.",
+          "answer": "관련이",
+          "hint": "관련",
+          "explanation": "Use the pattern 자기/자신, 훨씬, 관련하다, 주위, 일단, 전혀/별로."
+        },
+        {
+          "prompt": "집 ___에 공원이 있어요.",
+          "translation": "There is a park around the house.",
+          "answer": "주위",
+          "hint": "주위",
+          "explanation": "Use the pattern 자기/자신, 훨씬, 관련하다, 주위, 일단, 전혀/별로."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 35,
+      "title": "Expressing possibility with ~ㄹ/을 것 같다",
+      "pattern": "~ㄹ/을 것 같다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 35 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "내일 비가 올 ___ 같아요.",
+          "translation": "It seems like it will rain tomorrow.",
+          "answer": "것",
+          "hint": "오다",
+          "explanation": "Use the pattern ~ㄹ/을 것 같다."
+        },
+        {
+          "prompt": "그 영화가 재미있을 것 ___요.",
+          "translation": "That movie seems like it will be interesting.",
+          "answer": "같아",
+          "hint": "재미있다",
+          "explanation": "Use the pattern ~ㄹ/을 것 같다."
+        },
+        {
+          "prompt": "오늘은 집에 있을 것 같___요.",
+          "translation": "I think I will stay home today.",
+          "answer": "아",
+          "hint": "있다",
+          "explanation": "Use the pattern ~ㄹ/을 것 같다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 36,
+      "title": "Saying something looks/seems like ~같이 보이다 and ~아/어 보이다",
+      "pattern": "~같이 보이다, ~아/어 보이다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 36 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "그 사람은 학생___ 보여요.",
+          "translation": "That person looks like a student.",
+          "answer": "같이",
+          "hint": "학생",
+          "explanation": "Use the pattern ~같이 보이다, ~아/어 보이다."
+        },
+        {
+          "prompt": "오늘 정말 행복해 ___요.",
+          "translation": "You look really happy today.",
+          "answer": "보여",
+          "hint": "행복하다",
+          "explanation": "Use the pattern ~같이 보이다, ~아/어 보이다."
+        },
+        {
+          "prompt": "이 음식은 맛있어 ___요.",
+          "translation": "This food looks delicious.",
+          "answer": "보여",
+          "hint": "맛있다",
+          "explanation": "Use the pattern ~같이 보이다, ~아/어 보이다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 37,
+      "title": "Giving a reason with ~아/어서",
+      "pattern": "~아/어서",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 37 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "배가 고파___ 밥을 먹어요.",
+          "translation": "I am hungry, so I eat.",
+          "answer": "서",
+          "hint": "고프다",
+          "explanation": "Use the pattern ~아/어서."
+        },
+        {
+          "prompt": "늦어서 빨리 ___요.",
+          "translation": "I am late, so I hurry.",
+          "answer": "가",
+          "hint": "늦다",
+          "explanation": "Use the pattern ~아/어서."
+        },
+        {
+          "prompt": "날씨가 좋아___ 산책했어요.",
+          "translation": "The weather was nice, so I took a walk.",
+          "answer": "서",
+          "hint": "좋다",
+          "explanation": "Use the pattern ~아/어서."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 38,
+      "title": "Giving a reason with ~기 때문에",
+      "pattern": "~기 때문에",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 38 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "공부해야 하기 ___ 도서관에 가요.",
+          "translation": "Because I have to study, I go to the library.",
+          "answer": "때문에",
+          "hint": "공부하다",
+          "explanation": "Use the pattern ~기 때문에."
+        },
+        {
+          "prompt": "비가 왔기 ___ 집에 있었어요.",
+          "translation": "Because it rained, I stayed home.",
+          "answer": "때문에",
+          "hint": "오다",
+          "explanation": "Use the pattern ~기 때문에."
+        },
+        {
+          "prompt": "바쁘기 ___ 나중에 전화할게요.",
+          "translation": "Because I am busy, I will call later.",
+          "answer": "때문에",
+          "hint": "바쁘다",
+          "explanation": "Use the pattern ~기 때문에."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 39,
+      "title": "Honorific ~시~",
+      "pattern": "~시~",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 39 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "선생님께서 지금 ___요.",
+          "translation": "The teacher is coming now.",
+          "answer": "오셔",
+          "hint": "오다",
+          "explanation": "Use the pattern ~시~."
+        },
+        {
+          "prompt": "할머니께서 책을 읽으___요.",
+          "translation": "Grandmother is reading a book.",
+          "answer": "세요",
+          "hint": "읽다",
+          "explanation": "Use the pattern ~시~."
+        },
+        {
+          "prompt": "아버지께서 집에 계___요.",
+          "translation": "Father is at home.",
+          "answer": "셔",
+          "hint": "있다",
+          "explanation": "Use the pattern ~시~."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 40,
+      "title": "Commands and prohibitions",
+      "pattern": "~세요, ~지 마세요",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 40 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "여기에 ___세요.",
+          "translation": "Please sit here.",
+          "answer": "앉으",
+          "hint": "앉다",
+          "explanation": "Use the pattern ~세요, ~지 마세요."
+        },
+        {
+          "prompt": "늦지 ___세요.",
+          "translation": "Please do not be late.",
+          "answer": "마",
+          "hint": "늦다",
+          "explanation": "Use the pattern ~세요, ~지 마세요."
+        },
+        {
+          "prompt": "문을 ___세요.",
+          "translation": "Please close the door.",
+          "answer": "닫으",
+          "hint": "닫다",
+          "explanation": "Use the pattern ~세요, ~지 마세요."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 41,
+      "title": "Doing something for someone with ~아/어 주다",
+      "pattern": "~아/어 주다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 41 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/",
+      "cards": [
+        {
+          "prompt": "사진을 찍어 ___세요.",
+          "translation": "Please take a photo for me.",
+          "answer": "주",
+          "hint": "찍다",
+          "explanation": "Use the pattern ~아/어 주다."
+        },
+        {
+          "prompt": "다시 설명해 ___세요.",
+          "translation": "Please explain it again for me.",
+          "answer": "주",
+          "hint": "설명하다",
+          "explanation": "Use the pattern ~아/어 주다."
+        },
+        {
+          "prompt": "창문을 열어 ___래요?",
+          "translation": "Could you open the window for me?",
+          "answer": "주",
+          "hint": "열다",
+          "explanation": "Use the pattern ~아/어 주다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 42,
+      "title": "Saying when with ~ㄹ/을 때",
+      "pattern": "~ㄹ/을 때",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 42 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "한국에 갈 ___ 연락할게요.",
+          "translation": "I will contact you when I go to Korea.",
+          "answer": "때",
+          "hint": "가다",
+          "explanation": "Use the pattern ~ㄹ/을 때."
+        },
+        {
+          "prompt": "어렸을 ___ 이 노래를 좋아했어요.",
+          "translation": "I liked this song when I was young.",
+          "answer": "때",
+          "hint": "어리다",
+          "explanation": "Use the pattern ~ㄹ/을 때."
+        },
+        {
+          "prompt": "시간이 있을 ___ 책을 읽어요.",
+          "translation": "I read books when I have time.",
+          "answer": "때",
+          "hint": "있다",
+          "explanation": "Use the pattern ~ㄹ/을 때."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 43,
+      "title": "Conditions with ~(으)면",
+      "pattern": "~(으)면, ~ㄴ/는다면",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 43 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "시간이 ___ 같이 공부해요.",
+          "translation": "If you have time, let's study together.",
+          "answer": "있으면",
+          "hint": "있다",
+          "explanation": "Use the pattern ~(으)면, ~ㄴ/는다면."
+        },
+        {
+          "prompt": "비가 오___ 우산을 가져가세요.",
+          "translation": "If it rains, take an umbrella.",
+          "answer": "면",
+          "hint": "오다",
+          "explanation": "Use the pattern ~(으)면, ~ㄴ/는다면."
+        },
+        {
+          "prompt": "한국에 간___ 무엇을 하고 싶어요?",
+          "translation": "If you went to Korea, what would you want to do?",
+          "answer": "다면",
+          "hint": "가다",
+          "explanation": "Use the pattern ~(으)면, ~ㄴ/는다면."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 44,
+      "title": "Making suggestions",
+      "pattern": "~자, ~(으)ㅂ시다, ~ㄹ래요",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 44 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "같이 영화 보___.",
+          "translation": "Let's watch a movie together.",
+          "answer": "자",
+          "hint": "보다",
+          "explanation": "Use the pattern ~자, ~(으)ㅂ시다, ~ㄹ래요."
+        },
+        {
+          "prompt": "오늘은 일찍 잡시___.",
+          "translation": "Let's go to bed early today.",
+          "answer": "다",
+          "hint": "자다",
+          "explanation": "Use the pattern ~자, ~(으)ㅂ시다, ~ㄹ래요."
+        },
+        {
+          "prompt": "커피 마실 ___요?",
+          "translation": "Would you like to drink coffee?",
+          "answer": "래",
+          "hint": "마시다",
+          "explanation": "Use the pattern ~자, ~(으)ㅂ시다, ~ㄹ래요."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 45,
+      "title": "Ability and possibility with ~(으)ㄹ 수 있다/없다",
+      "pattern": "~(으)ㄹ 수 있다/없다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 45 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "한국어를 읽을 수 ___요.",
+          "translation": "I can read Korean.",
+          "answer": "있어",
+          "hint": "읽다",
+          "explanation": "Use the pattern ~(으)ㄹ 수 있다/없다."
+        },
+        {
+          "prompt": "오늘은 만날 수 ___어요.",
+          "translation": "I cannot meet today.",
+          "answer": "없",
+          "hint": "만나다",
+          "explanation": "Use the pattern ~(으)ㄹ 수 있다/없다."
+        },
+        {
+          "prompt": "여기에서 사진을 찍을 수 ___요?",
+          "translation": "Can I take pictures here?",
+          "answer": "있어",
+          "hint": "찍다",
+          "explanation": "Use the pattern ~(으)ㄹ 수 있다/없다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 46,
+      "title": "Obligation with ~아/어야 하다",
+      "pattern": "~아/어야 하다, ~ㄹ 필요가 있다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "오늘 숙제를 해야 ___요.",
+          "translation": "I have to do homework today.",
+          "answer": "해",
+          "hint": "하다",
+          "explanation": "Use the pattern ~아/어야 하다, ~ㄹ 필요가 있다."
+        },
+        {
+          "prompt": "표를 미리 살 필요가 ___요.",
+          "translation": "There is a need to buy the ticket in advance.",
+          "answer": "있어",
+          "hint": "사다",
+          "explanation": "Use the pattern ~아/어야 하다, ~ㄹ 필요가 있다."
+        },
+        {
+          "prompt": "병원에 가___ 해요.",
+          "translation": "I have to go to the hospital.",
+          "answer": "야",
+          "hint": "가다",
+          "explanation": "Use the pattern ~아/어야 하다, ~ㄹ 필요가 있다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 47,
+      "title": "Contrast with ~지만",
+      "pattern": "~지만",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 47 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "비싸___ 사고 싶어요.",
+          "translation": "It is expensive, but I want to buy it.",
+          "answer": "지만",
+          "hint": "비싸다",
+          "explanation": "Use the pattern ~지만."
+        },
+        {
+          "prompt": "피곤하지만 공부하___.",
+          "translation": "I am tired, but I study.",
+          "answer": "어요",
+          "hint": "공부하다",
+          "explanation": "Use the pattern ~지만."
+        },
+        {
+          "prompt": "작___ 편리해요.",
+          "translation": "It is small, but convenient.",
+          "answer": "지만",
+          "hint": "작다",
+          "explanation": "Use the pattern ~지만."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 48,
+      "title": "Even if/even though with ~아/어도",
+      "pattern": "~아/어도",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 48 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "비가 와___ 갈 거예요.",
+          "translation": "Even if it rains, I will go.",
+          "answer": "도",
+          "hint": "오다",
+          "explanation": "Use the pattern ~아/어도."
+        },
+        {
+          "prompt": "아무리 바빠___ 운동해야 해요.",
+          "translation": "Even if I am very busy, I have to exercise.",
+          "answer": "도",
+          "hint": "바쁘다",
+          "explanation": "Use the pattern ~아/어도."
+        },
+        {
+          "prompt": "늦어___ 괜찮아요.",
+          "translation": "Even if you are late, it is okay.",
+          "answer": "도",
+          "hint": "늦다",
+          "explanation": "Use the pattern ~아/어도."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 49,
+      "title": "Permission with ~아/어도 되다",
+      "pattern": "~아/어도 되다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 49 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "여기 앉아___ 돼요?",
+          "translation": "May I sit here?",
+          "answer": "도",
+          "hint": "앉다",
+          "explanation": "Use the pattern ~아/어도 되다."
+        },
+        {
+          "prompt": "지금 들어가___ 돼요.",
+          "translation": "You may go in now.",
+          "answer": "도",
+          "hint": "들어가다",
+          "explanation": "Use the pattern ~아/어도 되다."
+        },
+        {
+          "prompt": "사진을 찍어도 ___요?",
+          "translation": "Is it okay to take a picture?",
+          "answer": "돼",
+          "hint": "찍다",
+          "explanation": "Use the pattern ~아/어도 되다."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "lesson_number": 50,
+      "title": "Plans and expectations with ~ㄹ/을 예정/계획/준비",
+      "pattern": "~ㄹ/을 예정이다, 계획이다, 준비가 되다",
+      "explanation": "A concise practice lesson based on the HTSK Lesson 50 topic. Read the original explanation for additional detail.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/",
+      "cards": [
+        {
+          "prompt": "다음 달에 한국에 갈 ___이에요.",
+          "translation": "I am scheduled to go to Korea next month.",
+          "answer": "예정",
+          "hint": "가다",
+          "explanation": "Use the pattern ~ㄹ/을 예정이다, 계획이다, 준비가 되다."
+        },
+        {
+          "prompt": "주말에 친구를 만날 ___이에요.",
+          "translation": "I plan to meet a friend on the weekend.",
+          "answer": "계획",
+          "hint": "만나다",
+          "explanation": "Use the pattern ~ㄹ/을 예정이다, 계획이다, 준비가 되다."
+        },
+        {
+          "prompt": "여행할 ___가 됐어요.",
+          "translation": "I am ready to travel.",
+          "answer": "준비",
+          "hint": "여행하다",
+          "explanation": "Use the pattern ~ㄹ/을 예정이다, 계획이다, 준비가 되다."
+        }
+      ]
+    }
+  ]
+}

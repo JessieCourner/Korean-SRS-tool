@@ -1,0 +1,140 @@
+{
+  "lessons": [
+    {
+      "unit": 9,
+      "lesson_number": 201,
+      "title": "Prediction with ~(으)리라고",
+      "pattern": "~(으)리라고",
+      "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "그가 오___ 생각해요.",
+          "translation": "I think he will come.",
+          "answer": "리라고",
+          "hint": "Focus: ~(으)리라고",
+          "explanation": "The target form is ~(으)리라고."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 202,
+      "title": "Settled assumption with ~(으)려니",
+      "pattern": "~(으)려니",
+      "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "그 사람은 원래 그렇___ 생각하세요.",
+          "translation": "Please accept that person as simply being that way.",
+          "answer": "려니",
+          "hint": "Focus: ~(으)려니",
+          "explanation": "The target form is ~(으)려니."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 203,
+      "title": "Advanced formal assumption",
+      "pattern": "advanced formal grammar",
+      "explanation": "Practice for the HTSK Lesson 203 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "좋은 결과가 있___ 믿어요.",
+          "translation": "I believe there will be a good result.",
+          "answer": "으리라",
+          "hint": "Focus: advanced formal grammar",
+          "explanation": "The target form is advanced formal grammar."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 204,
+      "title": "Advanced condition and concession",
+      "pattern": "advanced concession",
+      "explanation": "Practice for the HTSK Lesson 204 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "어렵___ 끝까지 해 보겠어요.",
+          "translation": "Although it is difficult, I will try to the end.",
+          "answer": "더라도",
+          "hint": "Focus: advanced concession",
+          "explanation": "The target form is advanced concession."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 205,
+      "title": "Formal purpose with ~고자",
+      "pattern": "~고자",
+      "explanation": "Practice for the HTSK Lesson 205 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "여러분께 알려 드리___ 이 글을 씁니다.",
+          "translation": "I am writing this post in order to inform you.",
+          "answer": "고자",
+          "hint": "Focus: ~고자",
+          "explanation": "The target form is ~고자."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 206,
+      "title": "Unexpected contrast (advanced)",
+      "pattern": "advanced contrast",
+      "explanation": "Practice for the HTSK Lesson 206 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "열심히 공부했___ 시험이 어려웠어요.",
+          "translation": "Although I studied hard, the test was difficult.",
+          "answer": "건만",
+          "hint": "Focus: advanced contrast",
+          "explanation": "The target form is advanced contrast."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 207,
+      "title": "Contrasting situations",
+      "pattern": "~는가 하면",
+      "explanation": "Practice for the HTSK Lesson 207 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "그는 일을 하___ 여행도 해요.",
+          "translation": "He works, while also traveling.",
+          "answer": "는가 하면",
+          "hint": "Focus: ~는가 하면",
+          "explanation": "The target form is ~는가 하면."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "lesson_number": 208,
+      "title": "Even / as far as with ~마저",
+      "pattern": "~마저",
+      "explanation": "Practice for the HTSK Lesson 208 focus. The official lesson contains the complete explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "cards": [
+        {
+          "prompt": "친한 친구___ 떠났어요.",
+          "translation": "Even my close friend left.",
+          "answer": "마저",
+          "hint": "Focus: ~마저",
+          "explanation": "The target form is ~마저."
+        }
+      ]
+    }
+  ]
+}

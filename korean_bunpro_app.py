@@ -10,6 +10,7 @@ import streamlit.components.v1 as components
 
 DB_PATH = Path("korean_bunpro.db")
 SEED_PATH = Path("unit2_lessons_26_33.json")
+EXTENDED_SEED_PATHS = [Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
 SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
 UNIT_INFO = {
     0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
@@ -22,6 +23,15 @@ UNIT_INFO = {
     7: ("Upper-Advanced Korean Grammar", "Lessons 151–175", "locked"),
     8: ("Near-Expert Korean Grammar", "Lessons 176–200", "locked"),
     9: ("Expert Korean Grammar", "Lessons 201–208", "locked"),
+}
+HTSK_GROUPS = {
+    3: [("Lessons 51–58", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/"), ("Lessons 59–66", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/"), ("Lessons 67–75", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-67-75/")],
+    4: [("Lessons 76–83", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/"), ("Lessons 84–91", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/"), ("Lessons 92–100", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/")],
+    5: [("Lessons 101–108", "https://www.howtostudykorean.com/unit-5/lessons-101-108/"), ("Lessons 109–116", "https://www.howtostudykorean.com/unit-5/lessons-109-116/"), ("Lessons 117–125", "https://www.howtostudykorean.com/unit-5/lessons-117-125/")],
+    6: [("Lessons 126–133", "https://www.howtostudykorean.com/unit-6/lessons-126-133/"), ("Lessons 134–141", "https://www.howtostudykorean.com/unit-6/lessons-134-141/"), ("Lessons 142–150", "https://www.howtostudykorean.com/unit-6/lessons-142-150/")],
+    7: [("Lessons 151–158", "https://www.howtostudykorean.com/unit-7/lessons-151-158/"), ("Lessons 159–166", "https://www.howtostudykorean.com/unit-7/lessons-159-166/"), ("Lessons 167–175", "https://www.howtostudykorean.com/unit-7/lessons-167-175/")],
+    8: [("Lessons 176–183", "https://www.howtostudykorean.com/unit-8/lessons-176-183/"), ("Lessons 184–191", "https://www.howtostudykorean.com/unit-8/lessons-184-191/"), ("Lessons 192–200", "https://www.howtostudykorean.com/unit-8/lessons-192-200/")],
+    9: [("Lessons 201–208", "https://www.howtostudykorean.com/unit-9/lessons-201-208/")],
 }
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
@@ -175,6 +185,33 @@ def import_seed_once():
             """, (lesson_id, card["prompt"], card["translation"], card["answer"],
                   card["hint"], card["explanation"])).lastrowid
             c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
+    c.commit()
+    c.close()
+
+
+def import_extended_seeds():
+    """Add later lesson packs without rebuilding or overwriting the database."""
+    c = db()
+    for seed_path in EXTENDED_SEED_PATHS:
+        if not seed_path.exists():
+            continue
+        data = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson in data.get("lessons", []):
+            existing = c.execute("SELECT id FROM lessons WHERE lesson_number=?", (lesson["lesson_number"],)).fetchone()
+            if existing:
+                continue
+            lesson_id = c.execute("""
+                INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
+                VALUES(?,?,?,?,?,?,?)
+            """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
+                  lesson["explanation"], lesson["source_url"], "available")).lastrowid
+            for card in lesson.get("cards", []):
+                card_id = c.execute("""
+                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
+                    VALUES(?,?,?,?,?,?)
+                """, (lesson_id, card["prompt"], card["translation"], card["answer"],
+                      card["hint"], card["explanation"])).lastrowid
+                c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
     c.commit()
     c.close()
 
@@ -521,6 +558,9 @@ def page_lessons():
                 badge = "🔒 Locked"
             st.markdown(f"### Unit {unit}: {title}")
             st.caption(f"{lesson_range} · {badge}")
+            if unit in HTSK_GROUPS:
+                links = " · ".join(f"[{name}]({url})" for name, url in HTSK_GROUPS[unit])
+                st.markdown(f"Official lesson pages: {links}")
     st.divider()
     st.header("Available lessons")
     lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (int(setting("start_unit", "2")),))
@@ -528,9 +568,15 @@ def page_lessons():
         cards = one("SELECT COUNT(*) AS n FROM cards WHERE lesson_id=?", (lesson["id"],))["n"]
         active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE lesson_id=? AND active=1", (lesson["id"],))["n"]
         with st.expander(f"Lesson {lesson['lesson_number']}: {lesson['title']} · {active}/{cards} cards active"):
-            st.markdown(f"**Grammar:** `{lesson['pattern']}`")
+            st.markdown(f"### Lesson {lesson['lesson_number']} guide")
+            st.markdown(f"**Grammar point:** `{lesson['pattern']}`")
             st.write(lesson["explanation"])
-            st.caption(f"Source lesson: {lesson['source_url']}")
+            st.markdown("**Practice examples**")
+            lesson_cards = rows("SELECT prompt, translation, answer, hint, explanation FROM cards WHERE lesson_id=? ORDER BY id", (lesson["id"],))
+            for index, card in enumerate(lesson_cards, 1):
+                st.markdown(f"**Example {index}:** {card['prompt']}")
+                st.caption(f"Translation: {card['translation']} · Target: {card['answer']}")
+            st.markdown(f"[Read the full official HTSK explanation ↗]({lesson['source_url']})")
             if st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
                 activate_lesson(lesson["id"])
                 st.success("Lesson added to your SRS.")
@@ -595,6 +641,7 @@ def page_shop():
 
 init_db()
 import_seed_once()
+import_extended_seeds()
 page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress", "Crystal Shop"], key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
 st.sidebar.caption("Starting point: Unit 2")

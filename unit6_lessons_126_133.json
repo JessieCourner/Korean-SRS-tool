@@ -1,0 +1,252 @@
+{
+  "lessons": [
+    {
+      "unit": 6,
+      "lesson_number": 126,
+      "title": "By category with ~별(로)",
+      "pattern": "~별(로)",
+      "explanation": "Original practice for the HTSK Lesson 126 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "사람___ 생각이 달라요.",
+          "translation": "People's opinions differ by person.",
+          "answer": "별로",
+          "hint": "Focus: ~별(로)",
+          "explanation": "The target form is ~별(로)."
+        },
+        {
+          "prompt": "지역___ 음식이 유명해요.",
+          "translation": "Food is famous by region.",
+          "answer": "별로",
+          "hint": "Focus: ~별(로)",
+          "explanation": "The target form is ~별(로)."
+        },
+        {
+          "prompt": "월___ 비용을 계산했어요.",
+          "translation": "I calculated the cost by month.",
+          "answer": "별로",
+          "hint": "Focus: ~별(로)",
+          "explanation": "The target form is ~별(로)."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 127,
+      "title": "Each / at regular intervals with ~씩",
+      "pattern": "~씩",
+      "explanation": "Original practice for the HTSK Lesson 127 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "하루에 두 번___ 약을 먹어요.",
+          "translation": "I take medicine twice a day.",
+          "answer": "씩",
+          "hint": "Focus: ~씩",
+          "explanation": "The target form is ~씩."
+        },
+        {
+          "prompt": "학생들에게 사과를 하나___ 줬어요.",
+          "translation": "I gave each student one apple.",
+          "answer": "씩",
+          "hint": "Focus: ~씩",
+          "explanation": "The target form is ~씩."
+        },
+        {
+          "prompt": "조금___ 나누어 주세요.",
+          "translation": "Please divide it into small portions.",
+          "answer": "씩",
+          "hint": "Focus: ~씩",
+          "explanation": "The target form is ~씩."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 128,
+      "title": "Leaving something done with ~아/어 놓다",
+      "pattern": "~아/어 놓다",
+      "explanation": "Original practice for the HTSK Lesson 128 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "문을 열어 ___ 주세요.",
+          "translation": "Please leave the door open.",
+          "answer": "놓아",
+          "hint": "Focus: ~아/어 놓다",
+          "explanation": "The target form is ~아/어 놓다."
+        },
+        {
+          "prompt": "여행 전에 표를 사 ___었어요.",
+          "translation": "I bought the tickets in advance before the trip.",
+          "answer": "놓았",
+          "hint": "Focus: ~아/어 놓다",
+          "explanation": "The target form is ~아/어 놓다."
+        },
+        {
+          "prompt": "중요한 내용을 적어 ___어요.",
+          "translation": "I wrote down the important information.",
+          "answer": "놓았",
+          "hint": "Focus: ~아/어 놓다",
+          "explanation": "The target form is ~아/어 놓다."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 129,
+      "title": "Passing a point with 넘다",
+      "pattern": "넘다 / 넘게 / 넘어서",
+      "explanation": "Original practice for the HTSK Lesson 129 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "열 시가 ___ 집에 왔어요.",
+          "translation": "I came home after ten o'clock.",
+          "answer": "넘어서",
+          "hint": "Focus: 넘다 / 넘게 / 넘어서",
+          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+        },
+        {
+          "prompt": "이 건물은 백 년이 ___었어요.",
+          "translation": "This building is over one hundred years old.",
+          "answer": "넘었",
+          "hint": "Focus: 넘다 / 넘게 / 넘어서",
+          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+        },
+        {
+          "prompt": "기온이 삼십 도를 ___었어요.",
+          "translation": "The temperature went above thirty degrees.",
+          "answer": "넘었",
+          "hint": "Focus: 넘다 / 넘게 / 넘어서",
+          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 130,
+      "title": "Large Korean numbers",
+      "pattern": "large numbers",
+      "explanation": "Original practice for the HTSK Lesson 130 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "이 건물은 십 ___ 원이에요.",
+          "translation": "This building costs ten billion won.",
+          "answer": "억",
+          "hint": "Focus: large numbers",
+          "explanation": "The target form is large numbers."
+        },
+        {
+          "prompt": "인구가 천 ___ 명이에요.",
+          "translation": "The population is one billion people.",
+          "answer": "만",
+          "hint": "Focus: large numbers",
+          "explanation": "The target form is large numbers."
+        },
+        {
+          "prompt": "예산이 오 ___ 원이에요.",
+          "translation": "The budget is five hundred million won.",
+          "answer": "억",
+          "hint": "Focus: large numbers",
+          "explanation": "The target form is large numbers."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 131,
+      "title": "Saisiot in compound nouns",
+      "pattern": "사이시옷",
+      "explanation": "Original practice for the HTSK Lesson 131 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "나뭇 ___이 많아요.",
+          "translation": "There are many leaves of the tree.",
+          "answer": "잎",
+          "hint": "Focus: 사이시옷",
+          "explanation": "The target form is 사이시옷."
+        },
+        {
+          "prompt": "고깃 ___을 먹고 싶어요.",
+          "translation": "I want to eat meat pieces.",
+          "answer": "집",
+          "hint": "Focus: 사이시옷",
+          "explanation": "The target form is 사이시옷."
+        },
+        {
+          "prompt": "햇 ___이 따뜻해요.",
+          "translation": "The sunlight is warm.",
+          "answer": "빛",
+          "hint": "Focus: 사이시옷",
+          "explanation": "The target form is 사이시옷."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 132,
+      "title": "The more... the more with ~ㄹ/을수록",
+      "pattern": "~ㄹ/을수록",
+      "explanation": "Original practice for the HTSK Lesson 132 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "공부할 ___ 실력이 늘어요.",
+          "translation": "The more you study, the more your skills improve.",
+          "answer": "수록",
+          "hint": "Focus: ~ㄹ/을수록",
+          "explanation": "The target form is ~ㄹ/을수록."
+        },
+        {
+          "prompt": "날씨가 추울 ___ 감기에 조심하세요.",
+          "translation": "The colder it gets, the more careful you should be about colds.",
+          "answer": "수록",
+          "hint": "Focus: ~ㄹ/을수록",
+          "explanation": "The target form is ~ㄹ/을수록."
+        },
+        {
+          "prompt": "볼 ___ 재미있어요.",
+          "translation": "The more you watch it, the more interesting it is.",
+          "answer": "수록",
+          "hint": "Focus: ~ㄹ/을수록",
+          "explanation": "The target form is ~ㄹ/을수록."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "lesson_number": 133,
+      "title": "There is no way with ~ㄹ/을 리가 없다",
+      "pattern": "~ㄹ/을 리가 없다",
+      "explanation": "Original practice for the HTSK Lesson 133 focus. Use the official Unit 6 lesson for the full explanation.",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "cards": [
+        {
+          "prompt": "그 사람이 거짓말할 ___ 없어요.",
+          "translation": "There is no way that person would lie.",
+          "answer": "리가",
+          "hint": "Focus: ~ㄹ/을 리가 없다",
+          "explanation": "The target form is ~ㄹ/을 리가 없다."
+        },
+        {
+          "prompt": "오늘 비가 올 ___ 없어요.",
+          "translation": "There is no way it will rain today.",
+          "answer": "리가",
+          "hint": "Focus: ~ㄹ/을 리가 없다",
+          "explanation": "The target form is ~ㄹ/을 리가 없다."
+        },
+        {
+          "prompt": "제가 그 약속을 잊을 ___ 없어요.",
+          "translation": "There is no way I would forget that promise.",
+          "answer": "리가",
+          "hint": "Focus: ~ㄹ/을 리가 없다",
+          "explanation": "The target form is ~ㄹ/을 리가 없다."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "lessons": [
+    {
+      "unit": 5,
+      "lesson_number": 101,
+      "title": "Korean abbreviations and internet slang",
+      "pattern": "common Korean abbreviations",
+      "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "오늘 완전 ___이에요.",
+          "translation": "Today is totally awesome.",
+          "answer": "대박",
+          "hint": "Focus: common Korean abbreviations",
+          "explanation": "The target form is common Korean abbreviations."
+        },
+        {
+          "prompt": "친구가 메시지로 ___라고 했어요.",
+          "translation": "My friend wrote an abbreviation in a message.",
+          "answer": "ㅋㅋ",
+          "hint": "Focus: common Korean abbreviations",
+          "explanation": "The target form is common Korean abbreviations."
+        },
+        {
+          "prompt": "그 표현은 인터넷에서 자주 ___요.",
+          "translation": "That expression is often used on the internet.",
+          "answer": "쓰여",
+          "hint": "Focus: common Korean abbreviations",
+          "explanation": "The target form is common Korean abbreviations."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 102,
+      "title": "Contracted quoted forms",
+      "pattern": "~대요 / ~냬요 / ~재요 / ~래요",
+      "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "친구가 내일 온___요.",
+          "translation": "My friend says they are coming tomorrow.",
+          "answer": "대",
+          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
+          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+        },
+        {
+          "prompt": "민수가 언제 오___요?",
+          "translation": "Minsu asked when I was coming.",
+          "answer": "냬",
+          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
+          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+        },
+        {
+          "prompt": "같이 가___요.",
+          "translation": "They suggested going together.",
+          "answer": "재",
+          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
+          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 103,
+      "title": "한, 약, ~(으)므로, 당하다",
+      "pattern": "한, 약, ~(으)므로, 당하다",
+      "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "___ 시간 정도 걸려요.",
+          "translation": "It takes about one hour.",
+          "answer": "한",
+          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
+          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+        },
+        {
+          "prompt": "___ 열 명이 참석했어요.",
+          "translation": "About ten people attended.",
+          "answer": "약",
+          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
+          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+        },
+        {
+          "prompt": "사고를 ___했어요.",
+          "translation": "I suffered an accident.",
+          "answer": "당",
+          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
+          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 104,
+      "title": "Advanced uses of 은/는",
+      "pattern": "~은/는",
+      "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "제가 좋아하___ 음식은 김치예요.",
+          "translation": "The food that I like is kimchi.",
+          "answer": "는",
+          "hint": "Focus: ~은/는",
+          "explanation": "The target form is ~은/는."
+        },
+        {
+          "prompt": "한국어___ 재미있지만 어려워요.",
+          "translation": "Korean is interesting but difficult.",
+          "answer": "는",
+          "hint": "Focus: ~은/는",
+          "explanation": "The target form is ~은/는."
+        },
+        {
+          "prompt": "이번 여행___ 계획이 많아요.",
+          "translation": "As for this trip, there are many plans.",
+          "answer": "은",
+          "hint": "Focus: ~은/는",
+          "explanation": "The target form is ~은/는."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 105,
+      "title": "Essential small grammar points",
+      "pattern": "common intermediate connectors",
+      "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "그 사람은 한국어를 잘할 ___ 같아요.",
+          "translation": "That person seems to speak Korean well.",
+          "answer": "것",
+          "hint": "Focus: common intermediate connectors",
+          "explanation": "The target form is common intermediate connectors."
+        },
+        {
+          "prompt": "집에 도착하자___ 전화했어요.",
+          "translation": "As soon as I arrived home, I called.",
+          "answer": "마자",
+          "hint": "Focus: common intermediate connectors",
+          "explanation": "The target form is common intermediate connectors."
+        },
+        {
+          "prompt": "저는 매일 공부하___ 해요.",
+          "translation": "I have to study every day.",
+          "answer": "아야",
+          "hint": "Focus: common intermediate connectors",
+          "explanation": "The target form is common intermediate connectors."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 106,
+      "title": "Various uses of ~든지",
+      "pattern": "~든지",
+      "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "어디에 가___ 연락하세요.",
+          "translation": "Contact me wherever you go.",
+          "answer": "든지",
+          "hint": "Focus: ~든지",
+          "explanation": "The target form is ~든지."
+        },
+        {
+          "prompt": "무엇을 먹___ 괜찮아요.",
+          "translation": "Whatever you eat is fine.",
+          "answer": "든지",
+          "hint": "Focus: ~든지",
+          "explanation": "The target form is ~든지."
+        },
+        {
+          "prompt": "시간이 있___ 없___ 해야 해요.",
+          "translation": "You have to do it whether you have time or not.",
+          "answer": "든지 / 든지",
+          "hint": "Focus: ~든지",
+          "explanation": "The target form is ~든지."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 107,
+      "title": "Combining ~도 with other forms",
+      "pattern": "~아/어도, ~ㄴ/는다고 해도",
+      "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "비가 와___ 갈 거예요.",
+          "translation": "Even if it rains, I will go.",
+          "answer": "도",
+          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
+          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+        },
+        {
+          "prompt": "아무리 바빠___ 운동해요.",
+          "translation": "Even if I am busy, I exercise.",
+          "answer": "도",
+          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
+          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+        },
+        {
+          "prompt": "친구라고 해___ 믿지 마세요.",
+          "translation": "Even if they say they are a friend, do not trust them.",
+          "answer": "도",
+          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
+          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 108,
+      "title": "Past perfect with ~았/었었어요",
+      "pattern": "~았/었었어요",
+      "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "전에 이곳에 살았___요.",
+          "translation": "I used to live here before.",
+          "answer": "었었",
+          "hint": "Focus: ~았/었었어요",
+          "explanation": "The target form is ~았/었었어요."
+        },
+        {
+          "prompt": "어렸을 때 자주 갔었___요.",
+          "translation": "I used to go often when I was young.",
+          "answer": "어요",
+          "hint": "Focus: ~았/었었어요",
+          "explanation": "The target form is ~았/었었어요."
+        },
+        {
+          "prompt": "그 책을 이미 읽었었___요.",
+          "translation": "I had already read that book.",
+          "answer": "어요",
+          "hint": "Focus: ~았/었었어요",
+          "explanation": "The target form is ~았/었었어요."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 109,
+      "title": "Inference with ~나 보다",
+      "pattern": "~는가 보다 / ~나 봐",
+      "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "비가 오___ 봐요.",
+          "translation": "It looks like it is raining.",
+          "answer": "나",
+          "hint": "Focus: ~는가 보다 / ~나 봐",
+          "explanation": "The target form is ~는가 보다 / ~나 봐."
+        },
+        {
+          "prompt": "그 사람이 학생인가 ___요.",
+          "translation": "I guess that person is a student.",
+          "answer": "봐",
+          "hint": "Focus: ~는가 보다 / ~나 봐",
+          "explanation": "The target form is ~는가 보다 / ~나 봐."
+        },
+        {
+          "prompt": "오늘 많이 바쁜가 ___요.",
+          "translation": "It seems that they are very busy today.",
+          "answer": "봐",
+          "hint": "Focus: ~는가 보다 / ~나 봐",
+          "explanation": "The target form is ~는가 보다 / ~나 봐."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 110,
+      "title": "There is no way / cannot help it",
+      "pattern": "어쩔 수 없다",
+      "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "시간이 없어서 ___ 없어요.",
+          "translation": "I have no choice because there is no time.",
+          "answer": "어쩔 수",
+          "hint": "Focus: 어쩔 수 없다",
+          "explanation": "The target form is 어쩔 수 없다."
+        },
+        {
+          "prompt": "이것은 ___ 없어요.",
+          "translation": "There is nothing I can do about this.",
+          "answer": "어쩔 수",
+          "hint": "Focus: 어쩔 수 없다",
+          "explanation": "The target form is 어쩔 수 없다."
+        },
+        {
+          "prompt": "비가 오면 계획을 바꿀 수___어요.",
+          "translation": "If it rains, I cannot help changing the plan.",
+          "answer": "밖에",
+          "hint": "Focus: 어쩔 수 없다",
+          "explanation": "The target form is 어쩔 수 없다."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 111,
+      "title": "At least / even if it is just with ~(이)라도",
+      "pattern": "~(이)라도",
+      "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "물___ 주세요.",
+          "translation": "Please give me at least water.",
+          "answer": "이라도",
+          "hint": "Focus: ~(이)라도",
+          "explanation": "The target form is ~(이)라도."
+        },
+        {
+          "prompt": "커피___ 한 잔 마실까요?",
+          "translation": "Shall we have at least a cup of coffee?",
+          "answer": "라도",
+          "hint": "Focus: ~(이)라도",
+          "explanation": "The target form is ~(이)라도."
+        },
+        {
+          "prompt": "주말___ 쉬고 싶어요.",
+          "translation": "I want to rest at least on the weekend.",
+          "answer": "이라도",
+          "hint": "Focus: ~(이)라도",
+          "explanation": "The target form is ~(이)라도."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 112,
+      "title": "The noun 편 for tendency and preference",
+      "pattern": "편이다 / ~는 편이다",
+      "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "저는 아침에 일찍 일어나는 ___이에요.",
+          "translation": "I tend to wake up early.",
+          "answer": "편",
+          "hint": "Focus: 편이다 / ~는 편이다",
+          "explanation": "The target form is 편이다 / ~는 편이다."
+        },
+        {
+          "prompt": "그 식당은 비싼 ___이에요.",
+          "translation": "That restaurant tends to be expensive.",
+          "answer": "편",
+          "hint": "Focus: 편이다 / ~는 편이다",
+          "explanation": "The target form is 편이다 / ~는 편이다."
+        },
+        {
+          "prompt": "저는 매운 음식을 잘 먹는 ___이에요.",
+          "translation": "I tend to eat spicy food well.",
+          "answer": "편",
+          "hint": "Focus: 편이다 / ~는 편이다",
+          "explanation": "The target form is 편이다 / ~는 편이다."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 113,
+      "title": "~는 길 for the act of doing",
+      "pattern": "~는 길",
+      "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "집에 가___ 친구를 만났어요.",
+          "translation": "I met a friend on the way home.",
+          "answer": "는 길에",
+          "hint": "Focus: ~는 길",
+          "explanation": "The target form is ~는 길."
+        },
+        {
+          "prompt": "회사에 오는 ___ 빵을 샀어요.",
+          "translation": "I bought bread on the way to work.",
+          "answer": "길에",
+          "hint": "Focus: ~는 길",
+          "explanation": "The target form is ~는 길."
+        },
+        {
+          "prompt": "여행하는 ___ 사진을 많이 찍었어요.",
+          "translation": "I took many photos while traveling.",
+          "answer": "길에",
+          "hint": "Focus: ~는 길",
+          "explanation": "The target form is ~는 길."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 114,
+      "title": "While doing something / on the way with ~는 김에",
+      "pattern": "~는 김에",
+      "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "마트에 가___ 우유도 사세요.",
+          "translation": "Since you are going to the supermarket, buy milk too.",
+          "answer": "는 김에",
+          "hint": "Focus: ~는 김에",
+          "explanation": "The target form is ~는 김에."
+        },
+        {
+          "prompt": "서울에 온 ___ 박물관에 갔어요.",
+          "translation": "Since I came to Seoul, I also visited a museum.",
+          "answer": "김에",
+          "hint": "Focus: ~는 김에",
+          "explanation": "The target form is ~는 김에."
+        },
+        {
+          "prompt": "청소하___ 창문도 닦았어요.",
+          "translation": "While cleaning, I also wiped the windows.",
+          "answer": "는 김에",
+          "hint": "Focus: ~는 김에",
+          "explanation": "The target form is ~는 김에."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 115,
+      "title": "Regret with ~ㄹ/을걸 그랬다",
+      "pattern": "~ㄹ/을걸 그랬다",
+      "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "우산을 가져올___ 그랬어요.",
+          "translation": "I should have brought an umbrella.",
+          "answer": "걸",
+          "hint": "Focus: ~ㄹ/을걸 그랬다",
+          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+        },
+        {
+          "prompt": "더 일찍 예약할___ 그랬어요.",
+          "translation": "I should have booked earlier.",
+          "answer": "걸",
+          "hint": "Focus: ~ㄹ/을걸 그랬다",
+          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+        },
+        {
+          "prompt": "그 말을 하지 말___ 그랬어요.",
+          "translation": "I should not have said that.",
+          "answer": "걸",
+          "hint": "Focus: ~ㄹ/을걸 그랬다",
+          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "lesson_number": 116,
+      "title": "Remaining in a state with 채",
+      "pattern": "~은/는 채로",
+      "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "cards": [
+        {
+          "prompt": "신발을 신___ 집에 들어갔어요.",
+          "translation": "I entered the house with my shoes on.",
+          "answer": "은 채로",
+          "hint": "Focus: ~은/는 채로",
+          "explanation": "The target form is ~은/는 채로."
+        },
+        {
+          "prompt": "불을 켜___ 잠들었어요.",
+          "translation": "I fell asleep with the light on.",
+          "answer": "둔 채로",
+          "hint": "Focus: ~은/는 채로",
+          "explanation": "The target form is ~은/는 채로."
+        },
+        {
+          "prompt": "문을 열어 ___ 두세요.",
+          "translation": "Please leave the door open.",
+          "answer": "둔 채로",
+          "hint": "Focus: ~은/는 채로",
+          "explanation": "The target form is ~은/는 채로."
+        }
+      ]
+    }
+  ]
+}
