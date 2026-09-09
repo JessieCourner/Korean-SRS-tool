@@ -478,6 +478,10 @@ def activate_lesson(lesson_id):
     c.commit()
     c.close()
     award_crystals(f"lesson_started:{lesson_id}", 10)
+    # If Review was opened earlier in the same browser session, discard its
+    # old denominator so newly added cards appear immediately in the queue.
+    for key in ("review_total", "review_completed", "checked"):
+        st.session_state.pop(key, None)
     return True
 
 
@@ -563,19 +567,31 @@ def next_new_lesson():
 def next_due_card():
     # Rotation rule: cards reviewed today go last; NULL/old last_review go first.
     # This matters when all cards in a grammar point share the same due date.
+    # A newly added card has no last_review yet, so it belongs in Review even
+    # if an older database left its placeholder next_review in the future.
     return one("""
         SELECT cards.*, lessons.title AS lesson_title, lessons.pattern,
                reviews.level, reviews.next_review, reviews.last_review
         FROM cards
         JOIN lessons ON lessons.id=cards.lesson_id
         JOIN reviews ON reviews.card_id=cards.id
-        WHERE reviews.active=1 AND reviews.next_review<=? AND lessons.unit>=? AND lessons.status='available'
+        WHERE reviews.active=1
+          AND (reviews.next_review<=? OR reviews.last_review IS NULL)
+          AND lessons.unit>=? AND lessons.status IN ('available','studying')
         ORDER BY
             CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
             COALESCE(reviews.last_review,'0000-01-01T00:00:00'),
             reviews.next_review, cards.id
         LIMIT 1
     """, (today(), int(setting("start_unit", "2")), today()))
+
+
+def open_review():
+    """Start a fresh Review visit from a dashboard or lesson action."""
+    for key in ("review_total", "review_completed", "checked"):
+        st.session_state.pop(key, None)
+    st.session_state["go_review"] = True
+    st.rerun()
 
 
 def render_card(card):
@@ -697,7 +713,7 @@ def page_dashboard():
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
     st.write("A Bunpro-style review tool based on the How to Study Korean curriculum.")
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=? AND lessons.status='available'", (today(), int(setting("start_unit", "2"))))["n"]
+    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND (next_review<=? OR last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
     active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1")["n"]
     mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND level>=8")["n"]
     a, b, c = st.columns(3)
@@ -706,6 +722,22 @@ def page_dashboard():
     c.metric("Mastered cards", mastered)
     st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     st.info("Your starting point is Unit 2. Units 0–1 are treated as completed.")
+
+    if due:
+        st.markdown(
+            f"<div class='cute-note'>📝 <b>{due} cards are waiting in Review.</b> "
+            "Newly added cards are included here even before their first rating.</div>",
+            unsafe_allow_html=True,
+        )
+    else:
+        st.caption("No cards are waiting in Review right now.")
+    if st.button(
+        f"Review · {due} cards" if due else "Review",
+        key="dashboard_review_top",
+        type="primary",
+        use_container_width=True,
+    ):
+        open_review()
 
     st.header("Today's new lessons")
     todays = daily_lessons()
@@ -753,18 +785,19 @@ def page_dashboard():
         st.markdown('<div class="cute-note">(｡•́‿•̀｡) Your lesson shelf is waiting for the next study day.</div>', unsafe_allow_html=True)
 
     st.divider()
-    if st.button("Review", type="primary", use_container_width=True):
-        # The radio widget owns the `nav` key; changing it after creation
-        # raises StreamlitWidgetAlreadyInstantiatedError. Set a redirect flag
-        # and apply it before the radio is created on the next run.
-        st.session_state["go_review"] = True
-        st.rerun()
+    if st.button(
+        f"Review · {due} cards" if due else "Review",
+        key="dashboard_review_bottom",
+        type="primary",
+        use_container_width=True,
+    ):
+        open_review()
 
 
 def page_review():
     st.title("Review")
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=? AND lessons.status='available'", (today(), int(setting("start_unit", "2"))))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND (next_review<=? OR last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)

@@ -11,6 +11,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Correct / Almost / Wrong SRS grading
 - Per-card progress stored in SQLite
 - Rotation: cards reviewed today are moved behind other due cards from the same lesson
+- Newly added cards with no first rating are included in Review, even if there are no scheduled reviews
 - Enter submits an answer; after checking, Enter activates Correct
 - Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
@@ -38,5 +39,6 @@ The cards are compact practice prompts. The file `htsk_lesson_guides.json` conta
 4. In Streamlit Cloud open the existing app and choose **Manage app → Settings** (or **Edit app**). Set **Main file path** to `korean_bunpro_app.py`, then save/redeploy.
 5. Wait for the app to finish restarting and open its existing URL. If Streamlit shows an error about a missing guide file, `htsk_lesson_guides.json` was not uploaded next to the Python file.
 6. On the first screen choose **Lessons** to inspect a topic. Press **Study**, read the HTSK guide and source examples, then press **Add to deck**. Only then do its cards enter Review.
+7. On **Dashboard**, press the visible **Review · N cards** button. It includes both scheduled reviews and newly added cards that still need their first answer/rating. If you see `Active cards: 10`, those cards are available from this Review button even when the scheduled-review number is zero.
 
 The app is one responsive interface: the same URL works in a computer browser and on a phone. Lessons 203–208 remain visible in the roadmap but are marked unavailable because HTSK has not published those lesson pages yet.
