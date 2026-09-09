@@ -15,15 +15,22 @@ SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
 st.set_page_config(page_title="Korean Grammar SRS", page_icon="🇰🇷", layout="wide")
 st.markdown("""
 <style>
-    .stApp {background: linear-gradient(135deg, #fff8fc 0%, #f6f1ff 52%, #eefaff 100%);}
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {background: linear-gradient(135deg, #fff8fc 0%, #f6f1ff 52%, #eefaff 100%) !important;}
+    header[data-testid="stHeader"] {background: transparent !important;}
+    [data-testid="stToolbar"] {visibility: hidden; height: 0;}
+    [data-testid="stDecoration"] {display: none;}
+    .stApp {background: transparent !important; color: #5b4770 !important;}
+    h1, h2, h3, h4, h5, h6, p, label, [data-testid="stMarkdownContainer"], [data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stCaptionContainer"], [data-testid="stWidgetLabel"] {color: #5b4770 !important;}
     .block-container {max-width: 1100px; padding-top: 2rem;}
     [data-testid="stSidebar"] {background: linear-gradient(180deg, #ffe9f2 0%, #eee7ff 100%);}
+    [data-testid="stSidebar"] * {color: #5b4770 !important;}
     [data-testid="stMetric"] {background: rgba(255,255,255,.78); border: 2px solid #f4d8e7; border-radius: 22px; padding: 14px 18px; box-shadow: 0 6px 18px rgba(140,105,150,.08);}
-    [data-testid="stMetricLabel"] {color: #9b7090;}
-    [data-testid="stMetricValue"] {color: #654b78;}
-    .stButton > button {border-radius: 18px; border: 2px solid #e9c8dd; background: #fff; color: #684d7b; font-weight: 700; transition: .15s ease;}
+    [data-testid="stMetricLabel"] {color: #9b7090 !important;}
+    [data-testid="stMetricValue"] {color: #654b78 !important;}
+    .stButton > button {border-radius: 18px; border: 2px solid #e9c8dd; background: #fff !important; color: #684d7b !important; font-weight: 700; transition: .15s ease;}
     .stButton > button:hover {border-color: #d99ac0; background: #fff3fa; transform: translateY(-1px);}
-    .stProgress > div > div > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee);}
+    [data-testid="stProgressBar"] > div {background: #eadff2 !important; border-radius: 12px;}
+    [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: rgba(255,255,255,.85);}
     .chibi-hero {display:flex; align-items:center; gap:20px; padding:22px 26px; margin:8px 0 24px; border-radius:28px; background:linear-gradient(110deg,#ffdceb,#e9e0ff 58%,#dff7ff); border:2px solid #f2c8df; box-shadow:0 10px 24px rgba(134,101,156,.10);}
     .chibi-face {font-size:42px; line-height:1; white-space:nowrap;}
