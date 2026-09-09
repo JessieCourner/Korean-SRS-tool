@@ -5,6 +5,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 DB_PATH = Path("korean_bunpro.db")
@@ -143,6 +144,34 @@ def check_answer(card_id, answer_key):
     st.session_state["checked"] = answer_is_correct(user_answer, card["answer"])
 
 
+def enable_enter_to_correct(card_id, nonce):
+    """When a correct answer is already displayed, Enter clicks Correct."""
+    components.html(f"""
+    <script>
+    (function() {{
+        const win = window.parent;
+        const marker = 'korean_srs_enter_correct_{card_id}_{nonce}';
+        if (win[marker]) return;
+        win[marker] = true;
+        function findCorrect() {{
+            return Array.from(win.document.querySelectorAll('button')).find(function(button) {{
+                return (button.innerText || button.textContent || '').trim() === 'Correct';
+            }});
+        }}
+        function handler(event) {{
+            if (event.key !== 'Enter') return;
+            const button = findCorrect();
+            if (!button) return;
+            event.preventDefault();
+            event.stopPropagation();
+            button.click();
+        }}
+        win.document.addEventListener('keydown', handler, true);
+    }})();
+    </script>
+    """, height=1)
+
+
 def activate_lesson(lesson_id):
     c = db()
     c.execute("""
@@ -233,6 +262,7 @@ def render_card(card):
                 grade(card["id"], "almost"); st.rerun()
             if c.button("Wrong", key=f"wrong_{card['id']}", use_container_width=True):
                 grade(card["id"], "wrong"); st.rerun()
+            enable_enter_to_correct(card["id"], st.session_state.get("review_nonce", 0))
         else:
             st.error("Not quite.")
             if st.button("Show correct answer", use_container_width=True):
