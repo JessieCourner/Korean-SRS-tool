@@ -42,6 +42,10 @@ SHOP_ITEMS = [
     ("design_sakura", "Sakura Dream", "design", 150, "🌸", "Pink sakura study room"),
     ("design_lavender", "Lavender Cloud", "design", 180, "☁️", "Soft purple cloud theme"),
     ("design_peach", "Peach Soda", "design", 240, "🍑", "Warm peachy study theme"),
+    ("frame_sakura", "Sakura Border", "frame", 100, "🌸", "A delicate blossom frame for review cards"),
+    ("frame_cloud", "Cloudy Border", "frame", 140, "☁️", "A soft cloud border for calm study sessions"),
+    ("tracker_mochi", "Mochi Tracker", "tracker", 160, "🍡", "A cute mochi progress-bar style"),
+    ("tracker_stars", "Starry Tracker", "tracker", 200, "⭐", "A sparkling progress-bar style"),
 ]
 
 st.set_page_config(page_title="Korean Grammar SRS", page_icon="🇰🇷", layout="wide")
@@ -63,6 +67,11 @@ st.markdown("""
     .stButton > button:hover {border-color: #d99ac0; background: #fff3fa; transform: translateY(-1px);}
     [data-testid="stProgressBar"] > div {background: #eadff2 !important; border-radius: 12px;}
     [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
+    .review-progress {padding:16px 18px 12px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:10px 0 22px;}
+    .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
+    .review-progress-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
+    .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
+    .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
@@ -158,6 +167,8 @@ def init_db():
     c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('design_lavender',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_face','face_bunny')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_design','design_lavender')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_frame','frame_sakura')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_tracker','tracker_mochi')")
     c.commit()
     c.close()
 
@@ -240,8 +251,9 @@ def award_crystals(event_key, amount):
 
 
 def active_item(kind):
-    key = "active_face" if kind == "face" else "active_design"
-    item_id = setting(key, "face_bunny" if kind == "face" else "design_lavender")
+    key = f"active_{kind}"
+    defaults = {"face": "face_bunny", "design": "design_lavender", "frame": "frame_sakura", "tracker": "tracker_mochi"}
+    item_id = setting(key, defaults.get(kind, ""))
     return one("SELECT * FROM shop_items WHERE id=?", (item_id,))
 
 
@@ -256,12 +268,7 @@ def buy_or_activate(item_id):
         c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
         c.commit()
         c.close()
-    if item["kind"] == "face":
-        set_key = "active_face"
-    elif item["kind"] == "design":
-        set_key = "active_design"
-    else:
-        set_key = "active_character"
+    set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
     return True
@@ -389,6 +396,7 @@ def grade(card_id, result):
     c.commit()
     c.close()
     award_crystals(f"card_review:{card_id}:{now}", {"correct": 3, "almost": 1, "wrong": 0}[result])
+    st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     # A widget key cannot be changed after the widget is created in the
     # current Streamlit run. A nonce gives the next card a fresh input field.
@@ -538,9 +546,28 @@ def page_dashboard():
 
 def page_review():
     st.title("Review")
+    if "review_total" not in st.session_state:
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=?", (today(), int(setting("start_unit", "2"))))["n"]
+        st.session_state["review_total"] = remaining
+        st.session_state["review_completed"] = 0
+    total = st.session_state.get("review_total", 0)
+    completed = min(st.session_state.get("review_completed", 0), total) if total else 0
+    progress = 1.0 if total == 0 else completed / total
+    frame = active_item("frame")
+    tracker = active_item("tracker")
+    frame_icon = frame["icon"] if frame else "🌸"
+    tracker_icon = tracker["icon"] if tracker else "🍡"
+    character = active_item("character")
+    character_icon = character["icon"] if character else "🐰"
+    st.markdown(f'''<div class="review-frame"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
+    st.markdown(f'''<div class="review-progress">
+        <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
+        <div class="review-progress-track"><div class="review-progress-fill" style="width:{progress * 100:.1f}%"></div></div>
+        <div style="margin-top:7px;color:#886d91;font-size:14px">{tracker_icon} Keep going — every card makes your Korean stronger!</div>
+    </div>''', unsafe_allow_html=True)
     due = next_due_card()
     if not due:
-        st.success("No reviews due today.")
+        st.success("No reviews due today. Your review quest is complete! ✨")
         return
     render_card(due)
 
@@ -616,7 +643,7 @@ def page_shop():
     items = rows("SELECT * FROM shop_items ORDER BY price, id")
     for item in items:
         owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
-        active_key = "active_face" if item["kind"] == "face" else ("active_design" if item["kind"] == "design" else "active_character")
+        active_key = f"active_{item['kind']}"
         is_active = setting(active_key, "") == item["id"]
         with st.container(border=True):
             left, middle, right = st.columns([1, 4, 1.5])
