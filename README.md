@@ -13,6 +13,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Rotation: cards reviewed today are moved behind other due cards from the same lesson
 - Newly added cards with no first rating are included in Review, even if there are no scheduled reviews
 - Enter submits an answer; after checking, Enter activates Correct
+- The answer field is focused automatically when each new Review card opens
 - Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck

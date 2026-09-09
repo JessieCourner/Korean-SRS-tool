@@ -432,6 +432,35 @@ def check_answer(card_id, answer_key):
     st.session_state["checked"] = answer_is_correct(user_answer, card["answer"])
 
 
+def focus_answer_field():
+    """Put the cursor in the Review answer box after a card is rendered."""
+    components.html("""
+    <script>
+    (function() {
+        const parentWindow = window.parent;
+        function focusAnswer() {
+            const input = parentWindow.document.querySelector(
+                'input[aria-label="Your answer"]'
+            );
+            if (!input) return false;
+            input.focus();
+            const end = input.value.length;
+            try { input.setSelectionRange(end, end); } catch (error) {}
+            return true;
+        }
+        let attempts = 0;
+        const timer = parentWindow.setInterval(function() {
+            attempts += 1;
+            if (focusAnswer() || attempts >= 20) {
+                parentWindow.clearInterval(timer);
+            }
+        }, 100);
+        parentWindow.setTimeout(focusAnswer, 0);
+    })();
+    </script>
+    """, height=1)
+
+
 def enable_review_hotkeys(card_id, nonce):
     """Keyboard grading: 1 Again, 2 Hard, 3/Enter/Space Good, 4 Easy."""
     components.html(f"""
@@ -607,6 +636,8 @@ def render_card(card):
         args=(card["id"], answer_key),
         placeholder="Type the missing Korean form and press Enter",
     )
+    if "checked" not in st.session_state:
+        focus_answer_field()
     if st.button("Check answer", use_container_width=True):
         st.session_state["checked"] = answer_is_correct(answer, card["answer"])
     if "checked" in st.session_state:
