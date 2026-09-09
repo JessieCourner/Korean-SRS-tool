@@ -125,6 +125,30 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+components.html("""
+<script>
+(function() {
+    const doc = window.parent.document;
+    if (doc.getElementById('mochi-mobile-menu-button')) return;
+    const button = doc.createElement('button');
+    button.id = 'mochi-mobile-menu-button';
+    button.type = 'button';
+    button.textContent = '☰';
+    button.setAttribute('aria-label', 'Open navigation menu');
+    button.style.cssText = 'display:none;position:fixed;top:12px;left:12px;z-index:100000;border:2px solid #e9c8dd;border-radius:14px;background:#fff7fc;color:#684d7b;font-size:25px;line-height:1;width:48px;height:44px;box-shadow:0 5px 14px rgba(134,101,156,.2);cursor:pointer;';
+    button.onclick = function() {
+        const toggle = doc.querySelector('[data-testid="stSidebarCollapseButton"]') || doc.querySelector('button[aria-label*="sidebar" i]');
+        if (toggle) toggle.click();
+    };
+    doc.body.appendChild(button);
+    function update() { button.style.display = window.matchMedia('(max-width: 700px)').matches ? 'flex' : 'none'; button.style.alignItems = 'center'; button.style.justifyContent = 'center'; }
+    update();
+    window.addEventListener('resize', update);
+})();
+</script>
+""", height=1)
+
+
 def db():
     c = sqlite3.connect(DB_PATH)
     c.row_factory = sqlite3.Row
