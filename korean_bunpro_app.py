@@ -11,6 +11,28 @@ import streamlit.components.v1 as components
 DB_PATH = Path("korean_bunpro.db")
 SEED_PATH = Path("unit2_lessons_26_33.json")
 SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
+UNIT_INFO = {
+    0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
+    1: ("Basic Korean Grammar", "Lessons 1–25", "completed"),
+    2: ("Lower-Intermediate Korean Grammar", "Lessons 26–50", "current"),
+    3: ("Intermediate Korean Grammar", "Lessons 51–75", "locked"),
+    4: ("Upper-Intermediate Korean Grammar", "Lessons 76–100", "locked"),
+    5: ("Lower-Advanced Korean Grammar", "Lessons 101–125", "locked"),
+    6: ("Advanced Korean Grammar", "Lessons 126–150", "locked"),
+    7: ("Upper-Advanced Korean Grammar", "Lessons 151–175", "locked"),
+    8: ("Near-Expert Korean Grammar", "Lessons 176–200", "locked"),
+    9: ("Expert Korean Grammar", "Lessons 201–208", "locked"),
+}
+SHOP_ITEMS = [
+    ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
+    ("face_cat", "Happy Cat", "face", 80, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
+    ("face_bear", "Tiny Bear", "face", 120, "ʕ•ᴥ•ʔ", "A calm little learning bear"),
+    ("character_rabbit", "Bunny Scholar", "character", 220, "🐰", "Cheerful character for your dashboard"),
+    ("character_penguin", "Study Penguin", "character", 300, "🐧", "A brave penguin who loves review days"),
+    ("design_sakura", "Sakura Dream", "design", 150, "🌸", "Pink sakura study room"),
+    ("design_lavender", "Lavender Cloud", "design", 180, "☁️", "Soft purple cloud theme"),
+    ("design_peach", "Peach Soda", "design", 240, "🍑", "Warm peachy study theme"),
+]
 
 st.set_page_config(page_title="Korean Grammar SRS", page_icon="🇰🇷", layout="wide")
 st.markdown("""
@@ -103,6 +125,10 @@ def init_db():
         created_at TEXT NOT NULL
     );
     CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
+    CREATE TABLE IF NOT EXISTS wallet (id INTEGER PRIMARY KEY CHECK(id=1), crystals INTEGER DEFAULT 0);
+    CREATE TABLE IF NOT EXISTS reward_events (event_key TEXT PRIMARY KEY, amount INTEGER NOT NULL, created_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS shop_items (id TEXT PRIMARY KEY, name TEXT NOT NULL, kind TEXT NOT NULL, price INTEGER NOT NULL, icon TEXT NOT NULL, description TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS inventory (item_id TEXT PRIMARY KEY, purchased_at TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS daily_lessons (
         day TEXT NOT NULL,
         lesson_id INTEGER NOT NULL,
@@ -112,6 +138,16 @@ def init_db():
     """)
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
+    # The current course plan is two new lessons per day. Keep this migration
+    # explicit so an older database that used three is corrected as well.
+    c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
+    c.execute("INSERT OR IGNORE INTO wallet(id,crystals) VALUES(1,0)")
+    for item in SHOP_ITEMS:
+        c.execute("INSERT OR IGNORE INTO shop_items(id,name,kind,price,icon,description) VALUES(?,?,?,?,?,?)", item)
+    c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('face_bunny',?)", (datetime.now().isoformat(timespec='seconds'),))
+    c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('design_lavender',?)", (datetime.now().isoformat(timespec='seconds'),))
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_face','face_bunny')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_design','design_lavender')")
     c.commit()
     c.close()
 
@@ -148,6 +184,50 @@ def setting(key, default):
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
     c.close()
     return row["value"] if row else default
+
+
+def crystals():
+    row = one("SELECT crystals FROM wallet WHERE id=1")
+    return row["crystals"] if row else 0
+
+
+def award_crystals(event_key, amount):
+    if amount <= 0:
+        return
+    c = db()
+    cur = c.execute("INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)", (event_key, amount, datetime.now().isoformat(timespec="seconds")))
+    if cur.rowcount:
+        c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
+    c.commit()
+    c.close()
+
+
+def active_item(kind):
+    key = "active_face" if kind == "face" else "active_design"
+    item_id = setting(key, "face_bunny" if kind == "face" else "design_lavender")
+    return one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+
+
+def buy_or_activate(item_id):
+    item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+    owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item_id,))
+    if not owned:
+        if crystals() < item["price"]:
+            return False
+        c = db()
+        c.execute("UPDATE wallet SET crystals=crystals-? WHERE id=1", (item["price"],))
+        c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
+        c.commit()
+        c.close()
+    if item["kind"] == "face":
+        set_key = "active_face"
+    elif item["kind"] == "design":
+        set_key = "active_design"
+    else:
+        set_key = "active_character"
+    set_value = item_id
+    c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
+    return True
 
 
 def rows(sql, params=()):
@@ -216,6 +296,7 @@ def activate_lesson(lesson_id):
     c.execute("UPDATE lessons SET status='studying' WHERE id=?", (lesson_id,))
     c.commit()
     c.close()
+    award_crystals(f"lesson_started:{lesson_id}", 10)
 
 
 def ensure_daily_lessons():
@@ -270,6 +351,7 @@ def grade(card_id, result):
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
     c.commit()
     c.close()
+    award_crystals(f"card_review:{card_id}:{now}", {"correct": 3, "almost": 1, "wrong": 0}[result])
     st.session_state.pop("checked", None)
     # A widget key cannot be changed after the widget is created in the
     # current Streamlit run. A nonce gives the next card a fresh input field.
@@ -342,15 +424,26 @@ def render_card(card):
 
 def page_dashboard():
     st.title("Korean Grammar SRS")
+    face = active_item("face")
+    design = active_item("design")
+    character_id = setting("active_character", "")
+    character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
+    mascot = character["icon"] if character else face["icon"]
+    design_colors = {
+        "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
+        "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
+        "design_peach": ("#ffe0c2", "#fff0df", "#fff8ef"),
+    }
+    color_a, color_b, color_c = design_colors.get(design["id"], ("#ffdceb", "#e9e0ff", "#dff7ff"))
     st.markdown("""
-    <div class="chibi-hero">
-        <div class="chibi-face">૮ ˶ᵔ ᵕ ᵔ˶ ა</div>
+    <div class="chibi-hero" style="background:linear-gradient(110deg, COLOR_A, COLOR_B 58%, COLOR_C);">
+        <div class="chibi-face">MASCOT</div>
         <div>
             <div class="chibi-title">Welcome back, little learner!</div>
             <div class="chibi-subtitle">A tiny step today = a big Korean win tomorrow ✨</div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
     st.write("A Bunpro-style review tool based on the How to Study Korean curriculum.")
     due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=?", (today(), int(setting("start_unit", "2"))))["n"]
     active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1")["n"]
@@ -359,6 +452,7 @@ def page_dashboard():
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
     c.metric("Mastered cards", mastered)
+    st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     st.info("Your starting point is Unit 2. Units 0–1 are treated as completed.")
 
     st.header("Today's new lessons")
@@ -392,6 +486,7 @@ def page_dashboard():
         st.success("No new topics for today.")
 
     if todays and completed == len(todays):
+        award_crystals(f"daily_goal:{today()}", 30)
         st.markdown('<div class="cute-note">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა No new topics for today. Great job!</div>', unsafe_allow_html=True)
     elif todays:
         st.markdown('<div class="cute-note">(ง •̀ᴗ•́)ง You can do it! Finish today\'s tiny quest.</div>', unsafe_allow_html=True)
@@ -415,6 +510,19 @@ def page_review():
 
 def page_lessons():
     st.title("Lessons")
+    st.header("Course roadmap")
+    for unit, (title, lesson_range, status) in UNIT_INFO.items():
+        with st.container(border=True):
+            if status == "completed":
+                badge = "✅ Completed"
+            elif status == "current":
+                badge = "🌸 Current unit"
+            else:
+                badge = "🔒 Locked"
+            st.markdown(f"### Unit {unit}: {title}")
+            st.caption(f"{lesson_range} · {badge}")
+    st.divider()
+    st.header("Available lessons")
     lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (int(setting("start_unit", "2")),))
     for lesson in lessons:
         cards = one("SELECT COUNT(*) AS n FROM cards WHERE lesson_id=?", (lesson["id"],))["n"]
@@ -455,11 +563,43 @@ def page_progress():
     st.markdown(table, unsafe_allow_html=True)
 
 
+def page_shop():
+    st.title("Crystal Shop ✨")
+    st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
+    st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
+    items = rows("SELECT * FROM shop_items ORDER BY price, id")
+    for item in items:
+        owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
+        active_key = "active_face" if item["kind"] == "face" else ("active_design" if item["kind"] == "design" else "active_character")
+        is_active = setting(active_key, "") == item["id"]
+        with st.container(border=True):
+            left, middle, right = st.columns([1, 4, 1.5])
+            with left:
+                st.markdown(f"<div style='font-size:38px;text-align:center'>{item['icon']}</div>", unsafe_allow_html=True)
+            with middle:
+                st.markdown(f"### {item['name']}")
+                st.caption(f"{item['kind'].title()} · {item['description']}")
+            with right:
+                if is_active:
+                    st.success("Active")
+                elif owned:
+                    if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
+                        buy_or_activate(item["id"]); st.rerun()
+                elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
+                    if buy_or_activate(item["id"]):
+                        st.success("Purchased!")
+                        st.rerun()
+                    else:
+                        st.error("Not enough crystals yet.")
+
+
 init_db()
 import_seed_once()
-page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress"], key="nav")
+page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress", "Crystal Shop"], key="nav")
+st.sidebar.markdown(f"💎 **{crystals()} crystals**")
 st.sidebar.caption("Starting point: Unit 2")
 if page == "Dashboard": page_dashboard()
 elif page == "Review": page_review()
 elif page == "Lessons": page_lessons()
-else: page_progress()
+elif page == "Progress": page_progress()
+else: page_shop()
