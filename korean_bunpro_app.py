@@ -31,7 +31,13 @@ st.markdown("""
     .stButton > button:hover {border-color: #d99ac0; background: #fff3fa; transform: translateY(-1px);}
     [data-testid="stProgressBar"] > div {background: #eadff2 !important; border-radius: 12px;}
     [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
-    .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: rgba(255,255,255,.85);}
+    .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
+    .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
+    .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
+    .chibi-table {width:100%; border-collapse:collapse; color:#5b4770; min-width:680px;}
+    .chibi-table th {background:#f7dbea; color:#684d7b; text-align:left; padding:12px 14px; font-weight:800;}
+    .chibi-table td {padding:11px 14px; border-top:1px solid #f1dce8; color:#5b4770;}
+    .chibi-table tr:nth-child(even) td {background:#fffafd;}
     .chibi-hero {display:flex; align-items:center; gap:20px; padding:22px 26px; margin:8px 0 24px; border-radius:28px; background:linear-gradient(110deg,#ffdceb,#e9e0ff 58%,#dff7ff); border:2px solid #f2c8df; box-shadow:0 10px 24px rgba(134,101,156,.10);}
     .chibi-face {font-size:42px; line-height:1; white-space:nowrap;}
     .chibi-title {font-size:24px; font-weight:800; color:#654b78; margin-bottom:4px;}
@@ -434,7 +440,19 @@ def page_progress():
         JOIN reviews ON reviews.card_id=cards.id
         WHERE lessons.unit>=? GROUP BY lessons.id ORDER BY lessons.lesson_number
     """, (int(setting("start_unit", "2")),))
-    st.dataframe([dict(r) for r in data], use_container_width=True, hide_index=True)
+    headers = ["Unit", "Lesson", "Title", "Cards", "Active", "Mastered"]
+    body = []
+    for row in data:
+        body.append("<tr>" + "".join([
+            f"<td>{row['unit']}</td>",
+            f"<td>{row['lesson_number']}</td>",
+            f"<td>{row['title']}</td>",
+            f"<td>{row['cards'] or 0}</td>",
+            f"<td>{row['active'] or 0}</td>",
+            f"<td>{row['mastered'] or 0}</td>",
+        ]) + "</tr>")
+    table = "<div class='chibi-table-wrap'><table class='chibi-table'><thead><tr>" + "".join(f"<th>{h}</th>" for h in headers) + "</tr></thead><tbody>" + "".join(body) + "</tbody></table></div>"
+    st.markdown(table, unsafe_allow_html=True)
 
 
 init_db()
