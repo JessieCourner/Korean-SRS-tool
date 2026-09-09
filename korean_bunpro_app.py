@@ -72,6 +72,7 @@ st.markdown("""
     [data-testid="stDecoration"] {display: none;}
     .stApp {background: transparent !important; color: #5b4770 !important;}
     h1, h2, h3, h4, h5, h6, p, label, [data-testid="stMarkdownContainer"], [data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stCaptionContainer"], [data-testid="stWidgetLabel"] {color: #5b4770 !important;}
+    code, .stMarkdown code {background:#fff8fc !important; color:#5a4050 !important; border:2px solid #f2b8d5; border-radius:16px; padding:.35rem .75rem; box-shadow:0 4px 12px rgba(217,143,179,.16); font-size:clamp(1.05rem,2.5vw,1.35rem); font-weight:700; line-height:1.45; overflow-wrap:anywhere;}
     .block-container {max-width: 1100px; padding-top: 2rem;}
     [data-testid="stSidebar"] {background: linear-gradient(180deg, #ffe9f2 0%, #eee7ff 100%);}
     [data-testid="stSidebar"] * {color: #5b4770 !important;}
@@ -87,6 +88,11 @@ st.markdown("""
     .review-progress-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
+    .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
+    .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
+    .quest-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e3cde1;}
+    .quest-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    .quest-caption {margin-top:7px; color:#886d91; font-size:13px;}
     .brand-logo {display:flex; align-items:center; gap:10px; padding:10px 12px 16px; margin-bottom:12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
     .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
     .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
@@ -581,7 +587,14 @@ def page_dashboard():
     completed = sum(lesson["daily_status"] == "studied" for lesson in todays)
     if todays:
         st.caption(f"{completed} of {len(todays)} new lessons completed today")
-        st.progress(completed / len(todays), text="Today's learning quest")
+        quest_tracker = active_item("tracker")
+        quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
+        quest_ratio = completed / len(todays)
+        st.markdown(f'''<div class="quest-card">
+            <div class="quest-title"><span>{quest_icon} Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
+            <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div></div>
+            <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
+        </div>''', unsafe_allow_html=True)
         for lesson in todays:
             with st.container(border=True):
                 left, right = st.columns([4, 1])
