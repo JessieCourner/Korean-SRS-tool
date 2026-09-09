@@ -167,7 +167,9 @@ def grade(card_id, result):
     c.commit()
     c.close()
     st.session_state.pop("checked", None)
-    st.session_state.pop("answer", None)
+    # A widget key cannot be changed after the widget is created in the
+    # current Streamlit run. A nonce gives the next card a fresh input field.
+    st.session_state["review_nonce"] = st.session_state.get("review_nonce", 0) + 1
 
 
 def next_new_lesson():
@@ -204,10 +206,10 @@ def render_card(card):
     st.write(f"**Translation:** {card['translation']}")
     with st.expander("Show hint"):
         st.write(card["hint"])
-    answer = st.text_input("Your answer", key="answer", placeholder="Type the missing Korean form and press Enter")
+    answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
+    answer = st.text_input("Your answer", key=answer_key, placeholder="Type the missing Korean form and press Enter")
     if st.button("Check answer", use_container_width=True):
         st.session_state["checked"] = answer_is_correct(answer, card["answer"])
-        st.session_state["answer"] = answer
     if "checked" in st.session_state:
         if st.session_state["checked"]:
             st.success("Correct!")
