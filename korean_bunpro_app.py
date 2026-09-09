@@ -136,6 +136,13 @@ def answer_is_correct(user, answer):
     return normalize(user) == normalize(answer)
 
 
+def check_answer(card_id, answer_key):
+    """Check the answer when the user presses Enter in the text field."""
+    card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
+    user_answer = st.session_state.get(answer_key, "")
+    st.session_state["checked"] = answer_is_correct(user_answer, card["answer"])
+
+
 def activate_lesson(lesson_id):
     c = db()
     c.execute("""
@@ -201,13 +208,18 @@ def next_due_card():
 
 
 def render_card(card):
-    st.caption(f"{card['lesson_title']} · {card['pattern']}")
     st.markdown(f"### {card['prompt']}")
     st.write(f"**Translation:** {card['translation']}")
     with st.expander("Show hint"):
         st.write(card["hint"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
-    answer = st.text_input("Your answer", key=answer_key, placeholder="Type the missing Korean form and press Enter")
+    answer = st.text_input(
+        "Your answer",
+        key=answer_key,
+        on_change=check_answer,
+        args=(card["id"], answer_key),
+        placeholder="Type the missing Korean form and press Enter",
+    )
     if st.button("Check answer", use_container_width=True):
         st.session_state["checked"] = answer_is_correct(answer, card["answer"])
     if "checked" in st.session_state:
