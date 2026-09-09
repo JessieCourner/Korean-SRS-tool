@@ -1,3 +1,4 @@
+# FINAL DASHBOARD VERSION: two daily lessons + Review button
 import json
 import re
 import sqlite3
@@ -74,9 +75,15 @@ def init_db():
         created_at TEXT NOT NULL
     );
     CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
+    CREATE TABLE IF NOT EXISTS daily_lessons (
+        day TEXT NOT NULL,
+        lesson_id INTEGER NOT NULL,
+        status TEXT DEFAULT 'new',
+        PRIMARY KEY(day, lesson_id)
+    );
     """)
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
-    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','3')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
     c.commit()
     c.close()
 
@@ -183,6 +190,39 @@ def activate_lesson(lesson_id):
     c.close()
 
 
+def ensure_daily_lessons():
+    """Assign two stable new lessons for today and keep them until completed."""
+    day = today()
+    start = int(setting("start_unit", "2"))
+    limit = int(setting("new_lessons_per_day", "2"))
+    current = one("SELECT COUNT(*) AS n FROM daily_lessons WHERE day=?", (day,))["n"]
+    if current >= limit:
+        return
+    candidates = rows("""
+        SELECT * FROM lessons
+        WHERE unit>=? AND status='available'
+          AND id NOT IN (SELECT lesson_id FROM daily_lessons)
+        ORDER BY unit, lesson_number
+        LIMIT ?
+    """, (start, limit - current))
+    if not candidates:
+        return
+    c = db()
+    for lesson in candidates:
+        c.execute("INSERT OR IGNORE INTO daily_lessons(day,lesson_id,status) VALUES(?,?,?)", (day, lesson["id"], "new"))
+    c.commit()
+    c.close()
+
+
+def daily_lessons():
+    ensure_daily_lessons()
+    return rows("""
+        SELECT lessons.*, daily_lessons.status AS daily_status
+        FROM daily_lessons JOIN lessons ON lessons.id=daily_lessons.lesson_id
+        WHERE daily_lessons.day=? ORDER BY lessons.lesson_number
+    """, (today(),))
+
+
 def grade(card_id, result):
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
     level = current["level"]
@@ -284,6 +324,43 @@ def page_dashboard():
     c.metric("Mastered cards", mastered)
     st.info("Your starting point is Unit 2. Units 0–1 are treated as completed.")
 
+    st.header("Today's new lessons")
+    todays = daily_lessons()
+    completed = sum(lesson["daily_status"] == "studied" for lesson in todays)
+    if todays:
+        st.caption(f"{completed} of {len(todays)} new lessons completed today")
+        for lesson in todays:
+            with st.container(border=True):
+                left, right = st.columns([4, 1])
+                with left:
+                    if lesson["daily_status"] == "studied":
+                        st.markdown(f"✅ **Lesson {lesson['lesson_number']}: {lesson['title']}**")
+                        st.caption("Studied today · cards added to SRS")
+                    else:
+                        st.markdown(f"**Lesson {lesson['lesson_number']}: {lesson['title']}**")
+                        st.caption(lesson["pattern"])
+                with right:
+                    if lesson["daily_status"] != "studied":
+                        if st.button("Study", key=f"daily_study_{lesson['id']}", use_container_width=True):
+                            activate_lesson(lesson["id"])
+                            c = db()
+                            c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson["id"]))
+                            c.commit()
+                            c.close()
+                            st.rerun()
+                    else:
+                        st.success("Done")
+    else:
+        st.success("No new topics for today.")
+
+    if todays and completed == len(todays):
+        st.success("No new topics for today. Great job!")
+
+    st.divider()
+    if st.button("Review", type="primary", use_container_width=True):
+        st.session_state["nav"] = "Review"
+        st.rerun()
+
 
 def page_review():
     st.title("Review")
@@ -326,7 +403,7 @@ def page_progress():
 
 init_db()
 import_seed_once()
-page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress"])
+page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress"], key="nav")
 st.sidebar.caption("Starting point: Unit 2")
 if page == "Dashboard": page_dashboard()
 elif page == "Review": page_review()
