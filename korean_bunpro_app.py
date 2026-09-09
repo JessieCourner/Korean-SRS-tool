@@ -25,6 +25,7 @@ UNIT_INFO = {
     9: ("Expert Korean Grammar", "Lessons 201–208", "locked"),
 }
 HTSK_GROUPS = {
+    2: [("Lessons 26–33", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/"), ("Lessons 34–41", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/"), ("Lessons 42–50", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/")],
     3: [("Lessons 51–58", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/"), ("Lessons 59–66", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/"), ("Lessons 67–75", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-67-75/")],
     4: [("Lessons 76–83", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/"), ("Lessons 84–91", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/"), ("Lessons 92–100", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/")],
     5: [("Lessons 101–108", "https://www.howtostudykorean.com/unit-5/lessons-101-108/"), ("Lessons 109–116", "https://www.howtostudykorean.com/unit-5/lessons-109-116/"), ("Lessons 117–125", "https://www.howtostudykorean.com/unit-5/lessons-117-125/")],
@@ -33,6 +34,8 @@ HTSK_GROUPS = {
     8: [("Lessons 176–183", "https://www.howtostudykorean.com/unit-8/lessons-176-183/"), ("Lessons 184–191", "https://www.howtostudykorean.com/unit-8/lessons-184-191/"), ("Lessons 192–200", "https://www.howtostudykorean.com/unit-8/lessons-192-200/")],
     9: [("Lessons 201–208", "https://www.howtostudykorean.com/unit-9/lessons-201-208/")],
 }
+
+# The HTSK guide layer is loaded from htsk_lesson_guides.json below.
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
     ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
@@ -253,6 +256,49 @@ def import_extended_seeds():
     c.close()
 
 
+def sync_htsk_metadata():
+    """Keep lesson labels, links and availability aligned with the HTSK manifest."""
+    c = db()
+    for number, guide in HTSK_GUIDES.items():
+        lesson = c.execute(
+            "SELECT id, status FROM lessons WHERE lesson_number=?", (int(number),)
+        ).fetchone()
+        if not lesson:
+            continue
+        if guide.get("source_status") == "published":
+            status = "available" if lesson["status"] == "unavailable" else lesson["status"]
+            c.execute(
+                "UPDATE lessons SET title=?, pattern=?, source_url=?, status=? WHERE id=?",
+                (
+                    guide["source_title"],
+                    guide["source_pattern"],
+                    guide["source_url"],
+                    status,
+                    lesson["id"],
+                ),
+            )
+        else:
+            c.execute(
+                "UPDATE lessons SET title=?, pattern=?, source_url=?, status='unavailable' WHERE id=?",
+                (
+                    guide["source_title"],
+                    guide.get("source_pattern") or "—",
+                    guide["source_url"],
+                    lesson["id"],
+                ),
+            )
+            c.execute(
+                "UPDATE reviews SET active=0 WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?)",
+                (lesson["id"],),
+            )
+            c.execute(
+                "DELETE FROM daily_lessons WHERE lesson_id=? AND status='new'",
+                (lesson["id"],),
+            )
+    c.commit()
+    c.close()
+
+
 def setting(key, default):
     c = db()
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
@@ -318,6 +364,63 @@ def normalize(text):
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
+# These are guide-only examples. They are deliberately kept outside the cards
+# table so Study never turns a cloze prompt into a displayed example.
+# These guides are explicit source data, never reconstructed from SRS cards or lesson titles.
+
+HTSK_GUIDES_PATH = Path("htsk_lesson_guides.json")
+
+
+def load_htsk_guides():
+    """Load and validate the checked-in HTSK source layer."""
+    if not HTSK_GUIDES_PATH.exists():
+        raise FileNotFoundError(
+            "htsk_lesson_guides.json is missing. Deploy it next to korean_bunpro_app.py."
+        )
+    payload = json.loads(HTSK_GUIDES_PATH.read_text(encoding="utf-8"))
+    guides = payload.get("lessons", {})
+    expected = {str(number) for number in range(26, 209)}
+    if set(guides) != expected:
+        raise ValueError("htsk_lesson_guides.json must contain exactly lessons 26–208.")
+    for number, guide in guides.items():
+        if guide.get("source_status") == "published":
+            required = ("source_url", "meaning", "when_to_use", "how_to_build", "examples")
+            if any(not guide.get(field) for field in required):
+                raise ValueError(f"HTSK guide for lesson {number} is incomplete.")
+    return guides
+
+
+HTSK_GUIDES = load_htsk_guides()
+
+
+def lesson_guide(lesson):
+    """Return only the explicit HTSK guide for this lesson."""
+    raw = HTSK_GUIDES.get(str(int(lesson["lesson_number"])))
+    if not raw or raw.get("source_status") != "published":
+        return {
+            "available": False,
+            "source_url": (raw or {}).get(
+                "source_url",
+                "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+            ),
+            "source_title": (raw or {}).get("source_title", "Not published by HTSK"),
+            "source_note": (raw or {}).get(
+                "source_note", "HTSK has not published this lesson yet."
+            ),
+            "examples": [],
+        }
+    return {
+        "available": True,
+        "source_url": raw["source_url"],
+        "source_title": raw["source_title"],
+        "meaning": raw["meaning"],
+        "usage": raw["when_to_use"],
+        "building": raw["how_to_build"],
+        "examples": raw["examples"],
+        "examples_source": raw.get("examples_source", "HTSK lesson page"),
+        "source_note": raw.get("source_note", ""),
+    }
+
 def answer_is_correct(user, answer):
     return normalize(user) == normalize(answer)
 
@@ -360,6 +463,12 @@ def enable_review_hotkeys(card_id, nonce):
 
 
 def activate_lesson(lesson_id):
+    lesson = one("SELECT lesson_number FROM lessons WHERE id=?", (lesson_id,))
+    if not lesson:
+        return False
+    source_guide = HTSK_GUIDES.get(str(lesson["lesson_number"]))
+    if not source_guide or source_guide.get("source_status") != "published":
+        return False
     c = db()
     c.execute("""
         UPDATE reviews SET active=1, level=0, next_review=?, last_review=NULL
@@ -369,6 +478,7 @@ def activate_lesson(lesson_id):
     c.commit()
     c.close()
     award_crystals(f"lesson_started:{lesson_id}", 10)
+    return True
 
 
 def ensure_daily_lessons():
@@ -459,7 +569,7 @@ def next_due_card():
         FROM cards
         JOIN lessons ON lessons.id=cards.lesson_id
         JOIN reviews ON reviews.card_id=cards.id
-        WHERE reviews.active=1 AND reviews.next_review<=? AND lessons.unit>=?
+        WHERE reviews.active=1 AND reviews.next_review<=? AND lessons.unit>=? AND lessons.status='available'
         ORDER BY
             CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
             COALESCE(reviews.last_review,'0000-01-01T00:00:00'),
@@ -512,15 +622,32 @@ def lesson_preview(lesson_id, daily=False):
     lesson = one("SELECT * FROM lessons WHERE id=?", (lesson_id,))
     if not lesson:
         return
-    lesson_cards = rows("SELECT prompt, translation, answer FROM cards WHERE lesson_id=? ORDER BY id", (lesson_id,))
+    guide = lesson_guide(lesson)
     st.markdown(f'''<div class="review-frame"><div style="font-size:24px;font-weight:800;color:#654b78">📖 Lesson {lesson['lesson_number']}: {lesson['title']}</div><div style="color:#886d91;margin-top:5px">A short grammar guide before you start reviewing</div></div>''', unsafe_allow_html=True)
-    st.markdown(f"### Grammar point: `{lesson['pattern']}`")
-    st.write(lesson["explanation"])
-    st.info(f"**How to study this point:** focus on `{lesson['pattern']}` and notice how it changes the meaning of the sentence. Read the examples first, then add the lesson to your deck for active recall.")
+    if lesson["pattern"] and lesson["pattern"] != "—":
+        st.markdown(f"### Grammar point: `{lesson['pattern']}`")
+    st.markdown(f"[Open the full HTSK lesson ↗]({guide['source_url']})")
+    if not guide.get("available"):
+        st.warning(guide["source_note"])
+        st.caption("The app will not create SRS cards for this lesson until HTSK publishes its content.")
+        if st.button("← Back", key=f"cancel_unpublished_{lesson_id}", use_container_width=True):
+            st.session_state.pop("lesson_preview_id", None)
+            st.session_state.pop("preview_from_lessons", None)
+            st.rerun()
+        return
+    st.markdown("**Meaning**")
+    st.write(guide["meaning"])
+    st.markdown("**When to use it**")
+    st.write(guide["usage"])
+    st.markdown("**How to build it**")
+    st.write(guide["building"])
     st.markdown("### Examples")
-    for index, card in enumerate(lesson_cards, 1):
-        st.markdown(f"**{index}.** {card['prompt']}")
-        st.caption(f"Translation: {card['translation']} · Target answer: {card['answer']}")
+    guide_examples = guide.get("examples", [])
+    if guide_examples:
+        for index, (example, translation) in enumerate(guide_examples, 1):
+            st.markdown(f"**{index}.** {example}")
+            st.caption(f"Translation: {translation}")
+    st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
     st.divider()
     cancel, add = st.columns(2)
     with cancel:
@@ -530,15 +657,17 @@ def lesson_preview(lesson_id, daily=False):
             st.rerun()
     with add:
         if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
-            activate_lesson(lesson_id)
-            if daily:
+            activated = activate_lesson(lesson_id)
+            if activated and daily:
                 c = db()
                 c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson_id))
                 c.commit()
                 c.close()
-            st.session_state.pop("lesson_preview_id", None)
-            st.session_state.pop("preview_from_lessons", None)
-            st.rerun()
+            if activated:
+                st.session_state.pop("lesson_preview_id", None)
+                st.session_state.pop("preview_from_lessons", None)
+                st.rerun()
+            st.error("This lesson cannot be added until HTSK publishes its material.")
 
 
 def page_dashboard():
@@ -568,7 +697,7 @@ def page_dashboard():
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
     st.write("A Bunpro-style review tool based on the How to Study Korean curriculum.")
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=?", (today(), int(setting("start_unit", "2"))))["n"]
+    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=? AND lessons.status='available'", (today(), int(setting("start_unit", "2"))))["n"]
     active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1")["n"]
     mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND level>=8")["n"]
     a, b, c = st.columns(3)
@@ -635,7 +764,7 @@ def page_dashboard():
 def page_review():
     st.title("Review")
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=?", (today(), int(setting("start_unit", "2"))))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND next_review<=? AND lessons.unit>=? AND lessons.status='available'", (today(), int(setting("start_unit", "2"))))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)
@@ -690,17 +819,27 @@ def page_lessons():
     for lesson in lessons:
         cards = one("SELECT COUNT(*) AS n FROM cards WHERE lesson_id=?", (lesson["id"],))["n"]
         active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE lesson_id=? AND active=1", (lesson["id"],))["n"]
+        guide = lesson_guide(lesson)
         with st.expander(f"Lesson {lesson['lesson_number']}: {lesson['title']} · {active}/{cards} cards active"):
             st.markdown(f"### Lesson {lesson['lesson_number']} guide")
-            st.markdown(f"**Grammar point:** `{lesson['pattern']}`")
-            st.write(lesson["explanation"])
-            st.markdown("**Practice examples**")
-            lesson_cards = rows("SELECT prompt, translation, answer, hint, explanation FROM cards WHERE lesson_id=? ORDER BY id", (lesson["id"],))
-            for index, card in enumerate(lesson_cards, 1):
-                st.markdown(f"**Example {index}:** {card['prompt']}")
-                st.caption(f"Translation: {card['translation']} · Target: {card['answer']}")
-            st.markdown(f"[Read the full official HTSK explanation ↗]({lesson['source_url']})")
-            if st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
+            if guide.get("available"):
+                st.markdown(f"**Grammar point:** `{lesson['pattern']}`")
+                st.markdown("**Meaning**")
+                st.write(guide["meaning"])
+                st.markdown("**When to use it**")
+                st.write(guide["usage"])
+                st.markdown("**How to build it**")
+                st.write(guide["building"])
+                st.markdown("**Examples from HTSK**")
+                for index, (example, translation) in enumerate(guide.get("examples", []), 1):
+                    st.markdown(f"**Example {index}:** {example}")
+                    st.caption(f"Translation: {translation}")
+                st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
+            else:
+                st.warning(guide["source_note"])
+                st.caption("This lesson will not enter the new-lesson queue until HTSK publishes its content.")
+            st.markdown(f"[Read the full official HTSK explanation ↗]({guide['source_url']})")
+            if guide.get("available") and st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
                 st.session_state["lesson_preview_id"] = lesson["id"]
                 st.session_state["preview_from_lessons"] = True
                 st.rerun()
@@ -771,6 +910,7 @@ def page_shop():
 init_db()
 import_seed_once()
 import_extended_seeds()
+sync_htsk_metadata()
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
