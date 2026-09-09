@@ -1,0 +1,101 @@
+{
+  "curriculum": "How to Study Korean — Unit 2",
+  "lessons": [
+    {
+      "unit": 2, "lesson_number": 26, "title": "Describing nouns with verbs", "pattern": "~는 것",
+      "explanation": "Use ~는 것 to turn a verb phrase into a noun-like expression, such as ‘the act of studying’ or ‘the thing that I like’. This lesson is the foundation for the next several lessons.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"제가 ___ 좋아해요.\n(음악을 듣다)","translation":"I like listening to music.","answer":"음악을 듣는 것을","hint":"Use the present-tense verb modifier + 것, then 을.","explanation":"듣다 → 듣는 것; the noun-like phrase is 음악을 듣는 것을."},
+        {"prompt":"한국어를 ___ 어려워요.\n(공부하다)","translation":"Studying Korean is difficult.","answer":"공부하는 것이","hint":"Use ~는 것 as the subject, followed by 이.","explanation":"공부하다 → 공부하는 것; as the subject, it becomes 공부하는 것이."},
+        {"prompt":"저는 요리___ 재미있어요.\n(하다)","translation":"Cooking is fun for me.","answer":"하는 것이","hint":"하다 becomes 하는 것.","explanation":"요리하는 것이 means ‘cooking’ as the subject of 재미있어요."},
+        {"prompt":"매일 운동___ 건강에 좋아요.\n(하다)","translation":"Exercising every day is good for your health.","answer":"하는 것은","hint":"Use ~는 것 as the topic with 은/는.","explanation":"매일 운동하는 것은 sets ‘exercising every day’ as the topic."},
+        {"prompt":"새로운 사람을 만나___ 즐거워요.\n(다)","translation":"Meeting new people is enjoyable.","answer":"는 것이","hint":"Meet: 만나다 → 만나는 것.","explanation":"만나다 becomes 만나는 것, then 이 marks the subject."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 27, "title": "Past descriptions with ~던/었던 것", "pattern": "~던/었던 것",
+      "explanation": "Use past modifier forms before 것 to describe something that happened in the past or was in progress in the past. Compare these forms with ~은 것.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"어제 ___ 영화가 정말 좋았어요.\n(보다)","translation":"The movie I watched yesterday was really good.","answer":"본","hint":"Use the completed past modifier of 보다.","explanation":"보다 → 본 before a noun."},
+        {"prompt":"제가 어릴 때 ___ 집이에요.\n(살다)","translation":"This is the house where I used to live as a child.","answer":"살던","hint":"Use ~던 for a past habit or ongoing past situation.","explanation":"살다 → 살던 describes the house connected with a past situation."},
+        {"prompt":"지난주에 ___ 책을 찾고 있어요.\n(읽다)","translation":"I am looking for the book I read last week.","answer":"읽은","hint":"Use the completed past modifier.","explanation":"읽다 → 읽은 책."},
+        {"prompt":"예전에 자주 ___ 카페예요.\n(가다)","translation":"It is a café I used to go to often.","answer":"가던","hint":"Use ~던 for a repeated past action.","explanation":"가다 → 가던 in a remembered/repeated past context."},
+        {"prompt":"어제 ___ 음식은 매웠어요.\n(먹다)","translation":"The food I ate yesterday was spicy.","answer":"먹은","hint":"먹다 takes the past modifier ~은.","explanation":"먹다 → 먹은 음식."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 28, "title": "More uses of ~는 것", "pattern": "~는 것 irregularities and preferences",
+      "explanation": "Build on ~는 것 with irregular verbs, preference expressions, and common noun-like constructions. Pay attention to how the form combines with 이다 and particles.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"제가 제일 좋아하___ 것은 여행이에요.\n(하다)","translation":"The thing I like doing most is traveling.","answer":"는","hint":"The verb before 것은 is in the present modifier form.","explanation":"좋아하다 → 좋아하는 것; before 은, the ending is 좋아하는 것은."},
+        {"prompt":"한국어를 배우___ 것이 재미있어요.\n(다)","translation":"Learning Korean is interesting.","answer":"는","hint":"배우다 becomes 배우는 before 것.","explanation":"배우는 것이 means ‘learning’ as the subject."},
+        {"prompt":"제가 싫어하___ 것은 기다리는 거예요.\n(다)","translation":"What I dislike is waiting.","answer":"는","hint":"Use the present modifier ending before 것은.","explanation":"싫어하다 → 싫어하는 것은."},
+        {"prompt":"주말에 쉬___ 것을 좋아해요.\n(다)","translation":"I like resting on weekends.","answer":"는","hint":"Use 쉬는 것.","explanation":"쉬다 → 쉬는 것."},
+        {"prompt":"매운 음식을 먹___ 것이 힘들어요.\n(다)","translation":"Eating spicy food is difficult.","answer":"는","hint":"먹다 becomes 먹는 before 것.","explanation":"먹는 것이 is the subject phrase ‘eating’."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 29, "title": "Nominalizing with ~기 and ~ㅁ/음", "pattern": "~기 / ~ㅁ/음",
+      "explanation": "Use ~기 and ~ㅁ/음 to turn verbs and adjectives into nouns. These forms overlap with ~는 것 but have different common patterns and registers.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"한국어를 배우___ 어려워요.","translation":"Learning Korean is difficult.","answer":"기가","hint":"Attach 기, then add 가 as the subject particle.","explanation":"배우다 + 기가 → 배우기가 어려워요."},
+        {"prompt":"매일 운동하___ 중요해요.","translation":"Exercising every day is important.","answer":"기가","hint":"Use 하다 + 기 + 가.","explanation":"운동하기가 중요해요 means ‘exercising is important’."},
+        {"prompt":"늦게 자___ 싫어요.","translation":"I dislike going to bed late.","answer":"기가","hint":"자다 + 기, then 가.","explanation":"늦게 자기가 싫어요 is a natural nominalized expression."},
+        {"prompt":"그 소식을 들___ 기뻤어요.","translation":"I was happy to hear the news.","answer":"어서","hint":"This sentence uses the result expression after 듣다; focus on the connective form.","explanation":"This is a context card linking nominalization with a natural follow-up expression."},
+        {"prompt":"도와주___ 고마워요.","translation":"Thank you for helping me.","answer":"셔서","hint":"Use the honorific connective form of 주다.","explanation":"도와주셔서 고마워요 is the polite expression used here."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 30, "title": "Expressing uncertainty and duration", "pattern": "~는지 / ~(으)ㄴ지 / ~(으)ㄹ지",
+      "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"그 사람이 누구___ 모르겠어요.","translation":"I do not know who that person is.","answer":"인지","hint":"이다 becomes 인지 after a noun.","explanation":"누구인지 모르겠어요 means ‘I don’t know who it is’."},
+        {"prompt":"오늘 비가 오___ 모르겠어요.","translation":"I am not sure whether it will rain today.","answer":"는지","hint":"Use the present form of a verb before 지.","explanation":"오다 → 오는지."},
+        {"prompt":"내일 시간이 있___ 모르겠어요.","translation":"I am not sure whether I will have time tomorrow.","answer":"을지","hint":"Use the future/possibility form after a consonant.","explanation":"있다 → 있을지."},
+        {"prompt":"한국에 온 ___ 2년 됐어요.","translation":"It has been two years since I came to Korea.","answer":"지","hint":"온 지 + time period expresses duration since an action.","explanation":"온 지 2년 됐어요 means ‘two years have passed since I came’."},
+        {"prompt":"얼마나 걸리___ 알아요?","translation":"Do you know how long it takes?","answer":"는지","hint":"걸리다 is a present verb before 지.","explanation":"얼마나 걸리는지 알아요? asks how long something takes."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 31, "title": "~는 것 with 이다", "pattern": "~는 것이다 / ~는 거예요",
+      "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"이것은 제가 만든 ___ .","translation":"This is something I made.","answer":"것이에요","hint":"Use 것 + 이에요 after a noun ending in a consonant.","explanation":"것이에요 is the polite form of ‘is a thing’."},
+        {"prompt":"제가 말하고 싶은 ___ 있어요.","translation":"There is something I want to say.","answer":"것이","hint":"Use 것 as the subject before 있어요.","explanation":"말하고 싶은 것이 있어요 means ‘there is something I want to say’."},
+        {"prompt":"지금 공부하___ 아니에요.","translation":"It is not that I am studying right now.","answer":"는 것이","hint":"Use the present modifier + 것 + 이.","explanation":"공부하는 것이 아니에요 negates the noun-like statement."},
+        {"prompt":"제가 원하는 ___ 이거예요.","translation":"This is what I want.","answer":"것은","hint":"Set the noun-like phrase as the topic.","explanation":"원하는 것은 이거예요 means ‘the thing I want is this’."},
+        {"prompt":"한국어를 배우___ 좋은 것 같아요.","translation":"I think learning Korean is good.","answer":"는 것이","hint":"배우다 → 배우는 것, then 이.","explanation":"배우는 것이 좋은 것 같아요."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 32, "title": "Purpose and trying", "pattern": "~려고 / ~러 / ~아/어 보다",
+      "explanation": "Use ~려고 and ~러 to express purpose, and ~아/어 보다 to say that you try or experience doing something.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"한국어를 배우___ 한국에 왔어요.","translation":"I came to Korea to learn Korean.","answer":"려고","hint":"Purpose with the same subject uses ~려고.","explanation":"배우려고 한국에 왔어요."},
+        {"prompt":"친구를 만나___ 카페에 갔어요.","translation":"I went to a café to meet a friend.","answer":"러","hint":"Use ~러 with a movement verb such as 가다.","explanation":"만나러 카페에 갔어요."},
+        {"prompt":"이 음식을 먹___ 싶어요.","translation":"I want to try eating this food.","answer":"어 보고","hint":"먹다 combines with ~어 보다.","explanation":"먹어 보고 싶어요 means ‘want to try eating’."},
+        {"prompt":"새로운 방법을 사용해 ___ 어때요?","translation":"How about trying a new method?","answer":"보는 것은","hint":"Use 보다 as a noun-like suggestion.","explanation":"사용해 보는 것은 어때요? is a natural suggestion to try using it."},
+        {"prompt":"제주도에 가___ 비행기를 예약했어요.","translation":"I booked a flight in order to go to Jeju Island.","answer":"려고","hint":"Use purpose ~려고 before 예약했어요.","explanation":"가려고 비행기를 예약했어요."}
+      ]
+    },
+    {
+      "unit": 2, "lesson_number": 33, "title": "The noun 중", "pattern": "~는 중 / ~중에서",
+      "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "cards": [
+        {"prompt":"지금 숙제를 하___이에요.","translation":"I am doing my homework right now.","answer":"는 중","hint":"Use the present modifier before 중.","explanation":"숙제를 하는 중이에요 means ‘I am in the middle of doing homework’."},
+        {"prompt":"회의하___라서 나중에 전화할게요.","translation":"I am in a meeting, so I will call later.","answer":"는 중이","hint":"Use 중이다 before 라서.","explanation":"회의하는 중이라서 means ‘because I am in a meeting’."},
+        {"prompt":"친구들 ___에서 민수가 제일 빨라요.","translation":"Among my friends, Minsu is the fastest.","answer":"중","hint":"Put 중에서 after the group noun.","explanation":"친구들 중에서 means ‘among my friends’."},
+        {"prompt":"세 가지 ___에서 하나를 고르세요.","translation":"Choose one among the three options.","answer":"중에서","hint":"Use 중에서 after a noun group.","explanation":"세 가지 중에서 means ‘among three things’."},
+        {"prompt":"지금 운전하___이니까 메시지를 못 봐요.","translation":"I am driving right now, so I cannot see messages.","answer":"는 중","hint":"Use 운전하는 중이다.","explanation":"운전하는 중이니까 means ‘because I am in the middle of driving’."}
+      ]
+    }
+  ]
+}
