@@ -128,19 +128,52 @@ st.markdown("""
 components.html("""
 <script>
 (function() {
-    const doc = window.parent.document;
-    if (doc.getElementById('mochi-mobile-menu-button')) return;
-    const button = doc.createElement('button');
+    const parentWindow = window.parent;
+    const doc = parentWindow.document;
+    const button = doc.getElementById('mochi-mobile-menu-button') || doc.createElement('button');
     button.id = 'mochi-mobile-menu-button';
     button.type = 'button';
     button.textContent = '☰';
     button.setAttribute('aria-label', 'Open navigation menu');
-    button.style.cssText = 'display:none;position:fixed;top:12px;left:12px;z-index:100000;border:2px solid #e9c8dd;border-radius:14px;background:#fff7fc;color:#684d7b;font-size:25px;line-height:1;width:48px;height:44px;box-shadow:0 5px 14px rgba(134,101,156,.2);cursor:pointer;';
+    button.style.cssText = 'display:none;position:fixed;top:12px;left:12px;z-index:100000;border:0;outline:0;box-shadow:none;border-radius:14px;background:transparent;color:#684d7b;font-size:25px;line-height:1;width:48px;height:44px;cursor:pointer;-webkit-tap-highlight-color:transparent;';
+    function findSidebarToggle() {
+        const selectors = [
+            '[data-testid="stSidebarCollapseButton"] button',
+            '[data-testid="stSidebarCollapseButton"]',
+            'button[aria-label="Open sidebar"]',
+            'button[aria-label="Close sidebar"]',
+            'button[title="Open sidebar"]',
+            'button[title="Close sidebar"]'
+        ];
+        for (const selector of selectors) {
+            const node = doc.querySelector(selector);
+            if (node && (node.tagName === 'BUTTON' || node.querySelector('button'))) {
+                return node.tagName === 'BUTTON' ? node : node.querySelector('button');
+            }
+        }
+        return Array.from(doc.querySelectorAll('button')).find((candidate) => {
+            const label = ((candidate.getAttribute('aria-label') || '') + ' ' + (candidate.getAttribute('title') || '')).toLowerCase();
+            return label.includes('sidebar') || label.includes('navigation');
+        });
+    }
     button.onclick = function() {
-        const toggle = doc.querySelector('[data-testid="stSidebarCollapseButton"]') || doc.querySelector('button[aria-label*="sidebar" i]');
-        if (toggle) toggle.click();
+        let attempts = 0;
+        const tryToggle = function() {
+            const toggle = findSidebarToggle();
+            if (toggle) {
+                toggle.click();
+                return true;
+            }
+            attempts += 1;
+            return attempts >= 15;
+        };
+        if (!tryToggle()) {
+            const timer = parentWindow.setInterval(function() {
+                if (tryToggle()) parentWindow.clearInterval(timer);
+            }, 100);
+        }
     };
-    doc.body.appendChild(button);
+    if (!button.parentNode) doc.body.appendChild(button);
     function update() { button.style.display = window.matchMedia('(max-width: 700px)').matches ? 'flex' : 'none'; button.style.alignItems = 'center'; button.style.justifyContent = 'center'; }
     update();
     window.addEventListener('resize', update);
