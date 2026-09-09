@@ -35,20 +35,35 @@ HTSK_GROUPS = {
 }
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
-    ("face_cat", "Happy Cat", "face", 80, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
-    ("face_bear", "Tiny Bear", "face", 120, "ʕ•ᴥ•ʔ", "A calm little learning bear"),
-    ("character_rabbit", "Bunny Scholar", "character", 220, "🐰", "Cheerful character for your dashboard"),
-    ("character_penguin", "Study Penguin", "character", 300, "🐧", "A brave penguin who loves review days"),
-    ("design_sakura", "Sakura Dream", "design", 150, "🌸", "Pink sakura study room"),
-    ("design_lavender", "Lavender Cloud", "design", 180, "☁️", "Soft purple cloud theme"),
-    ("design_peach", "Peach Soda", "design", 240, "🍑", "Warm peachy study theme"),
-    ("frame_sakura", "Sakura Border", "frame", 100, "🌸", "A delicate blossom frame for review cards"),
-    ("frame_cloud", "Cloudy Border", "frame", 140, "☁️", "A soft cloud border for calm study sessions"),
-    ("tracker_mochi", "Mochi Tracker", "tracker", 160, "🍡", "A cute mochi progress-bar style"),
-    ("tracker_stars", "Starry Tracker", "tracker", 200, "⭐", "A sparkling progress-bar style"),
+    ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
+    ("face_bear", "Tiny Bear", "face", 240, "ʕ•ᴥ•ʔ", "A calm little learning bear"),
+    ("character_rabbit", "Bunny Scholar", "character", 320, "🐰", "Cheerful character for your dashboard"),
+    ("character_penguin", "Study Penguin", "character", 400, "🐧", "A brave penguin who loves review days"),
+    ("design_sakura", "Sakura Dream", "design", 220, "🌸", "Pink sakura study room"),
+    ("design_lavender", "Lavender Cloud", "design", 260, "☁️", "Soft purple cloud theme"),
+    ("design_peach", "Peach Soda", "design", 320, "🍑", "Warm peachy study theme"),
+    ("frame_sakura", "Sakura Border", "frame", 180, "🌸", "A delicate blossom frame for review cards"),
+    ("frame_cloud", "Cloudy Border", "frame", 220, "☁️", "A soft cloud border for calm study sessions"),
+    ("tracker_mochi", "Mochi Tracker", "tracker", 240, "🍡", "A cute mochi progress-bar style"),
+    ("tracker_stars", "Starry Tracker", "tracker", 280, "⭐", "A sparkling progress-bar style"),
+    ("face_fox", "Shy Fox", "face", 300, "ᵔᴥᵔ", "A bashful fox study buddy"),
+    ("face_puppy", "Happy Puppy", "face", 360, "◕ᴥ◕", "A puppy who celebrates every answer"),
+    ("face_mochi", "Mochi Smile", "face", 440, "●ᴗ●", "A round little mochi companion"),
+    ("character_koala", "Boba Koala", "character", 360, "🐨", "A sleepy koala with a boba treat"),
+    ("character_tiger", "Tiger Scholar", "character", 460, "🐯", "A brave tiger for difficult grammar"),
+    ("character_dango", "Dango Fairy", "character", 560, "🍡", "A tiny dango fairy for your study room"),
+    ("design_mint", "Mint Matcha", "design", 360, "🍵", "Fresh mint and matcha study room"),
+    ("design_sky", "Sky Kawaii", "design", 420, "🌤️", "A bright blue afternoon theme"),
+    ("design_night", "Moonlit Seoul", "design", 520, "🌙", "A soft evening city theme"),
+    ("frame_hearts", "Heart Confetti", "frame", 300, "💗", "A cheerful heart frame for reviews"),
+    ("frame_rainbow", "Rainbow Ribbon", "frame", 380, "🌈", "A colorful ribbon around your study space"),
+    ("frame_blossom", "Peach Blossom", "frame", 460, "🌺", "A warm floral frame"),
+    ("tracker_bubbles", "Bubble Tracker", "tracker", 340, "🫧", "A bubbly progress journey"),
+    ("tracker_rainbow", "Rainbow Tracker", "tracker", 420, "🌈", "A colorful progress journey"),
+    ("tracker_sakura", "Sakura Petals", "tracker", 500, "🌸", "Petals bloom as your review grows"),
 ]
 
-st.set_page_config(page_title="Korean Grammar SRS", page_icon="🇰🇷", layout="wide")
+st.set_page_config(page_title="Mochi Hangul", page_icon="🍡", layout="wide")
 st.markdown("""
 <style>
     html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {background: linear-gradient(135deg, #fff8fc 0%, #f6f1ff 52%, #eefaff 100%) !important;}
@@ -72,6 +87,10 @@ st.markdown("""
     .review-progress-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
+    .brand-logo {display:flex; align-items:center; gap:10px; padding:10px 12px 16px; margin-bottom:12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
+    .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
+    .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
+    .brand-subtitle {font-size:11px; color:#987a9d; margin-top:3px;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
@@ -163,6 +182,7 @@ def init_db():
     c.execute("INSERT OR IGNORE INTO wallet(id,crystals) VALUES(1,0)")
     for item in SHOP_ITEMS:
         c.execute("INSERT OR IGNORE INTO shop_items(id,name,kind,price,icon,description) VALUES(?,?,?,?,?,?)", item)
+        c.execute("UPDATE shop_items SET name=?, kind=?, price=?, icon=?, description=? WHERE id=?", (item[1], item[2], item[3], item[4], item[5], item[0]))
     c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('face_bunny',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('design_lavender',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_face','face_bunny')")
@@ -303,23 +323,25 @@ def check_answer(card_id, answer_key):
     st.session_state["checked"] = answer_is_correct(user_answer, card["answer"])
 
 
-def enable_enter_to_correct(card_id, nonce):
-    """When a correct answer is already displayed, Enter clicks Correct."""
+def enable_review_hotkeys(card_id, nonce):
+    """Keyboard grading: 1 Again, 2 Hard, 3/Enter/Space Good, 4 Easy."""
     components.html(f"""
     <script>
     (function() {{
         const win = window.parent;
-        const marker = 'korean_srs_enter_correct_{card_id}_{nonce}';
+        const marker = 'korean_srs_review_keys_{card_id}_{nonce}';
         if (win[marker]) return;
         win[marker] = true;
-        function findCorrect() {{
+        function findButton(label) {{
             return Array.from(win.document.querySelectorAll('button')).find(function(button) {{
-                return (button.innerText || button.textContent || '').trim() === 'Correct';
+                return (button.innerText || button.textContent || '').trim() === label;
             }});
         }}
         function handler(event) {{
-            if (event.key !== 'Enter') return;
-            const button = findCorrect();
+            const key = event.key;
+            const label = (key === '1') ? 'Again' : (key === '2') ? 'Hard' : (key === '4') ? 'Easy' : ((key === '3' || key === 'Enter' || key === ' ') ? 'Good' : null);
+            if (!label) return;
+            const button = findButton(label);
             if (!button) return;
             event.preventDefault();
             event.stopPropagation();
@@ -380,12 +402,21 @@ def grade(card_id, result):
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
     level = current["level"]
     mistakes = current["mistakes"]
-    if result == "correct":
+    if result == "good":
         level = min(8, level + 1)
-    elif result == "wrong":
+    elif result == "easy":
+        level = min(8, level + 2)
+    elif result == "hard":
+        level = max(0, level)
+    elif result == "again":
         level = max(0, level - 2)
         mistakes += 1
-    next_date = (date.today() + timedelta(days=SRS_DAYS[level])).isoformat()
+    interval = SRS_DAYS[level]
+    if result == "hard":
+        interval = max(1, SRS_DAYS[max(1, level)] // 2)
+    if result == "again":
+        interval = 0
+    next_date = (date.today() + timedelta(days=interval)).isoformat()
     now = datetime.now().isoformat(timespec="seconds")
     c = db()
     c.execute("""
@@ -395,7 +426,7 @@ def grade(card_id, result):
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
     c.commit()
     c.close()
-    award_crystals(f"card_review:{card_id}:{now}", {"correct": 3, "almost": 1, "wrong": 0}[result])
+    award_crystals(f"card_review:{card_id}:{now}", {"good": 3, "easy": 5, "hard": 1, "again": 0}[result])
     st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     # A widget key cannot be changed after the widget is created in the
@@ -450,25 +481,63 @@ def render_card(card):
         if st.session_state["checked"]:
             st.success("Correct!")
             st.caption("Choose how well you remembered it:")
-            a, b, c = st.columns(3)
-            if a.button("Correct", key=f"correct_{card['id']}", use_container_width=True):
-                grade(card["id"], "correct"); st.rerun()
-            if b.button("Almost", key=f"almost_{card['id']}", use_container_width=True):
-                grade(card["id"], "almost"); st.rerun()
-            if c.button("Wrong", key=f"wrong_{card['id']}", use_container_width=True):
-                grade(card["id"], "wrong"); st.rerun()
-            enable_enter_to_correct(card["id"], st.session_state.get("review_nonce", 0))
+            a, b, c, d = st.columns(4)
+            if a.button("Again", key=f"again_{card['id']}", use_container_width=True):
+                grade(card["id"], "again"); st.rerun()
+            if b.button("Hard", key=f"hard_{card['id']}", use_container_width=True):
+                grade(card["id"], "hard"); st.rerun()
+            if c.button("Good", key=f"good_{card['id']}", use_container_width=True):
+                grade(card["id"], "good"); st.rerun()
+            if d.button("Easy", key=f"easy_{card['id']}", use_container_width=True):
+                grade(card["id"], "easy"); st.rerun()
+            st.caption("Keyboard: 1 Again · 2 Hard · 3 / Enter / Space Good · 4 Easy")
+            enable_review_hotkeys(card["id"], st.session_state.get("review_nonce", 0))
         else:
             st.error("Not quite.")
             if st.button("Show correct answer", use_container_width=True):
                 st.info(f"Correct answer: {card['answer']}")
                 st.write(card["explanation"])
                 if st.button("Mark as wrong", key=f"show_wrong_{card['id']}", use_container_width=True):
-                    grade(card["id"], "wrong"); st.rerun()
+                    grade(card["id"], "again"); st.rerun()
+
+
+def lesson_preview(lesson_id, daily=False):
+    """Show a lesson guide before its cards enter the active deck."""
+    lesson = one("SELECT * FROM lessons WHERE id=?", (lesson_id,))
+    if not lesson:
+        return
+    lesson_cards = rows("SELECT prompt, translation, answer FROM cards WHERE lesson_id=? ORDER BY id", (lesson_id,))
+    st.markdown(f'''<div class="review-frame"><div style="font-size:24px;font-weight:800;color:#654b78">📖 Lesson {lesson['lesson_number']}: {lesson['title']}</div><div style="color:#886d91;margin-top:5px">A short grammar guide before you start reviewing</div></div>''', unsafe_allow_html=True)
+    st.markdown(f"### Grammar point: `{lesson['pattern']}`")
+    st.write(lesson["explanation"])
+    st.info(f"**How to study this point:** focus on `{lesson['pattern']}` and notice how it changes the meaning of the sentence. Read the examples first, then add the lesson to your deck for active recall.")
+    st.markdown("### Examples")
+    for index, card in enumerate(lesson_cards, 1):
+        st.markdown(f"**{index}.** {card['prompt']}")
+        st.caption(f"Translation: {card['translation']} · Target answer: {card['answer']}")
+    st.divider()
+    cancel, add = st.columns(2)
+    with cancel:
+        if st.button("← Back", key=f"cancel_preview_{lesson_id}", use_container_width=True):
+            st.session_state.pop("lesson_preview_id", None)
+            st.session_state.pop("preview_from_lessons", None)
+            st.rerun()
+    with add:
+        if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
+            activate_lesson(lesson_id)
+            if daily:
+                c = db()
+                c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson_id))
+                c.commit()
+                c.close()
+            st.session_state.pop("lesson_preview_id", None)
+            st.session_state.pop("preview_from_lessons", None)
+            st.rerun()
 
 
 def page_dashboard():
-    st.title("Korean Grammar SRS")
+    st.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
+    st.title("Mochi Hangul")
     face = active_item("face")
     design = active_item("design")
     character_id = setting("active_character", "")
@@ -478,6 +547,9 @@ def page_dashboard():
         "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
         "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
         "design_peach": ("#ffe0c2", "#fff0df", "#fff8ef"),
+        "design_mint": ("#d6f4e9", "#effff8", "#f8fffc"),
+        "design_sky": ("#d7efff", "#effaff", "#f8fdff"),
+        "design_night": ("#d9d8f5", "#eeeefe", "#f8f7ff"),
     }
     color_a, color_b, color_c = design_colors.get(design["id"], ("#ffdceb", "#e9e0ff", "#dff7ff"))
     st.markdown("""
@@ -502,6 +574,10 @@ def page_dashboard():
 
     st.header("Today's new lessons")
     todays = daily_lessons()
+    preview_id = st.session_state.get("lesson_preview_id")
+    if preview_id and not st.session_state.get("preview_from_lessons"):
+        lesson_preview(preview_id, daily=True)
+        st.divider()
     completed = sum(lesson["daily_status"] == "studied" for lesson in todays)
     if todays:
         st.caption(f"{completed} of {len(todays)} new lessons completed today")
@@ -519,11 +595,7 @@ def page_dashboard():
                 with right:
                     if lesson["daily_status"] != "studied":
                         if st.button("Study", key=f"daily_study_{lesson['id']}", use_container_width=True):
-                            activate_lesson(lesson["id"])
-                            c = db()
-                            c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson["id"]))
-                            c.commit()
-                            c.close()
+                            st.session_state["lesson_preview_id"] = lesson["id"]
                             st.rerun()
                     else:
                         st.success("Done")
@@ -540,7 +612,10 @@ def page_dashboard():
 
     st.divider()
     if st.button("Review", type="primary", use_container_width=True):
-        st.session_state["nav"] = "Review"
+        # The radio widget owns the `nav` key; changing it after creation
+        # raises StreamlitWidgetAlreadyInstantiatedError. Set a redirect flag
+        # and apply it before the radio is created on the next run.
+        st.session_state["go_review"] = True
         st.rerun()
 
 
@@ -559,10 +634,14 @@ def page_review():
     tracker_icon = tracker["icon"] if tracker else "🍡"
     character = active_item("character")
     character_icon = character["icon"] if character else "🐰"
-    st.markdown(f'''<div class="review-frame"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
-    st.markdown(f'''<div class="review-progress">
+    frame_styles = {"frame_sakura": ("#efb8d6", "#fff7fc"), "frame_cloud": ("#b9d9ed", "#f5fbff"), "frame_hearts": ("#f2a9c4", "#fff4f8"), "frame_rainbow": ("#c4a8ed", "#fff9f2"), "frame_blossom": ("#e8ae91", "#fff8f2")}
+    frame_border, frame_bg = frame_styles.get(frame["id"] if frame else "", ("#efb8d6", "#fff7fc"))
+    tracker_colors = {"tracker_mochi": "#f5a6c8", "tracker_stars": "#c1a7f1", "tracker_bubbles": "#8dd9e5", "tracker_rainbow": "#f0a6a6", "tracker_sakura": "#e8a7c5"}
+    tracker_color = tracker_colors.get(tracker["id"] if tracker else "", "#f5a6c8")
+    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
+    st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
         <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
-        <div class="review-progress-track"><div class="review-progress-fill" style="width:{progress * 100:.1f}%"></div></div>
+        <div class="review-progress-track"><div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div></div>
         <div style="margin-top:7px;color:#886d91;font-size:14px">{tracker_icon} Keep going — every card makes your Korean stronger!</div>
     </div>''', unsafe_allow_html=True)
     due = next_due_card()
@@ -574,6 +653,10 @@ def page_review():
 
 def page_lessons():
     st.title("Lessons")
+    preview_id = st.session_state.get("lesson_preview_id")
+    if preview_id and st.session_state.get("preview_from_lessons"):
+        lesson_preview(preview_id, daily=False)
+        st.divider()
     st.header("Course roadmap")
     for unit, (title, lesson_range, status) in UNIT_INFO.items():
         with st.container(border=True):
@@ -605,8 +688,8 @@ def page_lessons():
                 st.caption(f"Translation: {card['translation']} · Target: {card['answer']}")
             st.markdown(f"[Read the full official HTSK explanation ↗]({lesson['source_url']})")
             if st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
-                activate_lesson(lesson["id"])
-                st.success("Lesson added to your SRS.")
+                st.session_state["lesson_preview_id"] = lesson["id"]
+                st.session_state["preview_from_lessons"] = True
                 st.rerun()
 
 
@@ -640,35 +723,44 @@ def page_shop():
     st.title("Crystal Shop ✨")
     st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
     st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
-    items = rows("SELECT * FROM shop_items ORDER BY price, id")
-    for item in items:
-        owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
-        active_key = f"active_{item['kind']}"
-        is_active = setting(active_key, "") == item["id"]
-        with st.container(border=True):
-            left, middle, right = st.columns([1, 4, 1.5])
-            with left:
-                st.markdown(f"<div style='font-size:38px;text-align:center'>{item['icon']}</div>", unsafe_allow_html=True)
-            with middle:
-                st.markdown(f"### {item['name']}")
-                st.caption(f"{item['kind'].title()} · {item['description']}")
-            with right:
-                if is_active:
-                    st.success("Active")
-                elif owned:
-                    if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
-                        buy_or_activate(item["id"]); st.rerun()
-                elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
-                    if buy_or_activate(item["id"]):
-                        st.success("Purchased!")
-                        st.rerun()
-                    else:
-                        st.error("Not enough crystals yet.")
+    categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
+    tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
+    for tab, (name, kind, subtitle) in zip(tabs, categories):
+        with tab:
+            st.subheader(name)
+            st.caption(subtitle)
+            items = rows("SELECT * FROM shop_items WHERE kind=? ORDER BY price, id", (kind,))
+            for item in items:
+                owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
+                active_key = f"active_{item['kind']}"
+                is_active = setting(active_key, "") == item["id"]
+                with st.container(border=True):
+                    left, middle, right = st.columns([1, 4, 1.5])
+                    with left:
+                        st.markdown(f"<div style='font-size:38px;text-align:center'>{item['icon']}</div>", unsafe_allow_html=True)
+                    with middle:
+                        st.markdown(f"### {item['name']}")
+                        st.caption(item["description"])
+                    with right:
+                        if is_active:
+                            st.success("Active")
+                        elif owned:
+                            if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
+                                buy_or_activate(item["id"]); st.rerun()
+                        elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
+                            if buy_or_activate(item["id"]):
+                                st.success("Purchased!")
+                                st.rerun()
+                            else:
+                                st.error("Not enough crystals yet.")
 
 
 init_db()
 import_seed_once()
 import_extended_seeds()
+if st.session_state.pop("go_review", False):
+    st.session_state["nav"] = "Review"
+st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress", "Crystal Shop"], key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
 st.sidebar.caption("Starting point: Unit 2")
