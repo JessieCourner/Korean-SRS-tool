@@ -1678,7 +1678,13 @@ def check_answer(card_id, answer_key):
     A wrong answer keeps the same card on screen.  The next correct answer is
     therefore attempt two (Hard), and a third-or-later correct answer is Again.
     """
-    card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
+    # The current card was already loaded for rendering.  Reusing its answer
+    # removes one network round-trip on every Enter press against Supabase.
+    answer_cache = st.session_state.setdefault("_review_answer_cache", {})
+    answer = answer_cache.get(card_id)
+    card = {"answer": answer} if answer is not None else one(
+        "SELECT answer FROM cards WHERE id=?", (card_id,)
+    )
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
@@ -1908,6 +1914,7 @@ def open_review():
 
 
 def render_card(card):
+    st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
