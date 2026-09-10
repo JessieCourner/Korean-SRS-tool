@@ -205,9 +205,9 @@ st.markdown("""
     /* The daily BTS companions are real bundled transparent PNG cut-outs.
        They float freely on a small stage; the only outlined elements are the
        speech bubbles themselves, not character cards or frames. */
-    .bts-stage {position:relative; min-height:380px; overflow:hidden; margin:14px 0 24px; padding:17px 20px 14px; border-radius:30px; background:radial-gradient(circle at 11% 26%,rgba(255,255,255,.95) 0 8%,transparent 27%),radial-gradient(circle at 91% 78%,rgba(255,255,255,.88) 0 7%,transparent 25%),linear-gradient(125deg,#fff3fa 0%,#f3edff 55%,#e9f9ff 100%); box-shadow:0 10px 24px rgba(134,101,156,.10);}
-    .bts-stage::before {content:"✦ ｡˚  ♡  ˚｡ ✦"; position:absolute; right:25px; top:18px; color:#e1acd0; font-size:17px; letter-spacing:5px; opacity:.9;}
-    .bts-stage::after {content:"✿"; position:absolute; left:28px; bottom:18px; color:#efb2cf; font-size:24px; opacity:.8;}
+    .bts-stage {position:relative; min-height:390px; overflow:visible; margin:14px 0 24px; padding:17px 20px 14px; background:transparent;}
+    .bts-stage::before {content:"✦ ｡˚  ♡  ˚｡ ✦"; position:absolute; right:25px; top:18px; color:#e1acd0; font-size:17px; letter-spacing:5px; opacity:.9; pointer-events:none;}
+    .bts-stage::after {content:"✿"; position:absolute; left:28px; bottom:18px; color:#efb2cf; font-size:24px; opacity:.8; pointer-events:none;}
     .bts-stage-heading {position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
     .bts-stage-subtitle {position:relative; z-index:3; color:#987a9d; font-size:13px;}
     .bts-scene {position:absolute; z-index:2; display:flex; align-items:flex-end; gap:10px; max-width:48%;}
@@ -224,9 +224,9 @@ st.markdown("""
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
     .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
     .bts-scene-right .bts-speech::after {right:-12px; border-width:9px 0 9px 12px; border-color:transparent transparent transparent #cdb9ec;}
-    .bts-speaker {color:#684d7b; font-weight:900; font-size:14px; margin-bottom:5px;}
-    .bts-label {display:block; margin-top:2px; color:#a27fa4; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.08em;}
-    .bts-quote {color:#5b4770; font-size:15px; line-height:1.5; overflow-wrap:anywhere;}
+    .bts-speaker {display:none;}
+    .bts-label {display:none;}
+    .bts-quote {color:#5b4770; font-size:16px; line-height:1.55; overflow-wrap:anywhere;}
     .bts-character-alt {display:none;}
     .lesson-modal-heading {padding:8px 0 12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
     .lesson-modal-heading h2 {margin:0; color:#654b78;}
@@ -248,13 +248,16 @@ st.markdown("""
     /* Only the native dialog gets a border.  Its first child is the scroll
        surface; styling that child too was the source of the second frame and
        also clipped the Study actions below long HTSK examples. */
-    div[role="dialog"] {width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:linear-gradient(135deg,#fff8fc 0%,#f4efff 58%,#eefaff 100%) !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
-    /* Streamlit's dialog test-id is an inner content wrapper.  It must stay
-       transparent so there is only one visible window border. */
-    div[role="dialog"] [data-testid="stDialog"], section[data-testid="stDialog"], [data-testid="stDialog"] {border:0 !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important; width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; overflow-y:auto !important; overflow-x:hidden !important;}
-    div[role="dialog"] > div:first-child, div[role="dialog"] [data-testid="stDialog"] > div:first-child, section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"] > div:first-child {width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; flex:1 1 auto !important; overflow-y:auto !important; overflow-x:hidden !important; border:0 !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important;}
-    div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important;}
-    div[role="dialog"] [data-testid="stMarkdownContainer"], section[data-testid="stDialog"] [data-testid="stMarkdownContainer"], [data-testid="stDialog"] [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
+    [role="dialog"] {position:fixed !important; z-index:100001 !important; width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; left:50% !important; transform:translateX(-50%) !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; opacity:1 !important; isolation:isolate !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
+    /* Keep the dialog's content layer opaque.  The previous broad
+       data-testid selector also matched the outer dialog and made Dashboard
+       text show through the Study window. */
+    [role="dialog"] > div:first-child {width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; flex:1 1 auto !important; overflow-y:auto !important; overflow-x:hidden !important; border:0 !important; border-radius:0 !important; background:#fffaff !important; box-shadow:none !important;}
+    [role="dialog"] > div:first-child > div,
+    [role="dialog"] [data-testid="stDialog"],
+    [role="dialog"] [data-testid="stDialog"] > div {background:#fffaff !important; border:0 !important; box-shadow:none !important;}
+    [role="dialog"] .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:#fffaff !important; border-radius:24px !important;}
+    [role="dialog"] [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
     .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
     .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
     .quest-track {height:18px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e3cde1; margin:8px 10px 14px;}
@@ -313,8 +316,8 @@ st.markdown("""
         .chibi-face {font-size:30px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
-        div[role="dialog"] {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
-        div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {padding:1rem .85rem 1.5rem !important;}
+        [role="dialog"] {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
+        [role="dialog"] .block-container {padding:1rem .85rem 1.5rem !important;}
         .bts-stage {min-height:0; padding:15px 13px 18px; overflow:visible;}
         .bts-stage-heading {font-size:16px;}
         .bts-stage-subtitle {padding-right:22px;}
@@ -740,10 +743,10 @@ def bts_character_image(member, fallback_icon):
     asset_path = BTS_ASSET_DIR / filename if filename else None
     if asset_path and asset_path.is_file():
         encoded = base64.b64encode(asset_path.read_bytes()).decode("ascii")
-        return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="{escape(member)} chibi">'
+        return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="Daily chibi character">'
     hair, outfit = BTS_VECTOR_PALETTE.get(member, ("#9276c9", "#5a477d"))
     skin = "#f4c7ad"
-    return f'''<div class="bts-vector-fallback" role="img" aria-label="{escape(member)} chibi">
+    return f'''<div class="bts-vector-fallback" role="img" aria-label="Daily chibi character">
         <svg class="bts-vector" viewBox="0 0 120 180" aria-hidden="true">
             <ellipse cx="60" cy="171" rx="28" ry="6" fill="rgba(91,71,112,.18)"/>
             <path d="M45 125 L43 158 Q43 164 49 164 L55 164 L59 132 Z" fill="#f7f2f7" stroke="#5b4770" stroke-width="2"/>
@@ -772,8 +775,6 @@ def bts_character_image(member, fallback_icon):
 def render_bts_motivation():
     """Render two full-body chibis in date-rotated positions with speech bubbles."""
     message, level, highest = daily_bts_message()
-    ko_member = escape(message["ko_member"])
-    en_member = escape(message["en_member"])
     ko_icon = escape(message["ko_icon"])
     en_icon = escape(message["en_icon"])
     ko_quote = escape(message["ko"])
@@ -784,19 +785,17 @@ def render_bts_motivation():
     en_image = bts_character_image(message["en_member"], message["en_icon"])
     st.markdown(
         f'''<div class="bts-stage">
-            <div class="bts-stage-heading"><span>💜 Daily BTS chibi cheer</span><span>Level {level}</span></div>
+            <div class="bts-stage-heading"><span>💜 Daily chibi cheer</span><span>Level {level}</span></div>
             <div class="bts-stage-subtitle">Two friends for today · your Korean level: {progress_label}</div>
             <div class="bts-scene bts-scene-left" style="{ko_style}">
                 {ko_image}
                 <div class="bts-speech">
-                    <div class="bts-speaker">{ko_member}<span class="bts-label">encouragement in Korean</span></div>
                     <div class="bts-quote">{ko_quote}</div>
                 </div>
             </div>
             <div class="bts-scene bts-scene-right" style="{en_style}">
                 {en_image}
                 <div class="bts-speech">
-                    <div class="bts-speaker">{en_member}<span class="bts-label">English translation</span></div>
                     <div class="bts-quote">{en_quote}</div>
                 </div>
             </div>
@@ -969,7 +968,7 @@ def enable_review_hotkeys(card_id, nonce):
         if (win[marker]) return;
         win[marker] = true;
         function reviewRoot() {{
-            return win.document.querySelector('div[role="dialog"]') || win.document;
+            return win.document.querySelector('[role="dialog"]') || win.document;
         }}
         function findButton(label) {{
             return Array.from(reviewRoot().querySelectorAll('button')).find(function(button) {{

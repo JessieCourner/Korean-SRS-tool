@@ -19,7 +19,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
 - The selected progress mascot sits inside the progress bar and moves with it; the selected card frame decorates the whole Review card
 - Consecutive study-day streaks with a daily crystal bonus
-- A daily original BTS chibi encouragement: two full-body human chibis appear in different dashboard positions with separate speech bubbles; one member gives a Korean message and another shows its English translation; difficulty follows the furthest lesson started
+- A daily original chibi encouragement: two full-body human chibis appear in different dashboard positions with separate speech bubbles; one bubble gives a Korean message and the other shows its English translation; names and language labels are intentionally omitted, and difficulty follows the furthest lesson started
 - The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`. If only the Python file is uploaded, it still draws a self-contained full-body chibi instead of showing an animal emoji.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
@@ -50,4 +50,4 @@ The cards are compact practice prompts. Each `unit*.json` lesson record contains
 
 The app is one responsive interface: the same URL works in a computer browser and on a phone. Study and Review are internal full-screen-style windows, not new browser tabs. Lessons 203–208 remain visible in the roadmap but are marked unavailable because HTSK has not published those lesson pages yet.
 
-The BTS chibi messages are original in-app encouragements using the members as character labels; they are not presented as official quotations.
+The chibi messages are original in-app encouragements; they are not presented as official quotations.
