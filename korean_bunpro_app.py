@@ -305,17 +305,12 @@ st.markdown("""
     .st-key-mobile_nav_panel .stButton > button {width:100%; min-height:2.6rem; margin:3px 0; touch-action:manipulation;}
     @media (min-width: 701px) {
         .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;}
-        /* Keep Streamlit's reopen control above the floating chibis.  When the
-           sidebar is collapsed this is the only way back to the desktop menu. */
+        /* Hide Streamlit's own collapsed-control wrapper.  Some Streamlit
+           versions make that wrapper a full-page hit layer; the small custom
+           launcher below is the only desktop toggle we expose. */
         [data-testid="stSidebarCollapsedControl"] {
-            display:flex !important;
-            position:fixed !important;
-            top:10px !important;
-            left:10px !important;
-            z-index:2147483647 !important;
-            pointer-events:auto !important;
-            visibility:visible !important;
-            opacity:1 !important;
+            display:none !important;
+            pointer-events:none !important;
         }
         [data-testid="stSidebarCollapsedControl"] button {
             display:flex !important;
@@ -1004,17 +999,21 @@ def render_bts_motivation(in_dialog=False):
                         launcher.style.borderColor = "#efb8d6";
                     });
                     launcher.addEventListener("click", () => {
-                        const selectors = [
+                        const open = sidebarIsOpen();
+                        const selectors = open ? [
+                            '[data-testid="stSidebarCollapseButton"]',
+                            'button[aria-label*="Close sidebar" i]',
+                            'button[title*="Close sidebar" i]',
+                        ] : [
                             '[data-testid="stExpandSidebarButton"]',
                             '[data-testid="stSidebarCollapsedControl"] button',
-                            'button[aria-label="Expand sidebar"]',
                             'button[aria-label*="Expand sidebar" i]',
                             'button[title*="Expand sidebar" i]',
                         ];
                         for (const selector of selectors) {
-                            const expandButton = doc.querySelector(selector);
-                            if (expandButton && typeof expandButton.click === "function") {
-                                expandButton.click();
+                            const sidebarButton = doc.querySelector(selector);
+                            if (sidebarButton && (open ? isVisible(sidebarButton) : true) && typeof sidebarButton.click === "function") {
+                                sidebarButton.click();
                                 win.setTimeout(update, 80);
                                 return;
                             }
@@ -1090,7 +1089,10 @@ def render_bts_motivation(in_dialog=False):
                 }
 
                 function update() {
-                    launcher.style.display = win.innerWidth > 700 && !sidebarIsOpen() ? "flex" : "none";
+                    const open = sidebarIsOpen();
+                    launcher.style.display = win.innerWidth > 700 ? "flex" : "none";
+                    launcher.title = open ? "Close navigation menu" : "Open navigation menu";
+                    launcher.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
                 }
 
                 update();
