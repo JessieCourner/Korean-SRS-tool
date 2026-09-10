@@ -1500,17 +1500,41 @@ def buy_or_activate(item_id):
     return True
 
 
+def is_static_content_query(sql):
+    """Identify read-only lesson/card catalog queries safe to cache per session."""
+    normalized = " ".join(sql.lower().split())
+    if not normalized.startswith("select"):
+        return False
+    if any(name in normalized for name in ("reviews", "daily_lessons", "study_activity", "answer_history", "settings", "wallet", "inventory", "reward_events")):
+        return False
+    return "lessons" in normalized or "cards" in normalized or "shop_items" in normalized
+
+
 def rows(sql, params=()):
+    if is_static_content_query(sql):
+        cache = st.session_state.setdefault("_content_query_cache", {})
+        key = (sql, tuple(params))
+        if key in cache:
+            return cache[key]
     c = db()
     result = c.execute(sql, params).fetchall()
     c.close()
+    if is_static_content_query(sql):
+        cache[key] = result
     return result
 
 
 def one(sql, params=()):
+    if is_static_content_query(sql):
+        cache = st.session_state.setdefault("_content_query_cache", {})
+        key = (sql, tuple(params))
+        if key in cache:
+            return cache[key]
     c = db()
     result = c.execute(sql, params).fetchone()
     c.close()
+    if is_static_content_query(sql):
+        cache[key] = result
     return result
 
 
