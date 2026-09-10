@@ -33,22 +33,36 @@
           "prompt": "ㄱ + ㅏ = ___",
           "translation": "Combine the consonant and vowel.",
           "answer": "가",
-          "hint": "Complete the HTSK form: Hangul reading basics",
-          "explanation": "Practice for HTSK Lesson 0: Hangul reading basics."
+          "hint": "Complete the missing form from HTSK Lesson 0: Hangul reading basics",
+          "explanation": "Sentence practice for the HTSK grammar point Hangul reading basics. Read the full guide and official source page in Study."
         },
         {
           "prompt": "ㅂ + ㅏ + ㅂ = ___",
           "translation": "Write “bab” as one syllable block.",
           "answer": "밥",
-          "hint": "Complete the HTSK form: Hangul reading basics",
-          "explanation": "Practice for HTSK Lesson 0: Hangul reading basics."
+          "hint": "Complete the missing form from HTSK Lesson 0: Hangul reading basics",
+          "explanation": "Sentence practice for the HTSK grammar point Hangul reading basics. Read the full guide and official source page in Study."
         },
         {
           "prompt": "ㅗ + ㅏ = ___",
           "translation": "Combine two vowels into a complex vowel.",
           "answer": "ㅘ",
-          "hint": "Complete the HTSK form: Hangul reading basics",
-          "explanation": "Practice for HTSK Lesson 0: Hangul reading basics."
+          "hint": "Complete the missing form from HTSK Lesson 0: Hangul reading basics",
+          "explanation": "Sentence practice for the HTSK grammar point Hangul reading basics. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "ㄴ + ㅏ = ___",
+          "translation": "Combine ㄴ and ㅏ into one syllable.",
+          "answer": "나",
+          "hint": "Complete the missing form from HTSK Lesson 0: Hangul reading basics",
+          "explanation": "Sentence practice for the HTSK grammar point Hangul reading basics. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "ㄱ + ㅗ + ㄱ = ___",
+          "translation": "Write “gok” as one syllable block.",
+          "answer": "곡",
+          "hint": "Complete the missing form from HTSK Lesson 0: Hangul reading basics",
+          "explanation": "Sentence practice for the HTSK grammar point Hangul reading basics. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -76,22 +90,36 @@
           "prompt": "저는 학생___",
           "translation": "I am a student.",
           "answer": "이에요",
-          "hint": "Complete the HTSK form: 이다",
-          "explanation": "Practice for HTSK Lesson 1: 이다."
+          "hint": "Complete the missing form from HTSK Lesson 1: 이다",
+          "explanation": "Sentence practice for the HTSK grammar point 이다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "이것은 펜___",
           "translation": "This is a pen.",
           "answer": "이에요",
-          "hint": "Complete the HTSK form: 이다",
-          "explanation": "Practice for HTSK Lesson 1: 이다."
+          "hint": "Complete the missing form from HTSK Lesson 1: 이다",
+          "explanation": "Sentence practice for the HTSK grammar point 이다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "저 사람은 의사___",
           "translation": "That person is a doctor.",
           "answer": "예요",
-          "hint": "Complete the HTSK form: 이다",
-          "explanation": "Practice for HTSK Lesson 1: 이다."
+          "hint": "Complete the missing form from HTSK Lesson 1: 이다",
+          "explanation": "Sentence practice for the HTSK grammar point 이다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저것은 의자___",
+          "translation": "That is a chair.",
+          "answer": "예요",
+          "hint": "Complete the missing form from HTSK Lesson 1: 이다",
+          "explanation": "Sentence practice for the HTSK grammar point 이다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "민수는 선생님___",
+          "translation": "Minsu is a teacher.",
+          "answer": "이에요",
+          "hint": "Complete the missing form from HTSK Lesson 1: 이다",
+          "explanation": "Sentence practice for the HTSK grammar point 이다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -119,22 +147,36 @@
           "prompt": "학교___ 있어요.",
           "translation": "I am at school.",
           "answer": "에",
-          "hint": "Complete the HTSK form: 이/가 · 있다",
-          "explanation": "Practice for HTSK Lesson 2: 이/가 · 있다."
+          "hint": "Complete the missing form from HTSK Lesson 2: 이/가 · 있다",
+          "explanation": "Sentence practice for the HTSK grammar point 이/가 · 있다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "책___ 있어요.",
           "translation": "There is a book.",
           "answer": "이",
-          "hint": "Complete the HTSK form: 이/가 · 있다",
-          "explanation": "Practice for HTSK Lesson 2: 이/가 · 있다."
+          "hint": "Complete the missing form from HTSK Lesson 2: 이/가 · 있다",
+          "explanation": "Sentence practice for the HTSK grammar point 이/가 · 있다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "친구가 집에 ___",
           "translation": "My friend is at home.",
           "answer": "있어요",
-          "hint": "Complete the HTSK form: 이/가 · 있다",
-          "explanation": "Practice for HTSK Lesson 2: 이/가 · 있다."
+          "hint": "Complete the missing form from HTSK Lesson 2: 이/가 · 있다",
+          "explanation": "Sentence practice for the HTSK grammar point 이/가 · 있다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "가방 안___ 책이 있어요.",
+          "translation": "There is a book inside the bag.",
+          "answer": "에",
+          "hint": "Complete the missing form from HTSK Lesson 2: 이/가 · 있다",
+          "explanation": "Sentence practice for the HTSK grammar point 이/가 · 있다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "동생이 학교에 ___",
+          "translation": "My younger sibling is at school.",
+          "answer": "있어요",
+          "hint": "Complete the missing form from HTSK Lesson 2: 이/가 · 있다",
+          "explanation": "Sentence practice for the HTSK grammar point 이/가 · 있다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -162,22 +204,36 @@
           "prompt": "이것은 ___ 책이에요.",
           "translation": "This is my book.",
           "answer": "제",
-          "hint": "Complete the HTSK form: 의 · 좋다 · 좋아하다",
-          "explanation": "Practice for HTSK Lesson 3: 의 · 좋다 · 좋아하다."
+          "hint": "Complete the missing form from HTSK Lesson 3: 의 · 좋다 · 좋아하다",
+          "explanation": "Sentence practice for the HTSK grammar point 의 · 좋다 · 좋아하다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한국___ 음식",
           "translation": "Korean food.",
           "answer": "의",
-          "hint": "Complete the HTSK form: 의 · 좋다 · 좋아하다",
-          "explanation": "Practice for HTSK Lesson 3: 의 · 좋다 · 좋아하다."
+          "hint": "Complete the missing form from HTSK Lesson 3: 의 · 좋다 · 좋아하다",
+          "explanation": "Sentence practice for the HTSK grammar point 의 · 좋다 · 좋아하다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "저는 음악을 ___",
           "translation": "I like music.",
           "answer": "좋아해요",
-          "hint": "Complete the HTSK form: 의 · 좋다 · 좋아하다",
-          "explanation": "Practice for HTSK Lesson 3: 의 · 좋다 · 좋아하다."
+          "hint": "Complete the missing form from HTSK Lesson 3: 의 · 좋다 · 좋아하다",
+          "explanation": "Sentence practice for the HTSK grammar point 의 · 좋다 · 좋아하다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "이것은 ___ 우산이에요.",
+          "translation": "This is my umbrella.",
+          "answer": "제",
+          "hint": "Complete the missing form from HTSK Lesson 3: 의 · 좋다 · 좋아하다",
+          "explanation": "Sentence practice for the HTSK grammar point 의 · 좋다 · 좋아하다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저는 한국 음식을 ___",
+          "translation": "I like Korean food.",
+          "answer": "좋아해요",
+          "hint": "Complete the missing form from HTSK Lesson 3: 의 · 좋다 · 좋아하다",
+          "explanation": "Sentence practice for the HTSK grammar point 의 · 좋다 · 좋아하다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -205,22 +261,36 @@
           "prompt": "___ 영화",
           "translation": "An interesting movie.",
           "answer": "재미있는",
-          "hint": "Complete the HTSK form: 은/ㄴ · 도",
-          "explanation": "Practice for HTSK Lesson 4: 은/ㄴ · 도."
+          "hint": "Complete the missing form from HTSK Lesson 4: 은/ㄴ · 도",
+          "explanation": "Sentence practice for the HTSK grammar point 은/ㄴ · 도. Read the full guide and official source page in Study."
         },
         {
           "prompt": "저___ 학생도 왔어요.",
           "translation": "That student also came.",
           "answer": "도",
-          "hint": "Complete the HTSK form: 은/ㄴ · 도",
-          "explanation": "Practice for HTSK Lesson 4: 은/ㄴ · 도."
+          "hint": "Complete the missing form from HTSK Lesson 4: 은/ㄴ · 도",
+          "explanation": "Sentence practice for the HTSK grammar point 은/ㄴ · 도. Read the full guide and official source page in Study."
         },
         {
           "prompt": "맛___ 음식",
           "translation": "Delicious food.",
           "answer": "있는",
-          "hint": "Complete the HTSK form: 은/ㄴ · 도",
-          "explanation": "Practice for HTSK Lesson 4: 은/ㄴ · 도."
+          "hint": "Complete the missing form from HTSK Lesson 4: 은/ㄴ · 도",
+          "explanation": "Sentence practice for the HTSK grammar point 은/ㄴ · 도. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 사람을 만났어요.",
+          "translation": "I met a kind person.",
+          "answer": "친절한",
+          "hint": "Complete the missing form from HTSK Lesson 4: 은/ㄴ · 도",
+          "explanation": "Sentence practice for the HTSK grammar point 은/ㄴ · 도. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저도 한국어를 공부___",
+          "translation": "I also study Korean.",
+          "answer": "해요",
+          "hint": "Complete the missing form from HTSK Lesson 4: 은/ㄴ · 도",
+          "explanation": "Sentence practice for the HTSK grammar point 은/ㄴ · 도. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -248,22 +318,36 @@
           "prompt": "어제 밥을 ___",
           "translation": "I ate rice yesterday.",
           "answer": "먹었어요",
-          "hint": "Complete the HTSK form: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
-          "explanation": "Practice for HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요."
+          "hint": "Complete the missing form from HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어/여요 · 았/었어요 · (으)ㄹ 거예요. Read the full guide and official source page in Study."
         },
         {
           "prompt": "오늘 학교에 ___",
           "translation": "I go to school today.",
           "answer": "가요",
-          "hint": "Complete the HTSK form: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
-          "explanation": "Practice for HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요."
+          "hint": "Complete the missing form from HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어/여요 · 았/었어요 · (으)ㄹ 거예요. Read the full guide and official source page in Study."
         },
         {
           "prompt": "내일 공부할 ___",
           "translation": "I will study tomorrow.",
           "answer": "거예요",
-          "hint": "Complete the HTSK form: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
-          "explanation": "Practice for HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요."
+          "hint": "Complete the missing form from HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어/여요 · 았/었어요 · (으)ㄹ 거예요. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "지난주에 영화를 ___",
+          "translation": "I watched a movie last week.",
+          "answer": "봤어요",
+          "hint": "Complete the missing form from HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어/여요 · 았/었어요 · (으)ㄹ 거예요. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "주말에 친구를 만날 ___",
+          "translation": "I will meet a friend on the weekend.",
+          "answer": "거예요",
+          "hint": "Complete the missing form from HTSK Lesson 5: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어/여요 · 았/었어요 · (으)ㄹ 거예요. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -291,22 +375,36 @@
           "prompt": "저는 학생___",
           "translation": "I am a student, politely.",
           "answer": "이에요",
-          "hint": "Complete the HTSK form: 해요체 · 반말",
-          "explanation": "Practice for HTSK Lesson 6: 해요체 · 반말."
+          "hint": "Complete the missing form from HTSK Lesson 6: 해요체 · 반말",
+          "explanation": "Sentence practice for the HTSK grammar point 해요체 · 반말. Read the full guide and official source page in Study."
         },
         {
           "prompt": "나 오늘 바쁘___",
           "translation": "I am busy today, casually.",
           "answer": "다",
-          "hint": "Complete the HTSK form: 해요체 · 반말",
-          "explanation": "Practice for HTSK Lesson 6: 해요체 · 반말."
+          "hint": "Complete the missing form from HTSK Lesson 6: 해요체 · 반말",
+          "explanation": "Sentence practice for the HTSK grammar point 해요체 · 반말. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 한국 사람입니다.",
           "translation": "I am Korean, formally.",
           "answer": "저는",
-          "hint": "Complete the HTSK form: 해요체 · 반말",
-          "explanation": "Practice for HTSK Lesson 6: 해요체 · 반말."
+          "hint": "Complete the missing form from HTSK Lesson 6: 해요체 · 반말",
+          "explanation": "Sentence practice for the HTSK grammar point 해요체 · 반말. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "오늘은 날씨가 좋___",
+          "translation": "The weather is good today, casually.",
+          "answer": "다",
+          "hint": "Complete the missing form from HTSK Lesson 6: 해요체 · 반말",
+          "explanation": "Sentence practice for the HTSK grammar point 해요체 · 반말. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저는 회사원___",
+          "translation": "I am an office worker, politely.",
+          "answer": "이에요",
+          "hint": "Complete the missing form from HTSK Lesson 6: 해요체 · 반말",
+          "explanation": "Sentence practice for the HTSK grammar point 해요체 · 반말. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -334,22 +432,36 @@
           "prompt": "날씨가 ___",
           "translation": "The weather is cold.",
           "answer": "추워요",
-          "hint": "Complete the HTSK form: 불규칙 활용",
-          "explanation": "Practice for HTSK Lesson 7: 불규칙 활용."
+          "hint": "Complete the missing form from HTSK Lesson 7: 불규칙 활용",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한국어를 ___",
           "translation": "I listen to Korean.",
           "answer": "들어요",
-          "hint": "Complete the HTSK form: 불규칙 활용",
-          "explanation": "Practice for HTSK Lesson 7: 불규칙 활용."
+          "hint": "Complete the missing form from HTSK Lesson 7: 불규칙 활용",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용. Read the full guide and official source page in Study."
         },
         {
           "prompt": "친구를 ___",
           "translation": "I help my friend.",
           "answer": "도와요",
-          "hint": "Complete the HTSK form: 불규칙 활용",
-          "explanation": "Practice for HTSK Lesson 7: 불규칙 활용."
+          "hint": "Complete the missing form from HTSK Lesson 7: 불규칙 활용",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "모르다 → ___",
+          "translation": "Conjugate “not to know” politely.",
+          "answer": "몰라요",
+          "hint": "Complete the missing form from HTSK Lesson 7: 불규칙 활용",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "쓰다 → ___",
+          "translation": "Conjugate “to write/use” politely.",
+          "answer": "써요",
+          "hint": "Complete the missing form from HTSK Lesson 7: 불규칙 활용",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -377,22 +489,36 @@
           "prompt": "춥다 → ___",
           "translation": "Conjugate “to be cold” politely.",
           "answer": "추워요",
-          "hint": "Complete the HTSK form: 불규칙 활용 복습",
-          "explanation": "Practice for HTSK Lesson 8: 불규칙 활용 복습."
+          "hint": "Complete the missing form from HTSK Lesson 8: 불규칙 활용 복습",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용 복습. Read the full guide and official source page in Study."
         },
         {
           "prompt": "듣다 → ___",
           "translation": "Conjugate “to listen” politely.",
           "answer": "들어요",
-          "hint": "Complete the HTSK form: 불규칙 활용 복습",
-          "explanation": "Practice for HTSK Lesson 8: 불규칙 활용 복습."
+          "hint": "Complete the missing form from HTSK Lesson 8: 불규칙 활용 복습",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용 복습. Read the full guide and official source page in Study."
         },
         {
           "prompt": "돕다 → ___",
           "translation": "Conjugate “to help” politely.",
           "answer": "도와요",
-          "hint": "Complete the HTSK form: 불규칙 활용 복습",
-          "explanation": "Practice for HTSK Lesson 8: 불규칙 활용 복습."
+          "hint": "Complete the missing form from HTSK Lesson 8: 불규칙 활용 복습",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용 복습. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "모르다 → ___",
+          "translation": "Review the 르 irregular politely.",
+          "answer": "몰라요",
+          "hint": "Complete the missing form from HTSK Lesson 8: 불규칙 활용 복습",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용 복습. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "하얗다 → ___",
+          "translation": "Review the ㅎ irregular politely.",
+          "answer": "하얘요",
+          "hint": "Complete the missing form from HTSK Lesson 8: 불규칙 활용 복습",
+          "explanation": "Sentence practice for the HTSK grammar point 불규칙 활용 복습. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -420,22 +546,36 @@
           "prompt": "오늘 학교에 ___ 가요.",
           "translation": "I do not go to school today.",
           "answer": "안",
-          "hint": "Complete the HTSK form: 안 · 못 · -지 않다",
-          "explanation": "Practice for HTSK Lesson 9: 안 · 못 · -지 않다."
+          "hint": "Complete the missing form from HTSK Lesson 9: 안 · 못 · -지 않다",
+          "explanation": "Sentence practice for the HTSK grammar point 안 · 못 · -지 않다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한국어를 ___ 해요.",
           "translation": "I cannot speak Korean well.",
           "answer": "못",
-          "hint": "Complete the HTSK form: 안 · 못 · -지 않다",
-          "explanation": "Practice for HTSK Lesson 9: 안 · 못 · -지 않다."
+          "hint": "Complete the missing form from HTSK Lesson 9: 안 · 못 · -지 않다",
+          "explanation": "Sentence practice for the HTSK grammar point 안 · 못 · -지 않다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "커피를 마시___ 않아요.",
           "translation": "I do not drink coffee.",
           "answer": "지",
-          "hint": "Complete the HTSK form: 안 · 못 · -지 않다",
-          "explanation": "Practice for HTSK Lesson 9: 안 · 못 · -지 않다."
+          "hint": "Complete the missing form from HTSK Lesson 9: 안 · 못 · -지 않다",
+          "explanation": "Sentence practice for the HTSK grammar point 안 · 못 · -지 않다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "오늘은 비가 ___ 와요.",
+          "translation": "It is not raining today.",
+          "answer": "안",
+          "hint": "Complete the missing form from HTSK Lesson 9: 안 · 못 · -지 않다",
+          "explanation": "Sentence practice for the HTSK grammar point 안 · 못 · -지 않다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "매운 음식을 ___ 먹어요.",
+          "translation": "I cannot eat spicy food.",
+          "answer": "못",
+          "hint": "Complete the missing form from HTSK Lesson 9: 안 · 못 · -지 않다",
+          "explanation": "Sentence practice for the HTSK grammar point 안 · 못 · -지 않다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -463,22 +603,36 @@
           "prompt": "학생___",
           "translation": "I am a student.",
           "answer": "이에요",
-          "hint": "Complete the HTSK form: 이다 · 것/거예요",
-          "explanation": "Practice for HTSK Lesson 10: 이다 · 것/거예요."
+          "hint": "Complete the missing form from HTSK Lesson 10: 이다 · 것/거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 이다 · 것/거예요. Read the full guide and official source page in Study."
         },
         {
           "prompt": "의사___",
           "translation": "I am a doctor.",
           "answer": "예요",
-          "hint": "Complete the HTSK form: 이다 · 것/거예요",
-          "explanation": "Practice for HTSK Lesson 10: 이다 · 것/거예요."
+          "hint": "Complete the missing form from HTSK Lesson 10: 이다 · 것/거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 이다 · 것/거예요. Read the full guide and official source page in Study."
         },
         {
           "prompt": "내일 갈 ___",
           "translation": "The thing/fact that I will go tomorrow.",
           "answer": "거예요",
-          "hint": "Complete the HTSK form: 이다 · 것/거예요",
-          "explanation": "Practice for HTSK Lesson 10: 이다 · 것/거예요."
+          "hint": "Complete the missing form from HTSK Lesson 10: 이다 · 것/거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 이다 · 것/거예요. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "그 사람은 의사___",
+          "translation": "That person is a doctor.",
+          "answer": "일 것이다",
+          "hint": "Complete the missing form from HTSK Lesson 10: 이다 · 것/거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 이다 · 것/거예요. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저녁에 공부할 ___",
+          "translation": "The thing/fact that I will study in the evening.",
+          "answer": "것이다",
+          "hint": "Complete the missing form from HTSK Lesson 10: 이다 · 것/거예요",
+          "explanation": "Sentence practice for the HTSK grammar point 이다 · 것/거예요. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -506,22 +660,36 @@
           "prompt": "사과 ___ 개",
           "translation": "three apples.",
           "answer": "세",
-          "hint": "Complete the HTSK form: Native/Sino-Korean numbers",
-          "explanation": "Practice for HTSK Lesson 11: Native/Sino-Korean numbers."
+          "hint": "Complete the missing form from HTSK Lesson 11: Native/Sino-Korean numbers",
+          "explanation": "Sentence practice for the HTSK grammar point Native/Sino-Korean numbers. Read the full guide and official source page in Study."
         },
         {
           "prompt": "지금 두 ___예요.",
           "translation": "It is two o’clock now.",
           "answer": "시",
-          "hint": "Complete the HTSK form: Native/Sino-Korean numbers",
-          "explanation": "Practice for HTSK Lesson 11: Native/Sino-Korean numbers."
+          "hint": "Complete the missing form from HTSK Lesson 11: Native/Sino-Korean numbers",
+          "explanation": "Sentence practice for the HTSK grammar point Native/Sino-Korean numbers. Read the full guide and official source page in Study."
         },
         {
           "prompt": "오후 세 ___",
           "translation": "3:00 p.m.",
           "answer": "시",
-          "hint": "Complete the HTSK form: Native/Sino-Korean numbers",
-          "explanation": "Practice for HTSK Lesson 11: Native/Sino-Korean numbers."
+          "hint": "Complete the missing form from HTSK Lesson 11: Native/Sino-Korean numbers",
+          "explanation": "Sentence practice for the HTSK grammar point Native/Sino-Korean numbers. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "사람 ___ 명이 왔어요.",
+          "translation": "Three people came.",
+          "answer": "세",
+          "hint": "Complete the missing form from HTSK Lesson 11: Native/Sino-Korean numbers",
+          "explanation": "Sentence practice for the HTSK grammar point Native/Sino-Korean numbers. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "지금 열두 ___예요.",
+          "translation": "It is twelve o’clock now.",
+          "answer": "시",
+          "hint": "Complete the missing form from HTSK Lesson 11: Native/Sino-Korean numbers",
+          "explanation": "Sentence practice for the HTSK grammar point Native/Sino-Korean numbers. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -549,22 +717,36 @@
           "prompt": "두 시간___ 공부했어요.",
           "translation": "I studied for two hours.",
           "answer": "동안",
-          "hint": "Complete the HTSK form: 동안 · 전 · 후",
-          "explanation": "Practice for HTSK Lesson 12: 동안 · 전 · 후."
+          "hint": "Complete the missing form from HTSK Lesson 12: 동안 · 전 · 후",
+          "explanation": "Sentence practice for the HTSK grammar point 동안 · 전 · 후. Read the full guide and official source page in Study."
         },
         {
           "prompt": "3년 ___ 한국에 왔어요.",
           "translation": "I came to Korea three years ago.",
           "answer": "전",
-          "hint": "Complete the HTSK form: 동안 · 전 · 후",
-          "explanation": "Practice for HTSK Lesson 12: 동안 · 전 · 후."
+          "hint": "Complete the missing form from HTSK Lesson 12: 동안 · 전 · 후",
+          "explanation": "Sentence practice for the HTSK grammar point 동안 · 전 · 후. Read the full guide and official source page in Study."
         },
         {
           "prompt": "수업 ___에 만나요.",
           "translation": "Let’s meet after class.",
           "answer": "후",
-          "hint": "Complete the HTSK form: 동안 · 전 · 후",
-          "explanation": "Practice for HTSK Lesson 12: 동안 · 전 · 후."
+          "hint": "Complete the missing form from HTSK Lesson 12: 동안 · 전 · 후",
+          "explanation": "Sentence practice for the HTSK grammar point 동안 · 전 · 후. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "한 달___ 한국어를 공부했어요.",
+          "translation": "I studied Korean for one month.",
+          "answer": "동안",
+          "hint": "Complete the missing form from HTSK Lesson 12: 동안 · 전 · 후",
+          "explanation": "Sentence practice for the HTSK grammar point 동안 · 전 · 후. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "점심 ___에 전화할게요.",
+          "translation": "I will call after lunch.",
+          "answer": "후",
+          "hint": "Complete the missing form from HTSK Lesson 12: 동안 · 전 · 후",
+          "explanation": "Sentence practice for the HTSK grammar point 동안 · 전 · 후. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -592,22 +774,36 @@
           "prompt": "친구___ 같이 갔어요.",
           "translation": "I went together with friends.",
           "answer": "들과",
-          "hint": "Complete the HTSK form: 들 · 만 · 에서 · 부터 · 까지 · 로",
-          "explanation": "Practice for HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로."
+          "hint": "Complete the missing form from HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로",
+          "explanation": "Sentence practice for the HTSK grammar point 들 · 만 · 에서 · 부터 · 까지 · 로. Read the full guide and official source page in Study."
         },
         {
           "prompt": "주말___ 쉬어요.",
           "translation": "I rest only on weekends.",
           "answer": "만",
-          "hint": "Complete the HTSK form: 들 · 만 · 에서 · 부터 · 까지 · 로",
-          "explanation": "Practice for HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로."
+          "hint": "Complete the missing form from HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로",
+          "explanation": "Sentence practice for the HTSK grammar point 들 · 만 · 에서 · 부터 · 까지 · 로. Read the full guide and official source page in Study."
         },
         {
           "prompt": "집___ 학교까지 걸어요.",
           "translation": "I walk from home to school.",
           "answer": "에서",
-          "hint": "Complete the HTSK form: 들 · 만 · 에서 · 부터 · 까지 · 로",
-          "explanation": "Practice for HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로."
+          "hint": "Complete the missing form from HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로",
+          "explanation": "Sentence practice for the HTSK grammar point 들 · 만 · 에서 · 부터 · 까지 · 로. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "친구___ 영화를 봤어요.",
+          "translation": "I watched a movie with friends.",
+          "answer": "들과",
+          "hint": "Complete the missing form from HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로",
+          "explanation": "Sentence practice for the HTSK grammar point 들 · 만 · 에서 · 부터 · 까지 · 로. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "서울___ 부산까지 갔어요.",
+          "translation": "I went from Seoul to Busan.",
+          "answer": "에서",
+          "hint": "Complete the missing form from HTSK Lesson 13: 들 · 만 · 에서 · 부터 · 까지 · 로",
+          "explanation": "Sentence practice for the HTSK grammar point 들 · 만 · 에서 · 부터 · 까지 · 로. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -635,22 +831,36 @@
           "prompt": "친구___ 영화를 봤어요.",
           "translation": "I watched a movie with my friend.",
           "answer": "하고",
-          "hint": "Complete the HTSK form: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
-          "explanation": "Practice for HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해."
+          "hint": "Complete the missing form from HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+          "explanation": "Sentence practice for the HTSK grammar point 와/과 · 하고 · 에게 · 한테 · 위해 · 대해. Read the full guide and official source page in Study."
         },
         {
           "prompt": "선생님___ 질문했어요.",
           "translation": "I asked the teacher a question.",
           "answer": "에게",
-          "hint": "Complete the HTSK form: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
-          "explanation": "Practice for HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해."
+          "hint": "Complete the missing form from HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+          "explanation": "Sentence practice for the HTSK grammar point 와/과 · 하고 · 에게 · 한테 · 위해 · 대해. Read the full guide and official source page in Study."
         },
         {
           "prompt": "가족___ 선물을 샀어요.",
           "translation": "I bought a gift for my family.",
           "answer": "을 위해",
-          "hint": "Complete the HTSK form: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
-          "explanation": "Practice for HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해."
+          "hint": "Complete the missing form from HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+          "explanation": "Sentence practice for the HTSK grammar point 와/과 · 하고 · 에게 · 한테 · 위해 · 대해. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "동생___ 이야기했어요.",
+          "translation": "I talked with my younger sibling.",
+          "answer": "하고",
+          "hint": "Complete the missing form from HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+          "explanation": "Sentence practice for the HTSK grammar point 와/과 · 하고 · 에게 · 한테 · 위해 · 대해. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "친구___ 편지를 보냈어요.",
+          "translation": "I sent a letter to my friend.",
+          "answer": "에게",
+          "hint": "Complete the missing form from HTSK Lesson 14: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+          "explanation": "Sentence practice for the HTSK grammar point 와/과 · 하고 · 에게 · 한테 · 위해 · 대해. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -678,22 +888,36 @@
           "prompt": "문이 ___",
           "translation": "The door was opened.",
           "answer": "열렸어요",
-          "hint": "Complete the HTSK form: 이/히/리/기",
-          "explanation": "Practice for HTSK Lesson 15: 이/히/리/기."
+          "hint": "Complete the missing form from HTSK Lesson 15: 이/히/리/기",
+          "explanation": "Sentence practice for the HTSK grammar point 이/히/리/기. Read the full guide and official source page in Study."
         },
         {
           "prompt": "책이 ___",
           "translation": "The book was read.",
           "answer": "읽혔어요",
-          "hint": "Complete the HTSK form: 이/히/리/기",
-          "explanation": "Practice for HTSK Lesson 15: 이/히/리/기."
+          "hint": "Complete the missing form from HTSK Lesson 15: 이/히/리/기",
+          "explanation": "Sentence practice for the HTSK grammar point 이/히/리/기. Read the full guide and official source page in Study."
         },
         {
           "prompt": "사진이 ___",
           "translation": "The photo was taken.",
           "answer": "찍혔어요",
-          "hint": "Complete the HTSK form: 이/히/리/기",
-          "explanation": "Practice for HTSK Lesson 15: 이/히/리/기."
+          "hint": "Complete the missing form from HTSK Lesson 15: 이/히/리/기",
+          "explanation": "Sentence practice for the HTSK grammar point 이/히/리/기. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "창문이 ___",
+          "translation": "The window was closed.",
+          "answer": "닫혔어요",
+          "hint": "Complete the missing form from HTSK Lesson 15: 이/히/리/기",
+          "explanation": "Sentence practice for the HTSK grammar point 이/히/리/기. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "문이 바람에 ___",
+          "translation": "The door was opened by the wind.",
+          "answer": "열렸어요",
+          "hint": "Complete the missing form from HTSK Lesson 15: 이/히/리/기",
+          "explanation": "Sentence practice for the HTSK grammar point 이/히/리/기. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -721,22 +945,36 @@
           "prompt": "저는 음악을 ___",
           "translation": "I like music.",
           "answer": "좋아해요",
-          "hint": "Complete the HTSK form: 아/어 하다 · 들다 · 걸리다",
-          "explanation": "Practice for HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다."
+          "hint": "Complete the missing form from HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어 하다 · 들다 · 걸리다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "감기에 ___",
           "translation": "I caught a cold.",
           "answer": "걸렸어요",
-          "hint": "Complete the HTSK form: 아/어 하다 · 들다 · 걸리다",
-          "explanation": "Practice for HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다."
+          "hint": "Complete the missing form from HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어 하다 · 들다 · 걸리다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "약을 ___",
           "translation": "I took medicine.",
           "answer": "먹었어요",
-          "hint": "Complete the HTSK form: 아/어 하다 · 들다 · 걸리다",
-          "explanation": "Practice for HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다."
+          "hint": "Complete the missing form from HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어 하다 · 들다 · 걸리다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저는 매운 음식을 ___",
+          "translation": "I dislike spicy food.",
+          "answer": "싫어해요",
+          "hint": "Complete the missing form from HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어 하다 · 들다 · 걸리다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "머리가 ___",
+          "translation": "I have a headache.",
+          "answer": "아파요",
+          "hint": "Complete the missing form from HTSK Lesson 16: 아/어 하다 · 들다 · 걸리다",
+          "explanation": "Sentence practice for the HTSK grammar point 아/어 하다 · 들다 · 걸리다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -764,22 +1002,36 @@
           "prompt": "한국___ 음식",
           "translation": "Korean-style food.",
           "answer": "적인",
-          "hint": "Complete the HTSK form: 적 · 스럽다",
-          "explanation": "Practice for HTSK Lesson 17: 적 · 스럽다."
+          "hint": "Complete the missing form from HTSK Lesson 17: 적 · 스럽다",
+          "explanation": "Sentence practice for the HTSK grammar point 적 · 스럽다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "사랑___ 사람",
           "translation": "A loving person.",
           "answer": "스러운",
-          "hint": "Complete the HTSK form: 적 · 스럽다",
-          "explanation": "Practice for HTSK Lesson 17: 적 · 스럽다."
+          "hint": "Complete the missing form from HTSK Lesson 17: 적 · 스럽다",
+          "explanation": "Sentence practice for the HTSK grammar point 적 · 스럽다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "자연___ 환경",
           "translation": "A natural environment.",
           "answer": "적인",
-          "hint": "Complete the HTSK form: 적 · 스럽다",
-          "explanation": "Practice for HTSK Lesson 17: 적 · 스럽다."
+          "hint": "Complete the missing form from HTSK Lesson 17: 적 · 스럽다",
+          "explanation": "Sentence practice for the HTSK grammar point 적 · 스럽다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "문화___ 차이",
+          "translation": "A cultural difference.",
+          "answer": "적인",
+          "hint": "Complete the missing form from HTSK Lesson 17: 적 · 스럽다",
+          "explanation": "Sentence practice for the HTSK grammar point 적 · 스럽다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "자연___ 분위기",
+          "translation": "A natural atmosphere.",
+          "answer": "스러운",
+          "hint": "Complete the missing form from HTSK Lesson 17: 적 · 스럽다",
+          "explanation": "Sentence practice for the HTSK grammar point 적 · 스럽다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -807,22 +1059,36 @@
           "prompt": "밥을 먹___ 공부했어요.",
           "translation": "I ate and studied.",
           "answer": "고",
-          "hint": "Complete the HTSK form: 고 · 고 싶다",
-          "explanation": "Practice for HTSK Lesson 18: 고 · 고 싶다."
+          "hint": "Complete the missing form from HTSK Lesson 18: 고 · 고 싶다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 · 고 싶다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한국에 가___ 싶어요.",
           "translation": "I want to go to Korea.",
           "answer": "고",
-          "hint": "Complete the HTSK form: 고 · 고 싶다",
-          "explanation": "Practice for HTSK Lesson 18: 고 · 고 싶다."
+          "hint": "Complete the missing form from HTSK Lesson 18: 고 · 고 싶다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 · 고 싶다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "책을 읽___ 음악을 들었어요.",
           "translation": "I read a book and listened to music.",
           "answer": "고",
-          "hint": "Complete the HTSK form: 고 · 고 싶다",
-          "explanation": "Practice for HTSK Lesson 18: 고 · 고 싶다."
+          "hint": "Complete the missing form from HTSK Lesson 18: 고 · 고 싶다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 · 고 싶다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "아침을 먹___ 학교에 갔어요.",
+          "translation": "I ate breakfast and went to school.",
+          "answer": "고",
+          "hint": "Complete the missing form from HTSK Lesson 18: 고 · 고 싶다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 · 고 싶다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "여행하___ 싶어요.",
+          "translation": "I want to travel.",
+          "answer": "고",
+          "hint": "Complete the missing form from HTSK Lesson 18: 고 · 고 싶다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 · 고 싶다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -850,22 +1116,36 @@
           "prompt": "지금 책을 읽___ 있어요.",
           "translation": "I am reading a book now.",
           "answer": "고",
-          "hint": "Complete the HTSK form: 고 있다 · 아/어지다",
-          "explanation": "Practice for HTSK Lesson 19: 고 있다 · 아/어지다."
+          "hint": "Complete the missing form from HTSK Lesson 19: 고 있다 · 아/어지다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 있다 · 아/어지다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "날씨가 추워___ 있어요.",
           "translation": "The weather is becoming cold.",
           "answer": "지고",
-          "hint": "Complete the HTSK form: 고 있다 · 아/어지다",
-          "explanation": "Practice for HTSK Lesson 19: 고 있다 · 아/어지다."
+          "hint": "Complete the missing form from HTSK Lesson 19: 고 있다 · 아/어지다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 있다 · 아/어지다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한국어를 공부하___ 있어요.",
           "translation": "I am studying Korean.",
           "answer": "고",
-          "hint": "Complete the HTSK form: 고 있다 · 아/어지다",
-          "explanation": "Practice for HTSK Lesson 19: 고 있다 · 아/어지다."
+          "hint": "Complete the missing form from HTSK Lesson 19: 고 있다 · 아/어지다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 있다 · 아/어지다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "친구를 기다리___ 있어요.",
+          "translation": "I am waiting for my friend.",
+          "answer": "고",
+          "hint": "Complete the missing form from HTSK Lesson 19: 고 있다 · 아/어지다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 있다 · 아/어지다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "날이 따뜻해___ 있어요.",
+          "translation": "The weather is getting warm.",
+          "answer": "지고",
+          "hint": "Complete the missing form from HTSK Lesson 19: 고 있다 · 아/어지다",
+          "explanation": "Sentence practice for the HTSK grammar point 고 있다 · 아/어지다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -893,22 +1173,36 @@
           "prompt": "한국어가 영어___ 어려워요.",
           "translation": "Korean is more difficult than English.",
           "answer": "보다",
-          "hint": "Complete the HTSK form: 보다 · 더 · 제일/가장",
-          "explanation": "Practice for HTSK Lesson 20: 보다 · 더 · 제일/가장."
+          "hint": "Complete the missing form from HTSK Lesson 20: 보다 · 더 · 제일/가장",
+          "explanation": "Sentence practice for the HTSK grammar point 보다 · 더 · 제일/가장. Read the full guide and official source page in Study."
         },
         {
           "prompt": "오늘은 어제___ 더워요.",
           "translation": "Today is hotter than yesterday.",
           "answer": "보다",
-          "hint": "Complete the HTSK form: 보다 · 더 · 제일/가장",
-          "explanation": "Practice for HTSK Lesson 20: 보다 · 더 · 제일/가장."
+          "hint": "Complete the missing form from HTSK Lesson 20: 보다 · 더 · 제일/가장",
+          "explanation": "Sentence practice for the HTSK grammar point 보다 · 더 · 제일/가장. Read the full guide and official source page in Study."
         },
         {
           "prompt": "이것이 ___ 좋아요.",
           "translation": "This is the best.",
           "answer": "제일",
-          "hint": "Complete the HTSK form: 보다 · 더 · 제일/가장",
-          "explanation": "Practice for HTSK Lesson 20: 보다 · 더 · 제일/가장."
+          "hint": "Complete the missing form from HTSK Lesson 20: 보다 · 더 · 제일/가장",
+          "explanation": "Sentence practice for the HTSK grammar point 보다 · 더 · 제일/가장. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "이 가방은 저 가방___ 비싸요.",
+          "translation": "This bag is more expensive than that bag.",
+          "answer": "보다",
+          "hint": "Complete the missing form from HTSK Lesson 20: 보다 · 더 · 제일/가장",
+          "explanation": "Sentence practice for the HTSK grammar point 보다 · 더 · 제일/가장. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "서울이 한국에서 ___ 커요.",
+          "translation": "Seoul is the biggest in Korea.",
+          "answer": "제일",
+          "hint": "Complete the missing form from HTSK Lesson 20: 보다 · 더 · 제일/가장",
+          "explanation": "Sentence practice for the HTSK grammar point 보다 · 더 · 제일/가장. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -936,22 +1230,36 @@
           "prompt": "한국어를 ___해요.",
           "translation": "I speak Korean well.",
           "answer": "잘",
-          "hint": "Complete the HTSK form: 잘 · 못 · 잘하다 · 못하다",
-          "explanation": "Practice for HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다."
+          "hint": "Complete the missing form from HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다",
+          "explanation": "Sentence practice for the HTSK grammar point 잘 · 못 · 잘하다 · 못하다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "운전을 ___해요.",
           "translation": "I cannot drive well.",
           "answer": "못",
-          "hint": "Complete the HTSK form: 잘 · 못 · 잘하다 · 못하다",
-          "explanation": "Practice for HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다."
+          "hint": "Complete the missing form from HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다",
+          "explanation": "Sentence practice for the HTSK grammar point 잘 · 못 · 잘하다 · 못하다. Read the full guide and official source page in Study."
         },
         {
           "prompt": "저는 요리를 ___",
           "translation": "I am good at cooking.",
           "answer": "잘해요",
-          "hint": "Complete the HTSK form: 잘 · 못 · 잘하다 · 못하다",
-          "explanation": "Practice for HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다."
+          "hint": "Complete the missing form from HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다",
+          "explanation": "Sentence practice for the HTSK grammar point 잘 · 못 · 잘하다 · 못하다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "저는 수영을 ___해요.",
+          "translation": "I am good at swimming.",
+          "answer": "잘",
+          "hint": "Complete the missing form from HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다",
+          "explanation": "Sentence practice for the HTSK grammar point 잘 · 못 · 잘하다 · 못하다. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "동생은 노래를 ___해요.",
+          "translation": "My younger sibling sings poorly.",
+          "answer": "못",
+          "hint": "Complete the missing form from HTSK Lesson 21: 잘 · 못 · 잘하다 · 못하다",
+          "explanation": "Sentence practice for the HTSK grammar point 잘 · 못 · 잘하다 · 못하다. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -979,22 +1287,36 @@
           "prompt": "어제 ___ 만났어요?",
           "translation": "Whom did you meet yesterday?",
           "answer": "누구를",
-          "hint": "Complete the HTSK form: 누구 · 뭐 · 언제 · 왜 · 어디",
-          "explanation": "Practice for HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디."
+          "hint": "Complete the missing form from HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디",
+          "explanation": "Sentence practice for the HTSK grammar point 누구 · 뭐 · 언제 · 왜 · 어디. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 먹었어요?",
           "translation": "What did you eat?",
           "answer": "뭐를",
-          "hint": "Complete the HTSK form: 누구 · 뭐 · 언제 · 왜 · 어디",
-          "explanation": "Practice for HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디."
+          "hint": "Complete the missing form from HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디",
+          "explanation": "Sentence practice for the HTSK grammar point 누구 · 뭐 · 언제 · 왜 · 어디. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 와요?",
           "translation": "Why are you coming?",
           "answer": "왜",
-          "hint": "Complete the HTSK form: 누구 · 뭐 · 언제 · 왜 · 어디",
-          "explanation": "Practice for HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디."
+          "hint": "Complete the missing form from HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디",
+          "explanation": "Sentence practice for the HTSK grammar point 누구 · 뭐 · 언제 · 왜 · 어디. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 학교에 갔어요?",
+          "translation": "When did you go to school?",
+          "answer": "언제",
+          "hint": "Complete the missing form from HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디",
+          "explanation": "Sentence practice for the HTSK grammar point 누구 · 뭐 · 언제 · 왜 · 어디. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 살아요?",
+          "translation": "Where do you live?",
+          "answer": "어디에",
+          "hint": "Complete the missing form from HTSK Lesson 22: 누구 · 뭐 · 언제 · 왜 · 어디",
+          "explanation": "Sentence practice for the HTSK grammar point 누구 · 뭐 · 언제 · 왜 · 어디. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -1022,22 +1344,36 @@
           "prompt": "한국어를 ___ 공부해요?",
           "translation": "How do you study Korean?",
           "answer": "어떻게",
-          "hint": "Complete the HTSK form: 어떻게 · 어느 · 몇",
-          "explanation": "Practice for HTSK Lesson 23: 어떻게 · 어느 · 몇."
+          "hint": "Complete the missing form from HTSK Lesson 23: 어떻게 · 어느 · 몇",
+          "explanation": "Sentence practice for the HTSK grammar point 어떻게 · 어느 · 몇. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 책이 좋아요?",
           "translation": "Which book do you like?",
           "answer": "어느",
-          "hint": "Complete the HTSK form: 어떻게 · 어느 · 몇",
-          "explanation": "Practice for HTSK Lesson 23: 어떻게 · 어느 · 몇."
+          "hint": "Complete the missing form from HTSK Lesson 23: 어떻게 · 어느 · 몇",
+          "explanation": "Sentence practice for the HTSK grammar point 어떻게 · 어느 · 몇. Read the full guide and official source page in Study."
         },
         {
           "prompt": "사과를 ___ 개 샀어요?",
           "translation": "How many apples did you buy?",
           "answer": "몇",
-          "hint": "Complete the HTSK form: 어떻게 · 어느 · 몇",
-          "explanation": "Practice for HTSK Lesson 23: 어떻게 · 어느 · 몇."
+          "hint": "Complete the missing form from HTSK Lesson 23: 어떻게 · 어느 · 몇",
+          "explanation": "Sentence practice for the HTSK grammar point 어떻게 · 어느 · 몇. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 사람이 왔어요?",
+          "translation": "How many people came?",
+          "answer": "몇",
+          "hint": "Complete the missing form from HTSK Lesson 23: 어떻게 · 어느 · 몇",
+          "explanation": "Sentence practice for the HTSK grammar point 어떻게 · 어느 · 몇. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 영화를 좋아해요?",
+          "translation": "Which movie do you like?",
+          "answer": "어느",
+          "hint": "Complete the missing form from HTSK Lesson 23: 어떻게 · 어느 · 몇",
+          "explanation": "Sentence practice for the HTSK grammar point 어떻게 · 어느 · 몇. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -1065,22 +1401,36 @@
           "prompt": "날씨가 ___",
           "translation": "The sky is blue/clear.",
           "answer": "파래요",
-          "hint": "Complete the HTSK form: ㅎ 불규칙",
-          "explanation": "Practice for HTSK Lesson 24: ㅎ 불규칙."
+          "hint": "Complete the missing form from HTSK Lesson 24: ㅎ 불규칙",
+          "explanation": "Sentence practice for the HTSK grammar point ㅎ 불규칙. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 색이에요?",
           "translation": "What kind of color is it?",
           "answer": "어떤",
-          "hint": "Complete the HTSK form: ㅎ 불규칙",
-          "explanation": "Practice for HTSK Lesson 24: ㅎ 불규칙."
+          "hint": "Complete the missing form from HTSK Lesson 24: ㅎ 불규칙",
+          "explanation": "Sentence practice for the HTSK grammar point ㅎ 불규칙. Read the full guide and official source page in Study."
         },
         {
           "prompt": "___ 사람입니까?",
           "translation": "What kind of person is he/she?",
           "answer": "어떤",
-          "hint": "Complete the HTSK form: ㅎ 불규칙",
-          "explanation": "Practice for HTSK Lesson 24: ㅎ 불규칙."
+          "hint": "Complete the missing form from HTSK Lesson 24: ㅎ 불규칙",
+          "explanation": "Sentence practice for the HTSK grammar point ㅎ 불규칙. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "하늘이 ___",
+          "translation": "The sky is blue.",
+          "answer": "파래요",
+          "hint": "Complete the missing form from HTSK Lesson 24: ㅎ 불규칙",
+          "explanation": "Sentence practice for the HTSK grammar point ㅎ 불규칙. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "___ 모양이에요?",
+          "translation": "What kind of shape is it?",
+          "answer": "어떤",
+          "hint": "Complete the missing form from HTSK Lesson 24: ㅎ 불규칙",
+          "explanation": "Sentence practice for the HTSK grammar point ㅎ 불규칙. Read the full guide and official source page in Study."
         }
       ]
     },
@@ -1108,22 +1458,36 @@
           "prompt": "수업 ___에 복습해요.",
           "translation": "I review after class.",
           "answer": "후",
-          "hint": "Complete the HTSK form: 전 · 후 · 이래로 · 이내 · 누구든지",
-          "explanation": "Practice for HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지."
+          "hint": "Complete the missing form from HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지",
+          "explanation": "Sentence practice for the HTSK grammar point 전 · 후 · 이래로 · 이내 · 누구든지. Read the full guide and official source page in Study."
         },
         {
           "prompt": "누___ 올 수 있어요.",
           "translation": "Anybody can come.",
           "answer": "구든지",
-          "hint": "Complete the HTSK form: 전 · 후 · 이래로 · 이내 · 누구든지",
-          "explanation": "Practice for HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지."
+          "hint": "Complete the missing form from HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지",
+          "explanation": "Sentence practice for the HTSK grammar point 전 · 후 · 이래로 · 이내 · 누구든지. Read the full guide and official source page in Study."
         },
         {
           "prompt": "한 시간 ___에 끝나요.",
           "translation": "It ends within one hour.",
           "answer": "이내",
-          "hint": "Complete the HTSK form: 전 · 후 · 이래로 · 이내 · 누구든지",
-          "explanation": "Practice for HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지."
+          "hint": "Complete the missing form from HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지",
+          "explanation": "Sentence practice for the HTSK grammar point 전 · 후 · 이래로 · 이내 · 누구든지. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "회의 ___에 도착했어요.",
+          "translation": "I arrived before the meeting.",
+          "answer": "전에",
+          "hint": "Complete the missing form from HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지",
+          "explanation": "Sentence practice for the HTSK grammar point 전 · 후 · 이래로 · 이내 · 누구든지. Read the full guide and official source page in Study."
+        },
+        {
+          "prompt": "한 달 ___에 끝낼 거예요.",
+          "translation": "I will finish within one month.",
+          "answer": "이내",
+          "hint": "Complete the missing form from HTSK Lesson 25: 전 · 후 · 이래로 · 이내 · 누구든지",
+          "explanation": "Sentence practice for the HTSK grammar point 전 · 후 · 이래로 · 이내 · 누구든지. Read the full guide and official source page in Study."
         }
       ]
     }
