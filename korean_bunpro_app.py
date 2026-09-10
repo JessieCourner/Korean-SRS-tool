@@ -935,6 +935,105 @@ def render_bts_motivation(in_dialog=False):
                 return modalOpen;
             }
 
+            function installDesktopSidebarLauncher() {
+                const doc = win.document;
+                let launcher = doc.getElementById("mochi-desktop-sidebar-launcher");
+                if (!launcher) {
+                    launcher = doc.createElement("button");
+                    launcher.id = "mochi-desktop-sidebar-launcher";
+                    launcher.type = "button";
+                    launcher.textContent = "☰";
+                    launcher.setAttribute("aria-label", "Open navigation menu");
+                    launcher.title = "Open navigation menu";
+                    Object.assign(launcher.style, {
+                        position: "fixed",
+                        top: "10px",
+                        left: "10px",
+                        zIndex: "2147483647",
+                        display: "none",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "44px",
+                        height: "44px",
+                        minWidth: "44px",
+                        minHeight: "44px",
+                        padding: "0",
+                        border: "2px solid #efb8d6",
+                        borderRadius: "14px",
+                        background: "#fffaff",
+                        color: "#684d7b",
+                        boxShadow: "0 8px 18px rgba(91,71,112,.18)",
+                        fontFamily: "inherit",
+                        fontSize: "25px",
+                        lineHeight: "1",
+                        cursor: "pointer",
+                        pointerEvents: "auto",
+                        touchAction: "manipulation",
+                    });
+                    launcher.addEventListener("mouseenter", () => {
+                        launcher.style.background = "#fff1f8";
+                        launcher.style.borderColor = "#d99ac0";
+                    });
+                    launcher.addEventListener("mouseleave", () => {
+                        launcher.style.background = "#fffaff";
+                        launcher.style.borderColor = "#efb8d6";
+                    });
+                    launcher.addEventListener("click", () => {
+                        const selectors = [
+                            '[data-testid="stExpandSidebarButton"]',
+                            '[data-testid="stSidebarCollapsedControl"] button',
+                            'button[aria-label="Expand sidebar"]',
+                            'button[aria-label*="Expand sidebar" i]',
+                            'button[title*="Expand sidebar" i]',
+                        ];
+                        for (const selector of selectors) {
+                            const expandButton = doc.querySelector(selector);
+                            if (expandButton && typeof expandButton.click === "function") {
+                                expandButton.click();
+                                win.setTimeout(update, 80);
+                                return;
+                            }
+                        }
+                    });
+                    doc.body.appendChild(launcher);
+                }
+
+                function sidebarIsOpen() {
+                    if (win.innerWidth <= 700) return true;
+                    const collapsedControl = doc.querySelector(
+                        '[data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"]'
+                    );
+                    if (collapsedControl && isVisible(collapsedControl)) return false;
+                    const sidebar = doc.querySelector('[data-testid="stSidebar"]');
+                    if (!sidebar) return false;
+                    const expanded = sidebar.getAttribute("aria-expanded");
+                    if (expanded === "true") return true;
+                    if (expanded === "false") return false;
+                    const style = win.getComputedStyle ? win.getComputedStyle(sidebar) : null;
+                    if (style && (style.display === "none" || style.visibility === "hidden")) return false;
+                    const rect = sidebar.getBoundingClientRect();
+                    return rect.width > 120 && rect.right > 1 && rect.left > -20;
+                }
+
+                function update() {
+                    launcher.style.display = win.innerWidth > 700 && !sidebarIsOpen() ? "flex" : "none";
+                }
+
+                update();
+                if (!win.__mochiSidebarLauncherObserver) {
+                    win.__mochiSidebarLauncherObserver = new win.MutationObserver(update);
+                    win.__mochiSidebarLauncherObserver.observe(doc.body, {
+                        attributes: true,
+                        attributeFilter: ["aria-expanded", "class", "style"],
+                        childList: true,
+                        subtree: true,
+                    });
+                    win.__mochiSidebarLauncherResize = update;
+                    win.addEventListener("resize", win.__mochiSidebarLauncherResize);
+                    win.__mochiSidebarLauncherInterval = win.setInterval(update, 500);
+                }
+            }
+
             function bindChibis() {
                 const modalOpen = syncHosts();
                 const stage = win.document.querySelector(".bts-surface[data-bts-host]");
@@ -975,6 +1074,7 @@ def render_bts_motivation(in_dialog=False):
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.refresh) {
+                installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
                 return;
             }
@@ -1090,6 +1190,7 @@ def render_bts_motivation(in_dialog=False):
             if (win.setInterval) win.__mochiBtsDragInterval = win.setInterval(bindChibis, 500);
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
             win.addEventListener("resize", win.__mochiBtsDragResize);
+            installDesktopSidebarLauncher();
         })();
         </script>
         """,
