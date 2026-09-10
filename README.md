@@ -5,7 +5,8 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 ## Current scope
 
 - English interface and explanations
-- Starts at Unit 2; Units 0–1 are treated as completed
+- Starts at Unit 2; Units 0–1 are treated as completed by default, but remain available in Lessons for reading and optional manual deck activation
+- Includes HTSK foundation material for Unit 0 and Lessons 1–25 of Unit 1; these lessons never enter the daily queue automatically
 - Lessons 26–208 in sequential lesson packs; HTSK source guides are published for 26–202, while 203–208 are clearly marked as not yet published by HTSK
 - 885 verified SRS cards: exactly five separate HTSK example cards for each published lesson 26–202; lessons 203–208 intentionally have no cards until HTSK publishes them
 - Two new lessons per day, rotating card reviews, SRS scheduling, progress page, crystals and shop
@@ -21,7 +22,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - The selected progress mascot starts flush at the beginning of the progress bar and moves with its fill; the selected card frame decorates the whole Review card
 - Consecutive study-day streaks with a daily crystal bonus
 - A daily original chibi encouragement: two full-body human chibis appear in different random positions over every app page with separate speech bubbles; they float above all app content and can be dragged aside with a mouse or finger, including while a Study or Review window is open, and remain available after a dialog is closed; one bubble gives a Korean message and the other shows its English translation; names and language labels are intentionally omitted, and difficulty follows the furthest lesson started. The daily pair is always Jimin–Jung Kook or V (Taehyung)–Jin. The floating control at the lower right hides or restores all chibis. There is no separate chibi panel behind them.
-- Lessons are grouped into expandable Unit sections, with that unit's lesson rows and Study buttons inside each section.
+- Lessons are grouped into expandable Unit sections, with that unit's lesson rows and Study buttons inside each section. Completed Units 0–1 remain visible and can be added manually to Review.
 - The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`. If only the Python file is uploaded, it still draws a self-contained full-body chibi instead of showing an animal emoji.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck

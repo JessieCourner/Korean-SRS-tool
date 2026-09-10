@@ -14,7 +14,7 @@ APP_DIR = Path(__file__).resolve().parent
 DB_PATH = Path("korean_bunpro.db")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
-EXTENDED_SEED_PATHS = [Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
+EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
 SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
 UNIT_INFO = {
     0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
@@ -1388,7 +1388,7 @@ def load_htsk_guides():
                 "examples_source": lesson.get("examples_source", ""),
                 "source_note": lesson.get("source_note", ""),
             }
-    expected = {str(number) for number in range(26, 209)}
+    expected = {str(number) for number in range(0, 209)}
     if set(guides) != expected:
         raise ValueError("The unit lesson seed files must contain exactly lessons 26–208.")
     for number, guide in guides.items():
@@ -1628,13 +1628,13 @@ def next_due_card():
         WHERE reviews.active=1
           AND reviews.retired=0
           AND (reviews.next_review<=? OR reviews.last_review IS NULL)
-          AND lessons.unit>=? AND lessons.status IN ('available','studying')
+          AND lessons.status IN ('available','studying')
         ORDER BY
             CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
             COALESCE(reviews.last_review,'0000-01-01T00:00:00'),
             reviews.next_review, cards.id
         LIMIT 1
-    """, (today(), int(setting("start_unit", "2")), today()))
+    """, (today(), today()))
 
 
 def open_review():
@@ -1804,7 +1804,7 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
+    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
     active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
     mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
     a, b, c = st.columns(3)
@@ -1890,7 +1890,7 @@ def page_dashboard():
 def render_review_contents():
     """Render the Review experience inside the app's full-screen dialog."""
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)
@@ -1971,7 +1971,9 @@ else:
 def page_lessons():
     st.title("Lessons")
     start = int(setting("start_unit", "2"))
-    lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (start,))
+    # Units 0–1 are completed by default, but remain visible for reference
+    # and can be added manually to the SRS deck from their Study dialogs.
+    lessons = rows("SELECT * FROM lessons ORDER BY unit, lesson_number")
     lessons_by_unit = {unit: [] for unit in UNIT_INFO}
     for lesson in lessons:
         lessons_by_unit.setdefault(lesson["unit"], []).append(lesson)
@@ -1990,8 +1992,7 @@ def page_lessons():
         ):
             if unit < start:
                 st.success("This unit is marked as completed before your starting point.")
-                st.caption("Its earlier lessons are not part of this app's active deck.")
-                continue
+                st.caption("It is not included in the daily queue, but you can open any lesson and add its cards manually.")
             if unit in HTSK_GROUPS:
                 links = " · ".join(f"[{name}]({url})" for name, url in HTSK_GROUPS[unit])
                 st.markdown(f"Official HTSK lesson pages: {links}")
@@ -2030,8 +2031,8 @@ def page_progress():
                SUM(CASE WHEN reviews.retired=0 AND reviews.level>=8 THEN 1 ELSE 0 END) AS mastered
         FROM lessons JOIN cards ON cards.lesson_id=lessons.id
         JOIN reviews ON reviews.card_id=cards.id
-        WHERE lessons.unit>=? GROUP BY lessons.id ORDER BY lessons.lesson_number
-    """, (int(setting("start_unit", "2")),))
+        GROUP BY lessons.id ORDER BY lessons.unit, lessons.lesson_number
+    """)
     headers = ["Unit", "Lesson", "Title", "Cards", "Active", "Mastered"]
     body = []
     for row in data:
