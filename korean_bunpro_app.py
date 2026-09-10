@@ -862,10 +862,15 @@ def bootstrap_app_data():
 
 
 def setting(key, default):
+    cache = st.session_state.setdefault("_settings_cache", {})
+    if key in cache:
+        return cache[key]
     c = db()
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
     c.close()
-    return row["value"] if row else default
+    value = row["value"] if row else default
+    cache[key] = value
+    return value
 
 
 def crystals():
@@ -1545,6 +1550,7 @@ def buy_or_activate(item_id):
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
+    st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
     return True
 
 
@@ -2034,9 +2040,19 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
-    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
-    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
+    summary = one("""
+        SELECT
+          (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
+             JOIN lessons ON lessons.id=cards.lesson_id
+             WHERE reviews.active=1 AND reviews.retired=0
+               AND (reviews.next_review<=? OR reviews.last_review IS NULL)
+               AND lessons.status IN ('available','studying')) AS due,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
+    """, (today(),))
+    due = summary["due"]
+    active = summary["active"]
+    mastered = summary["mastered"]
     a, b, c = st.columns(3)
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
