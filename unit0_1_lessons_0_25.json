@@ -11,23 +11,31 @@
       "source_status": "published",
       "source_title": "Learn How to Read Hangul",
       "meaning": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice.",
-      "when_to_use": "Study this foundation when you want to strengthen reading, pronunciation or syllable-block recognition.",
-      "how_to_build": "Arrange consonants and vowels into one-syllable blocks. The vowel occupies the second position; a final consonant can be added below. Lessons 2 and 3 continue with more letters and complex vowels.",
+      "when_to_use": "Use this unit before grammar to learn to read and pronounce Korean syllable blocks without relying on romanization.",
+      "how_to_build": "Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons.",
       "examples": [
         [
-          "ㄱ + ㅏ → 가",
-          "A consonant and vowel form one syllable block."
+          "ㄱ + ㅏ = 가",
+          "Combine the consonant and vowel."
         ],
         [
-          "ㅂ + ㅏ + ㅂ → 밥",
-          "A syllable can include a final consonant."
+          "ㅂ + ㅏ + ㅂ = 밥",
+          "Write “bab” as one syllable block."
         ],
         [
-          "ㅗ + ㅏ → ㅘ",
-          "Two vowels can combine into a complex vowel."
+          "ㅗ + ㅏ = ㅘ",
+          "Combine two vowels into a complex vowel."
+        ],
+        [
+          "ㄴ + ㅏ = 나",
+          "Combine ㄴ and ㅏ into one syllable."
+        ],
+        [
+          "ㄱ + ㅗ + ㄱ = 곡",
+          "Write “gok” as one syllable block."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "ㄱ + ㅏ = ___",
@@ -76,15 +84,31 @@
       "source_status": "published",
       "source_title": "Basic sentence structure and 이다",
       "meaning": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 이다.",
+      "when_to_use": "Use 이다 to identify people and things: “A is B.” It is the basic Korean noun-predicate pattern.",
+      "how_to_build": "Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified.",
       "examples": [
         [
-          "HTSK foundation topic: 이다",
-          "Review the official examples on the HTSK page for Basic sentence structure and 이다."
+          "저는 학생이에요",
+          "I am a student."
+        ],
+        [
+          "이것은 펜이에요",
+          "This is a pen."
+        ],
+        [
+          "저 사람은 의사예요",
+          "That person is a doctor."
+        ],
+        [
+          "저것은 의자예요",
+          "That is a chair."
+        ],
+        [
+          "민수는 선생님이에요",
+          "Minsu is a teacher."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "저는 학생___",
@@ -133,15 +157,31 @@
       "source_status": "published",
       "source_title": "이/가 and 있다",
       "meaning": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 이/가 · 있다.",
+      "when_to_use": "Use 이/가 to mark the subject and 있다 for existence, location and possession.",
+      "how_to_build": "Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence.",
       "examples": [
         [
-          "HTSK foundation topic: 이/가 · 있다",
-          "Review the official examples on the HTSK page for 이/가 and 있다."
+          "학교에 있어요.",
+          "I am at school."
+        ],
+        [
+          "책이 있어요.",
+          "There is a book."
+        ],
+        [
+          "친구가 집에 있어요",
+          "My friend is at home."
+        ],
+        [
+          "가방 안에 책이 있어요.",
+          "There is a book inside the bag."
+        ],
+        [
+          "동생이 학교에 있어요",
+          "My younger sibling is at school."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "학교___ 있어요.",
@@ -190,15 +230,31 @@
       "source_status": "published",
       "source_title": "Adjectives, verbs and possession",
       "meaning": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 의 · 좋다 · 좋아하다.",
+      "when_to_use": "Use simple verbs and adjectives to describe situations; use 의 for possession and distinguish “to be good” from “to like.”",
+      "how_to_build": "Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object.",
       "examples": [
         [
-          "HTSK foundation topic: 의 · 좋다 · 좋아하다",
-          "Review the official examples on the HTSK page for Adjectives, verbs and possession."
+          "이것은 제 책이에요.",
+          "This is my book."
+        ],
+        [
+          "한국의 음식",
+          "Korean food."
+        ],
+        [
+          "저는 음악을 좋아해요",
+          "I like music."
+        ],
+        [
+          "이것은 제 우산이에요.",
+          "This is my umbrella."
+        ],
+        [
+          "저는 한국 음식을 좋아해요",
+          "I like Korean food."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "이것은 ___ 책이에요.",
@@ -247,15 +303,31 @@
       "source_status": "published",
       "source_title": "Adjective modifiers and 도",
       "meaning": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 은/ㄴ · 도.",
+      "when_to_use": "Use adjective modifiers before nouns and 도 when adding the meaning “also/too.”",
+      "how_to_build": "Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added.",
       "examples": [
         [
-          "HTSK foundation topic: 은/ㄴ · 도",
-          "Review the official examples on the HTSK page for Adjective modifiers and 도."
+          "재미있는 영화",
+          "An interesting movie."
+        ],
+        [
+          "저도 학생도 왔어요.",
+          "That student also came."
+        ],
+        [
+          "맛있는 음식",
+          "Delicious food."
+        ],
+        [
+          "친절한 사람을 만났어요.",
+          "I met a kind person."
+        ],
+        [
+          "저도 한국어를 공부해요",
+          "I also study Korean."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "___ 영화",
@@ -304,15 +376,31 @@
       "source_status": "published",
       "source_title": "Present, past and future foundations",
       "meaning": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요.",
+      "when_to_use": "Use the present, past and future forms when talking about actions and states across time.",
+      "how_to_build": "Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem.",
       "examples": [
         [
-          "HTSK foundation topic: 아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
-          "Review the official examples on the HTSK page for Present, past and future foundations."
+          "어제 밥을 먹었어요",
+          "I ate rice yesterday."
+        ],
+        [
+          "오늘 학교에 가요",
+          "I go to school today."
+        ],
+        [
+          "내일 공부할 거예요",
+          "I will study tomorrow."
+        ],
+        [
+          "지난주에 영화를 봤어요",
+          "I watched a movie last week."
+        ],
+        [
+          "주말에 친구를 만날 거예요",
+          "I will meet a friend on the weekend."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "어제 밥을 ___",
@@ -361,15 +449,31 @@
       "source_status": "published",
       "source_title": "Polite and casual speech",
       "meaning": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 해요체 · 반말.",
+      "when_to_use": "Choose polite or casual speech according to the relationship and situation; choose 저 or 나 appropriately.",
+      "how_to_build": "Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”",
       "examples": [
         [
-          "HTSK foundation topic: 해요체 · 반말",
-          "Review the official examples on the HTSK page for Polite and casual speech."
+          "저는 학생이에요",
+          "I am a student, politely."
+        ],
+        [
+          "나 오늘 바쁘다",
+          "I am busy today, casually."
+        ],
+        [
+          "저는 한국 사람입니다.",
+          "I am Korean, formally."
+        ],
+        [
+          "오늘은 날씨가 좋다",
+          "The weather is good today, casually."
+        ],
+        [
+          "저는 회사원이에요",
+          "I am an office worker, politely."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "저는 학생___",
@@ -418,15 +522,31 @@
       "source_status": "published",
       "source_title": "Korean irregulars",
       "meaning": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 불규칙 활용.",
+      "when_to_use": "Use these irregular rules whenever a verb or adjective stem changes during conjugation.",
+      "how_to_build": "Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter.",
       "examples": [
         [
-          "HTSK foundation topic: 불규칙 활용",
-          "Review the official examples on the HTSK page for Korean irregulars."
+          "날씨가 추워요",
+          "The weather is cold."
+        ],
+        [
+          "한국어를 들어요",
+          "I listen to Korean."
+        ],
+        [
+          "친구를 도와요",
+          "I help my friend."
+        ],
+        [
+          "모르다 → 몰라요",
+          "Conjugate “not to know” politely."
+        ],
+        [
+          "쓰다 → 써요",
+          "Conjugate “to write/use” politely."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "날씨가 ___",
@@ -475,15 +595,31 @@
       "source_status": "published",
       "source_title": "Irregular quick reference",
       "meaning": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 불규칙 활용 복습.",
+      "when_to_use": "Use this as a quick reference when an irregular form is familiar but its exact conjugation is easy to forget.",
+      "how_to_build": "Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change.",
       "examples": [
         [
-          "HTSK foundation topic: 불규칙 활용 복습",
-          "Review the official examples on the HTSK page for Irregular quick reference."
+          "춥다 → 추워요",
+          "Conjugate “to be cold” politely."
+        ],
+        [
+          "듣다 → 들어요",
+          "Conjugate “to listen” politely."
+        ],
+        [
+          "돕다 → 도와요",
+          "Conjugate “to help” politely."
+        ],
+        [
+          "모르다 → 몰라요",
+          "Review the 르 irregular politely."
+        ],
+        [
+          "하얗다 → 하얘요",
+          "Review the ㅎ irregular politely."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "춥다 → ___",
@@ -532,15 +668,31 @@
       "source_status": "published",
       "source_title": "Adverbs and negation",
       "meaning": "Learn common adverbs and several ways to create negative Korean sentences.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 안 · 못 · -지 않다.",
+      "when_to_use": "Use adverbs to change how an action happens and 안/못 or -지 않다 to make negative sentences.",
+      "how_to_build": "Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability.",
       "examples": [
         [
-          "HTSK foundation topic: 안 · 못 · -지 않다",
-          "Review the official examples on the HTSK page for Adverbs and negation."
+          "오늘 학교에 안 가요.",
+          "I do not go to school today."
+        ],
+        [
+          "한국어를 못 해요.",
+          "I cannot speak Korean well."
+        ],
+        [
+          "커피를 마시지 않아요.",
+          "I do not drink coffee."
+        ],
+        [
+          "오늘은 비가 안 와요.",
+          "It is not raining today."
+        ],
+        [
+          "매운 음식을 못 먹어요.",
+          "I cannot eat spicy food."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "오늘 학교에 ___ 가요.",
@@ -589,15 +741,31 @@
       "source_status": "published",
       "source_title": "Conjugating 이다 and future forms",
       "meaning": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 이다 · 것/거예요.",
+      "when_to_use": "Use the special 이다 forms in formalities and use 것이다/거예요 for future or explanatory statements.",
+      "how_to_build": "Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요.",
       "examples": [
         [
-          "HTSK foundation topic: 이다 · 것/거예요",
-          "Review the official examples on the HTSK page for Conjugating 이다 and future forms."
+          "학생이에요",
+          "I am a student."
+        ],
+        [
+          "의사예요",
+          "I am a doctor."
+        ],
+        [
+          "내일 갈 거예요",
+          "The thing/fact that I will go tomorrow."
+        ],
+        [
+          "그 사람은 의사일 것이다",
+          "That person is a doctor."
+        ],
+        [
+          "저녁에 공부할 것이다",
+          "The thing/fact that I will study in the evening."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "학생___",
@@ -646,15 +814,31 @@
       "source_status": "published",
       "source_title": "Numbers, counters and time",
       "meaning": "Learn the two Korean number systems, counters and how to tell the time.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: Native/Sino-Korean numbers.",
+      "when_to_use": "Use native Korean numbers for counting and hours, Sino-Korean numbers for minutes and many numerical contexts, and counters with nouns.",
+      "how_to_build": "Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes.",
       "examples": [
         [
-          "HTSK foundation topic: Native/Sino-Korean numbers",
-          "Review the official examples on the HTSK page for Numbers, counters and time."
+          "사과 세 개",
+          "three apples."
+        ],
+        [
+          "지금 두 시예요.",
+          "It is two o’clock now."
+        ],
+        [
+          "오후 세 시",
+          "3:00 p.m."
+        ],
+        [
+          "사람 세 명이 왔어요.",
+          "Three people came."
+        ],
+        [
+          "지금 열두 시예요.",
+          "It is twelve o’clock now."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "사과 ___ 개",
@@ -703,15 +887,31 @@
       "source_status": "published",
       "source_title": "Words of time",
       "meaning": "Use common time expressions to say how long something lasted and when it happened.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 동안 · 전 · 후.",
+      "when_to_use": "Use 동안 for duration and time words such as 전 and 후 to place an action before or after another time.",
+      "how_to_build": "Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it.",
       "examples": [
         [
-          "HTSK foundation topic: 동안 · 전 · 후",
-          "Review the official examples on the HTSK page for Words of time."
+          "두 시간동안 공부했어요.",
+          "I studied for two hours."
+        ],
+        [
+          "3년 전 한국에 왔어요.",
+          "I came to Korea three years ago."
+        ],
+        [
+          "수업 후에 만나요.",
+          "Let’s meet after class."
+        ],
+        [
+          "한 달동안 한국어를 공부했어요.",
+          "I studied Korean for one month."
+        ],
+        [
+          "점심 후에 전화할게요.",
+          "I will call after lunch."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "두 시간___ 공부했어요.",
@@ -760,15 +960,31 @@
       "source_status": "published",
       "source_title": "Common particles I",
       "meaning": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 들 · 만 · 에서 · 부터 · 까지 · 로.",
+      "when_to_use": "Use these particles to express plural meaning, limitation, place, starting point, endpoint, route and means.",
+      "how_to_build": "Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means.",
       "examples": [
         [
-          "HTSK foundation topic: 들 · 만 · 에서 · 부터 · 까지 · 로",
-          "Review the official examples on the HTSK page for Common particles I."
+          "친구들과 같이 갔어요.",
+          "I went together with friends."
+        ],
+        [
+          "주말만 쉬어요.",
+          "I rest only on weekends."
+        ],
+        [
+          "집에서 학교까지 걸어요.",
+          "I walk from home to school."
+        ],
+        [
+          "친구들과 영화를 봤어요.",
+          "I watched a movie with friends."
+        ],
+        [
+          "서울에서 부산까지 갔어요.",
+          "I went from Seoul to Busan."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "친구___ 같이 갔어요.",
@@ -817,15 +1033,31 @@
       "source_status": "published",
       "source_title": "Common particles II",
       "meaning": "Learn ways to express and/with, to/from a person, for and about.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해.",
+      "when_to_use": "Use these particles to say with/and, to or from a person, for someone or something, and about a topic.",
+      "how_to_build": "Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”",
       "examples": [
         [
-          "HTSK foundation topic: 와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
-          "Review the official examples on the HTSK page for Common particles II."
+          "친구하고 영화를 봤어요.",
+          "I watched a movie with my friend."
+        ],
+        [
+          "선생님에게 질문했어요.",
+          "I asked the teacher a question."
+        ],
+        [
+          "가족을 위해 선물을 샀어요.",
+          "I bought a gift for my family."
+        ],
+        [
+          "동생하고 이야기했어요.",
+          "I talked with my younger sibling."
+        ],
+        [
+          "친구에게 편지를 보냈어요.",
+          "I sent a letter to my friend."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "친구___ 영화를 봤어요.",
@@ -874,15 +1106,31 @@
       "source_status": "published",
       "source_title": "Passive verbs",
       "meaning": "Learn the basic idea of passive verbs and common suffixes used to form them.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 이/히/리/기.",
+      "when_to_use": "Use passive forms when the subject receives an action rather than intentionally performing it.",
+      "how_to_build": "Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence.",
       "examples": [
         [
-          "HTSK foundation topic: 이/히/리/기",
-          "Review the official examples on the HTSK page for Passive verbs."
+          "문이 열렸어요",
+          "The door was opened."
+        ],
+        [
+          "책이 읽혔어요",
+          "The book was read."
+        ],
+        [
+          "사진이 찍혔어요",
+          "The photo was taken."
+        ],
+        [
+          "창문이 닫혔어요",
+          "The window was closed."
+        ],
+        [
+          "문이 바람에 열렸어요",
+          "The door was opened by the wind."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "문이 ___",
@@ -931,15 +1179,31 @@
       "source_status": "published",
       "source_title": "Miscellaneous grammar",
       "meaning": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 아/어 하다 · 들다 · 걸리다.",
+      "when_to_use": "Use these common expressions for feelings, preferences, compound actions, homonyms and illness.",
+      "how_to_build": "Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses.",
       "examples": [
         [
-          "HTSK foundation topic: 아/어 하다 · 들다 · 걸리다",
-          "Review the official examples on the HTSK page for Miscellaneous grammar."
+          "저는 음악을 좋아해요",
+          "I like music."
+        ],
+        [
+          "감기에 걸렸어요",
+          "I caught a cold."
+        ],
+        [
+          "약을 먹었어요",
+          "I took medicine."
+        ],
+        [
+          "저는 매운 음식을 싫어해요",
+          "I dislike spicy food."
+        ],
+        [
+          "머리가 아파요",
+          "I have a headache."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "저는 음악을 ___",
@@ -988,15 +1252,31 @@
       "source_status": "published",
       "source_title": "적 and 스럽다",
       "meaning": "Learn how 적 and 스럽다 attach to words and change their meaning.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 적 · 스럽다.",
+      "when_to_use": "Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.”",
+      "how_to_build": "Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward.",
       "examples": [
         [
-          "HTSK foundation topic: 적 · 스럽다",
-          "Review the official examples on the HTSK page for 적 and 스럽다."
+          "한국적인 음식",
+          "Korean-style food."
+        ],
+        [
+          "사랑스러운 사람",
+          "A loving person."
+        ],
+        [
+          "자연적인 환경",
+          "A natural environment."
+        ],
+        [
+          "문화적인 차이",
+          "A cultural difference."
+        ],
+        [
+          "자연스러운 분위기",
+          "A natural atmosphere."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "한국___ 음식",
@@ -1045,15 +1325,31 @@
       "source_status": "published",
       "source_title": "Connecting clauses with 고",
       "meaning": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 고 · 고 싶다.",
+      "when_to_use": "Use 고 to connect clauses and 고 싶다 to say that you want to do something.",
+      "how_to_build": "Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem.",
       "examples": [
         [
-          "HTSK foundation topic: 고 · 고 싶다",
-          "Review the official examples on the HTSK page for Connecting clauses with 고."
+          "밥을 먹고 공부했어요.",
+          "I ate and studied."
+        ],
+        [
+          "한국에 가고 싶어요.",
+          "I want to go to Korea."
+        ],
+        [
+          "책을 읽고 음악을 들었어요.",
+          "I read a book and listened to music."
+        ],
+        [
+          "아침을 먹고 학교에 갔어요.",
+          "I ate breakfast and went to school."
+        ],
+        [
+          "여행하고 싶어요.",
+          "I want to travel."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "밥을 먹___ 공부했어요.",
@@ -1102,15 +1398,31 @@
       "source_status": "published",
       "source_title": "Progressive and change of state",
       "meaning": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 고 있다 · 아/어지다.",
+      "when_to_use": "Use 고 있다 for an action in progress and 아/어지다 when a quality or state changes.",
+      "how_to_build": "Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”",
       "examples": [
         [
-          "HTSK foundation topic: 고 있다 · 아/어지다",
-          "Review the official examples on the HTSK page for Progressive and change of state."
+          "지금 책을 읽고 있어요.",
+          "I am reading a book now."
+        ],
+        [
+          "날씨가 추워지고 있어요.",
+          "The weather is becoming cold."
+        ],
+        [
+          "한국어를 공부하고 있어요.",
+          "I am studying Korean."
+        ],
+        [
+          "친구를 기다리고 있어요.",
+          "I am waiting for my friend."
+        ],
+        [
+          "날이 따뜻해지고 있어요.",
+          "The weather is getting warm."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "지금 책을 읽___ 있어요.",
@@ -1159,15 +1471,31 @@
       "source_status": "published",
       "source_title": "Comparatives and superlatives",
       "meaning": "Make comparative and superlative sentences and understand the common word 더.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 보다 · 더 · 제일/가장.",
+      "when_to_use": "Use 보다 for “more ... than” and 제일/가장 for “the most”; 더 means “more.”",
+      "how_to_build": "Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression.",
       "examples": [
         [
-          "HTSK foundation topic: 보다 · 더 · 제일/가장",
-          "Review the official examples on the HTSK page for Comparatives and superlatives."
+          "한국어가 영어보다 어려워요.",
+          "Korean is more difficult than English."
+        ],
+        [
+          "오늘은 어제보다 더워요.",
+          "Today is hotter than yesterday."
+        ],
+        [
+          "이것이 제일 좋아요.",
+          "This is the best."
+        ],
+        [
+          "이 가방은 저 가방보다 비싸요.",
+          "This bag is more expensive than that bag."
+        ],
+        [
+          "서울이 한국에서 제일 커요.",
+          "Seoul is the biggest in Korea."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "한국어가 영어___ 어려워요.",
@@ -1216,15 +1544,31 @@
       "source_status": "published",
       "source_title": "잘 and 못",
       "meaning": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 잘 · 못 · 잘하다 · 못하다.",
+      "when_to_use": "Use 잘 and 못 before a verb for doing something well or poorly, and 잘하다/못하다 when the whole ability is the predicate.",
+      "how_to_build": "Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity.",
       "examples": [
         [
-          "HTSK foundation topic: 잘 · 못 · 잘하다 · 못하다",
-          "Review the official examples on the HTSK page for 잘 and 못."
+          "한국어를 잘해요.",
+          "I speak Korean well."
+        ],
+        [
+          "운전을 못해요.",
+          "I cannot drive well."
+        ],
+        [
+          "저는 요리를 잘해요",
+          "I am good at cooking."
+        ],
+        [
+          "저는 수영을 잘해요.",
+          "I am good at swimming."
+        ],
+        [
+          "동생은 노래를 못해요.",
+          "My younger sibling sings poorly."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "한국어를 ___해요.",
@@ -1273,15 +1617,31 @@
       "source_status": "published",
       "source_title": "Questions I",
       "meaning": "Form questions without question words and use common words such as who, what, when, why and where.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 누구 · 뭐 · 언제 · 왜 · 어디.",
+      "when_to_use": "Use Korean question intonation and question words such as 누구, 뭐, 언제, 왜 and 어디.",
+      "how_to_build": "Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place.",
       "examples": [
         [
-          "HTSK foundation topic: 누구 · 뭐 · 언제 · 왜 · 어디",
-          "Review the official examples on the HTSK page for Questions I."
+          "어제 누구를 만났어요?",
+          "Whom did you meet yesterday?"
+        ],
+        [
+          "뭐를 먹었어요?",
+          "What did you eat?"
+        ],
+        [
+          "왜 와요?",
+          "Why are you coming?"
+        ],
+        [
+          "언제 학교에 갔어요?",
+          "When did you go to school?"
+        ],
+        [
+          "어디에 살아요?",
+          "Where do you live?"
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "어제 ___ 만났어요?",
@@ -1330,15 +1690,31 @@
       "source_status": "published",
       "source_title": "Questions II",
       "meaning": "Ask questions with how, which and how many.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 어떻게 · 어느 · 몇.",
+      "when_to_use": "Use 어떻게, 어느 and 몇 to ask how, which and how many.",
+      "how_to_build": "Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”",
       "examples": [
         [
-          "HTSK foundation topic: 어떻게 · 어느 · 몇",
-          "Review the official examples on the HTSK page for Questions II."
+          "한국어를 어떻게 공부해요?",
+          "How do you study Korean?"
+        ],
+        [
+          "어느 책이 좋아요?",
+          "Which book do you like?"
+        ],
+        [
+          "사과를 몇 개 샀어요?",
+          "How many apples did you buy?"
+        ],
+        [
+          "몇 사람이 왔어요?",
+          "How many people came?"
+        ],
+        [
+          "어느 영화를 좋아해요?",
+          "Which movie do you like?"
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "한국어를 ___ 공부해요?",
@@ -1387,15 +1763,31 @@
       "source_status": "published",
       "source_title": "ㅎ irregular and colors",
       "meaning": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: ㅎ 불규칙.",
+      "when_to_use": "Use the ㅎ irregular with relevant adjectives such as colors and with 이렇다, 그렇다 and 저렇다.",
+      "how_to_build": "When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern.",
       "examples": [
         [
-          "HTSK foundation topic: ㅎ 불규칙",
-          "Review the official examples on the HTSK page for ㅎ irregular and colors."
+          "날씨가 파래요",
+          "The sky is blue/clear."
+        ],
+        [
+          "어떤 색이에요?",
+          "What kind of color is it?"
+        ],
+        [
+          "어떤 사람입니까?",
+          "What kind of person is he/she?"
+        ],
+        [
+          "하늘이 파래요",
+          "The sky is blue."
+        ],
+        [
+          "어떤 모양이에요?",
+          "What kind of shape is it?"
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "날씨가 ___",
@@ -1444,15 +1836,31 @@
       "source_status": "published",
       "source_title": "Time expressions and indefinite words",
       "meaning": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
-      "when_to_use": "Review this HTSK foundation lesson here before deciding whether to add its cards to your SRS deck.",
-      "how_to_build": "Review the forms and examples on the official HTSK page. Key focus: 전 · 후 · 이래로 · 이내 · 누구든지.",
+      "when_to_use": "Use 전, 후, 이래로 and 이내 to position events in time, and indefinite words to mean anybody, somebody or everybody.",
+      "how_to_build": "Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings.",
       "examples": [
         [
-          "HTSK foundation topic: 전 · 후 · 이래로 · 이내 · 누구든지",
-          "Review the official examples on the HTSK page for Time expressions and indefinite words."
+          "수업 후에 복습해요.",
+          "I review after class."
+        ],
+        [
+          "누구든지 올 수 있어요.",
+          "Anybody can come."
+        ],
+        [
+          "한 시간 이내에 끝나요.",
+          "It ends within one hour."
+        ],
+        [
+          "회의 전에에 도착했어요.",
+          "I arrived before the meeting."
+        ],
+        [
+          "한 달 이내에 끝낼 거예요.",
+          "I will finish within one month."
         ]
       ],
-      "examples_source": "How to Study Korean official lesson page",
+      "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
           "prompt": "수업 ___에 복습해요.",
