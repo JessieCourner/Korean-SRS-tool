@@ -85,25 +85,26 @@ TRACKER_COLORS = {
     "tracker_sakura": "#e8a7c5",
 }
 
-# These are original in-app encouragements written for the chibi companion
-# panel.  They use the BTS member names as character labels; they are not
-# presented as real quotations or official BTS content.
+# These are original in-app encouragements written for the chibi companions.
+# The two daily friends always use one of the requested pairs: Jimin with
+# Jung Kook, or V (Taehyung) with Jin.  They are not presented as real
+# quotations or official BTS content.
 BTS_MOTIVATION = [
-    {"level": 1, "ko_member": "RM", "ko_icon": "🐨", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘도 한 문장만 읽어도 충분해요.", "en": "Reading just one sentence today is already enough."},
-    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "V", "en_icon": "🐯", "ko": "천천히 해도 괜찮아요. 매일 조금씩 나아지고 있어요.", "en": "It is okay to go slowly. You are getting better little by little every day."},
-    {"level": 1, "ko_member": "Jin", "ko_icon": "🐹", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "작은 성공도 소중한 성공이에요.", "en": "A small success is still a precious success."},
-    {"level": 2, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "Jimin", "en_icon": "🐣", "ko": "틀린 답은 멈춤이 아니라 다음 시도를 위한 힌트예요.", "en": "A wrong answer is not a stop; it is a hint for your next attempt."},
-    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "RM", "en_icon": "🐨", "ko": "익숙한 표현을 직접 써 볼 때 실력이 더 단단해져요.", "en": "Your skills become stronger when you use a familiar expression yourself."},
-    {"level": 2, "ko_member": "j-hope", "ko_icon": "🐿️", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘 배운 문법을 한 문장으로 만들어 보면 기억에 오래 남아요.", "en": "If you make one sentence with today's grammar, it will stay with you longer."},
-    {"level": 3, "ko_member": "Jung Kook", "ko_icon": "🐰", "en_member": "SUGA", "en_icon": "🐱", "ko": "꾸준히 복습하면 어제 어렵던 문장도 자연스럽게 읽을 수 있어요.", "en": "With steady review, you can read naturally even the sentences that felt difficult yesterday."},
-    {"level": 3, "ko_member": "j-hope", "ko_icon": "🐿️", "en_member": "Jimin", "en_icon": "🐣", "ko": "새로운 문법을 이해할 때마다 한국어로 표현할 수 있는 생각이 넓어져요.", "en": "Every time you understand new grammar, more of your thoughts become expressible in Korean."},
-    {"level": 3, "ko_member": "RM", "ko_icon": "🐨", "en_member": "V", "en_icon": "🐯", "ko": "실수한 부분을 다시 살펴보는 습관이 실력을 오래 지켜 줘요.", "en": "The habit of revisiting your mistakes protects your progress for the long term."},
-    {"level": 4, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "문맥 속에서 표현의 뉘앙스를 비교하면 더 정확하게 선택할 수 있어요.", "en": "Comparing nuances in context helps you choose the most accurate expression."},
-    {"level": 4, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "RM", "en_icon": "🐨", "ko": "익숙한 문법을 새로운 상황에 옮겨 쓰는 순간, 지식이 진짜 실력이 돼요.", "en": "When you carry familiar grammar into a new situation, knowledge becomes real skill."},
-    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "j-hope", "en_icon": "🐿️", "ko": "긴 문장도 관계를 하나씩 나누어 보면 핵심 의미가 선명해져요.", "en": "Even a long sentence becomes clear when you separate its relationships one by one."},
-    {"level": 5, "ko_member": "RM", "ko_icon": "🐨", "en_member": "Jimin", "en_icon": "🐣", "ko": "복잡한 문장일수록 화자의 의도와 문법의 기능을 함께 살펴보면 의미가 정확해져요.", "en": "The more complex a sentence is, the more accurately you understand it by considering the speaker's intent and the grammar's function together."},
-    {"level": 5, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "V", "en_icon": "🐯", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
-    {"level": 5, "ko_member": "Jung Kook", "ko_icon": "🐰", "en_member": "j-hope", "en_icon": "🐿️", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
+    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "오늘도 한 문장만 읽어도 충분해요.", "en": "Reading just one sentence today is already enough."},
+    {"level": 1, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "천천히 해도 괜찮아요. 매일 조금씩 나아지고 있어요.", "en": "It is okay to go slowly. You are getting better little by little every day."},
+    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "작은 성공도 소중한 성공이에요.", "en": "A small success is still a precious success."},
+    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "틀린 답은 멈춤이 아니라 다음 시도를 위한 힌트예요.", "en": "A wrong answer is not a stop; it is a hint for your next attempt."},
+    {"level": 2, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "익숙한 표현을 직접 써 볼 때 실력이 더 단단해져요.", "en": "Your skills become stronger when you use a familiar expression yourself."},
+    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘 배운 문법을 한 문장으로 만들어 보면 기억에 오래 남아요.", "en": "If you make one sentence with today's grammar, it will stay with you longer."},
+    {"level": 3, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "꾸준히 복습하면 어제 어렵던 문장도 자연스럽게 읽을 수 있어요.", "en": "With steady review, you can read naturally even the sentences that felt difficult yesterday."},
+    {"level": 3, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "새로운 문법을 이해할 때마다 한국어로 표현할 수 있는 생각이 넓어져요.", "en": "Every time you understand new grammar, more of your thoughts become expressible in Korean."},
+    {"level": 3, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "실수한 부분을 다시 살펴보는 습관이 실력을 오래 지켜 줘요.", "en": "The habit of revisiting your mistakes protects your progress for the long term."},
+    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "문맥 속에서 표현의 뉘앙스를 비교하면 더 정확하게 선택할 수 있어요.", "en": "Comparing nuances in context helps you choose the most accurate expression."},
+    {"level": 4, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "익숙한 문법을 새로운 상황에 옮겨 쓰는 순간, 지식이 진짜 실력이 돼요.", "en": "When you carry familiar grammar into a new situation, knowledge becomes real skill."},
+    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "긴 문장도 관계를 하나씩 나누어 보면 핵심 의미가 선명해져요.", "en": "Even a long sentence becomes clear when you separate its relationships one by one."},
+    {"level": 5, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "복잡한 문장일수록 화자의 의도와 문법의 기능을 함께 살펴보면 의미가 정확해져요.", "en": "The more complex a sentence is, the more accurately you understand it by considering the speaker's intent and the grammar's function together."},
+    {"level": 5, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
+    {"level": 5, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
 ]
 BTS_ASSET_FILES = {
     "RM": "rm.png",
@@ -210,10 +211,10 @@ st.markdown("""
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
     .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
-    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
+    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
@@ -264,8 +265,18 @@ st.markdown("""
     .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
     .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
     .brand-subtitle {font-size:11px; color:#987a9d; margin-top:3px;}
-    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:rgba(255,255,255,.58) !important; overflow:visible !important; margin:10px 0 !important;}
-    [data-testid="stExpander"] summary {color:#654b78 !important; font-weight:800 !important;}
+    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:#fffaff !important; color:#654b78 !important; overflow:visible !important; margin:10px 0 !important;}
+    [data-testid="stExpander"] details {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important;}
+    [data-testid="stExpander"] details > summary,
+    [data-testid="stExpander"] summary[data-testid="stExpanderToggle"] {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important; font-weight:800 !important;}
+    [data-testid="stExpander"] details[open] > summary,
+    [data-testid="stExpander"] details[open] summary[data-testid="stExpanderToggle"] {background:linear-gradient(110deg,#fbe7f3,#eee7ff) !important; color:#5b4770 !important;}
+    [data-testid="stExpander"] summary:hover {background:#f8edf8 !important; color:#5b4770 !important;}
+    [data-testid="stExpander"] summary > div,
+    [data-testid="stExpander"] summary * {background:transparent !important; color:#654b78 !important;}
+    [data-testid="stExpander"] summary span,
+    [data-testid="stExpander"] summary p {color:#654b78 !important;}
+    [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
@@ -292,7 +303,51 @@ st.markdown("""
     .st-key-mobile_nav_button button span {font-size:27px !important; line-height:1 !important; margin:0 !important; color:#684d7b !important;}
     .st-key-mobile_nav_panel {position:fixed !important; top:55px; left:8px; z-index:2147483647 !important; width:min(280px,calc(100vw - 16px)); max-height:calc(100vh - 65px); overflow-y:auto; padding:10px 12px 12px; border:2px solid #efb8d6; border-radius:20px; background:rgba(255,250,255,.98); box-shadow:0 12px 28px rgba(91,71,112,.2); pointer-events:auto !important;}
     .st-key-mobile_nav_panel .stButton > button {width:100%; min-height:2.6rem; margin:3px 0; touch-action:manipulation;}
-    @media (min-width: 701px) { .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;} }
+    @media (min-width: 701px) {
+        .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;}
+        /* Keep Streamlit's reopen control above the floating chibis.  When the
+           sidebar is collapsed this is the only way back to the desktop menu. */
+        [data-testid="stSidebarCollapsedControl"] {
+            display:flex !important;
+            position:fixed !important;
+            top:10px !important;
+            left:10px !important;
+            z-index:2147483647 !important;
+            pointer-events:auto !important;
+            visibility:visible !important;
+            opacity:1 !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] button {
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            width:44px !important;
+            height:44px !important;
+            min-width:44px !important;
+            min-height:44px !important;
+            padding:0 !important;
+            border:2px solid #efb8d6 !important;
+            border-radius:14px !important;
+            background:#fffaff !important;
+            color:#684d7b !important;
+            box-shadow:0 8px 18px rgba(91,71,112,.18) !important;
+            pointer-events:auto !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] button:hover,
+        [data-testid="stSidebarCollapsedControl"] button:focus,
+        [data-testid="stSidebarCollapsedControl"] button:focus-visible {
+            border-color:#d99ac0 !important;
+            background:#fff1f8 !important;
+            color:#5b4770 !important;
+            outline:none !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] svg {
+            width:22px !important;
+            height:22px !important;
+            color:#684d7b !important;
+            fill:#684d7b !important;
+        }
+    }
     @media (max-width: 700px) {
         .block-container {padding: 4rem .75rem 2rem;}
         /* Streamlit's desktop sidebar is hidden on a phone; the fixed
@@ -807,6 +862,29 @@ def render_bts_motivation(in_dialog=False):
         (() => {
             const win = window.parent;
             const storagePrefix = "mochi-hangul-chibi-position-v3";
+            const hiddenStorageKey = "mochi-hangul-chibis-hidden-v1";
+
+            function chibisAreHidden() {
+                try {
+                    return win.localStorage.getItem(hiddenStorageKey) === "1";
+                } catch (error) {
+                    return false;
+                }
+            }
+
+            function applyChibiVisibility() {
+                const hidden = chibisAreHidden();
+                win.document.querySelectorAll(".bts-scene").forEach((scene) => {
+                    scene.style.visibility = hidden ? "hidden" : "";
+                    scene.style.pointerEvents = hidden ? "none" : "";
+                });
+                const toggle = win.document.getElementById("mochi-chibi-toggle");
+                if (toggle) {
+                    toggle.textContent = hidden ? "👀" : "🙈";
+                    toggle.title = hidden ? "Show chibis" : "Hide chibis";
+                    toggle.setAttribute("aria-label", hidden ? "Show chibis" : "Hide chibis");
+                }
+            }
 
             function clamp(value, minimum, maximum) {
                 return Math.min(Math.max(value, minimum), maximum);
@@ -878,7 +956,156 @@ def render_bts_motivation(in_dialog=False):
                 win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
                     scene.style.display = modalOpen ? "" : "none";
                 });
+                applyChibiVisibility();
                 return modalOpen;
+            }
+
+            function installDesktopSidebarLauncher() {
+                const doc = win.document;
+                let launcher = doc.getElementById("mochi-desktop-sidebar-launcher");
+                if (!launcher) {
+                    launcher = doc.createElement("button");
+                    launcher.id = "mochi-desktop-sidebar-launcher";
+                    launcher.type = "button";
+                    launcher.textContent = "☰";
+                    launcher.setAttribute("aria-label", "Open navigation menu");
+                    launcher.title = "Open navigation menu";
+                    Object.assign(launcher.style, {
+                        position: "fixed",
+                        top: "10px",
+                        left: "10px",
+                        zIndex: "2147483647",
+                        display: "none",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "44px",
+                        height: "44px",
+                        minWidth: "44px",
+                        minHeight: "44px",
+                        padding: "0",
+                        border: "2px solid #efb8d6",
+                        borderRadius: "14px",
+                        background: "#fffaff",
+                        color: "#684d7b",
+                        boxShadow: "0 8px 18px rgba(91,71,112,.18)",
+                        fontFamily: "inherit",
+                        fontSize: "25px",
+                        lineHeight: "1",
+                        cursor: "pointer",
+                        pointerEvents: "auto",
+                        touchAction: "manipulation",
+                    });
+                    launcher.addEventListener("mouseenter", () => {
+                        launcher.style.background = "#fff1f8";
+                        launcher.style.borderColor = "#d99ac0";
+                    });
+                    launcher.addEventListener("mouseleave", () => {
+                        launcher.style.background = "#fffaff";
+                        launcher.style.borderColor = "#efb8d6";
+                    });
+                    launcher.addEventListener("click", () => {
+                        const selectors = [
+                            '[data-testid="stExpandSidebarButton"]',
+                            '[data-testid="stSidebarCollapsedControl"] button',
+                            'button[aria-label="Expand sidebar"]',
+                            'button[aria-label*="Expand sidebar" i]',
+                            'button[title*="Expand sidebar" i]',
+                        ];
+                        for (const selector of selectors) {
+                            const expandButton = doc.querySelector(selector);
+                            if (expandButton && typeof expandButton.click === "function") {
+                                expandButton.click();
+                                win.setTimeout(update, 80);
+                                return;
+                            }
+                        }
+                    });
+                    doc.body.appendChild(launcher);
+                }
+
+                let toggle = doc.getElementById("mochi-chibi-toggle");
+                if (!toggle) {
+                    toggle = doc.createElement("button");
+                    toggle.id = "mochi-chibi-toggle";
+                    toggle.type = "button";
+                    Object.assign(toggle.style, {
+                        position: "fixed",
+                        right: "14px",
+                        bottom: "14px",
+                        zIndex: "2147483647",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "46px",
+                        height: "46px",
+                        minWidth: "46px",
+                        minHeight: "46px",
+                        padding: "0",
+                        border: "2px solid #efb8d6",
+                        borderRadius: "16px",
+                        background: "#fffaff",
+                        color: "#684d7b",
+                        boxShadow: "0 8px 18px rgba(91,71,112,.18)",
+                        fontFamily: "inherit",
+                        fontSize: "23px",
+                        lineHeight: "1",
+                        cursor: "pointer",
+                        pointerEvents: "auto",
+                        touchAction: "manipulation",
+                    });
+                    toggle.addEventListener("click", () => {
+                        const hidden = !chibisAreHidden();
+                        try {
+                            win.localStorage.setItem(hiddenStorageKey, hidden ? "1" : "0");
+                        } catch (error) {}
+                        applyChibiVisibility();
+                    });
+                    toggle.addEventListener("mouseenter", () => {
+                        toggle.style.background = "#fff1f8";
+                        toggle.style.borderColor = "#d99ac0";
+                    });
+                    toggle.addEventListener("mouseleave", () => {
+                        toggle.style.background = "#fffaff";
+                        toggle.style.borderColor = "#efb8d6";
+                    });
+                    doc.body.appendChild(toggle);
+                }
+                applyChibiVisibility();
+
+                function sidebarIsOpen() {
+                    if (win.innerWidth <= 700) return true;
+                    const collapsedControl = doc.querySelector(
+                        '[data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"]'
+                    );
+                    if (collapsedControl && isVisible(collapsedControl)) return false;
+                    const sidebar = doc.querySelector('[data-testid="stSidebar"]');
+                    if (!sidebar) return false;
+                    const expanded = sidebar.getAttribute("aria-expanded");
+                    if (expanded === "true") return true;
+                    if (expanded === "false") return false;
+                    const style = win.getComputedStyle ? win.getComputedStyle(sidebar) : null;
+                    if (style && (style.display === "none" || style.visibility === "hidden")) return false;
+                    const rect = sidebar.getBoundingClientRect();
+                    return rect.width > 120 && rect.right > 1 && rect.left > -20;
+                }
+
+                function update() {
+                    launcher.style.display = win.innerWidth > 700 && !sidebarIsOpen() ? "flex" : "none";
+                }
+
+                update();
+                if (!win.__mochiSidebarLauncherObserver) {
+                    win.__mochiSidebarLauncherObserver = new win.MutationObserver(update);
+                    win.__mochiSidebarLauncherObserver.observe(doc.body, {
+                        attributes: true,
+                        attributeFilter: ["aria-expanded", "class", "style"],
+                        childList: true,
+                        subtree: true,
+                    });
+                    win.__mochiSidebarLauncherResize = update;
+                    win.addEventListener("resize", win.__mochiSidebarLauncherResize);
+                    win.__mochiSidebarLauncherInterval = win.setInterval(update, 500);
+                }
             }
 
             function bindChibis() {
@@ -889,6 +1116,12 @@ def render_bts_motivation(in_dialog=False):
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
                     const inModal = Boolean(scene.closest(".bts-dialog-surface"));
                     if (modalOpen !== inModal) return;
+                    scene.querySelectorAll("img").forEach((image) => {
+                        image.draggable = false;
+                        image.setAttribute("draggable", "false");
+                        image.style.userSelect = "none";
+                        image.style.webkitUserDrag = "none";
+                    });
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
                     scene.style.zIndex = "2147483000";
@@ -899,6 +1132,16 @@ def render_bts_motivation(in_dialog=False):
                         return;
                     }
                     scene.dataset.chibiPositionBound = "1";
+                    scene.addEventListener("pointerdown", beginDrag, eventOptions);
+                    scene.addEventListener("mousedown", beginDrag, eventOptions);
+                    scene.addEventListener("touchstart", beginDrag, eventOptions);
+                    scene.addEventListener("dragstart", preventNativeDrag, eventOptions);
+                    controller.sceneBindings.push({scene, events: [
+                        ["pointerdown", beginDrag],
+                        ["mousedown", beginDrag],
+                        ["touchstart", beginDrag],
+                        ["dragstart", preventNativeDrag],
+                    ]});
                     let hasSavedPosition = false;
                     try {
                         const saved = JSON.parse(win.localStorage.getItem(key) || "null");
@@ -921,6 +1164,7 @@ def render_bts_motivation(in_dialog=False):
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.refresh) {
+                installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
                 return;
             }
@@ -930,7 +1174,7 @@ def render_bts_motivation(in_dialog=False):
             if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
             if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
 
-            const controller = {drag: null};
+            const controller = {drag: null, sceneBindings: []};
             const eventOptions = {capture: true, passive: false};
 
             function sceneFromTarget(target) {
@@ -941,6 +1185,11 @@ def render_bts_motivation(in_dialog=False):
                 if (event.touches && event.touches.length) return event.touches[0];
                 if (event.changedTouches && event.changedTouches.length) return event.changedTouches[0];
                 return event;
+            }
+
+            function preventNativeDrag(event) {
+                event.preventDefault();
+                event.stopPropagation();
             }
 
             function beginDrag(event) {
@@ -1014,6 +1263,11 @@ def render_bts_motivation(in_dialog=False):
             controller.refresh = bindChibis;
             controller.destroy = () => {
                 Object.entries(listeners).forEach(([name, handler]) => win.document.removeEventListener(name, handler, eventOptions));
+                controller.sceneBindings.forEach(({scene, events}) => {
+                    events.forEach(([name, handler]) => scene.removeEventListener(name, handler, eventOptions));
+                    delete scene.dataset.chibiPositionBound;
+                });
+                controller.sceneBindings = [];
                 if (controller.drag) controller.drag.scene.classList.remove("bts-dragging");
                 controller.drag = null;
                 if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
@@ -1036,6 +1290,7 @@ def render_bts_motivation(in_dialog=False):
             if (win.setInterval) win.__mochiBtsDragInterval = win.setInterval(bindChibis, 500);
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
             win.addEventListener("resize", win.__mochiBtsDragResize);
+            installDesktopSidebarLauncher();
         })();
         </script>
         """,
