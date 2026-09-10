@@ -88,7 +88,10 @@ class PostgresCursor:
 
 class PostgresConnection:
     def __init__(self, url):
-        self.raw = psycopg2.connect(url) if "sslmode=" in url else psycopg2.connect(url, sslmode="require")
+        # A short timeout prevents a blocked startup from looking like a blank
+        # page in Streamlit Cloud.  The bootstrap lock below serializes the
+        # first-run schema/seed work across multiple Streamlit sessions.
+        self.raw = psycopg2.connect(url, connect_timeout=15) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15)
 
     def execute(self, sql, params=()):
         return PostgresCursor(self).execute(sql, params)
@@ -510,8 +513,15 @@ def today():
     return date.today().isoformat()
 
 
+def lock_bootstrap(c):
+    """Serialize schema and seed migrations when several sessions start together."""
+    if isinstance(c, PostgresConnection):
+        c.execute("SELECT pg_advisory_xact_lock(81620417)")
+
+
 def init_db():
     c = db()
+    lock_bootstrap(c)
     c.executescript("""
     CREATE TABLE IF NOT EXISTS lessons (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -594,6 +604,7 @@ def import_seed_once():
     if not SEED_PATH.exists():
         return
     c = db()
+    lock_bootstrap(c)
     if c.execute("SELECT COUNT(*) FROM lessons").fetchone()[0] > 0:
         c.close()
         return
@@ -620,6 +631,7 @@ def import_seed_once():
 def import_extended_seeds():
     """Add later lesson packs without rebuilding or overwriting the database."""
     c = db()
+    lock_bootstrap(c)
     for seed_path in EXTENDED_SEED_PATHS:
         if not seed_path.exists():
             continue
@@ -654,6 +666,7 @@ def sync_seed_card_content():
     mistakes, active state, and answer history are intentionally untouched.
     """
     c = db()
+    lock_bootstrap(c)
     for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
         if not seed_path.exists():
             continue
@@ -717,6 +730,7 @@ def sync_seed_card_content():
 def sync_htsk_metadata():
     """Keep lesson labels, links and availability aligned with the HTSK manifest."""
     c = db()
+    lock_bootstrap(c)
     for number, guide in HTSK_GUIDES.items():
         lesson = c.execute(
             "SELECT id, status FROM lessons WHERE lesson_number=?", (int(number),)
