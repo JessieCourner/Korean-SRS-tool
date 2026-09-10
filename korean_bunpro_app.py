@@ -147,26 +147,26 @@ SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
 SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
 UNIT_INFO = {
-    0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
-    1: ("Basic Korean Grammar", "Lessons 1–25", "completed"),
-    2: ("Lower-Intermediate Korean Grammar", "Lessons 26–50", "current"),
-    3: ("Intermediate Korean Grammar", "Lessons 51–75", "locked"),
-    4: ("Upper-Intermediate Korean Grammar", "Lessons 76–100", "locked"),
-    5: ("Lower-Advanced Korean Grammar", "Lessons 101–125", "locked"),
-    6: ("Advanced Korean Grammar", "Lessons 126–150", "locked"),
-    7: ("Upper-Advanced Korean Grammar", "Lessons 151–175", "locked"),
-    8: ("Near-Expert Korean Grammar", "Lessons 176–200", "locked"),
-    9: ("Expert Korean Grammar", "Lessons 201–208", "locked"),
+    0: ("Learn How to Read Korean", "Lessons 1â3", "completed"),
+    1: ("Basic Korean Grammar", "Lessons 1â25", "completed"),
+    2: ("Lower-Intermediate Korean Grammar", "Lessons 26â50", "current"),
+    3: ("Intermediate Korean Grammar", "Lessons 51â75", "locked"),
+    4: ("Upper-Intermediate Korean Grammar", "Lessons 76â100", "locked"),
+    5: ("Lower-Advanced Korean Grammar", "Lessons 101â125", "locked"),
+    6: ("Advanced Korean Grammar", "Lessons 126â150", "locked"),
+    7: ("Upper-Advanced Korean Grammar", "Lessons 151â175", "locked"),
+    8: ("Near-Expert Korean Grammar", "Lessons 176â200", "locked"),
+    9: ("Expert Korean Grammar", "Lessons 201â208", "locked"),
 }
 HTSK_GROUPS = {
-    2: [("Lessons 26–33", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/"), ("Lessons 34–41", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/"), ("Lessons 42–50", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/")],
-    3: [("Lessons 51–58", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/"), ("Lessons 59–66", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/"), ("Lessons 67–75", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-67-75/")],
-    4: [("Lessons 76–83", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/"), ("Lessons 84–91", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/"), ("Lessons 92–100", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/")],
-    5: [("Lessons 101–108", "https://www.howtostudykorean.com/unit-5/lessons-101-108/"), ("Lessons 109–116", "https://www.howtostudykorean.com/unit-5/lessons-109-116/"), ("Lessons 117–125", "https://www.howtostudykorean.com/unit-5/lessons-117-125/")],
-    6: [("Lessons 126–133", "https://www.howtostudykorean.com/unit-6/lessons-126-133/"), ("Lessons 134–141", "https://www.howtostudykorean.com/unit-6/lessons-134-141/"), ("Lessons 142–150", "https://www.howtostudykorean.com/unit-6/lessons-142-150/")],
-    7: [("Lessons 151–158", "https://www.howtostudykorean.com/unit-7/lessons-151-158/"), ("Lessons 159–166", "https://www.howtostudykorean.com/unit-7/lessons-159-166/"), ("Lessons 167–175", "https://www.howtostudykorean.com/unit-7/lessons-167-175/")],
-    8: [("Lessons 176–183", "https://www.howtostudykorean.com/unit-8/lessons-176-183/"), ("Lessons 184–191", "https://www.howtostudykorean.com/unit-8/lessons-184-191/"), ("Lessons 192–200", "https://www.howtostudykorean.com/unit-8/lessons-192-200/")],
-    9: [("Lessons 201–208", "https://www.howtostudykorean.com/unit-9/lessons-201-208/")],
+    2: [("Lessons 26â33", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/"), ("Lessons 34â41", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/"), ("Lessons 42â50", "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/")],
+    3: [("Lessons 51â58", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/"), ("Lessons 59â66", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/"), ("Lessons 67â75", "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-67-75/")],
+    4: [("Lessons 76â83", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/"), ("Lessons 84â91", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/"), ("Lessons 92â100", "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/")],
+    5: [("Lessons 101â108", "https://www.howtostudykorean.com/unit-5/lessons-101-108/"), ("Lessons 109â116", "https://www.howtostudykorean.com/unit-5/lessons-109-116/"), ("Lessons 117â125", "https://www.howtostudykorean.com/unit-5/lessons-117-125/")],
+    6: [("Lessons 126â133", "https://www.howtostudykorean.com/unit-6/lessons-126-133/"), ("Lessons 134â141", "https://www.howtostudykorean.com/unit-6/lessons-134-141/"), ("Lessons 142â150", "https://www.howtostudykorean.com/unit-6/lessons-142-150/")],
+    7: [("Lessons 151â158", "https://www.howtostudykorean.com/unit-7/lessons-151-158/"), ("Lessons 159â166", "https://www.howtostudykorean.com/unit-7/lessons-159-166/"), ("Lessons 167â175", "https://www.howtostudykorean.com/unit-7/lessons-167-175/")],
+    8: [("Lessons 176â183", "https://www.howtostudykorean.com/unit-8/lessons-176-183/"), ("Lessons 184â191", "https://www.howtostudykorean.com/unit-8/lessons-184-191/"), ("Lessons 192â200", "https://www.howtostudykorean.com/unit-8/lessons-192-200/")],
+    9: [("Lessons 201â208", "https://www.howtostudykorean.com/unit-9/lessons-201-208/")],
 }
 
 # Each lesson's shortened HTSK guide is embedded in its unit JSON record.
@@ -175,35 +175,35 @@ FRAME_STYLES = {
         "border": "#efb8d6",
         "background": "#fff7fc",
         "accent": "#ef8fbb",
-        "decor": "🌸",
+        "decor": "ð¸",
         "label": "Sakura petals",
     },
     "frame_cloud": {
         "border": "#b9d9ed",
         "background": "#f5fbff",
         "accent": "#77bdda",
-        "decor": "☁️",
+        "decor": "âï¸",
         "label": "Cloudy sky",
     },
     "frame_hearts": {
         "border": "#f2a9c4",
         "background": "#fff4f8",
         "accent": "#ed6f9e",
-        "decor": "💗",
+        "decor": "ð",
         "label": "Heart confetti",
     },
     "frame_rainbow": {
         "border": "#c4a8ed",
         "background": "#fff9f2",
         "accent": "#a27be0",
-        "decor": "🌈",
+        "decor": "ð",
         "label": "Rainbow ribbon",
     },
     "frame_blossom": {
         "border": "#e8ae91",
         "background": "#fff8f2",
         "accent": "#dc8d68",
-        "decor": "🌺",
+        "decor": "ðº",
         "label": "Peach blossom",
     },
 }
@@ -220,21 +220,21 @@ TRACKER_COLORS = {
 # Jung Kook, or V (Taehyung) with Jin.  They are not presented as real
 # quotations or official BTS content.
 BTS_MOTIVATION = [
-    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "오늘도 한 문장만 읽어도 충분해요.", "en": "Reading just one sentence today is already enough."},
-    {"level": 1, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "천천히 해도 괜찮아요. 매일 조금씩 나아지고 있어요.", "en": "It is okay to go slowly. You are getting better little by little every day."},
-    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "작은 성공도 소중한 성공이에요.", "en": "A small success is still a precious success."},
-    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "틀린 답은 멈춤이 아니라 다음 시도를 위한 힌트예요.", "en": "A wrong answer is not a stop; it is a hint for your next attempt."},
-    {"level": 2, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "익숙한 표현을 직접 써 볼 때 실력이 더 단단해져요.", "en": "Your skills become stronger when you use a familiar expression yourself."},
-    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘 배운 문법을 한 문장으로 만들어 보면 기억에 오래 남아요.", "en": "If you make one sentence with today's grammar, it will stay with you longer."},
-    {"level": 3, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "꾸준히 복습하면 어제 어렵던 문장도 자연스럽게 읽을 수 있어요.", "en": "With steady review, you can read naturally even the sentences that felt difficult yesterday."},
-    {"level": 3, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "새로운 문법을 이해할 때마다 한국어로 표현할 수 있는 생각이 넓어져요.", "en": "Every time you understand new grammar, more of your thoughts become expressible in Korean."},
-    {"level": 3, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "실수한 부분을 다시 살펴보는 습관이 실력을 오래 지켜 줘요.", "en": "The habit of revisiting your mistakes protects your progress for the long term."},
-    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "문맥 속에서 표현의 뉘앙스를 비교하면 더 정확하게 선택할 수 있어요.", "en": "Comparing nuances in context helps you choose the most accurate expression."},
-    {"level": 4, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "익숙한 문법을 새로운 상황에 옮겨 쓰는 순간, 지식이 진짜 실력이 돼요.", "en": "When you carry familiar grammar into a new situation, knowledge becomes real skill."},
-    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "긴 문장도 관계를 하나씩 나누어 보면 핵심 의미가 선명해져요.", "en": "Even a long sentence becomes clear when you separate its relationships one by one."},
-    {"level": 5, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "복잡한 문장일수록 화자의 의도와 문법의 기능을 함께 살펴보면 의미가 정확해져요.", "en": "The more complex a sentence is, the more accurately you understand it by considering the speaker's intent and the grammar's function together."},
-    {"level": 5, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
-    {"level": 5, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
+    {"level": 1, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ì¤ëë í ë¬¸ì¥ë§ ì½ì´ë ì¶©ë¶í´ì.", "en": "Reading just one sentence today is already enough."},
+    {"level": 1, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ì²ì²í í´ë ê´ì°®ìì. ë§¤ì¼ ì¡°ê¸ì© ëìì§ê³  ìì´ì.", "en": "It is okay to go slowly. You are getting better little by little every day."},
+    {"level": 1, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ìì ì±ê³µë ìì¤í ì±ê³µì´ìì.", "en": "A small success is still a precious success."},
+    {"level": 2, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "íë¦° ëµì ë©ì¶¤ì´ ìëë¼ ë¤ì ìëë¥¼ ìí íí¸ìì.", "en": "A wrong answer is not a stop; it is a hint for your next attempt."},
+    {"level": 2, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ìµìí ííì ì§ì  ì¨ ë³¼ ë ì¤ë ¥ì´ ë ë¨ë¨í´ì ¸ì.", "en": "Your skills become stronger when you use a familiar expression yourself."},
+    {"level": 2, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ì¤ë ë°°ì´ ë¬¸ë²ì í ë¬¸ì¥ì¼ë¡ ë§ë¤ì´ ë³´ë©´ ê¸°ìµì ì¤ë ë¨ìì.", "en": "If you make one sentence with today's grammar, it will stay with you longer."},
+    {"level": 3, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ê¾¸ì¤í ë³µìµíë©´ ì´ì  ì´ë µë ë¬¸ì¥ë ìì°ì¤ë½ê² ì½ì ì ìì´ì.", "en": "With steady review, you can read naturally even the sentences that felt difficult yesterday."},
+    {"level": 3, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ìë¡ì´ ë¬¸ë²ì ì´í´í  ëë§ë¤ íêµ­ì´ë¡ ííí  ì ìë ìê°ì´ ëì´ì ¸ì.", "en": "Every time you understand new grammar, more of your thoughts become expressible in Korean."},
+    {"level": 3, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ì¤ìí ë¶ë¶ì ë¤ì ì´í´ë³´ë ìµê´ì´ ì¤ë ¥ì ì¤ë ì§ì¼ ì¤ì.", "en": "The habit of revisiting your mistakes protects your progress for the long term."},
+    {"level": 4, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ë¬¸ë§¥ ììì ííì ëìì¤ë¥¼ ë¹êµíë©´ ë ì ííê² ì íí  ì ìì´ì.", "en": "Comparing nuances in context helps you choose the most accurate expression."},
+    {"level": 4, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ìµìí ë¬¸ë²ì ìë¡ì´ ìí©ì ì®ê²¨ ì°ë ìê°, ì§ìì´ ì§ì§ ì¤ë ¥ì´ ë¼ì.", "en": "When you carry familiar grammar into a new situation, knowledge becomes real skill."},
+    {"level": 4, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ê¸´ ë¬¸ì¥ë ê´ê³ë¥¼ íëì© ëëì´ ë³´ë©´ íµì¬ ìë¯¸ê° ì ëªí´ì ¸ì.", "en": "Even a long sentence becomes clear when you separate its relationships one by one."},
+    {"level": 5, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "ë³µì¡í ë¬¸ì¥ì¼ìë¡ íìì ìëì ë¬¸ë²ì ê¸°ë¥ì í¨ê» ì´í´ë³´ë©´ ìë¯¸ê° ì íí´ì ¸ì.", "en": "The more complex a sentence is, the more accurately you understand it by considering the speaker's intent and the grammar's function together."},
+    {"level": 5, "ko_member": "V", "ko_icon": "ð¯", "en_member": "Jin", "en_icon": "ð¹", "ko": "ë°°ì´ ííì ìê¸° ê²½íê³¼ ì°ê²°í´ ì¬ì©í  ë ì¸ì´ê° ìëì ì¸ ì§ììì ë¥ëì ì¸ ê°ê°ì¼ë¡ ë°ëì´ì.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
+    {"level": 5, "ko_member": "Jimin", "ko_icon": "ð£", "en_member": "Jung Kook", "en_icon": "ð°", "ko": "í ë²ì ìë²½íë ¤ê³  íê¸°ë³´ë¤ ë°ë³µ ììì ìë¯¸ì ëìì¤ë¥¼ ì êµíê² ë¤ë¬ì´ ê°ë©´ ë¼ì.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
 ]
 BTS_ASSET_FILES = {
     "RM": "rm.png",
@@ -267,36 +267,36 @@ BTS_SCENE_LAYOUTS = [
     ("left:10%;top:118px;", "right:2%;bottom:34px;"),
 ]
 SHOP_ITEMS = [
-    ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
-    ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
-    ("face_bear", "Tiny Bear", "face", 240, "ʕ•ᴥ•ʔ", "A calm little learning bear"),
-    ("character_rabbit", "Bunny Scholar", "character", 320, "🐰", "Cheerful character for your dashboard"),
-    ("character_penguin", "Study Penguin", "character", 400, "🐧", "A brave penguin who loves review days"),
-    ("design_sakura", "Sakura Dream", "design", 220, "🌸", "Pink sakura study room"),
-    ("design_lavender", "Lavender Cloud", "design", 260, "☁️", "Soft purple cloud theme"),
-    ("design_peach", "Peach Soda", "design", 320, "🍑", "Warm peachy study theme"),
-    ("frame_sakura", "Sakura Border", "frame", 180, "🌸", "A delicate blossom frame for review cards"),
-    ("frame_cloud", "Cloudy Border", "frame", 220, "☁️", "A soft cloud border for calm study sessions"),
-    ("tracker_mochi", "Mochi Tracker", "tracker", 240, "🍡", "A cute mochi progress-bar style"),
-    ("tracker_stars", "Starry Tracker", "tracker", 280, "⭐", "A sparkling progress-bar style"),
-    ("face_fox", "Shy Fox", "face", 300, "ᵔᴥᵔ", "A bashful fox study buddy"),
-    ("face_puppy", "Happy Puppy", "face", 360, "◕ᴥ◕", "A puppy who celebrates every answer"),
-    ("face_mochi", "Mochi Smile", "face", 440, "●ᴗ●", "A round little mochi companion"),
-    ("character_koala", "Boba Koala", "character", 360, "🐨", "A sleepy koala with a boba treat"),
-    ("character_tiger", "Tiger Scholar", "character", 460, "🐯", "A brave tiger for difficult grammar"),
-    ("character_dango", "Dango Fairy", "character", 560, "🍡", "A tiny dango fairy for your study room"),
-    ("design_mint", "Mint Matcha", "design", 360, "🍵", "Fresh mint and matcha study room"),
-    ("design_sky", "Sky Kawaii", "design", 420, "🌤️", "A bright blue afternoon theme"),
-    ("design_night", "Moonlit Seoul", "design", 520, "🌙", "A soft evening city theme"),
-    ("frame_hearts", "Heart Confetti", "frame", 300, "💗", "A cheerful heart frame for reviews"),
-    ("frame_rainbow", "Rainbow Ribbon", "frame", 380, "🌈", "A colorful ribbon around your study space"),
-    ("frame_blossom", "Peach Blossom", "frame", 460, "🌺", "A warm floral frame"),
-    ("tracker_bubbles", "Bubble Tracker", "tracker", 340, "🫧", "A bubbly progress journey"),
-    ("tracker_rainbow", "Rainbow Tracker", "tracker", 420, "🌈", "A colorful progress journey"),
-    ("tracker_sakura", "Sakura Petals", "tracker", 500, "🌸", "Petals bloom as your review grows"),
+    ("face_bunny", "Sleepy Bunny", "face", 0, "à«® Ë¶áµ áµ áµË¶ á", "Your starter study buddy"),
+    ("face_cat", "Happy Cat", "face", 180, "à¸^â¢ï»â¢^à¸", "Smiles when you finish a review"),
+    ("face_bear", "Tiny Bear", "face", 240, "Êâ¢á´¥â¢Ê", "A calm little learning bear"),
+    ("character_rabbit", "Bunny Scholar", "character", 320, "ð°", "Cheerful character for your dashboard"),
+    ("character_penguin", "Study Penguin", "character", 400, "ð§", "A brave penguin who loves review days"),
+    ("design_sakura", "Sakura Dream", "design", 220, "ð¸", "Pink sakura study room"),
+    ("design_lavender", "Lavender Cloud", "design", 260, "âï¸", "Soft purple cloud theme"),
+    ("design_peach", "Peach Soda", "design", 320, "ð", "Warm peachy study theme"),
+    ("frame_sakura", "Sakura Border", "frame", 180, "ð¸", "A delicate blossom frame for review cards"),
+    ("frame_cloud", "Cloudy Border", "frame", 220, "âï¸", "A soft cloud border for calm study sessions"),
+    ("tracker_mochi", "Mochi Tracker", "tracker", 240, "ð¡", "A cute mochi progress-bar style"),
+    ("tracker_stars", "Starry Tracker", "tracker", 280, "â­", "A sparkling progress-bar style"),
+    ("face_fox", "Shy Fox", "face", 300, "áµá´¥áµ", "A bashful fox study buddy"),
+    ("face_puppy", "Happy Puppy", "face", 360, "âá´¥â", "A puppy who celebrates every answer"),
+    ("face_mochi", "Mochi Smile", "face", 440, "âá´â", "A round little mochi companion"),
+    ("character_koala", "Boba Koala", "character", 360, "ð¨", "A sleepy koala with a boba treat"),
+    ("character_tiger", "Tiger Scholar", "character", 460, "ð¯", "A brave tiger for difficult grammar"),
+    ("character_dango", "Dango Fairy", "character", 560, "ð¡", "A tiny dango fairy for your study room"),
+    ("design_mint", "Mint Matcha", "design", 360, "ðµ", "Fresh mint and matcha study room"),
+    ("design_sky", "Sky Kawaii", "design", 420, "ð¤ï¸", "A bright blue afternoon theme"),
+    ("design_night", "Moonlit Seoul", "design", 520, "ð", "A soft evening city theme"),
+    ("frame_hearts", "Heart Confetti", "frame", 300, "ð", "A cheerful heart frame for reviews"),
+    ("frame_rainbow", "Rainbow Ribbon", "frame", 380, "ð", "A colorful ribbon around your study space"),
+    ("frame_blossom", "Peach Blossom", "frame", 460, "ðº", "A warm floral frame"),
+    ("tracker_bubbles", "Bubble Tracker", "tracker", 340, "ð«§", "A bubbly progress journey"),
+    ("tracker_rainbow", "Rainbow Tracker", "tracker", 420, "ð", "A colorful progress journey"),
+    ("tracker_sakura", "Sakura Petals", "tracker", 500, "ð¸", "Petals bloom as your review grows"),
 ]
 
-st.set_page_config(page_title="Mochi Hangul", page_icon="🍡", layout="wide")
+st.set_page_config(page_title="Mochi Hangul", page_icon="ð¡", layout="wide")
 st.markdown("""
 <style>
     html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {background: linear-gradient(135deg, #fff8fc 0%, #f6f1ff 52%, #eefaff 100%) !important;}
@@ -516,7 +516,7 @@ def render_mobile_navigation():
 
     with st.container(key="mobile_nav_button"):
         st.button(
-            "☰",
+            "â°",
             key="mobile_nav_toggle",
             help="Open navigation",
             on_click=toggle_mobile_menu,
@@ -527,7 +527,7 @@ def render_mobile_navigation():
         st.markdown("### Navigate")
         current = st.session_state.get("nav", "Dashboard")
         for page_name in NAV_PAGES:
-            label = ("● " if page_name == current else "○ ") + page_name
+            label = ("â " if page_name == current else "â ") + page_name
             st.button(
                 label,
                 key=f"mobile_nav_{page_name}",
@@ -822,7 +822,7 @@ def sync_htsk_metadata():
                 "UPDATE lessons SET title=?, pattern=?, source_url=?, status='unavailable' WHERE id=?",
                 (
                     guide["source_title"],
-                    guide.get("source_pattern") or "—",
+                    guide.get("source_pattern") or "â",
                     guide["source_url"],
                     lesson["id"],
                 ),
@@ -842,7 +842,7 @@ def sync_htsk_metadata():
 CONTENT_SYNC_VERSION = "2026-09-10-hints-v1"
 
 
-@st.cache_resource(show_spinner="Preparing your Korean course…")
+@st.cache_resource(show_spinner="Preparing your Korean courseâ¦")
 def bootstrap_app_data():
     """Run database setup/synchronization once per app process and version."""
     init_db()
@@ -1088,7 +1088,7 @@ def render_bts_motivation(in_dialog=False):
                 });
                 const toggle = win.document.getElementById("mochi-chibi-toggle");
                 if (toggle) {
-                    toggle.textContent = hidden ? "👀" : "🙈";
+                    toggle.textContent = hidden ? "ð" : "ð";
                     toggle.title = hidden ? "Show chibis" : "Hide chibis";
                     toggle.setAttribute("aria-label", hidden ? "Show chibis" : "Hide chibis");
                 }
@@ -1185,7 +1185,7 @@ def render_bts_motivation(in_dialog=False):
                     launcher = doc.createElement("button");
                     launcher.id = "mochi-desktop-sidebar-launcher";
                     launcher.type = "button";
-                    launcher.textContent = "☰";
+                    launcher.textContent = "â°";
                     launcher.setAttribute("aria-label", "Open navigation menu");
                     launcher.title = "Open navigation menu";
                     Object.assign(launcher.style, {
@@ -1628,7 +1628,7 @@ def load_htsk_guides():
             }
     expected = {str(number) for number in range(0, 209)}
     if set(guides) != expected:
-        raise ValueError("The unit lesson seed files must contain exactly lessons 26–208.")
+        raise ValueError("The unit lesson seed files must contain exactly lessons 26â208.")
     for number, guide in guides.items():
         if guide.get("source_status") == "published":
             required = ("source_url", "meaning", "when_to_use", "how_to_build", "examples")
@@ -1935,7 +1935,7 @@ def render_card(card):
     )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
+        st.warning(f"Not quite yet. Try again â attempt {attempts + 1}.")
     elif attempts:
         st.caption(f"Attempts: {attempts}. Enter your answer again.")
     focus_answer_field()
@@ -1948,16 +1948,16 @@ def lesson_preview(lesson_id, daily=False):
         return
     guide = lesson_guide(lesson)
     st.markdown(
-        f'''<div class="lesson-modal-heading"><h2>📖 Lesson {lesson['lesson_number']}: {escape(lesson['title'])}</h2><p>Study room · read the HTSK guide first, then add this lesson to your SRS deck.</p></div>''',
+        f'''<div class="lesson-modal-heading"><h2>ð Lesson {lesson['lesson_number']}: {escape(lesson['title'])}</h2><p>Study room Â· read the HTSK guide first, then add this lesson to your SRS deck.</p></div>''',
         unsafe_allow_html=True,
     )
-    if lesson["pattern"] and lesson["pattern"] != "—":
+    if lesson["pattern"] and lesson["pattern"] != "â":
         st.markdown(f"### Grammar point: `{lesson['pattern']}`")
-    st.markdown(f"[Open the full HTSK lesson ↗]({guide['source_url']})")
+    st.markdown(f"[Open the full HTSK lesson â]({guide['source_url']})")
     if not guide.get("available"):
         st.warning(guide["source_note"])
         st.caption("The app will not create SRS cards for this lesson until HTSK publishes its content.")
-        if st.button("← Back", key=f"close_unpublished_{lesson_id}", use_container_width=True):
+        if st.button("â Back", key=f"close_unpublished_{lesson_id}", use_container_width=True):
             st.rerun()
         return
 
@@ -1981,22 +1981,22 @@ def lesson_preview(lesson_id, daily=False):
     if guide_examples:
         for index, (example, translation) in enumerate(guide_examples, 1):
             # A few HTSK examples are short conversational exchanges.  Keep
-            # the context and the ~다니 reaction on separate visible lines.
+            # the context and the ~ë¤ë reaction on separate visible lines.
             display_example = guide_text(example)
             display_translation = guide_text(translation)
             st.markdown(
                 f'''<div class="lesson-example" style="background:#ffffff;border:1px solid #efd8e8;border-left:5px solid #efb8d6;color:#514064"><div><b>{index}.</b> {display_example}</div><div style="margin-top:7px;color:#7d668d;font-size:14px">Translation: {display_translation}</div></div>''',
                 unsafe_allow_html=True,
             )
-    st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
+    st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} Â· examples are separate from SRS cards")
     with st.container(key=f"lesson_actions_{lesson_id}"):
         st.divider()
         cancel, add = st.columns(2)
         with cancel:
-            if st.button("← Back", key=f"close_preview_{lesson_id}", use_container_width=True):
+            if st.button("â Back", key=f"close_preview_{lesson_id}", use_container_width=True):
                 st.rerun()
         with add:
-            if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
+            if st.button("Add to deck â¨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
                 activated = activate_lesson(lesson_id)
                 if activated and daily:
                     c = db()
@@ -2025,7 +2025,7 @@ def render_review_dialog():
 
 
 def page_dashboard():
-    st.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="brand-logo"><div class="brand-mark">ð¡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
     st.title("Mochi Hangul")
     face = active_item("face")
     design = active_item("design")
@@ -2046,7 +2046,7 @@ def page_dashboard():
         <div class="chibi-face">MASCOT</div>
         <div>
             <div class="chibi-title">Welcome back, little learner!</div>
-            <div class="chibi-subtitle">A tiny step today = a big Korean win tomorrow ✨</div>
+            <div class="chibi-subtitle">A tiny step today = a big Korean win tomorrow â¨</div>
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
@@ -2067,23 +2067,23 @@ def page_dashboard():
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
     c.metric("Mastered cards", mastered)
-    st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='cute-note'>ð <b>{crystals()}</b> crystals Â· collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     current_streak = streak_info()
-    streak_status = "Your flame is lit today — keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
+    streak_status = "Your flame is lit today â keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
     st.markdown(
-        f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">🔥</span><span>{current_streak['current']} day streak</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
+        f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">ð¥</span><span>{current_streak['current']} day streak</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
         unsafe_allow_html=True,
     )
     if due:
         st.markdown(
-            f"<div class='cute-note'>📝 <b>{due} cards are waiting in Review.</b> "
+            f"<div class='cute-note'>ð <b>{due} cards are waiting in Review.</b> "
             "Newly added cards are included here even before their first rating.</div>",
             unsafe_allow_html=True,
         )
     else:
         st.caption("No cards are waiting in Review right now.")
     if st.button(
-        f"Review · {due} cards" if due else "Review",
+        f"Review Â· {due} cards" if due else "Review",
         key="dashboard_review_top",
         type="primary",
         use_container_width=True,
@@ -2097,20 +2097,20 @@ def page_dashboard():
     if todays:
         st.caption(f"{completed} of {len(todays)} new lessons completed today")
         quest_tracker = active_item("tracker")
-        quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
+        quest_icon = quest_tracker["icon"] if quest_tracker else "ð¡"
         quest_ratio = completed / len(todays)
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
             <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:clamp(0px,calc({quest_ratio * 100:.1f}% - 19px),calc(100% - 38px))">{quest_icon}</div></div>
-            <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
+            <div class="quest-caption">Complete your tiny lesson quest and collect crystals â¨</div>
         </div>''', unsafe_allow_html=True)
         for lesson in todays:
             with st.container(border=True):
                 left, right = st.columns([4, 1])
                 with left:
                     if lesson["daily_status"] == "studied":
-                        st.markdown(f"✅ **Lesson {lesson['lesson_number']}: {lesson['title']}**")
-                        st.caption("Studied today · cards added to SRS")
+                        st.markdown(f"â **Lesson {lesson['lesson_number']}: {lesson['title']}**")
+                        st.caption("Studied today Â· cards added to SRS")
                     else:
                         st.markdown(f"**Lesson {lesson['lesson_number']}: {lesson['title']}**")
                         st.caption(lesson["pattern"])
@@ -2125,15 +2125,15 @@ def page_dashboard():
 
     if todays and completed == len(todays):
         award_crystals(f"daily_goal:{today()}", 30)
-        st.markdown('<div class="cute-note">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა No new topics for today. Great job!</div>', unsafe_allow_html=True)
+        st.markdown('<div class="cute-note">à«®â Ë¶áµ áµ áµË¶ âá No new topics for today. Great job!</div>', unsafe_allow_html=True)
     elif todays:
-        st.markdown('<div class="cute-note">(ง •̀ᴗ•́)ง You can do it! Finish today\'s tiny quest.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="cute-note">(à¸ â¢Ìá´â¢Ì)à¸ You can do it! Finish today\'s tiny quest.</div>', unsafe_allow_html=True)
     else:
-        st.markdown('<div class="cute-note">(｡•́‿•̀｡) Your lesson shelf is waiting for the next study day.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="cute-note">(ï½¡â¢Ìâ¿â¢Ìï½¡) Your lesson shelf is waiting for the next study day.</div>', unsafe_allow_html=True)
 
     st.divider()
     if st.button(
-        f"Review · {due} cards" if due else "Review",
+        f"Review Â· {due} cards" if due else "Review",
         key="dashboard_review_bottom",
         type="primary",
         use_container_width=True,
@@ -2154,10 +2154,10 @@ def render_review_contents():
     progress = 1.0 if total == 0 else completed / total
     frame = active_item("frame")
     tracker = active_item("tracker")
-    frame_icon = escape(frame["icon"] if frame else "🌸")
-    tracker_icon = escape(tracker["icon"] if tracker else "🍡")
+    frame_icon = escape(frame["icon"] if frame else "ð¸")
+    tracker_icon = escape(tracker["icon"] if tracker else "ð¡")
     character = active_item("character")
-    character_icon = escape(character["icon"] if character else "🐰")
+    character_icon = escape(character["icon"] if character else "ð°")
     frame_style = FRAME_STYLES.get(frame["id"] if frame else "frame_sakura", FRAME_STYLES["frame_sakura"])
     frame_border = frame_style["border"]
     frame_bg = frame_style["background"]
@@ -2165,10 +2165,10 @@ def render_review_contents():
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
     st.markdown(
-        f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
+        f'''<div class="modal-kicker"><strong>â¨ Review</strong><span>{character_icon} cozy Korean garden Â· {completed} / {total} today</span></div>''',
         unsafe_allow_html=True,
     )
-    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
+    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins â¨</div></div>''', unsafe_allow_html=True)
     st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
         <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
         <div class="review-progress-track">
@@ -2184,19 +2184,21 @@ def render_review_contents():
             WHERE cards.id=?
         """, (result_card_id,))
         if result_card:
-            result_grade = st.session_state.get("result_grade", "good")
-            grade_labels = {"good": "Good", "hard": "Hard", "again": "Again"}
-            grade_colors = {"good": "#dff6e7", "hard": "#fff2c9", "again": "#ffe1e1"}
+            user_answer = escape(str(st.session_state.get("result_user_answer", "")))
+            answered_prompt = escape(str(result_card["prompt"])).replace(
+                "___",
+                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                1,
+            )
             st.markdown(
-                f'''<div class="review-question-paper"><div class="review-prompt">{escape(str(result_card["prompt"])).replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
                 unsafe_allow_html=True,
             )
             st.markdown(
-                f'''<div style="background:{grade_colors[result_grade]};border-radius:16px;padding:16px;color:#514064"><b>Result: {grade_labels[result_grade]}</b><br>Your answer: <code>{escape(str(st.session_state.get("result_user_answer", "")))}</code><br>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div>''',
+                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
                 unsafe_allow_html=True,
             )
-            st.caption("Your answer has been recorded. Continue when you are ready for the next card.")
-            if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
+            if st.button("Continue â", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
                 st.rerun()
@@ -2226,8 +2228,8 @@ def render_review_contents():
 
     due = next_due_card()
     if not due:
-        st.success("No reviews due today. Your review quest is complete! ✨")
-        if st.button("← Close Review", key="close_review_modal_empty", use_container_width=True):
+        st.success("No reviews due today. Your review quest is complete! â¨")
+        if st.button("â Close Review", key="close_review_modal_empty", use_container_width=True):
             st.session_state["nav"] = "Dashboard"
             st.session_state.pop("review_total", None)
             st.session_state.pop("review_completed", None)
@@ -2242,7 +2244,7 @@ def render_review_contents():
     )
     with st.container(border=True, key="review_card_shell"):
         st.markdown(
-            f'''<div class="review-card-top" style="color:{frame_style['accent']}"><span class="frame-sparkles">{frame_decor} {frame_decor}</span><span>{frame_decor} {frame_label} · today's card {completed + 1}</span><span class="frame-sparkles">{frame_decor} {frame_decor}</span></div>''',
+            f'''<div class="review-card-top" style="color:{frame_style['accent']}"><span class="frame-sparkles">{frame_decor} {frame_decor}</span><span>{frame_decor} {frame_label} Â· today's card {completed + 1}</span><span class="frame-sparkles">{frame_decor} {frame_decor}</span></div>''',
             unsafe_allow_html=True,
         )
         render_card(due)
@@ -2250,7 +2252,7 @@ def render_review_contents():
             f'''<div class="review-card-bottom">{frame_decor} Your answer is one tiny step forward {frame_decor}</div>''',
             unsafe_allow_html=True,
         )
-    if st.button("← Close Review", key="close_review_modal", use_container_width=True):
+    if st.button("â Close Review", key="close_review_modal", use_container_width=True):
         st.session_state["nav"] = "Dashboard"
         for key in ("review_total", "review_completed", "checked"):
             st.session_state.pop(key, None)
@@ -2258,12 +2260,12 @@ def render_review_contents():
 
 
 if hasattr(st, "dialog"):
-    @st.dialog("📖 Study lesson", width="large")
+    @st.dialog("ð Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
         render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
-    @st.dialog("✨ Review", width="large")
+    @st.dialog("â¨ Review", width="large")
     def review_dialog():
         render_bts_motivation(in_dialog=True)
         render_review_contents()
@@ -2275,7 +2277,7 @@ else:
 def page_lessons():
     st.title("Lessons")
     start = int(setting("start_unit", "2"))
-    # Units 0–1 are completed by default, but remain visible for reference
+    # Units 0â1 are completed by default, but remain visible for reference
     # and can be added manually to the SRS deck from their Study dialogs.
     lessons = rows("SELECT * FROM lessons ORDER BY unit, lesson_number")
     # Do not issue two PostgreSQL queries for every lesson.  With 209 lessons
@@ -2296,20 +2298,20 @@ def page_lessons():
     lesson_request = None
     for unit, (title, lesson_range, status) in UNIT_INFO.items():
         if status == "completed":
-            badge = "✅ Completed"
+            badge = "â Completed"
         elif status == "current":
-            badge = "🌸 Current unit"
+            badge = "ð¸ Current unit"
         else:
-            badge = "🔒 Locked"
+            badge = "ð Locked"
         with st.expander(
-            f"Unit {unit}: {title} · {lesson_range} · {badge}",
+            f"Unit {unit}: {title} Â· {lesson_range} Â· {badge}",
             expanded=(unit == start),
         ):
             if unit < start:
                 st.success("This unit is marked as completed before your starting point.")
                 st.caption("It is not included in the daily queue, but you can open any lesson and add its cards manually.")
             if unit in HTSK_GROUPS:
-                links = " · ".join(f"[{name}]({url})" for name, url in HTSK_GROUPS[unit])
+                links = " Â· ".join(f"[{name}]({url})" for name, url in HTSK_GROUPS[unit])
                 st.markdown(f"Official HTSK lesson pages: {links}")
             unit_lessons = lessons_by_unit.get(unit, [])
             if not unit_lessons:
@@ -2325,11 +2327,11 @@ def page_lessons():
                     with left:
                         st.markdown(f"**Lesson {lesson['lesson_number']}: {lesson['title']}**")
                         if guide.get("available"):
-                            st.caption(f"{lesson['pattern']} · {active}/{cards} cards active · HTSK guide inside Study")
-                            st.markdown(f"[Open the full HTSK lesson ↗]({guide['source_url']})")
+                            st.caption(f"{lesson['pattern']} Â· {active}/{cards} cards active Â· HTSK guide inside Study")
+                            st.markdown(f"[Open the full HTSK lesson â]({guide['source_url']})")
                         else:
-                            st.caption("🔒 HTSK has not published this lesson yet")
-                            st.markdown(f"[Open the official HTSK page ↗]({guide['source_url']})")
+                            st.caption("ð HTSK has not published this lesson yet")
+                            st.markdown(f"[Open the official HTSK page â]({guide['source_url']})")
                     with right:
                         if guide.get("available"):
                             if st.button("Study", key=f"study_{lesson['id']}", use_container_width=True):
@@ -2365,11 +2367,11 @@ def page_progress():
 
 
 def page_shop():
-    st.title("Crystal Shop ✨")
-    st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
+    st.title("Crystal Shop â¨")
+    st.markdown(f"<div class='cute-note'>ð You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
     st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
     categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
-    tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
+    tabs = st.tabs([f"{name}  â¨" for name, _, _ in categories])
     for tab, (name, kind, subtitle) in zip(tabs, categories):
         with tab:
             st.subheader(name)
@@ -2389,7 +2391,7 @@ def page_shop():
                         if kind == "frame":
                             style = FRAME_STYLES.get(item["id"], FRAME_STYLES["frame_sakura"])
                             st.markdown(
-                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview · {style['decor']}</div>''',
+                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview Â· {style['decor']}</div>''',
                                 unsafe_allow_html=True,
                             )
                         elif kind == "tracker":
@@ -2403,7 +2405,7 @@ def page_shop():
                         elif owned:
                             if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
                                 buy_or_activate(item["id"]); st.rerun()
-                        elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
+                        elif st.button(f"Buy Â· {item['price']} ð", key=f"buy_{item['id']}", use_container_width=True):
                             if buy_or_activate(item["id"]):
                                 st.success("Purchased!")
                                 st.rerun()
@@ -2419,9 +2421,9 @@ if pending_mobile_page in NAV_PAGES:
     st.session_state["nav"] = pending_mobile_page
 render_mobile_navigation()
 render_bts_motivation()
-st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">ð¡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
-st.sidebar.markdown(f"💎 **{crystals()} crystals**")
+st.sidebar.markdown(f"ð **{crystals()} crystals**")
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
