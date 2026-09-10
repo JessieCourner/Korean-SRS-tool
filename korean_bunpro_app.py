@@ -882,7 +882,8 @@ def award_crystals(event_key, amount):
         # RETURNING is reliable for PostgreSQL and avoids relying on the
         # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
         inserted = c.execute(
-            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) RETURNING event_key",
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
             params,
         ).fetchone()
         was_inserted = inserted is not None
