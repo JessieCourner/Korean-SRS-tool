@@ -211,14 +211,14 @@ st.markdown("""
     .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
-    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
     .bts-vector {width:100%; height:100%; overflow:visible;}
-    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:none;}
+    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto; cursor:grab;}
     .bts-scene-right .bts-speech {border-color:#cdb9ec;}
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
     .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
@@ -852,18 +852,19 @@ def render_bts_motivation():
 
             function bindChibis() {
                 const stage = win.document.querySelector(".bts-surface");
-                if (!stage) return;
+                if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
                     scene.style.zIndex = "2147483000";
-                    if (scene.dataset.chibiDragBound === "1") {
+                    const key = sceneKey(day, slot);
+                    scene.dataset.chibiStorageKey = key;
+                    if (scene.dataset.chibiPositionBound === "1") {
                         keepOnScreen(scene);
                         return;
                     }
-                    scene.dataset.chibiDragBound = "1";
-                    const key = sceneKey(day, slot);
+                    scene.dataset.chibiPositionBound = "1";
                     let hasSavedPosition = false;
                     try {
                         const saved = JSON.parse(win.localStorage.getItem(key) || "null");
@@ -877,41 +878,111 @@ def render_bts_motivation():
                         savePosition(scene, key);
                     }
                     keepOnScreen(scene);
-
-                    let drag = null;
-                    const finishDrag = (event) => {
-                        if (!drag || (event && event.pointerId !== drag.pointerId)) return;
-                        savePosition(scene, key);
-                        drag = null;
-                        scene.classList.remove("bts-dragging");
-                    };
-
-                    scene.addEventListener("pointerdown", (event) => {
-                        if (event.button !== undefined && event.button !== 0) return;
-                        const rect = scene.getBoundingClientRect();
-                        setPosition(scene, rect.left, rect.top);
-                        drag = {pointerId: event.pointerId, dx: event.clientX - rect.left, dy: event.clientY - rect.top};
-                        scene.classList.add("bts-dragging");
-                        if (scene.setPointerCapture) scene.setPointerCapture(event.pointerId);
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }, {passive: false});
-                    scene.addEventListener("pointermove", (event) => {
-                        if (!drag || event.pointerId !== drag.pointerId) return;
-                        const rect = scene.getBoundingClientRect();
-                        const maxLeft = Math.max(6, win.innerWidth - rect.width - 6);
-                        const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
-                        setPosition(scene, clamp(event.clientX - drag.dx, 6, maxLeft), clamp(event.clientY - drag.dy, 6, maxTop));
-                        event.preventDefault();
-                    }, {passive: false});
-                    scene.addEventListener("pointerup", finishDrag);
-                    scene.addEventListener("pointercancel", finishDrag);
                 });
+                return true;
             }
 
+            if (win.__mochiBtsDragController && win.__mochiBtsDragController.destroy) {
+                win.__mochiBtsDragController.destroy();
+            }
             if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
             if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
+
+            const controller = {drag: null};
+            const eventOptions = {capture: true, passive: false};
+
+            function sceneFromTarget(target) {
+                return target && target.closest ? target.closest(".bts-scene") : null;
+            }
+
+            function pointFromEvent(event) {
+                if (event.touches && event.touches.length) return event.touches[0];
+                if (event.changedTouches && event.changedTouches.length) return event.changedTouches[0];
+                return event;
+            }
+
+            function beginDrag(event) {
+                if (controller.drag) return;
+                const scene = sceneFromTarget(event.target);
+                if (!scene) return;
+                if (event.type === "mousedown" && event.button !== 0) return;
+                const point = pointFromEvent(event);
+                if (!point || !Number.isFinite(point.clientX) || !Number.isFinite(point.clientY)) return;
+                const rect = scene.getBoundingClientRect();
+                setPosition(scene, rect.left, rect.top);
+                controller.drag = {
+                    scene,
+                    key: scene.dataset.chibiStorageKey,
+                    pointerId: event.pointerId,
+                    source: event.type.startsWith("touch") ? "touch" : event.type.startsWith("pointer") ? "pointer" : "mouse",
+                    dx: point.clientX - rect.left,
+                    dy: point.clientY - rect.top,
+                };
+                scene.classList.add("bts-dragging");
+                if (event.pointerId !== undefined && scene.setPointerCapture) {
+                    try { scene.setPointerCapture(event.pointerId); } catch (error) {}
+                }
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            function moveDrag(event) {
+                const drag = controller.drag;
+                if (!drag) return;
+                if (drag.source === "pointer" && (event.type !== "pointermove" || event.pointerId !== drag.pointerId)) return;
+                if (drag.source === "mouse" && event.type !== "mousemove") return;
+                if (drag.source === "touch" && event.type !== "touchmove") return;
+                const point = pointFromEvent(event);
+                if (!point) return;
+                const rect = drag.scene.getBoundingClientRect();
+                const maxLeft = Math.max(6, win.innerWidth - rect.width - 6);
+                const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
+                setPosition(drag.scene, clamp(point.clientX - drag.dx, 6, maxLeft), clamp(point.clientY - drag.dy, 6, maxTop));
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            function endDrag(event) {
+                const drag = controller.drag;
+                if (!drag) return;
+                if (drag.source === "pointer" && ((event.type !== "pointerup" && event.type !== "pointercancel") || event.pointerId !== drag.pointerId)) return;
+                if (drag.source === "mouse" && event.type !== "mouseup") return;
+                if (drag.source === "touch" && event.type !== "touchend" && event.type !== "touchcancel") return;
+                if (drag.key) savePosition(drag.scene, drag.key);
+                drag.scene.classList.remove("bts-dragging");
+                controller.drag = null;
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            const listeners = {
+                pointerdown: beginDrag,
+                pointermove: moveDrag,
+                pointerup: endDrag,
+                pointercancel: endDrag,
+                mousedown: beginDrag,
+                mousemove: moveDrag,
+                mouseup: endDrag,
+                touchstart: beginDrag,
+                touchmove: moveDrag,
+                touchend: endDrag,
+                touchcancel: endDrag,
+            };
+            Object.entries(listeners).forEach(([name, handler]) => win.document.addEventListener(name, handler, eventOptions));
+            controller.destroy = () => {
+                Object.entries(listeners).forEach(([name, handler]) => win.document.removeEventListener(name, handler, eventOptions));
+                if (controller.drag) controller.drag.scene.classList.remove("bts-dragging");
+                controller.drag = null;
+            };
+            win.__mochiBtsDragController = controller;
+            const stage = win.document.querySelector(".bts-surface");
+            if (stage) {
+                win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
+                    scene.dataset.chibiStorageKey = sceneKey(stage.dataset.btsDay || "today", scene.dataset.chibiSlot || String(index));
+                });
+            }
             bindChibis();
+            [0, 80, 250, 700].forEach((delay) => win.setTimeout(bindChibis, delay));
             win.__mochiBtsDragObserver = new win.MutationObserver(bindChibis);
             win.__mochiBtsDragObserver.observe(win.document.body, {childList: true, subtree: true});
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
