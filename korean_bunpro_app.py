@@ -1687,7 +1687,10 @@ def check_answer(card_id, answer_key):
     st.session_state[attempt_key] = attempts
     if answer_is_correct(user_answer, card["answer"]):
         result = "good" if attempts == 1 else "hard" if attempts == 2 else "again"
-        st.session_state["last_auto_grade"] = result
+        st.session_state["result_card_id"] = card_id
+        st.session_state["result_user_answer"] = user_answer
+        st.session_state["result_correct_answer"] = card["answer"]
+        st.session_state["result_grade"] = result
         grade(card_id, result)
         st.rerun()
     else:
@@ -2166,6 +2169,54 @@ def render_review_contents():
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
         </div>
     </div>''', unsafe_allow_html=True)
+    result_card_id = st.session_state.get("result_card_id")
+    if result_card_id:
+        result_card = one("""
+            SELECT cards.*, lessons.title AS lesson_title
+            FROM cards JOIN lessons ON lessons.id=cards.lesson_id
+            WHERE cards.id=?
+        """, (result_card_id,))
+        if result_card:
+            result_grade = st.session_state.get("result_grade", "good")
+            grade_labels = {"good": "Good", "hard": "Hard", "again": "Again"}
+            grade_colors = {"good": "#dff6e7", "hard": "#fff2c9", "again": "#ffe1e1"}
+            st.markdown(
+                f'''<div class="review-question-paper"><div class="review-prompt">{escape(str(result_card["prompt"])).replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                f'''<div style="background:{grade_colors[result_grade]};border-radius:16px;padding:16px;color:#514064"><b>Result: {grade_labels[result_grade]}</b><br>Your answer: <code>{escape(str(st.session_state.get("result_user_answer", "")))}</code><br>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div>''',
+                unsafe_allow_html=True,
+            )
+            st.caption("Your answer has been recorded. Continue when you are ready for the next card.")
+            if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
+                for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
+                    st.session_state.pop(key, None)
+                st.rerun()
+            components.html("""
+                <script>
+                (function() {
+                    const win = window.parent;
+                    if (win.__mochiContinueHandler) {
+                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
+                    }
+                    win.__mochiContinueHandler = function(event) {
+                        if (event.key !== 'Enter' && event.key !== ' ') return;
+                        const buttons = Array.from(win.document.querySelectorAll('button'));
+                        const button = buttons.find((item) =>
+                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                        );
+                        if (!button) return;
+                        event.preventDefault();
+                        event.stopPropagation();
+                        button.click();
+                    };
+                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
+                })();
+                </script>
+            """, height=1)
+            return
+
     due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
