@@ -208,6 +208,8 @@ st.markdown("""
     /* This is only a DOM anchor. The characters themselves are fixed above
        the whole app, so no empty panel or daily chibi field is shown. */
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
+    .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
+    .bts-dialog-surface .bts-scene {z-index:2147483003;}
     .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
@@ -246,7 +248,7 @@ st.markdown("""
        HTSK lessons; only the panel gets the visible border, so there is one
        frame and no dashboard/sidebar text can show through. */
     [data-testid="stDialog"], .stDialog {position:fixed !important; inset:0 !important; z-index:1000000 !important; display:flex !important; align-items:flex-start !important; justify-content:center !important; padding:4vh 0 !important; background:rgba(73,48,93,.28) !important; overflow-y:auto !important; overflow-x:hidden !important; opacity:1 !important;}
-    [data-testid="stDialog"] > div, .stDialog > div {width:96vw !important; max-width:96vw !important; min-width:0 !important; min-height:92vh !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
+    [data-testid="stDialog"] > div, .stDialog > div {width:96vw !important; max-width:96vw !important; min-width:0 !important; min-height:92vh !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
     [data-testid="stDialog"] [role="dialog"], .stDialog [role="dialog"] {width:100% !important; max-width:none !important; min-width:0 !important; min-height:100% !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:0 !important; border-radius:0 !important; background:#fffaff !important; box-shadow:none !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
     [data-testid="stDialog"] [role="dialog"] > div:last-of-type, .stDialog [role="dialog"] > div:last-of-type {flex:1 1 auto !important; min-height:0 !important; overflow-y:auto !important; overflow-x:hidden !important; background:#fffaff !important; color:#514064 !important;}
     [data-testid="stDialog"] .block-container, .stDialog .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:#fffaff !important; border-radius:24px !important;}
@@ -272,37 +274,26 @@ st.markdown("""
     .chibi-title {font-size:24px; font-weight:800; color:#654b78; margin-bottom:4px;}
     .chibi-subtitle {color:#886d91; font-size:15px;}
     .cute-note {padding:12px 16px; border-radius:18px; background:#fff7fc; border:2px dashed #e8b9d3; color:#765777; margin:10px 0 18px;}
-    /* The mobile menu is a native Streamlit popover.  It is deliberately
-       anchored with a keyed CSS class so the launcher remains tappable even
-       when the main content is long.  The tertiary style plus these rules
-       removes the default outline/border without removing the button itself. */
-    .st-key-mobile_nav_popover {position:fixed !important; top:8px; left:8px; z-index:100000 !important; width:52px; pointer-events:auto !important;}
-    .st-key-mobile_nav_popover > button,
-    .st-key-mobile_nav_popover > button:hover,
-    .st-key-mobile_nav_popover > button:focus,
-    .st-key-mobile_nav_popover > button:focus-visible,
-    .st-key-mobile_nav_popover > button:active,
-    .st-key-mobile_nav_popover > div:first-child > button,
-    .st-key-mobile_nav_popover > div:first-child > button:hover,
-    .st-key-mobile_nav_popover > div:first-child > button:focus,
-    .st-key-mobile_nav_popover > div:first-child > button:focus-visible,
-    .st-key-mobile_nav_popover > div:first-child > button:active,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:hover,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:focus,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:focus-visible,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:active {border:0 !important; outline:none !important; box-shadow:none !important; background:transparent !important; color:#684d7b !important; font-size:27px; padding:2px 6px; min-height:42px; -webkit-tap-highlight-color:transparent;}
-    .st-key-mobile_nav_popover > button p,
-    .st-key-mobile_nav_popover > div:first-child > button p,
-    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button p {font-size:27px !important; line-height:1 !important; margin:0 !important;}
-    @media (min-width: 701px) { .st-key-mobile_nav_popover {display:none !important;} }
+    /* The phone launcher is a regular Streamlit button with a small
+       server-backed panel.  It does not depend on popover/expander DOM
+       details, so the tap target stays reliable across Streamlit versions. */
+    .st-key-mobile_nav_button {position:fixed !important; top:8px; left:8px; z-index:2147483647 !important; width:48px; pointer-events:auto !important;}
+    .st-key-mobile_nav_button button,
+    .st-key-mobile_nav_button button:hover,
+    .st-key-mobile_nav_button button:focus,
+    .st-key-mobile_nav_button button:focus-visible,
+    .st-key-mobile_nav_button button:active {border:0 !important; outline:none !important; box-shadow:none !important; background:transparent !important; color:#684d7b !important; font-size:27px; padding:2px 6px; min-height:42px; -webkit-tap-highlight-color:transparent;}
+    .st-key-mobile_nav_button button p,
+    .st-key-mobile_nav_button button span {font-size:27px !important; line-height:1 !important; margin:0 !important; color:#684d7b !important;}
+    .st-key-mobile_nav_panel {position:fixed !important; top:55px; left:8px; z-index:2147483647 !important; width:min(280px,calc(100vw - 16px)); max-height:calc(100vh - 65px); overflow-y:auto; padding:10px 12px 12px; border:2px solid #efb8d6; border-radius:20px; background:rgba(255,250,255,.98); box-shadow:0 12px 28px rgba(91,71,112,.2); pointer-events:auto !important;}
+    .st-key-mobile_nav_panel .stButton > button {width:100%; min-height:2.6rem; margin:3px 0; touch-action:manipulation;}
+    @media (min-width: 701px) { .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;} }
     @media (max-width: 700px) {
         .block-container {padding: 4rem .75rem 2rem;}
         /* Streamlit's desktop sidebar is hidden on a phone; the fixed
            launcher above is the single, tappable mobile navigation control. */
         [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none !important;}
-        .st-key-mobile_nav_popover {display:block !important; visibility:visible !important; opacity:1 !important;}
-        .st-key-mobile_nav_popover button {pointer-events:auto !important; touch-action:manipulation;}
+        .st-key-mobile_nav_button {display:block !important; visibility:visible !important; opacity:1 !important;}
         h1 {font-size: 1.8rem;}
         h2 {font-size: 1.35rem;}
         .chibi-hero {padding:18px; gap:12px;}
@@ -329,24 +320,35 @@ NAV_PAGES = ("Dashboard", "Review", "Lessons", "Progress", "Crystal Shop")
 
 
 def render_mobile_navigation():
-    """Render a working native mobile navigation popover.
+    """Render a reliable tappable mobile menu before the sidebar radio."""
+    def toggle_mobile_menu():
+        st.session_state["mobile_menu_open"] = not st.session_state.get("mobile_menu_open", False)
 
-    A popover owns the open/close interaction in Streamlit itself, so the
-    launcher is not dependent on a CSS click handler or manually maintained
-    panel state.  Selecting a page happens before the sidebar radio widget is
-    created on the rerun, avoiding the old widget-instantiation failure.
-    """
-    with st.popover("☰", key="mobile_nav_popover", type="tertiary", help="Open navigation"):
+    def select_mobile_page(page_name):
+        st.session_state["nav"] = page_name
+        st.session_state["mobile_menu_open"] = False
+
+    with st.container(key="mobile_nav_button"):
+        st.button(
+            "☰",
+            key="mobile_nav_toggle",
+            help="Open navigation",
+            on_click=toggle_mobile_menu,
+        )
+    if not st.session_state.get("mobile_menu_open", False):
+        return
+    with st.container(key="mobile_nav_panel"):
         st.markdown("### Navigate")
         current = st.session_state.get("nav", "Dashboard")
         for page_name in NAV_PAGES:
             label = ("● " if page_name == current else "○ ") + page_name
-            if st.button(label, key=f"mobile_nav_{page_name}", use_container_width=True):
-                # This function runs before the sidebar radio is instantiated.
-                # Setting its value here is safe; the next run opens the
-                # selected page on both phone and desktop browsers.
-                st.session_state["nav"] = page_name
-                st.rerun()
+            st.button(
+                label,
+                key=f"mobile_nav_{page_name}",
+                use_container_width=True,
+                on_click=select_mobile_page,
+                args=(page_name,),
+            )
 
 
 def db():
@@ -764,8 +766,8 @@ def bts_character_image(member, fallback_icon):
     </div>'''
 
 
-def render_bts_motivation():
-    """Render two full-body chibis in date-rotated positions with speech bubbles."""
+def render_bts_motivation(in_dialog=False):
+    """Render two draggable full-body chibis on the page or inside a dialog."""
     message, _, _ = daily_bts_message()
     ko_icon = escape(message["ko_icon"])
     en_icon = escape(message["en_icon"])
@@ -774,8 +776,10 @@ def render_bts_motivation():
     ko_style, en_style = BTS_SCENE_LAYOUTS[date.today().toordinal() % len(BTS_SCENE_LAYOUTS)]
     ko_image = bts_character_image(message["ko_member"], message["ko_icon"])
     en_image = bts_character_image(message["en_member"], message["en_icon"])
+    surface_class = "bts-surface bts-dialog-surface" if in_dialog else "bts-surface bts-global-surface"
+    host_name = "dialog" if in_dialog else "global"
     st.markdown(
-        f'''<div class="bts-surface" data-bts-day="{date.today().isoformat()}">
+        f'''<div class="{surface_class}" data-bts-host="{host_name}" data-bts-day="{date.today().isoformat()}">
             <div class="bts-scene bts-scene-left" data-chibi-slot="ko" style="{ko_style}">
                 {ko_image}
                 <div class="bts-speech">
@@ -850,11 +854,25 @@ def render_bts_motivation():
                 }
             }
 
+            function syncHosts() {
+                const modalOpen = Boolean(win.document.querySelector(".bts-dialog-surface"));
+                win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
+                    scene.style.display = modalOpen ? "none" : "";
+                });
+                win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
+                    scene.style.display = modalOpen ? "" : "none";
+                });
+                return modalOpen;
+            }
+
             function bindChibis() {
-                const stage = win.document.querySelector(".bts-surface");
+                const modalOpen = syncHosts();
+                const stage = win.document.querySelector(".bts-surface[data-bts-host]");
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
+                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
+                    if (modalOpen !== inModal) return;
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
                     scene.style.zIndex = "2147483000";
@@ -975,7 +993,7 @@ def render_bts_motivation():
                 controller.drag = null;
             };
             win.__mochiBtsDragController = controller;
-            const stage = win.document.querySelector(".bts-surface");
+            const stage = win.document.querySelector(".bts-surface[data-bts-host]");
             if (stage) {
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
                     scene.dataset.chibiStorageKey = sceneKey(stage.dataset.btsDay || "today", scene.dataset.chibiSlot || String(index));
@@ -1641,10 +1659,12 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
+        render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
+        render_bts_motivation(in_dialog=True)
         render_review_contents()
 else:
     lesson_dialog = None
