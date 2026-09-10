@@ -189,7 +189,7 @@ st.markdown("""
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
-    .progress-mascot {position:absolute; left:0; top:50%; transform:translate(0,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:transform .15s ease;}
+    .progress-mascot {position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:left .35s ease, transform .15s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
@@ -248,10 +248,12 @@ st.markdown("""
        HTSK lessons; only the panel gets the visible border, so there is one
        frame and no dashboard/sidebar text can show through. */
     [data-testid="stDialog"], .stDialog {position:fixed !important; inset:0 !important; z-index:1000000 !important; display:flex !important; align-items:flex-start !important; justify-content:center !important; padding:4vh 0 !important; background:rgba(73,48,93,.28) !important; overflow-y:auto !important; overflow-x:hidden !important; opacity:1 !important;}
-    [data-testid="stDialog"] > div, .stDialog > div {width:96vw !important; max-width:96vw !important; min-width:0 !important; min-height:92vh !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
-    [data-testid="stDialog"] [role="dialog"], .stDialog [role="dialog"] {width:100% !important; max-width:none !important; min-width:0 !important; min-height:100% !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:0 !important; border-radius:0 !important; background:#fffaff !important; box-shadow:none !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
-    [data-testid="stDialog"] [role="dialog"] > div:last-of-type, .stDialog [role="dialog"] > div:last-of-type {flex:1 1 auto !important; min-height:0 !important; overflow-y:auto !important; overflow-x:hidden !important; background:#fffaff !important; color:#514064 !important;}
-    [data-testid="stDialog"] .block-container, .stDialog .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:#fffaff !important; border-radius:24px !important;}
+    [data-testid="stDialog"] > div, .stDialog > div {position:relative !important; isolation:isolate !important; width:96vw !important; max-width:96vw !important; min-width:0 !important; min-height:92vh !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:transparent !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
+    [data-testid="stDialog"] > div::before, .stDialog > div::before {content:""; position:absolute; inset:3px; z-index:0; border-radius:27px; background:#fffaff; pointer-events:none;}
+    [data-testid="stDialog"] [role="dialog"], .stDialog [role="dialog"] {position:relative !important; z-index:1 !important; width:100% !important; max-width:none !important; min-width:0 !important; min-height:100% !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:0 !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
+    [data-testid="stDialog"] [role="dialog"] > div, .stDialog [role="dialog"] > div {background:transparent !important;}
+    [data-testid="stDialog"] [role="dialog"] > div:last-of-type, .stDialog [role="dialog"] > div:last-of-type {flex:1 1 auto !important; min-height:0 !important; overflow-y:auto !important; overflow-x:hidden !important; background:transparent !important; color:#514064 !important;}
+    [data-testid="stDialog"] .block-container, .stDialog .block-container {position:relative !important; z-index:1 !important; width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:transparent !important; border-radius:24px !important;}
     [data-testid="stDialog"] [data-testid="stMarkdownContainer"], .stDialog [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
     .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
     .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
@@ -262,6 +264,8 @@ st.markdown("""
     .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
     .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
     .brand-subtitle {font-size:11px; color:#987a9d; margin-top:3px;}
+    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:rgba(255,255,255,.58) !important; overflow:visible !important; margin:10px 0 !important;}
+    [data-testid="stExpander"] summary {color:#654b78 !important; font-weight:800 !important;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
@@ -271,6 +275,7 @@ st.markdown("""
     .chibi-table tr:nth-child(even) td {background:#fffafd;}
     .chibi-hero {display:flex; align-items:center; gap:20px; padding:22px 26px; margin:8px 0 24px; border-radius:28px; background:linear-gradient(110deg,#ffdceb,#e9e0ff 58%,#dff7ff); border:2px solid #f2c8df; box-shadow:0 10px 24px rgba(134,101,156,.10);}
     .chibi-face {font-size:42px; line-height:1; white-space:nowrap;}
+    .shop-item-icon {display:flex; align-items:center; justify-content:center; min-width:0; min-height:48px; font-size:30px; line-height:1.1; white-space:nowrap; overflow:visible;}
     .chibi-title {font-size:24px; font-weight:800; color:#654b78; margin-bottom:4px;}
     .chibi-subtitle {color:#886d91; font-size:15px;}
     .cute-note {padding:12px 16px; border-radius:18px; background:#fff7fc; border:2px dashed #e8b9d3; color:#765777; margin:10px 0 18px;}
@@ -298,6 +303,7 @@ st.markdown("""
         h2 {font-size: 1.35rem;}
         .chibi-hero {padding:18px; gap:12px;}
         .chibi-face {font-size:30px;}
+        .shop-item-icon {font-size:24px; min-height:42px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
         [data-testid="stDialog"], .stDialog {padding:2vh 0 !important;}
@@ -854,8 +860,18 @@ def render_bts_motivation(in_dialog=False):
                 }
             }
 
+            function isVisible(element) {
+                if (!element) return false;
+                const style = win.getComputedStyle ? win.getComputedStyle(element) : null;
+                if (style && (style.display === "none" || style.visibility === "hidden" || style.opacity === "0")) return false;
+                const rect = element.getBoundingClientRect ? element.getBoundingClientRect() : null;
+                if (rect && rect.width === 0 && rect.height === 0) return false;
+                return true;
+            }
+
             function syncHosts() {
-                const modalOpen = Boolean(win.document.querySelector(".bts-dialog-surface"));
+                const modal = win.document.querySelector(".bts-dialog-surface");
+                const modalOpen = Boolean(modal && isVisible(modal));
                 win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
                     scene.style.display = modalOpen ? "none" : "";
                 });
@@ -900,6 +916,14 @@ def render_bts_motivation(in_dialog=False):
                 return true;
             }
 
+            // Keep one controller for the whole app. A Study/Review dialog
+            // creates another HTML host, but must not destroy the controller
+            // that owns the global chibis. Otherwise closing the dialog can
+            // leave the global characters hidden and no longer draggable.
+            if (win.__mochiBtsDragController && win.__mochiBtsDragController.refresh) {
+                win.__mochiBtsDragController.refresh();
+                return;
+            }
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.destroy) {
                 win.__mochiBtsDragController.destroy();
             }
@@ -987,10 +1011,13 @@ def render_bts_motivation(in_dialog=False):
                 touchcancel: endDrag,
             };
             Object.entries(listeners).forEach(([name, handler]) => win.document.addEventListener(name, handler, eventOptions));
+            controller.refresh = bindChibis;
             controller.destroy = () => {
                 Object.entries(listeners).forEach(([name, handler]) => win.document.removeEventListener(name, handler, eventOptions));
                 if (controller.drag) controller.drag.scene.classList.remove("bts-dragging");
                 controller.drag = null;
+                if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
+                if (win.__mochiBtsDragInterval) win.clearInterval(win.__mochiBtsDragInterval);
             };
             win.__mochiBtsDragController = controller;
             const stage = win.document.querySelector(".bts-surface[data-bts-host]");
@@ -1003,6 +1030,10 @@ def render_bts_motivation(in_dialog=False):
             [0, 80, 250, 700].forEach((delay) => win.setTimeout(bindChibis, delay));
             win.__mochiBtsDragObserver = new win.MutationObserver(bindChibis);
             win.__mochiBtsDragObserver.observe(win.document.body, {childList: true, subtree: true});
+            // Some Streamlit versions hide a dialog by changing its style
+            // instead of removing it. Polling keeps the global host restored
+            // in that case as well as after a normal modal removal.
+            if (win.setInterval) win.__mochiBtsDragInterval = win.setInterval(bindChibis, 500);
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
             win.addEventListener("resize", win.__mochiBtsDragResize);
         })();
@@ -1539,12 +1570,9 @@ def page_dashboard():
         quest_tracker = active_item("tracker")
         quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
         quest_ratio = completed / len(todays)
-        # Keep the tracker mascot fixed at the start of the rail.  The fill
-        # changes behind it; the icon must not teleport when the ratio changes.
-        quest_position = 0
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
-            <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:{quest_position:.1f}%">{quest_icon}</div></div>
+            <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:clamp(0px,calc({quest_ratio * 100:.1f}% - 19px),calc(100% - 38px))">{quest_icon}</div></div>
             <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
         </div>''', unsafe_allow_html=True)
         for lesson in todays:
@@ -1607,9 +1635,6 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    # Keep the selected tracker at the beginning of the rail while the fill
-    # advances behind it.
-    tracker_position = 0
     st.markdown(
         f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
         unsafe_allow_html=True,
@@ -1619,9 +1644,8 @@ def render_review_contents():
         <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
         <div class="review-progress-track">
             <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
-            <div class="progress-mascot" style="left:{tracker_position:.1f}%;border-color:{tracker_color}">{tracker_icon}</div>
+            <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
         </div>
-        <div style="margin-top:7px;color:#886d91;font-size:14px">Your tracker is ready at the start of the quest!</div>
     </div>''', unsafe_allow_html=True)
     due = next_due_card()
     if not due:
@@ -1673,38 +1697,53 @@ else:
 
 def page_lessons():
     st.title("Lessons")
-    st.header("Course roadmap")
+    start = int(setting("start_unit", "2"))
+    lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (start,))
+    lessons_by_unit = {unit: [] for unit in UNIT_INFO}
+    for lesson in lessons:
+        lessons_by_unit.setdefault(lesson["unit"], []).append(lesson)
+    st.caption("Open a unit to see its lessons. Study shows the HTSK explanation and separate examples; cards appear only after Add to deck.")
+    lesson_request = None
     for unit, (title, lesson_range, status) in UNIT_INFO.items():
-        with st.container(border=True):
-            if status == "completed":
-                badge = "✅ Completed"
-            elif status == "current":
-                badge = "🌸 Current unit"
-            else:
-                badge = "🔒 Locked"
-            st.markdown(f"### Unit {unit}: {title}")
-            st.caption(f"{lesson_range} · {badge}")
+        if status == "completed":
+            badge = "✅ Completed"
+        elif status == "current":
+            badge = "🌸 Current unit"
+        else:
+            badge = "🔒 Locked"
+        with st.expander(
+            f"Unit {unit}: {title} · {lesson_range} · {badge}",
+            expanded=(unit == start),
+        ):
+            if unit < start:
+                st.success("This unit is marked as completed before your starting point.")
+                st.caption("Its earlier lessons are not part of this app's active deck.")
+                continue
             if unit in HTSK_GROUPS:
                 links = " · ".join(f"[{name}]({url})" for name, url in HTSK_GROUPS[unit])
-                st.markdown(f"Official lesson pages: {links}")
-    st.divider()
-    st.header("Available lessons")
-    lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (int(setting("start_unit", "2")),))
-    lesson_request = None
-    for lesson in lessons:
-        cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
-        active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
-        guide = lesson_guide(lesson)
-        with st.expander(f"Lesson {lesson['lesson_number']}: {lesson['title']} · {active}/{cards} cards active"):
-            if guide.get("available"):
-                st.markdown(f"**Grammar point:** `{lesson['pattern']}`")
-                st.caption("HTSK guide and separate official examples are inside the Study window · 5 SRS cards")
-            else:
-                st.warning(guide["source_note"])
-                st.caption("This lesson will not enter the new-lesson queue until HTSK publishes its content.")
-            st.markdown(f"[Read the full official HTSK explanation ↗]({guide['source_url']})")
-            if guide.get("available") and st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
-                lesson_request = (lesson["id"], False)
+                st.markdown(f"Official HTSK lesson pages: {links}")
+            unit_lessons = lessons_by_unit.get(unit, [])
+            if not unit_lessons:
+                st.caption("No lessons are available in this unit yet.")
+                continue
+            for lesson in unit_lessons:
+                cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
+                active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
+                guide = lesson_guide(lesson)
+                with st.container(border=True):
+                    left, right = st.columns([5, 1.3])
+                    with left:
+                        st.markdown(f"**Lesson {lesson['lesson_number']}: {lesson['title']}**")
+                        if guide.get("available"):
+                            st.caption(f"{lesson['pattern']} · {active}/{cards} cards active · HTSK guide inside Study")
+                            st.markdown(f"[Open the full HTSK lesson ↗]({guide['source_url']})")
+                        else:
+                            st.caption("🔒 HTSK has not published this lesson yet")
+                            st.markdown(f"[Open the official HTSK page ↗]({guide['source_url']})")
+                    with right:
+                        if guide.get("available"):
+                            if st.button("Study", key=f"study_{lesson['id']}", use_container_width=True):
+                                lesson_request = (lesson["id"], False)
     if lesson_request:
         render_lesson_dialog(*lesson_request)
 
@@ -1753,7 +1792,7 @@ def page_shop():
                 with st.container(border=True):
                     left, middle, right = st.columns([1, 4, 1.5])
                     with left:
-                        st.markdown(f"<div style='font-size:38px;text-align:center'>{item['icon']}</div>", unsafe_allow_html=True)
+                        st.markdown(f"<div class='shop-item-icon'>{item['icon']}</div>", unsafe_allow_html=True)
                     with middle:
                         st.markdown(f"### {item['name']}")
                         st.caption(item["description"])
@@ -1764,9 +1803,8 @@ def page_shop():
                                 unsafe_allow_html=True,
                             )
                         elif kind == "tracker":
-                            tracker_position = 0
                             st.markdown(
-                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:{tracker_position}%">{item['icon']}</div></div>''',
+                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">{item['icon']}</div></div>''',
                                 unsafe_allow_html=True,
                             )
                     with right:

@@ -17,9 +17,11 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - The answer field is focused automatically when each new Review card opens
 - Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
 - Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
-- The selected progress mascot sits flush at the beginning inside the progress bar; the selected card frame decorates the whole Review card
+- On phones, the borderless ☰ button opens a real in-app navigation panel; its page buttons work for Dashboard, Review, Lessons, Progress and Crystal Shop
+- The selected progress mascot starts flush at the beginning of the progress bar and moves with its fill; the selected card frame decorates the whole Review card
 - Consecutive study-day streaks with a daily crystal bonus
-- A daily original chibi encouragement: two full-body human chibis appear in different random positions over every app page with separate speech bubbles; they float above all app content and can be dragged aside with a mouse or finger; one bubble gives a Korean message and the other shows its English translation; names and language labels are intentionally omitted, and difficulty follows the furthest lesson started. There is no separate chibi panel behind them.
+- A daily original chibi encouragement: two full-body human chibis appear in different random positions over every app page with separate speech bubbles; they float above all app content and can be dragged aside with a mouse or finger, including while a Study or Review window is open, and remain available after a dialog is closed; one bubble gives a Korean message and the other shows its English translation; names and language labels are intentionally omitted, and difficulty follows the furthest lesson started. There is no separate chibi panel behind them.
+- Lessons are grouped into expandable Unit sections, with that unit's lesson rows and Study buttons inside each section.
 - The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`. If only the Python file is uploaded, it still draws a self-contained full-body chibi instead of showing an animal emoji.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
