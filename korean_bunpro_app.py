@@ -137,6 +137,11 @@ class PostgresConnection:
         # connection after each helper made every click wait for a new TLS
         # handshake against Supabase.
         return None
+
+
+def is_postgres_connection(connection):
+    """Recognize cached connections even after Streamlit reloads this module."""
+    return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
@@ -553,7 +558,7 @@ def today():
 
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
-    if isinstance(c, PostgresConnection):
+    if is_postgres_connection(c):
         c.execute("SELECT pg_advisory_xact_lock(81620417)")
 
 
@@ -678,7 +683,7 @@ def import_extended_seeds():
             # The app can have several browser sessions on first deployment.
             # Insert-or-ignore at the database level avoids the check-then-
             # insert race that previously blocked lessons_lesson_number_key.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 inserted = c.execute("""
                     INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
                     VALUES(?,?,?,?,?,?,?)
@@ -709,7 +714,7 @@ def import_extended_seeds():
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 c.commit()
     c.commit()
     c.close()
@@ -873,7 +878,7 @@ def award_crystals(event_key, amount):
         return
     c = db()
     params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
-    if isinstance(c, PostgresConnection):
+    if is_postgres_connection(c):
         # RETURNING is reliable for PostgreSQL and avoids relying on the
         # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
         inserted = c.execute(
