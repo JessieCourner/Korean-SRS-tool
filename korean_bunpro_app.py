@@ -2156,6 +2156,17 @@ def page_lessons():
     # Units 0–1 are completed by default, but remain visible for reference
     # and can be added manually to the SRS deck from their Study dialogs.
     lessons = rows("SELECT * FROM lessons ORDER BY unit, lesson_number")
+    # Do not issue two PostgreSQL queries for every lesson.  With 209 lessons
+    # that made opening the Lessons page wait for hundreds of network round
+    # trips, and the Study dialog could not appear until all of them finished.
+    card_stats = rows("""
+        SELECT cards.lesson_id,
+               SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
+               SUM(CASE WHEN reviews.active=1 AND reviews.retired=0 THEN 1 ELSE 0 END) AS active
+        FROM cards JOIN reviews ON reviews.card_id=cards.id
+        GROUP BY cards.lesson_id
+    """)
+    stats_by_lesson = {row["lesson_id"]: row for row in card_stats}
     lessons_by_unit = {unit: [] for unit in UNIT_INFO}
     for lesson in lessons:
         lessons_by_unit.setdefault(lesson["unit"], []).append(lesson)
@@ -2183,8 +2194,9 @@ def page_lessons():
                 st.caption("No lessons are available in this unit yet.")
                 continue
             for lesson in unit_lessons:
-                cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
-                active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
+                stats = stats_by_lesson.get(lesson["id"], {})
+                cards = stats.get("cards", 0) or 0
+                active = stats.get("active", 0) or 0
                 guide = lesson_guide(lesson)
                 with st.container(border=True):
                     left, right = st.columns([5, 1.3])
