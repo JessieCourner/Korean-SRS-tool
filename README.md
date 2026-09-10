@@ -20,7 +20,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - The selected progress mascot sits inside the progress bar and moves with it; the selected card frame decorates the whole Review card
 - Consecutive study-day streaks with a daily crystal bonus
 - A daily original BTS chibi encouragement: two full-body human chibis appear in different dashboard positions with separate speech bubbles; one member gives a Korean message and another shows its English translation; difficulty follows the furthest lesson started
-- The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`
+- The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`. If only the Python file is uploaded, it still draws a self-contained full-body chibi instead of showing an animal emoji.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
 - Each lesson record contains its shortened HTSK guide directly: Meaning, When to use it, How to build it and separate source examples; guide examples are never generated from SRS cards

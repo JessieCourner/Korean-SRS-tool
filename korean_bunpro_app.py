@@ -114,6 +114,15 @@ BTS_ASSET_FILES = {
     "V": "v.png",
     "Jung Kook": "jungkook.png",
 }
+BTS_VECTOR_PALETTE = {
+    "RM": ("#9276c9", "#5a477d"),
+    "Jin": ("#f2a2ba", "#d27999"),
+    "SUGA": ("#556fa9", "#303c69"),
+    "j-hope": ("#f3a53c", "#e77925"),
+    "Jimin": ("#f4a9b9", "#df7893"),
+    "V": ("#4f9d91", "#2f6c68"),
+    "Jung Kook": ("#4b86d8", "#28539b"),
+}
 # The daily pair uses a stable date-based layout, so a Streamlit rerun does
 # not make the characters jump around while the learner is reading.  The
 # layout changes on the next day and keeps the two friends in different parts
@@ -185,6 +194,9 @@ st.markdown("""
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
+    .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
+    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
+    .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
@@ -204,6 +216,9 @@ st.markdown("""
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
+    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
+    .bts-vector {width:100%; height:100%; overflow:visible;}
     .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770;}
     .bts-scene-right .bts-speech {border-color:#cdb9ec;}
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
@@ -305,7 +320,7 @@ st.markdown("""
         .bts-stage-subtitle {padding-right:22px;}
         .bts-scene, .bts-scene-left, .bts-scene-right {position:relative !important; left:auto !important; right:auto !important; top:auto !important; bottom:auto !important; width:100%; max-width:none; margin:19px 0 0;}
         .bts-scene-right {flex-direction:row-reverse;}
-        .bts-character {width:92px; height:150px;}
+        .bts-character, .bts-vector-fallback {width:92px; height:150px;}
         .bts-speech {min-width:0; max-width:none; flex:1 1 auto; padding:10px 12px;}
         .bts-quote {font-size:14px;}
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
@@ -714,13 +729,44 @@ def daily_bts_message():
 
 
 def bts_character_image(member, fallback_icon):
-    """Return an inline image for a bundled chibi, with a safe fallback."""
+    """Return a bundled chibi or a self-contained human fallback.
+
+    The PNGs are included in the full project archive.  The vector fallback
+    is intentional: if somebody uploads only the Python file through GitHub,
+    the dashboard still shows a full-body chibi instead of silently falling
+    back to a small animal emoji.
+    """
     filename = BTS_ASSET_FILES.get(member)
     asset_path = BTS_ASSET_DIR / filename if filename else None
     if asset_path and asset_path.is_file():
         encoded = base64.b64encode(asset_path.read_bytes()).decode("ascii")
         return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="{escape(member)} chibi">'
-    return f'<div class="bts-character-fallback" role="img" aria-label="{escape(member)}">{escape(fallback_icon)}</div>'
+    hair, outfit = BTS_VECTOR_PALETTE.get(member, ("#9276c9", "#5a477d"))
+    skin = "#f4c7ad"
+    return f'''<div class="bts-vector-fallback" role="img" aria-label="{escape(member)} chibi">
+        <svg class="bts-vector" viewBox="0 0 120 180" aria-hidden="true">
+            <ellipse cx="60" cy="171" rx="28" ry="6" fill="rgba(91,71,112,.18)"/>
+            <path d="M45 125 L43 158 Q43 164 49 164 L55 164 L59 132 Z" fill="#f7f2f7" stroke="#5b4770" stroke-width="2"/>
+            <path d="M61 132 L65 164 L72 164 Q77 164 76 158 L74 125 Z" fill="#f7f2f7" stroke="#5b4770" stroke-width="2"/>
+            <path d="M43 158 Q49 154 56 162 L57 168 L38 168 Q37 162 43 158 Z" fill="#ffffff" stroke="#5b4770" stroke-width="2"/>
+            <path d="M64 162 Q71 154 77 158 Q82 162 81 168 L62 168 Z" fill="#ffffff" stroke="#5b4770" stroke-width="2"/>
+            <rect x="40" y="83" width="40" height="49" rx="16" fill="{outfit}" stroke="#5b4770" stroke-width="2"/>
+            <path d="M43 91 Q31 95 32 111" fill="none" stroke="{skin}" stroke-width="10" stroke-linecap="round"/>
+            <path d="M77 91 Q89 95 88 111" fill="none" stroke="{skin}" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="32" cy="112" r="5" fill="{skin}"/>
+            <circle cx="88" cy="112" r="5" fill="{skin}"/>
+            <circle cx="60" cy="55" r="29" fill="{skin}" stroke="#5b4770" stroke-width="2"/>
+            <path d="M32 55 Q30 22 61 23 Q91 22 89 54 Q80 40 67 42 Q51 45 42 60 Z" fill="{hair}" stroke="#5b4770" stroke-width="2"/>
+            <path d="M39 62 Q43 72 50 75" fill="none" stroke="{hair}" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="50" cy="57" r="3" fill="#463953"/>
+            <circle cx="70" cy="57" r="3" fill="#463953"/>
+            <path d="M54 69 Q60 74 66 69" fill="none" stroke="#b75f7f" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="41" cy="66" r="4" fill="#f3a2ac" opacity=".65"/>
+            <circle cx="79" cy="66" r="4" fill="#f3a2ac" opacity=".65"/>
+            <path d="M53 88 L60 100 L67 88" fill="#ffffff" opacity=".9"/>
+            <circle cx="60" cy="102" r="3" fill="#ffe49b"/>
+        </svg>
+    </div>'''
 
 
 def render_bts_motivation():
@@ -1089,8 +1135,12 @@ def open_review():
 
 
 def render_card(card):
-    st.markdown(f"### {card['prompt']}")
-    st.write(f"**Translation:** {card['translation']}")
+    prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
+    translation_html = escape(str(card["translation"])).replace("\n", "<br>")
+    st.markdown(
+        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
+        unsafe_allow_html=True,
+    )
     with st.expander("Show hint"):
         st.write(card["hint"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
@@ -1158,15 +1208,15 @@ def lesson_preview(lesson_id, daily=False):
         return escape(str(value or "")).replace("\n", "<br>")
 
     st.markdown(
-        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">Meaning</div><div>{guide_text(guide['meaning'])}</div></div>''',
+        f'''<div class="lesson-guide-copy" style="background:#fffaff;border:1px solid #efd8e8;color:#514064"><div class="lesson-section-title">Meaning</div><div>{guide_text(guide['meaning'])}</div></div>''',
         unsafe_allow_html=True,
     )
     st.markdown(
-        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">When to use it</div><div>{guide_text(guide['usage'])}</div></div>''',
+        f'''<div class="lesson-guide-copy" style="background:#fffaff;border:1px solid #efd8e8;color:#514064"><div class="lesson-section-title">When to use it</div><div>{guide_text(guide['usage'])}</div></div>''',
         unsafe_allow_html=True,
     )
     st.markdown(
-        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">How to build it</div><div>{guide_text(guide['building'])}</div></div>''',
+        f'''<div class="lesson-guide-copy" style="background:#fffaff;border:1px solid #efd8e8;color:#514064"><div class="lesson-section-title">How to build it</div><div>{guide_text(guide['building'])}</div></div>''',
         unsafe_allow_html=True,
     )
     st.markdown('<div class="lesson-section-title">Examples from HTSK</div>', unsafe_allow_html=True)
@@ -1178,7 +1228,7 @@ def lesson_preview(lesson_id, daily=False):
             display_example = guide_text(example)
             display_translation = guide_text(translation)
             st.markdown(
-                f'''<div class="lesson-example"><div><b>{index}.</b> {display_example}</div><div style="margin-top:7px;color:#987a9d;font-size:14px">Translation: {display_translation}</div></div>''',
+                f'''<div class="lesson-example" style="background:#ffffff;border:1px solid #efd8e8;border-left:5px solid #efb8d6;color:#514064"><div><b>{index}.</b> {display_example}</div><div style="margin-top:7px;color:#7d668d;font-size:14px">Translation: {display_translation}</div></div>''',
                 unsafe_allow_html=True,
             )
     st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
