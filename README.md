@@ -14,9 +14,10 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Per-card progress stored in SQLite
 - Rotation: cards reviewed today are moved behind other due cards from the same lesson
 - Newly added cards with no first rating are included in Review, even if there are no scheduled reviews
-- Enter submits an answer; after checking, Enter activates Correct
+- Enter submits an answer; the app grades automatically from the number of attempts and repeats a wrong card immediately
 - The answer field is focused automatically when each new Review card opens
-- Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
+- Each card has a separate optional hint that shows the word in its base form, without revealing the completed grammar answer
+- Automatic review grading: first correct attempt = Good, second = Hard, third or later = Again; a wrong answer does not leave the card until it is answered correctly
 - Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
 - On phones, the borderless ☰ button opens a real in-app navigation panel; its page buttons work for Dashboard, Review, Lessons, Progress and Crystal Shop
 - The selected progress mascot starts flush at the beginning of the progress bar and moves with its fill; the selected card frame decorates the whole Review card
@@ -39,7 +40,7 @@ python -m streamlit run korean_bunpro_app.py
 
 The first run creates `korean_bunpro.db` and imports the seed data. Do not delete that database if you want to keep progress.
 
-The cards are compact practice prompts. Each `unit*.json` lesson record contains its verified HTSK-derived guide, so the explanation shown by **Study** travels with the lesson itself. Guide examples come from the corresponding official HTSK lesson pages; they are separate from the SRS card examples. The app does not invent guide or card content for unpublished lessons.
+The cards are compact practice prompts and require the complete missing word plus its grammar ending whenever the stem is shown before the blank. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons.
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 

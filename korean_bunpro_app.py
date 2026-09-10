@@ -1435,10 +1435,29 @@ def answer_is_correct(user, answer):
 
 
 def check_answer(card_id, answer_key):
-    """Check the answer when the user presses Enter in the text field."""
+    """Automatically grade a card from the number of attempts.
+
+    A wrong answer keeps the same card on screen.  The next correct answer is
+    therefore attempt two (Hard), and a third-or-later correct answer is Again.
+    """
     card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
     user_answer = st.session_state.get(answer_key, "")
-    st.session_state["checked"] = answer_is_correct(user_answer, card["answer"])
+    if not card or not normalize(user_answer):
+        return
+    attempt_key = f"attempts_{card_id}"
+    attempts = st.session_state.get(attempt_key, 0) + 1
+    st.session_state[attempt_key] = attempts
+    if answer_is_correct(user_answer, card["answer"]):
+        result = "good" if attempts == 1 else "hard" if attempts == 2 else "again"
+        st.session_state["last_auto_grade"] = result
+        grade(card_id, result)
+        st.rerun()
+    else:
+        st.session_state["wrong_feedback"] = card_id
+        # The callback runs before the widget is rendered again, so this is
+        # safe and gives the learner a clean field for the next attempt.
+        st.session_state[answer_key] = ""
+        st.rerun()
 
 
 def focus_answer_field():
@@ -1471,7 +1490,7 @@ def focus_answer_field():
 
 
 def enable_review_hotkeys(card_id, nonce):
-    """Keyboard grading: 1 Again, 2 Hard, 3/Enter/Space Good, 4 Easy."""
+    """Kept for compatibility with older saved sessions."""
     components.html(f"""
     <script>
     (function() {{
@@ -1593,6 +1612,8 @@ def grade(card_id, result):
     record_activity("review")
     st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
+    st.session_state.pop(f"attempts_{card_id}", None)
+    st.session_state.pop("wrong_feedback", None)
     st.session_state.pop(f"revealed_answer_{card_id}", None)
     # A widget key cannot be changed after the widget is created in the
     # current Streamlit run. A nonce gives the next card a fresh input field.
@@ -1652,47 +1673,24 @@ def render_card(card):
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
-    with st.expander("Show hint"):
+    with st.expander("Показать слово в начальной форме"):
         st.write(card["hint"])
+    with st.expander("Показать объяснение грамматики"):
+        st.write(card["explanation"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
-    revealed_key = f"revealed_answer_{card['id']}"
     answer = st.text_input(
         "Your answer",
         key=answer_key,
         on_change=check_answer,
         args=(card["id"], answer_key),
-        placeholder="Type the missing Korean form and press Enter",
+        placeholder="Type the complete Korean word + grammar form and press Enter",
     )
-    if "checked" not in st.session_state:
-        focus_answer_field()
-    if st.button("Check answer", use_container_width=True):
-        st.session_state["checked"] = answer_is_correct(answer, card["answer"])
-    if "checked" in st.session_state:
-        if st.session_state["checked"]:
-            st.success("Correct!")
-            st.caption("Choose how well you remembered it:")
-            a, b, c, d = st.columns(4)
-            if a.button("Again", key=f"again_{card['id']}", use_container_width=True):
-                grade(card["id"], "again"); st.rerun()
-            if b.button("Hard", key=f"hard_{card['id']}", use_container_width=True):
-                grade(card["id"], "hard"); st.rerun()
-            if c.button("Good", key=f"good_{card['id']}", use_container_width=True):
-                grade(card["id"], "good"); st.rerun()
-            if d.button("Easy", key=f"easy_{card['id']}", use_container_width=True):
-                grade(card["id"], "easy"); st.rerun()
-            st.caption("Keyboard: 1 Again · 2 Hard · 3 / Enter / Space Good · 4 Easy")
-            enable_review_hotkeys(card["id"], st.session_state.get("review_nonce", 0))
-        else:
-            st.error("Not quite.")
-            if not st.session_state.get(revealed_key):
-                if st.button("Show correct answer", key=f"reveal_{card['id']}", use_container_width=True):
-                    st.session_state[revealed_key] = True
-                    st.rerun()
-            if st.session_state.get(revealed_key):
-                st.info(f"Correct answer: {card['answer']}")
-                st.write(card["explanation"])
-                if st.button("Again", key=f"again_wrong_{card['id']}", use_container_width=True):
-                    grade(card["id"], "again"); st.rerun()
+    attempts = st.session_state.get(f"attempts_{card['id']}", 0)
+    if st.session_state.get("wrong_feedback") == card["id"]:
+        st.warning(f"Пока не получилось. Попробуй ещё раз — попытка {attempts + 1}.")
+    elif attempts:
+        st.caption(f"Попыток: {attempts}. Введи ответ ещё раз.")
+    focus_answer_field()
 
 
 def lesson_preview(lesson_id, daily=False):
