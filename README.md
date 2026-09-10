@@ -38,6 +38,16 @@ python -m pip install -r requirements.txt
 python -m streamlit run korean_bunpro_app.py
 ```
 
+## Supabase progress storage
+
+To keep one progress record across devices, add this to the app's Streamlit Cloud Secrets after creating a Supabase project:
+
+```toml
+SUPABASE_DB_URL = "postgresql://postgres:<YOUR_PASSWORD>@<YOUR_HOST>:5432/postgres?sslmode=require"
+```
+
+When `SUPABASE_DB_URL` is present, the app uses Supabase PostgreSQL. Without it, the app falls back to the local `korean_bunpro.db` file.
+
 The first run creates `korean_bunpro.db` and imports the seed data. Do not delete that database if you want to keep progress.
 
 The cards are compact practice prompts and require the complete missing word plus its grammar ending whenever the stem is shown before the blank. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons.

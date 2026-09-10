@@ -9,9 +9,98 @@ from pathlib import Path
 import streamlit as st
 import streamlit.components.v1 as components
 
+try:
+    import psycopg2
+    from psycopg2.extras import RealDictCursor
+except ImportError:
+    psycopg2 = None
+    RealDictCursor = None
+
 
 APP_DIR = Path(__file__).resolve().parent
 DB_PATH = Path("korean_bunpro.db")
+try:
+    SUPABASE_DB_URL = st.secrets.get("SUPABASE_DB_URL", "")
+except Exception:
+    SUPABASE_DB_URL = ""
+
+
+class CompatRow(dict):
+    """A dict row that also supports SQLite-style numeric indexing."""
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return list(self.values())[key]
+        return super().__getitem__(key)
+
+
+def postgres_sql(sql):
+    sql = sql.replace("INSERT OR IGNORE INTO", "INSERT INTO")
+    sql = sql.replace("INSERT OR REPLACE INTO settings", "INSERT INTO settings")
+    sql = sql.replace("id INTEGER PRIMARY KEY AUTOINCREMENT", "id BIGSERIAL PRIMARY KEY")
+    sql = sql.replace("AUTOINCREMENT", "")
+    sql = sql.replace("?", "%s")
+    if "INSERT INTO settings" in sql and "ON CONFLICT" not in sql:
+        sql = sql.rstrip().rstrip(';') + " ON CONFLICT(key) DO UPDATE SET value=EXCLUDED.value"
+    elif "INSERT INTO" in sql and "ON CONFLICT" not in sql and "INSERT OR" not in sql:
+        # INSERT OR IGNORE was normalized above; this marker is added by the
+        # cursor for those statements so ordinary inserts remain unchanged.
+        pass
+    return sql
+
+
+class PostgresCursor:
+    def __init__(self, connection):
+        self.connection = connection
+        self.cursor = connection.raw.cursor(cursor_factory=RealDictCursor)
+        self.ignore_conflict = False
+
+    def execute(self, sql, params=()):
+        self.ignore_conflict = "INSERT OR IGNORE INTO" in sql
+        transformed = postgres_sql(sql)
+        if self.ignore_conflict and "ON CONFLICT" not in transformed:
+            transformed = transformed.rstrip().rstrip(';') + " ON CONFLICT DO NOTHING"
+        if transformed.lstrip().upper().startswith("PRAGMA TABLE_INFO"):
+            table = re.search(r"PRAGMA TABLE_INFO\(([^)]+)\)", transformed, re.I).group(1).strip()
+            transformed = "SELECT ordinal_position AS cid, column_name AS name FROM information_schema.columns WHERE table_schema='public' AND table_name=%s ORDER BY ordinal_position"
+            params = (table,)
+        self.cursor.execute(transformed, params)
+        return self
+
+    def executescript(self, sql):
+        self.cursor.execute(postgres_sql(sql))
+        return self
+
+    def fetchone(self):
+        row = self.cursor.fetchone()
+        return CompatRow(row) if row is not None else None
+
+    def fetchall(self):
+        return [CompatRow(row) for row in self.cursor.fetchall()]
+
+    @property
+    def lastrowid(self):
+        self.cursor.execute("SELECT LASTVAL() AS id")
+        return self.cursor.fetchone()["id"]
+
+    def close(self):
+        self.cursor.close()
+
+
+class PostgresConnection:
+    def __init__(self, url):
+        self.raw = psycopg2.connect(url) if "sslmode=" in url else psycopg2.connect(url, sslmode="require")
+
+    def execute(self, sql, params=()):
+        return PostgresCursor(self).execute(sql, params)
+
+    def executescript(self, sql):
+        return PostgresCursor(self).executescript(sql)
+
+    def commit(self):
+        self.raw.commit()
+
+    def close(self):
+        self.raw.close()
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
@@ -408,6 +497,10 @@ def render_mobile_navigation():
 
 
 def db():
+    if SUPABASE_DB_URL:
+        if psycopg2 is None:
+            raise RuntimeError("SUPABASE_DB_URL is set, but psycopg2-binary is missing from requirements.txt")
+        return PostgresConnection(SUPABASE_DB_URL)
     c = sqlite3.connect(DB_PATH)
     c.row_factory = sqlite3.Row
     return c
