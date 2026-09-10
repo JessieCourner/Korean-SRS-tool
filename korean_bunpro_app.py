@@ -189,7 +189,7 @@ st.markdown("""
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
-    .progress-mascot {position:absolute; top:50%; transform:translate(-50%,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:left .35s ease;}
+    .progress-mascot {position:absolute; top:50%; transform:translate(-50%,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:transform .15s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
@@ -202,24 +202,25 @@ st.markdown("""
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
     .streak-fire {font-size:28px; line-height:1;}
     .streak-meta {color:#987a9d; font-size:13px; text-align:right;}
-    /* The daily BTS companions are real bundled transparent PNG cut-outs.
-       They float freely on a small stage; the only outlined elements are the
-       speech bubbles themselves, not character cards or frames. */
-    .bts-stage {position:relative; min-height:390px; overflow:visible; margin:14px 0 24px; padding:17px 20px 14px; background:transparent;}
+    /* The daily chibi companions are real bundled transparent PNG cut-outs.
+       They float above the page; the only outlined elements are the speech
+       bubbles themselves, not character cards or frames. */
+    .bts-stage {position:relative; min-height:96px; overflow:visible; margin:14px 0 24px; padding:17px 20px 14px; background:transparent;}
     .bts-stage::before {content:"✦ ｡˚  ♡  ˚｡ ✦"; position:absolute; right:25px; top:18px; color:#e1acd0; font-size:17px; letter-spacing:5px; opacity:.9; pointer-events:none;}
     .bts-stage::after {content:"✿"; position:absolute; left:28px; bottom:18px; color:#efb2cf; font-size:24px; opacity:.8; pointer-events:none;}
     .bts-stage-heading {position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
     .bts-stage-subtitle {position:relative; z-index:3; color:#987a9d; font-size:13px;}
-    .bts-scene {position:absolute; z-index:2; display:flex; align-items:flex-end; gap:10px; max-width:48%;}
+    .bts-scene {position:fixed; z-index:999999; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
+    .bts-scene.bts-dragging {cursor:grabbing; z-index:1000000;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
-    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
     .bts-vector {width:100%; height:100%; overflow:visible;}
-    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770;}
+    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:none;}
     .bts-scene-right .bts-speech {border-color:#cdb9ec;}
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
     .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
@@ -242,22 +243,16 @@ st.markdown("""
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
     .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
     .modal-kicker strong {color:#654b78; font-size:18px;}
-    /* Native Streamlit dialogs stay inside the current app.  The wide dialog
-       is expanded almost to the viewport edges so Study and Review feel like
-       full-screen cards on both desktop and phone. */
-    /* Only the native dialog gets a border.  Its first child is the scroll
-       surface; styling that child too was the source of the second frame and
-       also clipped the Study actions below long HTSK examples. */
-    [role="dialog"] {position:fixed !important; z-index:100001 !important; width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; left:50% !important; transform:translateX(-50%) !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; opacity:1 !important; isolation:isolate !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
-    /* Keep the dialog's content layer opaque.  The previous broad
-       data-testid selector also matched the outer dialog and made Dashboard
-       text show through the Study window. */
-    [role="dialog"] > div:first-child {width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; flex:1 1 auto !important; overflow-y:auto !important; overflow-x:hidden !important; border:0 !important; border-radius:0 !important; background:#fffaff !important; box-shadow:none !important;}
-    [role="dialog"] > div:first-child > div,
-    [role="dialog"] [data-testid="stDialog"],
-    [role="dialog"] [data-testid="stDialog"] > div {background:#fffaff !important; border:0 !important; box-shadow:none !important;}
-    [role="dialog"] .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:#fffaff !important; border-radius:24px !important;}
-    [role="dialog"] [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
+    /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
+       and a role=dialog content wrapper.  The overlay owns scrolling for long
+       HTSK lessons; only the panel gets the visible border, so there is one
+       frame and no dashboard/sidebar text can show through. */
+    [data-testid="stDialog"], .stDialog {position:fixed !important; inset:0 !important; z-index:1000000 !important; display:flex !important; align-items:flex-start !important; justify-content:center !important; padding:4vh 0 !important; background:rgba(73,48,93,.28) !important; overflow-y:auto !important; overflow-x:hidden !important; opacity:1 !important;}
+    [data-testid="stDialog"] > div, .stDialog > div {width:96vw !important; max-width:96vw !important; min-width:0 !important; min-height:92vh !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:#fffaff !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
+    [data-testid="stDialog"] [role="dialog"], .stDialog [role="dialog"] {width:100% !important; max-width:none !important; min-width:0 !important; min-height:100% !important; height:auto !important; max-height:none !important; margin:0 !important; padding:0 !important; border:0 !important; border-radius:0 !important; background:#fffaff !important; box-shadow:none !important; overflow:visible !important; display:flex !important; flex-direction:column !important;}
+    [data-testid="stDialog"] [role="dialog"] > div:last-of-type, .stDialog [role="dialog"] > div:last-of-type {flex:1 1 auto !important; min-height:0 !important; overflow-y:auto !important; overflow-x:hidden !important; background:#fffaff !important; color:#514064 !important;}
+    [data-testid="stDialog"] .block-container, .stDialog .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important; background:#fffaff !important; border-radius:24px !important;}
+    [data-testid="stDialog"] [data-testid="stMarkdownContainer"], .stDialog [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
     .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
     .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
     .quest-track {height:18px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e3cde1; margin:8px 10px 14px;}
@@ -316,15 +311,16 @@ st.markdown("""
         .chibi-face {font-size:30px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
-        [role="dialog"] {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
-        [role="dialog"] .block-container {padding:1rem .85rem 1.5rem !important;}
-        .bts-stage {min-height:0; padding:15px 13px 18px; overflow:visible;}
+        [data-testid="stDialog"], .stDialog {padding:2vh 0 !important;}
+        [data-testid="stDialog"] > div, .stDialog > div {width:98vw !important; max-width:98vw !important; min-height:96vh !important; border-radius:24px !important;}
+        [data-testid="stDialog"] .block-container, .stDialog .block-container {padding:1rem .85rem 1.5rem !important;}
+        .bts-stage {min-height:92px; padding:15px 13px 18px; overflow:visible;}
         .bts-stage-heading {font-size:16px;}
         .bts-stage-subtitle {padding-right:22px;}
-        .bts-scene, .bts-scene-left, .bts-scene-right {position:relative !important; left:auto !important; right:auto !important; top:auto !important; bottom:auto !important; width:100%; max-width:none; margin:19px 0 0;}
+        .bts-scene, .bts-scene-left, .bts-scene-right {position:fixed !important; width:max-content; max-width:calc(100vw - 12px); margin:0;}
         .bts-scene-right {flex-direction:row-reverse;}
-        .bts-character, .bts-vector-fallback {width:92px; height:150px;}
-        .bts-speech {min-width:0; max-width:none; flex:1 1 auto; padding:10px 12px;}
+        .bts-character, .bts-vector-fallback {width:82px; height:132px;}
+        .bts-speech {min-width:0; max-width:calc(100vw - 96px); flex:1 1 auto; padding:10px 12px;}
         .bts-quote {font-size:14px;}
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
         .streak-meta {text-align:left;}
@@ -784,16 +780,16 @@ def render_bts_motivation():
     ko_image = bts_character_image(message["ko_member"], message["ko_icon"])
     en_image = bts_character_image(message["en_member"], message["en_icon"])
     st.markdown(
-        f'''<div class="bts-stage">
+        f'''<div class="bts-stage" data-bts-day="{date.today().isoformat()}">
             <div class="bts-stage-heading"><span>💜 Daily chibi cheer</span><span>Level {level}</span></div>
             <div class="bts-stage-subtitle">Two friends for today · your Korean level: {progress_label}</div>
-            <div class="bts-scene bts-scene-left" style="{ko_style}">
+            <div class="bts-scene bts-scene-left" data-chibi-slot="ko" style="{ko_style}">
                 {ko_image}
                 <div class="bts-speech">
                     <div class="bts-quote">{ko_quote}</div>
                 </div>
             </div>
-            <div class="bts-scene bts-scene-right" style="{en_style}">
+            <div class="bts-scene bts-scene-right" data-chibi-slot="en" style="{en_style}">
                 {en_image}
                 <div class="bts-speech">
                     <div class="bts-quote">{en_quote}</div>
@@ -801,6 +797,136 @@ def render_bts_motivation():
             </div>
         </div>''',
         unsafe_allow_html=True,
+    )
+    components.html(
+        """
+        <script>
+        (() => {
+            const win = window.parent;
+            const storagePrefix = "mochi-hangul-chibi-position-v3";
+
+            function clamp(value, minimum, maximum) {
+                return Math.min(Math.max(value, minimum), maximum);
+            }
+
+            function setPosition(scene, left, top) {
+                scene.style.left = `${left}px`;
+                scene.style.top = `${top}px`;
+                scene.style.right = "auto";
+                scene.style.bottom = "auto";
+            }
+
+            function sceneKey(day, slot) {
+                return `${storagePrefix}-${day}-${slot}`;
+            }
+
+            function seededNumber(value) {
+                let hash = 0;
+                for (let index = 0; index < value.length; index += 1) {
+                    hash = ((hash << 5) - hash) + value.charCodeAt(index);
+                    hash |= 0;
+                }
+                const random = Math.sin(hash) * 10000;
+                return random - Math.floor(random);
+            }
+
+            function placeRandomly(scene, day, slot) {
+                const rect = scene.getBoundingClientRect();
+                const maxLeft = Math.max(6, win.innerWidth - rect.width - 6);
+                const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
+                const leftRange = Math.max(0, maxLeft - 12);
+                const topRange = Math.max(0, maxTop - 72);
+                const left = 6 + seededNumber(`${day}-${slot}-left`) * leftRange;
+                const top = 72 + seededNumber(`${day}-${slot}-top`) * topRange;
+                setPosition(scene, clamp(left, 6, maxLeft), clamp(top, 6, maxTop));
+            }
+
+            function savePosition(scene, key) {
+                const rect = scene.getBoundingClientRect();
+                try {
+                    win.localStorage.setItem(key, JSON.stringify({left: rect.left, top: rect.top}));
+                } catch (error) {}
+            }
+
+            function keepOnScreen(scene) {
+                const rect = scene.getBoundingClientRect();
+                const maxLeft = Math.max(6, win.innerWidth - rect.width - 6);
+                const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
+                if (rect.left < 6 || rect.top < 6 || rect.right > win.innerWidth - 6 || rect.bottom > win.innerHeight - 6) {
+                    setPosition(scene, clamp(rect.left, 6, maxLeft), clamp(rect.top, 6, maxTop));
+                }
+            }
+
+            function bindChibis() {
+                const stage = win.document.querySelector(".bts-stage");
+                if (!stage) return;
+                const day = stage.dataset.btsDay || "today";
+                win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
+                    const slot = scene.dataset.chibiSlot || String(index);
+                    scene.style.position = "fixed";
+                    scene.style.zIndex = "999999";
+                    if (scene.dataset.chibiDragBound === "1") {
+                        keepOnScreen(scene);
+                        return;
+                    }
+                    scene.dataset.chibiDragBound = "1";
+                    const key = sceneKey(day, slot);
+                    let hasSavedPosition = false;
+                    try {
+                        const saved = JSON.parse(win.localStorage.getItem(key) || "null");
+                        if (saved && Number.isFinite(saved.left) && Number.isFinite(saved.top)) {
+                            setPosition(scene, saved.left, saved.top);
+                            hasSavedPosition = true;
+                        }
+                    } catch (error) {}
+                    if (!hasSavedPosition) {
+                        placeRandomly(scene, day, slot);
+                        savePosition(scene, key);
+                    }
+                    keepOnScreen(scene);
+
+                    let drag = null;
+                    const finishDrag = (event) => {
+                        if (!drag || (event && event.pointerId !== drag.pointerId)) return;
+                        savePosition(scene, key);
+                        drag = null;
+                        scene.classList.remove("bts-dragging");
+                    };
+
+                    scene.addEventListener("pointerdown", (event) => {
+                        if (event.button !== undefined && event.button !== 0) return;
+                        const rect = scene.getBoundingClientRect();
+                        setPosition(scene, rect.left, rect.top);
+                        drag = {pointerId: event.pointerId, dx: event.clientX - rect.left, dy: event.clientY - rect.top};
+                        scene.classList.add("bts-dragging");
+                        if (scene.setPointerCapture) scene.setPointerCapture(event.pointerId);
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }, {passive: false});
+                    scene.addEventListener("pointermove", (event) => {
+                        if (!drag || event.pointerId !== drag.pointerId) return;
+                        const rect = scene.getBoundingClientRect();
+                        const maxLeft = Math.max(6, win.innerWidth - rect.width - 6);
+                        const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
+                        setPosition(scene, clamp(event.clientX - drag.dx, 6, maxLeft), clamp(event.clientY - drag.dy, 6, maxTop));
+                        event.preventDefault();
+                    }, {passive: false});
+                    scene.addEventListener("pointerup", finishDrag);
+                    scene.addEventListener("pointercancel", finishDrag);
+                });
+            }
+
+            if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
+            if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
+            bindChibis();
+            win.__mochiBtsDragObserver = new win.MutationObserver(bindChibis);
+            win.__mochiBtsDragObserver.observe(win.document.body, {childList: true, subtree: true});
+            win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
+            win.addEventListener("resize", win.__mochiBtsDragResize);
+        })();
+        </script>
+        """,
+        height=1,
     )
 
 
@@ -1335,9 +1461,9 @@ def page_dashboard():
         quest_tracker = active_item("tracker")
         quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
         quest_ratio = completed / len(todays)
-        # Keep the tracker visually inside the rail even at 0%/100%; it is
-        # intentionally inset instead of sitting at the very start of a line.
-        quest_position = 7 + (86 * quest_ratio)
+        # Keep the tracker mascot fixed at the start of the rail.  The fill
+        # changes behind it; the icon must not teleport when the ratio changes.
+        quest_position = 7
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
             <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:{quest_position:.1f}%">{quest_icon}</div></div>
@@ -1403,7 +1529,9 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    tracker_position = 7 + (86 * progress)
+    # Keep the selected tracker at the beginning of the rail while the fill
+    # advances behind it.
+    tracker_position = 7
     st.markdown(
         f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
         unsafe_allow_html=True,
@@ -1415,7 +1543,7 @@ def render_review_contents():
             <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
             <div class="progress-mascot" style="left:{tracker_position:.1f}%;border-color:{tracker_color}">{tracker_icon}</div>
         </div>
-        <div style="margin-top:7px;color:#886d91;font-size:14px">Your tracker travels along the bar with you!</div>
+        <div style="margin-top:7px;color:#886d91;font-size:14px">Your tracker is ready at the start of the quest!</div>
     </div>''', unsafe_allow_html=True)
     due = next_due_card()
     if not due:
@@ -1556,7 +1684,7 @@ def page_shop():
                                 unsafe_allow_html=True,
                             )
                         elif kind == "tracker":
-                            tracker_position = 56
+                            tracker_position = 7
                             st.markdown(
                                 f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:{tracker_position}%">{item['icon']}</div></div>''',
                                 unsafe_allow_html=True,
