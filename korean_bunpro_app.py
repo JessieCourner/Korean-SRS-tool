@@ -35,7 +35,7 @@ HTSK_GROUPS = {
     9: [("Lessons 201–208", "https://www.howtostudykorean.com/unit-9/lessons-201-208/")],
 }
 
-# The HTSK guide layer is loaded from htsk_lesson_guides.json below.
+# Each lesson's shortened HTSK guide is embedded in its unit JSON record.
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
     ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
@@ -112,8 +112,37 @@ st.markdown("""
     .chibi-title {font-size:24px; font-weight:800; color:#654b78; margin-bottom:4px;}
     .chibi-subtitle {color:#886d91; font-size:15px;}
     .cute-note {padding:12px 16px; border-radius:18px; background:#fff7fc; border:2px dashed #e8b9d3; color:#765777; margin:10px 0 18px;}
+    /* The mobile menu is a native Streamlit popover.  It is deliberately
+       anchored with a keyed CSS class so the launcher remains tappable even
+       when the main content is long.  The tertiary style plus these rules
+       removes the default outline/border without removing the button itself. */
+    .st-key-mobile_nav_popover {position:fixed !important; top:8px; left:8px; z-index:100000 !important; width:52px; pointer-events:auto !important;}
+    .st-key-mobile_nav_popover > button,
+    .st-key-mobile_nav_popover > button:hover,
+    .st-key-mobile_nav_popover > button:focus,
+    .st-key-mobile_nav_popover > button:focus-visible,
+    .st-key-mobile_nav_popover > button:active,
+    .st-key-mobile_nav_popover > div:first-child > button,
+    .st-key-mobile_nav_popover > div:first-child > button:hover,
+    .st-key-mobile_nav_popover > div:first-child > button:focus,
+    .st-key-mobile_nav_popover > div:first-child > button:focus-visible,
+    .st-key-mobile_nav_popover > div:first-child > button:active,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:hover,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:focus,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:focus-visible,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button:active {border:0 !important; outline:none !important; box-shadow:none !important; background:transparent !important; color:#684d7b !important; font-size:27px; padding:2px 6px; min-height:42px; -webkit-tap-highlight-color:transparent;}
+    .st-key-mobile_nav_popover > button p,
+    .st-key-mobile_nav_popover > div:first-child > button p,
+    .st-key-mobile_nav_popover [data-testid="stPopoverButton"] > button p {font-size:27px !important; line-height:1 !important; margin:0 !important;}
+    @media (min-width: 701px) { .st-key-mobile_nav_popover {display:none !important;} }
     @media (max-width: 700px) {
-        .block-container {padding: 1rem .75rem 2rem;}
+        .block-container {padding: 4rem .75rem 2rem;}
+        /* Streamlit's desktop sidebar is hidden on a phone; the fixed
+           launcher above is the single, tappable mobile navigation control. */
+        [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none !important;}
+        .st-key-mobile_nav_popover {display:block !important; visibility:visible !important; opacity:1 !important;}
+        .st-key-mobile_nav_popover button {pointer-events:auto !important; touch-action:manipulation;}
         h1 {font-size: 1.8rem;}
         h2 {font-size: 1.35rem;}
         .chibi-hero {padding:18px; gap:12px;}
@@ -125,61 +154,28 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-components.html("""
-<script>
-(function() {
-    const parentWindow = window.parent;
-    const doc = parentWindow.document;
-    const button = doc.getElementById('mochi-mobile-menu-button') || doc.createElement('button');
-    button.id = 'mochi-mobile-menu-button';
-    button.type = 'button';
-    button.textContent = '☰';
-    button.setAttribute('aria-label', 'Open navigation menu');
-    button.style.cssText = 'display:none;position:fixed;top:12px;left:12px;z-index:100000;border:0;outline:0;box-shadow:none;border-radius:14px;background:transparent;color:#684d7b;font-size:25px;line-height:1;width:48px;height:44px;cursor:pointer;-webkit-tap-highlight-color:transparent;';
-    function findSidebarToggle() {
-        const selectors = [
-            '[data-testid="stSidebarCollapseButton"] button',
-            '[data-testid="stSidebarCollapseButton"]',
-            'button[aria-label="Open sidebar"]',
-            'button[aria-label="Close sidebar"]',
-            'button[title="Open sidebar"]',
-            'button[title="Close sidebar"]'
-        ];
-        for (const selector of selectors) {
-            const node = doc.querySelector(selector);
-            if (node && (node.tagName === 'BUTTON' || node.querySelector('button'))) {
-                return node.tagName === 'BUTTON' ? node : node.querySelector('button');
-            }
-        }
-        return Array.from(doc.querySelectorAll('button')).find((candidate) => {
-            const label = ((candidate.getAttribute('aria-label') || '') + ' ' + (candidate.getAttribute('title') || '')).toLowerCase();
-            return label.includes('sidebar') || label.includes('navigation');
-        });
-    }
-    button.onclick = function() {
-        let attempts = 0;
-        const tryToggle = function() {
-            const toggle = findSidebarToggle();
-            if (toggle) {
-                toggle.click();
-                return true;
-            }
-            attempts += 1;
-            return attempts >= 15;
-        };
-        if (!tryToggle()) {
-            const timer = parentWindow.setInterval(function() {
-                if (tryToggle()) parentWindow.clearInterval(timer);
-            }, 100);
-        }
-    };
-    if (!button.parentNode) doc.body.appendChild(button);
-    function update() { button.style.display = window.matchMedia('(max-width: 700px)').matches ? 'flex' : 'none'; button.style.alignItems = 'center'; button.style.justifyContent = 'center'; }
-    update();
-    window.addEventListener('resize', update);
-})();
-</script>
-""", height=1)
+NAV_PAGES = ("Dashboard", "Review", "Lessons", "Progress", "Crystal Shop")
+
+
+def render_mobile_navigation():
+    """Render a working native mobile navigation popover.
+
+    A popover owns the open/close interaction in Streamlit itself, so the
+    launcher is not dependent on a CSS click handler or manually maintained
+    panel state.  Selecting a page happens before the sidebar radio widget is
+    created on the rerun, avoiding the old widget-instantiation failure.
+    """
+    with st.popover("☰", key="mobile_nav_popover", type="tertiary", help="Open navigation"):
+        st.markdown("### Navigate")
+        current = st.session_state.get("nav", "Dashboard")
+        for page_name in NAV_PAGES:
+            label = ("● " if page_name == current else "○ ") + page_name
+            if st.button(label, key=f"mobile_nav_{page_name}", use_container_width=True):
+                # This function runs before the sidebar radio is instantiated.
+                # Setting its value here is safe; the next run opens the
+                # selected page on both phone and desktop browsers.
+                st.session_state["nav"] = page_name
+                st.rerun()
 
 
 def db():
@@ -240,6 +236,13 @@ def init_db():
         PRIMARY KEY(day, lesson_id)
     );
     """)
+    # A retired review row belongs to an old card that was removed from the
+    # checked-in lesson pack.  Keep the row and its history for progress
+    # safety, but never put it back into a deck when its lesson is activated.
+    # ALTER TABLE is needed because deployed databases predate this column.
+    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+    if "retired" not in review_columns:
+        c.execute("ALTER TABLE reviews ADD COLUMN retired INTEGER NOT NULL DEFAULT 0")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
     # The current course plan is two new lessons per day. Keep this migration
@@ -313,6 +316,76 @@ def import_extended_seeds():
     c.close()
 
 
+def sync_seed_card_content():
+    """Refresh checked-in card text while preserving every review record.
+
+    The first version of the deployed app imported a card only once.  That
+    meant a corrected HTSK example stayed wrong in an existing database.  We
+    now match cards by their stable lesson/order position and update only the
+    prompt, translation, answer, hint, and explanation.  Level, dates,
+    mistakes, active state, and answer history are intentionally untouched.
+    """
+    c = db()
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        if not seed_path.exists():
+            continue
+        data = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson_data in data.get("lessons", []):
+            lesson = c.execute(
+                "SELECT id FROM lessons WHERE lesson_number=?",
+                (lesson_data["lesson_number"],),
+            ).fetchone()
+            if not lesson:
+                continue
+            existing = c.execute(
+                "SELECT id FROM cards WHERE lesson_id=? ORDER BY id",
+                (lesson["id"],),
+            ).fetchall()
+            for index, card in enumerate(lesson_data.get("cards", [])):
+                values = (
+                    card["prompt"],
+                    card["translation"],
+                    card["answer"],
+                    card["hint"],
+                    card["explanation"],
+                )
+                if index < len(existing):
+                    c.execute(
+                        "UPDATE reviews SET retired=0 WHERE card_id=?",
+                        (existing[index]["id"],),
+                    )
+                    c.execute(
+                        """UPDATE cards
+                           SET prompt=?, translation=?, answer=?, hint=?, explanation=?
+                           WHERE id=?""",
+                        (*values, existing[index]["id"]),
+                    )
+                else:
+                    card_id = c.execute(
+                        """INSERT INTO cards
+                           (lesson_id,prompt,translation,answer,hint,explanation)
+                           VALUES(?,?,?,?,?,?)""",
+                        (lesson["id"], *values),
+                    ).lastrowid
+                    c.execute(
+                        "INSERT OR IGNORE INTO reviews(card_id) VALUES(?)",
+                        (card_id,),
+                    )
+            # A repaired seed can intentionally contain fewer cards than an
+            # older deployed database.  Keep the old review/history rows for
+            # progress safety, but take obsolete cards out of the active deck
+            # so stale examples cannot reappear after an app update.
+            if len(existing) > len(lesson_data.get("cards", [])):
+                obsolete_ids = [row["id"] for row in existing[len(lesson_data.get("cards", [])):]]
+                placeholders = ",".join("?" for _ in obsolete_ids)
+                c.execute(
+                    f"UPDATE reviews SET active=0, retired=1 WHERE card_id IN ({placeholders})",
+                    obsolete_ids,
+                )
+    c.commit()
+    c.close()
+
+
 def sync_htsk_metadata():
     """Keep lesson labels, links and availability aligned with the HTSK manifest."""
     c = db()
@@ -323,7 +396,11 @@ def sync_htsk_metadata():
         if not lesson:
             continue
         if guide.get("source_status") == "published":
-            status = "available" if lesson["status"] == "unavailable" else lesson["status"]
+            # Older databases used ``locked`` for lessons that were already
+            # present in the course pack.  The current app unlocks the whole
+            # published HTSK queue and lets the daily queue reveal it in
+            # order, so those stale flags must not hide new lessons forever.
+            status = "available" if lesson["status"] in {"unavailable", "locked"} else lesson["status"]
             c.execute(
                 "UPDATE lessons SET title=?, pattern=?, source_url=?, status=? WHERE id=?",
                 (
@@ -345,7 +422,7 @@ def sync_htsk_metadata():
                 ),
             )
             c.execute(
-                "UPDATE reviews SET active=0 WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?)",
+                "UPDATE reviews SET active=0, retired=1 WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?)",
                 (lesson["id"],),
             )
             c.execute(
@@ -421,24 +498,39 @@ def normalize(text):
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
-# These are guide-only examples. They are deliberately kept outside the cards
-# table so Study never turns a cloze prompt into a displayed example.
-# These guides are explicit source data, never reconstructed from SRS cards or lesson titles.
-
-HTSK_GUIDES_PATH = Path("htsk_lesson_guides.json")
+# The lesson guide is stored directly on each lesson record in the unit seed
+# files.  It is not reconstructed from SRS cards or lesson titles, and the
+# guide examples remain separate from the cards array in the same lesson.
 
 
 def load_htsk_guides():
-    """Load and validate the checked-in HTSK source layer."""
-    if not HTSK_GUIDES_PATH.exists():
-        raise FileNotFoundError(
-            "htsk_lesson_guides.json is missing. Deploy it next to korean_bunpro_app.py."
-        )
-    payload = json.loads(HTSK_GUIDES_PATH.read_text(encoding="utf-8"))
-    guides = payload.get("lessons", {})
+    """Load and validate HTSK guide fields embedded in the lesson seeds."""
+    guides = {}
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        if not seed_path.exists():
+            raise FileNotFoundError(
+                f"{seed_path.name} is missing. Deploy all unit lesson files next to korean_bunpro_app.py."
+            )
+        payload = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson in payload.get("lessons", []):
+            number = str(int(lesson["lesson_number"]))
+            if number in guides:
+                raise ValueError(f"Lesson {number} appears in more than one seed file.")
+            guides[number] = {
+                "source_status": lesson.get("source_status"),
+                "source_title": lesson.get("source_title", lesson.get("title", "")),
+                "source_pattern": lesson.get("source_pattern", lesson.get("pattern", "")),
+                "source_url": lesson.get("source_url", ""),
+                "meaning": lesson.get("meaning", ""),
+                "when_to_use": lesson.get("when_to_use", ""),
+                "how_to_build": lesson.get("how_to_build", ""),
+                "examples": lesson.get("examples", []),
+                "examples_source": lesson.get("examples_source", ""),
+                "source_note": lesson.get("source_note", ""),
+            }
     expected = {str(number) for number in range(26, 209)}
     if set(guides) != expected:
-        raise ValueError("htsk_lesson_guides.json must contain exactly lessons 26–208.")
+        raise ValueError("The unit lesson seed files must contain exactly lessons 26–208.")
     for number, guide in guides.items():
         if guide.get("source_status") == "published":
             required = ("source_url", "meaning", "when_to_use", "how_to_build", "examples")
@@ -558,7 +650,8 @@ def activate_lesson(lesson_id):
     c = db()
     c.execute("""
         UPDATE reviews SET active=1, level=0, next_review=?, last_review=NULL
-        WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?) AND active=0
+        WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?)
+          AND active=0 AND retired=0
     """, (today(), lesson_id))
     c.execute("UPDATE lessons SET status='studying' WHERE id=?", (lesson_id,))
     c.commit()
@@ -635,6 +728,7 @@ def grade(card_id, result):
     award_crystals(f"card_review:{card_id}:{now}", {"good": 3, "easy": 5, "hard": 1, "again": 0}[result])
     st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
+    st.session_state.pop(f"revealed_answer_{card_id}", None)
     # A widget key cannot be changed after the widget is created in the
     # current Streamlit run. A nonce gives the next card a fresh input field.
     st.session_state["review_nonce"] = st.session_state.get("review_nonce", 0) + 1
@@ -645,7 +739,12 @@ def next_new_lesson():
     return one("""
         SELECT * FROM lessons
         WHERE status IN ('available','studying') AND unit>=?
-        AND id NOT IN (SELECT lesson_id FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE reviews.active=1)
+        AND id NOT IN (
+            SELECT lesson_id
+            FROM cards
+            JOIN reviews ON reviews.card_id=cards.id
+            WHERE reviews.active=1 AND reviews.retired=0
+        )
         ORDER BY unit, lesson_number LIMIT 1
     """, (start,))
 
@@ -662,6 +761,7 @@ def next_due_card():
         JOIN lessons ON lessons.id=cards.lesson_id
         JOIN reviews ON reviews.card_id=cards.id
         WHERE reviews.active=1
+          AND reviews.retired=0
           AND (reviews.next_review<=? OR reviews.last_review IS NULL)
           AND lessons.unit>=? AND lessons.status IN ('available','studying')
         ORDER BY
@@ -686,6 +786,7 @@ def render_card(card):
     with st.expander("Show hint"):
         st.write(card["hint"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
+    revealed_key = f"revealed_answer_{card['id']}"
     answer = st.text_input(
         "Your answer",
         key=answer_key,
@@ -714,10 +815,14 @@ def render_card(card):
             enable_review_hotkeys(card["id"], st.session_state.get("review_nonce", 0))
         else:
             st.error("Not quite.")
-            if st.button("Show correct answer", use_container_width=True):
+            if not st.session_state.get(revealed_key):
+                if st.button("Show correct answer", key=f"reveal_{card['id']}", use_container_width=True):
+                    st.session_state[revealed_key] = True
+                    st.rerun()
+            if st.session_state.get(revealed_key):
                 st.info(f"Correct answer: {card['answer']}")
                 st.write(card["explanation"])
-                if st.button("Mark as wrong", key=f"show_wrong_{card['id']}", use_container_width=True):
+                if st.button("Again", key=f"again_wrong_{card['id']}", use_container_width=True):
                     grade(card["id"], "again"); st.rerun()
 
 
@@ -749,8 +854,12 @@ def lesson_preview(lesson_id, daily=False):
     guide_examples = guide.get("examples", [])
     if guide_examples:
         for index, (example, translation) in enumerate(guide_examples, 1):
-            st.markdown(f"**{index}.** {example}")
-            st.caption(f"Translation: {translation}")
+            # A few HTSK examples are short conversational exchanges.  Keep
+            # the context and the ~다니 reaction on separate visible lines.
+            display_example = str(example).replace("\n", "<br>")
+            display_translation = str(translation).replace("\n", "<br>")
+            st.markdown(f"**{index}.** {display_example}", unsafe_allow_html=True)
+            st.caption(f"Translation: {display_translation}")
     st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
     st.divider()
     cancel, add = st.columns(2)
@@ -801,9 +910,9 @@ def page_dashboard():
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
     st.write("A Bunpro-style review tool based on the How to Study Korean curriculum.")
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND (next_review<=? OR last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
-    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1")["n"]
-    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND level>=8")["n"]
+    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
+    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
+    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
     a, b, c = st.columns(3)
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
@@ -885,7 +994,7 @@ def page_dashboard():
 def page_review():
     st.title("Review")
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE active=1 AND (next_review<=? OR last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)
@@ -938,8 +1047,8 @@ def page_lessons():
     st.header("Available lessons")
     lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (int(setting("start_unit", "2")),))
     for lesson in lessons:
-        cards = one("SELECT COUNT(*) AS n FROM cards WHERE lesson_id=?", (lesson["id"],))["n"]
-        active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE lesson_id=? AND active=1", (lesson["id"],))["n"]
+        cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
+        active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
         guide = lesson_guide(lesson)
         with st.expander(f"Lesson {lesson['lesson_number']}: {lesson['title']} · {active}/{cards} cards active"):
             st.markdown(f"### Lesson {lesson['lesson_number']} guide")
@@ -953,8 +1062,10 @@ def page_lessons():
                 st.write(guide["building"])
                 st.markdown("**Examples from HTSK**")
                 for index, (example, translation) in enumerate(guide.get("examples", []), 1):
-                    st.markdown(f"**Example {index}:** {example}")
-                    st.caption(f"Translation: {translation}")
+                    display_example = str(example).replace("\n", "<br>")
+                    display_translation = str(translation).replace("\n", "<br>")
+                    st.markdown(f"**Example {index}:** {display_example}", unsafe_allow_html=True)
+                    st.caption(f"Translation: {display_translation}")
                 st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
             else:
                 st.warning(guide["source_note"])
@@ -970,9 +1081,9 @@ def page_progress():
     st.title("Progress")
     data = rows("""
         SELECT lessons.unit, lessons.lesson_number, lessons.title,
-               COUNT(cards.id) AS cards,
-               SUM(CASE WHEN reviews.active=1 THEN 1 ELSE 0 END) AS active,
-               SUM(CASE WHEN reviews.level>=8 THEN 1 ELSE 0 END) AS mastered
+               SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
+               SUM(CASE WHEN reviews.retired=0 AND reviews.active=1 THEN 1 ELSE 0 END) AS active,
+               SUM(CASE WHEN reviews.retired=0 AND reviews.level>=8 THEN 1 ELSE 0 END) AS mastered
         FROM lessons JOIN cards ON cards.lesson_id=lessons.id
         JOIN reviews ON reviews.card_id=cards.id
         WHERE lessons.unit>=? GROUP BY lessons.id ORDER BY lessons.lesson_number
@@ -1031,11 +1142,16 @@ def page_shop():
 init_db()
 import_seed_once()
 import_extended_seeds()
+sync_seed_card_content()
 sync_htsk_metadata()
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
+pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
+if pending_mobile_page in NAV_PAGES:
+    st.session_state["nav"] = pending_mobile_page
+render_mobile_navigation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
-page = st.sidebar.radio("Navigate", ["Dashboard", "Review", "Lessons", "Progress", "Crystal Shop"], key="nav")
+page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
 st.sidebar.caption("Starting point: Unit 2")
 if page == "Dashboard": page_dashboard()

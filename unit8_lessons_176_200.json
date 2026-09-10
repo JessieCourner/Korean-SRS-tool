@@ -6,16 +6,70 @@
       "title": "Trying in vain with ~아/어 봤자",
       "pattern": "~아/어 봤자",
       "explanation": "Practice for the HTSK Lesson 176 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-176/",
       "cards": [
         {
-          "prompt": "지금 가___ 늦을 거예요.",
-          "translation": "Even if we go now, it will be late.",
-          "answer": "봐야",
-          "hint": "Focus: ~아/어 봤자",
-          "explanation": "The target form is ~아/어 봤자."
+          "prompt": "공포를 애써 감춰 ___ 눈빛에서 다 드러나요",
+          "translation": "Even if you try to hide your fear, it shows in your eyes",
+          "answer": "봤자",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 176; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "소수가 아무리 반대해 ___ 다수의 의견을 뒤집기는 어려워요",
+          "translation": "Even if the minority strongly opposes it, it’s hard to overturn the majority’s opinion",
+          "answer": "봤자",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 176; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "다수가 동의해 ___ 결정권은 결국 위원장에게 있어요",
+          "translation": "Even if the majority agrees, the decision-making power still lies with the chairperson",
+          "answer": "봤자",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 176; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "단원의 내용을 외워 ___ 이해하지 않으면 금방 잊게 돼요",
+          "translation": "Even if you memorize the content in the unit, you’ll forget quickly if you don’t understand it",
+          "answer": "봤자",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 176; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "단위가 다른 물건을 비교해 ___ 정확한 분석은 어려워요",
+          "translation": "Even if you try to compare items with different units, it’s hard to get an accurate analysis",
+          "answer": "봤자",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 176; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Trying in vain with ~아/어 봤자",
+      "source_pattern": "~아/어 봤자",
+      "meaning": "~아/어 봤자 means even if one tries or does something, it will be pointless or have no useful effect.",
+      "when_to_use": "Use it when an action cannot change the outcome or is not worth doing under the circumstances.",
+      "how_to_build": "Attach ~아/어 봤자 to the verb stem using the normal vowel rule; the following clause states the futile result.",
+      "examples": [
+        [
+          "아무리 열심히 공부를 해 봤자 시험이 너무 어려울 거예요",
+          "Even if you study hard, it is pointless as the exam will be too difficult"
+        ],
+        [
+          "아무리 지금 고쳐 봤자 새로운 것을 이미 샀어요",
+          "Even if you fix it now, it is pointless as we’ve already bought a new one"
+        ],
+        [
+          "단원을 미리 공부해 봤자 시험 범위가 바뀌면 소용없어요",
+          "Even if I study the unit in advance, it’s useless if the test scope changes"
+        ],
+        [
+          "이삿짐을 줄여 봤자 트럭 한 대는 필요해요",
+          "Even if we try to reduce the moving boxes, we’ll still need at least one truck"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 176 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -23,16 +77,70 @@
       "title": "The literary infix ~오~",
       "pattern": "literary ~오~",
       "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/",
       "cards": [
         {
-          "prompt": "문학 작품에서 옛 표현을 자주 ___ 수 있어요.",
-          "translation": "You can often see old-style expressions in literary works.",
-          "answer": "볼",
-          "hint": "Focus: literary ~오~",
-          "explanation": "The target form is literary ~오~."
+          "prompt": "관내 발급된 전표는 시스템에 자동 등록되___ 별도의 제출은 필요하지 않습니다",
+          "translation": "Statements issued within our jurisdiction are automatically registered in the system, so separate submission is not required",
+          "answer": "오니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 177; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 길은 어두우___ 등불을 챙기기 바랍니다",
+          "translation": "This road is dark, so please bring a lantern",
+          "answer": "오니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 177; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "고압 전류가 흐르___ 절대 손대지 마십시오",
+          "translation": "High-voltage current present, do not touch under any circumstances",
+          "answer": "오니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 177; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "본 시스템은 정기적으로 점검되___ 일시적인 접속 지연이 발생할 수 있습니다",
+          "translation": "As this system is inspected regularly, temporary access delays may occur",
+          "answer": "오니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 177; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "작업 중이___ 통행을 삼가 주시기 바랍니다",
+          "translation": "Work in progress -please refrain from passing through",
+          "answer": "오니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 177; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "The literary infix ~오~",
+      "source_pattern": "literary ~오~",
+      "meaning": "The literary infix ~오~ appears in older, literary or formal-style verb forms.",
+      "when_to_use": "Use it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.",
+      "how_to_build": "Learn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
+      "examples": [
+        [
+          "날이 저물어 가오니 우리도 길을 재촉해야 합니다",
+          "The day is fading, so we must hurry along"
+        ],
+        [
+          "태도가 매우 공손하오니 거짓말을 하지 않는 거 같습니다",
+          "Since his attitude is very polite, it seems he isn’t lying"
+        ],
+        [
+          "즉각적으로 조치하오니 더 큰 피해는 막을 수 있었습니다",
+          "Since we took immediate action, we were able to prevent further damage"
+        ],
+        [
+          "이 편지가 마지막 희망이오니 반드시 전해 주시기를 바랍니다",
+          "This letter is our last hope – I ask you to deliver it no matter what"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 177 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -40,16 +148,70 @@
       "title": "~구요",
       "pattern": "~구요",
       "explanation": "Practice for the HTSK Lesson 178 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-178/",
       "cards": [
         {
-          "prompt": "저는 학생이___, 친구는 회사원이에요.",
-          "translation": "I am a student, and my friend is an office worker.",
+          "prompt": "그 남자는 돈에 혈안이 되어 밤낮없이 일했___, 결국에는 건강이 크게 나빠졌어요",
+          "translation": "That man was obsessed with money and worked day and night, and in the end, his health greatly deteriorated",
           "answer": "구요",
-          "hint": "Focus: ~구요",
-          "explanation": "The target form is ~구요."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 178; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리는 산길을 쭉 올라갔___, 정상에서 일출을 봤어요",
+          "translation": "We climbed the mountain path straight up, and watched the sunrise at the peak",
+          "answer": "구요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 178; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그대는 항상 제 곁에 있었___, 말없이 날 위로해줬어요",
+          "translation": "You were always by my side, and you comforted me without a word",
+          "answer": "구요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 178; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "광선이 갑자기 하늘에서 쏟아졌___, 모두가 놀라서 뒤로 물러났어요",
+          "translation": "A beam suddenly poured from the sky, and everyone stepped back in shock",
+          "answer": "구요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 178; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 사람 얼굴이 분명히 기억나___, 목소리도 익숙했어요",
+          "translation": "I clearly remember that person’s face, and the voice was also familiar",
+          "answer": "구요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 178; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~구요",
+      "source_pattern": "~구요",
+      "meaning": "~구요 is a spoken connective ending that adds another related fact or explanation, often with a soft conversational tone.",
+      "when_to_use": "Use it when continuing a conversation, adding information or linking a reason in informal polite speech.",
+      "how_to_build": "Attach 구요 to the appropriate conjugated predicate and follow the source examples for tense, politeness and clause connection.",
+      "examples": [
+        [
+          "처음에는 범죄자의 설명이 그럴듯했구요, 그래서 다들 쉽게 속았어요",
+          "At first, his explanation sounded plausible, and everyone was fooled"
+        ],
+        [
+          "아이들이 할머니 손을 꼭 잡고 따뜻이 인사했구요, 할머니는 눈물을 흘리셨어요",
+          "The children warmly greeted their grandmother holding her hand tightly, and she shed tears"
+        ],
+        [
+          "그 교수님은 제자들 사이에서 신망이 높구요, 학교 전체에서도 인정받는 분이에요",
+          "That professor is well trusted by students, and respected throughout the university"
+        ],
+        [
+          "그 사람은 형편도 안 좋은데 가족까지 떠났대요. 게다가 주변 사람들한테 신망도 잃었구요.",
+          "His circumstances are already bad, and on top of that, he’s lost the trust of those around him, too."
+        ]
+      ],
+      "examples_source": "HTSK Lesson 178 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -57,16 +219,70 @@
       "title": "마련",
       "pattern": "마련",
       "explanation": "Practice for the HTSK Lesson 179 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-179/",
       "cards": [
         {
-          "prompt": "사람은 누구나 실수하기 ___이에요.",
-          "translation": "Everyone is bound to make mistakes.",
+          "prompt": "사람들은 언젠가 죽기 ___이에요",
+          "translation": "People will inevitably pass away someday",
           "answer": "마련",
-          "hint": "Focus: 마련",
-          "explanation": "The target form is 마련."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 179; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사람들은 죽기 ___이에요",
+          "translation": "People are bound to pass away someday",
+          "answer": "마련",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 179; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "모든 사람들은 실수를 하기 ___이에요",
+          "translation": "Everyone is bound to make mistakes",
+          "answer": "마련",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 179; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사람들은 추운 날씨에 감기에 걸리기 ___이에요",
+          "translation": "People are bound to catch a cold in cold weather",
+          "answer": "마련",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 179; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "힘든 일일수록 아무도 자청하지 않기 ___이에요",
+          "translation": "The more difficult the task, the less likely anyone is to volunteer for it",
+          "answer": "마련",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 179; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "마련",
+      "source_pattern": "마련",
+      "meaning": "마련 expresses something that is bound or naturally expected to happen, or a prepared arrangement depending on the construction.",
+      "when_to_use": "Use it for predictable outcomes, things that are naturally the case and expressions about preparation or arrangement.",
+      "how_to_build": "Use the noun 마련 in the fixed constructions HTSK presents, such as V-기 마련이다; conjugate the following 이다 or predicate.",
+      "examples": [
+        [
+          "큰 프로젝트는 여러 난관을 거쳐야 성사되기 마련이에요",
+          "Large projects are bound to go through many difficulties before succeeding"
+        ],
+        [
+          "문학 작품을 직역하면 원래의 뉘앙스를 잃기 마련이에요",
+          "When literary works are directly translated, they are bound to lose their original nuance"
+        ],
+        [
+          "범죄가 미수로 끝났더라도 법적 책임은 따르기 마련이에요",
+          "Even if a crime is only attempted, legal consequences are still bound to follow"
+        ],
+        [
+          "국립묘지에 안장된 인물은 후세의 평가를 받기 마련이에요",
+          "Those buried in national cemeteries are bound to be evaluated by future generations"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 179 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -74,16 +290,70 @@
       "title": "It seems with ~듯하다",
       "pattern": "~듯하다",
       "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
       "cards": [
         {
-          "prompt": "비가 올 ___해요.",
-          "translation": "It seems like it will rain.",
+          "prompt": "비가 오는 ___",
+          "translation": "It seems as though it is raining",
+          "answer": "듯하다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 180; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "비가 온 ___",
+          "translation": "It seems as though it had rained",
+          "answer": "듯하다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 180; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "비가 올 ___",
+          "translation": "It seems as though it will rain",
+          "answer": "듯하다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 180; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "노동자가 그 무거운 짐을 거뜬히 들어 올린 ___했어요",
+          "translation": "The worker seemed to lift the heavy load effortlessly",
           "answer": "듯",
-          "hint": "Focus: ~듯하다",
-          "explanation": "The target form is ~듯하다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 180; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 학생은 이번 대회에서도 입상한 ___",
+          "translation": "That student seems to have won a prize again in this competition",
+          "answer": "듯해요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 180; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "It seems with ~듯하다",
+      "source_pattern": "~듯하다",
+      "meaning": "~듯하다 means seem, appear or be as if, expressing an inference or resemblance.",
+      "when_to_use": "Use it when the speaker judges that a situation appears to be true based on signs or impression.",
+      "how_to_build": "Use the appropriate modifier before 듯하다: V-는 듯하다, V-ㄴ/은 듯하다 or V-ㄹ/을 듯하다, with adjective and noun forms as shown.",
+      "examples": [
+        [
+          "저 오래된 극장 간판은 아직도 전광판이 깜빡이는 듯해요",
+          "The old theater sign still seems to be flashing electric lights"
+        ],
+        [
+          "선생님은 발표 내내 시종일관 침착한 듯한 표정을 유지했어요",
+          "The teacher maintained a calm expression throughout the presentation"
+        ],
+        [
+          "상황이 부득이한 듯하여 우리는 결정을 미룰 수밖에 없었어요",
+          "The situation seemed unavoidable, so we had no choice but to delay the decision"
+        ],
+        [
+          "정부는 교통 혼잡을 줄이기 위해 새로운 노선을 신설한 듯하다",
+          "The government seems to have opened a new line to reduce traffic congestion"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 180 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -91,16 +361,70 @@
       "title": "Even with ~조차",
       "pattern": "~조차",
       "explanation": "Practice for the HTSK Lesson 181 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-181/",
       "cards": [
         {
-          "prompt": "물 ___ 없어요.",
-          "translation": "We do not even have water.",
+          "prompt": "제대로 된 정보___ 없는 상황에서 필사의 각오로 뛰어들었어요",
+          "translation": "He jumped in with desperate resolve, even though he didn’t have proper information",
           "answer": "조차",
-          "hint": "Focus: ~조차",
-          "explanation": "The target form is ~조차."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 181; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 집은 꽤 널찍하지만 책상 하나 놓을 자리___ 없어요",
+          "translation": "This house is fairly spacious, but there’s not even room for a desk",
+          "answer": "조차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 181; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "자그마한 소리___ 민감하게 반응하는 센서였어요",
+          "translation": "It was a sensor that reacted even to the tiniest sound",
+          "answer": "조차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 181; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리는 밥을 사 먹을 돈___ 없었어요",
+          "translation": "We didn’t even have money to buy food",
+          "answer": "조차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 181; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 서 있기___ 못했어요",
+          "translation": "I couldn’t even stand",
+          "answer": "조차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 181; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Even with ~조차",
+      "source_pattern": "~조차",
+      "meaning": "~조차 means even, emphasizing that an unexpected or extreme item is included.",
+      "when_to_use": "Use it when not even the least expected person, thing or action is excluded from the statement.",
+      "how_to_build": "Attach 조차 to the noun or noun-like clause being emphasized; place it after the relevant particle or expression as in HTSK.",
+      "examples": [
+        [
+          "원작을 감상해 본 적조차 없이 리메이크를 비판했어요",
+          "He criticized the remake without even having experienced the original"
+        ],
+        [
+          "그 나라는 친선조차 무시하고 일방적인 조치를 취했어요",
+          "That country ignored even friendly relations and took unilateral action"
+        ],
+        [
+          "그 직원이 상사의 명령에 불복종했지만 처벌조차 받지 않았어요",
+          "The employee disobeyed the boss but did not even receive punishment"
+        ],
+        [
+          "그 조형물은 자유를 상징하지만, 시민조차 그 의미를 잘 몰라요",
+          "The sculpture symbolizes freedom, but even citizens do not know its meaning well"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 181 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -108,16 +432,70 @@
       "title": "Being characteristically ~답다",
       "pattern": "~답다",
       "explanation": "Practice for the HTSK Lesson 182 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-182/",
       "cards": [
         {
-          "prompt": "한국 사람___ 행동이에요.",
-          "translation": "That is behavior characteristic of a Korean person.",
+          "prompt": "이번 일을 계기로 어른___ 행동하려고 해요",
+          "translation": "I’m going to use this opportunity to act like an adult",
           "answer": "답게",
-          "hint": "Focus: ~답다",
-          "explanation": "The target form is ~답다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 182; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 끝까지 무죄를 주장하며 군인___ 당당한 태도를 보였어요",
+          "translation": "He firmly maintained his innocence and showed a soldier-like, dignified attitude",
+          "answer": "답게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 182; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그녀는 부드럽고 여자___ 매력으로 많은 사람들의 호감을 샀어요",
+          "translation": "She won people’s hearts with her gentle, feminine charm",
+          "answer": "다운",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 182; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 항상 서민___ 검소하고 성실하게 살아왔어요",
+          "translation": "He has always lived modestly and diligently, like a common person",
+          "answer": "답게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 182; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "상기 내용을 보면 학생___ 질문이 하나도 없어요",
+          "translation": "Looking at the above, there isn’t a single question that sounds like it came from a student",
+          "answer": "다운",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 182; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Being characteristically ~답다",
+      "source_pattern": "~답다",
+      "meaning": "~답다 means characteristic of, worthy of or like the qualities associated with a noun.",
+      "when_to_use": "Use it to describe someone or something as showing the expected character of a role, group or thing.",
+      "how_to_build": "Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK.",
+      "examples": [
+        [
+          "제삼자의 입장에서 봐도 친구다운 행동은 아니었어요",
+          "Even from a third party’s perspective, that wasn’t something a real friend would do"
+        ],
+        [
+          "이 작품은 감동의 절정에 달하며 천사다운 순수함을 보여줘요",
+          "This piece reaches the height of emotion and reveals an angelic purity"
+        ],
+        [
+          "자치 단체라면 군인답게 조직적이고 질서 있게 운영되어야 해요",
+          "If it’s a self-governing body, it should be run in an organized and disciplined way, like a soldier would"
+        ],
+        [
+          "산악 구조대는 신속하고 학자다운 분석력으로 실종자를 수색했어요",
+          "The mountain rescue team searched for the missing person swiftly and with scholarly analysis"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 182 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -125,16 +503,70 @@
       "title": "Adjectives with ~롭다",
       "pattern": "~롭다",
       "explanation": "Practice for the HTSK Lesson 183 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-183/",
       "cards": [
         {
-          "prompt": "평화___ 삶을 원해요.",
-          "translation": "I want a peaceful life.",
+          "prompt": "사치___ 생활이 결국 그 사람의 인생을 망쳤어요",
+          "translation": "A life of extravagance eventually ruined that person",
           "answer": "로운",
-          "hint": "Focus: ~롭다",
-          "explanation": "The target form is ~롭다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 183; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "정원 가득 향기___ 꽃들이 피어나 봄이 온 걸 느낄 수 있었어요",
+          "translation": "Fragrant flowers filled the garden, signaling the arrival of spring",
+          "answer": "로운",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 183; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 명예___ 죽음을 맞이하며 모두의 존경을 받았어요",
+          "translation": "He met an honorable death and earned everyone’s respect",
+          "answer": "로운",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 183; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 평생 명예___ 살기 위해 어떠한 유혹도 이겨냈어요",
+          "translation": "He resisted all temptation to live an honorable life",
+          "answer": "롭게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 183; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 와인의 달콤하고 감미___ 향이 입안 가득 퍼졌어요",
+          "translation": "The wine spread a sweet, mellow aroma throughout the mouth",
+          "answer": "로운",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 183; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Adjectives with ~롭다",
+      "source_pattern": "~롭다",
+      "meaning": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요.",
+      "when_to_use": "Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK.",
+      "how_to_build": "Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson.",
+      "examples": [
+        [
+          "그 교수님은 말 한마디에도 권위로움이 느껴져요",
+          "You can feel his authority even in a single word he says"
+        ],
+        [
+          "어머니는 언제나 슬기로운 말로 우리를 이끌어 주셨어요",
+          "Mother always guided us with wise words"
+        ],
+        [
+          "슬기롭게 위기를 극복하는 태도가 리더에게는 중요해요",
+          "A wise approach to overcoming crisis is important for a leader"
+        ],
+        [
+          "아침 시장은 사람들로 가득 차 활기로운 분위기를 자아냈어요",
+          "The morning market was full of people and had a lively atmosphere"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 183 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -142,16 +574,70 @@
       "title": "At least with ~(이)나마",
       "pattern": "~(이)나마",
       "explanation": "Practice for the HTSK Lesson 184 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-184/",
       "cards": [
         {
-          "prompt": "작___ 도움이 되고 싶어요.",
-          "translation": "I want to be of at least a small help.",
-          "answer": "은",
-          "hint": "Focus: ~(이)나마",
-          "explanation": "The target form is ~(이)나마."
+          "prompt": "복슬복슬한 강아지는 없어졌지만 강아지 사진___ 간직하고 있어요",
+          "translation": "The shaggy puppy is gone, but I at least have the photo",
+          "answer": "이나마",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 184; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "옷이 남루했지만 단정하게___ 입고 나왔어요",
+          "translation": "Though the clothes were shabby, he at least wore them neatly",
+          "answer": "나마",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 184; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그의 노심초사하는 표정을 보고서 진심___ 그의 마음을 알게 되었어요",
+          "translation": "After seeing his anxious expression I at least realized his sincerity",
+          "answer": "이나마",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 184; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "물___ 마셔요",
+          "translation": "Drink some water",
+          "answer": "이나마",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 184; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사과___ 드릴까요?",
+          "translation": "Can I at least offer you an apple?",
+          "answer": "나마",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 184; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "At least with ~(이)나마",
+      "source_pattern": "~(이)나마",
+      "meaning": "~(이)나마 means at least or even if it is only that much, often acknowledging an imperfect option.",
+      "when_to_use": "Use it when offering, accepting or emphasizing a minimum amount despite limitations.",
+      "how_to_build": "Attach 이나마 after a consonant noun and 나마 after a vowel noun; use it after the item that is the minimum choice.",
+      "examples": [
+        [
+          "안개가 짙었지만 수평선의 윤곽이나마 보이는 게 위안이 되었어요",
+          "Though foggy, at least the outline of the horizon gave me comfort"
+        ],
+        [
+          "분규가 해결된 것은 아니지만 대화로나마 이어가는 게 중요해요",
+          "The dispute hasn’t been resolved, but continuing through dialogue at least is important"
+        ],
+        [
+          "그 사람들의 권익을 완전히 지키지 못해도 노력이나마 보여줘야 하지 않아요?",
+          "Even if we can’t fully protect the rights of those people, shouldn’t we at least show some recognition?"
+        ],
+        [
+          "잃어버린 개에게 임자가 있을지 몰라도 따뜻한 말이나마 건네주고 싶었어요",
+          "The lost dog might have an owner, but I wanted to at least say something kind"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 184 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -159,50 +645,212 @@
       "title": "Combining ~는데 and ~다가",
       "pattern": "~는데 + ~다가",
       "explanation": "Practice for the HTSK Lesson 185 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-185/",
       "cards": [
         {
-          "prompt": "집에 가___ 친구를 만났어요.",
-          "translation": "I was going home when I met a friend.",
-          "answer": "다가",
-          "hint": "Focus: ~는데 + ~다가",
-          "explanation": "The target form is ~는데 + ~다가."
+          "prompt": "불법으로 동물을 포획하___ 해외로 팔아넘겼어요",
+          "translation": "They not only captured animals illegally but also sold them overseas",
+          "answer": "는데다가",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 185; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 동물은 멸종 위기에 처해 있___ 서식지도 줄어들고 있어요",
+          "translation": "That animal is not only on the verge of extinction, but its habitat is also shrinking",
+          "answer": "는데다가",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 185; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 계획을 치밀하게 세___ 실행력도 뛰어났어요",
+          "translation": "He not only made his plans meticulously, but also had excellent execution skills",
+          "answer": "운데다가",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 185; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 남자는 친절___ 성실하기까지 해요",
+          "translation": "That man is not only kind but also sincere",
+          "answer": "한데다가",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 185; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이번 시험은 지원자가 많___ 경쟁도 치열해요",
+          "translation": "This exam not only has many applicants but also has fierce competition",
+          "answer": "은데다가",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 185; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Combining ~는데 and ~다가",
+      "source_pattern": "~는데 + ~다가",
+      "meaning": "~는데다가 means not only A but also B, adding another fact on top of the first.",
+      "when_to_use": "Use it when accumulating reasons, features or circumstances, especially when the second point makes the situation stronger.",
+      "how_to_build": "Build the first clause with the relevant ~는데 form and add ~다가; the following clause adds the additional fact.",
+      "examples": [
+        [
+          "그 문제는 국제적 문제인데다가 해결도 쉽지 않아요",
+          "That problem is not only international but also difficult to solve"
+        ],
+        [
+          "우리 아들은 못생긴데다가 비운의 사랑까지 겪었어요",
+          "Our son, not only not attractive but, on top of that, experienced a tragic love"
+        ],
+        [
+          "그는 1차에서 탈락했는데다가 재도전 기회도 얻지 못했어요",
+          "He was not only eliminated in the first round but also had no chance to try again"
+        ],
+        [
+          "그 지역은 오랫동안 분쟁이 심한데다가 경제 상황도 나빠요",
+          "That region not only has severe disputes but also a poor economy"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 185 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
       "lesson_number": 186,
-      "title": "Sequential action (advanced)",
-      "pattern": "advanced sequential action",
+      "title": "~고서: Sequential or Causal Relationship",
+      "pattern": "~고서",
       "explanation": "Practice for the HTSK Lesson 186 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-186/",
       "cards": [
         {
-          "prompt": "숙제를 하___ 잠을 잤어요.",
-          "translation": "After doing homework, I went to sleep.",
+          "prompt": "현 상황을 제대로 파악하___ 대책을 세웠어요",
+          "translation": "After properly understanding the current situation, we made a plan",
           "answer": "고서",
-          "hint": "Focus: advanced sequential action",
-          "explanation": "The target form is advanced sequential action."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 186; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "거울을 보___ 자신의 꼴을 확인했어요",
+          "translation": "After looking in the mirror, he checked how he looked",
+          "answer": "고서",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 186; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "누에를 키우___ 실을 뽑았어요",
+          "translation": "After raising silkworms, we extracted the silk",
+          "answer": "고서",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 186; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "따끈한 국을 마시___ 몸이 풀렸어요",
+          "translation": "After drinking the hot soup, my body relaxed",
+          "answer": "고서",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 186; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "어슴푸레한 빛을 뚫___ 길을 찾았어요",
+          "translation": "After making my way through the dim light, I found the path",
+          "answer": "고서",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 186; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~고서: Sequential or Causal Relationship",
+      "source_pattern": "~고서",
+      "meaning": "~고서 shows that one action is completed before another and can express either sequence or a resulting cause.",
+      "when_to_use": "Use it when emphasizing that the first event precedes the second, especially when the first action is completed first.",
+      "how_to_build": "Attach ~고서 to the first verb stem and put the later action or result in the following clause.",
+      "examples": [
+        [
+          "의의를 충분히 이해하고서 행동에 옮겼어요",
+          "After fully understanding the significance, I took action"
+        ],
+        [
+          "서류를 검토하고서 그가 적격인지 판단했어요",
+          "After reviewing the documents, we judged whether he was qualified"
+        ],
+        [
+          "오랫동안 누에를 재배하고서 좋은 실을 얻었어요",
+          "After cultivating silkworms for a long time, we got quality silk"
+        ],
+        [
+          "유사한 사례를 찾아보고서 전무하다는 결론을 내렸어요",
+          "After searching for similar cases, we concluded there were none"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 186 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
       "lesson_number": 187,
-      "title": "Another sequential action form",
-      "pattern": "advanced sequential action",
+      "title": "~고서야: Only After",
+      "pattern": "~고서야",
       "explanation": "Practice for the HTSK Lesson 187 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-187/",
       "cards": [
         {
-          "prompt": "직접 만나___ 진심을 알았어요.",
-          "translation": "Only after meeting in person did I understand the sincerity.",
+          "prompt": "그 여자의 뛰어난 미모는 실제로 마주보___ 실감이 났어요",
+          "translation": "That girl’s stunning beauty only truly hit me after seeing her in person",
           "answer": "고서야",
-          "hint": "Focus: advanced sequential action",
-          "explanation": "The target form is advanced sequential action."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 187; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "상대방과 대화를 수화로 해보___ 그 복잡함을 느낄 수 있었어요",
+          "translation": "Only after communicating through sign language did I realize how complex it is",
+          "answer": "고서야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 187; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "선생님이 지휘하___ 합창단이 제대로 움직이기 시작했어요",
+          "translation": "Only after the teacher conducted did the choir start moving properly",
+          "answer": "고서야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 187; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "직접 해 보___ 얼마나 힘든지 알아요",
+          "translation": "You only know how hard it is after doing it yourself",
+          "answer": "고서야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 187; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "직접 경주로를 걸어보___ 거리가 얼마나 긴지 느껴졌어요",
+          "translation": "Only after walking on the racetrack did I realize how overwhelming the distance is",
+          "answer": "고서야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 187; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~고서야: Only After",
+      "source_pattern": "~고서야",
+      "meaning": "~고서야 means only after doing something, emphasizing that the later realization or result happened after the first action.",
+      "when_to_use": "Use it when an outcome could be known, understood or achieved only once the preceding action was completed.",
+      "how_to_build": "Attach ~고서야 to the first verb stem; the following clause states the result that became possible or clear only then.",
+      "examples": [
+        [
+          "그 사람의 주장이 엉터리라는 것은 자료를 비교해보고서야 알 수 있었어요",
+          "That fact that that person’s argument was nonsense could only be realized after comparing the data"
+        ],
+        [
+          "그를 실제로 만나보고서야 제가 완전히 오인하고 있었다는 것을 깨달았어요",
+          "Only after meeting him in person did I realize I had completely mistaken him for someone else"
+        ],
+        [
+          "이 지역의 지명을 하나하나 살펴보고서야 명칭의 유래를 이해할 수 있었어요",
+          "Only after examining each place name in the area could I understand the origins of their names"
+        ],
+        [
+          "선생님이 한창일 때의 열정을 직접 보고서야 왜 사람들이 그 선생님을 존경했는지 알겠더라고요",
+          "Only after seeing that teacher’s passion at its peak did I understand why people respected him"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 187 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -210,16 +858,70 @@
       "title": "Contrast with ~(으)나",
       "pattern": "~(으)나",
       "explanation": "Practice for the HTSK Lesson 188 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-188/",
       "cards": [
         {
-          "prompt": "비가 오___ 행사는 계속돼요.",
-          "translation": "Although it rains, the event continues.",
+          "prompt": "배가 고프___ 먹을 게 없어요",
+          "translation": "Even though I’m hungry, there’s nothing to eat",
           "answer": "나",
-          "hint": "Focus: ~(으)나",
-          "explanation": "The target form is ~(으)나."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 188; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "열심히 공부했___ 시험을 망쳤어요",
+          "translation": "Even though I studied hard, I failed the exam",
+          "answer": "으나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 188; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "국이 뜨끈하___ 맛은 밋밋해요",
+          "translation": "The soup is hot, but the taste is bland",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 188; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "요점을 말하___ 전달이 잘 안 돼요",
+          "translation": "The main point is stated, but it isn’t communicated well",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 188; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "자료는 뒷받침하___ 믿기 어려워요",
+          "translation": "The data supports it, but it’s hard to believe",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 188; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Contrast with ~(으)나",
+      "source_pattern": "~(으)나",
+      "meaning": "~(으)나 is a formal or literary connector meaning but or although.",
+      "when_to_use": "Use it in formal writing or elevated speech to contrast two facts or conditions.",
+      "how_to_build": "Attach ~나 after a vowel or ㄹ stem and ~으나 after another consonant; conjugate the main clause normally.",
+      "examples": [
+        [
+          "위험을 수반하나 포기할 수는 없어요",
+          "It involves risk, but we can’t give up"
+        ],
+        [
+          "세부사항은 다르나 전체 흐름은 같아요",
+          "The details differ, but the overall flow is the same"
+        ],
+        [
+          "요건은 갖췄으나 결과는 좋지 않았어요",
+          "The requirements were met, but the result wasn’t good"
+        ],
+        [
+          "가산점을 받았으나 순위는 변하지 않았어요",
+          "Extra points were given, but the ranking didn’t change"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 188 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -227,16 +929,70 @@
       "title": "Further uses of ~(으)나",
       "pattern": "~(으)나",
       "explanation": "Practice for the HTSK Lesson 189 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-189/",
       "cards": [
         {
-          "prompt": "작___ 큰 문제예요.",
-          "translation": "Whether small or large, it is a problem.",
-          "answer": "으나",
-          "hint": "Focus: ~(으)나",
-          "explanation": "The target form is ~(으)나."
+          "prompt": "다방면으로 아___ 한 가지만 아나 깊이는 중요해요",
+          "translation": "Whether you know many fields or only one, depth is what matters",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 189; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "주한 미군이 있___ 없나 안보 불안은 여전해요",
+          "translation": "Whether U.S. forces are stationed in Korea or not, the anxiety over national security remains",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 189; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "총을 먼저 장전___ 후에 장전하나 정확한 조준이 더 중요해요",
+          "translation": "Whether you load the gun early or later, accurate aim matters more",
+          "answer": "하나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 189; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "최대한 준비를 ___ 급히 하다 보나 실수는 생겨요",
+          "translation": "Whether I prepare as much as I can or rush through it, mistakes still happen",
+          "answer": "하나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 189; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "현장에서 보___ 녹화해서 보나 감동은 같아요",
+          "translation": "Whether you watch it live or recorded, the emotion is the same",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 189; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Further uses of ~(으)나",
+      "source_pattern": "~(으)나",
+      "meaning": "A further use of ~(으)나 links alternatives with the meaning whether A or B.",
+      "when_to_use": "Use it when two possible actions or conditions lead to the same result.",
+      "how_to_build": "Attach ~나/~으나 to each alternative and state the common result, following the paired pattern in HTSK.",
+      "examples": [
+        [
+          "홍보실에서 말하나 다른 부서에서 말하나 내용은 같아요",
+          "Whether it’s said by the PR department or another department, the content is the same"
+        ],
+        [
+          "은연중에 실수를 하나 고의로 실수를 하나 결과는 같아요",
+          "Whether you make a mistake unconsciously or intentionally, the result is the same"
+        ],
+        [
+          "직접 매수하나 대리인을 통해 하나 계약 조건은 동일해요",
+          "Whether you purchase it directly or through an agent, the contract terms are the same"
+        ],
+        [
+          "선사 시대를 연구하나 현대를 연구하나 인간의 본성은 변하지 않아요",
+          "Whether you study prehistory or modern times, human nature doesn’t change"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 189 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -244,16 +1000,70 @@
       "title": "하나 마나",
       "pattern": "하나 마나",
       "explanation": "Practice for the HTSK Lesson 190 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-190/",
       "cards": [
         {
-          "prompt": "그 사람에게 말하___예요.",
-          "translation": "There is no point telling that person.",
-          "answer": "나 마나",
-          "hint": "Focus: 하나 마나",
-          "explanation": "The target form is 하나 마나."
+          "prompt": "이 프로젝트는 교육 혁신의 일환으로 추진되는 거라서 성공___ 중요한 의미가 있어요",
+          "translation": "This project is part of educational innovation, so whether it succeeds or not, it’s meaningful",
+          "answer": "하나 마나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 190; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 구역은 이미 자동 관제 시스템이 작동 중이라서 사람이 개입___야",
+          "translation": "Since the automatic control system is already in place, human intervention is pointless",
+          "answer": "하나 마나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 190; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 얘기는 ___ 다 아는 이야기예요",
+          "translation": "That story is obvious, there is no point even saying it",
+          "answer": "하나 마나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 190; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이미 망가진 기계는 기증___ 누구도 쓰질 못해",
+          "translation": "A broken machine, whether you donate it or not, no one can use it anyway",
+          "answer": "하나 마나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 190; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 전쟁에서는 우리가 항복___ 결과는 똑같아요",
+          "translation": "In this war, whether we surrender or not, the result will be the same",
+          "answer": "하나 마나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 190; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "하나 마나",
+      "source_pattern": "하나 마나",
+      "meaning": "하나 마나 means there is no point in doing something because the result is unchanged.",
+      "when_to_use": "Use it to dismiss an action as ineffective or pointless.",
+      "how_to_build": "Use the verb before 하나 마나 in the fixed construction; conjugate the surrounding sentence normally.",
+      "examples": [
+        [
+          "그 학생한테 부탁하나 마나야. 어차피 안 도와줄 거야.",
+          "There’s no point asking that student for a favor. He won’t help anyway."
+        ],
+        [
+          "그 은혜는 아무리 애써도 보답하나 마나야",
+          "No matter how hard I try, returning that favor is meaningless"
+        ],
+        [
+          "맹목적으로 따르나 마나야. 잘못된 길이니까.",
+          "Following blindly is pointless. It’s the wrong path."
+        ],
+        [
+          "잠결에 한 말은 신경 쓰나 마나야. 기억도 못 해.",
+          "There’s no point caring about what you say in your sleep. Nobody will even remember it."
+        ]
+      ],
+      "examples_source": "HTSK Lesson 190 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -261,33 +1071,137 @@
       "title": "Halfheartedly with ~는 둥 마는 둥",
       "pattern": "~는 둥 마는 둥",
       "explanation": "Practice for the HTSK Lesson 191 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-191/",
       "cards": [
         {
-          "prompt": "그는 숙제를 하___ 해서 혼났어요.",
-          "translation": "He was scolded for doing his homework halfheartedly.",
+          "prompt": "그 총각은 결혼하___ 여행을 가자는 둥 계획만 세우다가 결국 아무 것도 하지 않았어요",
+          "translation": "That bachelor kept making plans, suggesting they get married or go on a trip, but in the end, he did nothing",
+          "answer": "자는 둥",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 191; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 총각은 결혼 준비를 하___ 하더니 결국 파혼하고 말았어요",
+          "translation": "That bachelor prepared for the wedding half-heartedly, and in the end, the engagement was called off",
           "answer": "는 둥 마는 둥",
-          "hint": "Focus: ~는 둥 마는 둥",
-          "explanation": "The target form is ~는 둥 마는 둥."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 191; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "행사를 주최하___ 어영부영 넘어가니 참석자들의 불만이 컸어요",
+          "translation": "Since the event was hosted so sloppily, the participants were quite dissatisfied",
+          "answer": "는 둥 마는 둥",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 191; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "후덥지근한 날씨에 저는 청소를 하___ 땀만 흘렸어요",
+          "translation": "On that muggy day, I barely cleaned at all and just sweated the whole time",
+          "answer": "는 둥 마는 둥",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 191; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "아들은 공부하___ 컴퓨터만 했어요",
+          "translation": "My son was halfheartedly studying, and was just on his computer",
+          "answer": "는 둥 마는 둥",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 191; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Halfheartedly with ~는 둥 마는 둥",
+      "source_pattern": "~는 둥 마는 둥",
+      "meaning": "~는 둥 마는 둥 means doing something halfheartedly, barely doing it or acting as if doing it.",
+      "when_to_use": "Use it when an action is performed without real effort or is only partly completed.",
+      "how_to_build": "Use the present modifier before 둥 and repeat the negative counterpart 마는 둥, then add the main predicate.",
+      "examples": [
+        [
+          "아들은 공부하는 둥 마는 둥 친구랑 얘기했어요",
+          "My son was halfheartedly studying and was talking to his friends"
+        ],
+        [
+          "아저씨는 경매장에서 물건을 낙찰하는 둥 마는 둥 하다가 큰 손해를 봤어요",
+          "The man placed bids at the auction halfheartedly and ended up taking a big loss"
+        ],
+        [
+          "그 사람은 허파에 바람이라도 들었는지 수업 시간에 떠드는 둥 장난치는 둥 정신이 없었어요",
+          "It was like he had air in his lungs because during class, he wouldn’t stop talking or goofing off"
+        ],
+        [
+          "애가 배가 아프다는 둥 숙제가 많다는 둥 계속 핑계를 댔어요",
+          "The kid kept making excuses, saying things like his stomach hurt or that he had too much homework"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 191 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
       "lesson_number": 192,
-      "title": "Contracted reported speech",
-      "pattern": "~ㄴ/는다고 하다",
+      "title": "~ㄴ/는단다: A Motherly Contraction of ~ㄴ/는다고 한다",
+      "pattern": "~ㄴ/는단다 / ~(이)란다 / ~았/었단다",
       "explanation": "Practice for the HTSK Lesson 192 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/",
       "cards": [
         {
-          "prompt": "엄마가 밥 먹으___ 하셨어요.",
-          "translation": "Mom said to eat.",
-          "answer": "래",
-          "hint": "Focus: ~ㄴ/는다고 하다",
-          "explanation": "The target form is ~ㄴ/는다고 하다."
+          "prompt": "그 선수는 마지막까지 포기하지 않는___",
+          "translation": "They say that athletes don’t give up until the end",
+          "answer": "단다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 192; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "중요한 발표를 앞두고 많이 초조하___",
+          "translation": "They say she’s very anxious before an important presentation",
+          "answer": "단다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 192; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그의 성공 비결은 투지___",
+          "translation": "They say his secret to success is determination",
+          "answer": "란다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 192; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 시련 속에서도 투지를 잃지 않___",
+          "translation": "They say he didn’t lose his determination even in the midst of hardship.",
+          "answer": "았단다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 192; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "엄마도 어릴 땐 상심해서 혼자 울던 날이 많___",
+          "translation": "Mommy also had many days when she was heartbroken and cried alone as a child",
+          "answer": "았단다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 192; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~ㄴ/는단다: A Motherly Contraction of ~ㄴ/는다고 한다",
+      "source_pattern": "~ㄴ/는단다 / ~(이)란다 / ~았/었단다",
+      "meaning": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.",
+      "when_to_use": "Use it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.",
+      "how_to_build": "Contract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
+      "examples": [
+        [
+          "저것은 위험하단다",
+          "That is dangerous, my dear"
+        ],
+        [
+          "밥을 먹을 시간이란다",
+          "It is time to eat now, my dear"
+        ],
+        [
+          "너희들을 숲에 버리고 온 뒤 한순간도 행복하지 않았단다",
+          "After abandoning you in the forest, I have not been happy for even a moment, my dear"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 192 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -295,16 +1209,70 @@
       "title": "Soft command with ~(으)렴",
       "pattern": "~(으)렴",
       "explanation": "Practice for the HTSK Lesson 193 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
       "cards": [
         {
-          "prompt": "어서 오___.",
-          "translation": "Come in, dear.",
+          "prompt": "입덧이 심하면 무리하지 말고 푹 쉬___",
+          "translation": "If your morning sickness is severe, don’t overdo it and get some rest",
           "answer": "렴",
-          "hint": "Focus: ~(으)렴",
-          "explanation": "The target form is ~(으)렴."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 193; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "요즘 금리가 높으니까 돈은 조심해서 저금하___",
+          "translation": "Since interest rates are high these days, save your money wisely, dear",
+          "answer": "렴",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 193; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "공황이 올 것 같으면 숨을 천천히 쉬___",
+          "translation": "If you feel a panic attack coming, breathe slowly, sweetheart",
+          "answer": "렴",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 193; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사탕 먹었으면 이빨 닦___",
+          "translation": "If you had candy, brush your teeth",
+          "answer": "으렴",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 193; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저상버스가 오면 탈 준비하___",
+          "translation": "When the low-floor bus arrives, get ready to board",
+          "answer": "렴",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 193; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Soft command with ~(으)렴",
+      "source_pattern": "~(으)렴",
+      "meaning": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.",
+      "when_to_use": "Use it for gentle advice or instructions, especially in family or nurturing speech.",
+      "how_to_build": "Attach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
+      "examples": [
+        [
+          "요즘 금리가 높으니까 돈을 은행에 저금하렴",
+          "Since interest rates are high these days, save your money at the bank, dear"
+        ],
+        [
+          "도로에서는 절대 질주하지 말고 천천히 달리렴",
+          "Never speed on the road, drive slowly, dear"
+        ],
+        [
+          "외동이라 외로울 수도 있겠지만 친구들이랑 잘 지내렴",
+          "Being an only child might feel lonely, but get along well with your friends"
+        ],
+        [
+          "너희들을 숲에 버리고 온 뒤 한순간도 행복하지 않았단다. 나를 용서해 주렴.",
+          "After abandoning you in the forest, I haven’t been happy for even a moment, my dear. Please forgive me."
+        ]
+      ],
+      "examples_source": "HTSK Lesson 193 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -312,16 +1280,70 @@
       "title": "Counters 회/차 and 제",
       "pattern": "제~회 / 제~차",
       "explanation": "Practice for the HTSK Lesson 194 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/",
       "cards": [
         {
-          "prompt": "이번이 제3___예요.",
-          "translation": "This is the third time.",
-          "answer": "회",
-          "hint": "Focus: 제~회 / 제~차",
-          "explanation": "The target form is 제~회 / 제~차."
+          "prompt": "저는 고등학교 2학년 때 ___ 청소년 토론대회에 참가해서 결승전까지 올라갔어요",
+          "translation": "When I was in 11th grade, I participated in the first Youth Debate Competition and made it to the finals",
+          "answer": "제1회",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 194; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 세계 대전은 인류 역사에 큰 영향을 미쳤어요",
+          "translation": "World War II had a massive impact on human history",
+          "answer": "제2차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 194; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 세계 대전은 유럽을 중심으로 시작되었지만 전 세계에 영향을 미쳤다",
+          "translation": "The First World War began mainly in Europe, but it had an impact across the globe",
+          "answer": "제1차",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 194; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 한국문학상",
+          "translation": "1st Korean Literature Award",
+          "answer": "제1회",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 194; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 사진전시회",
+          "translation": "1st Photography Exhibition",
+          "answer": "제1회",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 194; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Counters 회/차 and 제",
+      "source_pattern": "제~회 / 제~차",
+      "meaning": "회, 차 and 제 are counters and ordering expressions used for editions, rounds, occasions and numbered events.",
+      "when_to_use": "Use them when naming the first, second or nth occurrence, competition, event or edition.",
+      "how_to_build": "Use 제 + number + 회/차 or the other counter constructions shown in HTSK; choose the counter according to the type of event.",
+      "examples": [
+        [
+          "제1회 전국체육대회",
+          "1st National Sports Festival"
+        ],
+        [
+          "제1회 서울국제영화제",
+          "The 1st Seoul International Film Festival"
+        ],
+        [
+          "제1회 청소년 토론대회",
+          "1st Youth Debate Contest"
+        ],
+        [
+          "제1회 한국어 말하기 대회",
+          "1st Korean Speech Contest"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 194 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -329,16 +1351,70 @@
       "title": "Expressive ~기 그지없다",
       "pattern": "~기 그지없다",
       "explanation": "Practice for the HTSK Lesson 195 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-195/",
       "cards": [
         {
-          "prompt": "감사하___ 없어요.",
-          "translation": "I cannot be more grateful.",
-          "answer": "기 그지",
-          "hint": "Focus: ~기 그지없다",
-          "explanation": "The target form is ~기 그지없다."
+          "prompt": "그 아이는 귀엽___어요",
+          "translation": "That child is incredibly cute",
+          "answer": "기 그지없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 195; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그의 분노의 근원은 억울함이니, 안타깝___다",
+          "translation": "The source of his anger is his sense of injustice, so it is incredibly sad",
+          "answer": "기 그지없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 195; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 기본적인 역사 지식조차 없어 무식하___",
+          "translation": "He doesn’t even have basic knowledge of history, he’s utterly ignorant",
+          "answer": "기 그지없다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 195; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 환자의 얼굴은 피 한 방울 없는 듯 창백하___",
+          "translation": "The patient’s face was as pale as if blood had drained from it, extremely pale",
+          "answer": "기 그지없었다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 195; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 정도 일도 못 하다니 한심하___",
+          "translation": "Not being able to handle something that simple, truly pathetic",
+          "answer": "기 그지없다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 195; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Expressive ~기 그지없다",
+      "source_pattern": "~기 그지없다",
+      "meaning": "~기 그지없다 is an expressive formal form meaning extremely, utterly or beyond description.",
+      "when_to_use": "Use it to intensify an adjective or state, often in formal writing or elevated speech.",
+      "how_to_build": "Nominalize the adjective or verb with ~기, then add 그지없다 and conjugate 없다 as needed.",
+      "examples": [
+        [
+          "목소리는 떨리고 말투는 어눌해 나약하기 그지없어 보였다",
+          "With a trembling voice and hesitant speech, he seemed incredibly weak-spirited"
+        ],
+        [
+          "설명을 듣고 코웃음을 치는 태도는 무례하기 그지없다",
+          "Scoffing at someone explaining is incredibly rude"
+        ],
+        [
+          "혼자서 대형 프로젝트에 착수했으니 용감하기 그지없다",
+          "Starting a major project alone, how incredibly brave"
+        ],
+        [
+          "아무도 가지 않은 길을 개척한 그의 용기는 대단하기 그지없다",
+          "His courage to pioneer a path no one dared take is truly great"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 195 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -346,16 +1422,70 @@
       "title": "Simultaneous roles with 겸",
       "pattern": "겸",
       "explanation": "Practice for the HTSK Lesson 196 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-196/",
       "cards": [
         {
-          "prompt": "여행___ 공부하러 왔어요.",
-          "translation": "I came both to travel and to study.",
+          "prompt": "그 팀은 전반전에서 전략을 시험해 볼 ___ 일부러 고전하는 모습을 보이기도 했어요",
+          "translation": "The team deliberately appeared to struggle in the first half, partly to test a strategy",
           "answer": "겸",
-          "hint": "Focus: 겸",
-          "explanation": "The target form is 겸."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 196; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 거리는 공장 ___ 창고로 쓰이던 건물들이 갤러리로 탈바꿈하며 다시 태어났어요",
+          "translation": "That street was reborn as old buildings, once used as factories and warehouses, were transformed into galleries",
+          "answer": "겸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 196; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "운동할 ___ 밖에 나갔어요",
+          "translation": "I went outside, partly to exercise",
+          "answer": "겸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 196; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "앞으로의 진로를 의논할 ___ 오랜만에 친구를 만나기로 했어요",
+          "translation": "I decided to meet my friend, both to catch up and to discuss my future path",
+          "answer": "겸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 196; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "강 바람을 쐴 ___ 둔치를 따라 산책을 나섰어요",
+          "translation": "I went for a walk along the riverside, partly to get some fresh air",
+          "answer": "겸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 196; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Simultaneous roles with 겸",
+      "source_pattern": "겸",
+      "meaning": "겸 means while also, as well as or for the dual purpose of doing something.",
+      "when_to_use": "Use it when one action or trip serves two purposes or two roles at the same time.",
+      "how_to_build": "Use noun + 겸 or the constructions 겸사겸사 and V-(으)ㄹ 겸 shown in HTSK, then state the second purpose or action.",
+      "examples": [
+        [
+          "오늘은 늦게 일어나서 아침 겸 점심으로 샌드위치를 먹었어요",
+          "I got up late today and ate a sandwich for breakfast and lunch"
+        ],
+        [
+          "그 사람은 과학 겸 수학 교사로 일하고 있어요",
+          "That person works as both a science and mathematics teacher"
+        ],
+        [
+          "친구를 만날 겸 영화도 볼 거예요",
+          "I am going to meet a friend and also see a movie"
+        ],
+        [
+          "낡은 코트를 수선할 겸 옷 수선을 전문으로 하는 가게에 들렀어요",
+          "I stopped by a shop specializing in clothing repairs to get my old coat fixed as well"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 196 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -363,16 +1493,70 @@
       "title": "Formal/legal 바",
       "pattern": "바",
       "explanation": "Practice for the HTSK Lesson 197 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-197/",
       "cards": [
         {
-          "prompt": "제가 아는 ___를 말씀드리겠습니다.",
-          "translation": "I will tell you what I know.",
+          "prompt": "출입자를 엄격히 통제할 ___에 아예 막는 게 나아요",
+          "translation": "If we’re going to strictly control entry, we might as well block it completely",
           "answer": "바",
-          "hint": "Focus: 바",
-          "explanation": "The target form is 바."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 197; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "모든 출입자는 보호장비를 착용해야 하며 이와 관련된 안전수칙은 사전에 엄격히 명시한 ___ 위반 시 출입이 제한될 수 있습니다",
+          "translation": "All entrants must wear protective equipment, and since the safety rules regarding this were clearly specified in advance, violations may result in restricted access",
+          "answer": "바",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 197; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "앞서 말한 ___와 같이 회의는 오후 3시에 시작돼요",
+          "translation": "As previously mentioned, the meeting starts at 3 p.m.",
+          "answer": "바",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 197; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "말한 ___에 따르면, 그는 이미 출발했어요",
+          "translation": "According to what he said, he’s already left",
+          "answer": "바",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 197; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그녀가 말한 ___대로 이루어졌어요",
+          "translation": "It happened just as she said",
+          "answer": "바",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 197; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Formal/legal 바",
+      "source_pattern": "바",
+      "meaning": "바 is a formal noun-like expression used in legal, official and written language for a fact, point, manner or previously stated matter.",
+      "when_to_use": "Use it in formal announcements, contracts and statements such as as stated or in view of the fact that.",
+      "how_to_build": "Use the modifier before 바, including V-ㄴ/은 바 or the fixed constructions in HTSK; add particles such as 에, 와 or 로 as required.",
+      "examples": [
+        [
+          "본 구역은 위험 물질을 취급하는 장소로서 상시 위험이 상존하는 바, 출입자는 관리자 승인 없이 무단으로 출입할 수 없습니다",
+          "This area involves the handling of hazardous materials, and because risks are always present, no one may enter without authorization"
+        ],
+        [
+          "이 구역은 출입자를 제한해야 할 중대한 사유가 존재함을 이미 언급한 바 재차 공지 없이 출입이 통제될 수 있음을 유의하시기 바랍니다",
+          "The fact that there are significant reasons to restrict access to this area has already been stated, so please be aware that entry may be denied without further notice"
+        ],
+        [
+          "이왕 도서관에 가는 바에 책이라도 한 권 빌리자",
+          "Since we’re going to the library anyway, let’s at least borrow a book"
+        ],
+        [
+          "기다릴 바에는 택시를 타는 게 나아요",
+          "If I’m going to wait, I’d rather just take a taxi"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 197 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -380,16 +1564,70 @@
       "title": "~ㄴ/은 셈이다",
       "pattern": "~ㄴ/은 셈이다",
       "explanation": "Practice for the HTSK Lesson 198 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-198/",
       "cards": [
         {
-          "prompt": "이제 다 끝난 ___이에요.",
-          "translation": "It is as if everything is finished now.",
+          "prompt": "그렇게 착하고 예쁘면 요정인 ___이지",
+          "translation": "If she’s that kind and pretty, she’s basically a fairy",
           "answer": "셈",
-          "hint": "Focus: ~ㄴ/은 셈이다",
-          "explanation": "The target form is ~ㄴ/은 셈이다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 198; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "연락을 계속 피하니까 나를 멀리한 ___이지",
+          "translation": "If you keep avoiding contact, it’s basically distancing yourself from me",
+          "answer": "셈",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 198; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 직책을 준 것은 권한을 부여한 ___이에요",
+          "translation": "Giving that position basically means you’ve authorized them",
+          "answer": "셈",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 198; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "아무 말도 안 한 것은 결국 동조한 ___이에요",
+          "translation": "Saying nothing is basically agreeing",
+          "answer": "셈",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 198; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "목소리가 작고 부드러워서 나지막한 ___이에요",
+          "translation": "The voice is soft and low, so you could say it’s rather quiet",
+          "answer": "셈",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 198; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~ㄴ/은 셈이다",
+      "source_pattern": "~ㄴ/은 셈이다",
+      "meaning": "~ㄴ/은 셈이다 means it amounts to, it is effectively the same as or it can be considered that.",
+      "when_to_use": "Use it when interpreting an outcome or saying that the result counts as a certain situation even if it is not literal.",
+      "how_to_build": "Attach the appropriate modifier before 셈이다: V-ㄴ/은 셈이다 for a completed result, with other tense and clause forms from HTSK.",
+      "examples": [
+        [
+          "그렇게까지 하면 끝난 셈이에요",
+          "If you do that much, it counts as finished"
+        ],
+        [
+          "눈치 못 챘으면 좀 둔한 셈이지",
+          "If you did not notice, you are being a little slow"
+        ],
+        [
+          "말이 짤막했지만 마음은 담긴 셈이야",
+          "The words were brief, but the feeling was there"
+        ],
+        [
+          "한 명이지만 의견이 여럿인 셈이에요",
+          "There is one person, but it is effectively several opinions"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 198 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -397,16 +1635,70 @@
       "title": "~은/는커녕",
       "pattern": "~은/는커녕",
       "explanation": "Practice for the HTSK Lesson 199 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-199/",
       "cards": [
         {
-          "prompt": "밥___ 물도 못 먹었어요.",
-          "translation": "I could not even drink water, let alone eat.",
-          "answer": "은커녕",
-          "hint": "Focus: ~은/는커녕",
-          "explanation": "The target form is ~은/는커녕."
+          "prompt": "씩씩하기는___ 울먹이기만 했어요",
+          "translation": "Let alone being brave, they just looked like they were about to cry",
+          "answer": "커녕",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 199; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "정당하기는___ 부당한 결정이었어요",
+          "translation": "Far from being fair, it was an unjust decision",
+          "answer": "커녕",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 199; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "최우수는___ 평균도 간신히 넘겼어요",
+          "translation": "Let alone being the best, I barely passed the average",
+          "answer": "커녕",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 199; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "도와주기는___ 시늉도 안 하더라고요",
+          "translation": "Far from helping, they didn’t even pretend to help",
+          "answer": "커녕",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 199; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그는 공산주의자는___ 정치에 관심도 없어요",
+          "translation": "He’s far from being a communist, he’s not even interested in politics",
+          "answer": "커녕",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 199; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~은/는커녕",
+      "source_pattern": "~은/는커녕",
+      "meaning": "~은/는커녕 means far from or let alone, saying that the expected smaller action did not happen and something contrary did.",
+      "when_to_use": "Use it to contrast a hoped-for or expected case with a more extreme reality.",
+      "how_to_build": "Attach 커녕 to the noun or clause being rejected, using 은/는 after the appropriate form, then state the stronger contrasting result.",
+      "examples": [
+        [
+          "수업은커녕 종례도 없이 그냥 집에 가더라고요",
+          "Forget the lesson, they went home without even a proper end-of-day meeting"
+        ],
+        [
+          "공정한 보도는커녕 편파적인 발언만 가득했어요",
+          "Far from fair reporting, it was full of biased remarks"
+        ],
+        [
+          "소신 발언은커녕 분위기 때문에 아무 말도 못 했어요",
+          "Let alone speaking my convictions, I couldn’t say anything because of the atmosphere"
+        ],
+        [
+          "앞으로 나아가기는커녕 계속 후퇴하고 있는 것 같아요",
+          "Far from progressing, it feels like we’re constantly retreating"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 199 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 8,
@@ -414,16 +1706,70 @@
       "title": "부리다",
       "pattern": "부리다",
       "explanation": "Practice for the HTSK Lesson 200 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/",
+      "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-200/",
       "cards": [
         {
-          "prompt": "그는 재주를 잘 ___.",
-          "translation": "He makes good use of his talents.",
-          "answer": "부려요",
-          "hint": "Focus: 부리다",
-          "explanation": "The target form is 부리다."
+          "prompt": "더 먹겠다고 욕심을 ___가 결국 배탈이 났어요",
+          "translation": "He got greedy and ate more, and ended up with a stomachache",
+          "answer": "부리다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 200; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "피곤하다고 계속 짜증을 ___ 아무도 도와주지 않을 거예요",
+          "translation": "If you keep throwing a tantrum just because you’re tired, no one will help you.",
+          "answer": "부리면",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 200; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "네가 기분이 안 좋다고 심술을 ___ 주위 사람들만 힘들어져",
+          "translation": "If you act spitefully just because you’re in a bad mood, you’re only making it hard for others",
+          "answer": "부리면",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 200; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "아저씨는 예의는커녕 성질만 ___ 나가 버렸어요",
+          "translation": "The older man didn’t even bother to be polite, he just lost his temper and stormed out",
+          "answer": "부리고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 200; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "괜히 허세를 ___가 창피만 당했어요",
+          "translation": "I tried to show off and ended up just embarrassing myself",
+          "answer": "부리다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 200; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "부리다",
+      "source_pattern": "부리다",
+      "meaning": "부리다 means to use or deploy a quality, behavior or person, with meanings such as act up, show off or boss someone around depending on the noun.",
+      "when_to_use": "Use it with the noun collocations introduced by HTSK rather than assuming one English translation.",
+      "how_to_build": "Learn the fixed noun + 부리다 combinations and conjugate 부리다 normally.",
+      "examples": [
+        [
+          "기승을 부리다",
+          "to rage"
+        ],
+        [
+          "수작을 부리다",
+          "to chatter"
+        ],
+        [
+          "그렇게 수작 부릴 시간 있으면 일이나 제대로 해요",
+          "If you have time to mess around like that, just focus on your work properly"
+        ],
+        [
+          "부장님은 직원들을 마치 기계처럼 부려 먹었어요",
+          "The boss bossed around the workers like machines"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 200 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     }
   ]
 }

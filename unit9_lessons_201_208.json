@@ -3,36 +3,144 @@
     {
       "unit": 9,
       "lesson_number": 201,
-      "title": "Prediction with ~(으)리라고",
+      "title": "~(으)리라고: Formal Prediction",
       "pattern": "~(으)리라고",
       "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/",
       "cards": [
         {
-          "prompt": "그가 오___ 생각해요.",
-          "translation": "I think he will come.",
+          "prompt": "다 끝나___ 생각해요",
+          "translation": "I think it will all be over",
           "answer": "리라고",
-          "hint": "Focus: ~(으)리라고",
-          "explanation": "The target form is ~(으)리라고."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 201; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그가 오___ 생각해요",
+          "translation": "I think he will come",
+          "answer": "리라고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 201; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 사람이 이해하___ 생각해요",
+          "translation": "I think that person will understand",
+          "answer": "리라고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 201; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 영화가 재미있으___ 생각해요",
+          "translation": "I think this movie will be fun",
+          "answer": "리라고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 201; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 선수가 이기___ 생각했어요",
+          "translation": "I thought that athlete would win",
+          "answer": "리라고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 201; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~(으)리라고: Formal Prediction",
+      "source_pattern": "~(으)리라고",
+      "meaning": "~(으)리, commonly in ~(으)리라고, expresses a formal or literary prediction, intention or belief about what will happen.",
+      "when_to_use": "Use it in formal writing, speeches and reported expectations, especially with 생각하다 or 믿다.",
+      "how_to_build": "Attach ~리 after a vowel or ㄹ stem and ~으리 after another consonant; combine it with 라고 in the quoted prediction form.",
+      "examples": [
+        [
+          "마을 어르신들은 올해도 기원제가 열리리라고 생각하시겠지요",
+          "The village elders probably think that the prayer ceremony will be held again this year"
+        ],
+        [
+          "야당의 반대가 심하지만 결국에는 법안이 통과되리라고 생각해요",
+          "The opposition is strong, but I think the bill will eventually pass"
+        ],
+        [
+          "그 사상가는 현실보다는 이상적인 관념을 따르리라고 생각됩니다",
+          "It is thought that the thinker will follow idealistic ideas rather than reality"
+        ],
+        [
+          "그 사람이 어떤 상황에서도 폭력에 동조하리라고 생각하지 않아요",
+          "I don’t think that person would ever sympathize with violence under any circumstances."
+        ]
+      ],
+      "examples_source": "HTSK Lesson 201 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 9,
       "lesson_number": 202,
-      "title": "Settled assumption with ~(으)려니",
+      "title": "~(으)려니: Settled Assumption",
       "pattern": "~(으)려니",
       "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/",
       "cards": [
         {
-          "prompt": "그 사람은 원래 그렇___ 생각하세요.",
-          "translation": "Please accept that person as simply being that way.",
+          "prompt": "나눠 주___ 해서 기다렸어요",
+          "translation": "I waited, figuring they would hand it out",
           "answer": "려니",
-          "hint": "Focus: ~(으)려니",
-          "explanation": "The target form is ~(으)려니."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 202; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사람도 별로 없으___ 하고 나룻배를 탔는데 도착해 보니 사람이 많았어요",
+          "translation": "I figured there probably wouldn’t be many people, so I took the ferry, but when I arrived, there were a lot of people",
+          "answer": "려니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 202; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "적이 이미 물러났으___ 하고 기지를 비웠어요",
+          "translation": "We abandoned the base, assuming the enemy had already retreated",
+          "answer": "려니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 202; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "설득력이 부족하니 반응이 냉담해지___ 싶었어요",
+          "translation": "Since the argument wasn’t persuasive, I figured people would respond coldly",
+          "answer": "려니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 202; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "전시 상황이라서 군사 활동이 많으___ 생각했어요",
+          "translation": "Since it was wartime, I assumed there would be a lot of military activity",
+          "answer": "려니",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 202; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~(으)려니: Settled Assumption",
+      "source_pattern": "~(으)려니",
+      "meaning": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.",
+      "when_to_use": "Use it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.",
+      "how_to_build": "Attach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
+      "examples": [
+        [
+          "이 유물이 진품이려니 하고 한동안 전시했는데 나중에 가짜라는 사실이 밝혀졌어요",
+          "We displayed this ancient artifact for some time, assuming it was authentic, but later it was discovered to be fake"
+        ],
+        [
+          "그 선수가 이기려니 생각했어요",
+          "I assumed he’d win"
+        ],
+        [
+          "이 공단이 지역 경제 발전에 큰 도움이 되려니 생각했어요",
+          "I assumed that this public corporation would greatly help the development of the local economy"
+        ],
+        [
+          "이 회사의 창립이 지역 사회에 큰 변화를 가져오려니 생각했어요",
+          "I assumed that the founding of this company would bring significant changes to the local community"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 202 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 9,
@@ -41,15 +149,16 @@
       "pattern": "advanced formal grammar",
       "explanation": "Practice for the HTSK Lesson 203 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "좋은 결과가 있___ 믿어요.",
-          "translation": "I believe there will be a good result.",
-          "answer": "으리라",
-          "hint": "Focus: advanced formal grammar",
-          "explanation": "The target form is advanced formal grammar."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 203 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     },
     {
       "unit": 9,
@@ -58,15 +167,16 @@
       "pattern": "advanced concession",
       "explanation": "Practice for the HTSK Lesson 204 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "어렵___ 끝까지 해 보겠어요.",
-          "translation": "Although it is difficult, I will try to the end.",
-          "answer": "더라도",
-          "hint": "Focus: advanced concession",
-          "explanation": "The target form is advanced concession."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 204 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     },
     {
       "unit": 9,
@@ -75,15 +185,16 @@
       "pattern": "~고자",
       "explanation": "Practice for the HTSK Lesson 205 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "여러분께 알려 드리___ 이 글을 씁니다.",
-          "translation": "I am writing this post in order to inform you.",
-          "answer": "고자",
-          "hint": "Focus: ~고자",
-          "explanation": "The target form is ~고자."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 205 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     },
     {
       "unit": 9,
@@ -92,15 +203,16 @@
       "pattern": "advanced contrast",
       "explanation": "Practice for the HTSK Lesson 206 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "열심히 공부했___ 시험이 어려웠어요.",
-          "translation": "Although I studied hard, the test was difficult.",
-          "answer": "건만",
-          "hint": "Focus: advanced contrast",
-          "explanation": "The target form is advanced contrast."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 206 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     },
     {
       "unit": 9,
@@ -109,15 +221,16 @@
       "pattern": "~는가 하면",
       "explanation": "Practice for the HTSK Lesson 207 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "그는 일을 하___ 여행도 해요.",
-          "translation": "He works, while also traveling.",
-          "answer": "는가 하면",
-          "hint": "Focus: ~는가 하면",
-          "explanation": "The target form is ~는가 하면."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 207 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     },
     {
       "unit": 9,
@@ -126,15 +239,16 @@
       "pattern": "~마저",
       "explanation": "Practice for the HTSK Lesson 208 focus. The official lesson contains the complete explanation and additional examples.",
       "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
-      "cards": [
-        {
-          "prompt": "친한 친구___ 떠났어요.",
-          "translation": "Even my close friend left.",
-          "answer": "마저",
-          "hint": "Focus: ~마저",
-          "explanation": "The target form is ~마저."
-        }
-      ]
+      "cards": [],
+      "source_status": "not_published",
+      "source_title": "Lesson 208 — not published",
+      "source_pattern": "",
+      "meaning": "",
+      "when_to_use": "",
+      "how_to_build": "",
+      "examples": [],
+      "examples_source": "",
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
     }
   ]
 }

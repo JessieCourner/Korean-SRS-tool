@@ -6,92 +6,216 @@
       "title": "Korean abbreviations and internet slang",
       "pattern": "common Korean abbreviations",
       "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
       "cards": [
         {
-          "prompt": "오늘 완전 ___이에요.",
-          "translation": "Today is totally awesome.",
-          "answer": "대박",
-          "hint": "Focus: common Korean abbreviations",
-          "explanation": "The target form is common Korean abbreviations."
+          "prompt": "___ 누구를 기다리고 있니?",
+          "translation": "Who are you waiting for?",
+          "answer": "넌",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 101; the guide explanation is shown separately."
         },
         {
-          "prompt": "친구가 메시지로 ___라고 했어요.",
-          "translation": "My friend wrote an abbreviation in a message.",
-          "answer": "ㅋㅋ",
-          "hint": "Focus: common Korean abbreviations",
-          "explanation": "The target form is common Korean abbreviations."
+          "prompt": "___ 천둥이 치는 소리를 들었어",
+          "translation": "I heard thunder",
+          "answer": "난",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 101; the guide explanation is shown separately."
         },
         {
-          "prompt": "그 표현은 인터넷에서 자주 ___요.",
-          "translation": "That expression is often used on the internet.",
-          "answer": "쓰여",
-          "hint": "Focus: common Korean abbreviations",
-          "explanation": "The target form is common Korean abbreviations."
+          "prompt": "___ 이 손목시계 늘 차고 있어",
+          "translation": "I always wear a watch",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 101; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 만두 먹기 싫어",
+          "translation": "I don’t want to eat dumplings",
+          "answer": "나",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 101; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "___ 넘넘 배고파!",
+          "translation": "I’m sooooo hungry!",
+          "answer": "난",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 101; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Korean abbreviations and internet slang",
+      "source_pattern": "common Korean abbreviations",
+      "meaning": "This lesson teaches common spoken and internet abbreviations and slang used in Korean speech, writing, texts and messages.",
+      "when_to_use": "Use them when reading or writing informal messages and when speech is represented in a shortened written form; they are not automatically appropriate in formal contexts.",
+      "how_to_build": "There is no one productive ending. Learn each abbreviation as a fixed shortened expression and check the register and meaning on the HTSK examples.",
+      "examples": [
+        [
+          "난 어렸을 때 해병이었어",
+          "I was a marine when I was young"
+        ],
+        [
+          "아버지는 날 위해 튀김을 사 주었어",
+          "My father bought fried food for me"
+        ],
+        [
+          "이건 얼마예요?",
+          "How much is this?"
+        ],
+        [
+          "그걸 하지 마세요",
+          "Please do not do that"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 101 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
       "lesson_number": 102,
-      "title": "Contracted quoted forms",
-      "pattern": "~대요 / ~냬요 / ~재요 / ~래요",
+      "title": "Lesson 102: Quoted Abbreviations",
+      "pattern": "~대요 / ~(이)래요 / ~재요 / ~냬요",
       "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/",
       "cards": [
         {
-          "prompt": "친구가 내일 온___요.",
-          "translation": "My friend says they are coming tomorrow.",
-          "answer": "대",
-          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
-          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+          "prompt": "야시장에 가기 싫___",
+          "translation": "He says that he doesn’t want to go to the night market",
+          "answer": "대요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 102; the guide explanation is shown separately."
         },
         {
-          "prompt": "민수가 언제 오___요?",
-          "translation": "Minsu asked when I was coming.",
-          "answer": "냬",
-          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
-          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+          "prompt": "야시장에 가기 싫었___",
+          "translation": "He says that he didn’t want to go to the night market",
+          "answer": "대요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 102; the guide explanation is shown separately."
         },
         {
-          "prompt": "같이 가___요.",
-          "translation": "They suggested going together.",
-          "answer": "재",
-          "hint": "Focus: ~대요 / ~냬요 / ~재요 / ~래요",
-          "explanation": "The target form is ~대요 / ~냬요 / ~재요 / ~래요."
+          "prompt": "그 커플이 오늘 결혼기념일이___",
+          "translation": "That couple says it is their anniversary today",
+          "answer": "래요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 102; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 남자가 체격이 좋___",
+          "translation": "They say that man has a good build",
+          "answer": "대요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 102; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "눈이 안 좋아서 앞줄에 앉아야 된___",
+          "translation": "His eyes aren’t good so he says he needs to sit in the front row",
+          "answer": "대요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 102; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Lesson 102: Quoted Abbreviations",
+      "source_pattern": "~대요 / ~(이)래요 / ~재요 / ~냬요",
+      "meaning": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.",
+      "when_to_use": "Use these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.",
+      "how_to_build": "Choose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
+      "examples": [
+        [
+          "아들은 미역국을 좋아한대요",
+          "Our son says that he likes seaweed soup"
+        ],
+        [
+          "저의 친구들은 저의 글씨가 예쁘대요",
+          "My friends say that my handwriting is pretty"
+        ],
+        [
+          "그 노인이 앞줄에 앉고 싶으시대요",
+          "That old man says he wants to sit in the front row"
+        ],
+        [
+          "그 사람은 선생님이래요",
+          "That person says he is a teacher"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 102 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
       "lesson_number": 103,
-      "title": "한, 약, ~(으)므로, 당하다",
-      "pattern": "한, 약, ~(으)므로, 당하다",
+      "title": "Small grammar points: 한, 약, ~(으)므로, 전반에, 당하다",
+      "pattern": "한, 약, ~(으)므로, 전반에, 당하다",
       "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-103/",
       "cards": [
         {
-          "prompt": "___ 시간 정도 걸려요.",
-          "translation": "It takes about one hour.",
+          "prompt": "___ 10분 뒤부터 차례 대로 입장할 거예요",
+          "translation": "In about 10 minutes, they will enter in their order",
           "answer": "한",
-          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
-          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 103; the guide explanation is shown separately."
         },
         {
-          "prompt": "___ 열 명이 참석했어요.",
-          "translation": "About ten people attended.",
-          "answer": "약",
-          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
-          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+          "prompt": "이불을 강한 햇빛에 말리___ 더 빨리 말랐어요",
+          "translation": "I dried the blanket in the strong sun so it dried quickly",
+          "answer": "므로",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 103; the guide explanation is shown separately."
         },
         {
-          "prompt": "사고를 ___했어요.",
-          "translation": "I suffered an accident.",
-          "answer": "당",
-          "hint": "Focus: 한, 약, ~(으)므로, 당하다",
-          "explanation": "The target form is 한, 약, ~(으)므로, 당하다."
+          "prompt": "서울시는 영어 원어민에 관한 예산 ___을 줄이고 있어요",
+          "translation": "The City of Seoul is lowering the budget for native English speakers in general (across the board)",
+          "answer": "전반",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 103; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "집에 가는 동안 사고를 ___",
+          "translation": "I got into an accident on my way home",
+          "answer": "당했어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 103; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 왕따 학생은 다른 학생들한테 괴롭힘을 ___",
+          "translation": "That outcast was humiliated by other students",
+          "answer": "당했어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 103; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Small grammar points: 한, 약, ~(으)므로, 전반에, 당하다",
+      "source_pattern": "한, 약, ~(으)므로, 전반에, 당하다",
+      "meaning": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다.",
+      "when_to_use": "Use each item in the specific formal, approximate, general or passive/affected meaning explained in the lesson.",
+      "how_to_build": "These are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern.",
+      "examples": [
+        [
+          "그 차의 속도가 한 150킬로였어요",
+          "The speed of that car was about 150 kilometers per hour"
+        ],
+        [
+          "캐나다 인구는 약 35,000,000 명이에요",
+          "The population of Canada is about 35,000,000 people"
+        ],
+        [
+          "성적이 낮았으므로 그 학생은 좋은 대학교에 못 갔어요",
+          "Because the grade was low, the student could not enter a good university"
+        ],
+        [
+          "저는 한국 역사 전반에 관심이 있어요",
+          "I am interested in Korean history overall"
+        ],
+        [
+          "그녀는 밤에 낯선 남자들한테 공격당했어요",
+          "She was attacked by strange men at night"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 103 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -99,61 +223,149 @@
       "title": "Advanced uses of 은/는",
       "pattern": "~은/는",
       "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-104/",
       "cards": [
         {
-          "prompt": "제가 좋아하___ 음식은 김치예요.",
-          "translation": "The food that I like is kimchi.",
+          "prompt": "물론 수업 시간에 그 주제에 대해 배우기___ 했지만 너무 짧게 배우고 시험 전날 하룻밤만 공부했기 때문에 금방 잊어버렸다",
+          "translation": "Of course, during class we learned about that subject, but it was very short and I only studied before the night of the exam so I forgot everything immediately",
           "answer": "는",
-          "hint": "Focus: ~은/는",
-          "explanation": "The target form is ~은/는."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 104; the guide explanation is shown separately."
         },
         {
-          "prompt": "한국어___ 재미있지만 어려워요.",
-          "translation": "Korean is interesting but difficult.",
+          "prompt": "한국에서___ 사람들이 김치를 많이 먹어요",
+          "translation": "In Korea, people eat a lot of Kimchi",
           "answer": "는",
-          "hint": "Focus: ~은/는",
-          "explanation": "The target form is ~은/는."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 104; the guide explanation is shown separately."
         },
         {
-          "prompt": "이번 여행___ 계획이 많아요.",
-          "translation": "As for this trip, there are many plans.",
-          "answer": "은",
-          "hint": "Focus: ~은/는",
-          "explanation": "The target form is ~은/는."
+          "prompt": "이 가방에___ 귀중품이 없어요",
+          "translation": "There are no valuables in this bag",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 104; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "미국에___ 일거리가 없어요",
+          "translation": "There are no jobs in America (compared to another country)",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 104; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "티켓을 매표소에서___ 살 수 있어요",
+          "translation": "You can purchase tickets at the ticket office (compared to another place)",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 104; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Advanced uses of 은/는",
+      "source_pattern": "~은/는",
+      "meaning": "The topic particle ~는/은 has additional uses in more complicated sentences beyond its basic topic and contrast roles.",
+      "when_to_use": "Use it to mark a topic, contrast alternatives or frame a clause in the advanced contexts presented by HTSK.",
+      "how_to_build": "Attach 은 after a consonant and 는 after a vowel; choose the particle according to the noun or clause role and the contrast intended.",
+      "examples": [
+        [
+          "밥을 먹을 수는 있어요",
+          "I can eat rice, but something else is being contrasted"
+        ],
+        [
+          "에어컨을 틀 수는 없지만 선풍기를 틀 수는 있어요",
+          "I cannot turn on the air conditioner, but I can turn on the fan"
+        ],
+        [
+          "망가진 컴퓨터를 고치려고 컴퓨터 전문가에 맡긴 적은 없어요",
+          "I have not taken my broken computer to a specialist to get it fixed"
+        ],
+        [
+          "시험 전 날까지는 밤을 샜는데 당일에는 일찍 잤어요",
+          "I stayed up until the day before the test, but slept early on the day itself"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 104 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
       "lesson_number": 105,
-      "title": "Essential small grammar points",
-      "pattern": "common intermediate connectors",
+      "title": "Small Grammar Points!",
+      "pattern": "~아/어지다, ~아/어뜨리다, ~화, ~아/어 하다, ~께서",
       "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-105a/",
       "cards": [
         {
-          "prompt": "그 사람은 한국어를 잘할 ___ 같아요.",
-          "translation": "That person seems to speak Korean well.",
-          "answer": "것",
-          "hint": "Focus: common intermediate connectors",
-          "explanation": "The target form is common intermediate connectors."
+          "prompt": "운동은 피의 순환을 활성___",
+          "translation": "Exercise vitalizes blood flow",
+          "answer": "화해요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 105; the guide explanation is shown separately."
         },
         {
-          "prompt": "집에 도착하자___ 전화했어요.",
-          "translation": "As soon as I arrived home, I called.",
-          "answer": "마자",
-          "hint": "Focus: common intermediate connectors",
-          "explanation": "The target form is common intermediate connectors."
+          "prompt": "그 상황을 일반___하는 것은 어려워요",
+          "translation": "It is hard to generalize that situation",
+          "answer": "화",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 105; the guide explanation is shown separately."
         },
         {
-          "prompt": "저는 매일 공부하___ 해요.",
-          "translation": "I have to study every day.",
-          "answer": "아야",
-          "hint": "Focus: common intermediate connectors",
-          "explanation": "The target form is common intermediate connectors."
+          "prompt": "우버는 택시 서비스를 상업___해서 성공했어요",
+          "translation": "Uber succeeded in commercializing the service of getting a taxi",
+          "answer": "화",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 105; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "요즘에 오래된 도시를 현대___하는 곳이 많아요",
+          "translation": "These days there are a lot of old cities that are modernizing themselves",
+          "answer": "화",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 105; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "산업___를 빨리 할수록 경제가 더 빨리 성장해요",
+          "translation": "The quicker industrialization happens, the quicker the economy develops",
+          "answer": "화",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 105; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Small Grammar Points!",
+      "source_pattern": "~아/어지다, ~아/어뜨리다, ~화, ~아/어 하다, ~께서",
+      "meaning": "This lesson formally introduces several smaller points that HTSK considers essential, including ~아/어지다 versus ~아/어뜨리다, ~화, adding 이 to names, ~아/어 하다 with adjectives and the subject marker ~께서.",
+      "when_to_use": "Use the relevant point for changes that happen versus actions that cause change, making nouns with ~화, addressing names, describing another person's feelings and marking a respected subject.",
+      "how_to_build": "These are separate patterns. Follow the individual source sections: intransitive ~아/어지다 versus transitive ~아/어뜨리다, noun + 화, name + 이, adjective + ~아/어 하다 and subject + 께서.",
+      "examples": [
+        [
+          "병이 탁자에서 떨어졌다",
+          "The bottle fell from the table"
+        ],
+        [
+          "나는 병을 떨어뜨렸다",
+          "I dropped the bottle"
+        ],
+        [
+          "희영이는 이빨을 부러뜨렸어요",
+          "Heeyoung broke her tooth"
+        ],
+        [
+          "산업화는 경제 성장을 가속화할 수 있어요",
+          "Industrialization can accelerate economic growth"
+        ],
+        [
+          "그는 너무 부끄러워했어요",
+          "He was very shy"
+        ],
+        [
+          "아버님께서 밥을 드셨습니다",
+          "The father ate"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 105 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -161,30 +373,70 @@
       "title": "Various uses of ~든지",
       "pattern": "~든지",
       "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-106/",
       "cards": [
         {
-          "prompt": "어디에 가___ 연락하세요.",
-          "translation": "Contact me wherever you go.",
+          "prompt": "네가 내일 무엇을 하___ 간에 밖에 나가야 돼",
+          "translation": "It doesn’t matter what you do tomorrow, but you have to go outside",
           "answer": "든지",
-          "hint": "Focus: ~든지",
-          "explanation": "The target form is ~든지."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 106; the guide explanation is shown separately."
         },
         {
-          "prompt": "무엇을 먹___ 괜찮아요.",
-          "translation": "Whatever you eat is fine.",
+          "prompt": "한 달 동안 뭐___ 먹어도 돼요",
+          "translation": "For one month, you are allowed to eat whatever you want (for one month, it doesn’t matter what you eat)",
           "answer": "든지",
-          "hint": "Focus: ~든지",
-          "explanation": "The target form is ~든지."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 106; the guide explanation is shown separately."
         },
         {
-          "prompt": "시간이 있___ 없___ 해야 해요.",
-          "translation": "You have to do it whether you have time or not.",
-          "answer": "든지 / 든지",
-          "hint": "Focus: ~든지",
-          "explanation": "The target form is ~든지."
+          "prompt": "누구___ 사람들이 믿을 수 있는 친구가 필요해요",
+          "translation": "It doesn’t matter who it is, people need a friend they can trust (everybody needs a friend they can trust)",
+          "answer": "든지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 106; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리 집에 언제___ 오세요",
+          "translation": "It doesn’t matter when you come to our house (come to our house anytime!)",
+          "answer": "든지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 106; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "어디___ 앉아도 돼요",
+          "translation": "Sit anywhere! (It doesn’t matter where you sit)",
+          "answer": "든지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 106; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Various uses of ~든지",
+      "source_pattern": "~든지",
+      "meaning": "~든지 has a broad meaning across several constructions, including whichever, whether or not and either option.",
+      "when_to_use": "Use it when the choice is open, when alternatives do not matter or when emphasizing that any option is acceptable.",
+      "how_to_build": "Attach ~든지 to the appropriate verb, adjective or noun form and repeat it in paired alternatives when required; include 말다 in the whether-or-not pattern.",
+      "examples": [
+        [
+          "학생들이 어떻게 반응하든지 상관없어요",
+          "It doesn’t matter how the students react"
+        ],
+        [
+          "네가 배고프든지 상관없어",
+          "It doesn’t matter if you are hungry"
+        ],
+        [
+          "우리는 거기에 가든지 말든지 상관없어",
+          "It doesn’t matter if we go there"
+        ],
+        [
+          "그게 비싸든지 말든지 상관없어",
+          "It doesn’t matter if it is expensive"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 106 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -192,30 +444,66 @@
       "title": "Combining ~도 with other forms",
       "pattern": "~아/어도, ~ㄴ/는다고 해도",
       "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-107/",
       "cards": [
         {
-          "prompt": "비가 와___ 갈 거예요.",
-          "translation": "Even if it rains, I will go.",
+          "prompt": "식당 밖에___ 사람이 많아요",
+          "translation": "There are a lot of people outside the restaurant as well",
           "answer": "도",
-          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
-          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 107; the guide explanation is shown separately."
         },
         {
-          "prompt": "아무리 바빠___ 운동해요.",
-          "translation": "Even if I am busy, I exercise.",
+          "prompt": "로션을 얼굴에___ 발라야 돼요",
+          "translation": "You should put lotion on your face as well",
           "answer": "도",
-          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
-          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 107; the guide explanation is shown separately."
         },
         {
-          "prompt": "친구라고 해___ 믿지 마세요.",
-          "translation": "Even if they say they are a friend, do not trust them.",
+          "prompt": "놀이터에___ 아기들이 없어요",
+          "translation": "The kids are not at the playground either",
           "answer": "도",
-          "hint": "Focus: ~아/어도, ~ㄴ/는다고 해도",
-          "explanation": "The target form is ~아/어도, ~ㄴ/는다고 해도."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 107; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "태평양에___ 고래가 있어요",
+          "translation": "There are whales in the Pacific Ocean as well",
+          "answer": "도",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 107; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 기능이 승용차에___ 설치돼 있어요",
+          "translation": "That function is installed in the car as well",
+          "answer": "도",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 107; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Combining ~도 with other forms",
+      "source_pattern": "~아/어도, ~ㄴ/는다고 해도",
+      "meaning": "Combining ~도 with other forms can create meanings that are more than the simple sum of also or even.",
+      "when_to_use": "Use the combinations in the contexts HTSK distinguishes, including concessive and quoted-sentence patterns.",
+      "how_to_build": "Attach 도 to the relevant noun or clause form, then apply the preceding grammar such as ~아/어도 or ~ㄴ/는다고 해도 exactly as shown.",
+      "examples": [
+        [
+          "부산으로 이사한 줄도 몰랐어요",
+          "I did not even know that you moved to Busan"
+        ],
+        [
+          "그 영화를 좋아하는 줄도 몰랐어요",
+          "I did not even know that you liked the movie"
+        ],
+        [
+          "비가 올 수도 있다",
+          "It is possible that it might rain"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 107 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -223,30 +511,70 @@
       "title": "Past perfect with ~았/었었어요",
       "pattern": "~았/었었어요",
       "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/",
       "cards": [
         {
-          "prompt": "전에 이곳에 살았___요.",
-          "translation": "I used to live here before.",
+          "prompt": "제가 운전을 처음 배웠을 때 초보 운전자 스티커를 붙이고 운전___어요",
+          "translation": "When I first learned how to drive, I drove around with a beginner-driver sticker (on my car) (but now I don’t)",
+          "answer": "했었",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 108; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "오래 전에는 공룡이 실제로 존재___어요",
+          "translation": "A long time ago dinosaurs had once actually existed",
+          "answer": "했었",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 108; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 어렸을 때 얼굴에 흉터가 있___어요",
+          "translation": "When I was younger I used to have a scar on my face",
           "answer": "었었",
-          "hint": "Focus: ~았/었었어요",
-          "explanation": "The target form is ~았/었었어요."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 108; the guide explanation is shown separately."
         },
         {
-          "prompt": "어렸을 때 자주 갔었___요.",
-          "translation": "I used to go often when I was young.",
-          "answer": "어요",
-          "hint": "Focus: ~았/었었어요",
-          "explanation": "The target form is ~았/었었어요."
+          "prompt": "어렸을 때 등교할 때마다 이 지름길로 다___어요",
+          "translation": "When I was young, I used to take this shortcut every time I went to school",
+          "answer": "녔었",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 108; the guide explanation is shown separately."
         },
         {
-          "prompt": "그 책을 이미 읽었었___요.",
-          "translation": "I had already read that book.",
-          "answer": "어요",
-          "hint": "Focus: ~았/었었어요",
-          "explanation": "The target form is ~았/었었어요."
+          "prompt": "그녀가 애교가 많아서 그녀를 잠깐 좋아___어요",
+          "translation": "I used to like her for a little while because she was very charming",
+          "answer": "했었",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 108; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Past perfect with ~았/었었어요",
+      "source_pattern": "~았/었었어요",
+      "meaning": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.",
+      "when_to_use": "Use it when looking back on something that had been true or regularly happened before another past point, or is no longer true.",
+      "how_to_build": "Add the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
+      "examples": [
+        [
+          "제가 고등학교 때 불꽃놀이를 아주 좋아했었어요",
+          "When I was in high school I had liked fireworks"
+        ],
+        [
+          "어렸을 때 멸치를 아예 안 먹었었어요",
+          "When I was young I had never eaten anchovies"
+        ],
+        [
+          "사람들이 그 시장이 나쁘다고 했었어요",
+          "People had said that major was bad"
+        ],
+        [
+          "옛날에 그 도시에는 사기꾼이 엄청 많았었어요",
+          "A long time ago in that city, there used to be a lot of scammers"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 108 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -254,30 +582,70 @@
       "title": "Inference with ~나 보다",
       "pattern": "~는가 보다 / ~나 봐",
       "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/",
       "cards": [
         {
-          "prompt": "비가 오___ 봐요.",
-          "translation": "It looks like it is raining.",
-          "answer": "나",
-          "hint": "Focus: ~는가 보다 / ~나 봐",
-          "explanation": "The target form is ~는가 보다 / ~나 봐."
+          "prompt": "여기가 휴게실이___요",
+          "translation": "I guess this is the resting room",
+          "answer": "나 봐",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 109; the guide explanation is shown separately."
         },
         {
-          "prompt": "그 사람이 학생인가 ___요.",
-          "translation": "I guess that person is a student.",
-          "answer": "봐",
-          "hint": "Focus: ~는가 보다 / ~나 봐",
-          "explanation": "The target form is ~는가 보다 / ~나 봐."
+          "prompt": "시험이 어렵___요",
+          "translation": "I guess the exam is hard",
+          "answer": "나 봐",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 109; the guide explanation is shown separately."
         },
         {
-          "prompt": "오늘 많이 바쁜가 ___요.",
-          "translation": "It seems that they are very busy today.",
-          "answer": "봐",
-          "hint": "Focus: ~는가 보다 / ~나 봐",
-          "explanation": "The target form is ~는가 보다 / ~나 봐."
+          "prompt": "그 사람이 싫___요",
+          "translation": "I guess he doesn’t like that person",
+          "answer": "나 봐",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 109; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "온수가 잘 안 나오___요",
+          "translation": "I guess hot water doesn’t really work (come out) well",
+          "answer": "나 봐",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 109; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "애기가 지금 욕조에 있___요",
+          "translation": "I guess the baby is in the bathtub",
+          "answer": "나 봐",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 109; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Inference with ~나 보다",
+      "source_pattern": "~는가 보다 / ~나 봐",
+      "meaning": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.",
+      "when_to_use": "Use them when the speaker infers a situation rather than directly witnessing or asserting it as fact.",
+      "how_to_build": "Use the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
+      "examples": [
+        [
+          "그 학생이 자존심이 없는가 봐요",
+          "I guess that student doesn’t have any self-esteem"
+        ],
+        [
+          "미로가 어렵진 않았나 봐요",
+          "I guess the maze wasn’t difficult"
+        ],
+        [
+          "빨래를 아직 안 헹궜나 봐요",
+          "I guess the laundry hasn’t rinsed yet"
+        ],
+        [
+          "누가 그 제품의 단점을 지적하지 않았나 봐요",
+          "I guess nobody pointed out that product’s flaws"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 109 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -285,30 +653,70 @@
       "title": "There is no way / cannot help it",
       "pattern": "어쩔 수 없다",
       "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
       "cards": [
         {
-          "prompt": "시간이 없어서 ___ 없어요.",
-          "translation": "I have no choice because there is no time.",
-          "answer": "어쩔 수",
-          "hint": "Focus: 어쩔 수 없다",
-          "explanation": "The target form is 어쩔 수 없다."
+          "prompt": "흔적이 없어서 ___어요",
+          "translation": "There is no evidence, so there is nothing we can do",
+          "answer": "어쩔 수 없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 110; the guide explanation is shown separately."
         },
         {
-          "prompt": "이것은 ___ 없어요.",
-          "translation": "There is nothing I can do about this.",
-          "answer": "어쩔 수",
-          "hint": "Focus: 어쩔 수 없다",
-          "explanation": "The target form is 어쩔 수 없다."
+          "prompt": "애기가 삐져서 ___어요",
+          "translation": "The baby is upset, there is nothing we can do",
+          "answer": "어쩔 수 없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 110; the guide explanation is shown separately."
         },
         {
-          "prompt": "비가 오면 계획을 바꿀 수___어요.",
-          "translation": "If it rains, I cannot help changing the plan.",
-          "answer": "밖에",
-          "hint": "Focus: 어쩔 수 없다",
-          "explanation": "The target form is 어쩔 수 없다."
+          "prompt": "강아지가 소심해서 ___어요",
+          "translation": "The dog is very timid, there is nothing we can do",
+          "answer": "어쩔 수 없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 110; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "장비를 안 가져와서 ___어요",
+          "translation": "We didn’t bring the equipment, there is nothing we can do",
+          "answer": "어쩔 수 없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 110; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "밀이 있었으면 좋겠지만 ___어요",
+          "translation": "It would be nice if we had some flour, but there is nothing we can do",
+          "answer": "어쩔 수 없",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 110; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "There is no way / cannot help it",
+      "source_pattern": "어쩔 수 없다",
+      "meaning": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.",
+      "when_to_use": "Use it when circumstances leave no alternative or when an unavoidable result is being accepted.",
+      "how_to_build": "Use the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
+      "examples": [
+        [
+          "그 단어의 정확한 정의를 몰라서 사전에서 어쩔 수 없이 찾아 봤어요",
+          "I don’t know the exact meaning of that word, so I’ll have no choice but to look it up in the dictionary"
+        ],
+        [
+          "우리가 너무 빨리 가고 있었기 때문에 어쩔 수 없이 발생한 사고였어요",
+          "Because we were going so fast, the accident was unavoidable"
+        ],
+        [
+          "날씨가 추워서 밖에 나가려면 어쩔 수 없이 옷을 두 겹 이상 입어야 돼요",
+          "It is so cold outside, when we go out we’ll have no choice but to wear (more than two) layers"
+        ],
+        [
+          "가장 친한 친구의 여자 친구에게 키스를 해서 그 친구에게 어쩔 수 없이 거짓말을 했어요",
+          "After kissing my best friend’s girlfriend, I had no choice but to lie to him"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 110 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -316,30 +724,70 @@
       "title": "At least / even if it is just with ~(이)라도",
       "pattern": "~(이)라도",
       "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-111/",
       "cards": [
         {
-          "prompt": "물___ 주세요.",
-          "translation": "Please give me at least water.",
-          "answer": "이라도",
-          "hint": "Focus: ~(이)라도",
-          "explanation": "The target form is ~(이)라도."
-        },
-        {
-          "prompt": "커피___ 한 잔 마실까요?",
-          "translation": "Shall we have at least a cup of coffee?",
+          "prompt": "비가 내리고 있으니 영화관에___ 갈래요?",
+          "translation": "Now that it is raining, do you want to go to the movies or something? (I’d rather go somewhere else, but it’s raining so what else can we do? How about going to the movies?)",
           "answer": "라도",
-          "hint": "Focus: ~(이)라도",
-          "explanation": "The target form is ~(이)라도."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 111; the guide explanation is shown separately."
         },
         {
-          "prompt": "주말___ 쉬고 싶어요.",
-          "translation": "I want to rest at least on the weekend.",
+          "prompt": "할아버지 생신 선물로 돈을 적게___ 모아서 드리자",
+          "translation": "Let’s gather money, even if it is a little, and give it to grandpa on his birthday",
+          "answer": "라도",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 111; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사무실 위생을 위해 손을 잠깐___ 씻어 주세요",
+          "translation": "For the sanitation of our office, please wash your hands, even for a little bit",
           "answer": "이라도",
-          "hint": "Focus: ~(이)라도",
-          "explanation": "The target form is ~(이)라도."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 111; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "조카가 하나___ 있었으면 좋겠어요",
+          "translation": "I wish I had a nephew, even if I only had one",
+          "answer": "라도",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 111; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 기사를 한번___ 보여주면 안 돼요?",
+          "translation": "Can you show me that article just once?",
+          "answer": "이라도",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 111; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "At least / even if it is just with ~(이)라도",
+      "source_pattern": "~(이)라도",
+      "meaning": "~(이)라도 means at least, even if it is just or even one among alternatives.",
+      "when_to_use": "Use it when accepting a less ideal option or choosing a minimum substitute.",
+      "how_to_build": "Attach ~이라도 after a consonant noun and ~라도 after a vowel noun; place it after the noun being offered or selected.",
+      "examples": [
+        [
+          "언제라도 우리 집에 항상 와도 돼요",
+          "It doesn’t matter when it is, you can always come to our house"
+        ],
+        [
+          "누구라도 그 문제를 풀 수 있어요",
+          "It doesn’t matter who it is, anybody could solve that problem"
+        ],
+        [
+          "가기 전에 뭐라도 (무엇이라도) 같이 먹자!",
+          "Before you go, I don’t care what it is, but let’s eat something!"
+        ],
+        [
+          "이 일을 어떻게라도 오늘밤까지 끝내야 돼요",
+          "It doesn’t matter how, but we need to finish this work by tonight"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 111 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -347,30 +795,70 @@
       "title": "The noun 편 for tendency and preference",
       "pattern": "편이다 / ~는 편이다",
       "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/",
       "cards": [
         {
-          "prompt": "저는 아침에 일찍 일어나는 ___이에요.",
-          "translation": "I tend to wake up early.",
-          "answer": "편",
-          "hint": "Focus: 편이다 / ~는 편이다",
-          "explanation": "The target form is 편이다 / ~는 편이다."
+          "prompt": "그 사람이 돈이 ___이에요",
+          "translation": "That person has a fair amount of money",
+          "answer": "많은 편",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 112; the guide explanation is shown separately."
         },
         {
-          "prompt": "그 식당은 비싼 ___이에요.",
-          "translation": "That restaurant tends to be expensive.",
-          "answer": "편",
-          "hint": "Focus: 편이다 / ~는 편이다",
-          "explanation": "The target form is 편이다 / ~는 편이다."
+          "prompt": "우리 아이는 ___이에요",
+          "translation": "Our son is fairly smart",
+          "answer": "똑똑한 편",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 112; the guide explanation is shown separately."
         },
         {
-          "prompt": "저는 매운 음식을 잘 먹는 ___이에요.",
-          "translation": "I tend to eat spicy food well.",
-          "answer": "편",
-          "hint": "Focus: 편이다 / ~는 편이다",
-          "explanation": "The target form is 편이다 / ~는 편이다."
+          "prompt": "저의 남자친구가 ___이에요",
+          "translation": "My boyfriend is on the handsome side (fairly handsome)",
+          "answer": "잘생긴 편",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 112; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 벌고 있는 급여가 ___이에요",
+          "translation": "The salary I earn is fairly high (on the high side)",
+          "answer": "높은 편",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 112; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 배낭여행용 가방이 ___이었어요",
+          "translation": "This backpacker backpack was fairly expensive",
+          "answer": "비싼 편",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 112; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "The noun 편 for tendency and preference",
+      "source_pattern": "편이다 / ~는 편이다",
+      "meaning": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.",
+      "when_to_use": "Use it to make a softened generalization such as tending to, being relatively or usually being that way.",
+      "how_to_build": "Use N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
+      "examples": [
+        [
+          "저는 수영을 잘하는 편이에요",
+          "I swim fairly well"
+        ],
+        [
+          "제가 매일 늦게 자는 편이에요",
+          "I tend to go to bed fairly late"
+        ],
+        [
+          "제가 달리기를 빨리 하고 있는 편이에요",
+          "I am running fairly quickly"
+        ],
+        [
+          "그 여자 아이들이 수업 시간에 많이 떠드는 편이에요",
+          "That girl chats quite a bit during class"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 112 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -378,30 +866,70 @@
       "title": "~는 길 for the act of doing",
       "pattern": "~는 길",
       "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-113/",
       "cards": [
         {
-          "prompt": "집에 가___ 친구를 만났어요.",
-          "translation": "I met a friend on the way home.",
-          "answer": "는 길에",
-          "hint": "Focus: ~는 길",
-          "explanation": "The target form is ~는 길."
+          "prompt": "목사님이 지금 교회에 오시___이라고 했어요",
+          "translation": "The reverend said he is on the way to the church now",
+          "answer": "는 길",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 113; the guide explanation is shown separately."
         },
         {
-          "prompt": "회사에 오는 ___ 빵을 샀어요.",
-          "translation": "I bought bread on the way to work.",
-          "answer": "길에",
-          "hint": "Focus: ~는 길",
-          "explanation": "The target form is ~는 길."
+          "prompt": "색연필을 사러 가___인데 혹시 필요한 것이 있어요?",
+          "translation": "I’m heading out to buy some colored pencils, by chance do you need anything?",
+          "answer": "는 길",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 113; the guide explanation is shown separately."
         },
         {
-          "prompt": "여행하는 ___ 사진을 많이 찍었어요.",
-          "translation": "I took many photos while traveling.",
-          "answer": "길에",
-          "hint": "Focus: ~는 길",
-          "explanation": "The target form is ~는 길."
+          "prompt": "제가 지금 집에 가___이라서 20분 후에 또 전화하면 안 돼요?",
+          "translation": "I am on my way home right now, so can you call me back in 20 minutes?",
+          "answer": "는 길",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 113; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 산을 올라가___이에요",
+          "translation": "I am on my way (going) up the mountain",
+          "answer": "는 길",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 113; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 집에 가___에 빵을 사 줄까요?",
+          "translation": "On my way home, should I buy some bread (for you)?",
+          "answer": "는 길",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 113; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "~는 길 for the act of doing",
+      "source_pattern": "~는 길",
+      "meaning": "~는 길 treats 길 as a noun in the expression the way or act of doing something, and can also mean on the way.",
+      "when_to_use": "Use it when describing an action in progress or something done while going somewhere.",
+      "how_to_build": "Put the present modifier ~는 before 길, then add particles such as 에 or 로 and the predicate that HTSK demonstrates.",
+      "examples": [
+        [
+          "친구를 만나러 나가는 길에 책을 반납할 거예요",
+          "On my way out to meet a friend, I will return the book"
+        ],
+        [
+          "음식을 가져오는 길에 포크를 갖다 주세요",
+          "On your way back from getting/bringing food, can you get/grab me a fork?"
+        ],
+        [
+          "그 사람을 살릴 길이 없다",
+          "There is no way to save that person"
+        ],
+        [
+          "그 사실을 확인할 길이 없다",
+          "There is no way of checking that fact"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 113 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -409,30 +937,70 @@
       "title": "While doing something / on the way with ~는 김에",
       "pattern": "~는 김에",
       "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-114/",
       "cards": [
         {
-          "prompt": "마트에 가___ 우유도 사세요.",
-          "translation": "Since you are going to the supermarket, buy milk too.",
+          "prompt": "병원에 가___ 혈액 검사를 했는데 의사 선생님이 당이 검출됐다고 했어요",
+          "translation": "While at the hospital I got my blood checked out, and the doctor said sugars were detected",
           "answer": "는 김에",
-          "hint": "Focus: ~는 김에",
-          "explanation": "The target form is ~는 김에."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 114; the guide explanation is shown separately."
         },
         {
-          "prompt": "서울에 온 ___ 박물관에 갔어요.",
-          "translation": "Since I came to Seoul, I also visited a museum.",
-          "answer": "김에",
-          "hint": "Focus: ~는 김에",
-          "explanation": "The target form is ~는 김에."
+          "prompt": "외식하___ 입맛을 돌아오게 하는 제철음식을 먹을 거예요",
+          "translation": "While going out to eat, I’m going to eat something seasonal to get my taste/appetite back",
+          "answer": "는 김에",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 114; the guide explanation is shown separately."
         },
         {
-          "prompt": "청소하___ 창문도 닦았어요.",
-          "translation": "While cleaning, I also wiped the windows.",
+          "prompt": "사무실에서 나가___ 조수한테 용지를 저한테 전달해 달라고 해 주세요",
+          "translation": "While leaving the office, please tell my secretary to bring me some printer paper",
           "answer": "는 김에",
-          "hint": "Focus: ~는 김에",
-          "explanation": "The target form is ~는 김에."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 114; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "다시 식당에 들어가___ 빨대도 갖다 주세요",
+          "translation": "While you’re going into the restaurant again, get me a straw, please",
+          "answer": "는 김에",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 114; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "건설 현장을 지나가___ 우리도 우리 땅에 무엇을 지을지 얘기했어요",
+          "translation": "While passing the construction site, we talked about what we would build on our land tool",
+          "answer": "는 김에",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 114; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "While doing something / on the way with ~는 김에",
+      "source_pattern": "~는 김에",
+      "meaning": "~는 김에 means while doing something, taking the opportunity or on the way.",
+      "when_to_use": "Use it when a second action is added because the first action already provides a convenient occasion.",
+      "how_to_build": "Attach the present modifier ~는 to the verb before 김에; the second clause states the extra action.",
+      "examples": [
+        [
+          "이 문제를 감추는 김에 모든 문제도 감추는 게 어때요?",
+          "While we’re hiding this problem, why don’t we hide these other problems too?"
+        ],
+        [
+          "새해라서 할아버지를 보러 가는 김에 절도 하고 올 거예요",
+          "While going to see my grandpa for new years, I’m also going to take the opportunity to bow to him"
+        ],
+        [
+          "공부하는 습관을 잡는 김에 집중력도 높이려고 하고 있어요",
+          "While trying to start some good study habits, I’m also trying to increase my concentration"
+        ],
+        [
+          "큰 트럭을 빌리는 김에 제일 무거운 화물을 실어서 보냈어요",
+          "While renting a big truck, we should load up the heaviest cargo and send it"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 114 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -440,30 +1008,70 @@
       "title": "Regret with ~ㄹ/을걸 그랬다",
       "pattern": "~ㄹ/을걸 그랬다",
       "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
       "cards": [
         {
-          "prompt": "우산을 가져올___ 그랬어요.",
-          "translation": "I should have brought an umbrella.",
+          "prompt": "국에 김이 많이 안 나서 안 뜨거울 줄 알았는데 그래도 국자를 쓸___",
+          "translation": "There wasn’t a lot of steam coming out of the soup, so I thought it wouldn’t be hot, but either way I should have used a ladle",
           "answer": "걸",
-          "hint": "Focus: ~ㄹ/을걸 그랬다",
-          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 115; the guide explanation is shown separately."
         },
         {
-          "prompt": "더 일찍 예약할___ 그랬어요.",
-          "translation": "I should have booked earlier.",
+          "prompt": "아까 그 표지를 더 자세히 볼___",
+          "translation": "I should have looked at that sign better",
           "answer": "걸",
-          "hint": "Focus: ~ㄹ/을걸 그랬다",
-          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 115; the guide explanation is shown separately."
         },
         {
-          "prompt": "그 말을 하지 말___ 그랬어요.",
-          "translation": "I should not have said that.",
+          "prompt": "식칼 대신에 과도 쓸___",
+          "translation": "I should have used a fruit knife instead of a kitchen knife",
           "answer": "걸",
-          "hint": "Focus: ~ㄹ/을걸 그랬다",
-          "explanation": "The target form is ~ㄹ/을걸 그랬다."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 115; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이용 수칙을 제대로 읽을___",
+          "translation": "I should have read the rules of using (this thing) properly",
+          "answer": "걸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 115; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "만료일이 언제까지인지 제대로 볼___",
+          "translation": "I should have looked at when the expiry date is until",
+          "answer": "걸",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 115; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Regret with ~ㄹ/을걸 그랬다",
+      "source_pattern": "~ㄹ/을걸 그랬다",
+      "meaning": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.",
+      "when_to_use": "Use it when looking back and wishing the action had been done differently.",
+      "how_to_build": "Attach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
+      "examples": [
+        [
+          "오늘 학교에 안 올걸",
+          "I shouldn’t have come to school today"
+        ],
+        [
+          "아침으로 초밥을 안 먹을걸",
+          "I shouldn’t have had sushi for breakfast"
+        ],
+        [
+          "그 걸 엄마에게 말하지 말걸",
+          "I shouldn’t have told my mother that"
+        ],
+        [
+          "그 자선 단체에 돈을 안 줄걸",
+          "I shouldn’t have given money to that charitable organization"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 115 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 5,
@@ -471,30 +1079,70 @@
       "title": "Remaining in a state with 채",
       "pattern": "~은/는 채로",
       "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
-      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/",
+      "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
       "cards": [
         {
-          "prompt": "신발을 신___ 집에 들어갔어요.",
-          "translation": "I entered the house with my shoes on.",
-          "answer": "은 채로",
-          "hint": "Focus: ~은/는 채로",
-          "explanation": "The target form is ~은/는 채로."
+          "prompt": "여자는 변기를 신문으로 덮___ 화장실에서 나왔어요",
+          "translation": "The girl came out of the bathroom with the toilet covered by newspaper",
+          "answer": "은 채",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 116; the guide explanation is shown separately."
         },
         {
-          "prompt": "불을 켜___ 잠들었어요.",
-          "translation": "I fell asleep with the light on.",
-          "answer": "둔 채로",
-          "hint": "Focus: ~은/는 채로",
-          "explanation": "The target form is ~은/는 채로."
+          "prompt": "우리는 불을 끈 ___ 영화를 봤다",
+          "translation": "We watched a movie with the lights off",
+          "answer": "채로",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 116; the guide explanation is shown separately."
         },
         {
-          "prompt": "문을 열어 ___ 두세요.",
-          "translation": "Please leave the door open.",
-          "answer": "둔 채로",
-          "hint": "Focus: ~은/는 채로",
-          "explanation": "The target form is ~은/는 채로."
+          "prompt": "우리는 불이 꺼진 ___ 영화를 봤다",
+          "translation": "We watched a movie with the lights off",
+          "answer": "채로",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 116; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리는 불이 꺼져 있___ 영화를 봤다",
+          "translation": "We watched a movie with the lights off",
+          "answer": "는 채로",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 116; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "눈을 감___ 그 숫자를 외워 봤어요",
+          "translation": "I closed my eyes and tried to memorize those numbers",
+          "answer": "은 채",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 116; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Remaining in a state with 채",
+      "source_pattern": "~은/는 채로",
+      "meaning": "채 means remaining in a state while another action happens, often translated while still or without changing.",
+      "when_to_use": "Use it when the original state continues during the next action.",
+      "how_to_build": "Use N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
+      "examples": [
+        [
+          "제가 주변에 뭐가 있는지 아무 것도 모른 채 다녔어요",
+          "I went around not knowing what anything around me was"
+        ],
+        [
+          "이불을 덮은 채로 그냥 침대에서 하루 종일 누워 있었어요",
+          "I was just laying in bed all day with the covers over me"
+        ],
+        [
+          "친구가 그 사연에 대해 아무 말도 남기지 않은 채 도망갔어요",
+          "My friend didn’t say anything about that (story) and just left"
+        ],
+        [
+          "중요한 정보를 적은 종이를 탁자에 놓은 채로 집에서 나갔어요",
+          "I went out of the house with the paper with the important information written on it sitting on the table"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 116 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     }
   ]
 }

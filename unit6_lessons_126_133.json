@@ -6,30 +6,70 @@
       "title": "By category with ~별(로)",
       "pattern": "~별(로)",
       "explanation": "Original practice for the HTSK Lesson 126 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-126/",
       "cards": [
         {
-          "prompt": "사람___ 생각이 달라요.",
-          "translation": "People's opinions differ by person.",
-          "answer": "별로",
-          "hint": "Focus: ~별(로)",
-          "explanation": "The target form is ~별(로)."
+          "prompt": "수준___ 수업은 좋은 점도 있고 나쁜 점도 있어요",
+          "translation": "Classes divided by levels have good points and bad points, too",
+          "answer": "별",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 126; the guide explanation is shown separately."
         },
         {
-          "prompt": "지역___ 음식이 유명해요.",
-          "translation": "Food is famous by region.",
-          "answer": "별로",
-          "hint": "Focus: ~별(로)",
-          "explanation": "The target form is ~별(로)."
+          "prompt": "개학 전에 우리는 학년___ 명단을 작성해야 돼요",
+          "translation": "Before the start of school, we need to make a list of students names by grade",
+          "answer": "별",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 126; the guide explanation is shown separately."
         },
         {
-          "prompt": "월___ 비용을 계산했어요.",
-          "translation": "I calculated the cost by month.",
-          "answer": "별로",
-          "hint": "Focus: ~별(로)",
-          "explanation": "The target form is ~별(로)."
+          "prompt": "각 부서마다 부서___ 회의를 할 거예요",
+          "translation": "Each department will have a meeting (among themselves)",
+          "answer": "별",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 126; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "12월까지 우리 회사는 개인___ 평가를 시행하겠습니다",
+          "translation": "Until December, our company will be running a personal evaluation",
+          "answer": "별",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 126; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "새로운 컴퓨터를 사면 국가___ 언어 설정을 해야 돼요",
+          "translation": "When you buy a new computer, you need to set the language setting (appropriate for your nation)",
+          "answer": "별",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 126; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "By category with ~별(로)",
+      "source_pattern": "~별(로)",
+      "meaning": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly.",
+      "when_to_use": "Use them when organizing things by type or saying that something is not especially so.",
+      "how_to_build": "Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples.",
+      "examples": [
+        [
+          "우리 회사는 분기별로 세금을 내요",
+          "Our company pays tax by the quarter"
+        ],
+        [
+          "코치가 선수들을 체중별로 나눴어요",
+          "The coach divided the athletes by weight"
+        ],
+        [
+          "저는 신분증을 나이별로 다 정리했어요",
+          "I organized the ID cards by age"
+        ],
+        [
+          "모든 나라가 국가별로 대표를 지명했어요",
+          "Each country designated a representative separately"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 126 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -37,30 +77,70 @@
       "title": "Each / at regular intervals with ~씩",
       "pattern": "~씩",
       "explanation": "Original practice for the HTSK Lesson 127 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-127/",
       "cards": [
         {
-          "prompt": "하루에 두 번___ 약을 먹어요.",
-          "translation": "I take medicine twice a day.",
+          "prompt": "저는 아이들에게 과자를 한 개___ 줄 거예요",
+          "translation": "I will give one cookie to each kid",
           "answer": "씩",
-          "hint": "Focus: ~씩",
-          "explanation": "The target form is ~씩."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 127; the guide explanation is shown separately."
         },
         {
-          "prompt": "학생들에게 사과를 하나___ 줬어요.",
-          "translation": "I gave each student one apple.",
+          "prompt": "저는 아이들에게 과자를 하나___ 줄 거예요",
+          "translation": "I will give one cookie to each kid",
           "answer": "씩",
-          "hint": "Focus: ~씩",
-          "explanation": "The target form is ~씩."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 127; the guide explanation is shown separately."
         },
         {
-          "prompt": "조금___ 나누어 주세요.",
-          "translation": "Please divide it into small portions.",
+          "prompt": "저는 아이들에게 과자를 두 개___ 줄 거예요",
+          "translation": "I will give two cookies to each kid",
           "answer": "씩",
-          "hint": "Focus: ~씩",
-          "explanation": "The target form is ~씩."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 127; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 한 달에 두 번___ 병원에 가야 돼요",
+          "translation": "I need to go to the hospital twice a month, every month, or",
+          "answer": "씩",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 127; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "학생들이 30분___ 운동해요",
+          "translation": "Students exercise for 30 minutes",
+          "answer": "씩",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 127; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Each / at regular intervals with ~씩",
+      "source_pattern": "~씩",
+      "meaning": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩.",
+      "when_to_use": "Use it for equal distribution, repeated intervals or gradual amounts.",
+      "how_to_build": "Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK.",
+      "examples": [
+        [
+          "제가 울다가도 가끔씩 웃음이 나요",
+          "Even when I cry I laugh sometimes"
+        ],
+        [
+          "가끔씩은 규칙을 어기는 것이 괜찮아요",
+          "Sometimes it is okay to break the rules"
+        ],
+        [
+          "그는 가끔씩 자기방어로 거짓말을 해요",
+          "He lies sometimes to defend himself"
+        ],
+        [
+          "사람은 가끔씩 새로운 것을 시도해야 하는 것 같다",
+          "It seems that people need to try new things every once and a while"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 127 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -68,30 +148,70 @@
       "title": "Leaving something done with ~아/어 놓다",
       "pattern": "~아/어 놓다",
       "explanation": "Original practice for the HTSK Lesson 128 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-128/",
       "cards": [
         {
-          "prompt": "문을 열어 ___ 주세요.",
-          "translation": "Please leave the door open.",
-          "answer": "놓아",
-          "hint": "Focus: ~아/어 놓다",
-          "explanation": "The target form is ~아/어 놓다."
+          "prompt": "문을 열___",
+          "translation": "Open the door (and keep it open)",
+          "answer": "어 놓아",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 128; the guide explanation is shown separately."
         },
         {
-          "prompt": "여행 전에 표를 사 ___었어요.",
-          "translation": "I bought the tickets in advance before the trip.",
-          "answer": "놓았",
-          "hint": "Focus: ~아/어 놓다",
-          "explanation": "The target form is ~아/어 놓다."
+          "prompt": "저는 짐을 벌써 차에 실___어요",
+          "translation": "I already loaded all of the luggage/bags into the car",
+          "answer": "어 놓았",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 128; the guide explanation is shown separately."
         },
         {
-          "prompt": "중요한 내용을 적어 ___어요.",
-          "translation": "I wrote down the important information.",
-          "answer": "놓았",
-          "hint": "Focus: ~아/어 놓다",
-          "explanation": "The target form is ~아/어 놓다."
+          "prompt": "자석을 냉장고에 그냥 붙___어요",
+          "translation": "I just stuck the magnet onto the fridge",
+          "answer": "여 놓았",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 128; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 자켓을 옷걸이에 걸___어요",
+          "translation": "I hung my jacket on the clothes hanger",
+          "answer": "어 놓았",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 128; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "만약 제가 로또가 당첨되면 저는 돈을 다 은행에 넣___ 싶어요",
+          "translation": "If I win the lottery, I want to put all of my money in the bank",
+          "answer": "어 놓고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 128; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Leaving something done with ~아/어 놓다",
+      "source_pattern": "~아/어 놓다",
+      "meaning": "~아/어 놓다 describes an action completed in advance whose resulting state remains.",
+      "when_to_use": "Use it when something has been done and left that way for later, preparation or continued effect.",
+      "how_to_build": "Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action.",
+      "examples": [
+        [
+          "밖이 갑자기 어두워지고 저는 겁이 나서 커튼을 닫아 놓았어요",
+          "Outside got dark all of a sudden, and I was scared so I closed the curtains"
+        ],
+        [
+          "저는 그 학생을 편애해서 생일 날에 그 학생을 위해 선물을 준비해 놓았어요",
+          "I favor that student, so on her birthday I prepared a present for her"
+        ],
+        [
+          "저는 자켓을 옷걸이에 걸어 놔",
+          "I hung my jacket on the clothes hanger"
+        ],
+        [
+          "대추를 물에다가 잠깐 담가 놔야 돼요",
+          "You need to let the dates soak in water briefly"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 128 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -99,61 +219,137 @@
       "title": "Passing a point with 넘다",
       "pattern": "넘다 / 넘게 / 넘어서",
       "explanation": "Original practice for the HTSK Lesson 129 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-129/",
       "cards": [
         {
-          "prompt": "열 시가 ___ 집에 왔어요.",
-          "translation": "I came home after ten o'clock.",
-          "answer": "넘어서",
-          "hint": "Focus: 넘다 / 넘게 / 넘어서",
-          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+          "prompt": "우리는 두 시간 ___ 기다렸어요",
+          "translation": "We waited for more than two hours",
+          "answer": "넘게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 129; the guide explanation is shown separately."
         },
         {
-          "prompt": "이 건물은 백 년이 ___었어요.",
-          "translation": "This building is over one hundred years old.",
-          "answer": "넘었",
-          "hint": "Focus: 넘다 / 넘게 / 넘어서",
-          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+          "prompt": "저는 일본에 스무 번 ___ 가 봤어요",
+          "translation": "I’ve been to Japan more than twenty times",
+          "answer": "넘게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 129; the guide explanation is shown separately."
         },
         {
-          "prompt": "기온이 삼십 도를 ___었어요.",
-          "translation": "The temperature went above thirty degrees.",
-          "answer": "넘었",
-          "hint": "Focus: 넘다 / 넘게 / 넘어서",
-          "explanation": "The target form is 넘다 / 넘게 / 넘어서."
+          "prompt": "90점 ___ 받으면 엄마가 선물을 사 준대요",
+          "translation": "If I get a score over 90, mom said that she’ll buy a present (for me)",
+          "answer": "넘게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 129; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 과자가 너무 맛있어서 열 개 ___ 샀어요",
+          "translation": "This candy/cookie is so delicious so I bought more than ten of them",
+          "answer": "넘게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 129; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "백 년 ___ 이 식당이 한국 사람들이 제일 좋아하는 식당이에요",
+          "translation": "For over 100 years, this restaurant has been the favorite restaurant of Korean people",
+          "answer": "넘게",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 129; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Passing a point with 넘다",
+      "source_pattern": "넘다 / 넘게 / 넘어서",
+      "meaning": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses.",
+      "when_to_use": "Use it for crossing limits, going over quantities or moving beyond a physical or abstract point.",
+      "how_to_build": "Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally.",
+      "examples": [
+        [
+          "우리는 강을 넘어서 한강 공원에서 놀았어요",
+          "We crossed the river and then played in the Han River Park"
+        ],
+        [
+          "그 언덕 넘어서 계속 가다 보면 온천에 도착해요",
+          "If you go over the hill and keep going, you will arrive at the hot-spring"
+        ],
+        [
+          "어제가 시험 문제 출제 마감일이라서 다 하고 12시 넘어서 잤어요",
+          "Yesterday was the deadline for creating exam questions, so I did them all and slept after 12"
+        ],
+        [
+          "외계인을 찾으려면 인간은 엄청난 우주를 넘어서 지구와 비슷한 행성을 찾아야 돼요",
+          "In order to find aliens, humans need to cross a very large space and find a planet similar to Earth"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 129 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
       "lesson_number": 130,
-      "title": "Large Korean numbers",
-      "pattern": "large numbers",
+      "title": "Big Korean Numbers",
+      "pattern": "Large Korean number units",
       "explanation": "Original practice for the HTSK Lesson 130 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson130/",
       "cards": [
         {
-          "prompt": "이 건물은 십 ___ 원이에요.",
-          "translation": "This building costs ten billion won.",
+          "prompt": "은하수에 천___ 개 넘게 해성이 있어요",
+          "translation": "There are more than 100,000,000,000 planets in the Milky Way Galaxy",
           "answer": "억",
-          "hint": "Focus: large numbers",
-          "explanation": "The target form is large numbers."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 130; the guide explanation is shown separately."
         },
         {
-          "prompt": "인구가 천 ___ 명이에요.",
-          "translation": "The population is one billion people.",
+          "prompt": "주행 거리계가 백___ 킬로를 넘었어요",
+          "translation": "The odometer just went over 1,000,000 km",
           "answer": "만",
-          "hint": "Focus: large numbers",
-          "explanation": "The target form is large numbers."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 130; the guide explanation is shown separately."
         },
         {
-          "prompt": "예산이 오 ___ 원이에요.",
-          "translation": "The budget is five hundred million won.",
+          "prompt": "캐나다 면적은 거의 천___ 킬로미터요",
+          "translation": "Canada’s land-area is almost 10,000,000 square kilometers",
+          "answer": "만",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 130; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "한 해변에 모래알 십___ 개 정도가 있어요",
+          "translation": "There are roughly 10,000,000,000,000 grains of sand on one beach",
+          "answer": "조",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 130; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그렇게 많은 돈을 투자하면 일 년에 복리로 일___ 원을 벌 수 있어요",
+          "translation": "If you invest that much money, in one year you can make 100,000,000 won from compound interest in a year",
           "answer": "억",
-          "hint": "Focus: large numbers",
-          "explanation": "The target form is large numbers."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 130; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Big Korean Numbers",
+      "source_pattern": "Large Korean number units",
+      "meaning": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units.",
+      "when_to_use": "Use the system for prices, populations, money and other large quantities instead of reading every digit as in English.",
+      "how_to_build": "Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page.",
+      "examples": [
+        [
+          "대략 1조 원 이상의 재산이 있는 사람은 한국에 별로 없어요",
+          "There are not many people in Korea with assets of around one trillion won or more"
+        ],
+        [
+          "조 하고 다음 숫자 단위는 경이에요",
+          "The number unit after 조 is 경"
+        ],
+        [
+          "우주 나이는 대략 백삼십억 살이에요",
+          "The age of the universe is roughly thirteen billion years"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 130 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -161,30 +357,66 @@
       "title": "Saisiot in compound nouns",
       "pattern": "사이시옷",
       "explanation": "Original practice for the HTSK Lesson 131 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-131/",
       "cards": [
         {
-          "prompt": "나뭇 ___이 많아요.",
-          "translation": "There are many leaves of the tree.",
-          "answer": "잎",
-          "hint": "Focus: 사이시옷",
-          "explanation": "The target form is 사이시옷."
+          "prompt": "우리는 할아버지 ___에 과일이랑 고기를 많이 사 가야 돼요",
+          "translation": "On the day of my grandfather’s 제사, we need to buy a lot of fruit and meat before going (presumably to the place where 제사 is done)",
+          "answer": "제삿날",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 131; the guide explanation is shown separately."
         },
         {
-          "prompt": "고깃 ___을 먹고 싶어요.",
-          "translation": "I want to eat meat pieces.",
-          "answer": "집",
-          "hint": "Focus: 사이시옷",
-          "explanation": "The target form is 사이시옷."
+          "prompt": "종이를 아껴 쓰기 위해 종이의 ___도 항상 사용해요",
+          "translation": "In order to save paper, you should always use the back side of the page",
+          "answer": "뒷면",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 131; the guide explanation is shown separately."
         },
         {
-          "prompt": "햇 ___이 따뜻해요.",
-          "translation": "The sunlight is warm.",
-          "answer": "빛",
-          "hint": "Focus: 사이시옷",
-          "explanation": "The target form is 사이시옷."
+          "prompt": "이 공식의 ___은 6 입니다",
+          "translation": "The maximum value of this formula is 6",
+          "answer": "최댓값",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 131; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "이 자료 집합에서 ___을 찾아내는 것은 매우 중요합니다",
+          "translation": "Finding the maximum value in this dataset is crucial",
+          "answer": "최댓값",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 131; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "전셋값이 올라서 이제 ___이 별로 없어요",
+          "translation": "The price of 전세 went up so there isn’t that many 전세 houses now",
+          "answer": "전셋집",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 131; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "Saisiot in compound nouns",
+      "source_pattern": "사이시옷",
+      "meaning": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns.",
+      "when_to_use": "Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules.",
+      "how_to_build": "There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK.",
+      "examples": [
+        [
+          "바람이 너무 세서 촛불이 꺼졌어요",
+          "The wind was so strong that the candle went out"
+        ],
+        [
+          "아주 어두워서 반딧불이 잘 보여요",
+          "It is very dark, so fireflies are easy to see"
+        ],
+        [
+          "그 왕따가 점심을 먹을 때마다 혼잣말을 많이 해요",
+          "That outcast talks to himself a lot whenever he eats lunch"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 131 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -192,30 +424,70 @@
       "title": "The more... the more with ~ㄹ/을수록",
       "pattern": "~ㄹ/을수록",
       "explanation": "Original practice for the HTSK Lesson 132 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-132/",
       "cards": [
         {
-          "prompt": "공부할 ___ 실력이 늘어요.",
-          "translation": "The more you study, the more your skills improve.",
+          "prompt": "시간이 늦을___ 버스 운행 간격이 줄어요",
+          "translation": "As it (the time) gets later, the interval time for buses (the frequency that buses run) decreases",
           "answer": "수록",
-          "hint": "Focus: ~ㄹ/을수록",
-          "explanation": "The target form is ~ㄹ/을수록."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 132; the guide explanation is shown separately."
         },
         {
-          "prompt": "날씨가 추울 ___ 감기에 조심하세요.",
-          "translation": "The colder it gets, the more careful you should be about colds.",
+          "prompt": "어두워질___ 야경이 예뻐요",
+          "translation": "As it gets darker, the night view gets prettier",
           "answer": "수록",
-          "hint": "Focus: ~ㄹ/을수록",
-          "explanation": "The target form is ~ㄹ/을수록."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 132; the guide explanation is shown separately."
         },
         {
-          "prompt": "볼 ___ 재미있어요.",
-          "translation": "The more you watch it, the more interesting it is.",
+          "prompt": "꿀벌이 없어질___ 인류에 영향을 미치는 문제가 많아요",
+          "translation": "As bees disappear, there will be more problems that affect humans",
           "answer": "수록",
-          "hint": "Focus: ~ㄹ/을수록",
-          "explanation": "The target form is ~ㄹ/을수록."
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 132; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "환율 변동이 생길___ 주식시장에 문제가 많이 생겨요",
+          "translation": "As changes in the exchange rate happen/come up there are problems in the stock market",
+          "answer": "수록",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 132; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "사람들이 돈이 많을___ 욕심이 많아요",
+          "translation": "The more money people have, the greedier they are",
+          "answer": "수록",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 132; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "The more... the more with ~ㄹ/을수록",
+      "source_pattern": "~ㄹ/을수록",
+      "meaning": "~ㄹ/을수록 means the more or as something increases, the more another result changes.",
+      "when_to_use": "Use it for proportional or parallel changes in degree, frequency or amount.",
+      "how_to_build": "Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change.",
+      "examples": [
+        [
+          "수업 시간이 단축될수록 학생들이 기뻐해요",
+          "As the class time shortens, students get happier"
+        ],
+        [
+          "성수기가 가까워질수록 숙소비가 더 비싸져요",
+          "As it gets closer to the peak season, the price of accommodation gets more expensive"
+        ],
+        [
+          "애기가 피곤할수록 애기를 재우기가 더 쉬워요",
+          "The more tired the baby is, the easier it is to put him asleep"
+        ],
+        [
+          "소리를 크게 지를수록 메아리가 더 크게 돌아와요",
+          "The louder you scream, the louder the echo is"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 132 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
       "unit": 6,
@@ -223,30 +495,70 @@
       "title": "There is no way with ~ㄹ/을 리가 없다",
       "pattern": "~ㄹ/을 리가 없다",
       "explanation": "Original practice for the HTSK Lesson 133 focus. Use the official Unit 6 lesson for the full explanation.",
-      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/",
+      "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
       "cards": [
         {
-          "prompt": "그 사람이 거짓말할 ___ 없어요.",
-          "translation": "There is no way that person would lie.",
-          "answer": "리가",
-          "hint": "Focus: ~ㄹ/을 리가 없다",
-          "explanation": "The target form is ~ㄹ/을 리가 없다."
+          "prompt": "그 사람이 지난 달에 취업하니 밥값을 못 낼 ___",
+          "translation": "That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)",
+          "answer": "리가 없어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 133; the guide explanation is shown separately."
         },
         {
-          "prompt": "오늘 비가 올 ___ 없어요.",
-          "translation": "There is no way it will rain today.",
-          "answer": "리가",
-          "hint": "Focus: ~ㄹ/을 리가 없다",
-          "explanation": "The target form is ~ㄹ/을 리가 없다."
+          "prompt": "드라마에서 그렇게 중요한 역할을 하는 인물이 죽을 ___",
+          "translation": "There is no way a character with such an important role can die in a drama",
+          "answer": "리가 없다",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 133; the guide explanation is shown separately."
         },
         {
-          "prompt": "제가 그 약속을 잊을 ___ 없어요.",
-          "translation": "There is no way I would forget that promise.",
-          "answer": "리가",
-          "hint": "Focus: ~ㄹ/을 리가 없다",
-          "explanation": "The target form is ~ㄹ/을 리가 없다."
+          "prompt": "삼성이 이 축제를 후원해서 돈이 부족할 ___",
+          "translation": "Samsung is sponsoring this event, so there is no way money can run out",
+          "answer": "리가 없어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 133; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "매일 열심히 운동을 하는데 그렇게 아플 ___",
+          "translation": "You exercise every day – there is no way that you can be that sick",
+          "answer": "리가 없어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 133; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 학생이 내용을 아주 대충 훑어서 다 외울 ___",
+          "translation": "That student looked over the contents very “half-assed,” there is no way he memorized it all",
+          "answer": "리가 없어요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 133; the guide explanation is shown separately."
         }
-      ]
+      ],
+      "source_status": "published",
+      "source_title": "There is no way with ~ㄹ/을 리가 없다",
+      "source_pattern": "~ㄹ/을 리가 없다",
+      "meaning": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.",
+      "when_to_use": "Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.",
+      "how_to_build": "Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
+      "examples": [
+        [
+          "뚜껑이 그냥 다 없어질 리가 없어요",
+          "There is no way that the lid just disappeared"
+        ],
+        [
+          "원유 값이 작년처럼 떨어질 리가 없어요",
+          "There is no way that the price of oil will drop like last year"
+        ],
+        [
+          "선생님이 자기 제자를 용서할 리가 없어요",
+          "There is no way that the teacher will forgive his pupil"
+        ],
+        [
+          "점심으로 많이 먹고 또 벌써 배고플 리가 없어요",
+          "After eating a lot for lunch, there is no way that you can be hungry again"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 133 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     }
   ]
 }

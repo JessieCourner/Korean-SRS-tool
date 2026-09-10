@@ -2,100 +2,568 @@
   "curriculum": "How to Study Korean — Unit 2",
   "lessons": [
     {
-      "unit": 2, "lesson_number": 26, "title": "Describing nouns with verbs", "pattern": "~는 것",
+      "unit": 2,
+      "lesson_number": 26,
+      "title": "Describing nouns with verbs",
+      "pattern": "~는 것",
       "explanation": "Use ~는 것 to turn a verb phrase into a noun-like expression, such as ‘the act of studying’ or ‘the thing that I like’. This lesson is the foundation for the next several lessons.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
       "cards": [
-        {"prompt":"제가 ___ 좋아해요.\n(음악을 듣다)","translation":"I like listening to music.","answer":"음악을 듣는 것을","hint":"Use the present-tense verb modifier + 것, then 을.","explanation":"듣다 → 듣는 것; the noun-like phrase is 음악을 듣는 것을."},
-        {"prompt":"한국어를 ___ 어려워요.\n(공부하다)","translation":"Studying Korean is difficult.","answer":"공부하는 것이","hint":"Use ~는 것 as the subject, followed by 이.","explanation":"공부하다 → 공부하는 것; as the subject, it becomes 공부하는 것이."},
-        {"prompt":"저는 요리___ 재미있어요.\n(하다)","translation":"Cooking is fun for me.","answer":"하는 것이","hint":"하다 becomes 하는 것.","explanation":"요리하는 것이 means ‘cooking’ as the subject of 재미있어요."},
-        {"prompt":"매일 운동___ 건강에 좋아요.\n(하다)","translation":"Exercising every day is good for your health.","answer":"하는 것은","hint":"Use ~는 것 as the topic with 은/는.","explanation":"매일 운동하는 것은 sets ‘exercising every day’ as the topic."},
-        {"prompt":"새로운 사람을 만나___ 즐거워요.\n(다)","translation":"Meeting new people is enjoyable.","answer":"는 것이","hint":"Meet: 만나다 → 만나는 것.","explanation":"만나다 becomes 만나는 것, then 이 marks the subject."}
-      ]
+        {
+          "prompt": "제가 먹___ 음식",
+          "translation": "The food I ate",
+          "answer": "은",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 26; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "내가 먹___ 음식",
+          "translation": "The food I will eat",
+          "answer": "을",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 26; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 먹___ 음식",
+          "translation": "The food I eat",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 26; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 먹___ 음식",
+          "translation": "The food I will eat",
+          "answer": "을",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 26; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "제가 가르치___ 학생",
+          "translation": "the student I teach",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 26; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "Describing nouns with verbs",
+      "source_pattern": "~는 것",
+      "meaning": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes.",
+      "when_to_use": "Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does.",
+      "how_to_build": "Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them.",
+      "examples": [
+        [
+          "내가 가장 원하는 것은 차야",
+          "The thing that I want most is a car"
+        ],
+        [
+          "저는 친구가 사과를 가져오는 것을 원해요",
+          "I want my friend to bring apples"
+        ],
+        [
+          "나의 꿈은 선생님이 되는 것이다",
+          "My dream is becoming a teacher"
+        ],
+        [
+          "저는 영화를 보는 것을 좋아해요",
+          "I like watching movies"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 26 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 27, "title": "Past descriptions with ~던/었던 것", "pattern": "~던/었던 것",
-      "explanation": "Use past modifier forms before 것 to describe something that happened in the past or was in progress in the past. Compare these forms with ~은 것.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "unit": 2,
+      "lesson_number": 27,
+      "title": "Lesson 27: Using ~던/었던 to Describe Past Tense",
+      "pattern": "~던/었던",
+      "explanation": "Use ~던 for a remembered repeated or continuing past action and ~았/었던 for a remembered action or state that has finished. The neutral ~ㄴ/은 form is a comparison, not the target of this lesson.",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
       "cards": [
-        {"prompt":"어제 ___ 영화가 정말 좋았어요.\n(보다)","translation":"The movie I watched yesterday was really good.","answer":"본","hint":"Use the completed past modifier of 보다.","explanation":"보다 → 본 before a noun."},
-        {"prompt":"제가 어릴 때 ___ 집이에요.\n(살다)","translation":"This is the house where I used to live as a child.","answer":"살던","hint":"Use ~던 for a past habit or ongoing past situation.","explanation":"살다 → 살던 describes the house connected with a past situation."},
-        {"prompt":"지난주에 ___ 책을 찾고 있어요.\n(읽다)","translation":"I am looking for the book I read last week.","answer":"읽은","hint":"Use the completed past modifier.","explanation":"읽다 → 읽은 책."},
-        {"prompt":"예전에 자주 ___ 카페예요.\n(가다)","translation":"It is a café I used to go to often.","answer":"가던","hint":"Use ~던 for a repeated past action.","explanation":"가다 → 가던 in a remembered/repeated past context."},
-        {"prompt":"어제 ___ 음식은 매웠어요.\n(먹다)","translation":"The food I ate yesterday was spicy.","answer":"먹은","hint":"먹다 takes the past modifier ~은.","explanation":"먹다 → 먹은 음식."}
-      ]
+        {
+          "prompt": "그 컴퓨터는 작년에 썼___ 거예요",
+          "translation": "That is the computer I had used last year",
+          "answer": "던",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 27; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 애기가 썼___ 휴지를 다 버렸어요",
+          "translation": "I threw out all the tissue paper that the baby had used",
+          "answer": "던",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 27; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "한때 포기했___ 시험을 다시 공부했어요",
+          "translation": "I again studied for the exam that I once gave up on",
+          "answer": "던",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 27; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "대통령이 여기에 살___ 시민들에게 돈을 줬어요",
+          "translation": "The president gave money to those who once lived here",
+          "answer": "았던",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 27; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리가 지난 주에 배웠___ 내용을 다시 공부할 거예요",
+          "translation": "I will study the contents that we had learned last week again",
+          "answer": "던",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 27; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "Lesson 27: Using ~던/었던 to Describe Past Tense",
+      "source_pattern": "~던/었던",
+      "meaning": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form.",
+      "when_to_use": "Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters.",
+      "how_to_build": "Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson.",
+      "examples": [
+        [
+          "이 빵은 슬기가 자주 먹던 빵이야",
+          "This is the bread Seulgi used to eat often"
+        ],
+        [
+          "이곳에 근무하던 우체국 직원이 삶을 영원히 포기했어요",
+          "The post-office employee who used to work here gave up on life forever"
+        ],
+        [
+          "우리가 지난 번에 먹었던 곳에서 먹고 싶어요",
+          "I want to eat at the place where we ate last time"
+        ],
+        [
+          "작년에 사업에 실패했던 남자가 새로운 기술을 발견했어요",
+          "The man who failed at his business last year discovered a new technology"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 27 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 28, "title": "More uses of ~는 것", "pattern": "~는 것 irregularities and preferences",
+      "unit": 2,
+      "lesson_number": 28,
+      "title": "More uses of ~는 것",
+      "pattern": "~는 것 irregularities and preferences",
       "explanation": "Build on ~는 것 with irregular verbs, preference expressions, and common noun-like constructions. Pay attention to how the form combines with 이다 and particles.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
       "cards": [
-        {"prompt":"제가 제일 좋아하___ 것은 여행이에요.\n(하다)","translation":"The thing I like doing most is traveling.","answer":"는","hint":"The verb before 것은 is in the present modifier form.","explanation":"좋아하다 → 좋아하는 것; before 은, the ending is 좋아하는 것은."},
-        {"prompt":"한국어를 배우___ 것이 재미있어요.\n(다)","translation":"Learning Korean is interesting.","answer":"는","hint":"배우다 becomes 배우는 before 것.","explanation":"배우는 것이 means ‘learning’ as the subject."},
-        {"prompt":"제가 싫어하___ 것은 기다리는 거예요.\n(다)","translation":"What I dislike is waiting.","answer":"는","hint":"Use the present modifier ending before 것은.","explanation":"싫어하다 → 싫어하는 것은."},
-        {"prompt":"주말에 쉬___ 것을 좋아해요.\n(다)","translation":"I like resting on weekends.","answer":"는","hint":"Use 쉬는 것.","explanation":"쉬다 → 쉬는 것."},
-        {"prompt":"매운 음식을 먹___ 것이 힘들어요.\n(다)","translation":"Eating spicy food is difficult.","answer":"는","hint":"먹다 becomes 먹는 before 것.","explanation":"먹는 것이 is the subject phrase ‘eating’."}
-      ]
+        {
+          "prompt": "저는 친구가 문을 여___을 봤어요",
+          "translation": "I saw my friend opening the door",
+          "answer": "는 것",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 28; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "마음에 드___ 부분이 있나요?",
+          "translation": "Do you have a part/section that you like?",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 28; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "옆에 사___ 이웃사람이 너무 시끄러워요",
+          "translation": "The neighbor who lives next to me is too loud",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 28; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리가 사___ 지역이 조금 위험해요",
+          "translation": "The area we live in is a little bit dangerous",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 28; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "농장에서 사___ 게 싫어요",
+          "translation": "I don’t like living on a farm",
+          "answer": "는",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 28; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "More uses of ~는 것",
+      "source_pattern": "~는 것 irregularities and preferences",
+      "meaning": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun.",
+      "when_to_use": "Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing.",
+      "how_to_build": "Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson.",
+      "examples": [
+        [
+          "그 집을 지은 사람은 누구예요?",
+          "Who is the person that built that house?"
+        ],
+        [
+          "저는 집을 지을 거예요",
+          "I will build a house"
+        ],
+        [
+          "그 사람은 서울에서 부산까지 걸은 첫 번째 사람이었다",
+          "That person was the first person who walked from Seoul to Busan"
+        ],
+        [
+          "제가 도울 게 있나요?",
+          "Is there something I can help you with?"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 28 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 29, "title": "Nominalizing with ~기 and ~ㅁ/음", "pattern": "~기 / ~ㅁ/음",
+      "unit": 2,
+      "lesson_number": 29,
+      "title": "Nominalizing with ~기 and ~ㅁ/음",
+      "pattern": "~기 / ~ㅁ/음",
       "explanation": "Use ~기 and ~ㅁ/음 to turn verbs and adjectives into nouns. These forms overlap with ~는 것 but have different common patterns and registers.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/",
       "cards": [
-        {"prompt":"한국어를 배우___ 어려워요.","translation":"Learning Korean is difficult.","answer":"기가","hint":"Attach 기, then add 가 as the subject particle.","explanation":"배우다 + 기가 → 배우기가 어려워요."},
-        {"prompt":"매일 운동하___ 중요해요.","translation":"Exercising every day is important.","answer":"기가","hint":"Use 하다 + 기 + 가.","explanation":"운동하기가 중요해요 means ‘exercising is important’."},
-        {"prompt":"늦게 자___ 싫어요.","translation":"I dislike going to bed late.","answer":"기가","hint":"자다 + 기, then 가.","explanation":"늦게 자기가 싫어요 is a natural nominalized expression."},
-        {"prompt":"그 소식을 들___ 기뻤어요.","translation":"I was happy to hear the news.","answer":"어서","hint":"This sentence uses the result expression after 듣다; focus on the connective form.","explanation":"This is a context card linking nominalization with a natural follow-up expression."},
-        {"prompt":"도와주___ 고마워요.","translation":"Thank you for helping me.","answer":"셔서","hint":"Use the honorific connective form of 주다.","explanation":"도와주셔서 고마워요 is the polite expression used here."}
-      ]
+        {
+          "prompt": "쌀을 물에 넣은 후에 쌀의 색깔이 변하___ 시작했어요",
+          "translation": "After I put the rice in the water, the color of the rice started to change",
+          "answer": "기",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 29; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "밥을 먹___ 싫어",
+          "translation": "I don’t want to eat",
+          "answer": "기",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 29; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "쌀을 씻___ 싫어요",
+          "translation": "I don’t want to wash the rice",
+          "answer": "기",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 29; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 달리___ 할 거예요",
+          "translation": "I will go for a run",
+          "answer": "기를",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 29; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 줄넘___ 못해요",
+          "translation": "I’m bad at skipping",
+          "answer": "기를",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 29; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "Nominalizing with ~기 and ~ㅁ/음",
+      "source_pattern": "~기 / ~ㅁ/음",
+      "meaning": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction.",
+      "when_to_use": "Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it.",
+      "how_to_build": "Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates.",
+      "examples": [
+        [
+          "나의 여자 친구는 내가 사과를 가져오기를 원해",
+          "My girlfriend wants me to bring apples"
+        ],
+        [
+          "나는 밥을 벌써 먹기 시작했어",
+          "I already started eating rice"
+        ],
+        [
+          "나는 밥을 먹기 싫어",
+          "I do not want to eat rice"
+        ],
+        [
+          "나는 네가 먹고 있음을 알았어",
+          "I knew that you were eating"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 29 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 30, "title": "Expressing uncertainty and duration", "pattern": "~는지 / ~(으)ㄴ지 / ~(으)ㄹ지",
+      "unit": 2,
+      "lesson_number": 30,
+      "title": "Expressing uncertainty and duration",
+      "pattern": "~는지 / ~(으)ㄴ지 / ~(으)ㄹ지",
       "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
       "cards": [
-        {"prompt":"그 사람이 누구___ 모르겠어요.","translation":"I do not know who that person is.","answer":"인지","hint":"이다 becomes 인지 after a noun.","explanation":"누구인지 모르겠어요 means ‘I don’t know who it is’."},
-        {"prompt":"오늘 비가 오___ 모르겠어요.","translation":"I am not sure whether it will rain today.","answer":"는지","hint":"Use the present form of a verb before 지.","explanation":"오다 → 오는지."},
-        {"prompt":"내일 시간이 있___ 모르겠어요.","translation":"I am not sure whether I will have time tomorrow.","answer":"을지","hint":"Use the future/possibility form after a consonant.","explanation":"있다 → 있을지."},
-        {"prompt":"한국에 온 ___ 2년 됐어요.","translation":"It has been two years since I came to Korea.","answer":"지","hint":"온 지 + time period expresses duration since an action.","explanation":"온 지 2년 됐어요 means ‘two years have passed since I came’."},
-        {"prompt":"얼마나 걸리___ 알아요?","translation":"Do you know how long it takes?","answer":"는지","hint":"걸리다 is a present verb before 지.","explanation":"얼마나 걸리는지 알아요? asks how long something takes."}
-      ]
+        {
+          "prompt": "저는 친구가 어디 가___ 몰라요",
+          "translation": "I don’t know where my friend is going",
+          "answer": "는지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 30; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 친구가 어디 가___ 모르겠어요",
+          "translation": "I don’t know where my friend is going",
+          "answer": "는지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 30; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "엄마가 누구랑 먹___ 모르겠어요",
+          "translation": "I don’t know who mom is eating with",
+          "answer": "는지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 30; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "엄마가 뭐 먹___ 모르겠어요",
+          "translation": "I don’t know what mom is eating",
+          "answer": "는지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 30; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "엄마가 어디서 먹___ 모르겠어요",
+          "translation": "I don’t know where mom is eating",
+          "answer": "는지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 30; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "Expressing uncertainty and duration",
+      "source_pattern": "~는지 / ~(으)ㄴ지 / ~(으)ㄹ지",
+      "meaning": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been.",
+      "when_to_use": "Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event.",
+      "how_to_build": "Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate.",
+      "examples": [
+        [
+          "수술을 받을지 안 받을지 확실하지 않아요",
+          "It is not certain if I will get surgery or not"
+        ],
+        [
+          "그가 제 말을 들었는지 안 들었는지 모르겠어요",
+          "I don’t know if he was listening to me or not"
+        ],
+        [
+          "저는 엄마가 밥을 먹었는지 안 먹었는지 모르겠어요",
+          "I don’t know if mom ate or not"
+        ],
+        [
+          "제가 구한 아르바이트가 좋은지 안 좋은지 모르겠어요",
+          "I don’t know if the job I found is good or not"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 30 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 31, "title": "~는 것 with 이다", "pattern": "~는 것이다 / ~는 거예요",
+      "unit": 2,
+      "lesson_number": 31,
+      "title": "~는 것 with 이다",
+      "pattern": "~는 것이다 / ~는 거예요",
       "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/",
       "cards": [
-        {"prompt":"이것은 제가 만든 ___ .","translation":"This is something I made.","answer":"것이에요","hint":"Use 것 + 이에요 after a noun ending in a consonant.","explanation":"것이에요 is the polite form of ‘is a thing’."},
-        {"prompt":"제가 말하고 싶은 ___ 있어요.","translation":"There is something I want to say.","answer":"것이","hint":"Use 것 as the subject before 있어요.","explanation":"말하고 싶은 것이 있어요 means ‘there is something I want to say’."},
-        {"prompt":"지금 공부하___ 아니에요.","translation":"It is not that I am studying right now.","answer":"는 것이","hint":"Use the present modifier + 것 + 이.","explanation":"공부하는 것이 아니에요 negates the noun-like statement."},
-        {"prompt":"제가 원하는 ___ 이거예요.","translation":"This is what I want.","answer":"것은","hint":"Set the noun-like phrase as the topic.","explanation":"원하는 것은 이거예요 means ‘the thing I want is this’."},
-        {"prompt":"한국어를 배우___ 좋은 것 같아요.","translation":"I think learning Korean is good.","answer":"는 것이","hint":"배우다 → 배우는 것, then 이.","explanation":"배우는 것이 좋은 것 같아요."}
-      ]
+        {
+          "prompt": "슬기는 불법___ 일을 하고 있어요",
+          "translation": "Seulgi is doing something illegal",
+          "answer": "인",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 31; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "Titanic 배우___ Leonardo Dicaprio는 잘생겼어요",
+          "translation": "Leonardo Dicaprio, who is an actor in Titanic is handsome",
+          "answer": "인",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 31; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 사람이 선생님___ 아닌지 모르겠어요",
+          "translation": "I don’t know if that person is a teacher or not",
+          "answer": "인지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 31; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "우리가 동갑___ 몰랐어요",
+          "translation": "I didn’t know that we were the same age",
+          "answer": "인지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 31; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "비상출구가 어디___ 모르겠어요",
+          "translation": "I don’t know where the emergency exit is",
+          "answer": "인지",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 31; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "~는 것 with 이다",
+      "source_pattern": "~는 것이다 / ~는 거예요",
+      "meaning": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다.",
+      "when_to_use": "Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence.",
+      "how_to_build": "Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech.",
+      "examples": [
+        [
+          "[직업이] 선생님인 사람들은 인기가 많아요",
+          "People whose job is teaching are popular"
+        ],
+        [
+          "내 친구는 부자인 아버지를 자랑했어",
+          "My friend showed off his rich father"
+        ],
+        [
+          "그 사람이 선생님인지 모르겠어요",
+          "I don't know whether that person is a teacher"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 31 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 32, "title": "Purpose and trying", "pattern": "~려고 / ~러 / ~아/어 보다",
+      "unit": 2,
+      "lesson_number": 32,
+      "title": "Purpose and trying",
+      "pattern": "~려고 / ~러 / ~아/어 보다",
       "explanation": "Use ~려고 and ~러 to express purpose, and ~아/어 보다 to say that you try or experience doing something.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
       "cards": [
-        {"prompt":"한국어를 배우___ 한국에 왔어요.","translation":"I came to Korea to learn Korean.","answer":"려고","hint":"Purpose with the same subject uses ~려고.","explanation":"배우려고 한국에 왔어요."},
-        {"prompt":"친구를 만나___ 카페에 갔어요.","translation":"I went to a café to meet a friend.","answer":"러","hint":"Use ~러 with a movement verb such as 가다.","explanation":"만나러 카페에 갔어요."},
-        {"prompt":"이 음식을 먹___ 싶어요.","translation":"I want to try eating this food.","answer":"어 보고","hint":"먹다 combines with ~어 보다.","explanation":"먹어 보고 싶어요 means ‘want to try eating’."},
-        {"prompt":"새로운 방법을 사용해 ___ 어때요?","translation":"How about trying a new method?","answer":"보는 것은","hint":"Use 보다 as a noun-like suggestion.","explanation":"사용해 보는 것은 어때요? is a natural suggestion to try using it."},
-        {"prompt":"제주도에 가___ 비행기를 예약했어요.","translation":"I booked a flight in order to go to Jeju Island.","answer":"려고","hint":"Use purpose ~려고 before 예약했어요.","explanation":"가려고 비행기를 예약했어요."}
-      ]
+        {
+          "prompt": "그 친구를 매 주말 만나___ 노력해요",
+          "translation": "I try to meet that friend every weekend",
+          "answer": "려고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 32; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "한국어를 배우___ 노력하고 있어요",
+          "translation": "I am trying to learn Korean",
+          "answer": "려고",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 32; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "서울에 있는 공연을 보___ 갈래요?",
+          "translation": "Shall we go to the show in Seoul?",
+          "answer": "러",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 32; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 공연을 보___ 여기에 왔어요",
+          "translation": "I came here to see that performance",
+          "answer": "러",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 32; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "공연을 보___ 그 행사에 가고 있어요",
+          "translation": "I am going to the event to see that performance",
+          "answer": "러",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 32; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "Purpose and trying",
+      "source_pattern": "~려고 / ~러 / ~아/어 보다",
+      "meaning": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it.",
+      "when_to_use": "Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action.",
+      "how_to_build": "Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다.",
+      "examples": [
+        [
+          "공연을 보러 행사에 가고 있어요",
+          "I am going to the event to see the performance"
+        ],
+        [
+          "공연을 보러 행사에 갈 거예요",
+          "I will go to the event to see the performance"
+        ],
+        [
+          "나는 밥을 먹으려고 노력했다",
+          "I tried to eat rice"
+        ],
+        [
+          "나는 밥을 먹어 봤다",
+          "I tried to eat (the) rice"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 32 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     },
     {
-      "unit": 2, "lesson_number": 33, "title": "The noun 중", "pattern": "~는 중 / ~중에서",
+      "unit": 2,
+      "lesson_number": 33,
+      "title": "The noun 중",
+      "pattern": "~는 중 / ~중에서",
       "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
-      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/",
+      "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
       "cards": [
-        {"prompt":"지금 숙제를 하___이에요.","translation":"I am doing my homework right now.","answer":"는 중","hint":"Use the present modifier before 중.","explanation":"숙제를 하는 중이에요 means ‘I am in the middle of doing homework’."},
-        {"prompt":"회의하___라서 나중에 전화할게요.","translation":"I am in a meeting, so I will call later.","answer":"는 중이","hint":"Use 중이다 before 라서.","explanation":"회의하는 중이라서 means ‘because I am in a meeting’."},
-        {"prompt":"친구들 ___에서 민수가 제일 빨라요.","translation":"Among my friends, Minsu is the fastest.","answer":"중","hint":"Put 중에서 after the group noun.","explanation":"친구들 중에서 means ‘among my friends’."},
-        {"prompt":"세 가지 ___에서 하나를 고르세요.","translation":"Choose one among the three options.","answer":"중에서","hint":"Use 중에서 after a noun group.","explanation":"세 가지 중에서 means ‘among three things’."},
-        {"prompt":"지금 운전하___이니까 메시지를 못 봐요.","translation":"I am driving right now, so I cannot see messages.","answer":"는 중","hint":"Use 운전하는 중이다.","explanation":"운전하는 중이니까 means ‘because I am in the middle of driving’."}
-      ]
+        {
+          "prompt": "나는 먹___",
+          "translation": "I am eating",
+          "answer": "는 중이야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 33; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "나는 공부하___",
+          "translation": "I am studying",
+          "answer": "는 중이야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 33; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "나는 공부 ___",
+          "translation": "I am studying",
+          "answer": "중이야",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 33; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "저는 생각 ___",
+          "translation": "I am thinking",
+          "answer": "중이에요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 33; the guide explanation is shown separately."
+        },
+        {
+          "prompt": "그 상가가 지금 공사 ___",
+          "translation": "That building is under construction",
+          "answer": "중이에요",
+          "hint": "Complete the missing form from this official HTSK example.",
+          "explanation": "Official HTSK example from Lesson 33; the guide explanation is shown separately."
+        }
+      ],
+      "source_status": "published",
+      "source_title": "The noun 중",
+      "source_pattern": "~는 중 / ~중에서",
+      "meaning": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group.",
+      "when_to_use": "Use 중 when something is currently underway or when comparing or selecting one item among several.",
+      "how_to_build": "Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate.",
+      "examples": [
+        [
+          "아저씨가 프린터를 복구하는 중이에요",
+          "The man is in the middle of repairing the printer"
+        ],
+        [
+          "모든 프린터 중에 이것이 제일 싸요",
+          "Of all the printers, this one is the cheapest"
+        ],
+        [
+          "나의 친구들 중에 나는 슬기를 가장 좋아해",
+          "Among my friends, I like Seulgi the most"
+        ],
+        [
+          "밥과 빵 중에 밥이 더 맛있어요",
+          "Between rice and bread, rice tastes better"
+        ]
+      ],
+      "examples_source": "HTSK Lesson 33 page",
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
     }
   ]
 }

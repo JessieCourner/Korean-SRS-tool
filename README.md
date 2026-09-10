@@ -7,6 +7,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - English interface and explanations
 - Starts at Unit 2; Units 0–1 are treated as completed
 - Lessons 26–208 in sequential lesson packs; HTSK source guides are published for 26–202, while 203–208 are clearly marked as not yet published by HTSK
+- 885 verified SRS cards: exactly five separate HTSK example cards for each published lesson 26–202; lessons 203–208 intentionally have no cards until HTSK publishes them
 - Two new lessons per day, rotating card reviews, SRS scheduling, progress page, crystals and shop
 - Correct / Almost / Wrong SRS grading
 - Per-card progress stored in SQLite
@@ -17,7 +18,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
-- Each published lesson has a separate HTSK guide manifest with Meaning, When to use it, How to build it and source examples; guide examples are never generated from SRS cards
+- Each lesson record contains its shortened HTSK guide directly: Meaning, When to use it, How to build it and separate source examples; guide examples are never generated from SRS cards
 - Shop prices are migrated automatically in an existing database without deleting progress
 - One responsive interface for desktop and mobile browsers
 
@@ -30,15 +31,15 @@ python -m streamlit run korean_bunpro_app.py
 
 The first run creates `korean_bunpro.db` and imports the seed data. Do not delete that database if you want to keep progress.
 
-The cards are compact practice prompts. The file `htsk_lesson_guides.json` contains the verified HTSK-derived lesson guides and must stay next to `korean_bunpro_app.py` when deploying. Guide examples come from the corresponding official HTSK lesson pages; the app does not invent guide content for unpublished lessons.
+The cards are compact practice prompts. Each `unit*.json` lesson record contains its verified HTSK-derived guide, so the explanation shown by **Study** travels with the lesson itself. Guide examples come from the corresponding official HTSK lesson pages; they are separate from the SRS card examples. The app does not invent guide or card content for unpublished lessons.
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 
 1. Download `korean_grammar_srs_complete.zip` and unzip it. Do not upload only the Python file.
-2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, `htsk_lesson_guides.json`, all `unit*.json` files and `requirements.txt`.
+2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, all `unit*.json` files and `requirements.txt`.
 3. Do not delete `korean_bunpro.db` if it is already in the repository. It contains progress. Do not create a new Streamlit app for this update.
 4. In Streamlit Cloud open the existing app and choose **Manage app → Settings** (or **Edit app**). Set **Main file path** to `korean_bunpro_app.py`, then save/redeploy.
-5. Wait for the app to finish restarting and open its existing URL. If Streamlit shows an error about a missing guide file, `htsk_lesson_guides.json` was not uploaded next to the Python file.
+5. Wait for the app to finish restarting and open its existing URL. If lesson explanations are missing, check that all `unit*.json` files were uploaded next to the Python file.
 6. On the first screen choose **Lessons** to inspect a topic. Press **Study**, read the HTSK guide and source examples, then press **Add to deck**. Only then do its cards enter Review.
 7. On **Dashboard**, press the visible **Review · N cards** button. It includes both scheduled reviews and newly added cards that still need their first answer/rating. If you see `Active cards: 10`, those cards are available from this Review button even when the scheduled-review number is zero.
 
