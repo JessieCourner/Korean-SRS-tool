@@ -264,18 +264,8 @@ st.markdown("""
     .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
     .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
     .brand-subtitle {font-size:11px; color:#987a9d; margin-top:3px;}
-    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:#fffaff !important; color:#654b78 !important; overflow:visible !important; margin:10px 0 !important;}
-    [data-testid="stExpander"] details {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important;}
-    [data-testid="stExpander"] details > summary,
-    [data-testid="stExpander"] summary[data-testid="stExpanderToggle"] {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important; font-weight:800 !important;}
-    [data-testid="stExpander"] details[open] > summary,
-    [data-testid="stExpander"] details[open] summary[data-testid="stExpanderToggle"] {background:linear-gradient(110deg,#fbe7f3,#eee7ff) !important; color:#5b4770 !important;}
-    [data-testid="stExpander"] summary:hover {background:#f8edf8 !important; color:#5b4770 !important;}
-    [data-testid="stExpander"] summary > div,
-    [data-testid="stExpander"] summary * {background:transparent !important; color:#654b78 !important;}
-    [data-testid="stExpander"] summary span,
-    [data-testid="stExpander"] summary p {color:#654b78 !important;}
-    [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
+    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:rgba(255,255,255,.58) !important; overflow:visible !important; margin:10px 0 !important;}
+    [data-testid="stExpander"] summary {color:#654b78 !important; font-weight:800 !important;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
@@ -302,51 +292,7 @@ st.markdown("""
     .st-key-mobile_nav_button button span {font-size:27px !important; line-height:1 !important; margin:0 !important; color:#684d7b !important;}
     .st-key-mobile_nav_panel {position:fixed !important; top:55px; left:8px; z-index:2147483647 !important; width:min(280px,calc(100vw - 16px)); max-height:calc(100vh - 65px); overflow-y:auto; padding:10px 12px 12px; border:2px solid #efb8d6; border-radius:20px; background:rgba(255,250,255,.98); box-shadow:0 12px 28px rgba(91,71,112,.2); pointer-events:auto !important;}
     .st-key-mobile_nav_panel .stButton > button {width:100%; min-height:2.6rem; margin:3px 0; touch-action:manipulation;}
-    @media (min-width: 701px) {
-        .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;}
-        /* Keep Streamlit's reopen control above the floating chibis.  When the
-           sidebar is collapsed this is the only way back to the desktop menu. */
-        [data-testid="stSidebarCollapsedControl"] {
-            display:flex !important;
-            position:fixed !important;
-            top:10px !important;
-            left:10px !important;
-            z-index:2147483647 !important;
-            pointer-events:auto !important;
-            visibility:visible !important;
-            opacity:1 !important;
-        }
-        [data-testid="stSidebarCollapsedControl"] button {
-            display:flex !important;
-            align-items:center !important;
-            justify-content:center !important;
-            width:44px !important;
-            height:44px !important;
-            min-width:44px !important;
-            min-height:44px !important;
-            padding:0 !important;
-            border:2px solid #efb8d6 !important;
-            border-radius:14px !important;
-            background:#fffaff !important;
-            color:#684d7b !important;
-            box-shadow:0 8px 18px rgba(91,71,112,.18) !important;
-            pointer-events:auto !important;
-        }
-        [data-testid="stSidebarCollapsedControl"] button:hover,
-        [data-testid="stSidebarCollapsedControl"] button:focus,
-        [data-testid="stSidebarCollapsedControl"] button:focus-visible {
-            border-color:#d99ac0 !important;
-            background:#fff1f8 !important;
-            color:#5b4770 !important;
-            outline:none !important;
-        }
-        [data-testid="stSidebarCollapsedControl"] svg {
-            width:22px !important;
-            height:22px !important;
-            color:#684d7b !important;
-            fill:#684d7b !important;
-        }
-    }
+    @media (min-width: 701px) { .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;} }
     @media (max-width: 700px) {
         .block-container {padding: 4rem .75rem 2rem;}
         /* Streamlit's desktop sidebar is hidden on a phone; the fixed
@@ -935,105 +881,6 @@ def render_bts_motivation(in_dialog=False):
                 return modalOpen;
             }
 
-            function installDesktopSidebarLauncher() {
-                const doc = win.document;
-                let launcher = doc.getElementById("mochi-desktop-sidebar-launcher");
-                if (!launcher) {
-                    launcher = doc.createElement("button");
-                    launcher.id = "mochi-desktop-sidebar-launcher";
-                    launcher.type = "button";
-                    launcher.textContent = "☰";
-                    launcher.setAttribute("aria-label", "Open navigation menu");
-                    launcher.title = "Open navigation menu";
-                    Object.assign(launcher.style, {
-                        position: "fixed",
-                        top: "10px",
-                        left: "10px",
-                        zIndex: "2147483647",
-                        display: "none",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "44px",
-                        height: "44px",
-                        minWidth: "44px",
-                        minHeight: "44px",
-                        padding: "0",
-                        border: "2px solid #efb8d6",
-                        borderRadius: "14px",
-                        background: "#fffaff",
-                        color: "#684d7b",
-                        boxShadow: "0 8px 18px rgba(91,71,112,.18)",
-                        fontFamily: "inherit",
-                        fontSize: "25px",
-                        lineHeight: "1",
-                        cursor: "pointer",
-                        pointerEvents: "auto",
-                        touchAction: "manipulation",
-                    });
-                    launcher.addEventListener("mouseenter", () => {
-                        launcher.style.background = "#fff1f8";
-                        launcher.style.borderColor = "#d99ac0";
-                    });
-                    launcher.addEventListener("mouseleave", () => {
-                        launcher.style.background = "#fffaff";
-                        launcher.style.borderColor = "#efb8d6";
-                    });
-                    launcher.addEventListener("click", () => {
-                        const selectors = [
-                            '[data-testid="stExpandSidebarButton"]',
-                            '[data-testid="stSidebarCollapsedControl"] button',
-                            'button[aria-label="Expand sidebar"]',
-                            'button[aria-label*="Expand sidebar" i]',
-                            'button[title*="Expand sidebar" i]',
-                        ];
-                        for (const selector of selectors) {
-                            const expandButton = doc.querySelector(selector);
-                            if (expandButton && typeof expandButton.click === "function") {
-                                expandButton.click();
-                                win.setTimeout(update, 80);
-                                return;
-                            }
-                        }
-                    });
-                    doc.body.appendChild(launcher);
-                }
-
-                function sidebarIsOpen() {
-                    if (win.innerWidth <= 700) return true;
-                    const collapsedControl = doc.querySelector(
-                        '[data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"]'
-                    );
-                    if (collapsedControl && isVisible(collapsedControl)) return false;
-                    const sidebar = doc.querySelector('[data-testid="stSidebar"]');
-                    if (!sidebar) return false;
-                    const expanded = sidebar.getAttribute("aria-expanded");
-                    if (expanded === "true") return true;
-                    if (expanded === "false") return false;
-                    const style = win.getComputedStyle ? win.getComputedStyle(sidebar) : null;
-                    if (style && (style.display === "none" || style.visibility === "hidden")) return false;
-                    const rect = sidebar.getBoundingClientRect();
-                    return rect.width > 120 && rect.right > 1 && rect.left > -20;
-                }
-
-                function update() {
-                    launcher.style.display = win.innerWidth > 700 && !sidebarIsOpen() ? "flex" : "none";
-                }
-
-                update();
-                if (!win.__mochiSidebarLauncherObserver) {
-                    win.__mochiSidebarLauncherObserver = new win.MutationObserver(update);
-                    win.__mochiSidebarLauncherObserver.observe(doc.body, {
-                        attributes: true,
-                        attributeFilter: ["aria-expanded", "class", "style"],
-                        childList: true,
-                        subtree: true,
-                    });
-                    win.__mochiSidebarLauncherResize = update;
-                    win.addEventListener("resize", win.__mochiSidebarLauncherResize);
-                    win.__mochiSidebarLauncherInterval = win.setInterval(update, 500);
-                }
-            }
-
             function bindChibis() {
                 const modalOpen = syncHosts();
                 const stage = win.document.querySelector(".bts-surface[data-bts-host]");
@@ -1074,7 +921,6 @@ def render_bts_motivation(in_dialog=False):
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.refresh) {
-                installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
                 return;
             }
@@ -1190,7 +1036,6 @@ def render_bts_motivation(in_dialog=False):
             if (win.setInterval) win.__mochiBtsDragInterval = win.setInterval(bindChibis, 500);
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
             win.addEventListener("resize", win.__mochiBtsDragResize);
-            installDesktopSidebarLauncher();
         })();
         </script>
         """,
