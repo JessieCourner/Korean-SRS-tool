@@ -19,7 +19,8 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
 - The selected progress mascot sits inside the progress bar and moves with it; the selected card frame decorates the whole Review card
 - Consecutive study-day streaks with a daily crystal bonus
-- A daily original BTS chibi encouragement: one member gives a Korean message and another shows its English translation; difficulty follows the furthest lesson started
+- A daily original BTS chibi encouragement: two full-body human chibis appear in different dashboard positions with separate speech bubbles; one member gives a Korean message and another shows its English translation; difficulty follows the furthest lesson started
+- The seven transparent chibi character assets live in the bundled `bts_chibi/` folder; keep that folder next to `korean_bunpro_app.py`
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
 - Each lesson record contains its shortened HTSK guide directly: Meaning, When to use it, How to build it and separate source examples; guide examples are never generated from SRS cards
@@ -40,7 +41,7 @@ The cards are compact practice prompts. Each `unit*.json` lesson record contains
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 
 1. Download `korean_grammar_srs_complete.zip` and unzip it. Do not upload only the Python file.
-2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, all `unit*.json` files and `requirements.txt`.
+2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, all `unit*.json` files, `requirements.txt` and the complete `bts_chibi/` folder.
 3. Do not delete `korean_bunpro.db` if it is already in the repository. It contains progress. Do not create a new Streamlit app for this update.
 4. In Streamlit Cloud open the existing app and choose **Manage app → Settings** (or **Edit app**). Set **Main file path** to `korean_bunpro_app.py`, then save/redeploy.
 5. Wait for the app to finish restarting and open its existing URL. If lesson explanations are missing, check that all `unit*.json` files were uploaded next to the Python file.

@@ -1,3 +1,4 @@
+import base64
 import json
 import re
 import sqlite3
@@ -9,7 +10,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 
+APP_DIR = Path(__file__).resolve().parent
 DB_PATH = Path("korean_bunpro.db")
+BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
 SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
@@ -102,6 +105,27 @@ BTS_MOTIVATION = [
     {"level": 5, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "V", "en_icon": "🐯", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
     {"level": 5, "ko_member": "Jung Kook", "ko_icon": "🐰", "en_member": "j-hope", "en_icon": "🐿️", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
 ]
+BTS_ASSET_FILES = {
+    "RM": "rm.png",
+    "Jin": "jin.png",
+    "SUGA": "suga.png",
+    "j-hope": "jhope.png",
+    "Jimin": "jimin.png",
+    "V": "v.png",
+    "Jung Kook": "jungkook.png",
+}
+# The daily pair uses a stable date-based layout, so a Streamlit rerun does
+# not make the characters jump around while the learner is reading.  The
+# layout changes on the next day and keeps the two friends in different parts
+# of the dashboard.
+BTS_SCENE_LAYOUTS = [
+    ("left:2.5%;top:102px;", "right:2.5%;bottom:10px;"),
+    ("left:8%;bottom:12px;", "right:7%;top:94px;"),
+    ("left:1%;top:150px;", "right:4%;bottom:20px;"),
+    ("left:14%;top:86px;", "right:1%;bottom:4px;"),
+    ("left:3%;bottom:4px;", "right:15%;top:116px;"),
+    ("left:10%;top:118px;", "right:2%;bottom:34px;"),
+]
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
     ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
@@ -166,23 +190,51 @@ st.markdown("""
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
     .streak-fire {font-size:28px; line-height:1;}
     .streak-meta {color:#987a9d; font-size:13px; text-align:right;}
-    .bts-card {padding:16px 18px 18px; margin:14px 0 22px; border:2px solid #d8c3ef; border-radius:26px; background:linear-gradient(120deg,#fff3fa,#f2ecff 53%,#e8f9ff); box-shadow:0 9px 22px rgba(134,101,156,.11);}
-    .bts-card-title {display:flex; align-items:center; justify-content:space-between; gap:10px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
-    .bts-card-subtitle {color:#987a9d; font-size:13px; margin-bottom:12px;}
-    .bts-duo {display:grid; grid-template-columns:1fr 1fr; gap:12px;}
-    .bts-bubble {min-height:116px; padding:12px 14px; border-radius:21px; background:rgba(255,255,255,.82); border:2px solid rgba(222,194,235,.9);}
-    .bts-person {display:flex; align-items:center; gap:7px; color:#684d7b; font-weight:900; margin-bottom:7px;}
-    .bts-person-icon {font-size:25px; line-height:1;}
-    .bts-label {font-size:11px; color:#a27fa4; font-weight:700; text-transform:uppercase; letter-spacing:.08em;}
-    .bts-quote {color:#5b4770; font-size:15px; line-height:1.5;}
+    /* The daily BTS companions are real bundled transparent PNG cut-outs.
+       They float freely on a small stage; the only outlined elements are the
+       speech bubbles themselves, not character cards or frames. */
+    .bts-stage {position:relative; min-height:380px; overflow:hidden; margin:14px 0 24px; padding:17px 20px 14px; border-radius:30px; background:radial-gradient(circle at 11% 26%,rgba(255,255,255,.95) 0 8%,transparent 27%),radial-gradient(circle at 91% 78%,rgba(255,255,255,.88) 0 7%,transparent 25%),linear-gradient(125deg,#fff3fa 0%,#f3edff 55%,#e9f9ff 100%); box-shadow:0 10px 24px rgba(134,101,156,.10);}
+    .bts-stage::before {content:"✦ ｡˚  ♡  ˚｡ ✦"; position:absolute; right:25px; top:18px; color:#e1acd0; font-size:17px; letter-spacing:5px; opacity:.9;}
+    .bts-stage::after {content:"✿"; position:absolute; left:28px; bottom:18px; color:#efb2cf; font-size:24px; opacity:.8;}
+    .bts-stage-heading {position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
+    .bts-stage-subtitle {position:relative; z-index:3; color:#987a9d; font-size:13px;}
+    .bts-scene {position:absolute; z-index:2; display:flex; align-items:flex-end; gap:10px; max-width:48%;}
+    .bts-scene-right {flex-direction:row-reverse;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-scene-right .bts-character {animation-delay:-1.3s;}
+    @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+    .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
+    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770;}
+    .bts-scene-right .bts-speech {border-color:#cdb9ec;}
+    .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
+    .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
+    .bts-scene-right .bts-speech::after {right:-12px; border-width:9px 0 9px 12px; border-color:transparent transparent transparent #cdb9ec;}
+    .bts-speaker {color:#684d7b; font-weight:900; font-size:14px; margin-bottom:5px;}
+    .bts-label {display:block; margin-top:2px; color:#a27fa4; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.08em;}
+    .bts-quote {color:#5b4770; font-size:15px; line-height:1.5; overflow-wrap:anywhere;}
+    .bts-character-alt {display:none;}
+    .lesson-modal-heading {padding:8px 0 12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
+    .lesson-modal-heading h2 {margin:0; color:#654b78;}
+    .lesson-modal-heading p {margin:5px 0 0; color:#987a9d; font-size:13px;}
+    .lesson-guide-copy {padding:12px 14px; margin:12px 0 8px; border-radius:20px; background:rgba(255,255,255,.62); color:#5b4770; line-height:1.6; overflow-wrap:anywhere;}
+    .lesson-section-title {margin-top:18px; color:#654b78; font-size:18px; font-weight:900;}
+    .lesson-example {padding:11px 14px; margin:9px 0; border-left:4px solid #efb8d6; border-radius:0 16px 16px 0; background:rgba(255,255,255,.62); color:#5b4770; overflow-wrap:anywhere;}
+    [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
     .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
     .modal-kicker strong {color:#654b78; font-size:18px;}
     /* Native Streamlit dialogs stay inside the current app.  The wide dialog
        is expanded almost to the viewport edges so Study and Review feel like
        full-screen cards on both desktop and phone. */
-    div[role="dialog"], div[role="dialog"] > div:first-child, section[data-testid="stDialog"], section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"], [data-testid="stDialog"] > div:first-child {width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:linear-gradient(135deg,#fff8fc 0%,#f4efff 58%,#eefaff 100%) !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important;}
-    div[role="dialog"] > div, section[data-testid="stDialog"] > div, [data-testid="stDialog"] > div {max-height:100% !important;}
-    div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {max-width:1180px !important; padding:1.4rem 2rem 2rem !important;}
+    /* Only the native dialog gets a border.  Its first child is the scroll
+       surface; styling that child too was the source of the second frame and
+       also clipped the Study actions below long HTSK examples. */
+    div[role="dialog"] {width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:linear-gradient(135deg,#fff8fc 0%,#f4efff 58%,#eefaff 100%) !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important; overflow:hidden !important; display:flex !important; flex-direction:column !important;}
+    /* Streamlit's dialog test-id is an inner content wrapper.  It must stay
+       transparent so there is only one visible window border. */
+    div[role="dialog"] [data-testid="stDialog"], section[data-testid="stDialog"], [data-testid="stDialog"] {border:0 !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important; width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; overflow-y:auto !important; overflow-x:hidden !important;}
+    div[role="dialog"] > div:first-child, div[role="dialog"] [data-testid="stDialog"] > div:first-child, section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"] > div:first-child {width:100% !important; max-width:none !important; min-height:0 !important; max-height:100% !important; flex:1 1 auto !important; overflow-y:auto !important; overflow-x:hidden !important; border:0 !important; border-radius:0 !important; background:transparent !important; box-shadow:none !important;}
+    div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {width:100% !important; max-width:1180px !important; padding:1.4rem 2rem 2rem !important;}
+    div[role="dialog"] [data-testid="stMarkdownContainer"], section[data-testid="stDialog"] [data-testid="stMarkdownContainer"], [data-testid="stDialog"] [data-testid="stMarkdownContainer"] {overflow-wrap:anywhere; word-break:normal; line-height:1.55;}
     .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
     .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
     .quest-track {height:18px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e3cde1; margin:8px 10px 14px;}
@@ -241,10 +293,16 @@ st.markdown("""
         .chibi-face {font-size:30px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
-        div[role="dialog"], div[role="dialog"] > div:first-child, section[data-testid="stDialog"], section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"], [data-testid="stDialog"] > div:first-child {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
+        div[role="dialog"] {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
         div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {padding:1rem .85rem 1.5rem !important;}
-        .bts-duo {grid-template-columns:1fr;}
-        .bts-bubble {min-height:auto;}
+        .bts-stage {min-height:0; padding:15px 13px 18px; overflow:visible;}
+        .bts-stage-heading {font-size:16px;}
+        .bts-stage-subtitle {padding-right:22px;}
+        .bts-scene, .bts-scene-left, .bts-scene-right {position:relative !important; left:auto !important; right:auto !important; top:auto !important; bottom:auto !important; width:100%; max-width:none; margin:19px 0 0;}
+        .bts-scene-right {flex-direction:row-reverse;}
+        .bts-character {width:92px; height:150px;}
+        .bts-speech {min-width:0; max-width:none; flex:1 1 auto; padding:10px 12px;}
+        .bts-quote {font-size:14px;}
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
         .streak-meta {text-align:left;}
     }
@@ -650,8 +708,18 @@ def daily_bts_message():
     return choice, level, highest
 
 
+def bts_character_image(member, fallback_icon):
+    """Return an inline image for a bundled chibi, with a safe fallback."""
+    filename = BTS_ASSET_FILES.get(member)
+    asset_path = BTS_ASSET_DIR / filename if filename else None
+    if asset_path and asset_path.is_file():
+        encoded = base64.b64encode(asset_path.read_bytes()).decode("ascii")
+        return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="{escape(member)} chibi">'
+    return f'<div class="bts-character-fallback" role="img" aria-label="{escape(member)}">{escape(fallback_icon)}</div>'
+
+
 def render_bts_motivation():
-    """Render the daily two-character Korean/English encouragement card."""
+    """Render two full-body chibis in date-rotated positions with speech bubbles."""
     message, level, highest = daily_bts_message()
     ko_member = escape(message["ko_member"])
     en_member = escape(message["en_member"])
@@ -660,19 +728,24 @@ def render_bts_motivation():
     ko_quote = escape(message["ko"])
     en_quote = escape(message["en"])
     progress_label = f"up to Lesson {highest}" if highest else "ready for Lesson 26"
+    ko_style, en_style = BTS_SCENE_LAYOUTS[date.today().toordinal() % len(BTS_SCENE_LAYOUTS)]
+    ko_image = bts_character_image(message["ko_member"], message["ko_icon"])
+    en_image = bts_character_image(message["en_member"], message["en_icon"])
     st.markdown(
-        f'''<div class="bts-card">
-            <div class="bts-card-title"><span>💜 Daily BTS chibi cheer</span><span>Level {level}</span></div>
-            <div class="bts-card-subtitle">Two tiny friends for today · your Korean level: {progress_label}</div>
-            <div class="bts-duo">
-                <div class="bts-bubble">
-                    <div class="bts-person"><span class="bts-person-icon">{ko_icon}</span><span>{ko_member}</span></div>
-                    <div class="bts-label">encouragement in Korean</div>
+        f'''<div class="bts-stage">
+            <div class="bts-stage-heading"><span>💜 Daily BTS chibi cheer</span><span>Level {level}</span></div>
+            <div class="bts-stage-subtitle">Two friends for today · your Korean level: {progress_label}</div>
+            <div class="bts-scene bts-scene-left" style="{ko_style}">
+                {ko_image}
+                <div class="bts-speech">
+                    <div class="bts-speaker">{ko_member}<span class="bts-label">encouragement in Korean</span></div>
                     <div class="bts-quote">{ko_quote}</div>
                 </div>
-                <div class="bts-bubble">
-                    <div class="bts-person"><span class="bts-person-icon">{en_icon}</span><span>{en_member}</span></div>
-                    <div class="bts-label">English translation</div>
+            </div>
+            <div class="bts-scene bts-scene-right" style="{en_style}">
+                {en_image}
+                <div class="bts-speech">
+                    <div class="bts-speaker">{en_member}<span class="bts-label">English translation</span></div>
                     <div class="bts-quote">{en_quote}</div>
                 </div>
             </div>
@@ -1063,7 +1136,7 @@ def lesson_preview(lesson_id, daily=False):
         return
     guide = lesson_guide(lesson)
     st.markdown(
-        f'''<div class="modal-kicker"><strong>📖 Lesson {lesson['lesson_number']}: {escape(lesson['title'])}</strong><span>Study room · guide first, SRS cards after Add to deck</span></div>''',
+        f'''<div class="lesson-modal-heading"><h2>📖 Lesson {lesson['lesson_number']}: {escape(lesson['title'])}</h2><p>Study room · read the HTSK guide first, then add this lesson to your SRS deck.</p></div>''',
         unsafe_allow_html=True,
     )
     if lesson["pattern"] and lesson["pattern"] != "—":
@@ -1072,42 +1145,55 @@ def lesson_preview(lesson_id, daily=False):
     if not guide.get("available"):
         st.warning(guide["source_note"])
         st.caption("The app will not create SRS cards for this lesson until HTSK publishes its content.")
-        if st.button("Close", key=f"close_unpublished_{lesson_id}", use_container_width=True):
+        if st.button("← Back", key=f"close_unpublished_{lesson_id}", use_container_width=True):
             st.rerun()
         return
-    st.markdown("**Meaning**")
-    st.write(guide["meaning"])
-    st.markdown("**When to use it**")
-    st.write(guide["usage"])
-    st.markdown("**How to build it**")
-    st.write(guide["building"])
-    st.markdown("### Examples")
+
+    def guide_text(value):
+        return escape(str(value or "")).replace("\n", "<br>")
+
+    st.markdown(
+        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">Meaning</div><div>{guide_text(guide['meaning'])}</div></div>''',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">When to use it</div><div>{guide_text(guide['usage'])}</div></div>''',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f'''<div class="lesson-guide-copy"><div class="lesson-section-title">How to build it</div><div>{guide_text(guide['building'])}</div></div>''',
+        unsafe_allow_html=True,
+    )
+    st.markdown('<div class="lesson-section-title">Examples from HTSK</div>', unsafe_allow_html=True)
     guide_examples = guide.get("examples", [])
     if guide_examples:
         for index, (example, translation) in enumerate(guide_examples, 1):
             # A few HTSK examples are short conversational exchanges.  Keep
             # the context and the ~다니 reaction on separate visible lines.
-            display_example = str(example).replace("\n", "<br>")
-            display_translation = str(translation).replace("\n", "<br>")
-            st.markdown(f"**{index}.** {display_example}", unsafe_allow_html=True)
-            st.caption(f"Translation: {display_translation}")
+            display_example = guide_text(example)
+            display_translation = guide_text(translation)
+            st.markdown(
+                f'''<div class="lesson-example"><div><b>{index}.</b> {display_example}</div><div style="margin-top:7px;color:#987a9d;font-size:14px">Translation: {display_translation}</div></div>''',
+                unsafe_allow_html=True,
+            )
     st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
-    st.divider()
-    cancel, add = st.columns(2)
-    with cancel:
-        if st.button("Close", key=f"close_preview_{lesson_id}", use_container_width=True):
-            st.rerun()
-    with add:
-        if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
-            activated = activate_lesson(lesson_id)
-            if activated and daily:
-                c = db()
-                c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson_id))
-                c.commit()
-                c.close()
-            if activated:
+    with st.container(key=f"lesson_actions_{lesson_id}"):
+        st.divider()
+        cancel, add = st.columns(2)
+        with cancel:
+            if st.button("← Back", key=f"close_preview_{lesson_id}", use_container_width=True):
                 st.rerun()
-            st.error("This lesson cannot be added until HTSK publishes its material.")
+        with add:
+            if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
+                activated = activate_lesson(lesson_id)
+                if activated and daily:
+                    c = db()
+                    c.execute("UPDATE daily_lessons SET status='studied' WHERE day=? AND lesson_id=?", (today(), lesson_id))
+                    c.commit()
+                    c.close()
+                if activated:
+                    st.rerun()
+                st.error("This lesson cannot be added until HTSK publishes its material.")
 
 
 def render_lesson_dialog(lesson_id, daily=False):
@@ -1195,9 +1281,11 @@ def page_dashboard():
         quest_tracker = active_item("tracker")
         quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
         quest_ratio = completed / len(todays)
-        quest_position = 5 + (90 * quest_ratio)
+        # Keep the tracker visually inside the rail even at 0%/100%; it is
+        # intentionally inset instead of sitting at the very start of a line.
+        quest_position = 7 + (86 * quest_ratio)
         st.markdown(f'''<div class="quest-card">
-            <div class="quest-title"><span>{quest_icon} Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
+            <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
             <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:{quest_position:.1f}%">{quest_icon}</div></div>
             <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
         </div>''', unsafe_allow_html=True)
@@ -1261,7 +1349,7 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    tracker_position = 5 + (90 * progress)
+    tracker_position = 7 + (86 * progress)
     st.markdown(
         f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
         unsafe_allow_html=True,
@@ -1273,7 +1361,7 @@ def render_review_contents():
             <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
             <div class="progress-mascot" style="left:{tracker_position:.1f}%;border-color:{tracker_color}">{tracker_icon}</div>
         </div>
-        <div style="margin-top:7px;color:#886d91;font-size:14px">Your {tracker_icon} tracker travels along the bar with you!</div>
+        <div style="margin-top:7px;color:#886d91;font-size:14px">Your tracker travels along the bar with you!</div>
     </div>''', unsafe_allow_html=True)
     due = next_due_card()
     if not due:
