@@ -216,9 +216,14 @@ st.markdown("""
     .lesson-modal-heading {padding:8px 0 12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
     .lesson-modal-heading h2 {margin:0; color:#654b78;}
     .lesson-modal-heading p {margin:5px 0 0; color:#987a9d; font-size:13px;}
-    .lesson-guide-copy {padding:12px 14px; margin:12px 0 8px; border-radius:20px; background:rgba(255,255,255,.62); color:#5b4770; line-height:1.6; overflow-wrap:anywhere;}
+    .lesson-guide-copy {padding:14px 16px; margin:12px 0 8px; border:1px solid #efd8e8; border-radius:20px; background:#fffaff; color:#514064; box-shadow:0 5px 14px rgba(134,101,156,.08); line-height:1.65; overflow-wrap:anywhere;}
+    .lesson-guide-copy > div:last-child {color:#514064 !important;}
     .lesson-section-title {margin-top:18px; color:#654b78; font-size:18px; font-weight:900;}
-    .lesson-example {padding:11px 14px; margin:9px 0; border-left:4px solid #efb8d6; border-radius:0 16px 16px 0; background:rgba(255,255,255,.62); color:#5b4770; overflow-wrap:anywhere;}
+    .lesson-example {padding:13px 15px; margin:10px 0; border:1px solid #efd8e8; border-left:5px solid #efb8d6; border-radius:0 17px 17px 0; background:#ffffff; color:#514064; box-shadow:0 5px 14px rgba(134,101,156,.08); overflow-wrap:anywhere;}
+    .lesson-example > div:first-child {color:#514064 !important; font-size:16px; line-height:1.6;}
+    [class*="st-key-review_card_shell"] {border:0 !important; border-radius:32px !important; background:#fffaff !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:9px 16px 12px !important;}
+    [class*="st-key-review_card_shell"] [data-testid="stVerticalBlockBorderWrapper"] {border:3px solid #efb8d6 !important; border-radius:25px !important; background:#fffaff !important;}
+    [class*="st-key-review_card_shell"] [data-testid="stMarkdownContainer"] {color:#514064 !important;}
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
     .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
     .modal-kicker strong {color:#654b78; font-size:18px;}
@@ -1374,8 +1379,8 @@ def render_review_contents():
         return
     st.markdown(
         f'''<style>
-        .st-key-review_card_shell {{border:3px solid {frame_border} !important; border-radius:32px !important; background:{frame_bg} !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:4px 12px 10px !important;}}
-        .st-key-review_card_shell [data-testid="stVerticalBlockBorderWrapper"] {{border-color:{frame_border} !important; background:{frame_bg} !important;}}
+        .st-key-review_card_shell {{border:0 !important; border-radius:32px !important; background:{frame_bg} !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:9px 16px 12px !important;}}
+        .st-key-review_card_shell [data-testid="stVerticalBlockBorderWrapper"] {{border:3px solid {frame_border} !important; border-radius:25px !important; background:{frame_bg} !important;}}
         </style>''',
         unsafe_allow_html=True,
     )
