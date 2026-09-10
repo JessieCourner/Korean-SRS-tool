@@ -872,8 +872,22 @@ def award_crystals(event_key, amount):
     if amount <= 0:
         return
     c = db()
-    cur = c.execute("INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)", (event_key, amount, datetime.now().isoformat(timespec="seconds")))
-    if cur.rowcount:
+    params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
+    if isinstance(c, PostgresConnection):
+        # RETURNING is reliable for PostgreSQL and avoids relying on the
+        # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
+        inserted = c.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cur = c.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = cur.rowcount > 0
+    if was_inserted:
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
     c.close()
