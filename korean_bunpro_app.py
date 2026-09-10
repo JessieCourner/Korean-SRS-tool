@@ -264,8 +264,18 @@ st.markdown("""
     .brand-mark {width:42px; height:42px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#ffb7d4,#c5b2f5); font-size:25px; box-shadow:0 5px 12px rgba(140,105,150,.15);}
     .brand-name {font-weight:900; font-size:20px; line-height:1.05;}
     .brand-subtitle {font-size:11px; color:#987a9d; margin-top:3px;}
-    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:rgba(255,255,255,.58) !important; overflow:visible !important; margin:10px 0 !important;}
-    [data-testid="stExpander"] summary {color:#654b78 !important; font-weight:800 !important;}
+    [data-testid="stExpander"] {border:2px solid #efc4de !important; border-radius:22px !important; background:#fffaff !important; color:#654b78 !important; overflow:visible !important; margin:10px 0 !important;}
+    [data-testid="stExpander"] details {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important;}
+    [data-testid="stExpander"] details > summary,
+    [data-testid="stExpander"] summary[data-testid="stExpanderToggle"] {background:#fffaff !important; color:#654b78 !important; border-radius:20px !important; font-weight:800 !important;}
+    [data-testid="stExpander"] details[open] > summary,
+    [data-testid="stExpander"] details[open] summary[data-testid="stExpanderToggle"] {background:linear-gradient(110deg,#fbe7f3,#eee7ff) !important; color:#5b4770 !important;}
+    [data-testid="stExpander"] summary:hover {background:#f8edf8 !important; color:#5b4770 !important;}
+    [data-testid="stExpander"] summary > div,
+    [data-testid="stExpander"] summary * {background:transparent !important; color:#654b78 !important;}
+    [data-testid="stExpander"] summary span,
+    [data-testid="stExpander"] summary p {color:#654b78 !important;}
+    [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
     .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
