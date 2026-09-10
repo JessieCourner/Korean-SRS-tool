@@ -16,6 +16,10 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Enter submits an answer; after checking, Enter activates Correct
 - The answer field is focused automatically when each new Review card opens
 - Four review grades: Again, Hard, Good and Easy. Hotkeys: 1, 2, 3/Enter/Space and 4.
+- Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
+- The selected progress mascot sits inside the progress bar and moves with it; the selected card frame decorates the whole Review card
+- Consecutive study-day streaks with a daily crystal bonus
+- A daily original BTS chibi encouragement: one member gives a Korean message and another shows its English translation; difficulty follows the furthest lesson started
 - Crystal Shop categories: Faces, Characters, Room designs, Card frames and Progress trackers
 - The Dashboard Study button opens a lesson preview; cards are added only after Add to deck
 - Each lesson record contains its shortened HTSK guide directly: Meaning, When to use it, How to build it and separate source examples; guide examples are never generated from SRS cards
@@ -43,4 +47,6 @@ The cards are compact practice prompts. Each `unit*.json` lesson record contains
 6. On the first screen choose **Lessons** to inspect a topic. Press **Study**, read the HTSK guide and source examples, then press **Add to deck**. Only then do its cards enter Review.
 7. On **Dashboard**, press the visible **Review · N cards** button. It includes both scheduled reviews and newly added cards that still need their first answer/rating. If you see `Active cards: 10`, those cards are available from this Review button even when the scheduled-review number is zero.
 
-The app is one responsive interface: the same URL works in a computer browser and on a phone. Lessons 203–208 remain visible in the roadmap but are marked unavailable because HTSK has not published those lesson pages yet.
+The app is one responsive interface: the same URL works in a computer browser and on a phone. Study and Review are internal full-screen-style windows, not new browser tabs. Lessons 203–208 remain visible in the roadmap but are marked unavailable because HTSK has not published those lesson pages yet.
+
+The BTS chibi messages are original in-app encouragements using the members as character labels; they are not presented as official quotations.

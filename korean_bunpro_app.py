@@ -1,6 +1,7 @@
 import json
 import re
 import sqlite3
+from html import escape
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
@@ -36,6 +37,71 @@ HTSK_GROUPS = {
 }
 
 # Each lesson's shortened HTSK guide is embedded in its unit JSON record.
+FRAME_STYLES = {
+    "frame_sakura": {
+        "border": "#efb8d6",
+        "background": "#fff7fc",
+        "accent": "#ef8fbb",
+        "decor": "🌸",
+        "label": "Sakura petals",
+    },
+    "frame_cloud": {
+        "border": "#b9d9ed",
+        "background": "#f5fbff",
+        "accent": "#77bdda",
+        "decor": "☁️",
+        "label": "Cloudy sky",
+    },
+    "frame_hearts": {
+        "border": "#f2a9c4",
+        "background": "#fff4f8",
+        "accent": "#ed6f9e",
+        "decor": "💗",
+        "label": "Heart confetti",
+    },
+    "frame_rainbow": {
+        "border": "#c4a8ed",
+        "background": "#fff9f2",
+        "accent": "#a27be0",
+        "decor": "🌈",
+        "label": "Rainbow ribbon",
+    },
+    "frame_blossom": {
+        "border": "#e8ae91",
+        "background": "#fff8f2",
+        "accent": "#dc8d68",
+        "decor": "🌺",
+        "label": "Peach blossom",
+    },
+}
+TRACKER_COLORS = {
+    "tracker_mochi": "#f5a6c8",
+    "tracker_stars": "#c1a7f1",
+    "tracker_bubbles": "#8dd9e5",
+    "tracker_rainbow": "#f0a6a6",
+    "tracker_sakura": "#e8a7c5",
+}
+
+# These are original in-app encouragements written for the chibi companion
+# panel.  They use the BTS member names as character labels; they are not
+# presented as real quotations or official BTS content.
+BTS_MOTIVATION = [
+    {"level": 1, "ko_member": "RM", "ko_icon": "🐨", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘도 한 문장만 읽어도 충분해요.", "en": "Reading just one sentence today is already enough."},
+    {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "V", "en_icon": "🐯", "ko": "천천히 해도 괜찮아요. 매일 조금씩 나아지고 있어요.", "en": "It is okay to go slowly. You are getting better little by little every day."},
+    {"level": 1, "ko_member": "Jin", "ko_icon": "🐹", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "작은 성공도 소중한 성공이에요.", "en": "A small success is still a precious success."},
+    {"level": 2, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "Jimin", "en_icon": "🐣", "ko": "틀린 답은 멈춤이 아니라 다음 시도를 위한 힌트예요.", "en": "A wrong answer is not a stop; it is a hint for your next attempt."},
+    {"level": 2, "ko_member": "V", "ko_icon": "🐯", "en_member": "RM", "en_icon": "🐨", "ko": "익숙한 표현을 직접 써 볼 때 실력이 더 단단해져요.", "en": "Your skills become stronger when you use a familiar expression yourself."},
+    {"level": 2, "ko_member": "j-hope", "ko_icon": "🐿️", "en_member": "Jin", "en_icon": "🐹", "ko": "오늘 배운 문법을 한 문장으로 만들어 보면 기억에 오래 남아요.", "en": "If you make one sentence with today's grammar, it will stay with you longer."},
+    {"level": 3, "ko_member": "Jung Kook", "ko_icon": "🐰", "en_member": "SUGA", "en_icon": "🐱", "ko": "꾸준히 복습하면 어제 어렵던 문장도 자연스럽게 읽을 수 있어요.", "en": "With steady review, you can read naturally even the sentences that felt difficult yesterday."},
+    {"level": 3, "ko_member": "j-hope", "ko_icon": "🐿️", "en_member": "Jimin", "en_icon": "🐣", "ko": "새로운 문법을 이해할 때마다 한국어로 표현할 수 있는 생각이 넓어져요.", "en": "Every time you understand new grammar, more of your thoughts become expressible in Korean."},
+    {"level": 3, "ko_member": "RM", "ko_icon": "🐨", "en_member": "V", "en_icon": "🐯", "ko": "실수한 부분을 다시 살펴보는 습관이 실력을 오래 지켜 줘요.", "en": "The habit of revisiting your mistakes protects your progress for the long term."},
+    {"level": 4, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "문맥 속에서 표현의 뉘앙스를 비교하면 더 정확하게 선택할 수 있어요.", "en": "Comparing nuances in context helps you choose the most accurate expression."},
+    {"level": 4, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "RM", "en_icon": "🐨", "ko": "익숙한 문법을 새로운 상황에 옮겨 쓰는 순간, 지식이 진짜 실력이 돼요.", "en": "When you carry familiar grammar into a new situation, knowledge becomes real skill."},
+    {"level": 4, "ko_member": "V", "ko_icon": "🐯", "en_member": "j-hope", "en_icon": "🐿️", "ko": "긴 문장도 관계를 하나씩 나누어 보면 핵심 의미가 선명해져요.", "en": "Even a long sentence becomes clear when you separate its relationships one by one."},
+    {"level": 5, "ko_member": "RM", "ko_icon": "🐨", "en_member": "Jimin", "en_icon": "🐣", "ko": "복잡한 문장일수록 화자의 의도와 문법의 기능을 함께 살펴보면 의미가 정확해져요.", "en": "The more complex a sentence is, the more accurately you understand it by considering the speaker's intent and the grammar's function together."},
+    {"level": 5, "ko_member": "SUGA", "ko_icon": "🐱", "en_member": "V", "en_icon": "🐯", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
+    {"level": 5, "ko_member": "Jung Kook", "ko_icon": "🐰", "en_member": "j-hope", "en_icon": "🐿️", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
+]
 SHOP_ITEMS = [
     ("face_bunny", "Sleepy Bunny", "face", 0, "૮ ˶ᵔ ᵕ ᵔ˶ ა", "Your starter study buddy"),
     ("face_cat", "Happy Cat", "face", 180, "ฅ^•ﻌ•^ฅ", "Smiles when you finish a review"),
@@ -88,12 +154,38 @@ st.markdown("""
     [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
     .review-progress {padding:16px 18px 12px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:10px 0 22px;}
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
-    .review-progress-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
+    .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
+    .progress-mascot {position:absolute; top:50%; transform:translate(-50%,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:left .35s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
+    .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
+    .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
+    .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
+    .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
+    .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
+    .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
+    .streak-fire {font-size:28px; line-height:1;}
+    .streak-meta {color:#987a9d; font-size:13px; text-align:right;}
+    .bts-card {padding:16px 18px 18px; margin:14px 0 22px; border:2px solid #d8c3ef; border-radius:26px; background:linear-gradient(120deg,#fff3fa,#f2ecff 53%,#e8f9ff); box-shadow:0 9px 22px rgba(134,101,156,.11);}
+    .bts-card-title {display:flex; align-items:center; justify-content:space-between; gap:10px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
+    .bts-card-subtitle {color:#987a9d; font-size:13px; margin-bottom:12px;}
+    .bts-duo {display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    .bts-bubble {min-height:116px; padding:12px 14px; border-radius:21px; background:rgba(255,255,255,.82); border:2px solid rgba(222,194,235,.9);}
+    .bts-person {display:flex; align-items:center; gap:7px; color:#684d7b; font-weight:900; margin-bottom:7px;}
+    .bts-person-icon {font-size:25px; line-height:1;}
+    .bts-label {font-size:11px; color:#a27fa4; font-weight:700; text-transform:uppercase; letter-spacing:.08em;}
+    .bts-quote {color:#5b4770; font-size:15px; line-height:1.5;}
+    .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
+    .modal-kicker strong {color:#654b78; font-size:18px;}
+    /* Native Streamlit dialogs stay inside the current app.  The wide dialog
+       is expanded almost to the viewport edges so Study and Review feel like
+       full-screen cards on both desktop and phone. */
+    div[role="dialog"], div[role="dialog"] > div:first-child, section[data-testid="stDialog"], section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"], [data-testid="stDialog"] > div:first-child {width:96vw !important; max-width:96vw !important; height:92vh !important; max-height:92vh !important; top:4vh !important; border:3px solid #efb8d6 !important; border-radius:30px !important; background:linear-gradient(135deg,#fff8fc 0%,#f4efff 58%,#eefaff 100%) !important; box-shadow:0 22px 65px rgba(73,48,93,.28) !important;}
+    div[role="dialog"] > div, section[data-testid="stDialog"] > div, [data-testid="stDialog"] > div {max-height:100% !important;}
+    div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {max-width:1180px !important; padding:1.4rem 2rem 2rem !important;}
     .quest-card {padding:14px 18px 16px; margin:14px 0 20px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff1f7,#f4efff 65%,#effcff); box-shadow:0 8px 20px rgba(134,101,156,.10);}
     .quest-title {display:flex; justify-content:space-between; gap:12px; color:#654b78; font-weight:800; margin-bottom:9px;}
-    .quest-track {height:16px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e3cde1;}
+    .quest-track {height:18px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e3cde1; margin:8px 10px 14px;}
     .quest-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
     .quest-caption {margin-top:7px; color:#886d91; font-size:13px;}
     .brand-logo {display:flex; align-items:center; gap:10px; padding:10px 12px 16px; margin-bottom:12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
@@ -149,6 +241,12 @@ st.markdown("""
         .chibi-face {font-size:30px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
+        div[role="dialog"], div[role="dialog"] > div:first-child, section[data-testid="stDialog"], section[data-testid="stDialog"] > div:first-child, [data-testid="stDialog"], [data-testid="stDialog"] > div:first-child {width:98vw !important; max-width:98vw !important; height:96vh !important; max-height:96vh !important; top:2vh !important; border-radius:24px !important;}
+        div[role="dialog"] .block-container, section[data-testid="stDialog"] .block-container, [data-testid="stDialog"] .block-container {padding:1rem .85rem 1.5rem !important;}
+        .bts-duo {grid-template-columns:1fr;}
+        .bts-bubble {min-height:auto;}
+        .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
+        .streak-meta {text-align:left;}
     }
 </style>
 """, unsafe_allow_html=True)
@@ -234,6 +332,12 @@ def init_db():
         lesson_id INTEGER NOT NULL,
         status TEXT DEFAULT 'new',
         PRIMARY KEY(day, lesson_id)
+    );
+    CREATE TABLE IF NOT EXISTS study_activity (
+        day TEXT PRIMARY KEY,
+        lessons INTEGER NOT NULL DEFAULT 0,
+        reviews INTEGER NOT NULL DEFAULT 0,
+        last_activity TEXT NOT NULL
     );
     """)
     # A retired review row belongs to an old card that was removed from the
@@ -456,6 +560,127 @@ def award_crystals(event_key, amount):
     c.close()
 
 
+def streak_info():
+    """Return the current and best consecutive study-day streaks."""
+    activity = rows("SELECT day FROM study_activity WHERE lessons>0 OR reviews>0")
+    days = set()
+    for row in activity:
+        try:
+            days.add(date.fromisoformat(row["day"]))
+        except (TypeError, ValueError):
+            continue
+
+    today_value = date.today()
+    active_today = today_value in days
+    cursor = today_value if active_today else today_value - timedelta(days=1)
+    current = 0
+    while cursor in days:
+        current += 1
+        cursor -= timedelta(days=1)
+
+    best = 0
+    ordered = sorted(days)
+    run = 0
+    previous = None
+    for day_value in ordered:
+        if previous is not None and day_value == previous + timedelta(days=1):
+            run += 1
+        else:
+            run = 1
+        best = max(best, run)
+        previous = day_value
+    return {"current": current, "best": max(best, current), "active_today": active_today}
+
+
+def record_activity(kind):
+    """Count a lesson or review as study activity and award one daily bonus."""
+    if kind not in {"lesson", "review"}:
+        return streak_info()
+    column = "lessons" if kind == "lesson" else "reviews"
+    now = datetime.now().isoformat(timespec="seconds")
+    day = today()
+    c = db()
+    c.execute(
+        "INSERT OR IGNORE INTO study_activity(day,lessons,reviews,last_activity) VALUES(?,?,?,?)",
+        (day, 0, 0, now),
+    )
+    c.execute(
+        f"UPDATE study_activity SET {column}={column}+1, last_activity=? WHERE day=?",
+        (now, day),
+    )
+    c.commit()
+    c.close()
+    current = streak_info()
+    # The event key makes this idempotent: reviewing ten cards today does not
+    # multiply the streak bonus ten times.
+    award_crystals(f"streak_bonus:{day}", 5)
+    return current
+
+
+def learner_level():
+    """Map the furthest started lesson to the difficulty of the daily message."""
+    started = one("SELECT MAX(lesson_number) AS n FROM lessons WHERE status='studying'")
+    active = one("""
+        SELECT MAX(lessons.lesson_number) AS n
+        FROM lessons JOIN cards ON cards.lesson_id=lessons.id
+        JOIN reviews ON reviews.card_id=cards.id
+        WHERE reviews.active=1 AND reviews.retired=0
+    """)
+    highest = max(int(started["n"] or 0), int(active["n"] or 0))
+    if highest < 51:
+        level = 1
+    elif highest < 101:
+        level = 2
+    elif highest < 151:
+        level = 3
+    elif highest < 176:
+        level = 4
+    else:
+        level = 5
+    return level, highest
+
+
+def daily_bts_message():
+    """Select a deterministic daily two-member encouragement at the user level."""
+    level, highest = learner_level()
+    choices = [item for item in BTS_MOTIVATION if item["level"] == level]
+    if not choices:
+        choices = [item for item in BTS_MOTIVATION if item["level"] <= level]
+    choice = choices[date.today().toordinal() % len(choices)]
+    return choice, level, highest
+
+
+def render_bts_motivation():
+    """Render the daily two-character Korean/English encouragement card."""
+    message, level, highest = daily_bts_message()
+    ko_member = escape(message["ko_member"])
+    en_member = escape(message["en_member"])
+    ko_icon = escape(message["ko_icon"])
+    en_icon = escape(message["en_icon"])
+    ko_quote = escape(message["ko"])
+    en_quote = escape(message["en"])
+    progress_label = f"up to Lesson {highest}" if highest else "ready for Lesson 26"
+    st.markdown(
+        f'''<div class="bts-card">
+            <div class="bts-card-title"><span>💜 Daily BTS chibi cheer</span><span>Level {level}</span></div>
+            <div class="bts-card-subtitle">Two tiny friends for today · your Korean level: {progress_label}</div>
+            <div class="bts-duo">
+                <div class="bts-bubble">
+                    <div class="bts-person"><span class="bts-person-icon">{ko_icon}</span><span>{ko_member}</span></div>
+                    <div class="bts-label">encouragement in Korean</div>
+                    <div class="bts-quote">{ko_quote}</div>
+                </div>
+                <div class="bts-bubble">
+                    <div class="bts-person"><span class="bts-person-icon">{en_icon}</span><span>{en_member}</span></div>
+                    <div class="bts-label">English translation</div>
+                    <div class="bts-quote">{en_quote}</div>
+                </div>
+            </div>
+        </div>''',
+        unsafe_allow_html=True,
+    )
+
+
 def active_item(kind):
     key = f"active_{kind}"
     defaults = {"face": "face_bunny", "design": "design_lavender", "frame": "frame_sakura", "tracker": "tracker_mochi"}
@@ -619,8 +844,11 @@ def enable_review_hotkeys(card_id, nonce):
         const marker = 'korean_srs_review_keys_{card_id}_{nonce}';
         if (win[marker]) return;
         win[marker] = true;
+        function reviewRoot() {{
+            return win.document.querySelector('div[role="dialog"]') || win.document;
+        }}
         function findButton(label) {{
-            return Array.from(win.document.querySelectorAll('button')).find(function(button) {{
+            return Array.from(reviewRoot().querySelectorAll('button')).find(function(button) {{
                 return (button.innerText || button.textContent || '').trim() === label;
             }});
         }}
@@ -657,6 +885,7 @@ def activate_lesson(lesson_id):
     c.commit()
     c.close()
     award_crystals(f"lesson_started:{lesson_id}", 10)
+    record_activity("lesson")
     # If Review was opened earlier in the same browser session, discard its
     # old denominator so newly added cards appear immediately in the queue.
     for key in ("review_total", "review_completed", "checked"):
@@ -726,6 +955,7 @@ def grade(card_id, result):
     c.commit()
     c.close()
     award_crystals(f"card_review:{card_id}:{now}", {"good": 3, "easy": 5, "hard": 1, "again": 0}[result])
+    record_activity("review")
     st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     st.session_state.pop(f"revealed_answer_{card_id}", None)
@@ -827,21 +1057,22 @@ def render_card(card):
 
 
 def lesson_preview(lesson_id, daily=False):
-    """Show a lesson guide before its cards enter the active deck."""
+    """Render the lesson contents inside the native in-app Study dialog."""
     lesson = one("SELECT * FROM lessons WHERE id=?", (lesson_id,))
     if not lesson:
         return
     guide = lesson_guide(lesson)
-    st.markdown(f'''<div class="review-frame"><div style="font-size:24px;font-weight:800;color:#654b78">📖 Lesson {lesson['lesson_number']}: {lesson['title']}</div><div style="color:#886d91;margin-top:5px">A short grammar guide before you start reviewing</div></div>''', unsafe_allow_html=True)
+    st.markdown(
+        f'''<div class="modal-kicker"><strong>📖 Lesson {lesson['lesson_number']}: {escape(lesson['title'])}</strong><span>Study room · guide first, SRS cards after Add to deck</span></div>''',
+        unsafe_allow_html=True,
+    )
     if lesson["pattern"] and lesson["pattern"] != "—":
         st.markdown(f"### Grammar point: `{lesson['pattern']}`")
     st.markdown(f"[Open the full HTSK lesson ↗]({guide['source_url']})")
     if not guide.get("available"):
         st.warning(guide["source_note"])
         st.caption("The app will not create SRS cards for this lesson until HTSK publishes its content.")
-        if st.button("← Back", key=f"cancel_unpublished_{lesson_id}", use_container_width=True):
-            st.session_state.pop("lesson_preview_id", None)
-            st.session_state.pop("preview_from_lessons", None)
+        if st.button("Close", key=f"close_unpublished_{lesson_id}", use_container_width=True):
             st.rerun()
         return
     st.markdown("**Meaning**")
@@ -864,9 +1095,7 @@ def lesson_preview(lesson_id, daily=False):
     st.divider()
     cancel, add = st.columns(2)
     with cancel:
-        if st.button("← Back", key=f"cancel_preview_{lesson_id}", use_container_width=True):
-            st.session_state.pop("lesson_preview_id", None)
-            st.session_state.pop("preview_from_lessons", None)
+        if st.button("Close", key=f"close_preview_{lesson_id}", use_container_width=True):
             st.rerun()
     with add:
         if st.button("Add to deck ✨", key=f"add_preview_{lesson_id}", type="primary", use_container_width=True):
@@ -877,10 +1106,24 @@ def lesson_preview(lesson_id, daily=False):
                 c.commit()
                 c.close()
             if activated:
-                st.session_state.pop("lesson_preview_id", None)
-                st.session_state.pop("preview_from_lessons", None)
                 st.rerun()
             st.error("This lesson cannot be added until HTSK publishes its material.")
+
+
+def render_lesson_dialog(lesson_id, daily=False):
+    """Open a Study lesson as a large internal modal, with an inline fallback."""
+    if hasattr(st, "dialog"):
+        lesson_dialog(lesson_id, daily)
+    else:
+        lesson_preview(lesson_id, daily)
+
+
+def render_review_dialog():
+    """Open Review as a large internal modal, with an inline fallback."""
+    if hasattr(st, "dialog"):
+        review_dialog()
+    else:
+        render_review_contents()
 
 
 def page_dashboard():
@@ -919,6 +1162,13 @@ def page_dashboard():
     c.metric("Mastered cards", mastered)
     st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     st.info("Your starting point is Unit 2. Units 0–1 are treated as completed.")
+    current_streak = streak_info()
+    streak_status = "Your flame is lit today — keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
+    st.markdown(
+        f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">🔥</span><span>{current_streak['current']} day streak</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
+        unsafe_allow_html=True,
+    )
+    render_bts_motivation()
 
     if due:
         st.markdown(
@@ -938,19 +1188,17 @@ def page_dashboard():
 
     st.header("Today's new lessons")
     todays = daily_lessons()
-    preview_id = st.session_state.get("lesson_preview_id")
-    if preview_id and not st.session_state.get("preview_from_lessons"):
-        lesson_preview(preview_id, daily=True)
-        st.divider()
+    lesson_request = None
     completed = sum(lesson["daily_status"] == "studied" for lesson in todays)
     if todays:
         st.caption(f"{completed} of {len(todays)} new lessons completed today")
         quest_tracker = active_item("tracker")
         quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
         quest_ratio = completed / len(todays)
+        quest_position = 5 + (90 * quest_ratio)
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>{quest_icon} Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
-            <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div></div>
+            <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:{quest_position:.1f}%">{quest_icon}</div></div>
             <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
         </div>''', unsafe_allow_html=True)
         for lesson in todays:
@@ -966,8 +1214,7 @@ def page_dashboard():
                 with right:
                     if lesson["daily_status"] != "studied":
                         if st.button("Study", key=f"daily_study_{lesson['id']}", use_container_width=True):
-                            st.session_state["lesson_preview_id"] = lesson["id"]
-                            st.rerun()
+                            lesson_request = (lesson["id"], True)
                     else:
                         st.success("Done")
     else:
@@ -989,10 +1236,12 @@ def page_dashboard():
         use_container_width=True,
     ):
         open_review()
+    if lesson_request:
+        render_lesson_dialog(*lesson_request)
 
 
-def page_review():
-    st.title("Review")
+def render_review_contents():
+    """Render the Review experience inside the app's full-screen dialog."""
     if "review_total" not in st.session_state:
         remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
         st.session_state["review_total"] = remaining
@@ -1002,33 +1251,78 @@ def page_review():
     progress = 1.0 if total == 0 else completed / total
     frame = active_item("frame")
     tracker = active_item("tracker")
-    frame_icon = frame["icon"] if frame else "🌸"
-    tracker_icon = tracker["icon"] if tracker else "🍡"
+    frame_icon = escape(frame["icon"] if frame else "🌸")
+    tracker_icon = escape(tracker["icon"] if tracker else "🍡")
     character = active_item("character")
-    character_icon = character["icon"] if character else "🐰"
-    frame_styles = {"frame_sakura": ("#efb8d6", "#fff7fc"), "frame_cloud": ("#b9d9ed", "#f5fbff"), "frame_hearts": ("#f2a9c4", "#fff4f8"), "frame_rainbow": ("#c4a8ed", "#fff9f2"), "frame_blossom": ("#e8ae91", "#fff8f2")}
-    frame_border, frame_bg = frame_styles.get(frame["id"] if frame else "", ("#efb8d6", "#fff7fc"))
-    tracker_colors = {"tracker_mochi": "#f5a6c8", "tracker_stars": "#c1a7f1", "tracker_bubbles": "#8dd9e5", "tracker_rainbow": "#f0a6a6", "tracker_sakura": "#e8a7c5"}
-    tracker_color = tracker_colors.get(tracker["id"] if tracker else "", "#f5a6c8")
+    character_icon = escape(character["icon"] if character else "🐰")
+    frame_style = FRAME_STYLES.get(frame["id"] if frame else "frame_sakura", FRAME_STYLES["frame_sakura"])
+    frame_border = frame_style["border"]
+    frame_bg = frame_style["background"]
+    frame_decor = escape(frame_style["decor"])
+    frame_label = escape(frame_style["label"])
+    tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
+    tracker_position = 5 + (90 * progress)
+    st.markdown(
+        f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
+        unsafe_allow_html=True,
+    )
     st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
     st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
         <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
-        <div class="review-progress-track"><div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div></div>
-        <div style="margin-top:7px;color:#886d91;font-size:14px">{tracker_icon} Keep going — every card makes your Korean stronger!</div>
+        <div class="review-progress-track">
+            <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
+            <div class="progress-mascot" style="left:{tracker_position:.1f}%;border-color:{tracker_color}">{tracker_icon}</div>
+        </div>
+        <div style="margin-top:7px;color:#886d91;font-size:14px">Your {tracker_icon} tracker travels along the bar with you!</div>
     </div>''', unsafe_allow_html=True)
     due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
+        if st.button("← Close Review", key="close_review_modal_empty", use_container_width=True):
+            st.session_state["nav"] = "Dashboard"
+            st.session_state.pop("review_total", None)
+            st.session_state.pop("review_completed", None)
+            st.rerun()
         return
-    render_card(due)
+    st.markdown(
+        f'''<style>
+        .st-key-review_card_shell {{border:3px solid {frame_border} !important; border-radius:32px !important; background:{frame_bg} !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:4px 12px 10px !important;}}
+        .st-key-review_card_shell [data-testid="stVerticalBlockBorderWrapper"] {{border-color:{frame_border} !important; background:{frame_bg} !important;}}
+        </style>''',
+        unsafe_allow_html=True,
+    )
+    with st.container(border=True, key="review_card_shell"):
+        st.markdown(
+            f'''<div class="review-card-top" style="color:{frame_style['accent']}"><span class="frame-sparkles">{frame_decor} {frame_decor}</span><span>{frame_decor} {frame_label} · today's card {completed + 1}</span><span class="frame-sparkles">{frame_decor} {frame_decor}</span></div>''',
+            unsafe_allow_html=True,
+        )
+        render_card(due)
+        st.markdown(
+            f'''<div class="review-card-bottom">{frame_decor} Your answer is one tiny step forward {frame_decor}</div>''',
+            unsafe_allow_html=True,
+        )
+    if st.button("← Close Review", key="close_review_modal", use_container_width=True):
+        st.session_state["nav"] = "Dashboard"
+        for key in ("review_total", "review_completed", "checked"):
+            st.session_state.pop(key, None)
+        st.rerun()
+
+
+if hasattr(st, "dialog"):
+    @st.dialog("📖 Study lesson", width="large")
+    def lesson_dialog(lesson_id, daily=False):
+        lesson_preview(lesson_id, daily)
+
+    @st.dialog("✨ Review", width="large")
+    def review_dialog():
+        render_review_contents()
+else:
+    lesson_dialog = None
+    review_dialog = None
 
 
 def page_lessons():
     st.title("Lessons")
-    preview_id = st.session_state.get("lesson_preview_id")
-    if preview_id and st.session_state.get("preview_from_lessons"):
-        lesson_preview(preview_id, daily=False)
-        st.divider()
     st.header("Course roadmap")
     for unit, (title, lesson_range, status) in UNIT_INFO.items():
         with st.container(border=True):
@@ -1046,35 +1340,23 @@ def page_lessons():
     st.divider()
     st.header("Available lessons")
     lessons = rows("SELECT * FROM lessons WHERE unit>=? ORDER BY unit, lesson_number", (int(setting("start_unit", "2")),))
+    lesson_request = None
     for lesson in lessons:
         cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
         active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
         guide = lesson_guide(lesson)
         with st.expander(f"Lesson {lesson['lesson_number']}: {lesson['title']} · {active}/{cards} cards active"):
-            st.markdown(f"### Lesson {lesson['lesson_number']} guide")
             if guide.get("available"):
                 st.markdown(f"**Grammar point:** `{lesson['pattern']}`")
-                st.markdown("**Meaning**")
-                st.write(guide["meaning"])
-                st.markdown("**When to use it**")
-                st.write(guide["usage"])
-                st.markdown("**How to build it**")
-                st.write(guide["building"])
-                st.markdown("**Examples from HTSK**")
-                for index, (example, translation) in enumerate(guide.get("examples", []), 1):
-                    display_example = str(example).replace("\n", "<br>")
-                    display_translation = str(translation).replace("\n", "<br>")
-                    st.markdown(f"**Example {index}:** {display_example}", unsafe_allow_html=True)
-                    st.caption(f"Translation: {display_translation}")
-                st.caption(f"{guide.get('examples_source', 'HTSK lesson page')} · examples are separate from SRS cards")
+                st.caption("HTSK guide and separate official examples are inside the Study window · 5 SRS cards")
             else:
                 st.warning(guide["source_note"])
                 st.caption("This lesson will not enter the new-lesson queue until HTSK publishes its content.")
             st.markdown(f"[Read the full official HTSK explanation ↗]({guide['source_url']})")
             if guide.get("available") and st.button("Study this lesson", key=f"study_{lesson['id']}", use_container_width=True):
-                st.session_state["lesson_preview_id"] = lesson["id"]
-                st.session_state["preview_from_lessons"] = True
-                st.rerun()
+                lesson_request = (lesson["id"], False)
+    if lesson_request:
+        render_lesson_dialog(*lesson_request)
 
 
 def page_progress():
@@ -1125,6 +1407,18 @@ def page_shop():
                     with middle:
                         st.markdown(f"### {item['name']}")
                         st.caption(item["description"])
+                        if kind == "frame":
+                            style = FRAME_STYLES.get(item["id"], FRAME_STYLES["frame_sakura"])
+                            st.markdown(
+                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview · {style['decor']}</div>''',
+                                unsafe_allow_html=True,
+                            )
+                        elif kind == "tracker":
+                            tracker_position = 56
+                            st.markdown(
+                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:{tracker_position}%">{item['icon']}</div></div>''',
+                                unsafe_allow_html=True,
+                            )
                     with right:
                         if is_active:
                             st.success("Active")
@@ -1155,7 +1449,7 @@ page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
 st.sidebar.caption("Starting point: Unit 2")
 if page == "Dashboard": page_dashboard()
-elif page == "Review": page_review()
+elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
 elif page == "Progress": page_progress()
 else: page_shop()
