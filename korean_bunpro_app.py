@@ -1163,7 +1163,8 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            if (win.__mochiBtsDragController && win.__mochiBtsDragController.refresh) {
+            const dragControllerVersion = "drag-v4";
+            if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
                 return;
@@ -1174,11 +1175,16 @@ def render_bts_motivation(in_dialog=False):
             if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
             if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
 
-            const controller = {drag: null, sceneBindings: []};
+            const controller = {drag: null, sceneBindings: [], version: dragControllerVersion};
             const eventOptions = {capture: true, passive: false};
 
             function sceneFromTarget(target) {
-                return target && target.closest ? target.closest(".bts-scene") : null;
+                if (!target) return null;
+                if (target.closest) {
+                    const scene = target.closest(".bts-scene");
+                    if (scene) return scene;
+                }
+                return target.matches && target.matches(".bts-scene") ? target : null;
             }
 
             function pointFromEvent(event) {
@@ -1194,7 +1200,7 @@ def render_bts_motivation(in_dialog=False):
 
             function beginDrag(event) {
                 if (controller.drag) return;
-                const scene = sceneFromTarget(event.target);
+                const scene = sceneFromTarget(event.target) || sceneFromTarget(event.currentTarget);
                 if (!scene) return;
                 if (event.type === "mousedown" && event.button !== 0) return;
                 const point = pointFromEvent(event);
@@ -1259,10 +1265,16 @@ def render_bts_motivation(in_dialog=False):
                 touchend: endDrag,
                 touchcancel: endDrag,
             };
-            Object.entries(listeners).forEach(([name, handler]) => win.document.addEventListener(name, handler, eventOptions));
+            Object.entries(listeners).forEach(([name, handler]) => {
+                const target = ["pointermove", "pointerup", "pointercancel", "mousemove", "mouseup", "touchmove", "touchend", "touchcancel"].includes(name) ? win : win.document;
+                target.addEventListener(name, handler, eventOptions);
+            });
             controller.refresh = bindChibis;
             controller.destroy = () => {
-                Object.entries(listeners).forEach(([name, handler]) => win.document.removeEventListener(name, handler, eventOptions));
+                Object.entries(listeners).forEach(([name, handler]) => {
+                    const target = ["pointermove", "pointerup", "pointercancel", "mousemove", "mouseup", "touchmove", "touchend", "touchcancel"].includes(name) ? win : win.document;
+                    target.removeEventListener(name, handler, eventOptions);
+                });
                 controller.sceneBindings.forEach(({scene, events}) => {
                     events.forEach(([name, handler]) => scene.removeEventListener(name, handler, eventOptions));
                     delete scene.dataset.chibiPositionBound;
