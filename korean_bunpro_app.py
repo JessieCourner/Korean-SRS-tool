@@ -957,7 +957,7 @@ def render_bts_motivation(in_dialog=False):
 
             function installDesktopSidebarLauncher() {
                 const doc = win.document;
-                const sidebarLauncherVersion = "launcher-v2";
+                const sidebarLauncherVersion = "launcher-v3";
                 if (win.__mochiSidebarLauncherObserverVersion !== sidebarLauncherVersion) {
                     if (win.__mochiSidebarLauncherObserver) win.__mochiSidebarLauncherObserver.disconnect();
                     if (win.__mochiSidebarLauncherResize) win.removeEventListener("resize", win.__mochiSidebarLauncherResize);
@@ -1108,12 +1108,7 @@ def render_bts_motivation(in_dialog=False):
                 }
 
                 update();
-                if (!win.__mochiSidebarLauncherObserver) {
-                    win.__mochiSidebarLauncherObserver = new win.MutationObserver(update);
-                    win.__mochiSidebarLauncherObserver.observe(doc.body, {
-                        childList: true,
-                        subtree: true,
-                    });
+                if (!win.__mochiSidebarLauncherInterval) {
                     win.__mochiSidebarLauncherResize = update;
                     win.addEventListener("resize", win.__mochiSidebarLauncherResize);
                     win.__mochiSidebarLauncherInterval = win.setInterval(update, 500);
@@ -1175,7 +1170,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v4";
+            const dragControllerVersion = "drag-v5";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -1185,6 +1180,7 @@ def render_bts_motivation(in_dialog=False):
                 win.__mochiBtsDragController.destroy();
             }
             if (win.__mochiBtsDragObserver) win.__mochiBtsDragObserver.disconnect();
+            win.__mochiBtsDragObserver = null;
             if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
 
             const controller = {drag: null, sceneBindings: [], version: dragControllerVersion};
@@ -1306,11 +1302,9 @@ def render_bts_motivation(in_dialog=False):
             }
             bindChibis();
             [0, 80, 250, 700].forEach((delay) => win.setTimeout(bindChibis, delay));
-            win.__mochiBtsDragObserver = new win.MutationObserver(bindChibis);
-            win.__mochiBtsDragObserver.observe(win.document.body, {childList: true, subtree: true});
-            // Some Streamlit versions hide a dialog by changing its style
-            // instead of removing it. Polling keeps the global host restored
-            // in that case as well as after a normal modal removal.
+            // Polling is deliberately used instead of MutationObserver here.
+            // It also handles dialogs that Streamlit hides by changing style
+            // rather than removing them, without risking a DOM observer loop.
             if (win.setInterval) win.__mochiBtsDragInterval = win.setInterval(bindChibis, 500);
             win.__mochiBtsDragResize = () => win.document.querySelectorAll(".bts-scene").forEach(keepOnScreen);
             win.addEventListener("resize", win.__mochiBtsDragResize);
