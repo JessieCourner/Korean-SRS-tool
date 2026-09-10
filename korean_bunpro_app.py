@@ -302,7 +302,51 @@ st.markdown("""
     .st-key-mobile_nav_button button span {font-size:27px !important; line-height:1 !important; margin:0 !important; color:#684d7b !important;}
     .st-key-mobile_nav_panel {position:fixed !important; top:55px; left:8px; z-index:2147483647 !important; width:min(280px,calc(100vw - 16px)); max-height:calc(100vh - 65px); overflow-y:auto; padding:10px 12px 12px; border:2px solid #efb8d6; border-radius:20px; background:rgba(255,250,255,.98); box-shadow:0 12px 28px rgba(91,71,112,.2); pointer-events:auto !important;}
     .st-key-mobile_nav_panel .stButton > button {width:100%; min-height:2.6rem; margin:3px 0; touch-action:manipulation;}
-    @media (min-width: 701px) { .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;} }
+    @media (min-width: 701px) {
+        .st-key-mobile_nav_button, .st-key-mobile_nav_panel {display:none !important;}
+        /* Keep Streamlit's reopen control above the floating chibis.  When the
+           sidebar is collapsed this is the only way back to the desktop menu. */
+        [data-testid="stSidebarCollapsedControl"] {
+            display:flex !important;
+            position:fixed !important;
+            top:10px !important;
+            left:10px !important;
+            z-index:2147483647 !important;
+            pointer-events:auto !important;
+            visibility:visible !important;
+            opacity:1 !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] button {
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            width:44px !important;
+            height:44px !important;
+            min-width:44px !important;
+            min-height:44px !important;
+            padding:0 !important;
+            border:2px solid #efb8d6 !important;
+            border-radius:14px !important;
+            background:#fffaff !important;
+            color:#684d7b !important;
+            box-shadow:0 8px 18px rgba(91,71,112,.18) !important;
+            pointer-events:auto !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] button:hover,
+        [data-testid="stSidebarCollapsedControl"] button:focus,
+        [data-testid="stSidebarCollapsedControl"] button:focus-visible {
+            border-color:#d99ac0 !important;
+            background:#fff1f8 !important;
+            color:#5b4770 !important;
+            outline:none !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] svg {
+            width:22px !important;
+            height:22px !important;
+            color:#684d7b !important;
+            fill:#684d7b !important;
+        }
+    }
     @media (max-width: 700px) {
         .block-container {padding: 4rem .75rem 2rem;}
         /* Streamlit's desktop sidebar is hidden on a phone; the fixed
