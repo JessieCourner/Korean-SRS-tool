@@ -1911,9 +1911,9 @@ def render_card(card):
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
-    with st.expander("Показать слово в начальной форме"):
+    with st.expander("Show the word in its base form"):
         st.write(card["hint"])
-    with st.expander("Показать объяснение грамматики"):
+    with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     answer = st.text_input(
@@ -1925,9 +1925,9 @@ def render_card(card):
     )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Пока не получилось. Попробуй ещё раз — попытка {attempts + 1}.")
+        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
     elif attempts:
-        st.caption(f"Попыток: {attempts}. Введи ответ ещё раз.")
+        st.caption(f"Attempts: {attempts}. Enter your answer again.")
     focus_answer_field()
 
 
