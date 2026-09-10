@@ -52,7 +52,6 @@ class PostgresCursor:
     def __init__(self, connection):
         self.connection = connection
         self.cursor = connection.raw.cursor(cursor_factory=RealDictCursor)
-        connection._open_cursors.add(self)
         self.ignore_conflict = False
 
     def execute(self, sql, params=()):
@@ -64,14 +63,7 @@ class PostgresCursor:
             table = re.search(r"PRAGMA TABLE_INFO\(([^)]+)\)", transformed, re.I).group(1).strip()
             transformed = "SELECT ordinal_position AS cid, column_name AS name FROM information_schema.columns WHERE table_schema='public' AND table_name=%s ORDER BY ordinal_position"
             params = (table,)
-        try:
-            self.cursor.execute(transformed, params)
-        except Exception:
-            # A failed PostgreSQL statement aborts the whole transaction.  If
-            # the same Streamlit session reuses its connection, roll it back
-            # immediately so the next button click can still work.
-            self.connection.raw.rollback()
-            raise
+        self.cursor.execute(transformed, params)
         return self
 
     def executescript(self, sql):
@@ -79,36 +71,19 @@ class PostgresCursor:
         return self
 
     def fetchone(self):
-        try:
-            row = self.cursor.fetchone()
-            return CompatRow(row) if row is not None else None
-        finally:
-            self.close()
+        row = self.cursor.fetchone()
+        return CompatRow(row) if row is not None else None
 
     def fetchall(self):
-        try:
-            return [CompatRow(row) for row in self.cursor.fetchall()]
-        finally:
-            self.close()
-
-    @property
-    def rowcount(self):
-        value = self.cursor.rowcount
-        self.close()
-        return value
+        return [CompatRow(row) for row in self.cursor.fetchall()]
 
     @property
     def lastrowid(self):
-        try:
-            self.cursor.execute("SELECT LASTVAL() AS id")
-            return self.cursor.fetchone()["id"]
-        finally:
-            self.close()
+        self.cursor.execute("SELECT LASTVAL() AS id")
+        return self.cursor.fetchone()["id"]
 
     def close(self):
-        if not self.cursor.closed:
-            self.cursor.close()
-        self.connection._open_cursors.discard(self)
+        self.cursor.close()
 
 
 class PostgresConnection:
@@ -118,7 +93,6 @@ class PostgresConnection:
         # first-run schema/seed work across multiple Streamlit sessions.
         connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
         self.raw = psycopg2.connect(url, connect_timeout=15, options=connect_options) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15, options=connect_options)
-        self._open_cursors = set()
 
     def execute(self, sql, params=()):
         return PostgresCursor(self).execute(sql, params)
@@ -128,8 +102,6 @@ class PostgresConnection:
 
     def commit(self):
         self.raw.commit()
-        for cursor in list(self._open_cursors):
-            cursor.close()
 
     def close(self):
         # Keep one connection per Streamlit browser session.  The app opens
@@ -137,11 +109,6 @@ class PostgresConnection:
         # connection after each helper made every click wait for a new TLS
         # handshake against Supabase.
         return None
-
-
-def is_postgres_connection(connection):
-    """Recognize cached connections even after Streamlit reloads this module."""
-    return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
@@ -558,7 +525,7 @@ def today():
 
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
-    if is_postgres_connection(c):
+    if isinstance(c, PostgresConnection):
         c.execute("SELECT pg_advisory_xact_lock(81620417)")
 
 
@@ -683,7 +650,7 @@ def import_extended_seeds():
             # The app can have several browser sessions on first deployment.
             # Insert-or-ignore at the database level avoids the check-then-
             # insert race that previously blocked lessons_lesson_number_key.
-            if is_postgres_connection(c):
+            if isinstance(c, PostgresConnection):
                 inserted = c.execute("""
                     INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
                     VALUES(?,?,?,?,?,?,?)
@@ -714,7 +681,7 @@ def import_extended_seeds():
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
-            if is_postgres_connection(c):
+            if isinstance(c, PostgresConnection):
                 c.commit()
     c.commit()
     c.close()
@@ -862,15 +829,10 @@ def bootstrap_app_data():
 
 
 def setting(key, default):
-    cache = st.session_state.setdefault("_settings_cache", {})
-    if key in cache:
-        return cache[key]
     c = db()
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
     c.close()
-    value = row["value"] if row else default
-    cache[key] = value
-    return value
+    return row["value"] if row else default
 
 
 def crystals():
@@ -882,23 +844,8 @@ def award_crystals(event_key, amount):
     if amount <= 0:
         return
     c = db()
-    params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
-    if is_postgres_connection(c):
-        # RETURNING is reliable for PostgreSQL and avoids relying on the
-        # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
-        inserted = c.execute(
-            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
-            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
-            params,
-        ).fetchone()
-        was_inserted = inserted is not None
-    else:
-        cur = c.execute(
-            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
-            params,
-        )
-        was_inserted = cur.rowcount > 0
-    if was_inserted:
+    cur = c.execute("INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)", (event_key, amount, datetime.now().isoformat(timespec="seconds")))
+    if cur.rowcount:
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
     c.close()
@@ -1550,7 +1497,6 @@ def buy_or_activate(item_id):
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
-    st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
     return True
 
 
@@ -1678,13 +1624,7 @@ def check_answer(card_id, answer_key):
     A wrong answer keeps the same card on screen.  The next correct answer is
     therefore attempt two (Hard), and a third-or-later correct answer is Again.
     """
-    # The current card was already loaded for rendering.  Reusing its answer
-    # removes one network round-trip on every Enter press against Supabase.
-    answer_cache = st.session_state.setdefault("_review_answer_cache", {})
-    answer = answer_cache.get(card_id)
-    card = {"answer": answer} if answer is not None else one(
-        "SELECT answer FROM cards WHERE id=?", (card_id,)
-    )
+    card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
@@ -1693,10 +1633,7 @@ def check_answer(card_id, answer_key):
     st.session_state[attempt_key] = attempts
     if answer_is_correct(user_answer, card["answer"]):
         result = "good" if attempts == 1 else "hard" if attempts == 2 else "again"
-        st.session_state["result_card_id"] = card_id
-        st.session_state["result_user_answer"] = user_answer
-        st.session_state["result_correct_answer"] = card["answer"]
-        st.session_state["result_grade"] = result
+        st.session_state["last_auto_grade"] = result
         grade(card_id, result)
         st.rerun()
     else:
@@ -1914,16 +1851,15 @@ def open_review():
 
 
 def render_card(card):
-    st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
-    with st.expander("Show the word in its base form"):
+    with st.expander("Показать слово в начальной форме"):
         st.write(card["hint"])
-    with st.expander("Show the grammar explanation"):
+    with st.expander("Показать объяснение грамматики"):
         st.write(card["explanation"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     answer = st.text_input(
@@ -1935,9 +1871,9 @@ def render_card(card):
     )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
+        st.warning(f"Пока не получилось. Попробуй ещё раз — попытка {attempts + 1}.")
     elif attempts:
-        st.caption(f"Attempts: {attempts}. Enter your answer again.")
+        st.caption(f"Попыток: {attempts}. Введи ответ ещё раз.")
     focus_answer_field()
 
 
@@ -2050,19 +1986,9 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    summary = one("""
-        SELECT
-          (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
-             JOIN lessons ON lessons.id=cards.lesson_id
-             WHERE reviews.active=1 AND reviews.retired=0
-               AND (reviews.next_review<=? OR reviews.last_review IS NULL)
-               AND lessons.status IN ('available','studying')) AS due,
-          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
-          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(),))
-    due = summary["due"]
-    active = summary["active"]
-    mastered = summary["mastered"]
+    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
+    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
+    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
     a, b, c = st.columns(3)
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
@@ -2176,54 +2102,6 @@ def render_review_contents():
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
         </div>
     </div>''', unsafe_allow_html=True)
-    result_card_id = st.session_state.get("result_card_id")
-    if result_card_id:
-        result_card = one("""
-            SELECT cards.*, lessons.title AS lesson_title
-            FROM cards JOIN lessons ON lessons.id=cards.lesson_id
-            WHERE cards.id=?
-        """, (result_card_id,))
-        if result_card:
-            result_grade = st.session_state.get("result_grade", "good")
-            grade_labels = {"good": "Good", "hard": "Hard", "again": "Again"}
-            grade_colors = {"good": "#dff6e7", "hard": "#fff2c9", "again": "#ffe1e1"}
-            st.markdown(
-                f'''<div class="review-question-paper"><div class="review-prompt">{escape(str(result_card["prompt"])).replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
-                unsafe_allow_html=True,
-            )
-            st.markdown(
-                f'''<div style="background:{grade_colors[result_grade]};border-radius:16px;padding:16px;color:#514064"><b>Result: {grade_labels[result_grade]}</b><br>Your answer: <code>{escape(str(st.session_state.get("result_user_answer", "")))}</code><br>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div>''',
-                unsafe_allow_html=True,
-            )
-            st.caption("Your answer has been recorded. Continue when you are ready for the next card.")
-            if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
-                for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
-                    st.session_state.pop(key, None)
-                st.rerun()
-            components.html("""
-                <script>
-                (function() {
-                    const win = window.parent;
-                    if (win.__mochiContinueHandler) {
-                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
-                    }
-                    win.__mochiContinueHandler = function(event) {
-                        if (event.key !== 'Enter' && event.key !== ' ') return;
-                        const buttons = Array.from(win.document.querySelectorAll('button'));
-                        const button = buttons.find((item) =>
-                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
-                        );
-                        if (!button) return;
-                        event.preventDefault();
-                        event.stopPropagation();
-                        button.click();
-                    };
-                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
-                })();
-                </script>
-            """, height=1)
-            return
-
     due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
@@ -2278,17 +2156,6 @@ def page_lessons():
     # Units 0–1 are completed by default, but remain visible for reference
     # and can be added manually to the SRS deck from their Study dialogs.
     lessons = rows("SELECT * FROM lessons ORDER BY unit, lesson_number")
-    # Do not issue two PostgreSQL queries for every lesson.  With 209 lessons
-    # that made opening the Lessons page wait for hundreds of network round
-    # trips, and the Study dialog could not appear until all of them finished.
-    card_stats = rows("""
-        SELECT cards.lesson_id,
-               SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
-               SUM(CASE WHEN reviews.active=1 AND reviews.retired=0 THEN 1 ELSE 0 END) AS active
-        FROM cards JOIN reviews ON reviews.card_id=cards.id
-        GROUP BY cards.lesson_id
-    """)
-    stats_by_lesson = {row["lesson_id"]: row for row in card_stats}
     lessons_by_unit = {unit: [] for unit in UNIT_INFO}
     for lesson in lessons:
         lessons_by_unit.setdefault(lesson["unit"], []).append(lesson)
@@ -2316,9 +2183,8 @@ def page_lessons():
                 st.caption("No lessons are available in this unit yet.")
                 continue
             for lesson in unit_lessons:
-                stats = stats_by_lesson.get(lesson["id"], {})
-                cards = stats.get("cards", 0) or 0
-                active = stats.get("active", 0) or 0
+                cards = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.retired=0", (lesson["id"],))["n"]
+                active = one("SELECT COUNT(*) AS n FROM cards JOIN reviews ON reviews.card_id=cards.id WHERE cards.lesson_id=? AND reviews.active=1 AND reviews.retired=0", (lesson["id"],))["n"]
                 guide = lesson_guide(lesson)
                 with st.container(border=True):
                     left, right = st.columns([5, 1.3])
