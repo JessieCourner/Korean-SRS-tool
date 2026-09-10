@@ -957,6 +957,16 @@ def render_bts_motivation(in_dialog=False):
 
             function installDesktopSidebarLauncher() {
                 const doc = win.document;
+                const sidebarLauncherVersion = "launcher-v2";
+                if (win.__mochiSidebarLauncherObserverVersion !== sidebarLauncherVersion) {
+                    if (win.__mochiSidebarLauncherObserver) win.__mochiSidebarLauncherObserver.disconnect();
+                    if (win.__mochiSidebarLauncherResize) win.removeEventListener("resize", win.__mochiSidebarLauncherResize);
+                    if (win.__mochiSidebarLauncherInterval) win.clearInterval(win.__mochiSidebarLauncherInterval);
+                    win.__mochiSidebarLauncherObserver = null;
+                    win.__mochiSidebarLauncherResize = null;
+                    win.__mochiSidebarLauncherInterval = null;
+                    win.__mochiSidebarLauncherObserverVersion = sidebarLauncherVersion;
+                }
                 let launcher = doc.getElementById("mochi-desktop-sidebar-launcher");
                 if (!launcher) {
                     launcher = doc.createElement("button");
@@ -1090,17 +1100,17 @@ def render_bts_motivation(in_dialog=False):
 
                 function update() {
                     const open = sidebarIsOpen();
-                    launcher.style.display = win.innerWidth > 700 ? "flex" : "none";
-                    launcher.title = open ? "Close navigation menu" : "Open navigation menu";
-                    launcher.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+                    const display = win.innerWidth > 700 ? "flex" : "none";
+                    const title = open ? "Close navigation menu" : "Open navigation menu";
+                    if (launcher.style.display !== display) launcher.style.display = display;
+                    if (launcher.title !== title) launcher.title = title;
+                    if (launcher.getAttribute("aria-label") !== title) launcher.setAttribute("aria-label", title);
                 }
 
                 update();
                 if (!win.__mochiSidebarLauncherObserver) {
                     win.__mochiSidebarLauncherObserver = new win.MutationObserver(update);
                     win.__mochiSidebarLauncherObserver.observe(doc.body, {
-                        attributes: true,
-                        attributeFilter: ["aria-expanded", "class", "style"],
                         childList: true,
                         subtree: true,
                     });
