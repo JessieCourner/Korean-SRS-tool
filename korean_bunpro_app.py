@@ -104,7 +104,11 @@ class PostgresConnection:
         self.raw.commit()
 
     def close(self):
-        self.raw.close()
+        # Keep one connection per Streamlit browser session.  The app opens
+        # many short read/write helpers during one rerun; closing the network
+        # connection after each helper made every click wait for a new TLS
+        # handshake against Supabase.
+        return None
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
@@ -504,7 +508,12 @@ def db():
     if SUPABASE_DB_URL:
         if psycopg2 is None:
             raise RuntimeError("SUPABASE_DB_URL is set, but psycopg2-binary is missing from requirements.txt")
-        return PostgresConnection(SUPABASE_DB_URL)
+        cached_connection = st.session_state.get("_supabase_connection")
+        if cached_connection is not None and getattr(cached_connection.raw, "closed", 1) == 0:
+            return cached_connection
+        cached_connection = PostgresConnection(SUPABASE_DB_URL)
+        st.session_state["_supabase_connection"] = cached_connection
+        return cached_connection
     c = sqlite3.connect(DB_PATH)
     c.row_factory = sqlite3.Row
     return c
