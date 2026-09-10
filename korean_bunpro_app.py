@@ -126,7 +126,7 @@ BTS_VECTOR_PALETTE = {
 # The daily pair uses a stable date-based layout, so a Streamlit rerun does
 # not make the characters jump around while the learner is reading.  The
 # layout changes on the next day and keeps the two friends in different parts
-# of the dashboard.
+# of the app.
 BTS_SCENE_LAYOUTS = [
     ("left:2.5%;top:102px;", "right:2.5%;bottom:10px;"),
     ("left:8%;bottom:12px;", "right:7%;top:94px;"),
@@ -189,7 +189,7 @@ st.markdown("""
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
-    .progress-mascot {position:absolute; top:50%; transform:translate(-50%,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:transform .15s ease;}
+    .progress-mascot {position:absolute; left:0; top:50%; transform:translate(0,-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:transform .15s ease;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
@@ -205,13 +205,11 @@ st.markdown("""
     /* The daily chibi companions are real bundled transparent PNG cut-outs.
        They float above the page; the only outlined elements are the speech
        bubbles themselves, not character cards or frames. */
-    .bts-stage {position:relative; min-height:96px; overflow:visible; margin:14px 0 24px; padding:17px 20px 14px; background:transparent;}
-    .bts-stage::before {content:"✦ ｡˚  ♡  ˚｡ ✦"; position:absolute; right:25px; top:18px; color:#e1acd0; font-size:17px; letter-spacing:5px; opacity:.9; pointer-events:none;}
-    .bts-stage::after {content:"✿"; position:absolute; left:28px; bottom:18px; color:#efb2cf; font-size:24px; opacity:.8; pointer-events:none;}
-    .bts-stage-heading {position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#654b78; font-weight:900; font-size:18px; margin-bottom:4px;}
-    .bts-stage-subtitle {position:relative; z-index:3; color:#987a9d; font-size:13px;}
-    .bts-scene {position:fixed; z-index:999999; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
-    .bts-scene.bts-dragging {cursor:grabbing; z-index:1000000;}
+    /* This is only a DOM anchor. The characters themselves are fixed above
+       the whole app, so no empty panel or daily chibi field is shown. */
+    .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
+    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; will-change:left,top;}
+    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
@@ -314,9 +312,7 @@ st.markdown("""
         [data-testid="stDialog"], .stDialog {padding:2vh 0 !important;}
         [data-testid="stDialog"] > div, .stDialog > div {width:98vw !important; max-width:98vw !important; min-height:96vh !important; border-radius:24px !important;}
         [data-testid="stDialog"] .block-container, .stDialog .block-container {padding:1rem .85rem 1.5rem !important;}
-        .bts-stage {min-height:92px; padding:15px 13px 18px; overflow:visible;}
-        .bts-stage-heading {font-size:16px;}
-        .bts-stage-subtitle {padding-right:22px;}
+        .bts-surface {width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible;}
         .bts-scene, .bts-scene-left, .bts-scene-right {position:fixed !important; width:max-content; max-width:calc(100vw - 12px); margin:0;}
         .bts-scene-right {flex-direction:row-reverse;}
         .bts-character, .bts-vector-fallback {width:82px; height:132px;}
@@ -770,19 +766,16 @@ def bts_character_image(member, fallback_icon):
 
 def render_bts_motivation():
     """Render two full-body chibis in date-rotated positions with speech bubbles."""
-    message, level, highest = daily_bts_message()
+    message, _, _ = daily_bts_message()
     ko_icon = escape(message["ko_icon"])
     en_icon = escape(message["en_icon"])
     ko_quote = escape(message["ko"])
     en_quote = escape(message["en"])
-    progress_label = f"up to Lesson {highest}" if highest else "ready for Lesson 26"
     ko_style, en_style = BTS_SCENE_LAYOUTS[date.today().toordinal() % len(BTS_SCENE_LAYOUTS)]
     ko_image = bts_character_image(message["ko_member"], message["ko_icon"])
     en_image = bts_character_image(message["en_member"], message["en_icon"])
     st.markdown(
-        f'''<div class="bts-stage" data-bts-day="{date.today().isoformat()}">
-            <div class="bts-stage-heading"><span>💜 Daily chibi cheer</span><span>Level {level}</span></div>
-            <div class="bts-stage-subtitle">Two friends for today · your Korean level: {progress_label}</div>
+        f'''<div class="bts-surface" data-bts-day="{date.today().isoformat()}">
             <div class="bts-scene bts-scene-left" data-chibi-slot="ko" style="{ko_style}">
                 {ko_image}
                 <div class="bts-speech">
@@ -858,13 +851,13 @@ def render_bts_motivation():
             }
 
             function bindChibis() {
-                const stage = win.document.querySelector(".bts-stage");
+                const stage = win.document.querySelector(".bts-surface");
                 if (!stage) return;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
-                    scene.style.zIndex = "999999";
+                    scene.style.zIndex = "2147483000";
                     if (scene.dataset.chibiDragBound === "1") {
                         keepOnScreen(scene);
                         return;
@@ -1418,7 +1411,6 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    st.write("A Bunpro-style review tool based on the How to Study Korean curriculum.")
     due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.unit>=? AND lessons.status IN ('available','studying')", (today(), int(setting("start_unit", "2"))))["n"]
     active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
     mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
@@ -1427,15 +1419,12 @@ def page_dashboard():
     b.metric("Active cards", active)
     c.metric("Mastered cards", mastered)
     st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
-    st.info("Your starting point is Unit 2. Units 0–1 are treated as completed.")
     current_streak = streak_info()
     streak_status = "Your flame is lit today — keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
     st.markdown(
         f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">🔥</span><span>{current_streak['current']} day streak</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
         unsafe_allow_html=True,
     )
-    render_bts_motivation()
-
     if due:
         st.markdown(
             f"<div class='cute-note'>📝 <b>{due} cards are waiting in Review.</b> "
@@ -1463,7 +1452,7 @@ def page_dashboard():
         quest_ratio = completed / len(todays)
         # Keep the tracker mascot fixed at the start of the rail.  The fill
         # changes behind it; the icon must not teleport when the ratio changes.
-        quest_position = 7
+        quest_position = 0
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
             <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:{quest_position:.1f}%">{quest_icon}</div></div>
@@ -1531,7 +1520,7 @@ def render_review_contents():
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
     # Keep the selected tracker at the beginning of the rail while the fill
     # advances behind it.
-    tracker_position = 7
+    tracker_position = 0
     st.markdown(
         f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
         unsafe_allow_html=True,
@@ -1684,7 +1673,7 @@ def page_shop():
                                 unsafe_allow_html=True,
                             )
                         elif kind == "tracker":
-                            tracker_position = 7
+                            tracker_position = 0
                             st.markdown(
                                 f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:{tracker_position}%">{item['icon']}</div></div>''',
                                 unsafe_allow_html=True,
@@ -1714,10 +1703,10 @@ pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
 if pending_mobile_page in NAV_PAGES:
     st.session_state["nav"] = pending_mobile_page
 render_mobile_navigation()
+render_bts_motivation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
-st.sidebar.caption("Starting point: Unit 2")
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
