@@ -50,7 +50,7 @@ When `SUPABASE_DB_URL` is present, the app uses Supabase PostgreSQL. Without it,
 
 The first run creates `korean_bunpro.db` and imports the seed data. Do not delete that database if you want to keep progress.
 
-The cards are compact practice prompts and require the complete missing word plus its grammar ending whenever the stem is shown before the blank. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons.
+The cards are compact practice prompts and require the complete missing word plus its grammar ending whenever the stem is shown before the blank. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons. After the first successful Supabase import, startup uses a content version marker and does not rescan every lesson/card on each app rerun.
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 

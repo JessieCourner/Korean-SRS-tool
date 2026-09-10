@@ -91,7 +91,8 @@ class PostgresConnection:
         # A short timeout prevents a blocked startup from looking like a blank
         # page in Streamlit Cloud.  The bootstrap lock below serializes the
         # first-run schema/seed work across multiple Streamlit sessions.
-        self.raw = psycopg2.connect(url, connect_timeout=15) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15)
+        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
+        self.raw = psycopg2.connect(url, connect_timeout=15, options=connect_options) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15, options=connect_options)
 
     def execute(self, sql, params=()):
         return PostgresCursor(self).execute(sql, params)
@@ -637,14 +638,31 @@ def import_extended_seeds():
             continue
         data = json.loads(seed_path.read_text(encoding="utf-8"))
         for lesson in data.get("lessons", []):
-            existing = c.execute("SELECT id FROM lessons WHERE lesson_number=?", (lesson["lesson_number"],)).fetchone()
-            if existing:
-                continue
-            lesson_id = c.execute("""
-                INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
-                VALUES(?,?,?,?,?,?,?)
-            """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
-                  lesson["explanation"], lesson["source_url"], "available")).lastrowid
+            # The app can have several browser sessions on first deployment.
+            # Insert-or-ignore at the database level avoids the check-then-
+            # insert race that previously blocked lessons_lesson_number_key.
+            if isinstance(c, PostgresConnection):
+                inserted = c.execute("""
+                    INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
+                    VALUES(?,?,?,?,?,?,?)
+                    ON CONFLICT (lesson_number) DO NOTHING
+                    RETURNING id
+                """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
+                      lesson["explanation"], lesson["source_url"], "available")).fetchone()
+                if not inserted:
+                    # Another session already owns this lesson.  Its cards
+                    # are handled by sync_seed_card_content later in startup.
+                    continue
+                lesson_id = inserted["id"]
+            else:
+                existing = c.execute("SELECT id FROM lessons WHERE lesson_number=?", (lesson["lesson_number"],)).fetchone()
+                if existing:
+                    continue
+                lesson_id = c.execute("""
+                    INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
+                    VALUES(?,?,?,?,?,?,?)
+                """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
+                      lesson["explanation"], lesson["source_url"], "available")).lastrowid
             for card in lesson.get("cards", []):
                 card_id = c.execute("""
                     INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
@@ -652,6 +670,10 @@ def import_extended_seeds():
                 """, (lesson_id, card["prompt"], card["translation"], card["answer"],
                       card["hint"], card["explanation"])).lastrowid
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
+            # Keep each lesson's write short so a cancelled browser request
+            # cannot hold the unique lesson index for the entire course.
+            if isinstance(c, PostgresConnection):
+                c.commit()
     c.commit()
     c.close()
 
@@ -771,6 +793,28 @@ def sync_htsk_metadata():
                 "DELETE FROM daily_lessons WHERE lesson_id=? AND status='new'",
                 (lesson["id"],),
             )
+    c.commit()
+    c.close()
+
+
+CONTENT_SYNC_VERSION = "2026-09-10-v12"
+
+
+@st.cache_resource(show_spinner="Preparing your Korean course…")
+def bootstrap_app_data():
+    """Run database setup/synchronization once per app process and version."""
+    init_db()
+    if setting("content_sync_version", "") == CONTENT_SYNC_VERSION:
+        return
+    import_seed_once()
+    import_extended_seeds()
+    sync_seed_card_content()
+    sync_htsk_metadata()
+    c = db()
+    c.execute(
+        "INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)",
+        ("content_sync_version", CONTENT_SYNC_VERSION),
+    )
     c.commit()
     c.close()
 
@@ -2200,11 +2244,7 @@ def page_shop():
                                 st.error("Not enough crystals yet.")
 
 
-init_db()
-import_seed_once()
-import_extended_seeds()
-sync_seed_card_content()
-sync_htsk_metadata()
+bootstrap_app_data()
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
