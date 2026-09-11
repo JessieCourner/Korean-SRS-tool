@@ -2097,7 +2097,14 @@ def page_dashboard():
     design = active_item("design")
     character_id = setting("active_character", "")
     character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
-    mascot = character["icon"] if character else face["icon"]
+        mascot = character["icon"] if character else face["icon"]
+
+    try:
+        fixed_mascot = mascot.encode("latin1").decode("utf-8")
+        if "�" not in fixed_mascot:
+            mascot = fixed_mascot
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
 
     design_colors = {
         "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
