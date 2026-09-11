@@ -685,7 +685,7 @@ c.execute(
     "SET due_at=next_review || 'T00:00:00' "
     "WHERE due_at IS NULL"
 )
-       c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
     # The current course plan is two new lessons per day. Keep this migration
     # explicit so an older database that used three is corrected as well.
