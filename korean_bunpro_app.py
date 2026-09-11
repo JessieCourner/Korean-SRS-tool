@@ -663,21 +663,11 @@ def init_db():
     for row in c.execute("PRAGMA table_info(reviews)").fetchall()
 }
 
-review_migrations = {
-    "level": "INTEGER NOT NULL DEFAULT 0",
-    "next_review": "TEXT DEFAULT '2999-01-01'",
-    "last_review": "TEXT",
-    "mistakes": "INTEGER NOT NULL DEFAULT 0",
-    "active": "INTEGER NOT NULL DEFAULT 0",
-    "retired": "INTEGER NOT NULL DEFAULT 0",
-    "due_at": "TEXT",
-    "last_result": "TEXT",
-}
 
-    for column, definition in review_migrations.items():
-        existing_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
-        if column not in existing_columns:
-            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+if "level" not in review_columns:
+    c.execute(
+        "ALTER TABLE reviews ADD COLUMN level INTEGER NOT NULL DEFAULT 0"
+        )
 
     c.execute(
         "UPDATE reviews "
