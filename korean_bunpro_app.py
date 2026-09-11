@@ -2097,12 +2097,12 @@ def page_dashboard():
     design = active_item("design")
     character_id = setting("active_character", "")
     character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
-    raw_mascot = character["icon"] if character else face["icon"]
+    mascot = character["icon"] if character else face["icon"]
 
 try:
-    mascot = raw_mascot.encode("latin1").decode("utf-8")
+    mascot = mascot.encode("latin1").decode("utf-8")
 except (UnicodeEncodeError, UnicodeDecodeError):
-    mascot = raw_mascot
+    pass
     design_colors = {
         "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
         "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
