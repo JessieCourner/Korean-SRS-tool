@@ -664,11 +664,10 @@ def init_db():
 }
 
 
-if "level" not in review_columns:
-    c.execute(
-        "ALTER TABLE reviews ADD COLUMN level INTEGER NOT NULL DEFAULT 0"
+    if "level" not in review_columns:
+        c.execute(
+            "ALTER TABLE reviews ADD COLUMN level INTEGER NOT NULL DEFAULT 0"
         )
-
     c.execute(
         "UPDATE reviews "
         "SET due_at=next_review || 'T00:00:00' "
