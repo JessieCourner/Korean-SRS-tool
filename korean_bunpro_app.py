@@ -674,16 +674,10 @@ review_migrations = {
     "last_result": "TEXT",
 }
 
-for column, definition in review_migrations.items():
-            if column not in {
-            row[1]
-            for row in c.execute(
-                "PRAGMA table_info(reviews)"
-            ).fetchall()
-        }:
-        c.execute(
-            f"ALTER TABLE reviews ADD COLUMN {column} {definition}"
-        )
+    for column, definition in review_migrations.items():
+        existing_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+        if column not in existing_columns:
+            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
 
     c.execute(
         "UPDATE reviews "
