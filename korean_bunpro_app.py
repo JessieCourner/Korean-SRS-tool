@@ -658,13 +658,42 @@ def init_db():
     # checked-in lesson pack.  Keep the row and its history for progress
     # safety, but never put it back into a deck when its lesson is activated.
     # ALTER TABLE is needed because deployed databases predate this column.
-    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+    if is_postgres_connection(c):
+    c.execute("""
+        ALTER TABLE reviews
+        ADD COLUMN IF NOT EXISTS retired INTEGER NOT NULL DEFAULT 0
+    """)
+    c.execute("""
+        ALTER TABLE reviews
+        ADD COLUMN IF NOT EXISTS due_at TEXT
+    """)
+    c.execute("""
+        ALTER TABLE reviews
+        ADD COLUMN IF NOT EXISTS last_result TEXT
+    """)
+else:
+    review_columns = {
+        row[1]
+        for row in c.execute("PRAGMA table_info(reviews)").fetchall()
+    }
+
     if "retired" not in review_columns:
-        c.execute("ALTER TABLE reviews ADD COLUMN retired INTEGER NOT NULL DEFAULT 0")
+        c.execute("""
+            ALTER TABLE reviews
+            ADD COLUMN retired INTEGER NOT NULL DEFAULT 0
+        """)
+
     if "due_at" not in review_columns:
-        c.execute("ALTER TABLE reviews ADD COLUMN due_at TEXT")
+        c.execute("""
+            ALTER TABLE reviews
+            ADD COLUMN due_at TEXT
+        """)
+
     if "last_result" not in review_columns:
-        c.execute("ALTER TABLE reviews ADD COLUMN last_result TEXT")
+        c.execute("""
+            ALTER TABLE reviews
+            ADD COLUMN last_result TEXT
+        """)
     c.execute("UPDATE reviews SET due_at=next_review || 'T00:00:00' WHERE due_at IS NULL")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
