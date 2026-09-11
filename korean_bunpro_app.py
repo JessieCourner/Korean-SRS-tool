@@ -691,7 +691,6 @@ for column, definition in review_migrations.items():
     c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
     # The current course plan is two new lessons per day. Keep this migration
     # explicit so an older database that used three is corrected as well.
-    c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
     c.execute("INSERT OR IGNORE INTO wallet(id,crystals) VALUES(1,0)")
     for item in SHOP_ITEMS:
         c.execute("INSERT OR IGNORE INTO shop_items(id,name,kind,price,icon,description) VALUES(?,?,?,?,?,?)", item)
