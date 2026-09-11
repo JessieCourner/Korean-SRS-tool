@@ -2099,10 +2099,6 @@ def page_dashboard():
     character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
     mascot = character["icon"] if character else face["icon"]
 
-try:
-    mascot = character["icon"] if character else face["icon"]
-except (UnicodeEncodeError, UnicodeDecodeError):
-    pass
     design_colors = {
         "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
         "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
