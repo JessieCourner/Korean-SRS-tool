@@ -675,7 +675,12 @@ review_migrations = {
 }
 
 for column, definition in review_migrations.items():
-    if column not in review_columns:
+            if column not in {
+            row[1]
+            for row in c.execute(
+                "PRAGMA table_info(reviews)"
+            ).fetchall()
+        }:
         c.execute(
             f"ALTER TABLE reviews ADD COLUMN {column} {definition}"
         )
