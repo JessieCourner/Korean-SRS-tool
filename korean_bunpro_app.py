@@ -2100,7 +2100,7 @@ def page_dashboard():
     mascot = character["icon"] if character else face["icon"]
 
 try:
-    mascot = mascot.encode("latin1").decode("utf-8")
+    mascot = character["icon"] if character else face["icon"]
 except (UnicodeEncodeError, UnicodeDecodeError):
     pass
     design_colors = {
