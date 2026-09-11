@@ -2433,45 +2433,132 @@ def page_progress():
 
 
 def page_shop():
+
+    def fix_icon_encoding(value):
+        if not isinstance(value, str):
+            return value
+
+        try:
+            fixed = value.encode("latin1").decode("utf-8")
+            if "�" not in fixed:
+                return fixed
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+
+        return value
+
     st.title("Crystal Shop ✨")
-    st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
-    st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
-    categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
-    tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
+    st.markdown(
+        f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>",
+        unsafe_allow_html=True,
+    )
+    st.write(
+        "Earn crystals by studying and reviewing. "
+        "Buy a cute companion or a new study-room design."
+    )
+
+    categories = [
+        ("Faces", "face", "Choose your study buddy"),
+        ("Characters", "character", "A little friend for your dashboard"),
+        ("Room designs", "design", "Change the mood of your study room"),
+        ("Card frames", "frame", "Decorate your Review screen"),
+        ("Progress trackers", "tracker", "Choose how your progress grows"),
+    ]
+
+    tabs = st.tabs([f"{name} ✨" for name, _, _ in categories])
+
     for tab, (name, kind, subtitle) in zip(tabs, categories):
         with tab:
             st.subheader(name)
             st.caption(subtitle)
-            items = rows("SELECT * FROM shop_items WHERE kind=? ORDER BY price, id", (kind,))
+
+            items = rows(
+                "SELECT * FROM shop_items WHERE kind=? ORDER BY price, id",
+                (kind,),
+            )
+
             for item in items:
-                owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
+                owned = one(
+                    "SELECT 1 FROM inventory WHERE item_id=?",
+                    (item["id"],),
+                )
+
                 active_key = f"active_{item['kind']}"
                 is_active = setting(active_key, "") == item["id"]
+
                 with st.container(border=True):
                     left, middle, right = st.columns([1, 4, 1.5])
+
                     with left:
-                        st.markdown(f"<div class='shop-item-icon'>{item['icon']}</div>", unsafe_allow_html=True)
+                        icon = fix_icon_encoding(item["icon"])
+                        st.markdown(
+                            f"<div class='shop-item-icon'>{icon}</div>",
+                            unsafe_allow_html=True,
+                        )
+
                     with middle:
                         st.markdown(f"### {item['name']}")
                         st.caption(item["description"])
+
                         if kind == "frame":
-                            style = FRAME_STYLES.get(item["id"], FRAME_STYLES["frame_sakura"])
+                            style = FRAME_STYLES.get(
+                                item["id"],
+                                FRAME_STYLES["frame_sakura"],
+                            )
+
                             st.markdown(
-                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview · {style['decor']}</div>''',
+                                f"""
+                                <div style="
+                                    border:3px solid {style['border']};
+                                    border-radius:18px;
+                                    padding:9px 12px;
+                                    background:{style['background']};
+                                    color:#684d7b;
+                                    text-align:center;
+                                    font-weight:800;
+                                ">
+                                    {style['decor']} Review card preview · {style['decor']}
+                                </div>
+                                """,
                                 unsafe_allow_html=True,
                             )
+
                         elif kind == "tracker":
+                            tracker_icon = fix_icon_encoding(item["icon"])
+
                             st.markdown(
-                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">{item['icon']}</div></div>''',
+                                f"""
+                                <div class="quest-track" style="margin:7px 0 4px">
+                                    <div class="quest-fill"
+                                         style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}">
+                                    </div>
+                                    <div class="progress-mascot"
+                                         style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">
+                                        {tracker_icon}
+                                    </div>
+                                </div>
+                                """,
                                 unsafe_allow_html=True,
                             )
+
                     with right:
                         if is_active:
                             st.success("Active")
+
                         elif owned:
-                            if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
-                                buy_or_activate(item["id"]); st.rerun()
-                        elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
+                            if st.button(
+                                "Use",
+                                key=f"use_{item['id']}",
+                                use_container_width=True,
+                            ):
+                                buy_or_activate(item["id"])
+                                st.rerun()
+
+                        elif st.button(
+                            f"Buy · {item['price']} 💎",
+                            key=f"buy_{item['id']}",
+                            use_container_width=True,
+                        ):
                             if buy_or_activate(item["id"]):
                                 st.success("Purchased!")
                                 st.rerun()
