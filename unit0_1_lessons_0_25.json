@@ -41,35 +41,35 @@
           "prompt": "ㄱ + ㅏ = ___",
           "translation": "Combine the consonant and vowel.",
           "answer": "가",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 가",
           "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
         },
         {
           "prompt": "ㅂ + ㅏ + ㅂ = ___",
           "translation": "Write “bab” as one syllable block.",
           "answer": "밥",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 밥",
           "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
         },
         {
           "prompt": "ㅗ + ㅏ = ___",
           "translation": "Combine two vowels into a complex vowel.",
           "answer": "ㅘ",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: ㅘ",
           "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
         },
         {
           "prompt": "ㄴ + ㅏ = ___",
           "translation": "Combine ㄴ and ㅏ into one syllable.",
           "answer": "나",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 나",
           "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
         },
         {
           "prompt": "ㄱ + ㅗ + ㄱ = ___",
           "translation": "Write “gok” as one syllable block.",
           "answer": "곡",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 곡",
           "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
         }
       ]
@@ -114,35 +114,35 @@
           "prompt": "저는 ___",
           "translation": "I am a student.",
           "answer": "학생이에요",
-          "hint": "Начальная форма: 학생",
+          "hint": "Base form: 학생",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
         },
         {
           "prompt": "이것은 ___",
           "translation": "This is a pen.",
           "answer": "펜이에요",
-          "hint": "Начальная форма: 펜",
+          "hint": "Base form: 펜",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
         },
         {
           "prompt": "저 사람은 ___",
           "translation": "That person is a doctor.",
           "answer": "의사예요",
-          "hint": "Начальная форма: 의사",
+          "hint": "Base form: 의사",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
         },
         {
           "prompt": "저것은 ___",
           "translation": "That is a chair.",
           "answer": "의자예요",
-          "hint": "Начальная форма: 의자",
+          "hint": "Base form: 의자",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
         },
         {
           "prompt": "민수는 ___",
           "translation": "Minsu is a teacher.",
           "answer": "선생님이에요",
-          "hint": "Начальная форма: 선생님",
+          "hint": "Base form: 선생님",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
         }
       ]
@@ -187,35 +187,35 @@
           "prompt": "___ 있어요.",
           "translation": "I am at school.",
           "answer": "학교에",
-          "hint": "Начальная форма: 학교다",
+          "hint": "Base form: 학교",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
         },
         {
           "prompt": "___ 있어요.",
           "translation": "There is a book.",
           "answer": "책이",
-          "hint": "Начальная форма: 책다",
+          "hint": "Base form: 책",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
         },
         {
           "prompt": "친구가 집에 ___",
           "translation": "My friend is at home.",
           "answer": "있어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 있다",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
         },
         {
           "prompt": "가방 ___ 책이 있어요.",
           "translation": "There is a book inside the bag.",
           "answer": "안에",
-          "hint": "Начальная форма: 안다",
+          "hint": "Base form: 안",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
         },
         {
           "prompt": "동생이 학교에 ___",
           "translation": "My younger sibling is at school.",
           "answer": "있어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 있다",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
         }
       ]
@@ -260,35 +260,35 @@
           "prompt": "이것은 ___ 책이에요.",
           "translation": "This is my book.",
           "answer": "제",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
         },
         {
           "prompt": "___ 음식",
           "translation": "Korean food.",
           "answer": "한국의",
-          "hint": "Начальная форма: 한국다",
+          "hint": "Base form: 한국",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
         },
         {
           "prompt": "저는 음악을 ___",
           "translation": "I like music.",
           "answer": "좋아해요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 좋아하다",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
         },
         {
           "prompt": "이것은 ___ 우산이에요.",
           "translation": "This is my umbrella.",
           "answer": "제",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
         },
         {
           "prompt": "저는 한국 음식을 ___",
           "translation": "I like Korean food.",
           "answer": "좋아해요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 좋아하다",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
         }
       ]
@@ -333,35 +333,35 @@
           "prompt": "___ 영화",
           "translation": "An interesting movie.",
           "answer": "재미있는",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 재미있다",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
         },
         {
           "prompt": "___ 학생도 왔어요.",
           "translation": "That student also came.",
           "answer": "저도",
-          "hint": "Начальная форма: 저다",
+          "hint": "Base form: 저",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
         },
         {
           "prompt": "___ 음식",
           "translation": "Delicious food.",
           "answer": "맛있는",
-          "hint": "Начальная форма: 맛다",
+          "hint": "Base form: 맛있다",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
         },
         {
           "prompt": "___ 사람을 만났어요.",
           "translation": "I met a kind person.",
           "answer": "친절한",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 친절하다",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
         },
         {
           "prompt": "저도 한국어를 ___",
           "translation": "I also study Korean.",
           "answer": "공부해요",
-          "hint": "Начальная форма: 공부다",
+          "hint": "Base form: 공부하다",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
         }
       ]
@@ -406,35 +406,35 @@
           "prompt": "어제 밥을 ___",
           "translation": "I ate rice yesterday.",
           "answer": "먹었어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 먹다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
         },
         {
           "prompt": "오늘 학교에 ___",
           "translation": "I go to school today.",
           "answer": "가요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 가다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
         },
         {
           "prompt": "내일 공부할 ___",
           "translation": "I will study tomorrow.",
           "answer": "거예요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 것",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
         },
         {
           "prompt": "지난주에 영화를 ___",
           "translation": "I watched a movie last week.",
           "answer": "봤어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 보다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
         },
         {
           "prompt": "주말에 친구를 만날 ___",
           "translation": "I will meet a friend on the weekend.",
           "answer": "거예요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 것",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
         }
       ]
@@ -479,35 +479,35 @@
           "prompt": "저는 ___",
           "translation": "I am a student, politely.",
           "answer": "학생이에요",
-          "hint": "Начальная форма: 학생",
+          "hint": "Base form: 학생",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
         },
         {
           "prompt": "나 오늘 ___",
           "translation": "I am busy today, casually.",
           "answer": "바쁘다",
-          "hint": "Начальная форма: 바쁘다",
+          "hint": "Base form: 바쁘다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
         },
         {
           "prompt": "___ 한국 사람입니다.",
           "translation": "I am Korean, formally.",
           "answer": "저는",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
         },
         {
           "prompt": "오늘은 날씨가 ___",
           "translation": "The weather is good today, casually.",
           "answer": "좋다",
-          "hint": "Начальная форма: 좋다",
+          "hint": "Base form: 좋다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
         },
         {
           "prompt": "저는 ___",
           "translation": "I am an office worker, politely.",
           "answer": "회사원이에요",
-          "hint": "Начальная форма: 회사원",
+          "hint": "Base form: 회사원",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
         }
       ]
@@ -552,35 +552,35 @@
           "prompt": "날씨가 ___",
           "translation": "The weather is cold.",
           "answer": "추워요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 춥다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
         },
         {
           "prompt": "한국어를 ___",
           "translation": "I listen to Korean.",
           "answer": "들어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 듣다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
         },
         {
           "prompt": "친구를 ___",
           "translation": "I help my friend.",
           "answer": "도와요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 돕다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
         },
         {
           "prompt": "모르다 → ___",
           "translation": "Conjugate “not to know” politely.",
           "answer": "몰라요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 모르다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
         },
         {
           "prompt": "쓰다 → ___",
           "translation": "Conjugate “to write/use” politely.",
           "answer": "써요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 쓰다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
         }
       ]
@@ -625,35 +625,35 @@
           "prompt": "춥다 → ___",
           "translation": "Conjugate “to be cold” politely.",
           "answer": "추워요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 춥다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
         },
         {
           "prompt": "듣다 → ___",
           "translation": "Conjugate “to listen” politely.",
           "answer": "들어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 듣다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
         },
         {
           "prompt": "돕다 → ___",
           "translation": "Conjugate “to help” politely.",
           "answer": "도와요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 돕다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
         },
         {
           "prompt": "모르다 → ___",
           "translation": "Review the 르 irregular politely.",
           "answer": "몰라요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 모르다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
         },
         {
           "prompt": "하얗다 → ___",
           "translation": "Review the ㅎ irregular politely.",
           "answer": "하얘요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 하얗다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
         }
       ]
@@ -698,35 +698,35 @@
           "prompt": "오늘 학교에 ___ 가요.",
           "translation": "I do not go to school today.",
           "answer": "안",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 안",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
         },
         {
           "prompt": "한국어를 ___ 해요.",
           "translation": "I cannot speak Korean well.",
           "answer": "못",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 못",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
         },
         {
           "prompt": "커피를 ___ 않아요.",
           "translation": "I do not drink coffee.",
           "answer": "마시지",
-          "hint": "Начальная форма: 마시다",
+          "hint": "Base form: 마시다",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
         },
         {
           "prompt": "오늘은 비가 ___ 와요.",
           "translation": "It is not raining today.",
           "answer": "안",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 안",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
         },
         {
           "prompt": "매운 음식을 ___ 먹어요.",
           "translation": "I cannot eat spicy food.",
           "answer": "못",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 못",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
         }
       ]
@@ -771,35 +771,35 @@
           "prompt": "___",
           "translation": "I am a student.",
           "answer": "학생이에요",
-          "hint": "Начальная форма: 학생",
+          "hint": "Base form: 학생",
           "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
         },
         {
           "prompt": "___",
           "translation": "I am a doctor.",
           "answer": "의사예요",
-          "hint": "Начальная форма: 의사",
+          "hint": "Base form: 의사",
           "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
         },
         {
           "prompt": "내일 갈 ___",
           "translation": "The thing/fact that I will go tomorrow.",
           "answer": "거예요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 것",
           "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
         },
         {
           "prompt": "그 사람은 ___",
           "translation": "That person is a doctor.",
           "answer": "의사일 것이다",
-          "hint": "Начальная форма: 의사다",
+          "hint": "Base form: 의사",
           "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
         },
         {
           "prompt": "저녁에 공부할 ___",
           "translation": "The thing/fact that I will study in the evening.",
           "answer": "것이다",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 것",
           "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
         }
       ]
@@ -844,35 +844,35 @@
           "prompt": "사과 ___ 개",
           "translation": "three apples.",
           "answer": "세",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 세",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time."
         },
         {
           "prompt": "지금 두 ___예요.",
           "translation": "It is two o’clock now.",
           "answer": "시",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 시",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time."
         },
         {
           "prompt": "오후 세 ___",
           "translation": "3:00 p.m.",
           "answer": "시",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 시",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time."
         },
         {
           "prompt": "사람 ___ 명이 왔어요.",
           "translation": "Three people came.",
           "answer": "세",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 세",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time."
         },
         {
           "prompt": "지금 열두 ___예요.",
           "translation": "It is twelve o’clock now.",
           "answer": "시",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 시",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time."
         }
       ]
@@ -917,35 +917,35 @@
           "prompt": "두 ___ 공부했어요.",
           "translation": "I studied for two hours.",
           "answer": "시간동안",
-          "hint": "Начальная форма: 시간다",
+          "hint": "Base form: 시간",
           "explanation": "Use common time expressions to say how long something lasted and when it happened."
         },
         {
           "prompt": "3년 ___ 한국에 왔어요.",
           "translation": "I came to Korea three years ago.",
           "answer": "전",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 전",
           "explanation": "Use common time expressions to say how long something lasted and when it happened."
         },
         {
           "prompt": "수업 ___에 만나요.",
           "translation": "Let’s meet after class.",
           "answer": "후",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 후",
           "explanation": "Use common time expressions to say how long something lasted and when it happened."
         },
         {
           "prompt": "한 ___ 한국어를 공부했어요.",
           "translation": "I studied Korean for one month.",
           "answer": "달동안",
-          "hint": "Начальная форма: 달다",
+          "hint": "Base form: 달",
           "explanation": "Use common time expressions to say how long something lasted and when it happened."
         },
         {
           "prompt": "점심 ___에 전화할게요.",
           "translation": "I will call after lunch.",
           "answer": "후",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 후",
           "explanation": "Use common time expressions to say how long something lasted and when it happened."
         }
       ]
@@ -990,35 +990,35 @@
           "prompt": "___ 같이 갔어요.",
           "translation": "I went together with friends.",
           "answer": "친구들과",
-          "hint": "Начальная форма: 친구다",
+          "hint": "Base form: 친구",
           "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
         },
         {
           "prompt": "___ 쉬어요.",
           "translation": "I rest only on weekends.",
           "answer": "주말만",
-          "hint": "Начальная форма: 주말다",
+          "hint": "Base form: 주말",
           "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
         },
         {
           "prompt": "___ 학교까지 걸어요.",
           "translation": "I walk from home to school.",
           "answer": "집에서",
-          "hint": "Начальная форма: 집다",
+          "hint": "Base form: 집",
           "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
         },
         {
           "prompt": "___ 영화를 봤어요.",
           "translation": "I watched a movie with friends.",
           "answer": "친구들과",
-          "hint": "Начальная форма: 친구다",
+          "hint": "Base form: 친구",
           "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
         },
         {
           "prompt": "___ 부산까지 갔어요.",
           "translation": "I went from Seoul to Busan.",
           "answer": "서울에서",
-          "hint": "Начальная форма: 서울다",
+          "hint": "Base form: 서울",
           "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
         }
       ]
@@ -1063,35 +1063,35 @@
           "prompt": "___ 영화를 봤어요.",
           "translation": "I watched a movie with my friend.",
           "answer": "친구하고",
-          "hint": "Начальная форма: 친구다",
+          "hint": "Base form: 친구",
           "explanation": "Learn ways to express and/with, to/from a person, for and about."
         },
         {
           "prompt": "___ 질문했어요.",
           "translation": "I asked the teacher a question.",
           "answer": "선생님에게",
-          "hint": "Начальная форма: 선생님다",
+          "hint": "Base form: 선생님",
           "explanation": "Learn ways to express and/with, to/from a person, for and about."
         },
         {
           "prompt": "___ 선물을 샀어요.",
           "translation": "I bought a gift for my family.",
           "answer": "가족을 위해",
-          "hint": "Начальная форма: 가족다",
+          "hint": "Base form: 가족",
           "explanation": "Learn ways to express and/with, to/from a person, for and about."
         },
         {
           "prompt": "___ 이야기했어요.",
           "translation": "I talked with my younger sibling.",
           "answer": "동생하고",
-          "hint": "Начальная форма: 동생다",
+          "hint": "Base form: 동생다",
           "explanation": "Learn ways to express and/with, to/from a person, for and about."
         },
         {
           "prompt": "___ 편지를 보냈어요.",
           "translation": "I sent a letter to my friend.",
           "answer": "친구에게",
-          "hint": "Начальная форма: 친구다",
+          "hint": "Base form: 친구",
           "explanation": "Learn ways to express and/with, to/from a person, for and about."
         }
       ]
@@ -1136,35 +1136,35 @@
           "prompt": "문이 ___",
           "translation": "The door was opened.",
           "answer": "열렸어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 열리다",
           "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
         },
         {
           "prompt": "책이 ___",
           "translation": "The book was read.",
           "answer": "읽혔어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 읽히다",
           "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
         },
         {
           "prompt": "사진이 ___",
           "translation": "The photo was taken.",
           "answer": "찍혔어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 찍히다",
           "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
         },
         {
           "prompt": "창문이 ___",
           "translation": "The window was closed.",
           "answer": "닫혔어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 닫히다",
           "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
         },
         {
           "prompt": "문이 바람에 ___",
           "translation": "The door was opened by the wind.",
           "answer": "열렸어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 열리다",
           "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
         }
       ]
@@ -1209,35 +1209,35 @@
           "prompt": "저는 음악을 ___",
           "translation": "I like music.",
           "answer": "좋아해요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 좋아하다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
         },
         {
           "prompt": "감기에 ___",
           "translation": "I caught a cold.",
           "answer": "걸렸어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 걸리다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
         },
         {
           "prompt": "약을 ___",
           "translation": "I took medicine.",
           "answer": "먹었어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 먹다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
         },
         {
           "prompt": "저는 매운 음식을 ___",
           "translation": "I dislike spicy food.",
           "answer": "싫어해요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 싫어하다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
         },
         {
           "prompt": "머리가 ___",
           "translation": "I have a headache.",
           "answer": "아파요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 아프다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
         }
       ]
@@ -1282,35 +1282,35 @@
           "prompt": "___ 음식",
           "translation": "Korean-style food.",
           "answer": "한국적인",
-          "hint": "Начальная форма: 한국다",
+          "hint": "Base form: 한국적이다",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
         },
         {
           "prompt": "___ 사람",
           "translation": "A loving person.",
           "answer": "사랑스러운",
-          "hint": "Начальная форма: 사랑다",
+          "hint": "Base form: 사랑스럽다",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
         },
         {
           "prompt": "___ 환경",
           "translation": "A natural environment.",
           "answer": "자연적인",
-          "hint": "Начальная форма: 자연다",
+          "hint": "Base form: 자연적이다",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
         },
         {
           "prompt": "___ 차이",
           "translation": "A cultural difference.",
           "answer": "문화적인",
-          "hint": "Начальная форма: 문화다",
+          "hint": "Base form: 문화적이다",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
         },
         {
           "prompt": "___ 분위기",
           "translation": "A natural atmosphere.",
           "answer": "자연스러운",
-          "hint": "Начальная форма: 자연다",
+          "hint": "Base form: 자연스럽다",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
         }
       ]
@@ -1355,35 +1355,35 @@
           "prompt": "밥을 ___ 공부했어요.",
           "translation": "I ate and studied.",
           "answer": "먹고",
-          "hint": "Начальная форма: 먹다",
+          "hint": "Base form: 먹다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
         },
         {
           "prompt": "한국에 ___ 싶어요.",
           "translation": "I want to go to Korea.",
           "answer": "가고",
-          "hint": "Начальная форма: 가다",
+          "hint": "Base form: 가다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
         },
         {
           "prompt": "책을 ___ 음악을 들었어요.",
           "translation": "I read a book and listened to music.",
           "answer": "읽고",
-          "hint": "Начальная форма: 읽다",
+          "hint": "Base form: 읽다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
         },
         {
           "prompt": "아침을 ___ 학교에 갔어요.",
           "translation": "I ate breakfast and went to school.",
           "answer": "먹고",
-          "hint": "Начальная форма: 먹다",
+          "hint": "Base form: 먹다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
         },
         {
           "prompt": "___ 싶어요.",
           "translation": "I want to travel.",
           "answer": "여행하고",
-          "hint": "Начальная форма: 여행하다",
+          "hint": "Base form: 여행하다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
         }
       ]
@@ -1428,35 +1428,35 @@
           "prompt": "지금 책을 ___ 있어요.",
           "translation": "I am reading a book now.",
           "answer": "읽고",
-          "hint": "Начальная форма: 읽다",
+          "hint": "Base form: 읽다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
         },
         {
           "prompt": "날씨가 ___ 있어요.",
           "translation": "The weather is becoming cold.",
           "answer": "추워지고",
-          "hint": "Начальная форма: 추워다",
+          "hint": "Base form: 춥다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
         },
         {
           "prompt": "한국어를 ___ 있어요.",
           "translation": "I am studying Korean.",
           "answer": "공부하고",
-          "hint": "Начальная форма: 공부하다",
+          "hint": "Base form: 공부하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
         },
         {
           "prompt": "친구를 ___ 있어요.",
           "translation": "I am waiting for my friend.",
           "answer": "기다리고",
-          "hint": "Начальная форма: 기다리다",
+          "hint": "Base form: 기다리다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
         },
         {
           "prompt": "날이 ___ 있어요.",
           "translation": "The weather is getting warm.",
           "answer": "따뜻해지고",
-          "hint": "Начальная форма: 따뜻해다",
+          "hint": "Base form: 따뜻하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
         }
       ]
@@ -1501,35 +1501,35 @@
           "prompt": "한국어가 ___ 어려워요.",
           "translation": "Korean is more difficult than English.",
           "answer": "영어보다",
-          "hint": "Начальная форма: 영어다",
+          "hint": "Base form: 영어",
           "explanation": "Make comparative and superlative sentences and understand the common word 더."
         },
         {
           "prompt": "오늘은 ___ 더워요.",
           "translation": "Today is hotter than yesterday.",
           "answer": "어제보다",
-          "hint": "Начальная форма: 어제다",
+          "hint": "Base form: 어제",
           "explanation": "Make comparative and superlative sentences and understand the common word 더."
         },
         {
           "prompt": "이것이 ___ 좋아요.",
           "translation": "This is the best.",
           "answer": "제일",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 제일",
           "explanation": "Make comparative and superlative sentences and understand the common word 더."
         },
         {
           "prompt": "이 가방은 저 ___ 비싸요.",
           "translation": "This bag is more expensive than that bag.",
           "answer": "가방보다",
-          "hint": "Начальная форма: 가방다",
+          "hint": "Base form: 가방",
           "explanation": "Make comparative and superlative sentences and understand the common word 더."
         },
         {
           "prompt": "서울이 한국에서 ___ 커요.",
           "translation": "Seoul is the biggest in Korea.",
           "answer": "제일",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 제일",
           "explanation": "Make comparative and superlative sentences and understand the common word 더."
         }
       ]
@@ -1574,35 +1574,35 @@
           "prompt": "한국어를 ___해요.",
           "translation": "I speak Korean well.",
           "answer": "잘",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
         },
         {
           "prompt": "운전을 ___해요.",
           "translation": "I cannot drive well.",
           "answer": "못",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 못하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
         },
         {
           "prompt": "저는 요리를 ___",
           "translation": "I am good at cooking.",
           "answer": "잘해요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
         },
         {
           "prompt": "저는 수영을 ___해요.",
           "translation": "I am good at swimming.",
           "answer": "잘",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
         },
         {
           "prompt": "동생은 노래를 ___해요.",
           "translation": "My younger sibling sings poorly.",
           "answer": "못",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 못하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
         }
       ]
@@ -1647,35 +1647,35 @@
           "prompt": "어제 ___ 만났어요?",
           "translation": "Whom did you meet yesterday?",
           "answer": "누구를",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 누구",
           "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
         },
         {
           "prompt": "___ 먹었어요?",
           "translation": "What did you eat?",
           "answer": "뭐를",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 뭐",
           "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
         },
         {
           "prompt": "___ 와요?",
           "translation": "Why are you coming?",
           "answer": "왜",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 왜",
           "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
         },
         {
           "prompt": "___ 학교에 갔어요?",
           "translation": "When did you go to school?",
           "answer": "언제",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 언제",
           "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
         },
         {
           "prompt": "___ 살아요?",
           "translation": "Where do you live?",
           "answer": "어디에",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어디",
           "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
         }
       ]
@@ -1720,35 +1720,35 @@
           "prompt": "한국어를 ___ 공부해요?",
           "translation": "How do you study Korean?",
           "answer": "어떻게",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어떻게",
           "explanation": "Ask questions with how, which and how many."
         },
         {
           "prompt": "___ 책이 좋아요?",
           "translation": "Which book do you like?",
           "answer": "어느",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many."
         },
         {
           "prompt": "사과를 ___ 개 샀어요?",
           "translation": "How many apples did you buy?",
           "answer": "몇",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 몇",
           "explanation": "Ask questions with how, which and how many."
         },
         {
           "prompt": "___ 사람이 왔어요?",
           "translation": "How many people came?",
           "answer": "몇",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 몇",
           "explanation": "Ask questions with how, which and how many."
         },
         {
           "prompt": "___ 영화를 좋아해요?",
           "translation": "Which movie do you like?",
           "answer": "어느",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many."
         }
       ]
@@ -1793,35 +1793,35 @@
           "prompt": "날씨가 ___",
           "translation": "The sky is blue/clear.",
           "answer": "파래요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 파랗다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
         },
         {
           "prompt": "___ 색이에요?",
           "translation": "What kind of color is it?",
           "answer": "어떤",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어떤",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
         },
         {
           "prompt": "___ 사람입니까?",
           "translation": "What kind of person is he/she?",
           "answer": "어떤",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어떤",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
         },
         {
           "prompt": "하늘이 ___",
           "translation": "The sky is blue.",
           "answer": "파래요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 파랗다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
         },
         {
           "prompt": "___ 모양이에요?",
           "translation": "What kind of shape is it?",
           "answer": "어떤",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 어떤",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
         }
       ]
@@ -1866,35 +1866,35 @@
           "prompt": "수업 ___에 복습해요.",
           "translation": "I review after class.",
           "answer": "후",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 후",
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
         },
         {
           "prompt": "___ 올 수 있어요.",
           "translation": "Anybody can come.",
           "answer": "누구든지",
-          "hint": "Начальная форма: 누다",
+          "hint": "Base form: 누구",
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
         },
         {
           "prompt": "한 시간 ___에 끝나요.",
           "translation": "It ends within one hour.",
           "answer": "이내",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 이내",
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
         },
         {
           "prompt": "회의 ___에 도착했어요.",
           "translation": "I arrived before the meeting.",
           "answer": "전에",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 전",
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
         },
         {
           "prompt": "한 달 ___에 끝낼 거예요.",
           "translation": "I will finish within one month.",
           "answer": "이내",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: 이내",
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
         }
       ]

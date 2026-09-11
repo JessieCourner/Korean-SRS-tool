@@ -12,35 +12,35 @@
           "prompt": "___ 누구를 기다리고 있니?",
           "translation": "Who are you waiting for?",
           "answer": "넌",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 천둥이 치는 소리를 들었어",
           "translation": "I heard thunder",
           "answer": "난",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 이 손목시계 늘 차고 있어",
           "translation": "I always wear a watch",
           "answer": "나",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 만두 먹기 싫어",
           "translation": "I don’t want to eat dumplings",
           "answer": "나",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 넘넘 배고파!",
           "translation": "I’m sooooo hungry!",
           "answer": "난",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 101 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -83,35 +83,35 @@
           "prompt": "야시장에 가기 ___",
           "translation": "He says that he doesn’t want to go to the night market",
           "answer": "싫대요",
-          "hint": "Начальная форма: 싫다",
+          "hint": "Base form: 싫다",
           "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "야시장에 가기 ___",
           "translation": "He says that he didn’t want to go to the night market",
           "answer": "싫었대요",
-          "hint": "Начальная форма: 싫었다",
+          "hint": "Base form: 싫다",
           "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 커플이 오늘 ___",
           "translation": "That couple says it is their anniversary today",
           "answer": "결혼기념일이래요",
-          "hint": "Начальная форма: 결혼기념일이다",
+          "hint": "Base form: 결혼기념일이다",
           "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 남자가 체격이 ___",
           "translation": "They say that man has a good build",
           "answer": "좋대요",
-          "hint": "Начальная форма: 좋다",
+          "hint": "Base form: 좋다",
           "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "눈이 안 좋아서 앞줄에 앉아야 ___",
           "translation": "His eyes aren’t good so he says he needs to sit in the front row",
           "answer": "된대요",
-          "hint": "Начальная форма: 된다",
+          "hint": "Base form: 된다",
           "explanation": "Original practice for the HTSK Lesson 102 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -154,35 +154,35 @@
           "prompt": "___ 10분 뒤부터 차례 대로 입장할 거예요",
           "translation": "In about 10 minutes, they will enter in their order",
           "answer": "한",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "이불을 강한 햇빛에 ___ 더 빨리 말랐어요",
           "translation": "I dried the blanket in the strong sun so it dried quickly",
           "answer": "말리므로",
-          "hint": "Начальная форма: 말리다",
+          "hint": "Base form: 말리다",
           "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "서울시는 영어 원어민에 관한 예산 ___을 줄이고 있어요",
           "translation": "The City of Seoul is lowering the budget for native English speakers in general (across the board)",
           "answer": "전반",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "집에 가는 동안 사고를 ___",
           "translation": "I got into an accident on my way home",
           "answer": "당했어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 왕따 학생은 다른 학생들한테 괴롭힘을 ___",
           "translation": "That outcast was humiliated by other students",
           "answer": "당했어요",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 103 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -229,35 +229,35 @@
           "prompt": "물론 수업 시간에 그 주제에 대해 ___ 했지만 너무 짧게 배우고 시험 전날 하룻밤만 공부했기 때문에 금방 잊어버렸다",
           "translation": "Of course, during class we learned about that subject, but it was very short and I only studied before the night of the exam so I forgot everything immediately",
           "answer": "배우기는",
-          "hint": "Начальная форма: 배우기다",
+          "hint": "Base form: 배우기다",
           "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 사람들이 김치를 많이 먹어요",
           "translation": "In Korea, people eat a lot of Kimchi",
           "answer": "한국에서는",
-          "hint": "Начальная форма: 한국에서다",
+          "hint": "Base form: 한국에서다",
           "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "이 ___ 귀중품이 없어요",
           "translation": "There are no valuables in this bag",
           "answer": "가방에는",
-          "hint": "Начальная форма: 가방에다",
+          "hint": "Base form: 가방에다",
           "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 일거리가 없어요",
           "translation": "There are no jobs in America (compared to another country)",
           "answer": "미국에는",
-          "hint": "Начальная форма: 미국에다",
+          "hint": "Base form: 미국에다",
           "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "티켓을 ___ 살 수 있어요",
           "translation": "You can purchase tickets at the ticket office (compared to another place)",
           "answer": "매표소에서는",
-          "hint": "Начальная форма: 매표소에서다",
+          "hint": "Base form: 매표소에서다",
           "explanation": "Original practice for the HTSK Lesson 104 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -300,35 +300,35 @@
           "prompt": "운동은 피의 순환을 ___",
           "translation": "Exercise vitalizes blood flow",
           "answer": "활성화해요",
-          "hint": "Начальная форма: 활성",
+          "hint": "Base form: 활성화하다화하다화하다",
           "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 상황을 ___하는 것은 어려워요",
           "translation": "It is hard to generalize that situation",
           "answer": "일반화",
-          "hint": "Начальная форма: 일반",
+          "hint": "Base form: 일반",
           "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우버는 택시 서비스를 ___해서 성공했어요",
           "translation": "Uber succeeded in commercializing the service of getting a taxi",
           "answer": "상업화",
-          "hint": "Начальная форма: 상업",
+          "hint": "Base form: 상업",
           "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "요즘에 오래된 도시를 ___하는 곳이 많아요",
           "translation": "These days there are a lot of old cities that are modernizing themselves",
           "answer": "현대화",
-          "hint": "Начальная форма: 현대",
+          "hint": "Base form: 현대",
           "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___를 빨리 할수록 경제가 더 빨리 성장해요",
           "translation": "The quicker industrialization happens, the quicker the economy develops",
           "answer": "산업화",
-          "hint": "Начальная форма: 산업",
+          "hint": "Base form: 산업",
           "explanation": "Original practice for the HTSK Lesson 105 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -379,35 +379,35 @@
           "prompt": "네가 내일 무엇을 ___ 간에 밖에 나가야 돼",
           "translation": "It doesn’t matter what you do tomorrow, but you have to go outside",
           "answer": "하든지",
-          "hint": "Начальная форма: 하다",
+          "hint": "Base form: 하다",
           "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "한 달 동안 ___ 먹어도 돼요",
           "translation": "For one month, you are allowed to eat whatever you want (for one month, it doesn’t matter what you eat)",
           "answer": "뭐든지",
-          "hint": "Начальная форма: 뭐다",
+          "hint": "Base form: 뭐다",
           "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 사람들이 믿을 수 있는 친구가 필요해요",
           "translation": "It doesn’t matter who it is, people need a friend they can trust (everybody needs a friend they can trust)",
           "answer": "누구든지",
-          "hint": "Начальная форма: 누구다",
+          "hint": "Base form: 누구다",
           "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우리 집에 ___ 오세요",
           "translation": "It doesn’t matter when you come to our house (come to our house anytime!)",
           "answer": "언제든지",
-          "hint": "Начальная форма: 언제다",
+          "hint": "Base form: 언제다",
           "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 앉아도 돼요",
           "translation": "Sit anywhere! (It doesn’t matter where you sit)",
           "answer": "어디든지",
-          "hint": "Начальная форма: 어디다",
+          "hint": "Base form: 어디다",
           "explanation": "Original practice for the HTSK Lesson 106 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -450,35 +450,35 @@
           "prompt": "식당 ___ 사람이 많아요",
           "translation": "There are a lot of people outside the restaurant as well",
           "answer": "밖에도",
-          "hint": "Начальная форма: 밖에다",
+          "hint": "Base form: 밖에다",
           "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "로션을 ___ 발라야 돼요",
           "translation": "You should put lotion on your face as well",
           "answer": "얼굴에도",
-          "hint": "Начальная форма: 얼굴에다",
+          "hint": "Base form: 얼굴에다",
           "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 아기들이 없어요",
           "translation": "The kids are not at the playground either",
           "answer": "놀이터에도",
-          "hint": "Начальная форма: 놀이터에다",
+          "hint": "Base form: 놀이터에다",
           "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 고래가 있어요",
           "translation": "There are whales in the Pacific Ocean as well",
           "answer": "태평양에도",
-          "hint": "Начальная форма: 태평양에다",
+          "hint": "Base form: 태평양에다",
           "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 기능이 ___ 설치돼 있어요",
           "translation": "That function is installed in the car as well",
           "answer": "승용차에도",
-          "hint": "Начальная форма: 승용차에다",
+          "hint": "Base form: 승용차에다",
           "explanation": "Original practice for the HTSK Lesson 107 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -517,35 +517,35 @@
           "prompt": "제가 운전을 처음 배웠을 때 초보 운전자 스티커를 붙이고 ___어요",
           "translation": "When I first learned how to drive, I drove around with a beginner-driver sticker (on my car) (but now I don’t)",
           "answer": "운전했었",
-          "hint": "Начальная форма: 운전다",
+          "hint": "Base form: 운전다",
           "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "오래 전에는 공룡이 실제로 ___어요",
           "translation": "A long time ago dinosaurs had once actually existed",
           "answer": "존재했었",
-          "hint": "Начальная форма: 존재다",
+          "hint": "Base form: 존재다",
           "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "제가 어렸을 때 얼굴에 흉터가 ___어요",
           "translation": "When I was younger I used to have a scar on my face",
           "answer": "있었었",
-          "hint": "Начальная форма: 있다",
+          "hint": "Base form: 있다다다다",
           "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "어렸을 때 등교할 때마다 이 지름길로 ___어요",
           "translation": "When I was young, I used to take this shortcut every time I went to school",
           "answer": "다녔었",
-          "hint": "Начальная форма: 다",
+          "hint": "Base form: 다",
           "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그녀가 애교가 많아서 그녀를 잠깐 ___어요",
           "translation": "I used to like her for a little while because she was very charming",
           "answer": "좋아했었",
-          "hint": "Начальная форма: 좋아다",
+          "hint": "Base form: 좋아다",
           "explanation": "Original practice for the HTSK Lesson 108 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -588,35 +588,35 @@
           "prompt": "여기가 ___요",
           "translation": "I guess this is the resting room",
           "answer": "휴게실이나 봐",
-          "hint": "Начальная форма: 휴게실이다",
+          "hint": "Base form: 휴게실이다",
           "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "시험이 ___요",
           "translation": "I guess the exam is hard",
           "answer": "어렵나 봐",
-          "hint": "Начальная форма: 어렵다",
+          "hint": "Base form: 어렵다",
           "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 사람이 ___요",
           "translation": "I guess he doesn’t like that person",
           "answer": "싫나 봐",
-          "hint": "Начальная форма: 싫다",
+          "hint": "Base form: 싫다",
           "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "온수가 잘 안 ___요",
           "translation": "I guess hot water doesn’t really work (come out) well",
           "answer": "나오나 봐",
-          "hint": "Начальная форма: 나오다",
+          "hint": "Base form: 나오다",
           "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "애기가 지금 욕조에 ___요",
           "translation": "I guess the baby is in the bathtub",
           "answer": "있나 봐",
-          "hint": "Начальная форма: 있다",
+          "hint": "Base form: 있다다다다",
           "explanation": "Original practice for the HTSK Lesson 109 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -659,35 +659,35 @@
           "prompt": "흔적이 없어서 ___어요",
           "translation": "There is no evidence, so there is nothing we can do",
           "answer": "어쩔 수 없",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "애기가 삐져서 ___어요",
           "translation": "The baby is upset, there is nothing we can do",
           "answer": "어쩔 수 없",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "강아지가 소심해서 ___어요",
           "translation": "The dog is very timid, there is nothing we can do",
           "answer": "어쩔 수 없",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "장비를 안 가져와서 ___어요",
           "translation": "We didn’t bring the equipment, there is nothing we can do",
           "answer": "어쩔 수 없",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "밀이 있었으면 좋겠지만 ___어요",
           "translation": "It would be nice if we had some flour, but there is nothing we can do",
           "answer": "어쩔 수 없",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 110 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -730,35 +730,35 @@
           "prompt": "비가 내리고 있으니 ___ 갈래요?",
           "translation": "Now that it is raining, do you want to go to the movies or something? (I’d rather go somewhere else, but it’s raining so what else can we do? How about going to the movies?)",
           "answer": "영화관에라도",
-          "hint": "Начальная форма: 영화관에다",
+          "hint": "Base form: 영화관에다",
           "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "할아버지 생신 선물로 돈을 ___ 모아서 드리자",
           "translation": "Let’s gather money, even if it is a little, and give it to grandpa on his birthday",
           "answer": "적게라도",
-          "hint": "Начальная форма: 적게다",
+          "hint": "Base form: 적게다",
           "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "사무실 위생을 위해 손을 ___ 씻어 주세요",
           "translation": "For the sanitation of our office, please wash your hands, even for a little bit",
           "answer": "잠깐이라도",
-          "hint": "Начальная форма: 잠깐다",
+          "hint": "Base form: 잠깐다",
           "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "조카가 ___ 있었으면 좋겠어요",
           "translation": "I wish I had a nephew, even if I only had one",
           "answer": "하나라도",
-          "hint": "Начальная форма: 하나다",
+          "hint": "Base form: 하나다",
           "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "그 기사를 ___ 보여주면 안 돼요?",
           "translation": "Can you show me that article just once?",
           "answer": "한번이라도",
-          "hint": "Начальная форма: 한번다",
+          "hint": "Base form: 한번다",
           "explanation": "Original practice for the HTSK Lesson 111 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -801,35 +801,35 @@
           "prompt": "그 사람이 돈이 ___이에요",
           "translation": "That person has a fair amount of money",
           "answer": "많은 편",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우리 아이는 ___이에요",
           "translation": "Our son is fairly smart",
           "answer": "똑똑한 편",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "저의 남자친구가 ___이에요",
           "translation": "My boyfriend is on the handsome side (fairly handsome)",
           "answer": "잘생긴 편",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "제가 벌고 있는 급여가 ___이에요",
           "translation": "The salary I earn is fairly high (on the high side)",
           "answer": "높은 편",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "이 배낭여행용 가방이 ___이었어요",
           "translation": "This backpacker backpack was fairly expensive",
           "answer": "비싼 편",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 112 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -872,35 +872,35 @@
           "prompt": "목사님이 지금 교회에 ___이라고 했어요",
           "translation": "The reverend said he is on the way to the church now",
           "answer": "오시는 길",
-          "hint": "Начальная форма: 오시다",
+          "hint": "Base form: 오시다",
           "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "색연필을 사러 ___인데 혹시 필요한 것이 있어요?",
           "translation": "I’m heading out to buy some colored pencils, by chance do you need anything?",
           "answer": "가는 길",
-          "hint": "Начальная форма: 가다",
+          "hint": "Base form: 가다",
           "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "제가 지금 집에 ___이라서 20분 후에 또 전화하면 안 돼요?",
           "translation": "I am on my way home right now, so can you call me back in 20 minutes?",
           "answer": "가는 길",
-          "hint": "Начальная форма: 가다",
+          "hint": "Base form: 가다",
           "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "제가 산을 ___이에요",
           "translation": "I am on my way (going) up the mountain",
           "answer": "올라가는 길",
-          "hint": "Начальная форма: 올라가다",
+          "hint": "Base form: 올라가다",
           "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "제가 집에 ___에 빵을 사 줄까요?",
           "translation": "On my way home, should I buy some bread (for you)?",
           "answer": "가는 길",
-          "hint": "Начальная форма: 가다",
+          "hint": "Base form: 가다",
           "explanation": "Original practice for the HTSK Lesson 113 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -943,35 +943,35 @@
           "prompt": "병원에 ___ 혈액 검사를 했는데 의사 선생님이 당이 검출됐다고 했어요",
           "translation": "While at the hospital I got my blood checked out, and the doctor said sugars were detected",
           "answer": "가는 김에",
-          "hint": "Начальная форма: 가다",
+          "hint": "Base form: 가다",
           "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "___ 입맛을 돌아오게 하는 제철음식을 먹을 거예요",
           "translation": "While going out to eat, I’m going to eat something seasonal to get my taste/appetite back",
           "answer": "외식하는 김에",
-          "hint": "Начальная форма: 외식하다",
+          "hint": "Base form: 외식하다",
           "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "사무실에서 ___ 조수한테 용지를 저한테 전달해 달라고 해 주세요",
           "translation": "While leaving the office, please tell my secretary to bring me some printer paper",
           "answer": "나가는 김에",
-          "hint": "Начальная форма: 나가다",
+          "hint": "Base form: 나가다",
           "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "다시 식당에 ___ 빨대도 갖다 주세요",
           "translation": "While you’re going into the restaurant again, get me a straw, please",
           "answer": "들어가는 김에",
-          "hint": "Начальная форма: 들어가다",
+          "hint": "Base form: 들어가다",
           "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "건설 현장을 ___ 우리도 우리 땅에 무엇을 지을지 얘기했어요",
           "translation": "While passing the construction site, we talked about what we would build on our land tool",
           "answer": "지나가는 김에",
-          "hint": "Начальная форма: 지나가다",
+          "hint": "Base form: 지나가다",
           "explanation": "Original practice for the HTSK Lesson 114 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -1014,35 +1014,35 @@
           "prompt": "국에 김이 많이 안 나서 안 뜨거울 줄 알았는데 그래도 국자를 ___",
           "translation": "There wasn’t a lot of steam coming out of the soup, so I thought it wouldn’t be hot, but either way I should have used a ladle",
           "answer": "쓸걸",
-          "hint": "Начальная форма: 쓸다",
+          "hint": "Base form: 쓸다",
           "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "아까 그 표지를 더 자세히 ___",
           "translation": "I should have looked at that sign better",
           "answer": "볼걸",
-          "hint": "Начальная форма: 볼다",
+          "hint": "Base form: 볼다",
           "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "식칼 대신에 과도 ___",
           "translation": "I should have used a fruit knife instead of a kitchen knife",
           "answer": "쓸걸",
-          "hint": "Начальная форма: 쓸다",
+          "hint": "Base form: 쓸다",
           "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "이용 수칙을 제대로 ___",
           "translation": "I should have read the rules of using (this thing) properly",
           "answer": "읽을걸",
-          "hint": "Начальная форма: 읽을다",
+          "hint": "Base form: 읽을다",
           "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "만료일이 언제까지인지 제대로 ___",
           "translation": "I should have looked at when the expiry date is until",
           "answer": "볼걸",
-          "hint": "Начальная форма: 볼다",
+          "hint": "Base form: 볼다",
           "explanation": "Original practice for the HTSK Lesson 115 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
@@ -1085,35 +1085,35 @@
           "prompt": "여자는 변기를 신문으로 ___ 화장실에서 나왔어요",
           "translation": "The girl came out of the bathroom with the toilet covered by newspaper",
           "answer": "덮은 채",
-          "hint": "Начальная форма: 덮다",
+          "hint": "Base form: 덮다",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우리는 불을 끈 ___ 영화를 봤다",
           "translation": "We watched a movie with the lights off",
           "answer": "채로",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우리는 불이 꺼진 ___ 영화를 봤다",
           "translation": "We watched a movie with the lights off",
           "answer": "채로",
-          "hint": "Начальная форма: Слово уже дано в полном виде в предложении",
+          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "우리는 불이 꺼져 ___ 영화를 봤다",
           "translation": "We watched a movie with the lights off",
           "answer": "있는 채로",
-          "hint": "Начальная форма: 있다",
+          "hint": "Base form: 있다다다다",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         },
         {
           "prompt": "눈을 ___ 그 숫자를 외워 봤어요",
           "translation": "I closed my eyes and tried to memorize those numbers",
           "answer": "감은 채",
-          "hint": "Начальная форма: 감다",
+          "hint": "Base form: 감다",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples."
         }
       ],
