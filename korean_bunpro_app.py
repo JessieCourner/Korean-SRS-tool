@@ -360,6 +360,8 @@ st.markdown("""
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
     .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
+    .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; min-height:2.7rem; display:flex; align-items:center;}
+    .inline-answer input {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
@@ -905,7 +907,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v9"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v11"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -2051,10 +2053,30 @@ def render_card(card):
     card = card_with_seed_content(card)
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     prompt = prompt_without_answer_hint(card["prompt"], card["answer"])
-    prompt_html = escape(prompt).replace("\n", "<br>")
+    answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
+    before, marker, after = prompt.partition("___")
+    if marker:
+        left_width = max(2, min(22, len(before) + 2))
+        right_width = max(2, min(22, len(after) + 2))
+        left, middle, right = st.columns([left_width, 9, right_width], gap="small", vertical_alignment="center")
+        with left:
+            st.markdown(f'<div class="inline-prompt-text">{escape(before)}</div>', unsafe_allow_html=True)
+        with middle:
+            st.text_input(
+                "Answer",
+                key=answer_key,
+                label_visibility="collapsed",
+                on_change=check_answer,
+                args=(card["id"], answer_key),
+                placeholder="…",
+            )
+        with right:
+            st.markdown(f'<div class="inline-prompt-text">{escape(after)}</div>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<div class="inline-prompt-text">{escape(prompt)}</div>', unsafe_allow_html=True)
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
-        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
+        f'''<div class="review-question-paper"><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the grammar explanation"):
@@ -2063,14 +2085,6 @@ def render_card(card):
         st.write(card["hint"])
     with st.expander("Show the answer"):
         st.write(card["answer"])
-    answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
-    answer = st.text_input(
-        "Your answer",
-        key=answer_key,
-        on_change=check_answer,
-        args=(card["id"], answer_key),
-        placeholder="Type the complete Korean word + grammar form and press Enter",
-    )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
         st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
