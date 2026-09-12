@@ -750,7 +750,7 @@
           "prompt": "엄마가 저를 데리러 ___",
           "translation": "I wish mom would come to pick me up",
           "answer": "왔으면 좋겠어요",
-          "hint": "Base form: 왔으면 좋겠어요",
+          "hint": "Base form: 오다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation. In this sentence, “왔으면 좋겠어요” completes the blank in “엄마가 저를 데리러 왔으면 좋겠어요” and gives it the meaning “I wish mom would come to pick me up”. Use the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK."
         }
       ],
@@ -1651,7 +1651,7 @@
           "prompt": "내일 주식이 떨어지거나 오르거나 ___",
           "translation": "It doesn’t matter if the stocks drop or go up tomorrow",
           "answer": "상관없어요",
-          "hint": "Base form: 상관없어요",
+          "hint": "Base form: 상관없다",
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든. In this sentence, “상관없어요” completes the blank in “내일 주식이 떨어지거나 오르거나 상관없어요” and gives it the meaning “It doesn’t matter if the stocks drop or go up tomorrow”. Use a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence."
         },
         {

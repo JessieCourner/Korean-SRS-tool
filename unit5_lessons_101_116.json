@@ -175,14 +175,14 @@
           "prompt": "집에 가는 동안 사고를 ___",
           "translation": "I got into an accident on my way home",
           "answer": "당했어요",
-          "hint": "Base form: 당했어요",
+          "hint": "Base form: 당하다",
           "explanation": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다. In this sentence, “당했어요” completes the blank in “집에 가는 동안 사고를 당했어요” and gives it the meaning “I got into an accident on my way home”. These are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern."
         },
         {
           "prompt": "그 왕따 학생은 다른 학생들한테 괴롭힘을 ___",
           "translation": "That outcast was humiliated by other students",
           "answer": "당했어요",
-          "hint": "Base form: 당했어요",
+          "hint": "Base form: 당하다",
           "explanation": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다. In this sentence, “당했어요” completes the blank in “그 왕따 학생은 다른 학생들한테 괴롭힘을 당했어요” and gives it the meaning “That outcast was humiliated by other students”. These are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern."
         }
       ],

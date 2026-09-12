@@ -639,35 +639,35 @@
           "prompt": "저는 그것을 할 ___",
           "translation": "I know how to do that",
           "answer": "줄 알아요",
-          "hint": "Base form: 줄 알아요",
+          "hint": "Base form: 하다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피. In this sentence, “줄 알아요” completes the blank in “저는 그것을 할 줄 알아요” and gives it the meaning “I know how to do that”. Attach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative."
         },
         {
           "prompt": "각도를 잴 ___?",
           "translation": "Do you know how to measure the angle?",
           "answer": "줄 알아요",
-          "hint": "Base form: 줄 알아요",
+          "hint": "Base form: 재다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피. In this sentence, “줄 알아요” completes the blank in “각도를 잴 줄 알아요?” and gives it the meaning “Do you know how to measure the angle?”. Attach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative."
         },
         {
           "prompt": "김밥을 만들 ___?",
           "translation": "Do you know how to make 김밥?",
           "answer": "줄 알아요",
-          "hint": "Base form: 줄 알아요",
+          "hint": "Base form: 만들다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피. In this sentence, “줄 알아요” completes the blank in “김밥을 만들 줄 알아요?” and gives it the meaning “Do you know how to make 김밥?”. Attach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative."
         },
         {
           "prompt": "한국말로 욕을 할 ___?",
           "translation": "Do you know how to swear in Korean?",
           "answer": "줄 알아요",
-          "hint": "Base form: 줄 알아요",
+          "hint": "Base form: 하다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피. In this sentence, “줄 알아요” completes the blank in “한국말로 욕을 할 줄 알아요?” and gives it the meaning “Do you know how to swear in Korean?”. Attach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative."
         },
         {
           "prompt": "그것을 할 ___?",
           "translation": "Do you know how to do that?",
           "answer": "줄 알아요",
-          "hint": "Base form: 줄 알아요",
+          "hint": "Base form: 하다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피. In this sentence, “줄 알아요” completes the blank in “그것을 할 줄 알아요?” and gives it the meaning “Do you know how to do that?”. Attach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative."
         }
       ],

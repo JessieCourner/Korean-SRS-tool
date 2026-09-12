@@ -501,7 +501,7 @@
           "prompt": "그 사람이 지난 달에 취업하니 밥값을 못 낼 ___",
           "translation": "That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)",
           "answer": "리가 없어요",
-          "hint": "Base form: 리가 없어요",
+          "hint": "Base form: 내다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “그 사람이 지난 달에 취업하니 밥값을 못 낼 리가 없어요” and gives it the meaning “That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
@@ -515,21 +515,21 @@
           "prompt": "삼성이 이 축제를 후원해서 돈이 부족할 ___",
           "translation": "Samsung is sponsoring this event, so there is no way money can run out",
           "answer": "리가 없어요",
-          "hint": "Base form: 리가 없어요",
+          "hint": "Base form: 부족하다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “삼성이 이 축제를 후원해서 돈이 부족할 리가 없어요” and gives it the meaning “Samsung is sponsoring this event, so there is no way money can run out”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "매일 열심히 운동을 하는데 그렇게 아플 ___",
           "translation": "You exercise every day – there is no way that you can be that sick",
           "answer": "리가 없어요",
-          "hint": "Base form: 리가 없어요",
+          "hint": "Base form: 아프다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “매일 열심히 운동을 하는데 그렇게 아플 리가 없어요” and gives it the meaning “You exercise every day – there is no way that you can be that sick”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "그 학생이 내용을 아주 대충 훑어서 다 외울 ___",
           "translation": "That student looked over the contents very “half-assed,” there is no way he memorized it all",
           "answer": "리가 없어요",
-          "hint": "Base form: 리가 없어요",
+          "hint": "Base form: 외우다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “그 학생이 내용을 아주 대충 훑어서 다 외울 리가 없어요” and gives it the meaning “That student looked over the contents very “half-assed,” there is no way he memorized it all”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         }
       ],

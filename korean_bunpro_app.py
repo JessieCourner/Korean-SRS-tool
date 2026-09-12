@@ -905,15 +905,13 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v3"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v4"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
 def bootstrap_app_data():
-    """Run database setup/synchronization once per app process and version."""
+    """Import and refresh checked-in card content without touching progress."""
     init_db()
-    if setting("content_sync_version", "") == CONTENT_SYNC_VERSION:
-        return
     import_seed_once()
     import_extended_seeds()
     sync_seed_card_content()
