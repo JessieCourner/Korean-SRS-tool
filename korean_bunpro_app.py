@@ -359,7 +359,7 @@ st.markdown("""
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
     .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
-    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
+    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; text-align:center; overflow-wrap:anywhere;}
     .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; white-space:nowrap; overflow:visible; min-height:2.7rem; display:flex; align-items:center;}
     [data-testid="stTextInput"] input, input[aria-label="Review answer"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important; -webkit-appearance:none !important; appearance:none !important;}
     [data-testid="stTextInput"] input:focus, input[aria-label="Review answer"]:focus {border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important;}
@@ -368,7 +368,7 @@ st.markdown("""
     [data-testid="stTextInput"]:has(input[aria-label="Review answer state"]) {position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; opacity:0 !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) {flex-wrap:nowrap !important; align-items:center !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) > [data-testid="column"] {min-width:0 !important;}
-    .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
+    .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; text-align:center; overflow-wrap:anywhere;}
     .answer-result {padding:8px 0; color:#514064; line-height:1.7; text-align:center;}
     .answer-result span {font-weight:800; color:#4f3d64;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
@@ -386,6 +386,8 @@ st.markdown("""
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
     .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
+    .st-key-chibi_control {position:fixed !important; right:18px !important; bottom:150px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
+    .st-key-chibi_control button {position:relative !important; z-index:2147483647 !important; width:52px !important; height:52px !important; min-width:52px !important; padding:0 !important; border:2px solid #efb8d6 !important; border-radius:16px !important; background:#fffaff !important; color:#684d7b !important; box-shadow:0 8px 18px rgba(91,71,112,.22) !important; font-size:24px !important; pointer-events:auto !important;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
@@ -921,7 +923,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v28"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v29"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1142,6 +1144,8 @@ def bts_character_image(member, fallback_icon):
 
 def render_bts_motivation(in_dialog=False):
     """Render two draggable full-body chibis on the page or inside a dialog."""
+    if st.session_state.get("chibis_hidden", False):
+        return
     message, _, _ = daily_bts_message()
     ko_icon = escape(message["ko_icon"])
     en_icon = escape(message["en_icon"])
@@ -1348,54 +1352,6 @@ def render_bts_motivation(in_dialog=False):
                     doc.body.appendChild(launcher);
                 }
 
-                let toggle = doc.getElementById("mochi-chibi-toggle");
-                if (!toggle) {
-                    toggle = doc.createElement("button");
-                    toggle.id = "mochi-chibi-toggle";
-                    toggle.type = "button";
-                    Object.assign(toggle.style, {
-                        position: "fixed",
-                        right: "14px",
-                        bottom: "150px",
-                        zIndex: "2147483647",
-                        position: "fixed",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "46px",
-                        height: "46px",
-                        minWidth: "46px",
-                        minHeight: "46px",
-                        padding: "0",
-                        border: "2px solid #efb8d6",
-                        borderRadius: "16px",
-                        background: "#fffaff",
-                        color: "#684d7b",
-                        boxShadow: "0 8px 18px rgba(91,71,112,.18)",
-                        fontFamily: "inherit",
-                        fontSize: "23px",
-                        lineHeight: "1",
-                        cursor: "pointer",
-                        pointerEvents: "auto",
-                        touchAction: "manipulation",
-                    });
-                    toggle.addEventListener("click", () => {
-                        const hidden = !chibisAreHidden();
-                        try {
-                            win.localStorage.setItem(hiddenStorageKey, hidden ? "1" : "0");
-                        } catch (error) {}
-                        applyChibiVisibility();
-                    });
-                    toggle.addEventListener("mouseenter", () => {
-                        toggle.style.background = "#fff1f8";
-                        toggle.style.borderColor = "#d99ac0";
-                    });
-                    toggle.addEventListener("mouseleave", () => {
-                        toggle.style.background = "#fffaff";
-                        toggle.style.borderColor = "#efb8d6";
-                    });
-                    doc.body.appendChild(toggle);
-                }
                 applyChibiVisibility();
 
                 function sidebarIsOpen() {
@@ -2759,3 +2715,8 @@ else: page_shop()
 # Render the single global chibi layer after the selected page/dialog. This
 # guarantees the layer exists on every page and stays above page content.
 render_bts_motivation()
+with st.container(key="chibi_control"):
+    hidden = st.session_state.get("chibis_hidden", False)
+    if st.button("👀" if hidden else "🙈", key="chibi_visibility_button", help="Show or hide chibis"):
+        st.session_state["chibis_hidden"] = not hidden
+        st.rerun()
