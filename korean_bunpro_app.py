@@ -387,7 +387,8 @@ st.markdown("""
     .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
     .st-key-chibi_control {position:fixed !important; right:18px !important; bottom:86px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
-    .st-key-chibi_control button {position:relative !important; z-index:2147483647 !important; width:52px !important; height:52px !important; min-width:52px !important; padding:0 !important; border:2px solid #efb8d6 !important; border-radius:16px !important; background:#fffaff !important; color:#684d7b !important; box-shadow:0 8px 18px rgba(91,71,112,.22) !important; font-size:24px !important; pointer-events:auto !important;}
+    .st-key-chibi_control_review, .st-key-chibi_control_lesson {position:fixed !important; right:18px !important; bottom:86px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
+    .st-key-chibi_control button, .st-key-chibi_control_review button, .st-key-chibi_control_lesson button {position:relative !important; z-index:2147483647 !important; width:52px !important; height:52px !important; min-width:52px !important; padding:0 !important; border:2px solid #efb8d6 !important; border-radius:16px !important; background:#fffaff !important; color:#684d7b !important; box-shadow:0 8px 18px rgba(91,71,112,.22) !important; font-size:24px !important; pointer-events:auto !important;}
     #mochi-chibi-toggle {display:none !important;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
@@ -924,7 +925,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v32"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v33"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1266,14 +1267,16 @@ def render_bts_motivation(in_dialog=False):
             }
 
             function syncHosts() {
-                // There is one global chibi host for the whole app. Keeping
-                // it alive avoids losing drag handlers when Streamlit opens
-                // or closes a dialog.
-                win.document.querySelectorAll(".bts-scene").forEach((scene) => {
-                    scene.style.display = "";
+                const modal = win.document.querySelector(".bts-dialog-surface");
+                const modalOpen = Boolean(modal && isVisible(modal));
+                win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
+                    scene.style.display = modalOpen ? "none" : "";
+                });
+                win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
+                    scene.style.display = modalOpen ? "" : "none";
                 });
                 applyChibiVisibility();
-                return false;
+                return modalOpen;
             }
 
             function installDesktopSidebarLauncher() {
@@ -1399,7 +1402,8 @@ def render_bts_motivation(in_dialog=False):
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
-                    if (scene.closest(".bts-dialog-surface")) return;
+                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
+                    if (modalOpen !== inModal) return;
                     scene.querySelectorAll("img").forEach((image) => {
                         image.draggable = false;
                         image.setAttribute("draggable", "false");
@@ -1593,6 +1597,15 @@ def render_bts_motivation(in_dialog=False):
         """,
         height=1,
     )
+
+
+def render_chibi_control(key):
+    """Render the native clickable hide/show control in the active layer."""
+    with st.container(key=key):
+        hidden = st.session_state.get("chibis_hidden", False)
+        if st.button("👀" if hidden else "🙈", key=f"chibi_visibility_{key}", help="Show or hide chibis"):
+            st.session_state["chibis_hidden"] = not hidden
+            st.rerun()
 
 
 def active_item(kind):
@@ -2476,10 +2489,14 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
+        render_bts_motivation(in_dialog=True)
+        render_chibi_control("chibi_control_lesson")
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
+        render_bts_motivation(in_dialog=True)
+        render_chibi_control("chibi_control_review")
         render_review_contents()
 else:
     lesson_dialog = None
@@ -2717,8 +2734,5 @@ else: page_shop()
 # Render the single global chibi layer after the selected page/dialog. This
 # guarantees the layer exists on every page and stays above page content.
 render_bts_motivation()
-with st.container(key="chibi_control"):
-    hidden = st.session_state.get("chibis_hidden", False)
-    if st.button("👀" if hidden else "🙈", key="chibi_visibility_button", help="Show or hide chibis"):
-        st.session_state["chibis_hidden"] = not hidden
-        st.rerun()
+if page not in {"Review"}:
+    render_chibi_control("chibi_control")
