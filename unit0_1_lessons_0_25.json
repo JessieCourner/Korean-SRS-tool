@@ -928,11 +928,11 @@
           "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “전” completes the blank in “3년 전 한국에 왔어요.” and gives it the meaning “I came to Korea three years ago.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
-          "prompt": "수업 ___에 만나요.",
+          "prompt": "수업 ___ 만나요.",
           "translation": "Let’s meet after class.",
-          "answer": "후",
+          "answer": "후에",
           "hint": "Base form: 후",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후” completes the blank in “수업 후에 만나요.” and gives it the meaning “Let’s meet after class.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후에” completes the blank in “수업 후에 만나요.” and gives it the meaning “Let’s meet after class.”. Use 동안 for duration and time words such as 전 and 후 to place an action before or after another time. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
           "prompt": "한 ___ 한국어를 공부했어요.",
@@ -942,11 +942,11 @@
           "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “달동안” completes the blank in “한 달동안 한국어를 공부했어요.” and gives it the meaning “I studied Korean for one month.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
-          "prompt": "점심 ___에 전화할게요.",
+          "prompt": "점심 ___ 전화할게요.",
           "translation": "I will call after lunch.",
-          "answer": "후",
+          "answer": "후에",
           "hint": "Base form: 후",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후” completes the blank in “점심 후에 전화할게요.” and gives it the meaning “I will call after lunch.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후에” completes the blank in “점심 후에 전화할게요.” and gives it the meaning “I will call after lunch.”. Use 동안 for duration and time words such as 전 and 후 to place an action before or after another time. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         }
       ]
     },
@@ -1863,11 +1863,11 @@
       "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
-          "prompt": "수업 ___에 복습해요.",
+          "prompt": "수업 ___ 복습해요.",
           "translation": "I review after class.",
-          "answer": "후",
+          "answer": "후에",
           "hint": "Base form: 후",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “후” completes the blank in “수업 후에 복습해요.” and gives it the meaning “I review after class.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “후에” completes the blank in “수업 후에 복습해요.” and gives it the meaning “I review after class.”. Use 전, 후, 이래로 and 이내 to position events in time, and indefinite words to mean anybody, somebody or everybody. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
           "prompt": "___ 올 수 있어요.",
@@ -1877,11 +1877,11 @@
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “누구든지” completes the blank in “누구든지 올 수 있어요.” and gives it the meaning “Anybody can come.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
-          "prompt": "한 시간 ___에 끝나요.",
+          "prompt": "한 시간 ___ 끝나요.",
           "translation": "It ends within one hour.",
-          "answer": "이내",
+          "answer": "이내에",
           "hint": "Base form: 이내",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내” completes the blank in “한 시간 이내에 끝나요.” and gives it the meaning “It ends within one hour.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내에” completes the blank in “한 시간 이내에 끝나요.” and gives it the meaning “It ends within one hour.”. Use 전, 후, 이래로 and 이내 to position events in time, and indefinite words to mean anybody, somebody or everybody. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
           "prompt": "회의 ___ 도착했어요.",
@@ -1891,11 +1891,11 @@
           "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “전에” completes the blank in “회의 전에 도착했어요.” and gives it the meaning “I arrived before the meeting.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
-          "prompt": "한 달 ___에 끝낼 거예요.",
+          "prompt": "한 달 ___ 끝낼 거예요.",
           "translation": "I will finish within one month.",
-          "answer": "이내",
+          "answer": "이내에",
           "hint": "Base form: 이내",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내” completes the blank in “한 달 이내에 끝낼 거예요.” and gives it the meaning “I will finish within one month.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내에” completes the blank in “한 달 이내에 끝낼 거예요.” and gives it the meaning “I will finish within one month.”. Use 전, 후, 이래로 and 이내 to position events in time, and indefinite words to mean anybody, somebody or everybody. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         }
       ]
     }
