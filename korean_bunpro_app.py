@@ -905,7 +905,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v5"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v6"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -2019,7 +2019,36 @@ def prompt_without_answer_hint(prompt, answer):
     return text
 
 
+def card_with_seed_content(card):
+    """Use the checked-in card text even when an old DB row still exists.
+
+    Existing deployments can retain card rows from an earlier release.  The
+    stable key is the completed Korean sentence, so changing which particles
+    belong inside the blank still finds the same card.
+    """
+    if not card:
+        return card
+    cache = st.session_state.setdefault("_seed_card_content", {})
+    if not cache:
+        for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+            if not seed_path.exists():
+                continue
+            payload = json.loads(seed_path.read_text(encoding="utf-8"))
+            for lesson in payload.get("lessons", []):
+                for seed_card in lesson.get("cards", []):
+                    filled = seed_card["prompt"].replace("___", seed_card["answer"], 1)
+                    cache[(normalize(filled), normalize(seed_card["translation"]))] = seed_card
+    filled = str(card["prompt"]).replace("___", str(card["answer"]), 1)
+    seed_card = cache.get((normalize(filled), normalize(card["translation"])))
+    if not seed_card:
+        return card
+    merged = dict(card)
+    merged.update({key: seed_card[key] for key in ("prompt", "translation", "answer", "hint", "explanation")})
+    return merged
+
+
 def render_card(card):
+    card = card_with_seed_content(card)
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     prompt = prompt_without_answer_hint(card["prompt"], card["answer"])
     prompt_html = escape(prompt).replace("\n", "<br>")
@@ -2304,6 +2333,7 @@ def render_review_contents():
             WHERE cards.id=?
         """, (result_card_id,))
         if result_card:
+            result_card = card_with_seed_content(result_card)
             user_answer = escape(str(st.session_state.get("result_user_answer", "")))
             answered_prompt = escape(
                 prompt_without_answer_hint(
