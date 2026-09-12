@@ -424,11 +424,11 @@ st.markdown("""
     .top-review-progress-track {flex:1 1 auto; width:auto; min-width:120px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
     [data-testid="stDialog"] .stDialogHeader h2, [data-testid="stDialog"] [data-testid="stDialogHeader"] h2, .stDialog [data-testid="stDialogHeader"] h2 {font-size:0 !important;}
-    [data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {position:absolute; top:10px; left:140px; right:24px; z-index:4; padding:0;}
-    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:inline-flex; color:#654b78; font-size:18px; font-weight:900;}
+    [data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {position:absolute; top:-105px; left:140px; right:24px; z-index:4; padding:0;}
+    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:none;}
     [data-testid="stDialog"] .top-review-progress, .stDialog .top-review-progress {width:100%;}
     [data-testid="stDialog"] .top-review-progress-track, .stDialog .top-review-progress-track {min-width:0;}
-    @media (max-width:700px) {[data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {left:90px; right:14px;}}
+    @media (max-width:700px) {[data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {top:-78px; left:90px; right:14px;}}
     .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
        and a role=dialog content wrapper.  The overlay owns scrolling for long
@@ -925,7 +925,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v23"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v24"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1495,7 +1495,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v6";
+            const dragControllerVersion = "drag-v7";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -1553,7 +1553,6 @@ def render_bts_motivation(in_dialog=False):
                     try { scene.setPointerCapture(event.pointerId); } catch (error) {}
                 }
                 event.preventDefault();
-                event.stopPropagation();
             }
 
             function moveDrag(event) {
@@ -1569,7 +1568,6 @@ def render_bts_motivation(in_dialog=False):
                 const maxTop = Math.max(6, win.innerHeight - rect.height - 6);
                 setPosition(drag.scene, clamp(point.clientX - drag.dx, 6, maxLeft), clamp(point.clientY - drag.dy, 6, maxTop));
                 event.preventDefault();
-                event.stopPropagation();
             }
 
             function endDrag(event) {
@@ -1582,7 +1580,6 @@ def render_bts_motivation(in_dialog=False):
                 drag.scene.classList.remove("bts-dragging");
                 controller.drag = null;
                 event.preventDefault();
-                event.stopPropagation();
             }
 
             const listeners = {
