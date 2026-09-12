@@ -369,6 +369,8 @@ st.markdown("""
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) {flex-wrap:nowrap !important; align-items:center !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) > [data-testid="column"] {min-width:0 !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
+    .answer-result {padding:8px 0; color:#514064; line-height:1.7;}
+    .answer-result span {font-weight:800; color:#4f3d64;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
@@ -418,6 +420,10 @@ st.markdown("""
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
     .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
     .modal-kicker strong {color:#654b78; font-size:18px;}
+    .top-review-progress {display:flex; align-items:center; gap:9px; color:#654b78; font-weight:800; white-space:nowrap;}
+    .top-review-progress-track {width:180px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
+    .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
        and a role=dialog content wrapper.  The overlay owns scrolling for long
        HTSK lessons; only the panel gets the visible border, so there is one
@@ -913,7 +919,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v17"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v20"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -946,8 +952,13 @@ def setting(key, default):
 
 
 def crystals():
+    cached = st.session_state.get("_crystals_cache")
+    if cached is not None:
+        return cached
     row = one("SELECT crystals FROM wallet WHERE id=1")
-    return row["crystals"] if row else 0
+    value = row["crystals"] if row else 0
+    st.session_state["_crystals_cache"] = value
+    return value
 
 
 def award_crystals(event_key, amount):
@@ -974,6 +985,8 @@ def award_crystals(event_key, amount):
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
     c.close()
+    if was_inserted and "_crystals_cache" in st.session_state:
+        st.session_state["_crystals_cache"] += amount
 
 
 def streak_info():
@@ -1035,6 +1048,9 @@ def record_activity(kind):
 
 def learner_level():
     """Map the furthest started lesson to the difficulty of the daily message."""
+    cached = st.session_state.get("_learner_level_cache")
+    if cached is not None:
+        return cached
     started = one("SELECT MAX(lesson_number) AS n FROM lessons WHERE status='studying'")
     active = one("""
         SELECT MAX(lessons.lesson_number) AS n
@@ -1053,7 +1069,9 @@ def learner_level():
         level = 4
     else:
         level = 5
-    return level, highest
+    result = (level, highest)
+    st.session_state["_learner_level_cache"] = result
+    return result
 
 
 def daily_bts_message():
@@ -1632,6 +1650,7 @@ def buy_or_activate(item_id):
         c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
         c.commit()
         c.close()
+        st.session_state.pop("_crystals_cache", None)
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
@@ -2087,7 +2106,7 @@ def render_card(card):
           html, body {{ margin:0; padding:0; background:transparent; overflow:hidden; }}
           .sentence {{ display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; white-space:nowrap; width:100%; min-height:62px; color:#4f3d64; font-family:inherit; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-x:auto; }}
           .sentence span {{ flex:0 0 auto; }}
-          .sentence input {{ flex:0 0 auto; width:2.5ch; min-width:2.5ch; margin:0 .12em; padding:0; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent; color:#4f3d64; font:inherit; text-align:center; caret-color:#4f3d64; }}
+          .sentence input {{ flex:0 0 auto; width:34px; min-width:34px; margin:0 .12em; padding:0; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent; color:#4f3d64; font:inherit; text-align:center; caret-color:#4f3d64; }}
           .sentence input:focus {{ border:0; outline:0; box-shadow:none; background:transparent; }}
         </style>
         <div class="sentence"><span>{escape(before)}</span><input id="answer_box_{card['id']}" autocomplete="off" spellcheck="false" autofocus><span>{escape(after)}</span></div>
@@ -2096,7 +2115,13 @@ def render_card(card):
           const win = window.parent;
           const visible = document.getElementById('answer_box_{card['id']}');
           function stateInput() {{ return win.document.querySelector('input[aria-label="Review answer state"]'); }}
-          function resize() {{ visible.style.width = Math.max(2.5, visible.value.length + 1.2) + 'ch'; }}
+          function resize() {{
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            context.font = getComputedStyle(visible).font;
+            const measured = context.measureText(visible.value || ' ').width;
+            visible.style.setProperty('width', Math.max(34, Math.ceil(measured + 10)) + 'px', 'important');
+          }}
           function sync() {{
             const hidden = stateInput(); if (!hidden) return;
             const setter = Object.getOwnPropertyDescriptor(win.HTMLInputElement.prototype, 'value').set;
@@ -2104,12 +2129,16 @@ def render_card(card):
             hidden.dispatchEvent(new win.Event('input', {{bubbles:true}}));
             hidden.dispatchEvent(new win.Event('change', {{bubbles:true}}));
           }}
-          visible.addEventListener('input', function() {{ resize(); sync(); }});
+          // Resizing is local to this small iframe. Do not sync on every
+          // keystroke: that would make Streamlit rerun the whole page while
+          // the learner is still typing.
+          visible.addEventListener('input', resize);
           visible.addEventListener('keydown', function(event) {{
             if (event.key !== 'Enter') return;
-            event.preventDefault(); sync();
+            event.preventDefault();
+            sync();
             const hidden = stateInput();
-            if (hidden) {{ hidden.focus(); hidden.dispatchEvent(new win.KeyboardEvent('keydown', {{key:'Enter', code:'Enter', bubbles:true}})); hidden.blur(); }}
+            if (hidden) {{ hidden.focus(); hidden.blur(); }}
           }});
           resize(); visible.focus();
         }})();
@@ -2119,7 +2148,7 @@ def render_card(card):
         st.markdown(f'<div class="inline-prompt-text">{escape(prompt)}</div>', unsafe_allow_html=True)
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
-        f'''<div class="review-question-paper"><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
+        f'''<div class="plain-translation"><b>Translation:</b> {translation_html}</div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the grammar explanation"):
@@ -2371,17 +2400,9 @@ def render_review_contents():
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
     st.markdown(
-        f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
+        f'''<div class="modal-kicker"><span>{character_icon} cozy Korean garden</span><div class="top-review-progress"><span>{completed} / {total}</span><div class="top-review-progress-track"><div class="top-review-progress-fill" style="width:{progress * 100:.1f}%"></div></div></div></div>''',
         unsafe_allow_html=True,
     )
-    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
-    st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
-        <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
-        <div class="review-progress-track">
-            <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
-            <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
-        </div>
-    </div>''', unsafe_allow_html=True)
     result_card_id = st.session_state.get("result_card_id")
     if result_card_id:
         result_card = one("""
@@ -2398,7 +2419,7 @@ def render_review_contents():
                 )
             ).replace(
                 "___",
-                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                f'''<span style="font-weight:800;color:#4f3d64">{user_answer}</span>''',
                 1,
             )
             st.markdown(
@@ -2406,7 +2427,7 @@ def render_review_contents():
                 unsafe_allow_html=True,
             )
             st.markdown(
-                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
+                f'''<div class="answer-result"><div>Your answer: <span>{user_answer}</span></div><div>Correct answer: <span>{escape(str(st.session_state.get("result_correct_answer", "")))}</span></div></div>''',
                 unsafe_allow_html=True,
             )
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
@@ -2705,10 +2726,11 @@ pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
 if pending_mobile_page in NAV_PAGES:
     st.session_state["nav"] = pending_mobile_page
 render_mobile_navigation()
-render_bts_motivation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
+if page != "Review":
+    render_bts_motivation()
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
