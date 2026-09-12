@@ -386,7 +386,7 @@ st.markdown("""
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
     .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
-    .st-key-chibi_control {position:fixed !important; right:18px !important; bottom:150px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
+    .st-key-chibi_control {position:fixed !important; right:18px !important; bottom:86px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
     .st-key-chibi_control button {position:relative !important; z-index:2147483647 !important; width:52px !important; height:52px !important; min-width:52px !important; padding:0 !important; border:2px solid #efb8d6 !important; border-radius:16px !important; background:#fffaff !important; color:#684d7b !important; box-shadow:0 8px 18px rgba(91,71,112,.22) !important; font-size:24px !important; pointer-events:auto !important;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
@@ -923,7 +923,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v29"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v31"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1277,6 +1277,10 @@ def render_bts_motivation(in_dialog=False):
 
             function installDesktopSidebarLauncher() {
                 const doc = win.document;
+                // Remove the toggle injected by pre-v39 builds. The current
+                // toggle is the native Streamlit button rendered by Python.
+                const legacyToggle = doc.getElementById("mochi-chibi-toggle");
+                if (legacyToggle) legacyToggle.remove();
                 const sidebarLauncherVersion = "launcher-v3";
                 if (win.__mochiSidebarLauncherObserverVersion !== sidebarLauncherVersion) {
                     if (win.__mochiSidebarLauncherObserver) win.__mochiSidebarLauncherObserver.disconnect();
@@ -1450,7 +1454,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v7";
+            const dragControllerVersion = "drag-v8";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
