@@ -392,7 +392,7 @@ st.markdown("""
     .bts-speaker {display:none;}
     .bts-label {display:none;}
     .bts-quote {color:#5b4770; font-size:16px; line-height:1.55; overflow-wrap:anywhere;}
-    [class*="st-key-review_card_shell"] [data-testid="stExpander"] {width:min(360px,100%) !important; max-width:360px !important; margin:5px 0 !important;}
+    [class*="st-key-review_card_shell"] [data-testid="stExpander"] {width:100% !important; max-width:none !important; margin:5px 0 !important;}
     [class*="st-key-review_card_shell"] [data-testid="stExpander"] summary {padding-top:5px !important; padding-bottom:5px !important; min-height:0 !important;}
     [class*="st-key-review_card_shell"] [data-testid="stExpander"] [data-testid="stMarkdownContainer"] {font-size:.92rem !important; line-height:1.3 !important;}
     .bts-character-alt {display:none;}
@@ -404,7 +404,7 @@ st.markdown("""
     .lesson-section-title {margin-top:18px; color:#654b78; font-size:18px; font-weight:900;}
     .lesson-example {padding:13px 15px; margin:10px 0; border:1px solid #efd8e8; border-left:5px solid #efb8d6; border-radius:0 17px 17px 0; background:#ffffff; color:#514064; box-shadow:0 5px 14px rgba(134,101,156,.08); overflow-wrap:anywhere;}
     .lesson-example > div:first-child {color:#514064 !important; font-size:16px; line-height:1.6;}
-    [class*="st-key-review_card_shell"] {border:0 !important; border-radius:32px !important; background:#fffaff !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:9px 16px 12px !important;}
+    [class*="st-key-review_card_shell"] {width:100% !important; max-width:none !important; border:0 !important; border-radius:32px !important; background:#fffaff !important; box-shadow:0 12px 28px rgba(134,101,156,.14) !important; padding:9px 16px 12px !important;}
     [class*="st-key-review_card_shell"] [data-testid="stVerticalBlockBorderWrapper"] {border:3px solid #efb8d6 !important; border-radius:25px !important; background:#fffaff !important;}
     [class*="st-key-review_card_shell"] [data-testid="stMarkdownContainer"] {color:#514064 !important;}
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
@@ -531,7 +531,7 @@ st.markdown("""
         .bts-character, .bts-vector-fallback {width:56px; height:90px;}
         .bts-speech {min-width:0; max-width:calc(100vw - 96px); flex:1 1 auto; padding:10px 12px;}
         .bts-quote {font-size:14px;}
-        [class*="st-key-review_card_shell"] [data-testid="stExpander"] {width:min(360px,calc(100% - 34px)) !important; max-width:min(360px,calc(100% - 34px)) !important; margin:5px 0 !important;}
+        [class*="st-key-review_card_shell"] [data-testid="stExpander"] {width:100% !important; max-width:none !important; margin:5px 0 !important;}
         [class*="st-key-review_card_shell"] [data-testid="stExpander"] summary {padding-top:4px !important; padding-bottom:4px !important;}
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
         .streak-meta {text-align:left;}
@@ -905,7 +905,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v8"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v9"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")

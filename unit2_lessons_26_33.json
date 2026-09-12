@@ -14,35 +14,35 @@
           "translation": "The food I ate",
           "answer": "먹은",
           "hint": "Base form: 먹다",
-          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. In this sentence, the blank expresses the idea shown in the translation: “The food I ate”. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
+          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
         },
         {
           "prompt": "내가 ___ 음식",
           "translation": "The food I will eat",
           "answer": "먹을",
           "hint": "Base form: 먹다",
-          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. In this sentence, the blank expresses the idea shown in the translation: “The food I will eat”. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
+          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
         },
         {
           "prompt": "제가 ___ 음식",
           "translation": "The food I eat",
           "answer": "먹는",
           "hint": "Base form: 먹다",
-          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. In this sentence, the blank expresses the idea shown in the translation: “The food I eat”. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
+          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
         },
         {
           "prompt": "제가 ___ 음식",
           "translation": "The food I will eat",
           "answer": "먹을",
           "hint": "Base form: 먹다",
-          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. In this sentence, the blank expresses the idea shown in the translation: “The food I will eat”. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
+          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
         },
         {
           "prompt": "제가 ___ 학생",
           "translation": "the student I teach",
           "answer": "가르치는",
           "hint": "Base form: 가르치다",
-          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. In this sentence, the blank expresses the idea shown in the translation: “the student I teach”. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
+          "explanation": "Turns a verb clause into a noun-like expression with 것, often meaning the thing or action that someone does, wants or likes. Use it when an action needs to be discussed as a thing or when a noun is described by what somebody does. Use a verb in the present modifier form ~는 before 것. Add the past or future modifier forms before 것 when the time reference requires them."
         }
       ],
       "source_status": "published",
@@ -85,35 +85,35 @@
           "translation": "That is the computer I had used last year",
           "answer": "썼던",
           "hint": "Base form: 썼다",
-          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. In this sentence, the blank expresses the idea shown in the translation: “That is the computer I had used last year”. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
+          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
           "prompt": "저는 애기가 ___ 휴지를 다 버렸어요",
           "translation": "I threw out all the tissue paper that the baby had used",
           "answer": "썼던",
           "hint": "Base form: 썼다",
-          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. In this sentence, the blank expresses the idea shown in the translation: “I threw out all the tissue paper that the baby had used”. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
+          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
           "prompt": "한때 ___ 시험을 다시 공부했어요",
           "translation": "I again studied for the exam that I once gave up on",
           "answer": "포기했던",
           "hint": "Base form: 포기하다",
-          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. In this sentence, the blank expresses the idea shown in the translation: “I again studied for the exam that I once gave up on”. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
+          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
           "prompt": "대통령이 여기에 ___ 시민들에게 돈을 줬어요",
           "translation": "The president gave money to those who once lived here",
           "answer": "살았던",
           "hint": "Base form: 살다",
-          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. In this sentence, the blank expresses the idea shown in the translation: “The president gave money to those who once lived here”. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
+          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
           "prompt": "우리가 지난 주에 ___ 내용을 다시 공부할 거예요",
           "translation": "I will study the contents that we had learned last week again",
           "answer": "배웠던",
           "hint": "Base form: 배웠다",
-          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. In this sentence, the blank expresses the idea shown in the translation: “I will study the contents that we had learned last week again”. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
+          "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         }
       ],
       "source_status": "published",
@@ -156,35 +156,35 @@
           "translation": "I saw my friend opening the door",
           "answer": "여는 것",
           "hint": "Base form: 여다",
-          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. In this sentence, the blank expresses the idea shown in the translation: “I saw my friend opening the door”. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
+          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "마음에 ___ 부분이 있나요?",
           "translation": "Do you have a part/section that you like?",
           "answer": "드는",
           "hint": "Base form: 드다",
-          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. In this sentence, the blank expresses the idea shown in the translation: “Do you have a part/section that you like?”. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
+          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "옆에 ___ 이웃사람이 너무 시끄러워요",
           "translation": "The neighbor who lives next to me is too loud",
           "answer": "사는",
           "hint": "Base form: 사",
-          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. In this sentence, the blank expresses the idea shown in the translation: “The neighbor who lives next to me is too loud”. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
+          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "우리가 ___ 지역이 조금 위험해요",
           "translation": "The area we live in is a little bit dangerous",
           "answer": "사는",
           "hint": "Base form: 사다",
-          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. In this sentence, the blank expresses the idea shown in the translation: “The area we live in is a little bit dangerous”. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
+          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "농장에서 ___ 게 싫어요",
           "translation": "I don’t like living on a farm",
           "answer": "사는",
           "hint": "Base form: 사다",
-          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. In this sentence, the blank expresses the idea shown in the translation: “I don’t like living on a farm”. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
+          "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         }
       ],
       "source_status": "published",
@@ -227,35 +227,35 @@
           "translation": "After I put the rice in the water, the color of the rice started to change",
           "answer": "변하기",
           "hint": "Base form: 변하다",
-          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. In this sentence, the blank expresses the idea shown in the translation: “After I put the rice in the water, the color of the rice started to change”. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
+          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         },
         {
           "prompt": "밥을 ___ 싫어",
           "translation": "I don’t want to eat",
           "answer": "먹기",
           "hint": "Base form: 먹다",
-          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. In this sentence, the blank expresses the idea shown in the translation: “I don’t want to eat”. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
+          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         },
         {
           "prompt": "쌀을 ___ 싫어요",
           "translation": "I don’t want to wash the rice",
           "answer": "씻기",
           "hint": "Base form: 씻다",
-          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. In this sentence, the blank expresses the idea shown in the translation: “I don’t want to wash the rice”. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
+          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         },
         {
           "prompt": "저는 ___ 할 거예요",
           "translation": "I will go for a run",
           "answer": "달리기를",
           "hint": "Base form: 달리다",
-          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. In this sentence, the blank expresses the idea shown in the translation: “I will go for a run”. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
+          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         },
         {
           "prompt": "저는 ___ 못해요",
           "translation": "I’m bad at skipping",
           "answer": "줄넘기를",
           "hint": "Base form: 줄넘다",
-          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. In this sentence, the blank expresses the idea shown in the translation: “I’m bad at skipping”. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
+          "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         }
       ],
       "source_status": "published",
@@ -298,35 +298,35 @@
           "translation": "I don’t know where my friend is going",
           "answer": "가는지",
           "hint": "Base form: 가다",
-          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. In this sentence, the blank expresses the idea shown in the translation: “I don’t know where my friend is going”. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
+          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
         },
         {
           "prompt": "저는 친구가 어디 ___ 모르겠어요",
           "translation": "I don’t know where my friend is going",
           "answer": "가는지",
           "hint": "Base form: 가다",
-          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. In this sentence, the blank expresses the idea shown in the translation: “I don’t know where my friend is going”. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
+          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
         },
         {
           "prompt": "엄마가 누구랑 ___ 모르겠어요",
           "translation": "I don’t know who mom is eating with",
           "answer": "먹는지",
           "hint": "Base form: 먹다",
-          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. In this sentence, the blank expresses the idea shown in the translation: “I don’t know who mom is eating with”. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
+          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
         },
         {
           "prompt": "엄마가 뭐 ___ 모르겠어요",
           "translation": "I don’t know what mom is eating",
           "answer": "먹는지",
           "hint": "Base form: 먹다",
-          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. In this sentence, the blank expresses the idea shown in the translation: “I don’t know what mom is eating”. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
+          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
         },
         {
           "prompt": "엄마가 어디서 ___ 모르겠어요",
           "translation": "I don’t know where mom is eating",
           "answer": "먹는지",
           "hint": "Base form: 먹다",
-          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. In this sentence, the blank expresses the idea shown in the translation: “I don’t know where mom is eating”. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
+          "explanation": "~는지, ~(으)ㄴ지 and ~(으)ㄹ지 express uncertainty or an indirect question. ~지 can also combine with time expressions to say how long it has been. Use them when the speaker does not know whether something is true, asks an embedded question, or measures time since an event. Match the ending to a present action, adjective or noun, past event, or future possibility, then place the clause before 알다, 모르다 or a similar predicate."
         }
       ],
       "source_status": "published",
@@ -369,35 +369,35 @@
           "translation": "Seulgi is doing something illegal",
           "answer": "불법인",
           "hint": "Base form: 불법다",
-          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. In this sentence, the blank expresses the idea shown in the translation: “Seulgi is doing something illegal”. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
+          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "Titanic ___ Leonardo Dicaprio는 잘생겼어요",
           "translation": "Leonardo Dicaprio, who is an actor in Titanic is handsome",
           "answer": "배우인",
           "hint": "Base form: 배우다",
-          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. In this sentence, the blank expresses the idea shown in the translation: “Leonardo Dicaprio, who is an actor in Titanic is handsome”. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
+          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "그 사람이 ___ 아닌지 모르겠어요",
           "translation": "I don’t know if that person is a teacher or not",
           "answer": "선생님인지",
           "hint": "Base form: 선생님",
-          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. In this sentence, the blank expresses the idea shown in the translation: “I don’t know if that person is a teacher or not”. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
+          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "우리가 ___ 몰랐어요",
           "translation": "I didn’t know that we were the same age",
           "answer": "동갑인지",
           "hint": "Base form: 동갑다",
-          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. In this sentence, the blank expresses the idea shown in the translation: “I didn’t know that we were the same age”. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
+          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "비상출구가 ___ 모르겠어요",
           "translation": "I don’t know where the emergency exit is",
           "answer": "어디인지",
           "hint": "Base form: 어디다",
-          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. In this sentence, the blank expresses the idea shown in the translation: “I don’t know where the emergency exit is”. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
+          "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         }
       ],
       "source_status": "published",
@@ -436,35 +436,35 @@
           "translation": "I try to meet that friend every weekend",
           "answer": "만나려고",
           "hint": "Base form: 만나다",
-          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. In this sentence, the blank expresses the idea shown in the translation: “I try to meet that friend every weekend”. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
+          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
         },
         {
           "prompt": "한국어를 ___ 노력하고 있어요",
           "translation": "I am trying to learn Korean",
           "answer": "배우려고",
           "hint": "Base form: 배우다",
-          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. In this sentence, the blank expresses the idea shown in the translation: “I am trying to learn Korean”. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
+          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
         },
         {
           "prompt": "서울에 있는 공연을 ___ 갈래요?",
           "translation": "Shall we go to the show in Seoul?",
           "answer": "보러",
           "hint": "Base form: 보다",
-          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. In this sentence, the blank expresses the idea shown in the translation: “Shall we go to the show in Seoul?”. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
+          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
         },
         {
           "prompt": "그 공연을 ___ 여기에 왔어요",
           "translation": "I came here to see that performance",
           "answer": "보러",
           "hint": "Base form: 보다",
-          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. In this sentence, the blank expresses the idea shown in the translation: “I came here to see that performance”. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
+          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
         },
         {
           "prompt": "공연을 ___ 그 행사에 가고 있어요",
           "translation": "I am going to the event to see that performance",
           "answer": "보러",
           "hint": "Base form: 보다",
-          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. In this sentence, the blank expresses the idea shown in the translation: “I am going to the event to see that performance”. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
+          "explanation": "~려고 and ~러 express purpose, while ~아/어 보다 means to try an action or to have the experience of doing it. Use the purpose forms when one action is done in order to do another; use 보다 when talking about trying or experiencing an action. Use verb stem + ~려고, or verb stem + ~(으)러 with a movement verb. Attach ~아/어 보다 to the verb stem and conjugate 보다."
         }
       ],
       "source_status": "published",
@@ -507,35 +507,35 @@
           "translation": "I am eating",
           "answer": "먹는 중이야",
           "hint": "Base form: 먹다",
-          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. In this sentence, the blank expresses the idea shown in the translation: “I am eating”. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
+          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "나는 ___",
           "translation": "I am studying",
           "answer": "공부하는 중이야",
           "hint": "Base form: 공부하다",
-          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. In this sentence, the blank expresses the idea shown in the translation: “I am studying”. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
+          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "나는 공부 ___",
           "translation": "I am studying",
           "answer": "중이야",
           "hint": "Base form: 중이야",
-          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. In this sentence, the blank expresses the idea shown in the translation: “I am studying”. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
+          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "저는 생각 ___",
           "translation": "I am thinking",
           "answer": "중이에요",
           "hint": "Base form: 중이에요",
-          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. In this sentence, the blank expresses the idea shown in the translation: “I am thinking”. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
+          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "그 상가가 지금 공사 ___",
           "translation": "That building is under construction",
           "answer": "중이에요",
           "hint": "Base form: 중이에요",
-          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. In this sentence, the blank expresses the idea shown in the translation: “That building is under construction”. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
+          "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         }
       ],
       "source_status": "published",
