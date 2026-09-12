@@ -423,6 +423,11 @@ st.markdown("""
     .top-review-progress {display:flex; align-items:center; gap:9px; flex:1 1 auto; min-width:0; color:#654b78; font-weight:800; white-space:nowrap;}
     .top-review-progress-track {flex:1 1 auto; width:auto; min-width:120px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    [data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {position:absolute; top:10px; left:140px; right:24px; z-index:4; padding:0;}
+    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:none;}
+    [data-testid="stDialog"] .top-review-progress, .stDialog .top-review-progress {width:100%;}
+    [data-testid="stDialog"] .top-review-progress-track, .stDialog .top-review-progress-track {min-width:0;}
+    @media (max-width:700px) {[data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {left:90px; right:14px;}}
     .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
        and a role=dialog content wrapper.  The overlay owns scrolling for long
@@ -919,7 +924,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v21"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v22"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1259,16 +1264,14 @@ def render_bts_motivation(in_dialog=False):
             }
 
             function syncHosts() {
-                const modal = win.document.querySelector(".bts-dialog-surface");
-                const modalOpen = Boolean(modal && isVisible(modal));
-                win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
-                    scene.style.display = modalOpen ? "none" : "";
-                });
-                win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
-                    scene.style.display = modalOpen ? "" : "none";
+                // There is one global chibi host for the whole app. Keeping
+                // it alive avoids losing drag handlers when Streamlit opens
+                // or closes a dialog.
+                win.document.querySelectorAll(".bts-scene").forEach((scene) => {
+                    scene.style.display = "";
                 });
                 applyChibiVisibility();
-                return modalOpen;
+                return false;
             }
 
             function installDesktopSidebarLauncher() {
@@ -1437,8 +1440,7 @@ def render_bts_motivation(in_dialog=False):
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
-                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
-                    if (modalOpen !== inModal) return;
+                    if (scene.closest(".bts-dialog-surface")) return;
                     scene.querySelectorAll("img").forEach((image) => {
                         image.draggable = false;
                         image.setAttribute("draggable", "false");
@@ -1486,7 +1488,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v5";
+            const dragControllerVersion = "drag-v6";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -1830,9 +1832,18 @@ def focus_answer_field():
             }
         }
         function focusAnswer() {
-            const input = parentWindow.document.querySelector(
-                'input[aria-label="Review answer"]'
-            );
+            let input = parentWindow.document.querySelector('input[aria-label="Review answer"]');
+            // The visible answer field lives inside Streamlit's components
+            // iframe. Find it there as well, so opening a hint or dragging a
+            // chibi does not leave focus stuck outside the answer field.
+            if (!input) {
+                for (const frame of parentWindow.document.querySelectorAll('iframe')) {
+                    try {
+                        input = frame.contentDocument && frame.contentDocument.querySelector('input[id^="answer_box_"]');
+                        if (input) break;
+                    } catch (error) {}
+                }
+            }
             if (!input) return false;
             if (!input.dataset.mochiResizeBound) {
                 input.dataset.mochiResizeBound = '1';
@@ -1843,6 +1854,17 @@ def focus_answer_field():
             const end = input.value.length;
             try { input.setSelectionRange(end, end); } catch (error) {}
             return true;
+        }
+        function refocusAfterInteraction(event) {
+            const target = event && event.target;
+            if (target && target.closest && target.closest('button')) return;
+            parentWindow.setTimeout(focusAnswer, 80);
+        }
+        if (!parentWindow.__mochiAnswerRefocusBound) {
+            parentWindow.__mochiAnswerRefocusBound = true;
+            parentWindow.document.addEventListener('pointerup', refocusAfterInteraction, true);
+            parentWindow.document.addEventListener('mouseup', refocusAfterInteraction, true);
+            parentWindow.document.addEventListener('touchend', refocusAfterInteraction, true);
         }
         let attempts = 0;
         const timer = parentWindow.setInterval(function() {
@@ -2099,17 +2121,20 @@ def render_card(card):
     prompt = prompt_without_answer_hint(card["prompt"], card["answer"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     before, marker, after = prompt.partition("___")
+    translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     if marker:
         st.text_input("Review answer state", key=answer_key, label_visibility="collapsed", on_change=check_answer, args=(card["id"], answer_key), placeholder="")
         components.html(f"""
         <style>
           html, body {{ margin:0; padding:0; background:transparent; overflow:hidden; }}
-          .sentence {{ display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; white-space:nowrap; width:100%; min-height:62px; color:#4f3d64; font-family:inherit; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-x:auto; }}
+          .review-inline-content {{ width:100%; overflow-x:auto; }}
+          .sentence {{ display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; white-space:nowrap; width:100%; min-height:50px; color:#4f3d64; font-family:inherit; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; }}
+          .inline-translation {{ margin:0 0 10px; color:#654b78; font-family:inherit; font-size:1rem; line-height:1.45; text-align:center; white-space:normal; }}
           .sentence span {{ flex:0 0 auto; }}
           .sentence input {{ flex:0 0 auto; width:34px; min-width:34px; margin:0 .12em; padding:0; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent; color:#4f3d64; font:inherit; text-align:center; caret-color:#4f3d64; }}
           .sentence input:focus {{ border:0; outline:0; box-shadow:none; background:transparent; }}
         </style>
-        <div class="sentence"><span>{escape(before)}</span><input id="answer_box_{card['id']}" autocomplete="off" spellcheck="false" autofocus><span>{escape(after)}</span></div>
+        <div class="review-inline-content"><div class="sentence"><span>{escape(before)}</span><input id="answer_box_{card['id']}" autocomplete="off" spellcheck="false" autofocus><span>{escape(after)}</span></div><div class="inline-translation">{translation_html}</div></div>
         <script>
         (function() {{
           const win = window.parent;
@@ -2146,11 +2171,7 @@ def render_card(card):
         """, height=72, scrolling=False)
     else:
         st.markdown(f'<div class="inline-prompt-text">{escape(prompt)}</div>', unsafe_allow_html=True)
-    translation_html = escape(str(card["translation"])).replace("\n", "<br>")
-    st.markdown(
-        f'''<div class="plain-translation">{translation_html}</div>''',
-        unsafe_allow_html=True,
-    )
+        st.markdown(f'''<div class="plain-translation">{translation_html}</div>''', unsafe_allow_html=True)
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
     with st.expander("Show the word in its base form"):
