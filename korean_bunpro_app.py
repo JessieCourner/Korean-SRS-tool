@@ -421,6 +421,9 @@ st.markdown("""
     .review-header-progress {display:flex; align-items:center; gap:10px; flex:1 1 auto; min-width:0; margin-left:24px; color:#654b78; font-size:13px; font-weight:800; white-space:nowrap;}
     .review-header-progress-track {flex:1 1 auto; min-width:80px; height:10px; overflow:hidden; border:1px solid #e2cbe1; border-radius:99px; background:#eadff2;}
     .review-header-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    .review-progress-fixed {position:fixed; top:72px; left:230px; right:52px; z-index:2147483005; display:flex; align-items:center; gap:10px; color:#654b78; font-size:13px; font-weight:800; white-space:nowrap; pointer-events:none;}
+    .review-progress-fixed-track {flex:1 1 auto; min-width:80px; height:10px; overflow:hidden; border:1px solid #e2cbe1; border-radius:99px; background:#eadff2;}
+    .review-progress-fixed-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
     @media (max-width:700px) {.review-header-progress {margin-left:10px; gap:5px; font-size:11px;}.review-header-progress-track {min-width:40px;}}
     .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
@@ -918,7 +921,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v27"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v28"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1353,8 +1356,9 @@ def render_bts_motivation(in_dialog=False):
                     Object.assign(toggle.style, {
                         position: "fixed",
                         right: "14px",
-                        bottom: "86px",
+                        bottom: "150px",
                         zIndex: "2147483647",
+                        position: "fixed",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1443,7 +1447,8 @@ def render_bts_motivation(in_dialog=False):
                     });
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
-        scene.style.zIndex = "2147483646";
+                    scene.style.zIndex = "2147483646";
+                    scene.style.pointerEvents = "auto";
                     const key = sceneKey(day, slot);
                     scene.dataset.chibiStorageKey = key;
                     if (scene.dataset.chibiPositionBound === "1") {
@@ -1451,6 +1456,7 @@ def render_bts_motivation(in_dialog=False):
                         return;
                     }
                     scene.dataset.chibiPositionBound = "1";
+                    scene.onpointerdown = beginDrag;
                     scene.addEventListener("pointerdown", beginDrag, eventOptions);
                     scene.addEventListener("pointermove", moveDrag, eventOptions);
                     scene.addEventListener("pointerup", endDrag, eventOptions);
@@ -2417,26 +2423,10 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    components.html(f"""
-    <script>
-    (() => {{
-        const doc = window.parent.document;
-        const header = doc.querySelector('[data-testid="stDialogHeader"]')
-            || doc.querySelector('[data-testid="stDialog"] header')
-            || doc.querySelector('.stDialog header');
-        if (!header) return;
-        header.style.display = 'flex';
-        header.style.alignItems = 'center';
-        const old = header.querySelector('.review-header-progress');
-        if (old) old.remove();
-        const progress = doc.createElement('div');
-        progress.className = 'review-header-progress';
-        progress.innerHTML = '<span>{completed} / {total}</span><div class="review-header-progress-track"><div class="review-header-progress-fill" style="width:{progress * 100:.1f}%"></div></div>';
-        const close = header.querySelector('button');
-        if (close) header.insertBefore(progress, close); else header.appendChild(progress);
-    }})();
-    </script>
-    """, height=1)
+    st.markdown(
+        f'''<div class="review-progress-fixed"><span>{completed} / {total}</span><div class="review-progress-fixed-track"><div class="review-progress-fixed-fill" style="width:{progress * 100:.1f}%"></div></div></div>''',
+        unsafe_allow_html=True,
+    )
     result_card_id = st.session_state.get("result_card_id")
     if result_card_id:
         result_card = one("""
