@@ -361,10 +361,11 @@ st.markdown("""
     .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
     .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; white-space:nowrap; overflow:visible; min-height:2.7rem; display:flex; align-items:center;}
-    input[aria-label="Answer"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important; -webkit-appearance:none !important; appearance:none !important;}
-    input[aria-label="Answer"]:focus {border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
-    input[aria-label="Answer"]::placeholder {color:transparent !important; -webkit-text-fill-color:transparent !important; opacity:0 !important;}
-    [data-testid="stTextInput"]:has(input[aria-label="Answer"]), [data-testid="stTextInput"]:has(input[aria-label="Answer"]) > div {border:0 !important; background:transparent !important; box-shadow:none !important; padding:0 !important;}
+    [data-testid="stTextInput"] input, input[aria-label="Review answer"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important; -webkit-appearance:none !important; appearance:none !important;}
+    [data-testid="stTextInput"] input:focus, input[aria-label="Review answer"]:focus {border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important;}
+    [data-testid="stTextInput"] input::placeholder, input[aria-label="Review answer"]::placeholder {color:transparent !important; -webkit-text-fill-color:transparent !important; opacity:0 !important;}
+    [data-testid="stTextInput"], [data-testid="stTextInput"] > div, [data-testid="stTextInput"] > div > div {border:0 !important; background:transparent !important; box-shadow:none !important; padding:0 !important;}
+    [data-testid="stTextInput"]:has(input[aria-label="Review answer state"]) {position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; opacity:0 !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) {flex-wrap:nowrap !important; align-items:center !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) > [data-testid="column"] {min-width:0 !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
@@ -912,7 +913,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v15"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v17"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1811,7 +1812,7 @@ def focus_answer_field():
         }
         function focusAnswer() {
             const input = parentWindow.document.querySelector(
-                'input[aria-label="Answer"]'
+                'input[aria-label="Review answer"]'
             );
             if (!input) return false;
             if (!input.dataset.mochiResizeBound) {
@@ -2080,22 +2081,40 @@ def render_card(card):
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     before, marker, after = prompt.partition("___")
     if marker:
-        left_width = max(2, min(22, len(before) + 2))
-        right_width = max(2, min(22, len(after) + 2))
-        left, middle, right = st.columns([left_width, 2, right_width], gap="small", vertical_alignment="center")
-        with left:
-            st.markdown(f'<div class="inline-prompt-text">{escape(before)}</div>', unsafe_allow_html=True)
-        with middle:
-            st.text_input(
-                "Answer",
-                key=answer_key,
-                label_visibility="collapsed",
-                on_change=check_answer,
-                args=(card["id"], answer_key),
-                placeholder="",
-            )
-        with right:
-            st.markdown(f'<div class="inline-prompt-text">{escape(after)}</div>', unsafe_allow_html=True)
+        st.text_input("Review answer state", key=answer_key, label_visibility="collapsed", on_change=check_answer, args=(card["id"], answer_key), placeholder="")
+        components.html(f"""
+        <style>
+          html, body {{ margin:0; padding:0; background:transparent; overflow:hidden; }}
+          .sentence {{ display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; white-space:nowrap; width:100%; min-height:62px; color:#4f3d64; font-family:inherit; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-x:auto; }}
+          .sentence span {{ flex:0 0 auto; }}
+          .sentence input {{ flex:0 0 auto; width:2.5ch; min-width:2.5ch; margin:0 .12em; padding:0; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent; color:#4f3d64; font:inherit; text-align:center; caret-color:#4f3d64; }}
+          .sentence input:focus {{ border:0; outline:0; box-shadow:none; background:transparent; }}
+        </style>
+        <div class="sentence"><span>{escape(before)}</span><input id="answer_box_{card['id']}" autocomplete="off" spellcheck="false" autofocus><span>{escape(after)}</span></div>
+        <script>
+        (function() {{
+          const win = window.parent;
+          const visible = document.getElementById('answer_box_{card['id']}');
+          function stateInput() {{ return win.document.querySelector('input[aria-label="Review answer state"]'); }}
+          function resize() {{ visible.style.width = Math.max(2.5, visible.value.length + 1.2) + 'ch'; }}
+          function sync() {{
+            const hidden = stateInput(); if (!hidden) return;
+            const setter = Object.getOwnPropertyDescriptor(win.HTMLInputElement.prototype, 'value').set;
+            setter.call(hidden, visible.value);
+            hidden.dispatchEvent(new win.Event('input', {{bubbles:true}}));
+            hidden.dispatchEvent(new win.Event('change', {{bubbles:true}}));
+          }}
+          visible.addEventListener('input', function() {{ resize(); sync(); }});
+          visible.addEventListener('keydown', function(event) {{
+            if (event.key !== 'Enter') return;
+            event.preventDefault(); sync();
+            const hidden = stateInput();
+            if (hidden) {{ hidden.focus(); hidden.dispatchEvent(new win.KeyboardEvent('keydown', {{key:'Enter', code:'Enter', bubbles:true}})); hidden.blur(); }}
+          }});
+          resize(); visible.focus();
+        }})();
+        </script>
+        """, height=72, scrolling=False)
     else:
         st.markdown(f'<div class="inline-prompt-text">{escape(prompt)}</div>', unsafe_allow_html=True)
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
