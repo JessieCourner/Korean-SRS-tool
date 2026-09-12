@@ -13,35 +13,35 @@
           "translation": "Classes divided by levels have good points and bad points, too",
           "answer": "수준별",
           "hint": "Base form: 수준",
-          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, “수준별” completes the blank in “수준별 수업은 좋은 점도 있고 나쁜 점도 있어요” and gives it the meaning “Classes divided by levels have good points and bad points, too”. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
+          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, the blank expresses the idea shown in the translation: “Classes divided by levels have good points and bad points, too”. Use them when organizing things by type or saying that something is not especially so. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
         },
         {
           "prompt": "개학 전에 우리는 ___ 명단을 작성해야 돼요",
           "translation": "Before the start of school, we need to make a list of students names by grade",
           "answer": "학년별",
           "hint": "Base form: 학년",
-          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, “학년별” completes the blank in “개학 전에 우리는 학년별 명단을 작성해야 돼요” and gives it the meaning “Before the start of school, we need to make a list of students names by grade”. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
+          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, the blank expresses the idea shown in the translation: “Before the start of school, we need to make a list of students names by grade”. Use them when organizing things by type or saying that something is not especially so. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
         },
         {
           "prompt": "각 부서마다 ___ 회의를 할 거예요",
           "translation": "Each department will have a meeting (among themselves)",
           "answer": "부서별",
           "hint": "Base form: 부서",
-          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, “부서별” completes the blank in “각 부서마다 부서별 회의를 할 거예요” and gives it the meaning “Each department will have a meeting (among themselves)”. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
+          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, the blank expresses the idea shown in the translation: “Each department will have a meeting (among themselves)”. Use them when organizing things by type or saying that something is not especially so. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
         },
         {
           "prompt": "12월까지 우리 회사는 ___ 평가를 시행하겠습니다",
           "translation": "Until December, our company will be running a personal evaluation",
           "answer": "개인별",
           "hint": "Base form: 개인",
-          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, “개인별” completes the blank in “12월까지 우리 회사는 개인별 평가를 시행하겠습니다” and gives it the meaning “Until December, our company will be running a personal evaluation”. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
+          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, the blank expresses the idea shown in the translation: “Until December, our company will be running a personal evaluation”. Use them when organizing things by type or saying that something is not especially so. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
         },
         {
           "prompt": "새로운 컴퓨터를 사면 ___ 언어 설정을 해야 돼요",
           "translation": "When you buy a new computer, you need to set the language setting (appropriate for your nation)",
           "answer": "국가별",
           "hint": "Base form: 국가",
-          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, “국가별” completes the blank in “새로운 컴퓨터를 사면 국가별 언어 설정을 해야 돼요” and gives it the meaning “When you buy a new computer, you need to set the language setting (appropriate for your nation)”. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
+          "explanation": "~별 after a noun means by category or for each category, while 별로 is an adverb with a negative meaning such as not particularly. In this sentence, the blank expresses the idea shown in the translation: “When you buy a new computer, you need to set the language setting (appropriate for your nation)”. Use them when organizing things by type or saying that something is not especially so. Attach 별 to a noun for categories; use 별로 before a negative predicate, following the source examples."
         }
       ],
       "source_status": "published",
@@ -84,35 +84,35 @@
           "translation": "I will give one cookie to each kid",
           "answer": "개씩",
           "hint": "Base form: 개다",
-          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, “개씩” completes the blank in “저는 아이들에게 과자를 한 개씩 줄 거예요” and gives it the meaning “I will give one cookie to each kid”. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
+          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, the blank expresses the idea shown in the translation: “I will give one cookie to each kid”. Use it for equal distribution, repeated intervals or gradual amounts. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
         },
         {
           "prompt": "저는 아이들에게 과자를 ___ 줄 거예요",
           "translation": "I will give one cookie to each kid",
           "answer": "하나씩",
           "hint": "Base form: 하나다",
-          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, “하나씩” completes the blank in “저는 아이들에게 과자를 하나씩 줄 거예요” and gives it the meaning “I will give one cookie to each kid”. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
+          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, the blank expresses the idea shown in the translation: “I will give one cookie to each kid”. Use it for equal distribution, repeated intervals or gradual amounts. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
         },
         {
           "prompt": "저는 아이들에게 과자를 두 ___ 줄 거예요",
           "translation": "I will give two cookies to each kid",
           "answer": "개씩",
           "hint": "Base form: 개다",
-          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, “개씩” completes the blank in “저는 아이들에게 과자를 두 개씩 줄 거예요” and gives it the meaning “I will give two cookies to each kid”. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
+          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, the blank expresses the idea shown in the translation: “I will give two cookies to each kid”. Use it for equal distribution, repeated intervals or gradual amounts. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
         },
         {
           "prompt": "저는 한 달에 두 ___ 병원에 가야 돼요",
           "translation": "I need to go to the hospital twice a month, every month, or",
           "answer": "번씩",
           "hint": "Base form: 번다",
-          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, “번씩” completes the blank in “저는 한 달에 두 번씩 병원에 가야 돼요” and gives it the meaning “I need to go to the hospital twice a month, every month, or”. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
+          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, the blank expresses the idea shown in the translation: “I need to go to the hospital twice a month, every month, or”. Use it for equal distribution, repeated intervals or gradual amounts. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
         },
         {
           "prompt": "학생들이 ___ 운동해요",
           "translation": "Students exercise for 30 minutes",
           "answer": "30분씩",
           "hint": "Base form: 30분다",
-          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, “30분씩” completes the blank in “학생들이 30분씩 운동해요” and gives it the meaning “Students exercise for 30 minutes”. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
+          "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩. In this sentence, the blank expresses the idea shown in the translation: “Students exercise for 30 minutes”. Use it for equal distribution, repeated intervals or gradual amounts. Attach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK."
         }
       ],
       "source_status": "published",
@@ -155,35 +155,35 @@
           "translation": "Open the door (and keep it open)",
           "answer": "열어 놓아",
           "hint": "Base form: 열다",
-          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, “열어 놓아” completes the blank in “문을 열어 놓아” and gives it the meaning “Open the door (and keep it open)”. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
+          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, the blank expresses the idea shown in the translation: “Open the door (and keep it open)”. Use it when something has been done and left that way for later, preparation or continued effect. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
         },
         {
           "prompt": "저는 짐을 벌써 차에 ___어요",
           "translation": "I already loaded all of the luggage/bags into the car",
           "answer": "실어 놓았",
           "hint": "Base form: 실다",
-          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, “실어 놓았” completes the blank in “저는 짐을 벌써 차에 실어 놓았어요” and gives it the meaning “I already loaded all of the luggage/bags into the car”. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
+          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, the blank expresses the idea shown in the translation: “I already loaded all of the luggage/bags into the car”. Use it when something has been done and left that way for later, preparation or continued effect. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
         },
         {
           "prompt": "자석을 냉장고에 그냥 ___어요",
           "translation": "I just stuck the magnet onto the fridge",
           "answer": "붙여 놓았",
           "hint": "Base form: 붙다",
-          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, “붙여 놓았” completes the blank in “자석을 냉장고에 그냥 붙여 놓았어요” and gives it the meaning “I just stuck the magnet onto the fridge”. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
+          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, the blank expresses the idea shown in the translation: “I just stuck the magnet onto the fridge”. Use it when something has been done and left that way for later, preparation or continued effect. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
         },
         {
           "prompt": "저는 자켓을 옷걸이에 ___어요",
           "translation": "I hung my jacket on the clothes hanger",
           "answer": "걸어 놓았",
           "hint": "Base form: 걸",
-          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, “걸어 놓았” completes the blank in “저는 자켓을 옷걸이에 걸어 놓았어요” and gives it the meaning “I hung my jacket on the clothes hanger”. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
+          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, the blank expresses the idea shown in the translation: “I hung my jacket on the clothes hanger”. Use it when something has been done and left that way for later, preparation or continued effect. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
         },
         {
           "prompt": "만약 제가 로또가 당첨되면 저는 돈을 다 은행에 ___ 싶어요",
           "translation": "If I win the lottery, I want to put all of my money in the bank",
           "answer": "넣어 놓고",
           "hint": "Base form: 넣다",
-          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, “넣어 놓고” completes the blank in “만약 제가 로또가 당첨되면 저는 돈을 다 은행에 넣어 놓고 싶어요” and gives it the meaning “If I win the lottery, I want to put all of my money in the bank”. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
+          "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains. In this sentence, the blank expresses the idea shown in the translation: “If I win the lottery, I want to put all of my money in the bank”. Use it when something has been done and left that way for later, preparation or continued effect. Attach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action."
         }
       ],
       "source_status": "published",
@@ -226,35 +226,35 @@
           "translation": "We waited for more than two hours",
           "answer": "넘게",
           "hint": "Base form: 넘게",
-          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, “넘게” completes the blank in “우리는 두 시간 넘게 기다렸어요” and gives it the meaning “We waited for more than two hours”. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
+          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, the blank expresses the idea shown in the translation: “We waited for more than two hours”. Use it for crossing limits, going over quantities or moving beyond a physical or abstract point. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
         },
         {
           "prompt": "저는 일본에 스무 번 ___ 가 봤어요",
           "translation": "I’ve been to Japan more than twenty times",
           "answer": "넘게",
           "hint": "Base form: 넘게",
-          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, “넘게” completes the blank in “저는 일본에 스무 번 넘게 가 봤어요” and gives it the meaning “I’ve been to Japan more than twenty times”. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
+          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, the blank expresses the idea shown in the translation: “I’ve been to Japan more than twenty times”. Use it for crossing limits, going over quantities or moving beyond a physical or abstract point. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
         },
         {
           "prompt": "90점 ___ 받으면 엄마가 선물을 사 준대요",
           "translation": "If I get a score over 90, mom said that she’ll buy a present (for me)",
           "answer": "넘게",
           "hint": "Base form: 넘게",
-          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, “넘게” completes the blank in “90점 넘게 받으면 엄마가 선물을 사 준대요” and gives it the meaning “If I get a score over 90, mom said that she’ll buy a present (for me)”. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
+          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, the blank expresses the idea shown in the translation: “If I get a score over 90, mom said that she’ll buy a present (for me)”. Use it for crossing limits, going over quantities or moving beyond a physical or abstract point. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
         },
         {
           "prompt": "이 과자가 너무 맛있어서 열 개 ___ 샀어요",
           "translation": "This candy/cookie is so delicious so I bought more than ten of them",
           "answer": "넘게",
           "hint": "Base form: 넘게",
-          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, “넘게” completes the blank in “이 과자가 너무 맛있어서 열 개 넘게 샀어요” and gives it the meaning “This candy/cookie is so delicious so I bought more than ten of them”. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
+          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, the blank expresses the idea shown in the translation: “This candy/cookie is so delicious so I bought more than ten of them”. Use it for crossing limits, going over quantities or moving beyond a physical or abstract point. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
         },
         {
           "prompt": "백 년 ___ 이 식당이 한국 사람들이 제일 좋아하는 식당이에요",
           "translation": "For over 100 years, this restaurant has been the favorite restaurant of Korean people",
           "answer": "넘게",
           "hint": "Base form: 넘게",
-          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, “넘게” completes the blank in “백 년 넘게 이 식당이 한국 사람들이 제일 좋아하는 식당이에요” and gives it the meaning “For over 100 years, this restaurant has been the favorite restaurant of Korean people”. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
+          "explanation": "넘다 means pass or exceed a point, amount or threshold. 넘게 and 넘어서 extend this meaning in clauses. In this sentence, the blank expresses the idea shown in the translation: “For over 100 years, this restaurant has been the favorite restaurant of Korean people”. Use it for crossing limits, going over quantities or moving beyond a physical or abstract point. Use the noun or number with 넘다, or attach ~게/~어서 in the constructions HTSK demonstrates; conjugate 넘다 normally."
         }
       ],
       "source_status": "published",
@@ -297,35 +297,35 @@
           "translation": "There are more than 100,000,000,000 planets in the Milky Way Galaxy",
           "answer": "천억",
           "hint": "Base form: 천다",
-          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, “천억” completes the blank in “은하수에 천억 개 넘게 해성이 있어요” and gives it the meaning “There are more than 100,000,000,000 planets in the Milky Way Galaxy”. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
+          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, the blank expresses the idea shown in the translation: “There are more than 100,000,000,000 planets in the Milky Way Galaxy”. Use the system for prices, populations, money and other large quantities instead of reading every digit as in English. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
         },
         {
           "prompt": "주행 거리계가 ___ 킬로를 넘었어요",
           "translation": "The odometer just went over 1,000,000 km",
           "answer": "백만",
           "hint": "Base form: 백다",
-          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, “백만” completes the blank in “주행 거리계가 백만 킬로를 넘었어요” and gives it the meaning “The odometer just went over 1,000,000 km”. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
+          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, the blank expresses the idea shown in the translation: “The odometer just went over 1,000,000 km”. Use the system for prices, populations, money and other large quantities instead of reading every digit as in English. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
         },
         {
           "prompt": "캐나다 면적은 거의 ___ 킬로미터요",
           "translation": "Canada’s land-area is almost 10,000,000 square kilometers",
           "answer": "천만",
           "hint": "Base form: 천다",
-          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, “천만” completes the blank in “캐나다 면적은 거의 천만 킬로미터요” and gives it the meaning “Canada’s land-area is almost 10,000,000 square kilometers”. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
+          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, the blank expresses the idea shown in the translation: “Canada’s land-area is almost 10,000,000 square kilometers”. Use the system for prices, populations, money and other large quantities instead of reading every digit as in English. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
         },
         {
           "prompt": "한 해변에 모래알 ___ 개 정도가 있어요",
           "translation": "There are roughly 10,000,000,000,000 grains of sand on one beach",
           "answer": "십조",
           "hint": "Base form: 십다",
-          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, “십조” completes the blank in “한 해변에 모래알 십조 개 정도가 있어요” and gives it the meaning “There are roughly 10,000,000,000,000 grains of sand on one beach”. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
+          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, the blank expresses the idea shown in the translation: “There are roughly 10,000,000,000,000 grains of sand on one beach”. Use the system for prices, populations, money and other large quantities instead of reading every digit as in English. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
         },
         {
           "prompt": "그렇게 많은 돈을 투자하면 일 년에 복리로 ___ 원을 벌 수 있어요",
           "translation": "If you invest that much money, in one year you can make 100,000,000 won from compound interest in a year",
           "answer": "일억",
           "hint": "Base form: 일",
-          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, “일억” completes the blank in “그렇게 많은 돈을 투자하면 일 년에 복리로 일억 원을 벌 수 있어요” and gives it the meaning “If you invest that much money, in one year you can make 100,000,000 won from compound interest in a year”. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
+          "explanation": "Korean uses large-number units based on ten-thousand groups, including 만, 억, 조 and larger units. In this sentence, the blank expresses the idea shown in the translation: “If you invest that much money, in one year you can make 100,000,000 won from compound interest in a year”. Use the system for prices, populations, money and other large quantities instead of reading every digit as in English. Group digits in sets of four and attach the Korean unit for each group, using the zero and omitted-unit rules explained on the official lesson page."
         }
       ],
       "source_status": "published",
@@ -364,35 +364,35 @@
           "translation": "On the day of my grandfather’s 제사, we need to buy a lot of fruit and meat before going (presumably to the place where 제사 is done)",
           "answer": "제삿날",
           "hint": "Base form: 제삿날",
-          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, “제삿날” completes the blank in “우리는 할아버지 제삿날에 과일이랑 고기를 많이 사 가야 돼요” and gives it the meaning “On the day of my grandfather’s 제사, we need to buy a lot of fruit and meat before going (presumably to the place where 제사 is done)”. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
+          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, the blank expresses the idea shown in the translation: “On the day of my grandfather’s 제사, we need to buy a lot of fruit and meat before going (presumably to the place where 제사 is done)”. Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
         },
         {
           "prompt": "종이를 아껴 쓰기 위해 종이의 ___도 항상 사용해요",
           "translation": "In order to save paper, you should always use the back side of the page",
           "answer": "뒷면",
           "hint": "Base form: 뒷면",
-          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, “뒷면” completes the blank in “종이를 아껴 쓰기 위해 종이의 뒷면도 항상 사용해요” and gives it the meaning “In order to save paper, you should always use the back side of the page”. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
+          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, the blank expresses the idea shown in the translation: “In order to save paper, you should always use the back side of the page”. Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
         },
         {
           "prompt": "이 공식의 ___은 6 입니다",
           "translation": "The maximum value of this formula is 6",
           "answer": "최댓값",
           "hint": "Base form: 최댓값",
-          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, “최댓값” completes the blank in “이 공식의 최댓값은 6 입니다” and gives it the meaning “The maximum value of this formula is 6”. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
+          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, the blank expresses the idea shown in the translation: “The maximum value of this formula is 6”. Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
         },
         {
           "prompt": "이 자료 집합에서 ___을 찾아내는 것은 매우 중요합니다",
           "translation": "Finding the maximum value in this dataset is crucial",
           "answer": "최댓값",
           "hint": "Base form: 최댓값",
-          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, “최댓값” completes the blank in “이 자료 집합에서 최댓값을 찾아내는 것은 매우 중요합니다” and gives it the meaning “Finding the maximum value in this dataset is crucial”. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
+          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, the blank expresses the idea shown in the translation: “Finding the maximum value in this dataset is crucial”. Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
         },
         {
           "prompt": "전셋값이 올라서 이제 ___이 별로 없어요",
           "translation": "The price of 전세 went up so there isn’t that many 전세 houses now",
           "answer": "전셋집",
           "hint": "Base form: 전셋집",
-          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, “전셋집” completes the blank in “전셋값이 올라서 이제 전셋집이 별로 없어요” and gives it the meaning “The price of 전세 went up so there isn’t that many 전세 houses now”. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
+          "explanation": "사이시옷 is a spelling and pronunciation feature that can appear between parts of certain compound nouns. In this sentence, the blank expresses the idea shown in the translation: “The price of 전세 went up so there isn’t that many 전세 houses now”. Use it when reading or forming the compound nouns covered by Korean orthographic and pronunciation rules. There is no free productive suffix. Learn which compounds take ㅅ and apply the pronunciation and spelling patterns listed by HTSK."
         }
       ],
       "source_status": "published",
@@ -431,35 +431,35 @@
           "translation": "As it (the time) gets later, the interval time for buses (the frequency that buses run) decreases",
           "answer": "늦을수록",
           "hint": "Base form: 늦을다",
-          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, “늦을수록” completes the blank in “시간이 늦을수록 버스 운행 간격이 줄어요” and gives it the meaning “As it (the time) gets later, the interval time for buses (the frequency that buses run) decreases”. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
+          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, the blank expresses the idea shown in the translation: “As it (the time) gets later, the interval time for buses (the frequency that buses run) decreases”. Use it for proportional or parallel changes in degree, frequency or amount. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
         },
         {
           "prompt": "___ 야경이 예뻐요",
           "translation": "As it gets darker, the night view gets prettier",
           "answer": "어두워질수록",
           "hint": "Base form: 어두워질다",
-          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, “어두워질수록” completes the blank in “어두워질수록 야경이 예뻐요” and gives it the meaning “As it gets darker, the night view gets prettier”. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
+          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, the blank expresses the idea shown in the translation: “As it gets darker, the night view gets prettier”. Use it for proportional or parallel changes in degree, frequency or amount. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
         },
         {
           "prompt": "꿀벌이 ___ 인류에 영향을 미치는 문제가 많아요",
           "translation": "As bees disappear, there will be more problems that affect humans",
           "answer": "없어질수록",
           "hint": "Base form: 없다",
-          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, “없어질수록” completes the blank in “꿀벌이 없어질수록 인류에 영향을 미치는 문제가 많아요” and gives it the meaning “As bees disappear, there will be more problems that affect humans”. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
+          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, the blank expresses the idea shown in the translation: “As bees disappear, there will be more problems that affect humans”. Use it for proportional or parallel changes in degree, frequency or amount. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
         },
         {
           "prompt": "환율 변동이 ___ 주식시장에 문제가 많이 생겨요",
           "translation": "As changes in the exchange rate happen/come up there are problems in the stock market",
           "answer": "생길수록",
           "hint": "Base form: 생길다",
-          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, “생길수록” completes the blank in “환율 변동이 생길수록 주식시장에 문제가 많이 생겨요” and gives it the meaning “As changes in the exchange rate happen/come up there are problems in the stock market”. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
+          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, the blank expresses the idea shown in the translation: “As changes in the exchange rate happen/come up there are problems in the stock market”. Use it for proportional or parallel changes in degree, frequency or amount. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
         },
         {
           "prompt": "사람들이 돈이 ___ 욕심이 많아요",
           "translation": "The more money people have, the greedier they are",
           "answer": "많을수록",
           "hint": "Base form: 많을다",
-          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, “많을수록” completes the blank in “사람들이 돈이 많을수록 욕심이 많아요” and gives it the meaning “The more money people have, the greedier they are”. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
+          "explanation": "~ㄹ/을수록 means the more or as something increases, the more another result changes. In this sentence, the blank expresses the idea shown in the translation: “The more money people have, the greedier they are”. Use it for proportional or parallel changes in degree, frequency or amount. Attach ~ㄹ수록 after a vowel or ㄹ stem and ~을수록 after another consonant; the result clause states the corresponding change."
         }
       ],
       "source_status": "published",
@@ -502,35 +502,35 @@
           "translation": "That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)",
           "answer": "리가 없어요",
           "hint": "Base form: 내다",
-          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “그 사람이 지난 달에 취업하니 밥값을 못 낼 리가 없어요” and gives it the meaning “That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
+          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, the blank expresses the idea shown in the translation: “That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)”. Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "드라마에서 그렇게 중요한 역할을 하는 인물이 죽을 ___",
           "translation": "There is no way a character with such an important role can die in a drama",
           "answer": "리가 없다",
           "hint": "Base form: 리가 없다",
-          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없다” completes the blank in “드라마에서 그렇게 중요한 역할을 하는 인물이 죽을 리가 없다” and gives it the meaning “There is no way a character with such an important role can die in a drama”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
+          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, the blank expresses the idea shown in the translation: “There is no way a character with such an important role can die in a drama”. Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "삼성이 이 축제를 후원해서 돈이 부족할 ___",
           "translation": "Samsung is sponsoring this event, so there is no way money can run out",
           "answer": "리가 없어요",
           "hint": "Base form: 부족하다",
-          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “삼성이 이 축제를 후원해서 돈이 부족할 리가 없어요” and gives it the meaning “Samsung is sponsoring this event, so there is no way money can run out”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
+          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, the blank expresses the idea shown in the translation: “Samsung is sponsoring this event, so there is no way money can run out”. Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "매일 열심히 운동을 하는데 그렇게 아플 ___",
           "translation": "You exercise every day – there is no way that you can be that sick",
           "answer": "리가 없어요",
           "hint": "Base form: 아프다",
-          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “매일 열심히 운동을 하는데 그렇게 아플 리가 없어요” and gives it the meaning “You exercise every day – there is no way that you can be that sick”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
+          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, the blank expresses the idea shown in the translation: “You exercise every day – there is no way that you can be that sick”. Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         },
         {
           "prompt": "그 학생이 내용을 아주 대충 훑어서 다 외울 ___",
           "translation": "That student looked over the contents very “half-assed,” there is no way he memorized it all",
           "answer": "리가 없어요",
           "hint": "Base form: 외우다",
-          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, “리가 없어요” completes the blank in “그 학생이 내용을 아주 대충 훑어서 다 외울 리가 없어요” and gives it the meaning “That student looked over the contents very “half-assed,” there is no way he memorized it all”. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
+          "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen. In this sentence, the blank expresses the idea shown in the translation: “That student looked over the contents very “half-assed,” there is no way he memorized it all”. Use it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation. Use the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리."
         }
       ],
       "source_status": "published",
