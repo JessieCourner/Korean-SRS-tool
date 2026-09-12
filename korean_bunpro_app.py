@@ -388,6 +388,7 @@ st.markdown("""
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
     .st-key-chibi_control {position:fixed !important; right:18px !important; bottom:86px !important; z-index:2147483647 !important; width:52px !important; height:52px !important; pointer-events:auto !important;}
     .st-key-chibi_control button {position:relative !important; z-index:2147483647 !important; width:52px !important; height:52px !important; min-width:52px !important; padding:0 !important; border:2px solid #efb8d6 !important; border-radius:16px !important; background:#fffaff !important; color:#684d7b !important; box-shadow:0 8px 18px rgba(91,71,112,.22) !important; font-size:24px !important; pointer-events:auto !important;}
+    #mochi-chibi-toggle {display:none !important;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
@@ -923,7 +924,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v31"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v32"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1454,12 +1455,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v8";
-            if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
-                installDesktopSidebarLauncher();
-                win.__mochiBtsDragController.refresh();
-                return;
-            }
+            const dragControllerVersion = "drag-v9";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.destroy) {
                 win.__mochiBtsDragController.destroy();
             }
@@ -1508,6 +1504,7 @@ def render_bts_motivation(in_dialog=False):
                     dy: point.clientY - rect.top,
                 };
                 scene.classList.add("bts-dragging");
+                scene.style.pointerEvents = "auto";
                 if (event.pointerId !== undefined && scene.setPointerCapture) {
                     try { scene.setPointerCapture(event.pointerId); } catch (error) {}
                 }
@@ -1538,6 +1535,7 @@ def render_bts_motivation(in_dialog=False):
                 if (drag.key) savePosition(drag.scene, drag.key);
                 drag.scene.classList.remove("bts-dragging");
                 controller.drag = null;
+                drag.scene.style.pointerEvents = "auto";
                 event.preventDefault();
             }
 
