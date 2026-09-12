@@ -361,13 +361,10 @@ st.markdown("""
     .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
     .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; white-space:nowrap; overflow:visible; min-height:2.7rem; display:flex; align-items:center;}
-    [data-testid="stTextInput"] input[aria-label="Answer"], [class*="st-key-review_card_shell"] input[aria-label="Answer"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important;}
-    [data-testid="stTextInput"] input[aria-label="Answer"]:focus, [class*="st-key-review_card_shell"] input[aria-label="Answer"]:focus {border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
-    [data-testid="stTextInput"] input[aria-label="Answer"]::placeholder, [class*="st-key-review_card_shell"] input[aria-label="Answer"]::placeholder {color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; opacity:1 !important;}
-    input[placeholder="…"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-radius:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important; -webkit-appearance:none !important; appearance:none !important;}
-    input[placeholder="…"]:focus {border:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
-    input[placeholder="…"]::placeholder {color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; opacity:1 !important;}
-    [data-testid="stTextInput"]:has(input[placeholder="…"]), [data-testid="stTextInput"]:has(input[placeholder="…"]) > div {border:0 !important; background:transparent !important; box-shadow:none !important; padding:0 !important;}
+    input[aria-label="Answer"] {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; width:4ch !important; min-width:2ch !important; border:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 !important; -webkit-appearance:none !important; appearance:none !important;}
+    input[aria-label="Answer"]:focus {border:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
+    input[aria-label="Answer"]::placeholder {color:transparent !important; -webkit-text-fill-color:transparent !important; opacity:0 !important;}
+    [data-testid="stTextInput"]:has(input[aria-label="Answer"]), [data-testid="stTextInput"]:has(input[aria-label="Answer"]) > div {border:0 !important; background:transparent !important; box-shadow:none !important; padding:0 !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) {flex-wrap:nowrap !important; align-items:center !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) > [data-testid="column"] {min-width:0 !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
@@ -915,7 +912,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v14"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v15"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1814,7 +1811,7 @@ def focus_answer_field():
         }
         function focusAnswer() {
             const input = parentWindow.document.querySelector(
-                'input[placeholder="…"]'
+                'input[aria-label="Answer"]'
             );
             if (!input) return false;
             if (!input.dataset.mochiResizeBound) {
@@ -2095,7 +2092,7 @@ def render_card(card):
                 label_visibility="collapsed",
                 on_change=check_answer,
                 args=(card["id"], answer_key),
-                placeholder="…",
+                placeholder="",
             )
         with right:
             st.markdown(f'<div class="inline-prompt-text">{escape(after)}</div>', unsafe_allow_html=True)
