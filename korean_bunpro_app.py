@@ -384,7 +384,7 @@ st.markdown("""
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
     .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
-    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
+    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
@@ -423,8 +423,9 @@ st.markdown("""
     .top-review-progress {display:flex; align-items:center; gap:9px; flex:1 1 auto; min-width:0; color:#654b78; font-weight:800; white-space:nowrap;}
     .top-review-progress-track {flex:1 1 auto; width:auto; min-width:120px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    [data-testid="stDialog"] .stDialogHeader h2, [data-testid="stDialog"] [data-testid="stDialogHeader"] h2, .stDialog [data-testid="stDialogHeader"] h2 {font-size:0 !important;}
     [data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {position:absolute; top:10px; left:140px; right:24px; z-index:4; padding:0;}
-    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:none;}
+    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:inline-flex; color:#654b78; font-size:18px; font-weight:900;}
     [data-testid="stDialog"] .top-review-progress, .stDialog .top-review-progress {width:100%;}
     [data-testid="stDialog"] .top-review-progress-track, .stDialog .top-review-progress-track {min-width:0;}
     @media (max-width:700px) {[data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {left:90px; right:14px;}}
@@ -924,7 +925,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v22"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v23"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1458,11 +1459,17 @@ def render_bts_motivation(in_dialog=False):
                     }
                     scene.dataset.chibiPositionBound = "1";
                     scene.addEventListener("pointerdown", beginDrag, eventOptions);
+                    scene.addEventListener("pointermove", moveDrag, eventOptions);
+                    scene.addEventListener("pointerup", endDrag, eventOptions);
+                    scene.addEventListener("pointercancel", endDrag, eventOptions);
                     scene.addEventListener("mousedown", beginDrag, eventOptions);
                     scene.addEventListener("touchstart", beginDrag, eventOptions);
                     scene.addEventListener("dragstart", preventNativeDrag, eventOptions);
                     controller.sceneBindings.push({scene, events: [
                         ["pointerdown", beginDrag],
+                        ["pointermove", moveDrag],
+                        ["pointerup", endDrag],
+                        ["pointercancel", endDrag],
                         ["mousedown", beginDrag],
                         ["touchstart", beginDrag],
                         ["dragstart", preventNativeDrag],
@@ -1502,7 +1509,7 @@ def render_bts_motivation(in_dialog=False):
             if (win.__mochiBtsDragResize) win.removeEventListener("resize", win.__mochiBtsDragResize);
 
             const controller = {drag: null, sceneBindings: [], version: dragControllerVersion};
-            const eventOptions = {capture: true, passive: false};
+            const eventOptions = {passive: false};
 
             function sceneFromTarget(target) {
                 if (!target) return null;
@@ -2129,7 +2136,7 @@ def render_card(card):
           html, body {{ margin:0; padding:0; background:transparent; overflow:hidden; }}
           .review-inline-content {{ width:100%; overflow-x:auto; }}
           .sentence {{ display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; white-space:nowrap; width:100%; min-height:50px; color:#4f3d64; font-family:inherit; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; }}
-          .inline-translation {{ margin:0 0 10px; color:#654b78; font-family:inherit; font-size:1rem; line-height:1.45; text-align:center; white-space:normal; }}
+          .inline-translation {{ margin:0 0 10px; color:#654b78; font-family:Arial, "Segoe UI", sans-serif; font-size:1rem; line-height:1.45; text-align:center; white-space:normal; }}
           .sentence span {{ flex:0 0 auto; }}
           .sentence input {{ flex:0 0 auto; width:34px; min-width:34px; margin:0 .12em; padding:0; border:0; outline:0; box-shadow:none; border-radius:0; background:transparent; color:#4f3d64; font:inherit; text-align:center; caret-color:#4f3d64; }}
           .sentence input:focus {{ border:0; outline:0; box-shadow:none; background:transparent; }}
@@ -2421,7 +2428,7 @@ def render_review_contents():
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
     st.markdown(
-        f'''<div class="modal-kicker"><span>{character_icon} cozy Korean garden</span><div class="top-review-progress"><span>{completed} / {total}</span><div class="top-review-progress-track"><div class="top-review-progress-fill" style="width:{progress * 100:.1f}%"></div></div></div></div>''',
+        f'''<div class="modal-kicker"><span>Review</span><div class="top-review-progress"><span>{completed} / {total}</span><div class="top-review-progress-track"><div class="top-review-progress-fill" style="width:{progress * 100:.1f}%"></div></div></div></div>''',
         unsafe_allow_html=True,
     )
     result_card_id = st.session_state.get("result_card_id")
