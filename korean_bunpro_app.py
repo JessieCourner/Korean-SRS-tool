@@ -418,10 +418,10 @@ st.markdown("""
     [class*="st-key-review_card_shell"] [data-testid="stVerticalBlockBorderWrapper"] {border:3px solid #efb8d6 !important; border-radius:25px !important; background:#fffaff !important;}
     [class*="st-key-review_card_shell"] [data-testid="stMarkdownContainer"] {color:#514064 !important;}
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
-    .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 12px; color:#987a9d; font-size:13px;}
+    .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; padding:4px 0 12px; color:#987a9d; font-size:13px;}
     .modal-kicker strong {color:#654b78; font-size:18px;}
-    .top-review-progress {display:flex; align-items:center; gap:9px; color:#654b78; font-weight:800; white-space:nowrap;}
-    .top-review-progress-track {width:180px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
+    .top-review-progress {display:flex; align-items:center; gap:9px; flex:1 1 auto; min-width:0; color:#654b78; font-weight:800; white-space:nowrap;}
+    .top-review-progress-track {flex:1 1 auto; width:auto; min-width:120px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
     .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
     .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
@@ -919,7 +919,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v20"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v21"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -2148,7 +2148,7 @@ def render_card(card):
         st.markdown(f'<div class="inline-prompt-text">{escape(prompt)}</div>', unsafe_allow_html=True)
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
-        f'''<div class="plain-translation"><b>Translation:</b> {translation_html}</div>''',
+        f'''<div class="plain-translation">{translation_html}</div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the grammar explanation"):
@@ -2423,7 +2423,7 @@ def render_review_contents():
                 1,
             )
             st.markdown(
-                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
                 unsafe_allow_html=True,
             )
             st.markdown(
@@ -2494,12 +2494,10 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
-        render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
-        render_bts_motivation(in_dialog=True)
         render_review_contents()
 else:
     lesson_dialog = None
@@ -2729,8 +2727,7 @@ render_mobile_navigation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
-if page != "Review":
-    render_bts_motivation()
+render_bts_motivation()
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
