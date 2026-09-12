@@ -905,7 +905,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v2"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v3"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
