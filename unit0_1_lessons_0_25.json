@@ -42,35 +42,35 @@
           "translation": "Combine the consonant and vowel.",
           "answer": "가",
           "hint": "Base form: 가",
-          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
+          "explanation": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice. In this sentence, “가” completes the blank in “ㄱ + ㅏ = 가” and gives it the meaning “Combine the consonant and vowel.”. Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons."
         },
         {
           "prompt": "ㅂ + ㅏ + ㅂ = ___",
           "translation": "Write “bab” as one syllable block.",
           "answer": "밥",
           "hint": "Base form: 밥",
-          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
+          "explanation": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice. In this sentence, “밥” completes the blank in “ㅂ + ㅏ + ㅂ = 밥” and gives it the meaning “Write “bab” as one syllable block.”. Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons."
         },
         {
           "prompt": "ㅗ + ㅏ = ___",
           "translation": "Combine two vowels into a complex vowel.",
           "answer": "ㅘ",
           "hint": "Base form: ㅘ",
-          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
+          "explanation": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice. In this sentence, “ㅘ” completes the blank in “ㅗ + ㅏ = ㅘ” and gives it the meaning “Combine two vowels into a complex vowel.”. Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons."
         },
         {
           "prompt": "ㄴ + ㅏ = ___",
           "translation": "Combine ㄴ and ㅏ into one syllable.",
           "answer": "나",
           "hint": "Base form: 나",
-          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
+          "explanation": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice. In this sentence, “나” completes the blank in “ㄴ + ㅏ = 나” and gives it the meaning “Combine ㄴ and ㅏ into one syllable.”. Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons."
         },
         {
           "prompt": "ㄱ + ㅗ + ㄱ = ___",
           "translation": "Write “gok” as one syllable block.",
           "answer": "곡",
           "hint": "Base form: 곡",
-          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words."
+          "explanation": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice. In this sentence, “곡” completes the blank in “ㄱ + ㅗ + ㄱ = 곡” and gives it the meaning “Write “gok” as one syllable block.”. Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons."
         }
       ]
     },
@@ -115,35 +115,35 @@
           "translation": "I am a student.",
           "answer": "학생이에요",
           "hint": "Base form: 학생",
-          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”). In this sentence, “학생이에요” completes the blank in “저는 학생이에요” and gives it the meaning “I am a student.”. Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified."
         },
         {
           "prompt": "이것은 ___",
           "translation": "This is a pen.",
           "answer": "펜이에요",
           "hint": "Base form: 펜",
-          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”). In this sentence, “펜이에요” completes the blank in “이것은 펜이에요” and gives it the meaning “This is a pen.”. Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified."
         },
         {
           "prompt": "저 사람은 ___",
           "translation": "That person is a doctor.",
           "answer": "의사예요",
           "hint": "Base form: 의사",
-          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”). In this sentence, “의사예요” completes the blank in “저 사람은 의사예요” and gives it the meaning “That person is a doctor.”. Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified."
         },
         {
           "prompt": "저것은 ___",
           "translation": "That is a chair.",
           "answer": "의자예요",
           "hint": "Base form: 의자",
-          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”). In this sentence, “의자예요” completes the blank in “저것은 의자예요” and gives it the meaning “That is a chair.”. Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified."
         },
         {
           "prompt": "민수는 ___",
           "translation": "Minsu is a teacher.",
           "answer": "선생님이에요",
           "hint": "Base form: 선생님",
-          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with эта конструкция (“to be”)."
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”). In this sentence, “선생님이에요” completes the blank in “민수는 선생님이에요” and gives it the meaning “Minsu is a teacher.”. Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified."
         }
       ]
     },
@@ -188,35 +188,35 @@
           "translation": "I am at school.",
           "answer": "학교에",
           "hint": "Base form: 학교",
-          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession. In this sentence, “학교에” completes the blank in “학교에 있어요.” and gives it the meaning “I am at school.”. Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence."
         },
         {
           "prompt": "___ 있어요.",
           "translation": "There is a book.",
           "answer": "책이",
           "hint": "Base form: 책",
-          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession. In this sentence, “책이” completes the blank in “책이 있어요.” and gives it the meaning “There is a book.”. Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence."
         },
         {
           "prompt": "친구가 집에 ___",
           "translation": "My friend is at home.",
           "answer": "있어요",
           "hint": "Base form: 있다",
-          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession. In this sentence, “있어요” completes the blank in “친구가 집에 있어요” and gives it the meaning “My friend is at home.”. Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence."
         },
         {
           "prompt": "가방 ___ 책이 있어요.",
           "translation": "There is a book inside the bag.",
           "answer": "안에",
           "hint": "Base form: 안",
-          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession. In this sentence, “안에” completes the blank in “가방 안에 책이 있어요.” and gives it the meaning “There is a book inside the bag.”. Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence."
         },
         {
           "prompt": "동생이 학교에 ___",
           "translation": "My younger sibling is at school.",
           "answer": "있어요",
           "hint": "Base form: 있다",
-          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession."
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession. In this sentence, “있어요” completes the blank in “동생이 학교에 있어요” and gives it the meaning “My younger sibling is at school.”. Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence."
         }
       ]
     },
@@ -261,35 +261,35 @@
           "translation": "This is my book.",
           "answer": "제",
           "hint": "Base form: 제",
-          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다. In this sentence, “제” completes the blank in “이것은 제 책이에요.” and gives it the meaning “This is my book.”. Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object."
         },
         {
           "prompt": "___ 음식",
           "translation": "Korean food.",
           "answer": "한국의",
           "hint": "Base form: 한국",
-          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다. In this sentence, “한국의” completes the blank in “한국의 음식” and gives it the meaning “Korean food.”. Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object."
         },
         {
           "prompt": "저는 음악을 ___",
           "translation": "I like music.",
           "answer": "좋아해요",
           "hint": "Base form: 좋아하다",
-          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다. In this sentence, “좋아해요” completes the blank in “저는 음악을 좋아해요” and gives it the meaning “I like music.”. Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object."
         },
         {
           "prompt": "이것은 ___ 우산이에요.",
           "translation": "This is my umbrella.",
           "answer": "제",
           "hint": "Base form: 제",
-          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다. In this sentence, “제” completes the blank in “이것은 제 우산이에요.” and gives it the meaning “This is my umbrella.”. Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object."
         },
         {
           "prompt": "저는 한국 음식을 ___",
           "translation": "I like Korean food.",
           "answer": "좋아해요",
           "hint": "Base form: 좋아하다",
-          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다."
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다. In this sentence, “좋아해요” completes the blank in “저는 한국 음식을 좋아해요” and gives it the meaning “I like Korean food.”. Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object."
         }
       ]
     },
@@ -334,35 +334,35 @@
           "translation": "An interesting movie.",
           "answer": "재미있는",
           "hint": "Base form: 재미있다",
-          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”). In this sentence, “재미있는” completes the blank in “재미있는 영화” and gives it the meaning “An interesting movie.”. Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added."
         },
         {
           "prompt": "___ 학생도 왔어요.",
           "translation": "That student also came.",
           "answer": "저도",
           "hint": "Base form: 저",
-          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”). In this sentence, “저도” completes the blank in “저도 학생도 왔어요.” and gives it the meaning “That student also came.”. Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added."
         },
         {
           "prompt": "___ 음식",
           "translation": "Delicious food.",
           "answer": "맛있는",
           "hint": "Base form: 맛있다",
-          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”). In this sentence, “맛있는” completes the blank in “맛있는 음식” and gives it the meaning “Delicious food.”. Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added."
         },
         {
           "prompt": "___ 사람을 만났어요.",
           "translation": "I met a kind person.",
           "answer": "친절한",
           "hint": "Base form: 친절하다",
-          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”). In this sentence, “친절한” completes the blank in “친절한 사람을 만났어요.” and gives it the meaning “I met a kind person.”. Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added."
         },
         {
           "prompt": "저도 한국어를 ___",
           "translation": "I also study Korean.",
           "answer": "공부해요",
           "hint": "Base form: 공부하다",
-          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”)."
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”). In this sentence, “공부해요” completes the blank in “저도 한국어를 공부해요” and gives it the meaning “I also study Korean.”. Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added."
         }
       ]
     },
@@ -407,35 +407,35 @@
           "translation": "I ate rice yesterday.",
           "answer": "먹었어요",
           "hint": "Base form: 먹다",
-          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms. In this sentence, “먹었어요” completes the blank in “어제 밥을 먹었어요” and gives it the meaning “I ate rice yesterday.”. Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem."
         },
         {
           "prompt": "오늘 학교에 ___",
           "translation": "I go to school today.",
           "answer": "가요",
           "hint": "Base form: 가다",
-          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms. In this sentence, “가요” completes the blank in “오늘 학교에 가요” and gives it the meaning “I go to school today.”. Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem."
         },
         {
           "prompt": "내일 공부할 ___",
           "translation": "I will study tomorrow.",
           "answer": "거예요",
           "hint": "Base form: 것",
-          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms. In this sentence, “거예요” completes the blank in “내일 공부할 거예요” and gives it the meaning “I will study tomorrow.”. Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem."
         },
         {
           "prompt": "지난주에 영화를 ___",
           "translation": "I watched a movie last week.",
           "answer": "봤어요",
           "hint": "Base form: 보다",
-          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms. In this sentence, “봤어요” completes the blank in “지난주에 영화를 봤어요” and gives it the meaning “I watched a movie last week.”. Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem."
         },
         {
           "prompt": "주말에 친구를 만날 ___",
           "translation": "I will meet a friend on the weekend.",
           "answer": "거예요",
           "hint": "Base form: 것",
-          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms."
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms. In this sentence, “거예요” completes the blank in “주말에 친구를 만날 거예요” and gives it the meaning “I will meet a friend on the weekend.”. Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem."
         }
       ]
     },
@@ -480,35 +480,35 @@
           "translation": "I am a student, politely.",
           "answer": "학생이에요",
           "hint": "Base form: 학생",
-          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. In this sentence, “학생이에요” completes the blank in “저는 학생이에요” and gives it the meaning “I am a student, politely.”. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         },
         {
           "prompt": "나 오늘 ___",
           "translation": "I am busy today, casually.",
           "answer": "바쁘다",
           "hint": "Base form: 바쁘다",
-          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. In this sentence, “바쁘다” completes the blank in “나 오늘 바쁘다” and gives it the meaning “I am busy today, casually.”. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         },
         {
           "prompt": "___ 한국 사람입니다.",
           "translation": "I am Korean, formally.",
           "answer": "저는",
-          "hint": "Base form: The base word is already shown in the sentence; complete the grammar form.",
-          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
+          "hint": "Base form: 저다",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. In this sentence, “저는” completes the blank in “저는 한국 사람입니다.” and gives it the meaning “I am Korean, formally.”. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         },
         {
           "prompt": "오늘은 날씨가 ___",
           "translation": "The weather is good today, casually.",
           "answer": "좋다",
           "hint": "Base form: 좋다",
-          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. In this sentence, “좋다” completes the blank in “오늘은 날씨가 좋다” and gives it the meaning “The weather is good today, casually.”. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         },
         {
           "prompt": "저는 ___",
           "translation": "I am an office worker, politely.",
           "answer": "회사원이에요",
           "hint": "Base form: 회사원",
-          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect."
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. In this sentence, “회사원이에요” completes the blank in “저는 회사원이에요” and gives it the meaning “I am an office worker, politely.”. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         }
       ]
     },
@@ -553,35 +553,35 @@
           "translation": "The weather is cold.",
           "answer": "추워요",
           "hint": "Base form: 춥다",
-          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly. In this sentence, “추워요” completes the blank in “날씨가 추워요” and gives it the meaning “The weather is cold.”. Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter."
         },
         {
           "prompt": "한국어를 ___",
           "translation": "I listen to Korean.",
           "answer": "들어요",
           "hint": "Base form: 듣다",
-          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly. In this sentence, “들어요” completes the blank in “한국어를 들어요” and gives it the meaning “I listen to Korean.”. Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter."
         },
         {
           "prompt": "친구를 ___",
           "translation": "I help my friend.",
           "answer": "도와요",
           "hint": "Base form: 돕다",
-          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly. In this sentence, “도와요” completes the blank in “친구를 도와요” and gives it the meaning “I help my friend.”. Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter."
         },
         {
           "prompt": "모르다 → ___",
           "translation": "Conjugate “not to know” politely.",
           "answer": "몰라요",
-          "hint": "Base form: 모르다",
-          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
+          "hint": "Base form: 모르",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly. In this sentence, “몰라요” completes the blank in “모르다 → 몰라요” and gives it the meaning “Conjugate “not to know” politely.”. Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter."
         },
         {
           "prompt": "쓰다 → ___",
           "translation": "Conjugate “to write/use” politely.",
           "answer": "써요",
           "hint": "Base form: 쓰다",
-          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly."
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly. In this sentence, “써요” completes the blank in “쓰다 → 써요” and gives it the meaning “Conjugate “to write/use” politely.”. Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter."
         }
       ]
     },
@@ -626,35 +626,35 @@
           "translation": "Conjugate “to be cold” politely.",
           "answer": "추워요",
           "hint": "Base form: 춥다",
-          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns. In this sentence, “추워요” completes the blank in “춥다 → 추워요” and gives it the meaning “Conjugate “to be cold” politely.”. Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change."
         },
         {
           "prompt": "듣다 → ___",
           "translation": "Conjugate “to listen” politely.",
           "answer": "들어요",
           "hint": "Base form: 듣다",
-          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns. In this sentence, “들어요” completes the blank in “듣다 → 들어요” and gives it the meaning “Conjugate “to listen” politely.”. Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change."
         },
         {
           "prompt": "돕다 → ___",
           "translation": "Conjugate “to help” politely.",
           "answer": "도와요",
           "hint": "Base form: 돕다",
-          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns. In this sentence, “도와요” completes the blank in “돕다 → 도와요” and gives it the meaning “Conjugate “to help” politely.”. Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change."
         },
         {
           "prompt": "모르다 → ___",
           "translation": "Review the 르 irregular politely.",
           "answer": "몰라요",
-          "hint": "Base form: 모르다",
-          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
+          "hint": "Base form: 모르",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns. In this sentence, “몰라요” completes the blank in “모르다 → 몰라요” and gives it the meaning “Review the 르 irregular politely.”. Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change."
         },
         {
           "prompt": "하얗다 → ___",
           "translation": "Review the ㅎ irregular politely.",
           "answer": "하얘요",
-          "hint": "Base form: 하얗다",
-          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns."
+          "hint": "Base form: 하얗",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns. In this sentence, “하얘요” completes the blank in “하얗다 → 하얘요” and gives it the meaning “Review the ㅎ irregular politely.”. Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change."
         }
       ]
     },
@@ -699,35 +699,35 @@
           "translation": "I do not go to school today.",
           "answer": "안",
           "hint": "Base form: 안",
-          "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences. In this sentence, “안” completes the blank in “오늘 학교에 안 가요.” and gives it the meaning “I do not go to school today.”. Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability."
         },
         {
           "prompt": "한국어를 ___ 해요.",
           "translation": "I cannot speak Korean well.",
           "answer": "못",
           "hint": "Base form: 못",
-          "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences. In this sentence, “못” completes the blank in “한국어를 못 해요.” and gives it the meaning “I cannot speak Korean well.”. Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability."
         },
         {
           "prompt": "커피를 ___ 않아요.",
           "translation": "I do not drink coffee.",
           "answer": "마시지",
           "hint": "Base form: 마시다",
-          "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences. In this sentence, “마시지” completes the blank in “커피를 마시지 않아요.” and gives it the meaning “I do not drink coffee.”. Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability."
         },
         {
           "prompt": "오늘은 비가 ___ 와요.",
           "translation": "It is not raining today.",
           "answer": "안",
           "hint": "Base form: 안",
-          "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences. In this sentence, “안” completes the blank in “오늘은 비가 안 와요.” and gives it the meaning “It is not raining today.”. Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability."
         },
         {
           "prompt": "매운 음식을 ___ 먹어요.",
           "translation": "I cannot eat spicy food.",
           "answer": "못",
           "hint": "Base form: 못",
-          "explanation": "Learn common adverbs and several ways to create negative Korean sentences."
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences. In this sentence, “못” completes the blank in “매운 음식을 못 먹어요.” and gives it the meaning “I cannot eat spicy food.”. Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability."
         }
       ]
     },
@@ -772,35 +772,35 @@
           "translation": "I am a student.",
           "answer": "학생이에요",
           "hint": "Base form: 학생",
-          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
+          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요. In this sentence, “학생이에요” completes the blank in “학생이에요” and gives it the meaning “I am a student.”. Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요."
         },
         {
           "prompt": "___",
           "translation": "I am a doctor.",
           "answer": "의사예요",
           "hint": "Base form: 의사",
-          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
+          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요. In this sentence, “의사예요” completes the blank in “의사예요” and gives it the meaning “I am a doctor.”. Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요."
         },
         {
           "prompt": "내일 갈 ___",
           "translation": "The thing/fact that I will go tomorrow.",
           "answer": "거예요",
           "hint": "Base form: 것",
-          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
+          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요. In this sentence, “거예요” completes the blank in “내일 갈 거예요” and gives it the meaning “The thing/fact that I will go tomorrow.”. Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요."
         },
         {
           "prompt": "그 사람은 ___",
           "translation": "That person is a doctor.",
           "answer": "의사일 것이다",
           "hint": "Base form: 의사",
-          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
+          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요. In this sentence, “의사일 것이다” completes the blank in “그 사람은 의사일 것이다” and gives it the meaning “That person is a doctor.”. Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요."
         },
         {
           "prompt": "저녁에 공부할 ___",
           "translation": "The thing/fact that I will study in the evening.",
           "answer": "것이다",
           "hint": "Base form: 것",
-          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요."
+          "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요. In this sentence, “것이다” completes the blank in “저녁에 공부할 것이다” and gives it the meaning “The thing/fact that I will study in the evening.”. Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요."
         }
       ]
     },
@@ -845,35 +845,35 @@
           "translation": "three apples.",
           "answer": "세",
           "hint": "Base form: 세",
-          "explanation": "Learn the two Korean number systems, counters and how to tell the time."
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time. In this sentence, “세” completes the blank in “사과 세 개” and gives it the meaning “three apples.”. Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes."
         },
         {
           "prompt": "지금 두 ___예요.",
           "translation": "It is two o’clock now.",
           "answer": "시",
           "hint": "Base form: 시",
-          "explanation": "Learn the two Korean number systems, counters and how to tell the time."
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time. In this sentence, “시” completes the blank in “지금 두 시예요.” and gives it the meaning “It is two o’clock now.”. Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes."
         },
         {
           "prompt": "오후 세 ___",
           "translation": "3:00 p.m.",
           "answer": "시",
           "hint": "Base form: 시",
-          "explanation": "Learn the two Korean number systems, counters and how to tell the time."
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time. In this sentence, “시” completes the blank in “오후 세 시” and gives it the meaning “3:00 p.m.”. Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes."
         },
         {
           "prompt": "사람 ___ 명이 왔어요.",
           "translation": "Three people came.",
           "answer": "세",
           "hint": "Base form: 세",
-          "explanation": "Learn the two Korean number systems, counters and how to tell the time."
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time. In this sentence, “세” completes the blank in “사람 세 명이 왔어요.” and gives it the meaning “Three people came.”. Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes."
         },
         {
           "prompt": "지금 열두 ___예요.",
           "translation": "It is twelve o’clock now.",
           "answer": "시",
           "hint": "Base form: 시",
-          "explanation": "Learn the two Korean number systems, counters and how to tell the time."
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time. In this sentence, “시” completes the blank in “지금 열두 시예요.” and gives it the meaning “It is twelve o’clock now.”. Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes."
         }
       ]
     },
@@ -918,35 +918,35 @@
           "translation": "I studied for two hours.",
           "answer": "시간동안",
           "hint": "Base form: 시간",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “시간동안” completes the blank in “두 시간동안 공부했어요.” and gives it the meaning “I studied for two hours.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
           "prompt": "3년 ___ 한국에 왔어요.",
           "translation": "I came to Korea three years ago.",
           "answer": "전",
           "hint": "Base form: 전",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “전” completes the blank in “3년 전 한국에 왔어요.” and gives it the meaning “I came to Korea three years ago.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
           "prompt": "수업 ___에 만나요.",
           "translation": "Let’s meet after class.",
           "answer": "후",
           "hint": "Base form: 후",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후” completes the blank in “수업 후에 만나요.” and gives it the meaning “Let’s meet after class.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
           "prompt": "한 ___ 한국어를 공부했어요.",
           "translation": "I studied Korean for one month.",
           "answer": "달동안",
           "hint": "Base form: 달",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “달동안” completes the blank in “한 달동안 한국어를 공부했어요.” and gives it the meaning “I studied Korean for one month.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         },
         {
           "prompt": "점심 ___에 전화할게요.",
           "translation": "I will call after lunch.",
           "answer": "후",
           "hint": "Base form: 후",
-          "explanation": "Use common time expressions to say how long something lasted and when it happened."
+          "explanation": "Use common time expressions to say how long something lasted and when it happened. In this sentence, “후” completes the blank in “점심 후에 전화할게요.” and gives it the meaning “I will call after lunch.”. Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it."
         }
       ]
     },
@@ -991,35 +991,35 @@
           "translation": "I went together with friends.",
           "answer": "친구들과",
           "hint": "Base form: 친구",
-          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction. In this sentence, “친구들과” completes the blank in “친구들과 같이 갔어요.” and gives it the meaning “I went together with friends.”. Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means."
         },
         {
           "prompt": "___ 쉬어요.",
           "translation": "I rest only on weekends.",
           "answer": "주말만",
           "hint": "Base form: 주말",
-          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction. In this sentence, “주말만” completes the blank in “주말만 쉬어요.” and gives it the meaning “I rest only on weekends.”. Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means."
         },
         {
           "prompt": "___ 학교까지 걸어요.",
           "translation": "I walk from home to school.",
           "answer": "집에서",
           "hint": "Base form: 집",
-          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction. In this sentence, “집에서” completes the blank in “집에서 학교까지 걸어요.” and gives it the meaning “I walk from home to school.”. Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means."
         },
         {
           "prompt": "___ 영화를 봤어요.",
           "translation": "I watched a movie with friends.",
           "answer": "친구들과",
           "hint": "Base form: 친구",
-          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction. In this sentence, “친구들과” completes the blank in “친구들과 영화를 봤어요.” and gives it the meaning “I watched a movie with friends.”. Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means."
         },
         {
           "prompt": "___ 부산까지 갔어요.",
           "translation": "I went from Seoul to Busan.",
           "answer": "서울에서",
           "hint": "Base form: 서울",
-          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction."
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction. In this sentence, “서울에서” completes the blank in “서울에서 부산까지 갔어요.” and gives it the meaning “I went from Seoul to Busan.”. Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means."
         }
       ]
     },
@@ -1064,35 +1064,35 @@
           "translation": "I watched a movie with my friend.",
           "answer": "친구하고",
           "hint": "Base form: 친구",
-          "explanation": "Learn ways to express and/with, to/from a person, for and about."
+          "explanation": "Learn ways to express and/with, to/from a person, for and about. In this sentence, “친구하고” completes the blank in “친구하고 영화를 봤어요.” and gives it the meaning “I watched a movie with my friend.”. Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”"
         },
         {
           "prompt": "___ 질문했어요.",
           "translation": "I asked the teacher a question.",
           "answer": "선생님에게",
           "hint": "Base form: 선생님",
-          "explanation": "Learn ways to express and/with, to/from a person, for and about."
+          "explanation": "Learn ways to express and/with, to/from a person, for and about. In this sentence, “선생님에게” completes the blank in “선생님에게 질문했어요.” and gives it the meaning “I asked the teacher a question.”. Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”"
         },
         {
           "prompt": "___ 선물을 샀어요.",
           "translation": "I bought a gift for my family.",
           "answer": "가족을 위해",
           "hint": "Base form: 가족",
-          "explanation": "Learn ways to express and/with, to/from a person, for and about."
+          "explanation": "Learn ways to express and/with, to/from a person, for and about. In this sentence, “가족을 위해” completes the blank in “가족을 위해 선물을 샀어요.” and gives it the meaning “I bought a gift for my family.”. Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”"
         },
         {
           "prompt": "___ 이야기했어요.",
           "translation": "I talked with my younger sibling.",
           "answer": "동생하고",
           "hint": "Base form: 동생다",
-          "explanation": "Learn ways to express and/with, to/from a person, for and about."
+          "explanation": "Learn ways to express and/with, to/from a person, for and about. In this sentence, “동생하고” completes the blank in “동생하고 이야기했어요.” and gives it the meaning “I talked with my younger sibling.”. Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”"
         },
         {
           "prompt": "___ 편지를 보냈어요.",
           "translation": "I sent a letter to my friend.",
           "answer": "친구에게",
           "hint": "Base form: 친구",
-          "explanation": "Learn ways to express and/with, to/from a person, for and about."
+          "explanation": "Learn ways to express and/with, to/from a person, for and about. In this sentence, “친구에게” completes the blank in “친구에게 편지를 보냈어요.” and gives it the meaning “I sent a letter to my friend.”. Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”"
         }
       ]
     },
@@ -1137,35 +1137,35 @@
           "translation": "The door was opened.",
           "answer": "열렸어요",
           "hint": "Base form: 열리다",
-          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
+          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them. In this sentence, “열렸어요” completes the blank in “문이 열렸어요” and gives it the meaning “The door was opened.”. Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence."
         },
         {
           "prompt": "책이 ___",
           "translation": "The book was read.",
           "answer": "읽혔어요",
           "hint": "Base form: 읽히다",
-          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
+          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them. In this sentence, “읽혔어요” completes the blank in “책이 읽혔어요” and gives it the meaning “The book was read.”. Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence."
         },
         {
           "prompt": "사진이 ___",
           "translation": "The photo was taken.",
           "answer": "찍혔어요",
           "hint": "Base form: 찍히다",
-          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
+          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them. In this sentence, “찍혔어요” completes the blank in “사진이 찍혔어요” and gives it the meaning “The photo was taken.”. Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence."
         },
         {
           "prompt": "창문이 ___",
           "translation": "The window was closed.",
           "answer": "닫혔어요",
           "hint": "Base form: 닫히다",
-          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
+          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them. In this sentence, “닫혔어요” completes the blank in “창문이 닫혔어요” and gives it the meaning “The window was closed.”. Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence."
         },
         {
           "prompt": "문이 바람에 ___",
           "translation": "The door was opened by the wind.",
           "answer": "열렸어요",
           "hint": "Base form: 열리다",
-          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them."
+          "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them. In this sentence, “열렸어요” completes the blank in “문이 바람에 열렸어요” and gives it the meaning “The door was opened by the wind.”. Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence."
         }
       ]
     },
@@ -1210,35 +1210,35 @@
           "translation": "I like music.",
           "answer": "좋아해요",
           "hint": "Base form: 좋아하다",
-          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness. In this sentence, “좋아해요” completes the blank in “저는 음악을 좋아해요” and gives it the meaning “I like music.”. Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses."
         },
         {
           "prompt": "감기에 ___",
           "translation": "I caught a cold.",
           "answer": "걸렸어요",
           "hint": "Base form: 걸리다",
-          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness. In this sentence, “걸렸어요” completes the blank in “감기에 걸렸어요” and gives it the meaning “I caught a cold.”. Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses."
         },
         {
           "prompt": "약을 ___",
           "translation": "I took medicine.",
           "answer": "먹었어요",
           "hint": "Base form: 먹다",
-          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness. In this sentence, “먹었어요” completes the blank in “약을 먹었어요” and gives it the meaning “I took medicine.”. Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses."
         },
         {
           "prompt": "저는 매운 음식을 ___",
           "translation": "I dislike spicy food.",
           "answer": "싫어해요",
           "hint": "Base form: 싫어하다",
-          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness. In this sentence, “싫어해요” completes the blank in “저는 매운 음식을 싫어해요” and gives it the meaning “I dislike spicy food.”. Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses."
         },
         {
           "prompt": "머리가 ___",
           "translation": "I have a headache.",
           "answer": "아파요",
           "hint": "Base form: 아프다",
-          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness."
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness. In this sentence, “아파요” completes the blank in “머리가 아파요” and gives it the meaning “I have a headache.”. Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses."
         }
       ]
     },
@@ -1283,35 +1283,35 @@
           "translation": "Korean-style food.",
           "answer": "한국적인",
           "hint": "Base form: 한국적이다",
-          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. In this sentence, “한국적인” completes the blank in “한국적인 음식” and gives it the meaning “Korean-style food.”. Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 사람",
           "translation": "A loving person.",
           "answer": "사랑스러운",
           "hint": "Base form: 사랑스럽다",
-          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. In this sentence, “사랑스러운” completes the blank in “사랑스러운 사람” and gives it the meaning “A loving person.”. Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 환경",
           "translation": "A natural environment.",
           "answer": "자연적인",
           "hint": "Base form: 자연적이다",
-          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. In this sentence, “자연적인” completes the blank in “자연적인 환경” and gives it the meaning “A natural environment.”. Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 차이",
           "translation": "A cultural difference.",
           "answer": "문화적인",
           "hint": "Base form: 문화적이다",
-          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. In this sentence, “문화적인” completes the blank in “문화적인 차이” and gives it the meaning “A cultural difference.”. Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 분위기",
           "translation": "A natural atmosphere.",
           "answer": "자연스러운",
           "hint": "Base form: 자연스럽다",
-          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning."
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. In this sentence, “자연스러운” completes the blank in “자연스러운 분위기” and gives it the meaning “A natural atmosphere.”. Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         }
       ]
     },
@@ -1356,35 +1356,35 @@
           "translation": "I ate and studied.",
           "answer": "먹고",
           "hint": "Base form: 먹다",
-          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something. In this sentence, “먹고” completes the blank in “밥을 먹고 공부했어요.” and gives it the meaning “I ate and studied.”. Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem."
         },
         {
           "prompt": "한국에 ___ 싶어요.",
           "translation": "I want to go to Korea.",
           "answer": "가고",
           "hint": "Base form: 가다",
-          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something. In this sentence, “가고” completes the blank in “한국에 가고 싶어요.” and gives it the meaning “I want to go to Korea.”. Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem."
         },
         {
           "prompt": "책을 ___ 음악을 들었어요.",
           "translation": "I read a book and listened to music.",
           "answer": "읽고",
           "hint": "Base form: 읽다",
-          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something. In this sentence, “읽고” completes the blank in “책을 읽고 음악을 들었어요.” and gives it the meaning “I read a book and listened to music.”. Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem."
         },
         {
           "prompt": "아침을 ___ 학교에 갔어요.",
           "translation": "I ate breakfast and went to school.",
           "answer": "먹고",
           "hint": "Base form: 먹다",
-          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something. In this sentence, “먹고” completes the blank in “아침을 먹고 학교에 갔어요.” and gives it the meaning “I ate breakfast and went to school.”. Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem."
         },
         {
           "prompt": "___ 싶어요.",
           "translation": "I want to travel.",
           "answer": "여행하고",
           "hint": "Base form: 여행하다",
-          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something."
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something. In this sentence, “여행하고” completes the blank in “여행하고 싶어요.” and gives it the meaning “I want to travel.”. Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem."
         }
       ]
     },
@@ -1429,35 +1429,35 @@
           "translation": "I am reading a book now.",
           "answer": "읽고",
           "hint": "Base form: 읽다",
-          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way. In this sentence, “읽고” completes the blank in “지금 책을 읽고 있어요.” and gives it the meaning “I am reading a book now.”. Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”"
         },
         {
           "prompt": "날씨가 ___ 있어요.",
           "translation": "The weather is becoming cold.",
           "answer": "추워지고",
           "hint": "Base form: 춥다",
-          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way. In this sentence, “추워지고” completes the blank in “날씨가 추워지고 있어요.” and gives it the meaning “The weather is becoming cold.”. Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”"
         },
         {
           "prompt": "한국어를 ___ 있어요.",
           "translation": "I am studying Korean.",
           "answer": "공부하고",
           "hint": "Base form: 공부하다",
-          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way. In this sentence, “공부하고” completes the blank in “한국어를 공부하고 있어요.” and gives it the meaning “I am studying Korean.”. Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”"
         },
         {
           "prompt": "친구를 ___ 있어요.",
           "translation": "I am waiting for my friend.",
           "answer": "기다리고",
           "hint": "Base form: 기다리다",
-          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way. In this sentence, “기다리고” completes the blank in “친구를 기다리고 있어요.” and gives it the meaning “I am waiting for my friend.”. Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”"
         },
         {
           "prompt": "날이 ___ 있어요.",
           "translation": "The weather is getting warm.",
           "answer": "따뜻해지고",
           "hint": "Base form: 따뜻하다",
-          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way."
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way. In this sentence, “따뜻해지고” completes the blank in “날이 따뜻해지고 있어요.” and gives it the meaning “The weather is getting warm.”. Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”"
         }
       ]
     },
@@ -1502,35 +1502,35 @@
           "translation": "Korean is more difficult than English.",
           "answer": "영어보다",
           "hint": "Base form: 영어",
-          "explanation": "Make comparative and superlative sentences and understand the common word 더."
+          "explanation": "Make comparative and superlative sentences and understand the common word 더. In this sentence, “영어보다” completes the blank in “한국어가 영어보다 어려워요.” and gives it the meaning “Korean is more difficult than English.”. Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression."
         },
         {
           "prompt": "오늘은 ___ 더워요.",
           "translation": "Today is hotter than yesterday.",
           "answer": "어제보다",
           "hint": "Base form: 어제",
-          "explanation": "Make comparative and superlative sentences and understand the common word 더."
+          "explanation": "Make comparative and superlative sentences and understand the common word 더. In this sentence, “어제보다” completes the blank in “오늘은 어제보다 더워요.” and gives it the meaning “Today is hotter than yesterday.”. Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression."
         },
         {
           "prompt": "이것이 ___ 좋아요.",
           "translation": "This is the best.",
           "answer": "제일",
           "hint": "Base form: 제일",
-          "explanation": "Make comparative and superlative sentences and understand the common word 더."
+          "explanation": "Make comparative and superlative sentences and understand the common word 더. In this sentence, “제일” completes the blank in “이것이 제일 좋아요.” and gives it the meaning “This is the best.”. Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression."
         },
         {
           "prompt": "이 가방은 저 ___ 비싸요.",
           "translation": "This bag is more expensive than that bag.",
           "answer": "가방보다",
           "hint": "Base form: 가방",
-          "explanation": "Make comparative and superlative sentences and understand the common word 더."
+          "explanation": "Make comparative and superlative sentences and understand the common word 더. In this sentence, “가방보다” completes the blank in “이 가방은 저 가방보다 비싸요.” and gives it the meaning “This bag is more expensive than that bag.”. Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression."
         },
         {
           "prompt": "서울이 한국에서 ___ 커요.",
           "translation": "Seoul is the biggest in Korea.",
           "answer": "제일",
           "hint": "Base form: 제일",
-          "explanation": "Make comparative and superlative sentences and understand the common word 더."
+          "explanation": "Make comparative and superlative sentences and understand the common word 더. In this sentence, “제일” completes the blank in “서울이 한국에서 제일 커요.” and gives it the meaning “Seoul is the biggest in Korea.”. Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression."
         }
       ]
     },
@@ -1575,35 +1575,35 @@
           "translation": "I speak Korean well.",
           "answer": "잘",
           "hint": "Base form: 잘하다",
-          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다. In this sentence, “잘” completes the blank in “한국어를 잘해요.” and gives it the meaning “I speak Korean well.”. Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity."
         },
         {
           "prompt": "운전을 ___해요.",
           "translation": "I cannot drive well.",
           "answer": "못",
           "hint": "Base form: 못하다",
-          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다. In this sentence, “못” completes the blank in “운전을 못해요.” and gives it the meaning “I cannot drive well.”. Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity."
         },
         {
           "prompt": "저는 요리를 ___",
           "translation": "I am good at cooking.",
           "answer": "잘해요",
           "hint": "Base form: 잘하다",
-          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다. In this sentence, “잘해요” completes the blank in “저는 요리를 잘해요” and gives it the meaning “I am good at cooking.”. Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity."
         },
         {
           "prompt": "저는 수영을 ___해요.",
           "translation": "I am good at swimming.",
           "answer": "잘",
           "hint": "Base form: 잘하다",
-          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다. In this sentence, “잘” completes the blank in “저는 수영을 잘해요.” and gives it the meaning “I am good at swimming.”. Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity."
         },
         {
           "prompt": "동생은 노래를 ___해요.",
           "translation": "My younger sibling sings poorly.",
           "answer": "못",
           "hint": "Base form: 못하다",
-          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다."
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다. In this sentence, “못” completes the blank in “동생은 노래를 못해요.” and gives it the meaning “My younger sibling sings poorly.”. Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity."
         }
       ]
     },
@@ -1648,35 +1648,35 @@
           "translation": "Whom did you meet yesterday?",
           "answer": "누구를",
           "hint": "Base form: 누구",
-          "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
+          "explanation": "Form questions without question words and use common words such as who, what, when, why and where. In this sentence, “누구를” completes the blank in “어제 누구를 만났어요?” and gives it the meaning “Whom did you meet yesterday?”. Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place."
         },
         {
           "prompt": "___ 먹었어요?",
           "translation": "What did you eat?",
           "answer": "뭐를",
           "hint": "Base form: 뭐",
-          "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
+          "explanation": "Form questions without question words and use common words such as who, what, when, why and where. In this sentence, “뭐를” completes the blank in “뭐를 먹었어요?” and gives it the meaning “What did you eat?”. Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place."
         },
         {
           "prompt": "___ 와요?",
           "translation": "Why are you coming?",
           "answer": "왜",
           "hint": "Base form: 왜",
-          "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
+          "explanation": "Form questions without question words and use common words such as who, what, when, why and where. In this sentence, “왜” completes the blank in “왜 와요?” and gives it the meaning “Why are you coming?”. Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place."
         },
         {
           "prompt": "___ 학교에 갔어요?",
           "translation": "When did you go to school?",
           "answer": "언제",
           "hint": "Base form: 언제",
-          "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
+          "explanation": "Form questions without question words and use common words such as who, what, when, why and where. In this sentence, “언제” completes the blank in “언제 학교에 갔어요?” and gives it the meaning “When did you go to school?”. Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place."
         },
         {
           "prompt": "___ 살아요?",
           "translation": "Where do you live?",
           "answer": "어디에",
           "hint": "Base form: 어디",
-          "explanation": "Form questions without question words and use common words such as who, what, when, why and where."
+          "explanation": "Form questions without question words and use common words such as who, what, when, why and where. In this sentence, “어디에” completes the blank in “어디에 살아요?” and gives it the meaning “Where do you live?”. Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place."
         }
       ]
     },
@@ -1721,35 +1721,35 @@
           "translation": "How do you study Korean?",
           "answer": "어떻게",
           "hint": "Base form: 어떻게",
-          "explanation": "Ask questions with how, which and how many."
+          "explanation": "Ask questions with how, which and how many. In this sentence, “어떻게” completes the blank in “한국어를 어떻게 공부해요?” and gives it the meaning “How do you study Korean?”. Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”"
         },
         {
           "prompt": "___ 책이 좋아요?",
           "translation": "Which book do you like?",
           "answer": "어느",
           "hint": "Base form: 어느",
-          "explanation": "Ask questions with how, which and how many."
+          "explanation": "Ask questions with how, which and how many. In this sentence, “어느” completes the blank in “어느 책이 좋아요?” and gives it the meaning “Which book do you like?”. Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”"
         },
         {
           "prompt": "사과를 ___ 개 샀어요?",
           "translation": "How many apples did you buy?",
           "answer": "몇",
           "hint": "Base form: 몇",
-          "explanation": "Ask questions with how, which and how many."
+          "explanation": "Ask questions with how, which and how many. In this sentence, “몇” completes the blank in “사과를 몇 개 샀어요?” and gives it the meaning “How many apples did you buy?”. Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”"
         },
         {
           "prompt": "___ 사람이 왔어요?",
           "translation": "How many people came?",
           "answer": "몇",
           "hint": "Base form: 몇",
-          "explanation": "Ask questions with how, which and how many."
+          "explanation": "Ask questions with how, which and how many. In this sentence, “몇” completes the blank in “몇 사람이 왔어요?” and gives it the meaning “How many people came?”. Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”"
         },
         {
           "prompt": "___ 영화를 좋아해요?",
           "translation": "Which movie do you like?",
           "answer": "어느",
           "hint": "Base form: 어느",
-          "explanation": "Ask questions with how, which and how many."
+          "explanation": "Ask questions with how, which and how many. In this sentence, “어느” completes the blank in “어느 영화를 좋아해요?” and gives it the meaning “Which movie do you like?”. Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”"
         }
       ]
     },
@@ -1794,35 +1794,35 @@
           "translation": "The sky is blue/clear.",
           "answer": "파래요",
           "hint": "Base form: 파랗다",
-          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다. In this sentence, “파래요” completes the blank in “날씨가 파래요” and gives it the meaning “The sky is blue/clear.”. When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern."
         },
         {
           "prompt": "___ 색이에요?",
           "translation": "What kind of color is it?",
           "answer": "어떤",
           "hint": "Base form: 어떤",
-          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다. In this sentence, “어떤” completes the blank in “어떤 색이에요?” and gives it the meaning “What kind of color is it?”. When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern."
         },
         {
           "prompt": "___ 사람입니까?",
           "translation": "What kind of person is he/she?",
           "answer": "어떤",
           "hint": "Base form: 어떤",
-          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다. In this sentence, “어떤” completes the blank in “어떤 사람입니까?” and gives it the meaning “What kind of person is he/she?”. When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern."
         },
         {
           "prompt": "하늘이 ___",
           "translation": "The sky is blue.",
           "answer": "파래요",
           "hint": "Base form: 파랗다",
-          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다. In this sentence, “파래요” completes the blank in “하늘이 파래요” and gives it the meaning “The sky is blue.”. When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern."
         },
         {
           "prompt": "___ 모양이에요?",
           "translation": "What kind of shape is it?",
           "answer": "어떤",
           "hint": "Base form: 어떤",
-          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다."
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다. In this sentence, “어떤” completes the blank in “어떤 모양이에요?” and gives it the meaning “What kind of shape is it?”. When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern."
         }
       ]
     },
@@ -1867,35 +1867,35 @@
           "translation": "I review after class.",
           "answer": "후",
           "hint": "Base form: 후",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “후” completes the blank in “수업 후에 복습해요.” and gives it the meaning “I review after class.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
           "prompt": "___ 올 수 있어요.",
           "translation": "Anybody can come.",
           "answer": "누구든지",
           "hint": "Base form: 누구",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “누구든지” completes the blank in “누구든지 올 수 있어요.” and gives it the meaning “Anybody can come.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
           "prompt": "한 시간 ___에 끝나요.",
           "translation": "It ends within one hour.",
           "answer": "이내",
           "hint": "Base form: 이내",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내” completes the blank in “한 시간 이내에 끝나요.” and gives it the meaning “It ends within one hour.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
-          "prompt": "회의 ___에 도착했어요.",
+          "prompt": "회의 ___ 도착했어요.",
           "translation": "I arrived before the meeting.",
           "answer": "전에",
           "hint": "Base form: 전",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “전에” completes the blank in “회의 전에 도착했어요.” and gives it the meaning “I arrived before the meeting.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         },
         {
           "prompt": "한 달 ___에 끝낼 거예요.",
           "translation": "I will finish within one month.",
           "answer": "이내",
           "hint": "Base form: 이내",
-          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions."
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions. In this sentence, “이내” completes the blank in “한 달 이내에 끝낼 거예요.” and gives it the meaning “I will finish within one month.”. Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings."
         }
       ]
     }
