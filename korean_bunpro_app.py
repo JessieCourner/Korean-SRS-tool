@@ -360,8 +360,10 @@ st.markdown("""
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
     .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
-    .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; min-height:2.7rem; display:flex; align-items:center;}
-    .inline-answer input {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important;}
+    .inline-prompt-text {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; white-space:nowrap; overflow:visible; min-height:2.7rem; display:flex; align-items:center;}
+    [class*="st-key-review_card_shell"] .stTextInput input {font-size:clamp(1.05rem,2.4vw,1.3rem) !important; font-weight:800 !important; text-align:center !important; min-height:2.7rem !important; border:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; padding:0 2px !important;}
+    [class*="st-key-review_card_shell"] .stTextInput input:focus {border:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
+    [class*="st-key-review_card_shell"] .stTextInput input::placeholder {color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; opacity:1 !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
@@ -907,7 +909,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v11"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v12"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1790,11 +1792,30 @@ def focus_answer_field():
     <script>
     (function() {
         const parentWindow = window.parent;
+        function resizeAnswer(input) {
+            if (!input) return;
+            const canvas = parentWindow.document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            context.font = getComputedStyle(input).font;
+            const width = Math.max(34, Math.ceil(context.measureText(input.value || '…').width + 12));
+            input.style.width = width + 'px';
+            const column = input.closest('[data-testid="column"]');
+            if (column) {
+                column.style.flex = '0 0 ' + width + 'px';
+                column.style.width = width + 'px';
+                column.style.minWidth = width + 'px';
+            }
+        }
         function focusAnswer() {
             const input = parentWindow.document.querySelector(
-                'input[aria-label="Your answer"]'
+                '[class*="st-key-review_card_shell"] input[aria-label="Answer"]'
             );
             if (!input) return false;
+            if (!input.dataset.mochiResizeBound) {
+                input.dataset.mochiResizeBound = '1';
+                input.addEventListener('input', function() { resizeAnswer(input); });
+            }
+            resizeAnswer(input);
             input.focus();
             const end = input.value.length;
             try { input.setSelectionRange(end, end); } catch (error) {}
@@ -2058,7 +2079,7 @@ def render_card(card):
     if marker:
         left_width = max(2, min(22, len(before) + 2))
         right_width = max(2, min(22, len(after) + 2))
-        left, middle, right = st.columns([left_width, 9, right_width], gap="small", vertical_alignment="center")
+        left, middle, right = st.columns([left_width, 5, right_width], gap="small", vertical_alignment="center")
         with left:
             st.markdown(f'<div class="inline-prompt-text">{escape(before)}</div>', unsafe_allow_html=True)
         with middle:
