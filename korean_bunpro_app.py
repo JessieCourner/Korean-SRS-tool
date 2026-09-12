@@ -2,6 +2,7 @@ import base64
 import json
 import re
 import sqlite3
+import time
 from html import escape
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -116,18 +117,36 @@ class PostgresConnection:
         # A short timeout prevents a blocked startup from looking like a blank
         # page in Streamlit Cloud.  The bootstrap lock below serializes the
         # first-run schema/seed work across multiple Streamlit sessions.
-        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
-        self.raw = psycopg2.connect(url, connect_timeout=15, options=connect_options) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15, options=connect_options)
+        self.url = url
+        self._connect()
         self._open_cursors = set()
 
+    def _connect(self):
+        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
+        self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
+        self.last_used = time.monotonic()
+
+    def ensure_alive(self):
+        # Mobile browsers can suspend the Streamlit websocket while the phone
+        # is locked.  Reopen an idle PostgreSQL socket before the next query.
+        if getattr(self.raw, "closed", 1) or time.monotonic() - self.last_used > 45:
+            try:
+                self.raw.close()
+            except Exception:
+                pass
+            self._connect()
+
     def execute(self, sql, params=()):
+        self.ensure_alive()
         return PostgresCursor(self).execute(sql, params)
 
     def executescript(self, sql):
+        self.ensure_alive()
         return PostgresCursor(self).executescript(sql)
 
     def commit(self):
         self.raw.commit()
+        self.last_used = time.monotonic()
         for cursor in list(self._open_cursors):
             cursor.close()
 
@@ -137,10 +156,21 @@ class PostgresConnection:
         # connection after each helper made every click wait for a new TLS
         # handshake against Supabase.
         return None
+
+
+def is_postgres_connection(connection):
+    """Recognize cached connections even after Streamlit reloads this module."""
+    return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
-SRS_DAYS = {0: 0, 1: 1, 2: 3, 3: 7, 4: 14, 5: 30, 6: 60, 7: 120, 8: 3650}
+BUNPRO_INTERVALS = {
+    0: timedelta(hours=4), 1: timedelta(hours=8), 2: timedelta(days=1),
+    3: timedelta(days=2), 4: timedelta(days=4), 5: timedelta(days=8),
+    6: timedelta(days=12), 7: timedelta(days=24), 8: timedelta(days=48),
+    9: timedelta(days=96), 10: timedelta(days=176),
+}
+SRS_MAX_LEVEL = 11
 UNIT_INFO = {
     0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
     1: ("Basic Korean Grammar", "Lessons 1–25", "completed"),
@@ -231,6 +261,13 @@ BTS_MOTIVATION = [
     {"level": 5, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "배운 표현을 자기 경험과 연결해 사용할 때 언어가 수동적인 지식에서 능동적인 감각으로 바뀌어요.", "en": "When you connect a learned expression to your own experience, language shifts from passive knowledge to active intuition."},
     {"level": 5, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "한 번에 완벽하려고 하기보다 반복 속에서 의미와 뉘앙스를 정교하게 다듬어 가면 돼요.", "en": "You do not need to be perfect at once; refine meaning and nuance gradually through repetition."},
 ]
+BTS_PAIR_ROTATION = [
+    ("Jimin", "Jung Kook", "🐣", "🐰"),
+    ("V", "Jin", "🐯", "🐹"),
+    ("RM", "SUGA", "🐨", "🐱"),
+    ("RM", "j-hope", "🐨", "☀️"),
+    ("SUGA", "j-hope", "🐱", "☀️"),
+]
 BTS_ASSET_FILES = {
     "RM": "rm.png",
     "Jin": "jin.png",
@@ -290,6 +327,7 @@ SHOP_ITEMS = [
     ("tracker_rainbow", "Rainbow Tracker", "tracker", 420, "🌈", "A colorful progress journey"),
     ("tracker_sakura", "Sakura Petals", "tracker", 500, "🌸", "Petals bloom as your review grows"),
 ]
+SHOP_ICONS = {item[0]: item[4] for item in SHOP_ITEMS}
 
 st.set_page_config(page_title="Mochi Hangul", page_icon="🍡", layout="wide")
 st.markdown("""
@@ -339,11 +377,11 @@ st.markdown("""
     .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
     .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
-    .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-vector-fallback {width:84px; height:134px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:auto; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
     .bts-vector {width:100%; height:100%; overflow:visible;}
     .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto; cursor:grab;}
@@ -354,6 +392,9 @@ st.markdown("""
     .bts-speaker {display:none;}
     .bts-label {display:none;}
     .bts-quote {color:#5b4770; font-size:16px; line-height:1.55; overflow-wrap:anywhere;}
+    [class*="st-key-review_card_shell"] [data-testid="stExpander"] {max-width:360px !important; margin:5px auto !important;}
+    [class*="st-key-review_card_shell"] [data-testid="stExpander"] summary {padding-top:5px !important; padding-bottom:5px !important; min-height:0 !important;}
+    [class*="st-key-review_card_shell"] [data-testid="stExpander"] [data-testid="stMarkdownContainer"] {font-size:.92rem !important; line-height:1.3 !important;}
     .bts-character-alt {display:none;}
     .lesson-modal-heading {padding:8px 0 12px; border-bottom:2px dashed #efbdd8; color:#654b78;}
     .lesson-modal-heading h2 {margin:0; color:#654b78;}
@@ -487,9 +528,11 @@ st.markdown("""
         .bts-surface {width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible;}
         .bts-scene, .bts-scene-left, .bts-scene-right {position:fixed !important; width:max-content; max-width:calc(100vw - 12px); margin:0;}
         .bts-scene-right {flex-direction:row-reverse;}
-        .bts-character, .bts-vector-fallback {width:82px; height:132px;}
+        .bts-character, .bts-vector-fallback {width:56px; height:90px;}
         .bts-speech {min-width:0; max-width:calc(100vw - 96px); flex:1 1 auto; padding:10px 12px;}
         .bts-quote {font-size:14px;}
+        [class*="st-key-review_card_shell"] [data-testid="stExpander"] {max-width:min(360px,calc(100% - 34px)) !important;}
+        [class*="st-key-review_card_shell"] [data-testid="stExpander"] summary {padding-top:4px !important; padding-bottom:4px !important;}
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
         .streak-meta {text-align:left;}
     }
@@ -537,8 +580,13 @@ def db():
         if psycopg2 is None:
             raise RuntimeError("SUPABASE_DB_URL is set, but psycopg2-binary is missing from requirements.txt")
         cached_connection = st.session_state.get("_supabase_connection")
-        if cached_connection is not None and getattr(cached_connection.raw, "closed", 1) == 0:
+        if cached_connection is not None and hasattr(cached_connection, "ensure_alive") and getattr(cached_connection.raw, "closed", 1) == 0:
             return cached_connection
+        if cached_connection is not None:
+            try:
+                cached_connection.raw.close()
+            except Exception:
+                pass
         cached_connection = PostgresConnection(SUPABASE_DB_URL)
         st.session_state["_supabase_connection"] = cached_connection
         return cached_connection
@@ -553,7 +601,7 @@ def today():
 
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
-    if isinstance(c, PostgresConnection):
+    if is_postgres_connection(c):
         c.execute("SELECT pg_advisory_xact_lock(81620417)")
 
 
@@ -584,7 +632,9 @@ def init_db():
         card_id INTEGER PRIMARY KEY,
         level INTEGER DEFAULT 0,
         next_review TEXT DEFAULT '2999-01-01',
+        due_at TEXT DEFAULT '2999-01-01T00:00:00',
         last_review TEXT,
+        last_result TEXT,
         mistakes INTEGER DEFAULT 0,
         active INTEGER DEFAULT 0
     );
@@ -616,14 +666,35 @@ def init_db():
     # checked-in lesson pack.  Keep the row and its history for progress
     # safety, but never put it back into a deck when its lesson is activated.
     # ALTER TABLE is needed because deployed databases predate this column.
-    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
-    if "retired" not in review_columns:
-        c.execute("ALTER TABLE reviews ADD COLUMN retired INTEGER NOT NULL DEFAULT 0")
+    review_columns = {
+        row[1]
+        for row in c.execute("PRAGMA table_info(reviews)").fetchall()
+    }
+    review_migrations = {
+        "level": "INTEGER NOT NULL DEFAULT 0",
+        "next_review": "TEXT DEFAULT '2999-01-01'",
+        "last_review": "TEXT",
+        "mistakes": "INTEGER NOT NULL DEFAULT 0",
+        "active": "INTEGER NOT NULL DEFAULT 0",
+        "retired": "INTEGER NOT NULL DEFAULT 0",
+        "due_at": "TEXT",
+        "last_result": "TEXT",
+    }
+    for column, definition in review_migrations.items():
+        if column not in review_columns:
+            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+
+    c.execute(
+        "UPDATE reviews "
+        "SET due_at=next_review || 'T00:00:00' "
+        "WHERE due_at IS NULL"
+    )
+
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
+    c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
     # The current course plan is two new lessons per day. Keep this migration
     # explicit so an older database that used three is corrected as well.
-    c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
     c.execute("INSERT OR IGNORE INTO wallet(id,crystals) VALUES(1,0)")
     for item in SHOP_ITEMS:
         c.execute("INSERT OR IGNORE INTO shop_items(id,name,kind,price,icon,description) VALUES(?,?,?,?,?,?)", item)
@@ -678,7 +749,7 @@ def import_extended_seeds():
             # The app can have several browser sessions on first deployment.
             # Insert-or-ignore at the database level avoids the check-then-
             # insert race that previously blocked lessons_lesson_number_key.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 inserted = c.execute("""
                     INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
                     VALUES(?,?,?,?,?,?,?)
@@ -709,7 +780,7 @@ def import_extended_seeds():
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 c.commit()
     c.commit()
     c.close()
@@ -834,7 +905,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-10-v12"
+CONTENT_SYNC_VERSION = "2026-09-11-mobile-srs-v5"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -857,10 +928,15 @@ def bootstrap_app_data():
 
 
 def setting(key, default):
+    cache = st.session_state.setdefault("_settings_cache", {})
+    if key in cache:
+        return cache[key]
     c = db()
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
     c.close()
-    return row["value"] if row else default
+    value = row["value"] if row else default
+    cache[key] = value
+    return value
 
 
 def crystals():
@@ -873,11 +949,12 @@ def award_crystals(event_key, amount):
         return
     c = db()
     params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
-    if isinstance(c, PostgresConnection):
+    if is_postgres_connection(c):
         # RETURNING is reliable for PostgreSQL and avoids relying on the
         # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
         inserted = c.execute(
-            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) RETURNING event_key",
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
             params,
         ).fetchone()
         was_inserted = inserted is not None
@@ -886,7 +963,7 @@ def award_crystals(event_key, amount):
             "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
             params,
         )
-        was_inserted = cur.rowcount > 0
+        was_inserted = bool(getattr(cur, "rowcount", 0))
     if was_inserted:
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
@@ -976,10 +1053,23 @@ def learner_level():
 def daily_bts_message():
     """Select a deterministic daily two-member encouragement at the user level."""
     level, highest = learner_level()
-    choices = [item for item in BTS_MOTIVATION if item["level"] == level]
+    pair_index = date.today().toordinal() % len(BTS_PAIR_ROTATION)
+    ko_member, en_member, ko_icon, en_icon = BTS_PAIR_ROTATION[pair_index]
+    choices = [
+        item for item in BTS_MOTIVATION
+        if item["level"] == level
+        and item["ko_member"] == ko_member
+        and item["en_member"] == en_member
+    ]
     if not choices:
         choices = [item for item in BTS_MOTIVATION if item["level"] <= level]
-    choice = choices[date.today().toordinal() % len(choices)]
+    choice = dict(choices[date.today().toordinal() % len(choices)])
+    choice.update(
+        ko_member=ko_member,
+        en_member=en_member,
+        ko_icon=ko_icon,
+        en_icon=en_icon,
+    )
     return choice, level, highest
 
 
@@ -1539,6 +1629,7 @@ def buy_or_activate(item_id):
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
+    st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
     return True
 
 
@@ -1661,29 +1752,36 @@ def answer_is_correct(user, answer):
 
 
 def check_answer(card_id, answer_key):
-    """Automatically grade a card from the number of attempts.
-
-    A wrong answer keeps the same card on screen.  The next correct answer is
-    therefore attempt two (Hard), and a third-or-later correct answer is Again.
-    """
-    card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
+    """Apply Bunpro-style grading without manual Good/Hard/Again buttons."""
+    # The current card was already loaded for rendering.  Reusing its answer
+    # removes one network round-trip on every Enter press against Supabase.
+    answer_cache = st.session_state.setdefault("_review_answer_cache", {})
+    answer = answer_cache.get(card_id)
+    card = {"answer": answer} if answer is not None else one(
+        "SELECT answer FROM cards WHERE id=?", (card_id,)
+    )
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
-    attempt_key = f"attempts_{card_id}"
-    attempts = st.session_state.get(attempt_key, 0) + 1
-    st.session_state[attempt_key] = attempts
-    if answer_is_correct(user_answer, card["answer"]):
-        result = "good" if attempts == 1 else "hard" if attempts == 2 else "again"
-        st.session_state["last_auto_grade"] = result
-        grade(card_id, result)
-        st.rerun()
-    else:
-        st.session_state["wrong_feedback"] = card_id
-        # The callback runs before the widget is rendered again, so this is
-        # safe and gives the learner a clean field for the next attempt.
-        st.session_state[answer_key] = ""
-        st.rerun()
+    failed_cards = set(st.session_state.get("review_failed_cards", []))
+    is_correct = answer_is_correct(user_answer, card["answer"])
+    # In Bunpro, an item that was wrong earlier in the session remains a
+    # failed review even when the learner gets its re-queued copy right.
+    result = "correct" if is_correct and card_id not in failed_cards else "incorrect"
+    if not is_correct:
+        failed_cards.add(card_id)
+        st.session_state["review_failed_cards"] = list(failed_cards)
+        used = set(st.session_state.get("review_requeue_used", []))
+        if card_id not in used:
+            pending = set(st.session_state.get("review_requeue_pending", []))
+            pending.add(card_id)
+            st.session_state["review_requeue_pending"] = list(pending)
+    st.session_state["result_card_id"] = card_id
+    st.session_state["result_user_answer"] = user_answer
+    st.session_state["result_correct_answer"] = card["answer"]
+    st.session_state["result_grade"] = result
+    grade(card_id, result, requeue=card_id in set(st.session_state.get("review_requeue_pending", [])))
+    st.rerun()
 
 
 def focus_answer_field():
@@ -1757,10 +1855,10 @@ def activate_lesson(lesson_id):
         return False
     c = db()
     c.execute("""
-        UPDATE reviews SET active=1, level=0, next_review=?, last_review=NULL
+        UPDATE reviews SET active=1, level=0, next_review=?, due_at=?, last_review=NULL, last_result=NULL
         WHERE card_id IN (SELECT id FROM cards WHERE lesson_id=?)
           AND active=0 AND retired=0
-    """, (today(), lesson_id))
+    """, (today(), datetime.now().isoformat(timespec="seconds"), lesson_id))
     c.execute("UPDATE lessons SET status='studying' WHERE id=?", (lesson_id,))
     c.commit()
     c.close()
@@ -1806,35 +1904,42 @@ def daily_lessons():
     """, (today(),))
 
 
-def grade(card_id, result):
+def grade(card_id, result, requeue=True):
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
     level = current["level"]
     mistakes = current["mistakes"]
-    if result == "good":
-        level = min(8, level + 1)
-    elif result == "easy":
-        level = min(8, level + 2)
-    elif result == "hard":
-        level = max(0, level)
-    elif result == "again":
-        level = max(0, level - 2)
-        mistakes += 1
-    interval = SRS_DAYS[level]
-    if result == "hard":
-        interval = max(1, SRS_DAYS[max(1, level)] // 2)
-    if result == "again":
-        interval = 0
-    next_date = (date.today() + timedelta(days=interval)).isoformat()
+    previous_result = current["last_result"]
+    now_dt = datetime.now()
+    if result == "correct":
+        # First-try success advances one Bunpro streak level.  The interval
+        # is the one belonging to the level just completed.
+        interval = BUNPRO_INTERVALS.get(min(level, 10), BUNPRO_INTERVALS[10])
+        level = min(SRS_MAX_LEVEL, level + 1)
+        due_at = now_dt + interval
+    elif result == "incorrect":
+        # Bunpro's default strictness is one level down.  The failed card is
+        # shown once more at the end of this session; after that it receives
+        # the normal interval for its new, lower level.
+        # The first failure already applies the one-level drop.  Do not
+        # penalise the same card twice when its re-queued copy is answered.
+        if previous_result != "incorrect":
+            level = max(0, level - 1)
+            mistakes += 1
+        interval = BUNPRO_INTERVALS.get(min(level, 10), BUNPRO_INTERVALS[10])
+        due_at = now_dt if requeue else now_dt + interval
+    else:
+        return
+    next_date = due_at.date().isoformat()
     now = datetime.now().isoformat(timespec="seconds")
     c = db()
     c.execute("""
-        UPDATE reviews SET level=?, next_review=?, last_review=?, mistakes=?, active=1
+        UPDATE reviews SET level=?, next_review=?, due_at=?, last_review=?, last_result=?, mistakes=?, active=1
         WHERE card_id=?
-    """, (level, next_date, now, mistakes, card_id))
+    """, (level, next_date, due_at.isoformat(timespec="seconds"), now, result, mistakes, card_id))
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
     c.commit()
     c.close()
-    award_crystals(f"card_review:{card_id}:{now}", {"good": 3, "easy": 5, "hard": 1, "again": 0}[result])
+    award_crystals(f"card_review:{card_id}:{now}", {"correct": 3, "incorrect": 0}[result])
     record_activity("review")
     st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
@@ -1862,47 +1967,75 @@ def next_new_lesson():
 
 
 def next_due_card():
-    # Rotation rule: cards reviewed today go last; NULL/old last_review go first.
-    # This matters when all cards in a grammar point share the same due date.
-    # A newly added card has no last_review yet, so it belongs in Review even
-    # if an older database left its placeholder next_review in the future.
-    return one("""
+    # Bunpro puts a failed card at the end of the current review queue once.
+    # RANDOM keeps ordinary due cards mixed instead of exposing insertion order.
+    candidates = rows("""
         SELECT cards.*, lessons.title AS lesson_title, lessons.pattern,
-               reviews.level, reviews.next_review, reviews.last_review
+               reviews.level, reviews.next_review, reviews.due_at, reviews.last_review
         FROM cards
         JOIN lessons ON lessons.id=cards.lesson_id
         JOIN reviews ON reviews.card_id=cards.id
         WHERE reviews.active=1
           AND reviews.retired=0
-          AND (reviews.next_review<=? OR reviews.last_review IS NULL)
+          AND (reviews.due_at<=? OR reviews.last_review IS NULL)
           AND lessons.status IN ('available','studying')
         ORDER BY
             CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
-            COALESCE(reviews.last_review,'0000-01-01T00:00:00'),
-            reviews.next_review, cards.id
-        LIMIT 1
-    """, (today(), today()))
+            RANDOM()
+    """, (datetime.now().isoformat(timespec="seconds"), today()))
+    if not candidates:
+        return None
+    pending = set(st.session_state.get("review_requeue_pending", []))
+    ordinary = [card for card in candidates if card["id"] not in pending]
+    if ordinary:
+        return ordinary[0]
+    card = candidates[0]
+    pending.discard(card["id"])
+    st.session_state["review_requeue_pending"] = list(pending)
+    used = set(st.session_state.get("review_requeue_used", []))
+    used.add(card["id"])
+    st.session_state["review_requeue_used"] = list(used)
+    return card
 
 
 def open_review():
     """Start a fresh Review visit from a dashboard or lesson action."""
     for key in ("review_total", "review_completed", "checked"):
         st.session_state.pop(key, None)
+    for key in ("review_failed_cards", "review_requeue_pending", "review_requeue_used"):
+        st.session_state.pop(key, None)
     st.session_state["go_review"] = True
     st.rerun()
 
 
+def prompt_without_answer_hint(prompt, answer):
+    """Keep grammar particles inside the blank when they belong to the answer."""
+    text = str(prompt or "")
+    answer = str(answer or "").strip()
+    match = re.search(r"___([가-힣]+)", text)
+    if not match:
+        return text
+    suffix = match.group(1)
+    if len(answer) > len(suffix) and answer.endswith(suffix):
+        return text[:match.start(1)] + text[match.end(1):]
+    return text
+
+
 def render_card(card):
-    prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
+    st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
+    prompt = prompt_without_answer_hint(card["prompt"], card["answer"])
+    prompt_html = escape(prompt).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
-    with st.expander("Показать слово в начальной форме"):
-        st.write(card["hint"])
-    with st.expander("Показать объяснение грамматики"):
+    with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
+    with st.expander("Show the word in its base form"):
+        st.write(card["hint"])
+    with st.expander("Show the answer"):
+        st.write(card["answer"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     answer = st.text_input(
         "Your answer",
@@ -1913,9 +2046,9 @@ def render_card(card):
     )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Пока не получилось. Попробуй ещё раз — попытка {attempts + 1}.")
+        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
     elif attempts:
-        st.caption(f"Попыток: {attempts}. Введи ответ ещё раз.")
+        st.caption(f"Attempts: {attempts}. Enter your answer again.")
     focus_answer_field()
 
 
@@ -2009,7 +2142,10 @@ def page_dashboard():
     design = active_item("design")
     character_id = setting("active_character", "")
     character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
-    mascot = character["icon"] if character else face["icon"]
+    mascot_id = character["id"] if character else face["id"]
+    mascot = SHOP_ICONS.get(mascot_id, character["icon"] if character else face["icon"])
+
+
     design_colors = {
         "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
         "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
@@ -2028,9 +2164,19 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
-    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
-    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
+    summary = one("""
+        SELECT
+          (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
+             JOIN lessons ON lessons.id=cards.lesson_id
+             WHERE reviews.active=1 AND reviews.retired=0
+               AND (reviews.due_at<=? OR reviews.last_review IS NULL)
+               AND lessons.status IN ('available','studying')) AS due,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
+    """, (datetime.now().isoformat(timespec="seconds"),))
+    due = summary["due"]
+    active = summary["active"]
+    mastered = summary["mastered"]
     a, b, c = st.columns(3)
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
@@ -2065,7 +2211,9 @@ def page_dashboard():
     if todays:
         st.caption(f"{completed} of {len(todays)} new lessons completed today")
         quest_tracker = active_item("tracker")
-        quest_icon = quest_tracker["icon"] if quest_tracker else "🍡"
+        quest_icon = SHOP_ICONS.get(
+            quest_tracker["id"], quest_tracker["icon"]
+        ) if quest_tracker else "🍡"
         quest_ratio = completed / len(todays)
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
@@ -2114,7 +2262,7 @@ def page_dashboard():
 def render_review_contents():
     """Render the Review experience inside the app's full-screen dialog."""
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.due_at<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (datetime.now().isoformat(timespec="seconds"),))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)
@@ -2122,10 +2270,16 @@ def render_review_contents():
     progress = 1.0 if total == 0 else completed / total
     frame = active_item("frame")
     tracker = active_item("tracker")
-    frame_icon = escape(frame["icon"] if frame else "🌸")
-    tracker_icon = escape(tracker["icon"] if tracker else "🍡")
+    frame_icon = escape(
+        SHOP_ICONS.get(frame["id"], frame["icon"]) if frame else "🌸"
+    )
+    tracker_icon = escape(
+        SHOP_ICONS.get(tracker["id"], tracker["icon"]) if tracker else "🍡"
+    )
     character = active_item("character")
-    character_icon = escape(character["icon"] if character else "🐰")
+    character_icon = escape(
+        SHOP_ICONS.get(character["id"], character["icon"]) if character else "🐰"
+    )
     frame_style = FRAME_STYLES.get(frame["id"] if frame else "frame_sakura", FRAME_STYLES["frame_sakura"])
     frame_border = frame_style["border"]
     frame_bg = frame_style["background"]
@@ -2144,6 +2298,60 @@ def render_review_contents():
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
         </div>
     </div>''', unsafe_allow_html=True)
+    result_card_id = st.session_state.get("result_card_id")
+    if result_card_id:
+        result_card = one("""
+            SELECT cards.*, lessons.title AS lesson_title
+            FROM cards JOIN lessons ON lessons.id=cards.lesson_id
+            WHERE cards.id=?
+        """, (result_card_id,))
+        if result_card:
+            user_answer = escape(str(st.session_state.get("result_user_answer", "")))
+            answered_prompt = escape(
+                prompt_without_answer_hint(
+                    result_card["prompt"], result_card["answer"]
+                )
+            ).replace(
+                "___",
+                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                1,
+            )
+            st.markdown(
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
+                unsafe_allow_html=True,
+            )
+            if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
+                for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
+                    st.session_state.pop(key, None)
+                st.rerun()
+            components.html("""
+                <script>
+                (function() {
+                    const win = window.parent;
+                    if (win.__mochiContinueHandler) {
+                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
+                    }
+                    win.__mochiContinueHandler = function(event) {
+                        if (event.key !== 'Enter' && event.key !== ' ') return;
+                        const buttons = Array.from(win.document.querySelectorAll('button'));
+                        const button = buttons.find((item) =>
+                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                        );
+                        if (!button) return;
+                        event.preventDefault();
+                        event.stopPropagation();
+                        button.click();
+                    };
+                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
+                })();
+                </script>
+            """, height=1)
+            return
+
     due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
@@ -2285,45 +2493,119 @@ def page_progress():
 
 
 def page_shop():
+
     st.title("Crystal Shop ✨")
-    st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
-    st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
-    categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
-    tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
+    st.markdown(
+        f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>",
+        unsafe_allow_html=True,
+    )
+    st.write(
+        "Earn crystals by studying and reviewing. "
+        "Buy a cute companion or a new study-room design."
+    )
+
+    categories = [
+        ("Faces", "face", "Choose your study buddy"),
+        ("Characters", "character", "A little friend for your dashboard"),
+        ("Room designs", "design", "Change the mood of your study room"),
+        ("Card frames", "frame", "Decorate your Review screen"),
+        ("Progress trackers", "tracker", "Choose how your progress grows"),
+    ]
+
+    tabs = st.tabs([f"{name} ✨" for name, _, _ in categories])
+
     for tab, (name, kind, subtitle) in zip(tabs, categories):
         with tab:
             st.subheader(name)
             st.caption(subtitle)
-            items = rows("SELECT * FROM shop_items WHERE kind=? ORDER BY price, id", (kind,))
+
+            items = rows(
+                "SELECT * FROM shop_items WHERE kind=? ORDER BY price, id",
+                (kind,),
+            )
+
             for item in items:
-                owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
+                owned = one(
+                    "SELECT 1 FROM inventory WHERE item_id=?",
+                    (item["id"],),
+                )
+
                 active_key = f"active_{item['kind']}"
                 is_active = setting(active_key, "") == item["id"]
+
                 with st.container(border=True):
                     left, middle, right = st.columns([1, 4, 1.5])
+
                     with left:
-                        st.markdown(f"<div class='shop-item-icon'>{item['icon']}</div>", unsafe_allow_html=True)
+                        icon = SHOP_ICONS.get(item["id"], item["icon"])
+                        st.markdown(
+                            f"<div class='shop-item-icon'>{icon}</div>",
+                            unsafe_allow_html=True,
+                        )
+
                     with middle:
                         st.markdown(f"### {item['name']}")
                         st.caption(item["description"])
+
                         if kind == "frame":
-                            style = FRAME_STYLES.get(item["id"], FRAME_STYLES["frame_sakura"])
+                            style = FRAME_STYLES.get(
+                                item["id"],
+                                FRAME_STYLES["frame_sakura"],
+                            )
+
                             st.markdown(
-                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview · {style['decor']}</div>''',
+                                f"""
+                                <div style="
+                                    border:3px solid {style['border']};
+                                    border-radius:18px;
+                                    padding:9px 12px;
+                                    background:{style['background']};
+                                    color:#684d7b;
+                                    text-align:center;
+                                    font-weight:800;
+                                ">
+                                    {style['decor']} Review card preview · {style['decor']}
+                                </div>
+                                """,
                                 unsafe_allow_html=True,
                             )
+
                         elif kind == "tracker":
+                            tracker_icon = SHOP_ICONS.get(item["id"], item["icon"])
+
                             st.markdown(
-                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">{item['icon']}</div></div>''',
+                                f"""
+                                <div class="quest-track" style="margin:7px 0 4px">
+                                    <div class="quest-fill"
+                                         style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}">
+                                    </div>
+                                    <div class="progress-mascot"
+                                         style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">
+                                        {tracker_icon}
+                                    </div>
+                                </div>
+                                """,
                                 unsafe_allow_html=True,
                             )
+
                     with right:
                         if is_active:
                             st.success("Active")
+
                         elif owned:
-                            if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
-                                buy_or_activate(item["id"]); st.rerun()
-                        elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
+                            if st.button(
+                                "Use",
+                                key=f"use_{item['id']}",
+                                use_container_width=True,
+                            ):
+                                buy_or_activate(item["id"])
+                                st.rerun()
+
+                        elif st.button(
+                            f"Buy · {item['price']} 💎",
+                            key=f"buy_{item['id']}",
+                            use_container_width=True,
+                        ):
                             if buy_or_activate(item["id"]):
                                 st.success("Purchased!")
                                 st.rerun()
