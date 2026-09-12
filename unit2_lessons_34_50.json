@@ -205,14 +205,14 @@
           "prompt": "___ 공원에 가고 싶어요",
           "translation": "It is Sunday, so I want to go to the park",
           "answer": "일요일이어서",
-          "hint": "Base form: 일요일이다",
+          "hint": "Base form: 일요일",
           "explanation": "~아/어서 connects clauses with a natural cause-and-result relationship: because or so. Use it when the first clause naturally explains the result in the second clause, especially in everyday speech. Attach ~아서 after a ㅏ/ㅗ stem, ~어서 after other vowels, and ~해서 after 하다. The second clause normally carries the tense."
         },
         {
           "prompt": "___ 공원에 가고 싶어요",
           "translation": "It is Sunday, so I want to go to the park",
           "answer": "일요일이라서",
-          "hint": "Base form: 일요일이다",
+          "hint": "Base form: 일요일",
           "explanation": "~아/어서 connects clauses with a natural cause-and-result relationship: because or so. Use it when the first clause naturally explains the result in the second clause, especially in everyday speech. Attach ~아서 after a ㅏ/ㅗ stem, ~어서 after other vowels, and ~해서 after 하다. The second clause normally carries the tense."
         },
         {
@@ -289,7 +289,7 @@
           "prompt": "내가 ___ 그런 영화를 좋아해",
           "translation": "I like those kinds of movies because I am a man",
           "answer": "남자이기 때문에",
-          "hint": "Base form: 남자이다",
+          "hint": "Base form: 남자",
           "explanation": "~기 때문에 gives a clear reason meaning because or due to and works across past, present and future contexts. Use it when explaining a reason clearly, especially when the reason deserves emphasis or appears in writing. Nominalize the verb or adjective with ~기 and add 때문에; a noun can be followed directly by 때문에."
         },
         {
@@ -1096,35 +1096,35 @@
           "prompt": "제가 할 ___",
           "translation": "I am scheduled to do it",
           "answer": "예정이에요",
-          "hint": "Base form: 예정이에요",
+          "hint": "Base form: 예정",
           "explanation": "~ㄹ/을 예정, 계획 and 준비 express a schedule or expectation, a plan, and preparation for an upcoming action. Use 예정 for an expected schedule, 계획 for an intention, and 준비 for being ready or preparing. Attach ~ㄹ/을 to 예정, 계획 or 준비 after the appropriate stem, then use 이다 or 하다 as shown in the lesson."
         },
         {
           "prompt": "제가 먹을 ___",
           "translation": "I am scheduled to eat",
           "answer": "예정이에요",
-          "hint": "Base form: 예정이에요",
+          "hint": "Base form: 예정",
           "explanation": "~ㄹ/을 예정, 계획 and 준비 express a schedule or expectation, a plan, and preparation for an upcoming action. Use 예정 for an expected schedule, 계획 for an intention, and 준비 for being ready or preparing. Attach ~ㄹ/을 to 예정, 계획 or 준비 after the appropriate stem, then use 이다 or 하다 as shown in the lesson."
         },
         {
           "prompt": "우리는 10시에 만날 ___",
           "translation": "We are scheduled to meet at 10:00",
           "answer": "예정이에요",
-          "hint": "Base form: 예정이에요",
+          "hint": "Base form: 예정",
           "explanation": "~ㄹ/을 예정, 계획 and 준비 express a schedule or expectation, a plan, and preparation for an upcoming action. Use 예정 for an expected schedule, 계획 for an intention, and 준비 for being ready or preparing. Attach ~ㄹ/을 to 예정, 계획 or 준비 after the appropriate stem, then use 이다 or 하다 as shown in the lesson."
         },
         {
           "prompt": "수업이 4시쯤에 시작될 ___",
           "translation": "The class is scheduled to start at about 4:00pm",
           "answer": "예정이에요",
-          "hint": "Base form: 예정이에요",
+          "hint": "Base form: 예정",
           "explanation": "~ㄹ/을 예정, 계획 and 준비 express a schedule or expectation, a plan, and preparation for an upcoming action. Use 예정 for an expected schedule, 계획 for an intention, and 준비 for being ready or preparing. Attach ~ㄹ/을 to 예정, 계획 or 준비 after the appropriate stem, then use 이다 or 하다 as shown in the lesson."
         },
         {
           "prompt": "학생들이 수능을 다음 달에 볼 ___",
           "translation": "The students are scheduled to write 수능 next month",
           "answer": "예정이에요",
-          "hint": "Base form: 예정이에요",
+          "hint": "Base form: 예정",
           "explanation": "~ㄹ/을 예정, 계획 and 준비 express a schedule or expectation, a plan, and preparation for an upcoming action. Use 예정 for an expected schedule, 계획 for an intention, and 준비 for being ready or preparing. Attach ~ㄹ/을 to 예정, 계획 or 준비 after the appropriate stem, then use 이다 or 하다 as shown in the lesson."
         }
       ],

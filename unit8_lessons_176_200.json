@@ -111,7 +111,7 @@
           "prompt": "작업 ___ 통행을 삼가 주시기 바랍니다",
           "translation": "Work in progress -please refrain from passing through",
           "answer": "중이오니",
-          "hint": "Base form: 중이다",
+          "hint": "Base form: 중",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms. Use it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation. Learn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix."
         }
       ],
@@ -388,7 +388,7 @@
           "prompt": "우리는 밥을 사 먹을 ___ 없었어요",
           "translation": "We didn’t even have money to buy food",
           "answer": "돈조차",
-          "hint": "Base form: 돈다",
+          "hint": "Base form: 돌다",
           "explanation": "~조차 means even, emphasizing that an unexpected or extreme item is included. Use it when not even the least expected person, thing or action is excluded from the statement. Attach 조차 to the noun or noun-like clause being emphasized; place it after the relevant particle or expression as in HTSK."
         },
         {
@@ -438,35 +438,35 @@
           "prompt": "이번 일을 계기로 ___ 행동하려고 해요",
           "translation": "I’m going to use this opportunity to act like an adult",
           "answer": "어른답게",
-          "hint": "Base form: 어른다",
+          "hint": "Base form: 어른",
           "explanation": "~답다 means characteristic of, worthy of or like the qualities associated with a noun. Use it to describe someone or something as showing the expected character of a role, group or thing. Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK."
         },
         {
           "prompt": "그는 끝까지 무죄를 주장하며 ___ 당당한 태도를 보였어요",
           "translation": "He firmly maintained his innocence and showed a soldier-like, dignified attitude",
           "answer": "군인답게",
-          "hint": "Base form: 군인다",
+          "hint": "Base form: 군인",
           "explanation": "~답다 means characteristic of, worthy of or like the qualities associated with a noun. Use it to describe someone or something as showing the expected character of a role, group or thing. Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK."
         },
         {
           "prompt": "그녀는 부드럽고 ___ 매력으로 많은 사람들의 호감을 샀어요",
           "translation": "She won people’s hearts with her gentle, feminine charm",
           "answer": "여자다운",
-          "hint": "Base form: 여자다",
+          "hint": "Base form: 여자",
           "explanation": "~답다 means characteristic of, worthy of or like the qualities associated with a noun. Use it to describe someone or something as showing the expected character of a role, group or thing. Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK."
         },
         {
           "prompt": "그는 항상 ___ 검소하고 성실하게 살아왔어요",
           "translation": "He has always lived modestly and diligently, like a common person",
           "answer": "서민답게",
-          "hint": "Base form: 서민다",
+          "hint": "Base form: 서민",
           "explanation": "~답다 means characteristic of, worthy of or like the qualities associated with a noun. Use it to describe someone or something as showing the expected character of a role, group or thing. Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK."
         },
         {
           "prompt": "상기 내용을 보면 ___ 질문이 하나도 없어요",
           "translation": "Looking at the above, there isn’t a single question that sounds like it came from a student",
           "answer": "학생다운",
-          "hint": "Base form: 학생다",
+          "hint": "Base form: 학생",
           "explanation": "~답다 means characteristic of, worthy of or like the qualities associated with a noun. Use it to describe someone or something as showing the expected character of a role, group or thing. Attach 답다 to a noun, applying the changes and forms such as 다운, 답게 or 답지 않다 shown by HTSK."
         }
       ],
@@ -509,35 +509,35 @@
           "prompt": "___ 생활이 결국 그 사람의 인생을 망쳤어요",
           "translation": "A life of extravagance eventually ruined that person",
           "answer": "사치로운",
-          "hint": "Base form: 사치다",
+          "hint": "Base form: 사치",
           "explanation": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요. Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK. Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson."
         },
         {
           "prompt": "정원 가득 ___ 꽃들이 피어나 봄이 온 걸 느낄 수 있었어요",
           "translation": "Fragrant flowers filled the garden, signaling the arrival of spring",
           "answer": "향기로운",
-          "hint": "Base form: 향기다",
+          "hint": "Base form: 향기",
           "explanation": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요. Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK. Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson."
         },
         {
           "prompt": "그는 ___ 죽음을 맞이하며 모두의 존경을 받았어요",
           "translation": "He met an honorable death and earned everyone’s respect",
           "answer": "명예로운",
-          "hint": "Base form: 명예다",
+          "hint": "Base form: 명예",
           "explanation": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요. Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK. Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson."
         },
         {
           "prompt": "그는 평생 ___ 살기 위해 어떠한 유혹도 이겨냈어요",
           "translation": "He resisted all temptation to live an honorable life",
           "answer": "명예롭게",
-          "hint": "Base form: 명예다",
+          "hint": "Base form: 명예",
           "explanation": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요. Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK. Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson."
         },
         {
           "prompt": "그 와인의 달콤하고 ___ 향이 입안 가득 퍼졌어요",
           "translation": "The wine spread a sweet, mellow aroma throughout the mouth",
           "answer": "감미로운",
-          "hint": "Base form: 감미다",
+          "hint": "Base form: 감미",
           "explanation": "~롭다 forms adjectives meaning having the quality or character associated with a noun, with changes such as ~로워요. Use it to derive descriptive words for qualities, states or impressions from noun bases covered by HTSK. Attach 롭다 to the relevant noun base and conjugate the resulting adjective, observing the vowel and spelling changes in the lesson."
         }
       ],
@@ -587,7 +587,7 @@
           "prompt": "옷이 남루했지만 ___ 입고 나왔어요",
           "translation": "Though the clothes were shabby, he at least wore them neatly",
           "answer": "단정하게나마",
-          "hint": "Base form: 단정하게다",
+          "hint": "Base form: 단정하다",
           "explanation": "~(이)나마 means at least or even if it is only that much, often acknowledging an imperfect option. Use it when offering, accepting or emphasizing a minimum amount despite limitations. Attach 이나마 after a consonant noun and 나마 after a vowel noun; use it after the item that is the minimum choice."
         },
         {
@@ -672,7 +672,7 @@
           "prompt": "그 남자는 ___ 성실하기까지 해요",
           "translation": "That man is not only kind but also sincere",
           "answer": "친절한데다가",
-          "hint": "Base form: 친절다",
+          "hint": "Base form: 친절하다",
           "explanation": "~는데다가 means not only A but also B, adding another fact on top of the first. Use it when accumulating reasons, features or circumstances, especially when the second point makes the situation stronger. Build the first clause with the relevant ~는데 form and add ~다가; the following clause adds the additional fact."
         },
         {
@@ -1162,7 +1162,7 @@
           "prompt": "그의 성공 비결은 ___",
           "translation": "They say his secret to success is determination",
           "answer": "투지란다",
-          "hint": "Base form: 투지다",
+          "hint": "Base form: 투지",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다. Use it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone. Contract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다."
         },
         {
@@ -1641,14 +1641,14 @@
           "prompt": "___ 울먹이기만 했어요",
           "translation": "Let alone being brave, they just looked like they were about to cry",
           "answer": "씩씩하기는커녕",
-          "hint": "Base form: 씩씩하기는다",
+          "hint": "Base form: 씩씩하다",
           "explanation": "~은/는커녕 means far from or let alone, saying that the expected smaller action did not happen and something contrary did. Use it to contrast a hoped-for or expected case with a more extreme reality. Attach 커녕 to the noun or clause being rejected, using 은/는 after the appropriate form, then state the stronger contrasting result."
         },
         {
           "prompt": "___ 부당한 결정이었어요",
           "translation": "Far from being fair, it was an unjust decision",
           "answer": "정당하기는커녕",
-          "hint": "Base form: 정당하기는다",
+          "hint": "Base form: 정당하다",
           "explanation": "~은/는커녕 means far from or let alone, saying that the expected smaller action did not happen and something contrary did. Use it to contrast a hoped-for or expected case with a more extreme reality. Attach 커녕 to the noun or clause being rejected, using 은/는 after the appropriate form, then state the stronger contrasting result."
         },
         {
@@ -1662,14 +1662,14 @@
           "prompt": "___ 시늉도 안 하더라고요",
           "translation": "Far from helping, they didn’t even pretend to help",
           "answer": "도와주기는커녕",
-          "hint": "Base form: 도와주기는다",
+          "hint": "Base form: 도와주다",
           "explanation": "~은/는커녕 means far from or let alone, saying that the expected smaller action did not happen and something contrary did. Use it to contrast a hoped-for or expected case with a more extreme reality. Attach 커녕 to the noun or clause being rejected, using 은/는 after the appropriate form, then state the stronger contrasting result."
         },
         {
           "prompt": "그는 ___ 정치에 관심도 없어요",
           "translation": "He’s far from being a communist, he’s not even interested in politics",
           "answer": "공산주의자는커녕",
-          "hint": "Base form: 공산주의자는다",
+          "hint": "Base form: 공산주의자",
           "explanation": "~은/는커녕 means far from or let alone, saying that the expected smaller action did not happen and something contrary did. Use it to contrast a hoped-for or expected case with a more extreme reality. Attach 커녕 to the noun or clause being rejected, using 은/는 after the appropriate form, then state the stronger contrasting result."
         }
       ],

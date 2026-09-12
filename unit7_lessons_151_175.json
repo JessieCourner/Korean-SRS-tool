@@ -848,7 +848,7 @@
           "prompt": "이게 좋은 ___ 말이지",
           "translation": "This is a good example, you know",
           "answer": "예라는",
-          "hint": "Base form: 예다",
+          "hint": "Base form: 예",
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.  Use it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters. Put the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지."
         },
         {
@@ -862,14 +862,14 @@
           "prompt": "그 사람은 정말 ___ 말이야",
           "translation": "What I’m saying is, that person is really intelligent",
           "answer": "지적이라는",
-          "hint": "Base form: 지적이다",
+          "hint": "Base form: 지적",
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.  Use it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters. Put the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지."
         },
         {
           "prompt": "이건 우리가 공동으로 만든 ___ 말이야",
           "translation": "What I mean is, this is something we made together",
           "answer": "합작품이라는",
-          "hint": "Base form: 합작품이다",
+          "hint": "Base form: 합작품",
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.  Use it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters. Put the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지."
         },
         {
@@ -1061,35 +1061,35 @@
           "prompt": "___ 국가 간의 평화를 유지하는 핵심 요소예요",
           "translation": "Diplomacy is truly the key to maintaining peace between nations",
           "answer": "외교야말로",
-          "hint": "Base form: 외교다",
+          "hint": "Base form: 외교",
           "explanation": "~(이)야말로 means precisely, truly or this is the one that especially fits the description. Use it to emphasize a noun as the clearest or most representative example. Attach 야말로 after a vowel noun and 이야말로 after a consonant noun."
         },
         {
           "prompt": "___ 기업의 성공을 위해 필수적인 인재예요",
           "translation": "Analysts are truly essential talents for a company’s success",
           "answer": "분석가야말로",
-          "hint": "Base form: 분석가다",
+          "hint": "Base form: 분석가",
           "explanation": "~(이)야말로 means precisely, truly or this is the one that especially fits the description. Use it to emphasize a noun as the clearest or most representative example. Attach 야말로 after a vowel noun and 이야말로 after a consonant noun."
         },
         {
           "prompt": "정부는 ___ 신중하게 다루어져야 한다고 강조했어요",
           "translation": "The government emphasized that diplomacy is truly what must be handled carefully",
           "answer": "외교야말로",
-          "hint": "Base form: 외교다",
+          "hint": "Base form: 외교",
           "explanation": "~(이)야말로 means precisely, truly or this is the one that especially fits the description. Use it to emphasize a noun as the clearest or most representative example. Attach 야말로 after a vowel noun and 이야말로 after a consonant noun."
         },
         {
           "prompt": "___ 작가의 진솔한 생각이 담긴 문학 형식이에요",
           "translation": "Essays are truly a literary form that contains an author’s sincere thoughts",
           "answer": "수필이야말로",
-          "hint": "Base form: 수필이다",
+          "hint": "Base form: 수필이",
           "explanation": "~(이)야말로 means precisely, truly or this is the one that especially fits the description. Use it to emphasize a noun as the clearest or most representative example. Attach 야말로 after a vowel noun and 이야말로 after a consonant noun."
         },
         {
           "prompt": "___ 극복하기 어려운 감정이에요",
           "translation": "A sense of guilt is truly the most difficult emotion to overcome",
           "answer": "죄책감야말로",
-          "hint": "Base form: 죄책감다",
+          "hint": "Base form: 죄책감",
           "explanation": "~(이)야말로 means precisely, truly or this is the one that especially fits the description. Use it to emphasize a noun as the clearest or most representative example. Attach 야말로 after a vowel noun and 이야말로 after a consonant noun."
         }
       ],
@@ -1146,14 +1146,14 @@
           "prompt": "색다른 머리 스타일로 ___ 고민 중이에요",
           "translation": "I’m debating whether to change my hairstyle to something different or not",
           "answer": "바꿀까 말까",
-          "hint": "Base form: 바꿀다",
+          "hint": "Base form: 바꾸다",
           "explanation": "~ㄹ/을까 말까 means whether to do something or not and expresses indecision. Use it when considering two options: doing an action and not doing it. Attach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then add 말까."
         },
         {
           "prompt": "이곳은 정말 신비로운데 사진을 ___ 고민 중이에요",
           "translation": "This place is really mysterious, so I’m debating whether to take a picture or not",
           "answer": "찍을까 말까",
-          "hint": "Base form: 찍을다",
+          "hint": "Base form: 찍다",
           "explanation": "~ㄹ/을까 말까 means whether to do something or not and expresses indecision. Use it when considering two options: doing an action and not doing it. Attach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then add 말까."
         },
         {
@@ -1274,14 +1274,14 @@
           "prompt": "사탕을 ___ 하다가 결국 건강에 얼마나 안 좋은 지를 생각했어요",
           "translation": "I was about to eat the candy but ended up thinking about how bad it would be for my health",
           "answer": "먹을락 말락",
-          "hint": "Base form: 먹을다",
+          "hint": "Base form: 먹다",
           "explanation": "~ㄹ/을락 말락 means on the verge of doing something or almost, with the action wavering between happening and not happening. Use it for an action that nearly occurs or repeatedly seems about to occur. Attach ~ㄹ락 말락 after a vowel or ㄹ stem and ~을락 말락 after another consonant, then complete the sentence."
         },
         {
           "prompt": "빵이 오븐에서 다 구워져서 촉촉해질 것 같아서 ___ 하다가 조금 더 구웠어요",
           "translation": "The bread was about to be taken out of the oven, and it seemed like it would be moist, but I decided to bake it a little longer",
           "answer": "꺼낼락 말락",
-          "hint": "Base form: 꺼낼다",
+          "hint": "Base form: 꺼내다",
           "explanation": "~ㄹ/을락 말락 means on the verge of doing something or almost, with the action wavering between happening and not happening. Use it for an action that nearly occurs or repeatedly seems about to occur. Attach ~ㄹ락 말락 after a vowel or ㄹ stem and ~을락 말락 after another consonant, then complete the sentence."
         },
         {
@@ -1295,14 +1295,14 @@
           "prompt": "반지가 손가락에 쏙 ___ 해서 조금 더 밀어 넣었어요",
           "translation": "The ring was about to snugly fit on my finger, so I pushed it in a little more",
           "answer": "들어갈락 말락",
-          "hint": "Base form: 들어갈다",
+          "hint": "Base form: 들어가다",
           "explanation": "~ㄹ/을락 말락 means on the verge of doing something or almost, with the action wavering between happening and not happening. Use it for an action that nearly occurs or repeatedly seems about to occur. Attach ~ㄹ락 말락 after a vowel or ㄹ stem and ~을락 말락 after another consonant, then complete the sentence."
         },
         {
           "prompt": "동생이 내 물건을 멋대로 ___ 해서 제가 쳐다봤어요",
           "translation": "My younger sibling seemed like she was about to take my stuff as they pleased, so I stared at them",
           "answer": "가져갈락 말락",
-          "hint": "Base form: 가져갈다",
+          "hint": "Base form: 가져가다",
           "explanation": "~ㄹ/을락 말락 means on the verge of doing something or almost, with the action wavering between happening and not happening. Use it for an action that nearly occurs or repeatedly seems about to occur. Attach ~ㄹ락 말락 after a vowel or ㄹ stem and ~을락 말락 after another consonant, then complete the sentence."
         }
       ],
@@ -1565,7 +1565,7 @@
           "prompt": "하늘이 이렇게 검으니 곧 폭우가 ___어요",
           "translation": "Since the sky is this black, I wonder if a heavy rainstorm is coming soon",
           "answer": "쏟아질까 싶",
-          "hint": "Base form: 쏟아질다",
+          "hint": "Base form: 쏟아지다",
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will. Use it when considering an action without making a firm commitment. Attach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required."
         },
         {
@@ -1636,7 +1636,7 @@
           "prompt": "___. 찍은 문제도 많았어요.",
           "translation": "Perfect? Not really. I guessed a lot of questions.",
           "answer": "만점이기는요",
-          "hint": "Base form: 만점다",
+          "hint": "Base form: 만점",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment. Use these forms when politely rejecting praise or showing modesty in conversation. Attach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite."
         },
         {
@@ -1650,14 +1650,14 @@
           "prompt": "___. 몇 번이나 숨차서 멈췄어요.",
           "translation": "A pro? Not really. I had to stop several times because I was out of breath.",
           "answer": "프로이기는요",
-          "hint": "Base form: 프로다",
+          "hint": "Base form: 프로",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment. Use these forms when politely rejecting praise or showing modesty in conversation. Attach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite."
         },
         {
           "prompt": "___. 그냥 친구 따라서 하는 거예요.",
           "translation": "An athlete? Not really. I just go along with my friend.",
           "answer": "선수이기는요",
-          "hint": "Base form: 선수다",
+          "hint": "Base form: 선수",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment. Use these forms when politely rejecting praise or showing modesty in conversation. Attach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite."
         }
       ],

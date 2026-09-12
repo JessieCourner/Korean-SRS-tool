@@ -19,7 +19,7 @@
           "prompt": "제가 치약을 ___고 칫솔을 사기도 했어요",
           "translation": "I bought toothpaste and a toothbrush too",
           "answer": "사기도 하",
-          "hint": "Base form: 사",
+          "hint": "Base form: 사다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both. Use it when describing two or more actions or properties together, including repeated or contrasting possibilities. Attach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다."
         },
         {
@@ -438,7 +438,7 @@
           "prompt": "저는 매일 저의 여자친구에게 제가 그녀를 사랑하는 것을 ___요",
           "translation": "I remind my girlfriend that I love her every day",
           "answer": "상기시켜",
-          "hint": "Base form: 상기다",
+          "hint": "Base form: 상기하다",
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs. Use it when an agent orders, causes or arranges for another person to perform an action. Attach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness."
         },
         {
@@ -864,21 +864,21 @@
           "prompt": "친구를 ___?",
           "translation": "Should I meet my friend?",
           "answer": "만날까",
-          "hint": "Base form: 만날다",
+          "hint": "Base form: 만나다",
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness. Use ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener. Attach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule."
         },
         {
           "prompt": "공연을 보러 ___?",
           "translation": "Should I go to see the performance?",
           "answer": "갈까",
-          "hint": "Base form: 갈다",
+          "hint": "Base form: 가다",
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness. Use ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener. Attach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule."
         },
         {
           "prompt": "(내가) 밥을 ___?",
           "translation": "Should I eat rice?",
           "answer": "먹을까",
-          "hint": "Base form: 먹을다",
+          "hint": "Base form: 먹다",
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness. Use ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener. Attach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule."
         },
         {
@@ -892,7 +892,7 @@
           "prompt": "(내가) 뭐 ___?",
           "translation": "What should I eat?",
           "answer": "먹을까",
-          "hint": "Base form: 먹을다",
+          "hint": "Base form: 먹다",
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness. Use ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener. Attach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule."
         }
       ],
@@ -1006,14 +1006,14 @@
           "prompt": "시험을 잘 못 ___ 걱정돼요",
           "translation": "I’m worried that I won’t do well on the exam",
           "answer": "볼까 봐",
-          "hint": "Base form: 볼다",
+          "hint": "Base form: 보다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen. Use it when a feared possibility motivates the action in the main clause. Attach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally."
         },
         {
           "prompt": "비가 ___ 걱정돼요",
           "translation": "I’m worried that it will rain",
           "answer": "올까 봐",
-          "hint": "Base form: 올다",
+          "hint": "Base form: 오다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen. Use it when a feared possibility motivates the action in the main clause. Attach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally."
         },
         {
@@ -1368,7 +1368,7 @@
           "prompt": "경찰관이 ___ 실종자를 찾았어요",
           "translation": "The police found the missing person through/by gathering (and looking for him/her together)",
           "answer": "모여서",
-          "hint": "Base form: 모다",
+          "hint": "Base form: 모이다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier. Use it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because. Attach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance."
         },
         {

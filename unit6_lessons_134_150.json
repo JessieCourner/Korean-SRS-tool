@@ -83,7 +83,7 @@
           "prompt": "세상에는 아직도 ___의 인권이 매우 낮은 곳이 많습니다",
           "translation": "In this world even now, there are still many places where the rights of women are terribly low",
           "answer": "여성",
-          "hint": "Base form: 여다",
+          "hint": "Base form: 여성",
           "explanation": "성 has several meanings and readings depending on the Hanja-based word in which it appears. Use context and the complete word to distinguish the meanings introduced by HTSK. This is vocabulary rather than one ending; learn 성 compounds and their pronunciation and meanings as listed on the official page."
         },
         {
@@ -228,7 +228,7 @@
           "prompt": "생선이 ___ 맛있어요",
           "translation": "Only if fish is raw is it delicious",
           "answer": "날것이어야",
-          "hint": "Base form: 날것이다",
+          "hint": "Base form: 날것",
           "explanation": "~아/어야 can express necessity or a condition without the full 하다 expression. Use it in constructions where the required condition or action is followed by a result, command or conclusion. Attach ~아야 after a ㅏ/ㅗ stem and ~어야 after other vowels; 하다 becomes 해야, then add the following clause or predicate."
         },
         {
@@ -589,7 +589,7 @@
           "prompt": "___? 이 책자에서 그 영화에 대한 내용이 백 페이지인데!",
           "translation": "A summary? This booklet has one hundred pages about that movie!",
           "answer": "요약이라니",
-          "hint": "Base form: 요약이다",
+          "hint": "Base form: 요약",
           "explanation": "HTSK uses ~ㄴ/는다니, ~다니 and related forms to react to information with surprise, displeasure or astonishment. The speaker responds to something just said and adds an emotional attitude. Use this ending as a short conversational reaction when the previous statement is surprising, unbelievable or displeasing. The exact feeling comes from the context and intonation. Use the plain form followed by 니: 가다 → 간다니, 먹다 → 먹는다니, 먹었다 → 먹었다니, 행복하다 → 행복하다니. With nouns use ~(이)라니; replace 고 in quoted suggestions, questions or commands with 니: 가자니, 가느냐니, 가라니."
         },
         {
@@ -660,7 +660,7 @@
           "prompt": "잘 모르겠지만 ___",
           "translation": "I don’t know, but it is probably a lily",
           "answer": "백합일걸요",
-          "hint": "Base form: 백합일다",
+          "hint": "Base form: 백합",
           "explanation": "~ㄹ/을걸요 gives a speaker's guess, confident prediction or correction, often meaning probably or I doubt that. Use it when responding to another person's assumption, making a prediction or gently refuting what was said. Attach ~ㄹ걸요 after a vowel or ㄹ stem and ~을걸요 after another consonant; use the negative form when appropriate."
         },
         {
@@ -717,7 +717,7 @@
           "prompt": "완벽한 남자랑 결혼하는 것이 그냥 ___",
           "translation": "I guess I just need to resign to the fact that marrying the perfect man is just a fantasy",
           "answer": "환상이지 뭐",
-          "hint": "Base form: 환상이다",
+          "hint": "Base form: 환상",
           "explanation": "~지 뭐 expresses resignation or acceptance that the outcome cannot be changed, roughly I guess so or then I will. Use it when the speaker stops worrying about the result and accepts a practical next step. Attach ~지 뭐 to the relevant conjugated predicate; the tone and context carry the resigned attitude described by HTSK."
         },
         {
@@ -781,14 +781,14 @@
           "prompt": "___ 사람들 장 속에 사는 세균을 말한다",
           "translation": "Large intestine bacteria refers to bacteria living inside one’s intestines",
           "answer": "대장균이란",
-          "hint": "Base form: 대장균이다",
+          "hint": "Base form: 대장균",
           "explanation": "~란 is a shortened quotation or definition form related to ~(이)란 말이다 and related expressions. Use it when defining, labeling or emphasizing what a word or concept is, especially in conversational explanations. Use noun + 이란/란 according to the consonant-vowel rule and follow the contracted quotation patterns in the official lesson."
         },
         {
           "prompt": "그 회사가 내일부터 1주일 동안 ___ 게 사실이에요",
           "translation": "The word/rumor/speaking that that business will be temporarily closed for one week from tomorrow is true",
           "answer": "휴업이란",
-          "hint": "Base form: 휴업이다",
+          "hint": "Base form: 휴업",
           "explanation": "~란 is a shortened quotation or definition form related to ~(이)란 말이다 and related expressions. Use it when defining, labeling or emphasizing what a word or concept is, especially in conversational explanations. Use noun + 이란/란 according to the consonant-vowel rule and follow the contracted quotation patterns in the official lesson."
         },
         {
@@ -802,7 +802,7 @@
           "prompt": "그 사람이 ___ 말을 못 믿어요",
           "translation": "I don’t believe the words/rumors/talks that that person is a teacher",
           "answer": "선생님이란",
-          "hint": "Base form: 선생님이다",
+          "hint": "Base form: 선생님",
           "explanation": "~란 is a shortened quotation or definition form related to ~(이)란 말이다 and related expressions. Use it when defining, labeling or emphasizing what a word or concept is, especially in conversational explanations. Use noun + 이란/란 according to the consonant-vowel rule and follow the contracted quotation patterns in the official lesson."
         },
         {
@@ -866,7 +866,7 @@
           "prompt": "사람들이 농사를 지을 수 있는 땅을 ___ 산림을 훼손했다",
           "translation": "People ruined/damaged the forests by trying to turn the land into farmland",
           "answer": "만드느라고",
-          "hint": "Base form: 만드다",
+          "hint": "Base form: 만들다",
           "explanation": "~느라고 gives a reason based on being occupied with one action, usually with a negative or inconvenient result. Use it when one activity prevents, delays or causes difficulty for another action. Attach ~느라고 to a verb stem; the subject and tense restrictions and the negative-result nuance are important in HTSK."
         },
         {

@@ -369,7 +369,7 @@ st.markdown("""
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) {flex-wrap:nowrap !important; align-items:center !important;}
     [data-testid="stHorizontalBlock"]:has(input[aria-label="Answer"]) > [data-testid="column"] {min-width:0 !important;}
     .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
-    .answer-result {padding:8px 0; color:#514064; line-height:1.7;}
+    .answer-result {padding:8px 0; color:#514064; line-height:1.7; text-align:center;}
     .answer-result span {font-weight:800; color:#4f3d64;}
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
@@ -384,8 +384,8 @@ st.markdown("""
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
     .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
-    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
-    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
+    .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:move; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
+    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
     .bts-scene-right {flex-direction:row-reverse;}
     .bts-character {width:84px; height:134px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 7px 7px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
@@ -418,17 +418,10 @@ st.markdown("""
     [class*="st-key-review_card_shell"] [data-testid="stVerticalBlockBorderWrapper"] {border:3px solid #efb8d6 !important; border-radius:25px !important; background:#fffaff !important;}
     [class*="st-key-review_card_shell"] [data-testid="stMarkdownContainer"] {color:#514064 !important;}
     [class*="st-key-lesson_actions_"] {position:sticky; bottom:0; z-index:8; margin-top:12px; padding:10px 0 3px; background:linear-gradient(180deg,rgba(246,241,255,.25),rgba(246,241,255,.98) 28%); border-top:2px solid #efc8df;}
-    .modal-kicker {display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; padding:4px 0 12px; color:#987a9d; font-size:13px;}
-    .modal-kicker strong {color:#654b78; font-size:18px;}
-    .top-review-progress {display:flex; align-items:center; gap:9px; flex:1 1 auto; min-width:0; color:#654b78; font-weight:800; white-space:nowrap;}
-    .top-review-progress-track {flex:1 1 auto; width:auto; min-width:120px; height:10px; border-radius:99px; background:#eadff2; overflow:hidden; border:1px solid #e2cbe1;}
-    .top-review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
-    [data-testid="stDialog"] .stDialogHeader h2, [data-testid="stDialog"] [data-testid="stDialogHeader"] h2, .stDialog [data-testid="stDialogHeader"] h2 {font-size:0 !important;}
-    [data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {position:absolute; top:-105px; left:140px; right:24px; z-index:4; padding:0;}
-    [data-testid="stDialog"] .modal-kicker > span, .stDialog .modal-kicker > span {display:none;}
-    [data-testid="stDialog"] .top-review-progress, .stDialog .top-review-progress {width:100%;}
-    [data-testid="stDialog"] .top-review-progress-track, .stDialog .top-review-progress-track {min-width:0;}
-    @media (max-width:700px) {[data-testid="stDialog"] .modal-kicker, .stDialog .modal-kicker {top:-78px; left:90px; right:14px;}}
+    .review-header-progress {display:flex; align-items:center; gap:10px; flex:1 1 auto; min-width:0; margin-left:24px; color:#654b78; font-size:13px; font-weight:800; white-space:nowrap;}
+    .review-header-progress-track {flex:1 1 auto; min-width:80px; height:10px; overflow:hidden; border:1px solid #e2cbe1; border-radius:99px; background:#eadff2;}
+    .review-header-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0);}
+    @media (max-width:700px) {.review-header-progress {margin-left:10px; gap:5px; font-size:11px;}.review-header-progress-track {min-width:40px;}}
     .plain-translation {margin:0 0 16px; padding:0 2px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
     /* Streamlit renders the modal as a full-screen .stDialog overlay, a panel,
        and a role=dialog content wrapper.  The overlay owns scrolling for long
@@ -925,7 +918,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v24"
+CONTENT_SYNC_VERSION = "2026-09-12-card-audit-v27"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1360,7 +1353,7 @@ def render_bts_motivation(in_dialog=False):
                     Object.assign(toggle.style, {
                         position: "fixed",
                         right: "14px",
-                        bottom: "14px",
+                        bottom: "86px",
                         zIndex: "2147483647",
                         display: "flex",
                         alignItems: "center",
@@ -1450,7 +1443,7 @@ def render_bts_motivation(in_dialog=False):
                     });
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
-                    scene.style.zIndex = "2147483000";
+        scene.style.zIndex = "2147483646";
                     const key = sceneKey(day, slot);
                     scene.dataset.chibiStorageKey = key;
                     if (scene.dataset.chibiPositionBound === "1") {
@@ -2424,10 +2417,26 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    st.markdown(
-        f'''<div class="modal-kicker"><span>Review</span><div class="top-review-progress"><span>{completed} / {total}</span><div class="top-review-progress-track"><div class="top-review-progress-fill" style="width:{progress * 100:.1f}%"></div></div></div></div>''',
-        unsafe_allow_html=True,
-    )
+    components.html(f"""
+    <script>
+    (() => {{
+        const doc = window.parent.document;
+        const header = doc.querySelector('[data-testid="stDialogHeader"]')
+            || doc.querySelector('[data-testid="stDialog"] header')
+            || doc.querySelector('.stDialog header');
+        if (!header) return;
+        header.style.display = 'flex';
+        header.style.alignItems = 'center';
+        const old = header.querySelector('.review-header-progress');
+        if (old) old.remove();
+        const progress = doc.createElement('div');
+        progress.className = 'review-header-progress';
+        progress.innerHTML = '<span>{completed} / {total}</span><div class="review-header-progress-track"><div class="review-header-progress-fill" style="width:{progress * 100:.1f}%"></div></div>';
+        const close = header.querySelector('button');
+        if (close) header.insertBefore(progress, close); else header.appendChild(progress);
+    }})();
+    </script>
+    """, height=1)
     result_card_id = st.session_state.get("result_card_id")
     if result_card_id:
         result_card = one("""
@@ -2752,9 +2761,11 @@ render_mobile_navigation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
-render_bts_motivation()
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
 elif page == "Progress": page_progress()
 else: page_shop()
+# Render the single global chibi layer after the selected page/dialog. This
+# guarantees the layer exists on every page and stays above page content.
+render_bts_motivation()

@@ -111,7 +111,7 @@
           "prompt": "자물쇠를 ___ 시간이 왜 이렇게 오래 걸려요?",
           "translation": "Why is it taking so long to open the lock?",
           "answer": "여는 데",
-          "hint": "Base form: 여다",
+          "hint": "Base form: 열다",
           "explanation": "The lesson distinguishes connective ~는데 from noun-like ~는 데, which can refer to a place, situation, purpose or the act of doing something. Use the first for background or contrast and the second when 데 is a noun in expressions such as needing time or being useful for an action. Build ~는데 as a clause connector. Build V-는 데 by using the present modifier before 데, then add the particle or predicate required by the meaning."
         }
       ],
@@ -437,7 +437,7 @@
           "prompt": "해군에 ___",
           "translation": "I didn’t realize that you were a general in the navy",
           "answer": "대령이군요",
-          "hint": "Base form: 대령이다",
+          "hint": "Base form: 대령",
           "explanation": "~구나, ~군 and ~군요 show that the speaker has realized or noticed something. The form and politeness vary. Use them for a new realization, discovery or reaction to information, with ~군요 as a polite conversational form. Attach the ending to the appropriate plain form of a verb, adjective or noun predicate, then use the politeness form required by the context."
         },
         {
@@ -451,14 +451,14 @@
           "prompt": "이 시험이 ___",
           "translation": "I didn’t realize that this exam is a pen-and-paper exam",
           "answer": "지필시험이구나",
-          "hint": "Base form: 지필시험이다",
+          "hint": "Base form: 지필시험",
           "explanation": "~구나, ~군 and ~군요 show that the speaker has realized or noticed something. The form and politeness vary. Use them for a new realization, discovery or reaction to information, with ~군요 as a polite conversational form. Attach the ending to the appropriate plain form of a verb, adjective or noun predicate, then use the politeness form required by the context."
         },
         {
           "prompt": "지구 표면은 거의 다 ___",
           "translation": "I didn’t realize that most of the earth’s surface is water",
           "answer": "물이구나",
-          "hint": "Base form: 물이다",
+          "hint": "Base form: 물",
           "explanation": "~구나, ~군 and ~군요 show that the speaker has realized or noticed something. The form and politeness vary. Use them for a new realization, discovery or reaction to information, with ~군요 as a polite conversational form. Attach the ending to the appropriate plain form of a verb, adjective or noun predicate, then use the politeness form required by the context."
         }
       ],
@@ -993,7 +993,7 @@
           "prompt": "내일은 ___요! 그래서 우리가 일찍 가야 될 것 같아요",
           "translation": "You should know that tomorrow is Saturday, so we should probably go early!",
           "answer": "토요일이잖아",
-          "hint": "Base form: 토요일이다",
+          "hint": "Base form: 토요일",
           "explanation": "~잖다 and ~잖아요 remind the listener of shared knowledge or something the speaker assumes should be known. Use them to point out an obvious fact, give a reminder or add a mildly persuasive or corrective tone. Attach ~잖다 to the clause in the appropriate tense and politeness form; polite speech commonly uses ~잖아요."
         },
         {
@@ -1064,7 +1064,7 @@
           "prompt": "문을 닫았어요. 이제 냉방 ___.",
           "translation": "I closed the door. Because the air conditioner is running.",
           "answer": "중이거든요",
-          "hint": "Base form: 중이다",
+          "hint": "Base form: 중",
           "explanation": "~거든(요) gives a reason, background or correction, and can also set up a condition in conversation. Use it when adding an explanation, revealing relevant background or saying if/when something is the case. Attach ~거든(요) to the clause using the form required for verbs, adjectives and nouns; follow the conversational placement in HTSK."
         },
         {
@@ -1336,7 +1336,7 @@
           "prompt": "내가 원하는 유일한 것은 ___이야",
           "translation": "The only thing I want is you",
           "answer": "너뿐",
-          "hint": "Base form: 너다",
+          "hint": "Base form: 너",
           "explanation": "뿐 means only or just, and ~뿐만 아니라 means not only A but also B. Use them to limit a statement or to add a second, stronger item to the first. Use noun + 뿐 or clause + 것일 뿐 as appropriate. Use N뿐만 아니라 or the clause construction before the additional clause."
         },
         {

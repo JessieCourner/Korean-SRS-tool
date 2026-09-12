@@ -84,14 +84,14 @@
           "prompt": "그 컴퓨터는 작년에 ___ 거예요",
           "translation": "That is the computer I had used last year",
           "answer": "썼던",
-          "hint": "Base form: 썼다",
+          "hint": "Base form: 쓰다",
           "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
           "prompt": "저는 애기가 ___ 휴지를 다 버렸어요",
           "translation": "I threw out all the tissue paper that the baby had used",
           "answer": "썼던",
-          "hint": "Base form: 썼다",
+          "hint": "Base form: 쓰다",
           "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         },
         {
@@ -112,7 +112,7 @@
           "prompt": "우리가 지난 주에 ___ 내용을 다시 공부할 거예요",
           "translation": "I will study the contents that we had learned last week again",
           "answer": "배웠던",
-          "hint": "Base form: 배웠다",
+          "hint": "Base form: 배우다",
           "explanation": "~던 and ~았/었던 describe a noun from the speaker's remembered experience. ~던 commonly presents a repeated past action that continued up to the relevant time; ~았/었던 presents a past action or state as finished and no longer continuing. The ordinary past modifier ~ㄴ/은 is the neutral comparison form. Use ~던 when you recall something that happened repeatedly or was continuing. Use ~았/었던 when you recall something that happened before but has ended or is no longer true. The difference is a nuance of memory and completion, so the context matters. Put the verb or adjective before the noun (or 것). For verbs, attach ~던 to the stem for the remembered/repeated or continuing sense: 입다 → 입던. For a finished remembered event or state, insert the past form before 던: 입다 → 입었던, 예쁘다 → 예뻤던. Do not use the neutral ~ㄴ/은 examples as target answers for this lesson."
         }
       ],
@@ -155,21 +155,21 @@
           "prompt": "저는 친구가 문을 ___을 봤어요",
           "translation": "I saw my friend opening the door",
           "answer": "여는 것",
-          "hint": "Base form: 여다",
+          "hint": "Base form: 열다",
           "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "마음에 ___ 부분이 있나요?",
           "translation": "Do you have a part/section that you like?",
           "answer": "드는",
-          "hint": "Base form: 드다",
+          "hint": "Base form: 들다",
           "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
           "prompt": "옆에 ___ 이웃사람이 너무 시끄러워요",
           "translation": "The neighbor who lives next to me is too loud",
           "answer": "사는",
-          "hint": "Base form: 사",
+          "hint": "Base form: 살다",
           "explanation": "The lesson develops further uses of ~는 것, including irregular forms, preferences and situations where an action is treated as a noun. Use it when Korean needs to say what somebody likes, wants, finds difficult or is referring to as an action or thing. Build the noun expression with the correct present modifier before 것; apply the irregular stem changes and particles shown in the lesson."
         },
         {
@@ -254,7 +254,7 @@
           "prompt": "저는 ___ 못해요",
           "translation": "I’m bad at skipping",
           "answer": "줄넘기를",
-          "hint": "Base form: 줄넘다",
+          "hint": "Base form: 줄넘기",
           "explanation": "~기 and ~ㅁ/음 nominalize verbs and adjectives. HTSK compares these noun forms with the earlier ~는 것 construction. Use ~기 for many everyday noun expressions and ~ㅁ/음 for written, formal or statement-like noun forms where the lesson uses it. Attach ~기 to the stem, or form the appropriate ~ㅁ/음 ending from the stem; then add particles or following predicates."
         }
       ],
@@ -368,14 +368,14 @@
           "prompt": "슬기는 ___ 일을 하고 있어요",
           "translation": "Seulgi is doing something illegal",
           "answer": "불법인",
-          "hint": "Base form: 불법다",
+          "hint": "Base form: 불법",
           "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "Titanic ___ Leonardo Dicaprio는 잘생겼어요",
           "translation": "Leonardo Dicaprio, who is an actor in Titanic is handsome",
           "answer": "배우인",
-          "hint": "Base form: 배우다",
+          "hint": "Base form: 배우",
           "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
@@ -389,14 +389,14 @@
           "prompt": "우리가 ___ 몰랐어요",
           "translation": "I didn’t know that we were the same age",
           "answer": "동갑인지",
-          "hint": "Base form: 동갑다",
+          "hint": "Base form: 동갑",
           "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         },
         {
           "prompt": "비상출구가 ___ 모르겠어요",
           "translation": "I don’t know where the emergency exit is",
           "answer": "어디인지",
-          "hint": "Base form: 어디다",
+          "hint": "Base form: 어디",
           "explanation": "~는 것이다 and the spoken ~는 거예요 identify, explain or emphasize what something is. The lesson applies 것 with 이다. Use it when clarifying the nature of an action, correcting an interpretation, or presenting the important point of a sentence. Make the noun-like clause with 것 and attach 이다; use the appropriate tense and polite contraction such as 거예요 in speech."
         }
       ],
@@ -520,21 +520,21 @@
           "prompt": "나는 공부 ___",
           "translation": "I am studying",
           "answer": "중이야",
-          "hint": "Base form: 중이야",
+          "hint": "Base form: 중",
           "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "저는 생각 ___",
           "translation": "I am thinking",
           "answer": "중이에요",
-          "hint": "Base form: 중이에요",
+          "hint": "Base form: 중",
           "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         },
         {
           "prompt": "그 상가가 지금 공사 ___",
           "translation": "That building is under construction",
           "answer": "중이에요",
-          "hint": "Base form: 중이에요",
+          "hint": "Base form: 중",
           "explanation": "중 means middle or among. The lesson uses ~는 중 for an action in progress and ~중에서 for choosing from a group. Use 중 when something is currently underway or when comparing or selecting one item among several. Use verb + ~는 중이다 for an action in progress; use noun + 중에서 for among/from a set, then add the normal predicate."
         }
       ],

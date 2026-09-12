@@ -493,7 +493,7 @@
           "prompt": "___ 한국 사람입니다.",
           "translation": "I am Korean, formally.",
           "answer": "저는",
-          "hint": "Base form: 저다",
+          "hint": "Base form: 저",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect. Choose polite or casual speech according to the relationship and situation; choose 저 or 나 appropriately. Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”"
         },
         {
@@ -1282,35 +1282,35 @@
           "prompt": "___ 음식",
           "translation": "Korean-style food.",
           "answer": "한국적인",
-          "hint": "Base form: 한국적이다",
+          "hint": "Base form: 한국",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.” Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 사람",
           "translation": "A loving person.",
           "answer": "사랑스러운",
-          "hint": "Base form: 사랑스럽다",
+          "hint": "Base form: 사랑",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.” Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 환경",
           "translation": "A natural environment.",
           "answer": "자연적인",
-          "hint": "Base form: 자연적이다",
+          "hint": "Base form: 자연",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.” Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 차이",
           "translation": "A cultural difference.",
           "answer": "문화적인",
-          "hint": "Base form: 문화적이다",
+          "hint": "Base form: 문화",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.” Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         },
         {
           "prompt": "___ 분위기",
           "translation": "A natural atmosphere.",
           "answer": "자연스러운",
-          "hint": "Base form: 자연스럽다",
+          "hint": "Base form: 자연",
           "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning. Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.” Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward."
         }
       ]

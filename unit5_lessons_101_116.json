@@ -97,7 +97,7 @@
           "prompt": "그 커플이 오늘 ___",
           "translation": "That couple says it is their anniversary today",
           "answer": "결혼기념일이래요",
-          "hint": "Base form: 결혼기념일이다",
+          "hint": "Base form: 결혼기념일",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings. Use these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing. Choose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause."
         },
         {
@@ -300,7 +300,7 @@
           "prompt": "운동은 피의 순환을 ___",
           "translation": "Exercise vitalizes blood flow",
           "answer": "활성화해요",
-          "hint": "Base form: 활성화하다화하다화하다",
+          "hint": "Base form: 활성화하다",
           "explanation": "This lesson formally introduces several smaller points that HTSK considers essential, including ~아/어지다 versus ~아/어뜨리다, ~화, adding 이 to names, ~아/어 하다 with adjectives and the subject marker ~께서. Use the relevant point for changes that happen versus actions that cause change, making nouns with ~화, addressing names, describing another person's feelings and marking a respected subject. These are separate patterns. Follow the individual source sections: intransitive ~아/어지다 versus transitive ~아/어뜨리다, noun + 화, name + 이, adjective + ~아/어 하다 and subject + 께서."
         },
         {
@@ -386,21 +386,21 @@
           "prompt": "한 달 동안 ___ 먹어도 돼요",
           "translation": "For one month, you are allowed to eat whatever you want (for one month, it doesn’t matter what you eat)",
           "answer": "뭐든지",
-          "hint": "Base form: 뭐다",
+          "hint": "Base form: 뭐",
           "explanation": "~든지 has a broad meaning across several constructions, including whichever, whether or not and either option. Use it when the choice is open, when alternatives do not matter or when emphasizing that any option is acceptable. Attach ~든지 to the appropriate verb, adjective or noun form and repeat it in paired alternatives when required; include 말다 in the whether-or-not pattern."
         },
         {
           "prompt": "___ 사람들이 믿을 수 있는 친구가 필요해요",
           "translation": "It doesn’t matter who it is, people need a friend they can trust (everybody needs a friend they can trust)",
           "answer": "누구든지",
-          "hint": "Base form: 누구다",
+          "hint": "Base form: 누구",
           "explanation": "~든지 has a broad meaning across several constructions, including whichever, whether or not and either option. Use it when the choice is open, when alternatives do not matter or when emphasizing that any option is acceptable. Attach ~든지 to the appropriate verb, adjective or noun form and repeat it in paired alternatives when required; include 말다 in the whether-or-not pattern."
         },
         {
           "prompt": "우리 집에 ___ 오세요",
           "translation": "It doesn’t matter when you come to our house (come to our house anytime!)",
           "answer": "언제든지",
-          "hint": "Base form: 언제다",
+          "hint": "Base form: 언제",
           "explanation": "~든지 has a broad meaning across several constructions, including whichever, whether or not and either option. Use it when the choice is open, when alternatives do not matter or when emphasizing that any option is acceptable. Attach ~든지 to the appropriate verb, adjective or noun form and repeat it in paired alternatives when required; include 말다 in the whether-or-not pattern."
         },
         {
@@ -588,7 +588,7 @@
           "prompt": "여기가 ___요",
           "translation": "I guess this is the resting room",
           "answer": "휴게실이나 봐",
-          "hint": "Base form: 휴게실이다",
+          "hint": "Base form: 휴게실",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess. Use them when the speaker infers a situation rather than directly witnessing or asserting it as fact. Use the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK."
         },
         {
@@ -1035,7 +1035,7 @@
           "prompt": "이용 수칙을 제대로 ___",
           "translation": "I should have read the rules of using (this thing) properly",
           "answer": "읽을걸",
-          "hint": "Base form: 읽을다",
+          "hint": "Base form: 읽다",
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had. Use it when looking back and wishing the action had been done differently. Attach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done."
         },
         {
