@@ -2,6 +2,7 @@ import base64
 import json
 import re
 import sqlite3
+import time
 from html import escape
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -52,6 +53,7 @@ class PostgresCursor:
     def __init__(self, connection):
         self.connection = connection
         self.cursor = connection.raw.cursor(cursor_factory=RealDictCursor)
+        connection._open_cursors.add(self)
         self.ignore_conflict = False
 
     def execute(self, sql, params=()):
@@ -63,7 +65,14 @@ class PostgresCursor:
             table = re.search(r"PRAGMA TABLE_INFO\(([^)]+)\)", transformed, re.I).group(1).strip()
             transformed = "SELECT ordinal_position AS cid, column_name AS name FROM information_schema.columns WHERE table_schema='public' AND table_name=%s ORDER BY ordinal_position"
             params = (table,)
-        self.cursor.execute(transformed, params)
+        try:
+            self.cursor.execute(transformed, params)
+        except Exception:
+            # A failed PostgreSQL statement aborts the whole transaction.  If
+            # the same Streamlit session reuses its connection, roll it back
+            # immediately so the next button click can still work.
+            self.connection.raw.rollback()
+            raise
         return self
 
     def executescript(self, sql):
@@ -71,19 +80,36 @@ class PostgresCursor:
         return self
 
     def fetchone(self):
-        row = self.cursor.fetchone()
-        return CompatRow(row) if row is not None else None
+        try:
+            row = self.cursor.fetchone()
+            return CompatRow(row) if row is not None else None
+        finally:
+            self.close()
 
     def fetchall(self):
-        return [CompatRow(row) for row in self.cursor.fetchall()]
+        try:
+            return [CompatRow(row) for row in self.cursor.fetchall()]
+        finally:
+            self.close()
+
+    @property
+    def rowcount(self):
+        value = self.cursor.rowcount
+        self.close()
+        return value
 
     @property
     def lastrowid(self):
-        self.cursor.execute("SELECT LASTVAL() AS id")
-        return self.cursor.fetchone()["id"]
+        try:
+            self.cursor.execute("SELECT LASTVAL() AS id")
+            return self.cursor.fetchone()["id"]
+        finally:
+            self.close()
 
     def close(self):
-        self.cursor.close()
+        if not self.cursor.closed:
+            self.cursor.close()
+        self.connection._open_cursors.discard(self)
 
 
 class PostgresConnection:
@@ -91,17 +117,38 @@ class PostgresConnection:
         # A short timeout prevents a blocked startup from looking like a blank
         # page in Streamlit Cloud.  The bootstrap lock below serializes the
         # first-run schema/seed work across multiple Streamlit sessions.
+        self.url = url
+        self._connect()
+        self._open_cursors = set()
+
+    def _connect(self):
         connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
-        self.raw = psycopg2.connect(url, connect_timeout=15, options=connect_options) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15, options=connect_options)
+        self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
+        self.last_used = time.monotonic()
+
+    def ensure_alive(self):
+        # Mobile browsers can suspend the Streamlit websocket while the phone
+        # is locked.  Reopen an idle PostgreSQL socket before the next query.
+        if getattr(self.raw, "closed", 1) or time.monotonic() - self.last_used > 45:
+            try:
+                self.raw.close()
+            except Exception:
+                pass
+            self._connect()
 
     def execute(self, sql, params=()):
+        self.ensure_alive()
         return PostgresCursor(self).execute(sql, params)
 
     def executescript(self, sql):
+        self.ensure_alive()
         return PostgresCursor(self).executescript(sql)
 
     def commit(self):
         self.raw.commit()
+        self.last_used = time.monotonic()
+        for cursor in list(self._open_cursors):
+            cursor.close()
 
     def close(self):
         # Keep one connection per Streamlit browser session.  The app opens
@@ -109,6 +156,11 @@ class PostgresConnection:
         # connection after each helper made every click wait for a new TLS
         # handshake against Supabase.
         return None
+
+
+def is_postgres_connection(connection):
+    """Recognize cached connections even after Streamlit reloads this module."""
+    return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
@@ -183,9 +235,16 @@ TRACKER_COLORS = {
 }
 
 # These are original in-app encouragements written for the chibi companions.
-# The two daily friends always use one of the requested pairs: Jimin with
-# Jung Kook, or V (Taehyung) with Jin.  They are not presented as real
-# quotations or official BTS content.
+# The two daily friends rotate through the requested pairs: Jimin with Jung
+# Kook, V (Taehyung) with Jin, and all three pairings among RM, SUGA and
+# j-hope.  They are not presented as real quotations or official BTS content.
+BTS_PAIR_ROTATION = (
+    ("Jimin", "🐣", "Jung Kook", "🐰"),
+    ("V", "🐯", "Jin", "🐹"),
+    ("RM", "🐨", "SUGA", "🐱"),
+    ("RM", "🐨", "j-hope", "🐿️"),
+    ("SUGA", "🐱", "j-hope", "🐿️"),
+)
 BTS_MOTIVATION = [
     {"level": 1, "ko_member": "Jimin", "ko_icon": "🐣", "en_member": "Jung Kook", "en_icon": "🐰", "ko": "오늘도 한 문장만 읽어도 충분해요.", "en": "Reading just one sentence today is already enough."},
     {"level": 1, "ko_member": "V", "ko_icon": "🐯", "en_member": "Jin", "en_icon": "🐹", "ko": "천천히 해도 괜찮아요. 매일 조금씩 나아지고 있어요.", "en": "It is okay to go slowly. You are getting better little by little every day."},
@@ -509,8 +568,13 @@ def db():
         if psycopg2 is None:
             raise RuntimeError("SUPABASE_DB_URL is set, but psycopg2-binary is missing from requirements.txt")
         cached_connection = st.session_state.get("_supabase_connection")
-        if cached_connection is not None and getattr(cached_connection.raw, "closed", 1) == 0:
+        if cached_connection is not None and hasattr(cached_connection, "ensure_alive") and getattr(cached_connection.raw, "closed", 1) == 0:
             return cached_connection
+        if cached_connection is not None:
+            try:
+                cached_connection.raw.close()
+            except Exception:
+                pass
         cached_connection = PostgresConnection(SUPABASE_DB_URL)
         st.session_state["_supabase_connection"] = cached_connection
         return cached_connection
@@ -525,7 +589,7 @@ def today():
 
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
-    if isinstance(c, PostgresConnection):
+    if is_postgres_connection(c):
         c.execute("SELECT pg_advisory_xact_lock(81620417)")
 
 
@@ -650,7 +714,7 @@ def import_extended_seeds():
             # The app can have several browser sessions on first deployment.
             # Insert-or-ignore at the database level avoids the check-then-
             # insert race that previously blocked lessons_lesson_number_key.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 inserted = c.execute("""
                     INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
                     VALUES(?,?,?,?,?,?,?)
@@ -681,7 +745,7 @@ def import_extended_seeds():
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
-            if isinstance(c, PostgresConnection):
+            if is_postgres_connection(c):
                 c.commit()
     c.commit()
     c.close()
@@ -806,7 +870,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-10-v12"
+CONTENT_SYNC_VERSION = "2026-09-10-hints-v1"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -829,10 +893,15 @@ def bootstrap_app_data():
 
 
 def setting(key, default):
+    cache = st.session_state.setdefault("_settings_cache", {})
+    if key in cache:
+        return cache[key]
     c = db()
     row = c.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
     c.close()
-    return row["value"] if row else default
+    value = row["value"] if row else default
+    cache[key] = value
+    return value
 
 
 def crystals():
@@ -844,8 +913,23 @@ def award_crystals(event_key, amount):
     if amount <= 0:
         return
     c = db()
-    cur = c.execute("INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)", (event_key, amount, datetime.now().isoformat(timespec="seconds")))
-    if cur.rowcount:
+    params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
+    if is_postgres_connection(c):
+        # RETURNING is reliable for PostgreSQL and avoids relying on the
+        # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
+        inserted = c.execute(
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cur = c.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = bool(getattr(cur, "rowcount", 0))
+    if was_inserted:
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
     c.close()
@@ -937,7 +1021,18 @@ def daily_bts_message():
     choices = [item for item in BTS_MOTIVATION if item["level"] == level]
     if not choices:
         choices = [item for item in BTS_MOTIVATION if item["level"] <= level]
-    choice = choices[date.today().toordinal() % len(choices)]
+    # Choose the pair independently from the wording.  The previous code
+    # selected from a list containing only Jimin/Jung Kook and V/Jin, so the
+    # remaining three members could never appear.
+    day_number = date.today().toordinal()
+    choice = dict(choices[day_number % len(choices)])
+    ko_member, ko_icon, en_member, en_icon = BTS_PAIR_ROTATION[day_number % len(BTS_PAIR_ROTATION)]
+    choice.update(
+        ko_member=ko_member,
+        ko_icon=ko_icon,
+        en_member=en_member,
+        en_icon=en_icon,
+    )
     return choice, level, highest
 
 
@@ -1497,6 +1592,7 @@ def buy_or_activate(item_id):
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
+    st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
     return True
 
 
@@ -1624,7 +1720,13 @@ def check_answer(card_id, answer_key):
     A wrong answer keeps the same card on screen.  The next correct answer is
     therefore attempt two (Hard), and a third-or-later correct answer is Again.
     """
-    card = one("SELECT answer FROM cards WHERE id=?", (card_id,))
+    # The current card was already loaded for rendering.  Reusing its answer
+    # removes one network round-trip on every Enter press against Supabase.
+    answer_cache = st.session_state.setdefault("_review_answer_cache", {})
+    answer = answer_cache.get(card_id)
+    card = {"answer": answer} if answer is not None else one(
+        "SELECT answer FROM cards WHERE id=?", (card_id,)
+    )
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
@@ -1633,7 +1735,10 @@ def check_answer(card_id, answer_key):
     st.session_state[attempt_key] = attempts
     if answer_is_correct(user_answer, card["answer"]):
         result = "good" if attempts == 1 else "hard" if attempts == 2 else "again"
-        st.session_state["last_auto_grade"] = result
+        st.session_state["result_card_id"] = card_id
+        st.session_state["result_user_answer"] = user_answer
+        st.session_state["result_correct_answer"] = card["answer"]
+        st.session_state["result_grade"] = result
         grade(card_id, result)
         st.rerun()
     else:
@@ -1732,24 +1837,72 @@ def activate_lesson(lesson_id):
 
 
 def ensure_daily_lessons():
-    """Assign two stable new lessons for today and keep them until completed."""
+    """Assign the first unlocked pair of lessons for today.
+
+    New lessons are released in sequential pairs.  A later pair must never
+    appear while an earlier lesson is still only ``available``.  ``studying``
+    is the app's durable marker that the learner opened the lesson and added
+    its cards to the deck, so it counts as completed for unlocking the next
+    pair.  The reconciliation also repairs a stale today's assignment left
+    by the old non-gated scheduler.
+    """
     day = today()
     start = int(setting("start_unit", "2"))
     limit = int(setting("new_lessons_per_day", "2"))
-    current = one("SELECT COUNT(*) AS n FROM daily_lessons WHERE day=?", (day,))["n"]
-    if current >= limit:
-        return
-    candidates = rows("""
+    if limit != 2:
+        # The product rule is two lessons per day, even if an old database
+        # contains another value in settings.
+        limit = 2
+
+    lessons = rows("""
         SELECT * FROM lessons
-        WHERE unit>=? AND status='available'
-          AND id NOT IN (SELECT lesson_id FROM daily_lessons)
+        WHERE unit>=?
         ORDER BY unit, lesson_number
-        LIMIT ?
-    """, (start, limit - current))
-    if not candidates:
+    """, (start,))
+    if not lessons:
         return
+
+    completed_statuses = {"studying", "completed"}
+    unlocked_pair = None
+    # Start at the first unfinished lesson, then take the next lesson too.
+    # This keeps the natural sequence intact even when the learner began at
+    # an odd lesson number (for example 31–32, then 33–34).
+    first_unfinished = next(
+        (index for index, lesson in enumerate(lessons)
+         if lesson["status"] not in completed_statuses),
+        None,
+    )
+    if first_unfinished is not None:
+        previous_complete = all(
+            lesson["status"] in completed_statuses
+            for lesson in lessons[:first_unfinished]
+        )
+        pair = lessons[first_unfinished:first_unfinished + limit]
+        if previous_complete and len(pair) == limit:
+            unlocked_pair = pair
+    if not unlocked_pair:
+        return
+
+    current_rows = rows("""
+        SELECT lessons.id, lessons.lesson_number, daily_lessons.status AS daily_status
+        FROM daily_lessons JOIN lessons ON lessons.id=daily_lessons.lesson_id
+        WHERE daily_lessons.day=?
+        ORDER BY lessons.lesson_number
+    """, (day,))
+    current_ids = {row["id"] for row in current_rows}
+    target_ids = {lesson["id"] for lesson in unlocked_pair}
+    if current_ids == target_ids:
+        return
+
+    # Never erase a lesson the learner already completed today.  Otherwise
+    # remove only the stale/new assignment and replace it with the gated pair.
     c = db()
-    for lesson in candidates:
+    if current_rows and all(row["daily_status"] == "new" for row in current_rows):
+        c.execute("DELETE FROM daily_lessons WHERE day=?", (day,))
+    elif current_rows:
+        c.close()
+        return
+    for lesson in unlocked_pair:
         c.execute("INSERT OR IGNORE INTO daily_lessons(day,lesson_id,status) VALUES(?,?,?)", (day, lesson["id"], "new"))
     c.commit()
     c.close()
@@ -1851,15 +2004,16 @@ def open_review():
 
 
 def render_card(card):
+    st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
         unsafe_allow_html=True,
     )
-    with st.expander("Показать слово в начальной форме"):
+    with st.expander("Show the word in its base form"):
         st.write(card["hint"])
-    with st.expander("Показать объяснение грамматики"):
+    with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
     answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
     answer = st.text_input(
@@ -1871,9 +2025,9 @@ def render_card(card):
     )
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Пока не получилось. Попробуй ещё раз — попытка {attempts + 1}.")
+        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
     elif attempts:
-        st.caption(f"Попыток: {attempts}. Введи ответ ещё раз.")
+        st.caption(f"Attempts: {attempts}. Enter your answer again.")
     focus_answer_field()
 
 
@@ -1986,9 +2140,19 @@ def page_dashboard():
         </div>
     </div>
     """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
-    due = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.next_review<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (today(),))["n"]
-    active = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0")["n"]
-    mastered = one("SELECT COUNT(*) AS n FROM reviews WHERE active=1 AND retired=0 AND level>=8")["n"]
+    summary = one("""
+        SELECT
+          (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
+             JOIN lessons ON lessons.id=cards.lesson_id
+             WHERE reviews.active=1 AND reviews.retired=0
+               AND (reviews.next_review<=? OR reviews.last_review IS NULL)
+               AND lessons.status IN ('available','studying')) AS due,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
+    """, (today(),))
+    due = summary["due"]
+    active = summary["active"]
+    mastered = summary["mastered"]
     a, b, c = st.columns(3)
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
@@ -2102,6 +2266,56 @@ def render_review_contents():
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
         </div>
     </div>''', unsafe_allow_html=True)
+    result_card_id = st.session_state.get("result_card_id")
+    if result_card_id:
+        result_card = one("""
+            SELECT cards.*, lessons.title AS lesson_title
+            FROM cards JOIN lessons ON lessons.id=cards.lesson_id
+            WHERE cards.id=?
+        """, (result_card_id,))
+        if result_card:
+            user_answer = escape(str(st.session_state.get("result_user_answer", "")))
+            answered_prompt = escape(str(result_card["prompt"])).replace(
+                "___",
+                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                1,
+            )
+            st.markdown(
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
+                unsafe_allow_html=True,
+            )
+            if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
+                for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
+                    st.session_state.pop(key, None)
+                st.rerun()
+            components.html("""
+                <script>
+                (function() {
+                    const win = window.parent;
+                    if (win.__mochiContinueHandler) {
+                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
+                    }
+                    win.__mochiContinueHandler = function(event) {
+                        if (event.key !== 'Enter' && event.key !== ' ') return;
+                        const buttons = Array.from(win.document.querySelectorAll('button'));
+                        const button = buttons.find((item) =>
+                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                        );
+                        if (!button) return;
+                        event.preventDefault();
+                        event.stopPropagation();
+                        button.click();
+                    };
+                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
+                })();
+                </script>
+            """, height=1)
+            return
+
     due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
