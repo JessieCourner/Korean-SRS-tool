@@ -52,6 +52,7 @@ class PostgresCursor:
     def __init__(self, connection):
         self.connection = connection
         self.cursor = connection.raw.cursor(cursor_factory=RealDictCursor)
+        connection._open_cursors.add(self)
         self.ignore_conflict = False
 
     def execute(self, sql, params=()):
@@ -63,7 +64,14 @@ class PostgresCursor:
             table = re.search(r"PRAGMA TABLE_INFO\(([^)]+)\)", transformed, re.I).group(1).strip()
             transformed = "SELECT ordinal_position AS cid, column_name AS name FROM information_schema.columns WHERE table_schema='public' AND table_name=%s ORDER BY ordinal_position"
             params = (table,)
-        self.cursor.execute(transformed, params)
+        try:
+            self.cursor.execute(transformed, params)
+        except Exception:
+            # A failed PostgreSQL statement aborts the whole transaction.  If
+            # the same Streamlit session reuses its connection, roll it back
+            # immediately so the next button click can still work.
+            self.connection.raw.rollback()
+            raise
         return self
 
     def executescript(self, sql):
@@ -71,19 +79,36 @@ class PostgresCursor:
         return self
 
     def fetchone(self):
-        row = self.cursor.fetchone()
-        return CompatRow(row) if row is not None else None
+        try:
+            row = self.cursor.fetchone()
+            return CompatRow(row) if row is not None else None
+        finally:
+            self.close()
 
     def fetchall(self):
-        return [CompatRow(row) for row in self.cursor.fetchall()]
+        try:
+            return [CompatRow(row) for row in self.cursor.fetchall()]
+        finally:
+            self.close()
+
+    @property
+    def rowcount(self):
+        value = self.cursor.rowcount
+        self.close()
+        return value
 
     @property
     def lastrowid(self):
-        self.cursor.execute("SELECT LASTVAL() AS id")
-        return self.cursor.fetchone()["id"]
+        try:
+            self.cursor.execute("SELECT LASTVAL() AS id")
+            return self.cursor.fetchone()["id"]
+        finally:
+            self.close()
 
     def close(self):
-        self.cursor.close()
+        if not self.cursor.closed:
+            self.cursor.close()
+        self.connection._open_cursors.discard(self)
 
 
 class PostgresConnection:
@@ -93,6 +118,7 @@ class PostgresConnection:
         # first-run schema/seed work across multiple Streamlit sessions.
         connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
         self.raw = psycopg2.connect(url, connect_timeout=15, options=connect_options) if "sslmode=" in url else psycopg2.connect(url, sslmode="require", connect_timeout=15, options=connect_options)
+        self._open_cursors = set()
 
     def execute(self, sql, params=()):
         return PostgresCursor(self).execute(sql, params)
@@ -102,6 +128,8 @@ class PostgresConnection:
 
     def commit(self):
         self.raw.commit()
+        for cursor in list(self._open_cursors):
+            cursor.close()
 
     def close(self):
         # Keep one connection per Streamlit browser session.  The app opens
@@ -844,8 +872,22 @@ def award_crystals(event_key, amount):
     if amount <= 0:
         return
     c = db()
-    cur = c.execute("INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)", (event_key, amount, datetime.now().isoformat(timespec="seconds")))
-    if cur.rowcount:
+    params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
+    if isinstance(c, PostgresConnection):
+        # RETURNING is reliable for PostgreSQL and avoids relying on the
+        # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
+        inserted = c.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cur = c.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = cur.rowcount > 0
+    if was_inserted:
         c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
     c.commit()
     c.close()
