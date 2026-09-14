@@ -164,13 +164,24 @@ def is_postgres_connection(connection):
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
-BUNPRO_INTERVALS = {
-    0: timedelta(hours=4), 1: timedelta(hours=8), 2: timedelta(days=1),
-    3: timedelta(days=2), 4: timedelta(days=4), 5: timedelta(days=8),
-    6: timedelta(days=12), 7: timedelta(days=24), 8: timedelta(days=48),
-    9: timedelta(days=96), 10: timedelta(days=176),
-}
-SRS_MAX_LEVEL = 11
+# Bunpro's current default grammar schedule. ``level`` is the number of
+# successful reviews (0 = newly activated, 11 = Master). The interval at the
+# current level is applied after the next answer.
+BUNPRO_INTERVALS = (
+    timedelta(hours=4),    # level 0 -> 1
+    timedelta(hours=8),    # level 1 -> 2
+    timedelta(days=1),     # level 2 -> 3
+    timedelta(days=2),     # level 3 -> 4
+    timedelta(days=4),     # level 4 -> 5
+    timedelta(days=8),     # level 5 -> 6
+    timedelta(days=12),    # level 6 -> 7
+    timedelta(days=24),    # level 7 -> 8
+    timedelta(days=48),     # level 8 -> 9
+    timedelta(days=96),    # level 9 -> 10
+    timedelta(days=176),   # level 10 -> 11 (Master)
+)
+SRS_MAX_LEVEL = len(BUNPRO_INTERVALS)
+BUNPRO_DEFAULT_STRICTNESS = 1
 UNIT_INFO = {
     0: ("Learn How to Read Korean", "Lessons 1–3", "completed"),
     1: ("Basic Korean Grammar", "Lessons 1–25", "completed"),
@@ -712,6 +723,7 @@ def init_db():
 
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
+    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('srs_strictness','1')")
     c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
     # The current course plan is two new lessons per day. Keep this migration
     # explicit so an older database that used three is corrected as well.
@@ -1981,27 +1993,42 @@ def daily_lessons():
 
 
 def grade(card_id, result, requeue=True):
+    """Apply Bunpro's default SRS algorithm to one submitted answer.
+
+    A first failed attempt moves the item down by the configured strictness
+    and re-queues it once. A correct answer on that re-queued copy does not
+    restore the lost level or advance the card again.
+    """
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
+    if not current:
+        return
     level = current["level"]
     mistakes = current["mistakes"]
-    previous_result = current["last_result"]
     now_dt = datetime.now()
     if result == "correct":
-        # First-try success advances one Bunpro streak level.  The interval
-        # is the one belonging to the level just completed.
-        interval = BUNPRO_INTERVALS.get(min(level, 10), BUNPRO_INTERVALS[10])
+        # The interval belongs to the level just completed.
+        interval = BUNPRO_INTERVALS[min(level, SRS_MAX_LEVEL - 1)]
         level = min(SRS_MAX_LEVEL, level + 1)
         due_at = now_dt + interval
     elif result == "incorrect":
-        # Bunpro's default strictness is one level down.  The failed card is
-        # shown once more at the end of this session; after that it receives
-        # the normal interval for its new, lower level.
-        # The first failure already applies the one-level drop.  Do not
-        # penalise the same card twice when its re-queued copy is answered.
-        if previous_result != "incorrect":
-            level = max(0, level - 1)
+        # Bunpro supports 1, 2, 3, Half, and Full strictness. The app uses
+        # Bunpro's default 1 unless the setting is changed.
+        if requeue:
+            strictness = str(setting("srs_strictness", str(BUNPRO_DEFAULT_STRICTNESS))).strip().lower()
+            if strictness == "half":
+                drop = (level + 1) // 2
+            elif strictness == "full":
+                drop = level
+            else:
+                try:
+                    drop = max(1, min(3, int(strictness)))
+                except (TypeError, ValueError):
+                    drop = BUNPRO_DEFAULT_STRICTNESS
+            level = max(0, level - drop)
             mistakes += 1
-        interval = BUNPRO_INTERVALS.get(min(level, 10), BUNPRO_INTERVALS[10])
+        # The re-queued copy receives its normal interval only after it has
+        # been answered again; it must not be immediately due forever.
+        interval = BUNPRO_INTERVALS[min(level, SRS_MAX_LEVEL - 1)]
         due_at = now_dt if requeue else now_dt + interval
     else:
         return
@@ -2037,9 +2064,10 @@ def next_new_lesson():
             FROM cards
             JOIN reviews ON reviews.card_id=cards.id
             WHERE reviews.active=1 AND reviews.retired=0
+              AND reviews.level < ?
         )
         ORDER BY unit, lesson_number LIMIT 1
-    """, (start,))
+    """, (start, SRS_MAX_LEVEL))
 
 
 def next_due_card():
@@ -2053,12 +2081,13 @@ def next_due_card():
         JOIN reviews ON reviews.card_id=cards.id
         WHERE reviews.active=1
           AND reviews.retired=0
+          AND reviews.level < ?
           AND (reviews.due_at<=? OR reviews.last_review IS NULL)
           AND lessons.status IN ('available','studying')
         ORDER BY
             CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
             RANDOM()
-    """, (datetime.now().isoformat(timespec="seconds"), today()))
+    """, (SRS_MAX_LEVEL, datetime.now().isoformat(timespec="seconds"), today()))
     if not candidates:
         return None
     pending = set(st.session_state.get("review_requeue_pending", []))
@@ -2312,12 +2341,12 @@ def page_dashboard():
         SELECT
           (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
              JOIN lessons ON lessons.id=cards.lesson_id
-             WHERE reviews.active=1 AND reviews.retired=0
+             WHERE reviews.active=1 AND reviews.retired=0 AND reviews.level < ?
                AND (reviews.due_at<=? OR reviews.last_review IS NULL)
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
-          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (datetime.now().isoformat(timespec="seconds"),))
+          (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=?) AS mastered
+    """, (SRS_MAX_LEVEL, datetime.now().isoformat(timespec="seconds"), SRS_MAX_LEVEL))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]
@@ -2406,7 +2435,7 @@ def page_dashboard():
 def render_review_contents():
     """Render the Review experience inside the app's full-screen dialog."""
     if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.due_at<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (datetime.now().isoformat(timespec="seconds"),))["n"]
+        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND reviews.level < ? AND (reviews.due_at<=? OR reviews.last_review IS NULL) AND lessons.status IN ('available','studying')", (SRS_MAX_LEVEL, datetime.now().isoformat(timespec="seconds")))["n"]
         st.session_state["review_total"] = remaining
         st.session_state["review_completed"] = 0
     total = st.session_state.get("review_total", 0)
@@ -2611,7 +2640,7 @@ def page_progress():
         SELECT lessons.unit, lessons.lesson_number, lessons.title,
                SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
                SUM(CASE WHEN reviews.retired=0 AND reviews.active=1 THEN 1 ELSE 0 END) AS active,
-               SUM(CASE WHEN reviews.retired=0 AND reviews.level>=8 THEN 1 ELSE 0 END) AS mastered
+               SUM(CASE WHEN reviews.retired=0 AND reviews.level>=11 THEN 1 ELSE 0 END) AS mastered
         FROM lessons JOIN cards ON cards.lesson_id=lessons.id
         JOIN reviews ON reviews.card_id=cards.id
         GROUP BY lessons.id ORDER BY lessons.unit, lessons.lesson_number
