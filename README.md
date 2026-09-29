@@ -79,3 +79,4 @@ The PostgreSQL startup migration is idempotent and serialized: existing Supabase
 
 - Dashboard due-card SQL binds both date values it uses (`due_at` timestamp and `next_review` date), preventing the PostgreSQL `IndexError` on startup.
 - Inline Review answer fields are transparent and borderless, including focus and hover states; the typed text inherits the sentence color. Ordinary text inputs elsewhere keep their normal styling.
+- The inline mount also applies the transparent/borderless styles directly to the Streamlit input and its BaseWeb wrappers, so theme defaults cannot restore a dark box after the widget is moved into the sentence.

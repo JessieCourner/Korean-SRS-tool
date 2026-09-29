@@ -371,9 +371,9 @@ st.markdown("""
     .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element label, .inline-answer-element [data-testid="InputInstructions"] {display:none !important;}
-    .inline-answer-element [data-baseweb="input"], .inline-answer-element [data-baseweb="base-input"] {border:0 !important; background:transparent !important; box-shadow:none !important;}
-    .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; border:0 !important; border-width:0 !important; border-radius:0 !important; outline:0 !important; background:transparent !important; color:inherit !important; -webkit-text-fill-color:inherit !important; box-shadow:none !important; font:inherit !important; line-height:1.3 !important; text-align:left;}
-    .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
+    .inline-answer-element, .inline-answer-element [data-testid="stTextInput"], .inline-answer-element [data-baseweb="input"], .inline-answer-element [data-baseweb="base-input"], .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {border:0 !important; border-width:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; background:transparent !important; background-color:transparent !important; background-image:none !important; box-shadow:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
+    .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; font:inherit !important; line-height:1.3 !important; text-align:left;}
+    .inline-answer-element:focus-within, .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
     .inline-answer-element input::placeholder, input.inline-answer-input::placeholder, input[aria-label^="Answer for card "]::placeholder {color:inherit !important; -webkit-text-fill-color:inherit !important; opacity:1 !important;}
     .answer-widget-marker {display:none !important;}
     .answer-results {padding:8px 0; color:#514064; text-align:center; font-size:1.05rem; line-height:1.8;}
@@ -1877,6 +1877,21 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             if (markerElement) markerElement.style.display = 'none';
             inputElement.classList.add('inline-answer-element');
             input.classList.add('inline-answer-input');
+            function clearAnswerChrome(node) {{
+                if (!node) return;
+                node.style.setProperty('border', '0', 'important');
+                node.style.setProperty('border-width', '0', 'important');
+                node.style.setProperty('border-color', 'transparent', 'important');
+                node.style.setProperty('border-radius', '0', 'important');
+                node.style.setProperty('outline', '0', 'important');
+                node.style.setProperty('background', 'transparent', 'important');
+                node.style.setProperty('background-color', 'transparent', 'important');
+                node.style.setProperty('background-image', 'none', 'important');
+                node.style.setProperty('box-shadow', 'none', 'important');
+                node.style.setProperty('color', 'inherit', 'important');
+                node.style.setProperty('-webkit-text-fill-color', 'inherit', 'important');
+            }}
+            [input, inputElement, input.closest('[data-baseweb="input"]'), input.closest('[data-baseweb="base-input"]'), input.closest('[data-testid="stTextInput"]')].forEach(clearAnswerChrome);
             if (slot.firstElementChild !== inputElement) {{
                 slot.replaceChildren(inputElement);
             }}
