@@ -122,7 +122,10 @@ class PostgresConnection:
         self._open_cursors = set()
 
     def _connect(self):
-        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
+        # Schema bootstrap can briefly wait for another Streamlit worker that
+        # is importing the same seed data.  Ten seconds was too short for a
+        # cold Supabase start and surfaced as psycopg2.errors.QueryCanceled.
+        connect_options = "-c statement_timeout=60000 -c lock_timeout=60000"
         self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
         self.last_used = time.monotonic()
 
@@ -611,7 +614,9 @@ def today():
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
     if is_postgres_connection(c):
-        c.execute("SELECT pg_advisory_xact_lock(81620417)")
+        # Fetch the result so the cursor is completed/closed while the
+        # transaction-level advisory lock remains held until commit.
+        c.execute("SELECT pg_advisory_xact_lock(81620417)").fetchone()
 
 
 def init_db():
@@ -676,18 +681,26 @@ def init_db():
     # checked-in lesson pack.  Keep the row and its history for progress
     # safety, but never put it back into a deck when its lesson is activated.
     # ALTER TABLE is needed because deployed databases predate this column.
-    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
-    card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
-    if "answer_form" not in card_columns:
-        c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
     review_migrations = {
         "due_at": "TEXT DEFAULT '2999-01-01T00:00:00'",
         "last_result": "TEXT",
         "retired": "INTEGER NOT NULL DEFAULT 0",
     }
-    for column, definition in review_migrations.items():
-        if column not in review_columns:
-            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+    if is_postgres_connection(c):
+        # PostgreSQL migrations must be idempotent.  A warm Streamlit app can
+        # run this startup path more than once, and a second worker may see
+        # the schema change while the first worker is finishing it.
+        c.execute("ALTER TABLE cards ADD COLUMN IF NOT EXISTS answer_form TEXT DEFAULT ''")
+        for column, definition in review_migrations.items():
+            c.execute(f"ALTER TABLE reviews ADD COLUMN IF NOT EXISTS {column} {definition}")
+    else:
+        review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+        card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        for column, definition in review_migrations.items():
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
     c.execute("UPDATE reviews SET due_at=next_review || 'T00:00:00' WHERE due_at IS NULL")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
