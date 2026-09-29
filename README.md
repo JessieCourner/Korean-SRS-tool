@@ -8,7 +8,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Starts at Unit 2; Units 0–1 are treated as completed by default, but remain available in Lessons for reading and optional manual deck activation
 - Includes HTSK foundation material for Unit 0 and Lessons 1–25 of Unit 1; these lessons never enter the daily queue automatically
 - Lessons 26–208 in sequential lesson packs; HTSK source guides are published for 26–202, while 203–208 are clearly marked as not yet published by HTSK
-- 885 verified SRS cards: exactly five separate HTSK example cards for each published lesson 26–202; lessons 203–208 intentionally have no cards until HTSK publishes them
+- 1,015 cards total: 130 foundation cards for Units 0–1 plus exactly five HTSK-derived practice cards for each published lesson 26–202 (885 cards); lessons 203–208 intentionally have no cards until HTSK publishes them
 - Two new lessons per day, rotating card reviews, SRS scheduling, progress page, crystals and shop
 - Correct / Almost / Wrong SRS grading
 - Per-card progress stored in SQLite
@@ -16,7 +16,8 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Newly added cards with no first rating are included in Review, even if there are no scheduled reviews
 - Enter submits an answer; the app grades automatically from the number of attempts and repeats a wrong card immediately
 - The answer field is focused automatically when each new Review card opens
-- Each card has a separate optional hint that shows the word in its base form, without revealing the completed grammar answer
+- Each card has a separate optional hint with the lexical base form appropriate to the part of speech (for example, a noun stays a noun and passive practice points back to the active verb), without revealing the completed grammar answer
+- The Korean prompt and translation stay centered together; the real answer input sits in the blank, starts narrow, expands locally while typing, has no box or alternate fill color, and submits on Enter without a rerun for every keystroke
 - Automatic review grading: first correct attempt = Good, second = Hard, third or later = Again; a wrong answer does not leave the card until it is answered correctly
 - Study lessons and Review open as large internal app dialogs, so they stay inside the same page on desktop and mobile
 - On phones, the borderless ☰ button opens a real in-app navigation panel; its page buttons work for Dashboard, Review, Lessons, Progress and Crystal Shop
@@ -54,7 +55,7 @@ The cards are compact practice prompts and require the complete missing word plu
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 
-1. Download `korean_grammar_srs_complete.zip` and unzip it. Do not upload only the Python file.
+1. Download the complete archive and unzip it. Do not upload only the Python file.
 2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, all `unit*.json` files, `requirements.txt` and the complete `bts_chibi/` folder.
 3. Do not delete `korean_bunpro.db` if it is already in the repository. It contains progress. Do not create a new Streamlit app for this update.
 4. In Streamlit Cloud open the existing app and choose **Manage app → Settings** (or **Edit app**). Set **Main file path** to `korean_bunpro_app.py`, then save/redeploy.
@@ -65,3 +66,9 @@ The cards are compact practice prompts and require the complete missing word plu
 The app is one responsive interface: the same URL works in a computer browser and on a phone. Study and Review are internal full-screen-style windows, not new browser tabs. Lessons 203–208 remain visible in the roadmap but are marked unavailable because HTSK has not published those lesson pages yet.
 
 The chibi messages are original in-app encouragements; they are not presented as official quotations.
+
+## Final card-content pass
+
+This archive contains the final content pass (`2026-09-29-cards-ui-v6`). Lessons 26–202 were checked lesson by lesson: repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied nouns/adverbs, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary.
+
+On startup, the v6 content marker refreshes card text in an existing local or Supabase database by lesson/order while preserving review levels, dates and history. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page and dialog, and the hide/show control stays above the app controls.
