@@ -371,9 +371,10 @@ st.markdown("""
     .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element label, .inline-answer-element [data-testid="InputInstructions"] {display:none !important;}
-    .inline-answer-element input {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; border:0 !important; border-bottom:2px solid currentColor !important; border-radius:0 !important; outline:0 !important; background:transparent !important; color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; box-shadow:none !important; font:inherit !important; line-height:1.3 !important; text-align:center;}
-    .inline-answer-element input:focus {border:0 !important; border-bottom:2px solid currentColor !important; outline:0 !important; box-shadow:none !important; background:transparent !important;}
-    .inline-answer-element input::placeholder {color:#4f3d64 !important; -webkit-text-fill-color:#4f3d64 !important; opacity:1 !important;}
+    .inline-answer-element [data-baseweb="input"], .inline-answer-element [data-baseweb="base-input"] {border:0 !important; background:transparent !important; box-shadow:none !important;}
+    .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; border:0 !important; border-width:0 !important; border-radius:0 !important; outline:0 !important; background:transparent !important; color:inherit !important; -webkit-text-fill-color:inherit !important; box-shadow:none !important; font:inherit !important; line-height:1.3 !important; text-align:left;}
+    .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
+    .inline-answer-element input::placeholder, input.inline-answer-input::placeholder, input[aria-label^="Answer for card "]::placeholder {color:inherit !important; -webkit-text-fill-color:inherit !important; opacity:1 !important;}
     .answer-widget-marker {display:none !important;}
     .answer-results {padding:8px 0; color:#514064; text-align:center; font-size:1.05rem; line-height:1.8;}
     .answer-results .answer-result-value {color:#4f3d64; font-weight:800;}
@@ -457,8 +458,8 @@ st.markdown("""
     [data-testid="stExpander"] summary span,
     [data-testid="stExpander"] summary p {color:#654b78 !important;}
     [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
-    .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
-    .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "]) {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "])::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
     .chibi-table {width:100%; border-collapse:collapse; color:#5b4770; min-width:680px;}
     .chibi-table th {background:#f7dbea; color:#684d7b; text-align:left; padding:12px 14px; font-weight:800;}
@@ -1875,6 +1876,7 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             const markerElement = marker.closest('[data-testid="stElementContainer"]');
             if (markerElement) markerElement.style.display = 'none';
             inputElement.classList.add('inline-answer-element');
+            input.classList.add('inline-answer-input');
             if (slot.firstElementChild !== inputElement) {{
                 slot.replaceChildren(inputElement);
             }}
@@ -2259,7 +2261,7 @@ def page_dashboard():
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(),))
+    """, (datetime.now().isoformat(timespec="seconds"), today()))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]

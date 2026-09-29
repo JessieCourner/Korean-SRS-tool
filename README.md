@@ -74,3 +74,8 @@ This archive contains the final content pass (`2026-09-29-cards-ui-v6`). Lessons
 On startup, the v6 content marker refreshes card text in an existing local or Supabase database by lesson/order while preserving review levels, dates and history. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page and dialog, and the hide/show control stays above the app controls.
 
 The PostgreSQL startup migration is idempotent and serialized: existing Supabase databases use `ADD COLUMN IF NOT EXISTS`, while the local SQLite fallback keeps its `PRAGMA` checks. A second Streamlit worker can therefore restart without trying to add `answer_form` or review columns a second time.
+
+## Fixes in this build
+
+- Dashboard due-card SQL binds both date values it uses (`due_at` timestamp and `next_review` date), preventing the PostgreSQL `IndexError` on startup.
+- Inline Review answer fields are transparent and borderless, including focus and hover states; the typed text inherits the sentence color. Ordinary text inputs elsewhere keep their normal styling.
