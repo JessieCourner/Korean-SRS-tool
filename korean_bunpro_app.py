@@ -843,6 +843,43 @@ def import_extended_seeds():
     c.close()
 
 
+def _card_content_key(value):
+    """Normalize a stable human-readable card key without changing content."""
+    return re.sub(r"\s+", " ", str(value or "").strip())
+
+
+def _match_seed_cards(existing_rows, seed_cards):
+    """Match seed cards to old rows before changing any card text.
+
+    Card IDs are database history, not content identity: old deployments could
+    insert a repaired card later or use a different order.  The translation is
+    stable across the content repair and is unique within these lesson packs;
+    position is used only as a controlled fallback for a genuinely new or
+    translated card.
+    """
+    by_translation = {}
+    for row in existing_rows:
+        by_translation.setdefault(_card_content_key(row["translation"]), []).append(row)
+    unused_ids = {row["id"] for row in existing_rows}
+    matches = []
+    for index, seed_card in enumerate(seed_cards):
+        translation_key = _card_content_key(seed_card.get("translation", ""))
+        candidate = next(
+            (row for row in by_translation.get(translation_key, []) if row["id"] in unused_ids),
+            None,
+        )
+        if candidate is None:
+            candidate = next(
+                (row for row in existing_rows if row["id"] in unused_ids),
+                None,
+            )
+        if candidate is not None:
+            unused_ids.remove(candidate["id"])
+        matches.append((seed_card, candidate))
+    obsolete = [row for row in existing_rows if row["id"] in unused_ids]
+    return matches, obsolete
+
+
 def sync_seed_card_content():
     """Refresh checked-in card text while preserving every review record.
 
@@ -866,10 +903,11 @@ def sync_seed_card_content():
             if not lesson:
                 continue
             existing = c.execute(
-                "SELECT id FROM cards WHERE lesson_id=? ORDER BY id",
+                "SELECT id, translation FROM cards WHERE lesson_id=? ORDER BY id",
                 (lesson["id"],),
             ).fetchall()
-            for index, card in enumerate(lesson_data.get("cards", [])):
+            matches, obsolete = _match_seed_cards(existing, lesson_data.get("cards", []))
+            for card, old_row in matches:
                 values = (
                     card["prompt"],
                     card["translation"],
@@ -878,16 +916,16 @@ def sync_seed_card_content():
                     card["explanation"],
                     card.get("answer_form", ""),
                 )
-                if index < len(existing):
+                if old_row is not None:
                     c.execute(
                         "UPDATE reviews SET retired=0 WHERE card_id=?",
-                        (existing[index]["id"],),
+                        (old_row["id"],),
                     )
                     c.execute(
                         """UPDATE cards
                            SET prompt=?, translation=?, answer=?, hint=?, explanation=?, answer_form=?
                            WHERE id=?""",
-                        (*values, existing[index]["id"]),
+                        (*values, old_row["id"]),
                     )
                 else:
                     card_id = c.execute(
@@ -904,8 +942,8 @@ def sync_seed_card_content():
             # older deployed database.  Keep the old review/history rows for
             # progress safety, but take obsolete cards out of the active deck
             # so stale examples cannot reappear after an app update.
-            if len(existing) > len(lesson_data.get("cards", [])):
-                obsolete_ids = [row["id"] for row in existing[len(lesson_data.get("cards", [])):]]
+            if obsolete:
+                obsolete_ids = [row["id"] for row in obsolete]
                 placeholders = ",".join("?" for _ in obsolete_ids)
                 c.execute(
                     f"UPDATE reviews SET active=0, retired=1 WHERE card_id IN ({placeholders})",
@@ -964,7 +1002,7 @@ def sync_htsk_metadata():
 
 
 def verify_live_card_content():
-    """Check the live database without making a recoverable mismatch fatal.
+    """Verify that the live database contains the checked-in card content.
 
     A stale Streamlit resource cache used to make an old prompt look valid
     after a deployment.  The sync now runs with an explicit version key, and
@@ -987,18 +1025,22 @@ def verify_live_card_content():
                 mismatches.append((lesson_data["lesson_number"], "lesson missing"))
                 continue
             live_cards = c.execute(
-                "SELECT id, prompt, translation, answer, hint, explanation, answer_form "
-                "FROM cards WHERE lesson_id=? ORDER BY id",
+                """
+                SELECT cards.id, cards.prompt, cards.translation, cards.answer,
+                       cards.hint, cards.explanation, cards.answer_form
+                FROM cards
+                LEFT JOIN reviews ON reviews.card_id=cards.id
+                WHERE cards.lesson_id=? AND COALESCE(reviews.retired, 0)=0
+                ORDER BY cards.id
+                """,
                 (lesson["id"],),
             ).fetchall()
             seed_cards = lesson_data.get("cards", [])
-            if len(live_cards) < len(seed_cards):
-                mismatches.append(
-                    (lesson_data["lesson_number"], f"only {len(live_cards)} of {len(seed_cards)} cards")
-                )
-                continue
-            for index, seed_card in enumerate(seed_cards):
-                live = live_cards[index]
+            matches, _ = _match_seed_cards(live_cards, seed_cards)
+            for index, (seed_card, live) in enumerate(matches):
+                if live is None:
+                    mismatches.append((lesson_data["lesson_number"], index + 1, "card_missing"))
+                    continue
                 for field in fields:
                     live_value = "" if live[field] is None else live[field]
                     seed_value = seed_card.get(field, "")
@@ -1008,30 +1050,23 @@ def verify_live_card_content():
                             (lesson_data["lesson_number"], index + 1, field, live_value, seed_value)
                         )
                         break
-                if mismatches and mismatches[-1][0] == lesson_data["lesson_number"] and len(mismatches[-1]) == 5:
+                if mismatches and mismatches[-1][0] == lesson_data["lesson_number"]:
                     break
     c.close()
     if mismatches:
-        # A deployment must remain usable even if an old database has one
-        # harmless NULL/blank metadata difference.  Keep the diagnostic safe
-        # (lesson/card/field only): Streamlit redacts exception messages that
-        # contain Korean card text, which used to hide the actual location.
+        # Keep the diagnostic safe (lesson/card/field only): Streamlit redacts
+        # exception messages that contain Korean card text, which used to hide
+        # the actual location of a real migration failure.
         sample = mismatches[0]
-        if len(sample) >= 3 and isinstance(sample[0], int):
-            location = f"lesson {sample[0]}, card {sample[1]}, field {sample[2]}"
-        else:
-            location = f"lesson {sample[0]} ({sample[1]})"
-        st.session_state["_content_sync_warning"] = (
-            f"Card content check found a database difference at {location}. "
-            "The checked-in lesson data was loaded; please redeploy all JSON files if an old card remains visible."
-        )
+        location = f"lesson {sample[0]}, card {sample[1]}, field {sample[2]}"
+        raise RuntimeError(f"Card content sync failed at {location}")
 
 
 # Bump this whenever card prompts/answers change. Existing databases keep
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v13"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v14"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -2882,9 +2917,6 @@ def page_shop():
 
 
 bootstrap_app_data(CONTENT_SYNC_VERSION)
-content_sync_warning = st.session_state.pop("_content_sync_warning", None)
-if content_sync_warning:
-    st.warning(content_sync_warning)
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
