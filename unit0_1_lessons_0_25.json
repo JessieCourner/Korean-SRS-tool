@@ -212,7 +212,7 @@
           "source_sentence": "책이 있어요."
         },
         {
-          "prompt": "친구가 집에 ___",
+          "prompt": "친구가 ___",
           "translation": "My friend is at home.",
           "answer": "집에 있어요",
           "hint": "Base form: 있다",
@@ -230,7 +230,7 @@
           "source_sentence": "가방 안에 책이 있어요."
         },
         {
-          "prompt": "동생이 학교에 ___",
+          "prompt": "동생이 ___",
           "translation": "My younger sibling is at school.",
           "answer": "학교에 있어요",
           "hint": "Base form: 있다",
@@ -277,16 +277,16 @@
       "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
-          "prompt": "이것은 ___ 책이에요.",
+          "prompt": "이것은 ___",
           "translation": "This is my book.",
-          "answer": "제 책",
+          "answer": "제 책이에요",
           "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "이것은 제 책이에요."
         },
         {
-          "prompt": "___ 음식",
+          "prompt": "___",
           "translation": "Korean food.",
           "answer": "한국의 음식",
           "hint": "Base form: 한국",
@@ -295,7 +295,7 @@
           "source_sentence": "한국의 음식"
         },
         {
-          "prompt": "저는 음악을 ___",
+          "prompt": "저는 ___",
           "translation": "I like music.",
           "answer": "음악을 좋아해요",
           "hint": "Base form: 좋아하다",
@@ -304,16 +304,16 @@
           "source_sentence": "저는 음악을 좋아해요"
         },
         {
-          "prompt": "이것은 ___ 우산이에요.",
+          "prompt": "이것은 ___",
           "translation": "This is my umbrella.",
-          "answer": "제 우산",
+          "answer": "제 우산이에요",
           "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "이것은 제 우산이에요."
         },
         {
-          "prompt": "저는 한국 음식을 ___",
+          "prompt": "저는 ___",
           "translation": "I like Korean food.",
           "answer": "한국 음식을 좋아해요",
           "hint": "Base form: 좋아하다",
@@ -854,10 +854,10 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "내일 갈 ___",
+          "prompt": "내일 ___",
           "translation": "The thing/fact that I will go tomorrow.",
-          "answer": "거예요",
-          "hint": "Base form: 것",
+          "answer": "갈 거예요",
+          "hint": "Base form: 가다",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
           "answer_form": "Polite conversational form (-요)"
         },
@@ -870,10 +870,10 @@
           "answer_form": "Formal/written plain form"
         },
         {
-          "prompt": "저녁에 공부할 ___",
+          "prompt": "저녁에 ___",
           "translation": "The thing/fact that I will study in the evening.",
-          "answer": "것이다",
-          "hint": "Base form: 것",
+          "answer": "공부할 것이다",
+          "hint": "Base form: 공부하다",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
           "answer_form": "Formal/written plain form"
         }
@@ -916,7 +916,7 @@
       "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
-          "prompt": "사과 ___ 개",
+          "prompt": "사과 ___",
           "translation": "three apples.",
           "answer": "세 개",
           "hint": "Base form: 세",
@@ -943,9 +943,9 @@
           "source_sentence": "오후 세 시"
         },
         {
-          "prompt": "사람 ___ 명이 왔어요.",
+          "prompt": "사람 ___ 왔어요.",
           "translation": "Three people came.",
-          "answer": "세 명",
+          "answer": "세 명이",
           "hint": "Base form: 세",
           "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
           "answer_form": "",
@@ -1491,12 +1491,12 @@
           "source_sentence": "밥을 먹고 공부했어요."
         },
         {
-          "prompt": "한국에 ___ 싶어요.",
+          "prompt": "한국에 ___",
           "translation": "I want to go to Korea.",
-          "answer": "가고",
+          "answer": "가고 싶어요",
           "hint": "Base form: 가다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "한국에 가고 싶어요."
         },
         {
@@ -1518,12 +1518,12 @@
           "source_sentence": "아침을 먹고 학교에 갔어요."
         },
         {
-          "prompt": "___ 싶어요.",
+          "prompt": "___",
           "translation": "I want to travel.",
-          "answer": "여행하고",
+          "answer": "여행하고 싶어요",
           "hint": "Base form: 여행하다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "여행하고 싶어요."
         }
       ]
@@ -1565,44 +1565,44 @@
       "examples_source": "How to Study Korean lesson-based sentence practice",
       "cards": [
         {
-          "prompt": "지금 책을 ___ 있어요.",
+          "prompt": "지금 책을 ___.",
           "translation": "I am reading a book now.",
-          "answer": "읽고",
+          "answer": "읽고 있어요",
           "hint": "Base form: 읽다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "날씨가 ___ 있어요.",
+          "prompt": "날씨가 ___.",
           "translation": "The weather is becoming cold.",
-          "answer": "추워지고",
+          "answer": "추워지고 있어요",
           "hint": "Base form: 춥다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "한국어를 ___ 있어요.",
+          "prompt": "한국어를 ___.",
           "translation": "I am studying Korean.",
-          "answer": "공부하고",
+          "answer": "공부하고 있어요",
           "hint": "Base form: 공부하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "친구를 ___ 있어요.",
+          "prompt": "친구를 ___.",
           "translation": "I am waiting for my friend.",
-          "answer": "기다리고",
+          "answer": "기다리고 있어요",
           "hint": "Base form: 기다리다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "날이 ___ 있어요.",
+          "prompt": "날이 ___.",
           "translation": "The weather is getting warm.",
-          "answer": "따뜻해지고",
+          "answer": "따뜻해지고 있어요",
           "hint": "Base form: 따뜻하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         }
       ]
     },
@@ -1762,7 +1762,7 @@
           "source_sentence": "저는 수영을 잘해요."
         },
         {
-          "prompt": "___",
+          "prompt": "동생은 ___",
           "translation": "My younger sibling sings poorly.",
           "answer": "노래를 못해요",
           "hint": "Base form: 못하다",
@@ -1896,9 +1896,9 @@
           "source_sentence": "한국어를 어떻게 공부해요?"
         },
         {
-          "prompt": "___ 좋아요?",
+          "prompt": "___",
           "translation": "Which book do you like?",
-          "answer": "어느 책",
+          "answer": "어느 책이 좋아요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
           "answer_form": "",
@@ -1914,18 +1914,18 @@
           "source_sentence": "사과를 몇 개 샀어요?"
         },
         {
-          "prompt": "___ 왔어요?",
+          "prompt": "___",
           "translation": "How many people came?",
-          "answer": "몇 명",
+          "answer": "몇 명의 사람이 왔어요?",
           "hint": "Base form: 몇",
           "explanation": "Ask questions with how, which and how many.",
           "answer_form": "",
           "source_sentence": "몇 명의 사람이 왔어요?"
         },
         {
-          "prompt": "___ 좋아해요?",
+          "prompt": "___",
           "translation": "Which movie do you like?",
-          "answer": "어느 영화",
+          "answer": "어느 영화를 좋아해요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
           "answer_form": "",
@@ -1979,21 +1979,21 @@
           "source_sentence": "날씨가 파래요."
         },
         {
-          "prompt": "___ 색이에요?",
+          "prompt": "___",
           "translation": "What kind of color is it?",
-          "answer": "어떤 색",
+          "answer": "어떤 색이에요?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "어떤 색이에요?"
         },
         {
-          "prompt": "___ 사람입니까?",
+          "prompt": "___",
           "translation": "What kind of person is he/she?",
-          "answer": "어떤 사람",
+          "answer": "어떤 사람입니까?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "",
+          "answer_form": "Formal polite form (-ㅂ/습니다)",
           "source_sentence": "어떤 사람입니까?"
         },
         {
@@ -2006,12 +2006,12 @@
           "source_sentence": "하늘이 파래요."
         },
         {
-          "prompt": "___ 모양이에요?",
+          "prompt": "___",
           "translation": "What kind of shape is it?",
-          "answer": "어떤 모양",
+          "answer": "어떤 모양이에요?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "어떤 모양이에요?"
         }
       ]
@@ -2080,7 +2080,7 @@
           "source_sentence": "한 시간 이내에 끝나요."
         },
         {
-          "prompt": "회의 ___에 도착했어요.",
+          "prompt": "회의 ___ 도착했어요.",
           "translation": "I arrived before the meeting.",
           "answer": "전에",
           "hint": "Base form: 전",

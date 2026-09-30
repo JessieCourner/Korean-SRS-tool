@@ -267,10 +267,10 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/",
       "cards": [
         {
-          "prompt": "그는 “제가 하고 싶지 않습니다” ___ 했어요",
+          "prompt": "그는 “제가 하고 싶지 않습니다” ___",
           "translation": "He said “I don’t want to do it”",
-          "answer": "라고",
-          "hint": "Base form: 라고",
+          "answer": "라고 했어요",
+          "hint": "Base form: 하다",
           "explanation": "Practice lesson based on the HTSK Lesson 54 topic. The examples are original practice sentences; use the source page for the full explanation.",
           "answer_form": "Quoted command form",
           "source_sentence": "그는 “제가 하고 싶지 않습니다” 라고 했어요",
@@ -439,12 +439,12 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/",
       "cards": [
         {
-          "prompt": "저는 그를 ___ 거예요",
+          "prompt": "저는 그를 ___",
           "translation": "I will let him sleep",
-          "answer": "자게 할",
+          "answer": "자게 할 거예요",
           "hint": "Base form: 자다",
           "explanation": "Practice lesson based on the HTSK Lesson 56 topic. The examples are original practice sentences; use the source page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "저는 그를 자게 할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -691,8 +691,8 @@
     {
       "unit": 3,
       "lesson_number": 59,
-      "title": "Useful vocabulary: 어쩌면, 아무래도, 즉",
-      "pattern": "어쩌면, 아무래도, 즉",
+      "title": "Difficult words: 어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림, 즉",
+      "pattern": "어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림, 즉",
       "explanation": "Practice lesson based on the HTSK Lesson 59 topic. The examples are original practice sentences; use the source page for the full explanation.",
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
       "cards": [
@@ -727,29 +727,49 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 내일 갈 수 있을지도 몰라요",
-          "translation": "Maybe we can go tomorrow",
-          "answer": "어쩌면 우리가",
-          "hint": "Base form: 어쩌면",
-          "explanation": "Use the possibility adverb when the outcome is uncertain.",
-          "source_sentence": "어쩌면 우리가 내일 갈 수 있을지도 몰라요",
+          "prompt": "나이가 먹으면 정원을 ___ 좋은 운동이에요",
+          "translation": "When you get older, gardening is good exercise",
+          "answer": "가꾸는 것은",
+          "hint": "Base form: 가꾸다",
+          "explanation": "Use the verb 가꾸다 for growing plants or looking after a garden.",
+          "source_sentence": "나이가 먹으면 정원을 가꾸는 것은 좋은 운동이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
           "answer_form": ""
         },
         {
-          "prompt": "___ 일찍 왔어요?",
-          "translation": "How is it possible that you came this early?",
-          "answer": "어쩌면 이렇게",
-          "hint": "Base form: 어쩌면",
-          "explanation": "Use the same adverb in a surprised question about an unexpected fact.",
-          "source_sentence": "어쩌면 이렇게 일찍 왔어요?",
+          "prompt": "___ 어떻게 되세요?",
+          "translation": "How old are you?",
+          "answer": "연세가",
+          "hint": "Base form: 연세 (noun)",
+          "explanation": "Use the honorific noun 연세 when respectfully asking about an older person’s age.",
+          "source_sentence": "연세가 어떻게 되세요?",
+          "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
+          "answer_form": "Honorific polite form"
+        },
+        {
+          "prompt": "저는 어제 선생님의 할아버지를 ___",
+          "translation": "I saw your teacher’s grandfather yesterday",
+          "answer": "뵈었어요",
+          "hint": "Base form: 뵈다",
+          "explanation": "Use the honorific verb 뵈다 when the person being seen deserves a high level of respect.",
+          "source_sentence": "저는 어제 선생님의 할아버지를 뵈었어요",
+          "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
+          "answer_form": "Honorific polite form"
+        },
+        {
+          "prompt": "그는 잠옷 ___ 밖에 나갔어요",
+          "translation": "He went outside wearing pajamas",
+          "answer": "차림으로",
+          "hint": "Base form: 차림 (noun)",
+          "explanation": "Use 차림 after clothing words to describe what someone is wearing or the state of their outfit.",
+          "source_sentence": "그는 잠옷 차림으로 밖에 나갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
           "answer_form": ""
         }
       ],
       "source_status": "published",
-      "source_title": "Useful vocabulary: 어쩌면, 아무래도, 즉",
-      "source_pattern": "어쩌면, 아무래도, 즉",
+      "source_title": "Difficult words: 어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림, 즉",
+      "source_pattern": "어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림, 즉",
       "meaning": "This HTSK vocabulary lesson develops words such as 어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림 and 즉.",
       "when_to_use": "Use these expressions to qualify guesses, conclusions, appearance, respectful reference and explanations in natural Korean.",
       "how_to_build": "There is no single grammar attachment. Learn the vocabulary with the example collocations and speech contexts shown on the source page.",
@@ -783,24 +803,24 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
       "cards": [
         {
-          "prompt": "교실이 학생들로 완전히 ___ 있었어요",
+          "prompt": "교실이 학생들로 완전히 ___",
           "translation": "The classroom was completely full of students",
-          "answer": "차",
+          "answer": "차 있었어요",
           "hint": "Base form: 차다",
           "explanation": "Describe a space that is filled to capacity.",
           "source_sentence": "교실이 학생들로 완전히 차 있었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "시험 결과를 보고 저는 기쁨으로 ___ 찼어요",
+          "prompt": "시험 결과를 보고 저는 기쁨으로 ___",
           "translation": "After seeing the exam results, I was full of joy",
-          "answer": "가득",
+          "answer": "가득 찼어요",
           "hint": "Base form: 가득",
           "explanation": "Describe something as full of a feeling or substance.",
           "source_sentence": "시험 결과를 보고 저는 기쁨으로 가득 찼어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
           "prompt": "그녀는 ___ 한국어를 배우고 싶었어요",
@@ -823,14 +843,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "제가 와서 ___이에요",
+          "prompt": "제가 와서 ___",
           "translation": "It is fortunate that I came",
-          "answer": "다행",
+          "answer": "다행이에요",
           "hint": "Base form: 다행",
           "explanation": "Use the noun to say that a situation turned out fortunately.",
           "source_sentence": "제가 와서 다행이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         }
       ],
       "source_status": "published",

@@ -100,7 +100,7 @@
           "answer": "등록되오니",
           "hint": "Base form: 등록되다",
           "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Formal/literary style",
           "source_sentence": "관내 발급된 전표는 시스템에 자동 등록되오니 별도의 제출은 필요하지 않습니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -110,7 +110,7 @@
           "answer": "어두우오니",
           "hint": "Base form: 어둡다",
           "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Formal/literary style",
           "source_sentence": "이 길은 어두우오니 등불을 챙기기 바랍니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -120,7 +120,7 @@
           "answer": "흐르오니",
           "hint": "Base form: 흐르다",
           "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Formal/literary style",
           "source_sentence": "고압 전류가 흐르오니 절대 손대지 마십시오",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -130,17 +130,17 @@
           "answer": "점검되오니",
           "hint": "Base form: 점검되다",
           "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Formal/literary style",
           "source_sentence": "본 시스템은 정기적으로 점검되오니 일시적인 접속 지연이 발생할 수 있습니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
         {
-          "prompt": "작업 ___ 통행을 삼가 주시기 바랍니다",
+          "prompt": "___ 통행을 삼가 주시기 바랍니다",
           "translation": "Work in progress -please refrain from passing through",
-          "answer": "중이오니",
+          "answer": "작업 중이오니",
           "hint": "Base form: 중",
           "explanation": "Practice for the HTSK Lesson 177 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Formal/literary style",
           "source_sentence": "작업 중이오니 통행을 삼가 주시기 바랍니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         }
@@ -353,14 +353,14 @@
       "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
       "cards": [
         {
-          "prompt": "비가 오는 ___",
+          "prompt": "___",
           "translation": "It seems as though it is raining",
-          "answer": "듯하다",
-          "hint": "Base form: 듯하다",
+          "answer": "비가 오는 듯하다",
+          "hint": "Base form: 오다",
           "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "비가 오는 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
           "prompt": "___",
@@ -370,7 +370,7 @@
           "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "비가 온 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
           "prompt": "___",
@@ -380,23 +380,23 @@
           "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "비가 올 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
-          "prompt": "노동자가 그 무거운 짐을 거뜬히 들어 올린 ___",
+          "prompt": "노동자가 ___",
           "translation": "The worker seemed to lift the heavy load effortlessly",
-          "answer": "듯했어요",
-          "hint": "Base form: 듯하다",
+          "answer": "그 무거운 짐을 거뜬히 들어 올린 듯했어요",
+          "hint": "Base form: 들어 올리다",
           "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "노동자가 그 무거운 짐을 거뜬히 들어 올린 듯했어요",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "그 학생은 이번 대회에서도 입상한 ___",
+          "prompt": "그 학생은 ___",
           "translation": "That student seems to have won a prize again in this competition",
-          "answer": "듯해요",
-          "hint": "Base form: 듯하다",
+          "answer": "이번 대회에서도 입상한 듯해요",
+          "hint": "Base form: 입상하다",
           "explanation": "Practice for the HTSK Lesson 180 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "그 학생은 이번 대회에서도 입상한 듯해요",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
@@ -444,7 +444,7 @@
           "answer": "정보조차",
           "hint": "Base form: 정보",
           "explanation": "Practice for the HTSK Lesson 181 focus. The official lesson contains the complete explanation and additional examples.",
-          "answer_form": "",
+          "answer_form": "Plain/written form",
           "source_sentence": "제대로 된 정보조차 없는 상황에서 필사의 각오로 뛰어들었어요",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-181/"
         },
@@ -1507,9 +1507,9 @@
           "answer_form": "Informal command to a younger person"
         },
         {
-          "prompt": "저상버스가 오면 탈 ___",
+          "prompt": "저상버스가 오면 ___",
           "translation": "When the low-floor bus arrives, get ready to board",
-          "answer": "준비하렴",
+          "answer": "탈 준비하렴",
           "hint": "Base form: 준비하다",
           "explanation": "Practice for the HTSK Lesson 193 focus. The official lesson contains the complete explanation and additional examples.",
           "source_sentence": "저상버스가 오면 탈 준비하렴",

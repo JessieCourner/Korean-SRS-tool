@@ -100,7 +100,7 @@
           "answer": "오더라",
           "hint": "Base form: 오다",
           "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "어제 비가 오더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -110,7 +110,7 @@
           "answer": "왔더라",
           "hint": "Base form: 오다",
           "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "어제 비가 왔더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -120,7 +120,7 @@
           "answer": "비싸더라",
           "hint": "Base form: 비싸다",
           "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "그 병원에서 진료를 받으면 다른 데보다 비싸더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -130,7 +130,7 @@
           "answer": "가득하더라",
           "hint": "Base form: 가득하다",
           "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "그 선생님이 수업을 할 때 열정이 가득하더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -698,7 +698,7 @@
           "answer": "된다니까",
           "hint": "Base form: 되다",
           "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "출근해야 된다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -708,7 +708,7 @@
           "answer": "익었다니까",
           "hint": "Base form: 익다",
           "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "아직 안 익었다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -718,7 +718,7 @@
           "answer": "줬다니까",
           "hint": "Base form: 주다",
           "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "거스름돈을 안 줬다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -728,17 +728,17 @@
           "answer": "끝났다니까",
           "hint": "Base form: 끝나다",
           "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "경기가 동점으로 끝났다니까! 우리가 이기지 못해서 기분이 별로야",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
         {
-          "prompt": "그렇게 하면 화재가 날 ___! 이제 그만해!",
+          "prompt": "그렇게 하면 화재가 ___! 이제 그만해!",
           "translation": "I told you that if you do that you’ll start a fire! Stop now!",
-          "answer": "거라니까",
-          "hint": "Base form: 것",
+          "answer": "날 거라니까",
+          "hint": "Base form: 나다",
           "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
-          "answer_form": "",
+          "answer_form": "Conversational emphasis form",
           "source_sentence": "그렇게 하면 화재가 날 거라니까! 이제 그만해!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         }

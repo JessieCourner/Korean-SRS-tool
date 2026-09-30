@@ -1035,9 +1035,9 @@
           "answer_form": "Conversational emphasis form"
         },
         {
-          "prompt": "내 소원은 그 사람과 다시 만나게 되는 거란 ___",
+          "prompt": "내 소원은 그 사람과 다시 만나게 되는 ___",
           "translation": "What I’m saying is, my wish is to meet that person again",
-          "answer": "말이야",
+          "answer": "거란 말이야",
           "hint": "Base form: 말",
           "explanation": "Original practice for the HTSK Lesson 163 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
           "source_sentence": "내 소원은 그 사람과 다시 만나게 되는 거란 말이야",
@@ -1915,9 +1915,9 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 다친 ___",
+          "prompt": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 ___",
           "translation": "Since my cheekbone hurts, I wonder if I got hurt while playing around last night",
-          "answer": "걸까 싶어요",
+          "answer": "다친 걸까 싶어요",
           "hint": "Base form: 다치다",
           "explanation": "Original practice for the HTSK Lesson 173 focus. Use the official Unit 7 lesson for the full explanation and more examples.",
           "source_sentence": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 다친 걸까 싶어요",

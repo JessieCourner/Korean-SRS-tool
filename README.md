@@ -8,7 +8,7 @@ A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-r
 - Starts at Unit 2; Units 0–1 are treated as completed by default, but remain available in Lessons for reading and optional manual deck activation
 - Includes HTSK foundation material for Unit 0 and Lessons 1–25 of Unit 1; these lessons never enter the daily queue automatically
 - Lessons 26–208 in sequential lesson packs; HTSK source guides are published for 26–202, while 203–208 are clearly marked as not yet published by HTSK
-- 1,015 cards total: 130 foundation cards for Units 0–1 plus exactly five HTSK-derived practice cards for each published lesson 26–202 (885 cards); lessons 203–208 intentionally have no cards until HTSK publishes them
+- 1,017 cards total: 130 foundation cards for Units 0–1 plus HTSK-derived practice cards for each published lesson 26–202 (887 cards); Lesson 59 has seven cards because its official vocabulary list has seven target words, and lessons 203–208 intentionally have no cards until HTSK publishes them
 - Two new lessons per day, rotating card reviews, SRS scheduling, progress page, crystals and shop
 - Correct / Almost / Wrong SRS grading
 - Per-card progress stored in SQLite
@@ -51,7 +51,7 @@ When `SUPABASE_DB_URL` is present, the app uses Supabase PostgreSQL. Without it,
 
 The first run creates `korean_bunpro.db` and imports the seed data. Do not delete that database if you want to keep progress.
 
-The cards are compact practice prompts and require the complete missing word plus its grammar ending whenever the stem is shown before the blank. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons. After the first successful Supabase import, startup uses a content version marker and does not rescan every lesson/card on each app rerun.
+The cards are compact practice prompts and require the complete missing word or phrase, including the grammar ending, whenever the stem is shown before the blank. Each prompt has exactly one `___`; where a source sentence is recorded, filling that blank reconstructs the full sentence. Vocabulary lessons are checked so their cards require different target words or lexical expressions rather than repeating one answer. Each `unit*.json` lesson record contains its HTSK-derived guide and examples, so the explanation shown by **Study** travels with the lesson itself. The app does not invent guide or card content for unpublished lessons. After the first successful Supabase import, startup uses a content version marker and does not rescan every lesson/card on each app rerun.
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 
@@ -69,9 +69,9 @@ The chibi messages are original in-app encouragements; they are not presented as
 
 ## Final card-content pass
 
-This archive contains the final content pass (`2026-09-29-cards-ui-v6`). Lessons 26–202 were checked lesson by lesson: repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied nouns/adverbs, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary.
+This archive contains the final content pass (`2026-09-30-cards-content-ui-v7`). Lessons 26–202 were checked lesson by lesson: repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied target words, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary; legacy cards with a clear speech-level ending receive the same display hint at runtime.
 
-On startup, the v6 content marker refreshes card text in an existing local or Supabase database by lesson/order while preserving review levels, dates and history. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page and dialog, and the hide/show control stays above the app controls.
+On startup, the v7 content marker refreshes card text in an existing local or Supabase database by lesson/order while preserving review levels, dates and history. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page and dialog, and the hide/show control stays above the app controls and is moved into an open dialog's top layer when needed.
 
 The PostgreSQL startup migration is idempotent and serialized: existing Supabase databases use `ADD COLUMN IF NOT EXISTS`, while the local SQLite fallback keeps its `PRAGMA` checks. A second Streamlit worker can therefore restart without trying to add `answer_form` or review columns a second time.
 
@@ -80,3 +80,6 @@ The PostgreSQL startup migration is idempotent and serialized: existing Supabase
 - Dashboard due-card SQL binds both date values it uses (`due_at` timestamp and `next_review` date), preventing the PostgreSQL `IndexError` on startup.
 - Inline Review answer fields are transparent and borderless, including focus and hover states; the typed text inherits the sentence color. Ordinary text inputs elsewhere keep their normal styling.
 - The inline mount also applies the transparent/borderless styles directly to the Streamlit input and its BaseWeb wrappers, so theme defaults cannot restore a dark box after the widget is moved into the sentence.
+- The final cleanup also covers every descendant of the answer widget and disables native input appearance, preventing a dark theme or browser default from drawing a colored rectangle.
+- The content validator rejects a card with anything other than one blank, rejects an empty answer, and rejects duplicate target answers in the vocabulary-lesson set before the app starts.
+- Repaired split answers now keep the lexical stem and the grammar chunk together (for example, `할 것 같아요`, `수 있도록`, `끈 채로`, `날 거라니까`), so the learner supplies the complete target phrase.

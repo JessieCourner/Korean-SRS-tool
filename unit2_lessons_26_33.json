@@ -10,9 +10,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
       "cards": [
         {
-          "prompt": "내가 가장 ___ 것은 차야",
+          "prompt": "내가 가장 ___ 차야",
           "translation": "The thing I want most is a car",
-          "answer": "원하는",
+          "answer": "원하는 것은",
           "hint": "Base form: 원하다",
           "explanation": "Use the present modifier to describe the noun by what someone wants.",
           "source_sentence": "내가 가장 원하는 것은 차야",
@@ -20,9 +20,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 친구가 사과를 ___ 것을 원해요",
+          "prompt": "저는 친구가 사과를 ___ 원해요",
           "translation": "I want my friend to bring apples",
-          "answer": "가져오는",
+          "answer": "가져오는 것을",
           "hint": "Base form: 가져오다",
           "explanation": "Use the present modifier before 것 for an action in progress or viewed generally.",
           "source_sentence": "저는 친구가 사과를 가져오는 것을 원해요",
@@ -30,19 +30,19 @@
           "answer_form": ""
         },
         {
-          "prompt": "나의 꿈은 선생님이 ___ 것이다",
+          "prompt": "나의 꿈은 선생님이 ___",
           "translation": "My dream is becoming a teacher",
-          "answer": "되는",
+          "answer": "되는 것이다",
           "hint": "Base form: 되다",
           "explanation": "Use the modifier form before a noun-like expression.",
           "source_sentence": "나의 꿈은 선생님이 되는 것이다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": ""
+          "answer_form": "Formal/written plain form"
         },
         {
-          "prompt": "저는 영화를 ___ 것을 좋아해요",
+          "prompt": "저는 영화를 ___ 좋아해요",
           "translation": "I like watching movies",
-          "answer": "보는",
+          "answer": "보는 것을",
           "hint": "Base form: 보다",
           "explanation": "Use the present modifier when the action is treated as a thing.",
           "source_sentence": "저는 영화를 보는 것을 좋아해요",
@@ -192,14 +192,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 집을 ___ 거예요",
+          "prompt": "저는 집을 ___",
           "translation": "I will build a house",
-          "answer": "지을",
+          "answer": "지을 거예요",
           "hint": "Base form: 짓다",
           "explanation": "Use the future modifier for an intended or expected action.",
           "source_sentence": "저는 집을 지을 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
           "prompt": "그 사람은 서울에서 부산까지 ___ 첫 번째 사람이었다",
@@ -628,20 +628,20 @@
           "answer_form": "Informal/plain form"
         },
         {
-          "prompt": "나는 공부 ___",
+          "prompt": "나는 ___",
           "translation": "I am studying",
-          "answer": "중이야",
-          "hint": "Base form: 중",
+          "answer": "공부 중이야",
+          "hint": "Base forms: 공부 (noun) + 중 (noun)",
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 공부 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
           "answer_form": "Informal/plain form"
         },
         {
-          "prompt": "저는 생각 ___",
+          "prompt": "저는 ___",
           "translation": "I am thinking",
-          "answer": "중이에요",
-          "hint": "Base form: 중",
+          "answer": "생각 중이에요",
+          "hint": "Base forms: 생각 (noun) + 중 (noun)",
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "저는 생각 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",

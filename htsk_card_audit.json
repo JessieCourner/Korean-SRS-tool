@@ -1,6 +1,6 @@
 {
-  "schema_version": "2026-09-29-v6",
-  "source_policy": "HTSK source sentence or explicitly curated HTSK lesson vocabulary",
+  "schema_version": "2026-09-30-v7",
+  "source_policy": "HTSK source sentence or explicitly curated HTSK lesson vocabulary; vocabulary lessons use distinct target answers",
   "lessons": {
     "0": {
       "source_url": "https://www.howtostudykorean.com/unit0/unit0lesson1/",
@@ -136,7 +136,7 @@
         {
           "source_sentence": "이것은 제 책이에요.",
           "translation": "This is my book.",
-          "answer": "제 책",
+          "answer": "제 책이에요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-3/"
         },
@@ -157,7 +157,7 @@
         {
           "source_sentence": "이것은 제 우산이에요.",
           "translation": "This is my umbrella.",
-          "answer": "제 우산",
+          "answer": "제 우산이에요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-3/"
         },
@@ -444,7 +444,7 @@
         {
           "source_sentence": "",
           "translation": "The thing/fact that I will go tomorrow.",
-          "answer": "거예요",
+          "answer": "갈 거예요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-10/"
         },
@@ -458,7 +458,7 @@
         {
           "source_sentence": "",
           "translation": "The thing/fact that I will study in the evening.",
-          "answer": "것이다",
+          "answer": "공부할 것이다",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-10/"
         }
@@ -493,7 +493,7 @@
         {
           "source_sentence": "사람 세 명이 왔어요.",
           "translation": "Three people came.",
-          "answer": "세 명",
+          "answer": "세 명이",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-11/"
         },
@@ -773,7 +773,7 @@
         {
           "source_sentence": "한국에 가고 싶어요.",
           "translation": "I want to go to Korea.",
-          "answer": "가고",
+          "answer": "가고 싶어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-18/"
         },
@@ -794,7 +794,7 @@
         {
           "source_sentence": "여행하고 싶어요.",
           "translation": "I want to travel.",
-          "answer": "여행하고",
+          "answer": "여행하고 싶어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-18/"
         }
@@ -808,35 +808,35 @@
         {
           "source_sentence": "",
           "translation": "I am reading a book now.",
-          "answer": "읽고",
+          "answer": "읽고 있어요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/"
         },
         {
           "source_sentence": "",
           "translation": "The weather is becoming cold.",
-          "answer": "추워지고",
+          "answer": "추워지고 있어요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/"
         },
         {
           "source_sentence": "",
           "translation": "I am studying Korean.",
-          "answer": "공부하고",
+          "answer": "공부하고 있어요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/"
         },
         {
           "source_sentence": "",
           "translation": "I am waiting for my friend.",
-          "answer": "기다리고",
+          "answer": "기다리고 있어요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/"
         },
         {
           "source_sentence": "",
           "translation": "The weather is getting warm.",
-          "answer": "따뜻해지고",
+          "answer": "따뜻해지고 있어요",
           "source_kind": "foundation practice",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/"
         }
@@ -983,7 +983,7 @@
         {
           "source_sentence": "어느 책이 좋아요?",
           "translation": "Which book do you like?",
-          "answer": "어느 책",
+          "answer": "어느 책이 좋아요?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-23/"
         },
@@ -997,14 +997,14 @@
         {
           "source_sentence": "몇 명의 사람이 왔어요?",
           "translation": "How many people came?",
-          "answer": "몇 명",
+          "answer": "몇 명의 사람이 왔어요?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-23/"
         },
         {
           "source_sentence": "어느 영화를 좋아해요?",
           "translation": "Which movie do you like?",
-          "answer": "어느 영화",
+          "answer": "어느 영화를 좋아해요?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-23/"
         }
@@ -1025,14 +1025,14 @@
         {
           "source_sentence": "어떤 색이에요?",
           "translation": "What kind of color is it?",
-          "answer": "어떤 색",
+          "answer": "어떤 색이에요?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-24/"
         },
         {
           "source_sentence": "어떤 사람입니까?",
           "translation": "What kind of person is he/she?",
-          "answer": "어떤 사람",
+          "answer": "어떤 사람입니까?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-24/"
         },
@@ -1046,7 +1046,7 @@
         {
           "source_sentence": "어떤 모양이에요?",
           "translation": "What kind of shape is it?",
-          "answer": "어떤 모양",
+          "answer": "어떤 모양이에요?",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-24/"
         }
@@ -1102,36 +1102,36 @@
         {
           "source_sentence": "내가 가장 원하는 것은 차야",
           "translation": "The thing I want most is a car",
-          "answer": "원하는",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "원하는 것은",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
         },
         {
           "source_sentence": "저는 친구가 사과를 가져오는 것을 원해요",
           "translation": "I want my friend to bring apples",
-          "answer": "가져오는",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "가져오는 것을",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
         },
         {
           "source_sentence": "나의 꿈은 선생님이 되는 것이다",
           "translation": "My dream is becoming a teacher",
-          "answer": "되는",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "되는 것이다",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
         },
         {
           "source_sentence": "저는 영화를 보는 것을 좋아해요",
           "translation": "I like watching movies",
-          "answer": "보는",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "보는 것을",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
         },
         {
           "source_sentence": "제가 먹은 음식",
           "translation": "The food I ate",
           "answer": "먹은",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"
         }
       ]
@@ -1187,35 +1187,35 @@
           "source_sentence": "그 집을 지은 사람은 누구예요?",
           "translation": "Who is the person that built that house?",
           "answer": "지은",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/"
         },
         {
           "source_sentence": "저는 집을 지을 거예요",
           "translation": "I will build a house",
-          "answer": "지을",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "지을 거예요",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/"
         },
         {
           "source_sentence": "그 사람은 서울에서 부산까지 걸은 첫 번째 사람이었다",
           "translation": "That person was the first person who walked from Seoul to Busan",
           "answer": "걸은",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/"
         },
         {
           "source_sentence": "제가 도울 게 있나요?",
           "translation": "Is there something I can help you with?",
           "answer": "도울",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/"
         },
         {
           "source_sentence": "저는 친구가 문을 여는 것을 봤어요",
           "translation": "I saw my friend open the door",
           "answer": "문을 여는 것을",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/"
         }
       ]
@@ -1355,35 +1355,35 @@
           "source_sentence": "공연을 보러 행사에 가고 있어요",
           "translation": "I am going to the event to see the performance",
           "answer": "공연을 보러",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
         },
         {
           "source_sentence": "나는 밥을 먹으려고 노력했다",
           "translation": "I tried to eat rice",
           "answer": "밥을 먹으려고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
         },
         {
           "source_sentence": "나는 밥을 먹어 봤다",
           "translation": "I tried eating rice",
           "answer": "밥을 먹어 봤다",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
         },
         {
           "source_sentence": "그 친구를 매 주말 만나려고 노력해요",
           "translation": "I try to meet that friend every weekend",
           "answer": "그 친구를 매 주말 만나려고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
         },
         {
           "source_sentence": "한국어를 배우려고 노력하고 있어요",
           "translation": "I am trying to learn Korean",
           "answer": "한국어를 배우려고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"
         }
       ]
@@ -1410,14 +1410,14 @@
         {
           "source_sentence": "나는 공부 중이야",
           "translation": "I am studying",
-          "answer": "중이야",
+          "answer": "공부 중이야",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/"
         },
         {
           "source_sentence": "저는 생각 중이에요",
           "translation": "I am thinking",
-          "answer": "중이에요",
+          "answer": "생각 중이에요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/"
         },
@@ -1439,35 +1439,35 @@
           "source_sentence": "그는 자기 아버지에 대해 신경을 안 써",
           "translation": "He doesn’t care about his father",
           "answer": "자기",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-34/"
         },
         {
           "source_sentence": "저는 자신을 안 믿어요",
           "translation": "I don’t trust myself",
           "answer": "자신을",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-34/"
         },
         {
           "source_sentence": "한국어는 영어보다 훨씬 어려워요",
           "translation": "Korean is much more difficult than English",
           "answer": "훨씬",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-34/"
         },
         {
           "source_sentence": "이 문제에 관련되어 회의가 있을 것이다",
           "translation": "There will be a meeting related to this problem",
           "answer": "관련되어",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-34/"
         },
         {
           "source_sentence": "학생들이 넘어진 친구 주위에 서 있었어요",
           "translation": "The students stood around their friend who had fallen",
           "answer": "주위에",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-34/"
         }
       ]
@@ -1487,14 +1487,14 @@
         {
           "source_sentence": "저는 친구들이랑 내일 낚시를 할 것 같아요",
           "translation": "I will probably go fishing with my friends tomorrow",
-          "answer": "것 같아요",
+          "answer": "할 것 같아요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/"
         },
         {
           "source_sentence": "우리 아빠는 저것을 싫어할 것 같아",
           "translation": "Dad will probably not like that",
-          "answer": "것 같아",
+          "answer": "싫어할 것 같아",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/"
         },
@@ -1529,7 +1529,7 @@
         {
           "source_sentence": "저의 남자친구는 교수님 같이 보여요",
           "translation": "My boyfriend looks like the professor",
-          "answer": "같이 보여요",
+          "answer": "교수님 같이 보여요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-36/"
         },
@@ -1550,7 +1550,7 @@
         {
           "source_sentence": "저는 그 사람보다 더 똑똑해 보여요",
           "translation": "I look smarter than that person",
-          "answer": "보여요",
+          "answer": "똑똑해 보여요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-36/"
         }
@@ -1669,14 +1669,14 @@
         {
           "source_sentence": "회의가 끝나기 전에 교감선생님이 말씀하실 거예요",
           "translation": "Before the meeting finishes, the vice principal will speak",
-          "answer": "말씀하실",
+          "answer": "말씀하실 거예요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/"
         },
         {
           "source_sentence": "부장님이 그 일을 망쳐서 부장님이 말씀하시는 것을 듣는 사람이 별로 없어요",
           "translation": "There aren’t really that many people who listen to the boss because he ruined that job",
-          "answer": "말씀하시는",
+          "answer": "말씀하시는 것을",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/"
         }
@@ -1879,7 +1879,7 @@
         {
           "source_sentence": "너무 안타까워서 내일 그 왕따를 놀리지 말자",
           "translation": "Let’s not tease that outcast tomorrow because it is too sad/sorry (of a situation)",
-          "answer": "말자",
+          "answer": "놀리지 말자",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
@@ -1914,7 +1914,7 @@
         {
           "source_sentence": "저도 그것을 할 수 있어요",
           "translation": "I can do that too",
-          "answer": "수 있어요",
+          "answer": "할 수 있어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-45/"
         },
@@ -1942,35 +1942,35 @@
         {
           "source_sentence": "나는 밥을 먹을 필요가 있다",
           "translation": "I have the necessity to eat",
-          "answer": "먹을 필요가",
+          "answer": "먹을 필요가 있다",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/"
         },
         {
           "source_sentence": "나는 잘 필요가 있다",
           "translation": "I have the necessity to sleep",
-          "answer": "잘 필요가",
+          "answer": "잘 필요가 있다",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/"
         },
         {
           "source_sentence": "저는 그 여자랑 결혼할 필요가 있어요",
           "translation": "I need to marry that girl",
-          "answer": "결혼할 필요가",
+          "answer": "결혼할 필요가 있어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/"
         },
         {
           "source_sentence": "시험공부를 곧 할 필요가 있어요",
           "translation": "I need to study soon",
-          "answer": "할 필요가",
+          "answer": "할 필요가 있어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/"
         },
         {
           "source_sentence": "강한 캐릭터를 만들 필요가 있어요",
           "translation": "We need to make a strong character",
-          "answer": "만들 필요가",
+          "answer": "만들 필요가 있어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/"
         }
@@ -2278,7 +2278,7 @@
         {
           "source_sentence": "그는 “제가 하고 싶지 않습니다” 라고 했어요",
           "translation": "He said “I don’t want to do it”",
-          "answer": "라고",
+          "answer": "라고 했어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-54/"
         },
@@ -2362,7 +2362,7 @@
         {
           "source_sentence": "저는 그를 자게 할 거예요",
           "translation": "I will let him sleep",
-          "answer": "자게 할",
+          "answer": "자게 할 거예요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -2483,41 +2483,55 @@
     "59": {
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
       "source_status": "published",
-      "selected_count": 5,
+      "selected_count": 7,
       "selected": [
         {
           "source_sentence": "어쩌면 그녀가 올지도 몰라요",
           "translation": "Maybe she will come",
           "answer": "어쩌면 그녀가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
         },
         {
           "source_sentence": "아무래도 그녀가 우리를 만나러 안 올 것 같아요",
           "translation": "She probably will not come to meet us",
           "answer": "아무래도 그녀가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
         },
         {
           "source_sentence": "엄마가 전화를 갑자기 끊었어요. 즉 저랑 통화하기 싫어하는 것 같아요",
           "translation": "Mom suddenly hung up. In other words, she seems not to want to talk to me",
           "answer": "즉 저랑",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
         },
         {
-          "source_sentence": "어쩌면 우리가 내일 갈 수 있을지도 몰라요",
-          "translation": "Maybe we can go tomorrow",
-          "answer": "어쩌면 우리가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_sentence": "나이가 먹으면 정원을 가꾸는 것은 좋은 운동이에요",
+          "translation": "When you get older, gardening is good exercise",
+          "answer": "가꾸는 것은",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
         },
         {
-          "source_sentence": "어쩌면 이렇게 일찍 왔어요?",
-          "translation": "How is it possible that you came this early?",
-          "answer": "어쩌면 이렇게",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_sentence": "연세가 어떻게 되세요?",
+          "translation": "How old are you?",
+          "answer": "연세가",
+          "source_kind": "HTSK selected sentence",
+          "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
+        },
+        {
+          "source_sentence": "저는 어제 선생님의 할아버지를 뵈었어요",
+          "translation": "I saw your teacher’s grandfather yesterday",
+          "answer": "뵈었어요",
+          "source_kind": "HTSK selected sentence",
+          "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
+        },
+        {
+          "source_sentence": "그는 잠옷 차림으로 밖에 나갔어요",
+          "translation": "He went outside wearing pajamas",
+          "answer": "차림으로",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/"
         }
       ]
@@ -2530,36 +2544,36 @@
         {
           "source_sentence": "교실이 학생들로 완전히 차 있었어요",
           "translation": "The classroom was completely full of students",
-          "answer": "차",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "차 있었어요",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/"
         },
         {
           "source_sentence": "시험 결과를 보고 저는 기쁨으로 가득 찼어요",
           "translation": "After seeing the exam results, I was full of joy",
-          "answer": "가득",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "가득 찼어요",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/"
         },
         {
           "source_sentence": "그녀는 왠지 한국어를 배우고 싶었어요",
           "translation": "For some reason, she wanted to learn Korean",
           "answer": "왠지",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/"
         },
         {
           "source_sentence": "설마 그가 이미 떠났을까요?",
           "translation": "Could he possibly have already left?",
           "answer": "설마",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/"
         },
         {
           "source_sentence": "제가 와서 다행이에요",
           "translation": "It is fortunate that I came",
-          "answer": "다행",
-          "source_kind": "HTSK-curated practice sentence",
+          "answer": "다행이에요",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/"
         }
       ]
@@ -2867,35 +2881,35 @@
           "source_sentence": "저는 그 식당에서 먹는 사람 중에 유일한 단골 고객이에요",
           "translation": "Of the people who eat there, I am the only regular customer",
           "answer": "중에 유일한",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/"
         },
         {
           "source_sentence": "제가 유일하게 먹고 싶은 음식은 삼겹살입니다",
           "translation": "The only food I want to eat is samgyeopsal",
           "answer": "유일하게 먹고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/"
         },
         {
           "source_sentence": "제가 유일하게 하고 싶은 것은 밥을 먹는 것이에요",
           "translation": "The only thing I want to do is eat rice",
           "answer": "유일하게 하고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/"
         },
         {
           "source_sentence": "제가 유일하게 결혼하고 싶은 사람은 저의 여자 친구입니다",
           "translation": "The only person I want to marry is my girlfriend",
           "answer": "유일하게 결혼하고",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/"
         },
         {
           "source_sentence": "나는 유일한 사과를 샀어",
           "translation": "I bought the only apple",
           "answer": "유일한 사과를",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/"
         }
       ]
@@ -3329,35 +3343,35 @@
           "source_sentence": "그대로 움직이지 마",
           "translation": "Do not move; stay as you are",
           "answer": "그대로",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-79/"
         },
         {
           "source_sentence": "그 선생님은 키가 커서 학생들한테 인기가 많아요",
           "translation": "That teacher is popular among the students because he is tall",
           "answer": "인기가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-79/"
         },
         {
           "source_sentence": "이 결과는 당연해요",
           "translation": "This result is natural/expected",
           "answer": "당연해요",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-79/"
         },
         {
           "source_sentence": "이 방법은 지금 상황에 알맞아요",
           "translation": "This method is suitable for the current situation",
           "answer": "알맞아요",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-79/"
         },
         {
           "source_sentence": "어쩌다 한 번씩 그 식당에 가요",
           "translation": "I go to that restaurant once in a while",
           "answer": "어쩌다",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-79/"
         }
       ]
@@ -3888,14 +3902,14 @@
         {
           "source_sentence": "학생들이 알아들을 수 있도록 천천히 말했어요",
           "translation": "I spoke slowly so that the students could understand me",
-          "answer": "수 있도록",
+          "answer": "알아들을 수 있도록",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/lesson-82/"
         },
         {
           "source_sentence": "그 범죄자는 범죄를 저지를 때 피해자가 자기를 알아볼 수 없도록 마스크를 써요",
           "translation": "The criminal wears a mask so that the victims can’t recognize him when he commits a crime",
-          "answer": "수 없도록",
+          "answer": "알아볼 수 없도록",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/lesson-82/"
         },
@@ -4253,35 +4267,35 @@
           "source_sentence": "넌 누구를 기다리고 있니?",
           "translation": "Who are you waiting for?",
           "answer": "넌",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/"
         },
         {
           "source_sentence": "난 천둥이 치는 소리를 들었어",
           "translation": "I heard thunder",
           "answer": "난",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/"
         },
         {
           "source_sentence": "나 이 손목시계 늘 차고 있어",
           "translation": "I always wear this wristwatch",
           "answer": "나",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/"
         },
         {
           "source_sentence": "이건 얼마예요?",
           "translation": "How much is this?",
           "answer": "이건",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/"
         },
         {
           "source_sentence": "그걸 하지 마세요",
           "translation": "Please do not do that",
           "answer": "그걸",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/"
         }
       ]
@@ -4889,7 +4903,7 @@
         {
           "source_sentence": "우리는 불을 끈 채로 영화를 봤다",
           "translation": "We watched a movie with the lights off",
-          "answer": "채로",
+          "answer": "끈 채로",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/"
         },
@@ -5288,7 +5302,7 @@
         {
           "source_sentence": "그렇게 하면 화재가 날 거라니까! 이제 그만해!",
           "translation": "I told you that if you do that you’ll start a fire! Stop now!",
-          "answer": "거라니까",
+          "answer": "날 거라니까",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         }
@@ -5639,35 +5653,35 @@
           "source_sentence": "새 스마트폰으로 사진을 찍었어요",
           "translation": "I took a photo with a new smartphone",
           "answer": "스마트폰",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-134/"
         },
         {
           "source_sentence": "점심으로 샌드위치를 먹었어요",
           "translation": "I ate a sandwich for lunch",
           "answer": "샌드위치",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-134/"
         },
         {
           "source_sentence": "주말에 쇼핑몰에 가서 쇼핑했어요",
           "translation": "I went to the shopping mall and shopped on the weekend",
           "answer": "쇼핑몰",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-134/"
         },
         {
           "source_sentence": "이 버튼을 누르면 화면이 켜져요",
           "translation": "If you press this button, the screen turns on",
           "answer": "버튼",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-134/"
         },
         {
           "source_sentence": "이 동네에는 아파트가 많아요",
           "translation": "There are many apartments in this neighborhood",
           "answer": "아파트",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-134/"
         }
       ]
@@ -5681,35 +5695,35 @@
           "source_sentence": "내일 비가 올 가능성이 높아요",
           "translation": "There is a high possibility that it will rain tomorrow",
           "answer": "가능성이",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-135/"
         },
         {
           "source_sentence": "그 사람의 말은 항상 진실성이 부족해요",
           "translation": "That person's words always lack sincerity",
           "answer": "진실성이",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-135/"
         },
         {
           "source_sentence": "이 사건과 저 사건의 관련성이 아예 없어요",
           "translation": "There is no relevance between these incidents",
           "answer": "관련성이",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-135/"
         },
         {
           "source_sentence": "그 아이의 창의성은 매우 뛰어나요",
           "translation": "That child's creativity is outstanding",
           "answer": "창의성은",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-135/"
         },
         {
           "source_sentence": "세상에는 아직도 여성의 인권이 매우 낮은 곳이 많습니다",
           "translation": "There are still many places where women's rights are very low",
           "answer": "여성의",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-134-141/lesson-135/"
         }
       ]
@@ -6017,35 +6031,35 @@
           "source_sentence": "거기에 아직 사람이 없을걸",
           "translation": "There probably isn't anybody there yet",
           "answer": "거기에 아직 사람이 없을걸",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/"
         },
         {
           "source_sentence": "사람이 없을걸",
           "translation": "There probably won't be anybody",
           "answer": "사람이 없을걸",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/"
         },
         {
           "source_sentence": "겨자소스일걸",
           "translation": "It is probably mustard",
           "answer": "겨자소스일걸",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/"
         },
         {
           "source_sentence": "잘 모르겠지만 백합일걸요",
           "translation": "I don't know, but it is probably a lily",
           "answer": "백합일걸요",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/"
         },
         {
           "source_sentence": "안 줄걸",
           "translation": "They probably won't give it to you",
           "answer": "안 줄걸",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/"
         }
       ]
@@ -6269,35 +6283,35 @@
           "source_sentence": "신선한 바람을 쐬러 시간을 내서 나왔는데 하필 비가 오기 시작했어",
           "translation": "I took the time to come outside to get some fresh air and, of all things, it started raining",
           "answer": "나왔는데 하필",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/"
         },
         {
           "source_sentence": "하필 계란만 떨어졌어!",
           "translation": "Of all things to fall out, only the eggs fell!",
           "answer": "하필 계란만",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/"
         },
         {
           "source_sentence": "하필 오늘 그 헌책방만 문을 닫았어",
           "translation": "Of all things to be closed, it had to be the used book store",
           "answer": "하필 오늘",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/"
         },
         {
           "source_sentence": "하필 노래를 흥얼거리고 있는데 친구가 들어와서 얼굴이 화끈거렸어",
           "translation": "Of all things, I was humming when my friend came in",
           "answer": "하필 노래를",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/"
         },
         {
           "source_sentence": "하필 그날 유명한 가수의 공연이 근처에 있어서 지하철이 더 번잡했어",
           "translation": "Of all things, a famous singer's concert made the subway more crowded that day",
           "answer": "하필 그날",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/"
         }
       ]
@@ -6311,35 +6325,35 @@
           "source_sentence": "어쩐지 돈이 많아요",
           "translation": "No wonder they have so much money",
           "answer": "어쩐지 돈이",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/"
         },
         {
           "source_sentence": "맞벌이 부부라서 어쩐지 돈이 많아요",
           "translation": "They are a dual-income couple, so no wonder they have money",
           "answer": "부부라서 어쩐지",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/"
         },
         {
           "source_sentence": "어쩐지 침대가 불편했어요",
           "translation": "No wonder the bed was uncomfortable",
           "answer": "어쩐지 침대가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/"
         },
         {
           "source_sentence": "침대 스프링이 망가져서 어쩐지 침대가 불편했어요",
           "translation": "The bed spring was broken, so no wonder the bed was uncomfortable",
           "answer": "망가져서 어쩐지",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/"
         },
         {
           "source_sentence": "어쩐지 장터가 사람들로 붐볐어요",
           "translation": "No wonder the marketplace was bustling",
           "answer": "어쩐지 장터가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/"
         }
       ]
@@ -6563,35 +6577,35 @@
           "source_sentence": "캠핑에서 먹을 삼시 세끼를 준비하려는 참이에요",
           "translation": "I am about to prepare three meals for camping",
           "answer": "준비하려는 참이에요",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/"
         },
         {
           "source_sentence": "은퇴식이 시작되는 참이에요",
           "translation": "The retirement party is just about to start",
           "answer": "시작되는 참이에요",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/"
         },
         {
           "source_sentence": "창공을 바라보려는 참에 비행기가 지나갔어요",
           "translation": "I was about to look at the sky when a plane passed",
           "answer": "바라보려는 참에",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/"
         },
         {
           "source_sentence": "은퇴하려는 참에 새로운 프로젝트 제안을 받았어요",
           "translation": "I was about to retire when I received a project proposal",
           "answer": "은퇴하려는 참에",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/"
         },
         {
           "source_sentence": "스티커를 떼려는 참에 종이가 찢어졌어요",
           "translation": "I was about to remove the sticker when the paper tore",
           "answer": "떼려는 참에",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/"
         }
       ]
@@ -6863,7 +6877,7 @@
         {
           "source_sentence": "내 소원은 그 사람과 다시 만나게 되는 거란 말이야",
           "translation": "What I’m saying is, my wish is to meet that person again",
-          "answer": "말이야",
+          "answer": "거란 말이야",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/"
         },
@@ -6983,35 +6997,35 @@
           "source_sentence": "외교야말로 국가 간의 평화를 유지하는 핵심 요소예요",
           "translation": "Diplomacy is truly the key to maintaining peace between nations",
           "answer": "외교야말로 국가",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/"
         },
         {
           "source_sentence": "분석가야말로 기업의 성공을 위해 필수적인 인재예요",
           "translation": "Analysts are truly essential talents for a company's success",
           "answer": "분석가야말로 기업의",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/"
         },
         {
           "source_sentence": "정부는 외교야말로 신중하게 다루어져야 한다고 강조했어요",
           "translation": "The government emphasized that diplomacy is what must be handled carefully",
           "answer": "외교야말로 신중하게",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/"
         },
         {
           "source_sentence": "수필이야말로 작가의 진솔한 생각이 담긴 문학 형식이에요",
           "translation": "Essays are truly a literary form containing an author's sincere thoughts",
           "answer": "수필이야말로 작가의",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/"
         },
         {
           "source_sentence": "죄책감이야말로 극복하기 어려운 감정이에요",
           "translation": "A sense of guilt is truly a difficult emotion to overcome",
           "answer": "죄책감이야말로 극복하기",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/"
         }
       ]
@@ -7297,7 +7311,7 @@
         {
           "source_sentence": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 다친 걸까 싶어요",
           "translation": "Since my cheekbone hurts, I wonder if I got hurt while playing around last night",
-          "answer": "걸까 싶어요",
+          "answer": "다친 걸까 싶어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/"
         },
@@ -7472,7 +7486,7 @@
         {
           "source_sentence": "작업 중이오니 통행을 삼가 주시기 바랍니다",
           "translation": "Work in progress -please refrain from passing through",
-          "answer": "중이오니",
+          "answer": "작업 중이오니",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         }
@@ -7570,7 +7584,7 @@
         {
           "source_sentence": "비가 오는 듯하다",
           "translation": "It seems as though it is raining",
-          "answer": "듯하다",
+          "answer": "비가 오는 듯하다",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/"
         },
@@ -7591,14 +7605,14 @@
         {
           "source_sentence": "노동자가 그 무거운 짐을 거뜬히 들어 올린 듯했어요",
           "translation": "The worker seemed to lift the heavy load effortlessly",
-          "answer": "듯했어요",
+          "answer": "그 무거운 짐을 거뜬히 들어 올린 듯했어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/"
         },
         {
           "source_sentence": "그 학생은 이번 대회에서도 입상한 듯해요",
           "translation": "That student seems to have won a prize again in this competition",
-          "answer": "듯해요",
+          "answer": "이번 대회에서도 입상한 듯해요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/"
         }
@@ -8144,7 +8158,7 @@
         {
           "source_sentence": "저상버스가 오면 탈 준비하렴",
           "translation": "When the low-floor bus arrives, get ready to board",
-          "answer": "준비하렴",
+          "answer": "탈 준비하렴",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/"
         }
@@ -8159,35 +8173,35 @@
           "source_sentence": "저는 고등학교 2학년 때 제1회 청소년 토론대회에 참가해서 결승전까지 올라갔어요",
           "translation": "I reached the finals of the first Youth Debate Competition",
           "answer": "제1회 청소년 토론대회",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/"
         },
         {
           "source_sentence": "제2차 세계 대전은 인류 역사에 큰 영향을 미쳤어요",
           "translation": "World War II had a massive impact on human history",
           "answer": "제2차 세계 대전",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/"
         },
         {
           "source_sentence": "제1차 세계 대전은 유럽을 중심으로 시작되었지만 전 세계에 영향을 미쳤다",
           "translation": "World War I began mainly in Europe but affected the world",
           "answer": "제1차 세계 대전",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/"
         },
         {
           "source_sentence": "제1회 한국문학상",
           "translation": "The first Korean Literature Award",
           "answer": "제1회 한국문학상",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/"
         },
         {
           "source_sentence": "제1회 사진전시회",
           "translation": "The first photography exhibition",
           "answer": "제1회 사진전시회",
-          "source_kind": "HTSK-curated practice sentence",
+          "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-194/"
         }
       ]
@@ -8527,6 +8541,42 @@
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         }
       ]
+    },
+    "203": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
+    },
+    "204": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
+    },
+    "205": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
+    },
+    "206": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
+    },
+    "207": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
+    },
+    "208": {
+      "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/",
+      "source_status": "not_published",
+      "selected_count": 0,
+      "selected": []
     }
   }
 }

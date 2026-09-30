@@ -93,20 +93,20 @@
           "answer_form": "Informal/plain form"
         },
         {
-          "prompt": "저는 친구들이랑 내일 낚시를 할 ___",
+          "prompt": "저는 친구들이랑 내일 낚시를 ___",
           "translation": "I will probably go fishing with my friends tomorrow",
-          "answer": "것 같아요",
-          "hint": "Base form: 같다",
+          "answer": "할 것 같아요",
+          "hint": "Base form: 하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 35 topic. Read the original explanation for additional detail.",
           "source_sentence": "저는 친구들이랑 내일 낚시를 할 것 같아요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/",
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "우리 아빠는 저것을 싫어할 ___",
+          "prompt": "우리 아빠는 저것을 ___",
           "translation": "Dad will probably not like that",
-          "answer": "것 같아",
-          "hint": "Base form: 같다",
+          "answer": "싫어할 것 같아",
+          "hint": "Base form: 싫어하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 35 topic. Read the original explanation for additional detail.",
           "source_sentence": "우리 아빠는 저것을 싫어할 것 같아",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/",
@@ -171,9 +171,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "저의 남자친구는 교수님 ___",
+          "prompt": "저의 남자친구는 ___",
           "translation": "My boyfriend looks like the professor",
-          "answer": "같이 보여요",
+          "answer": "교수님 같이 보여요",
           "hint": "Base form: 보이다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 36 topic. Read the original explanation for additional detail.",
           "source_sentence": "저의 남자친구는 교수님 같이 보여요",
@@ -201,9 +201,9 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "저는 그 사람보다 더 똑똑해 ___",
+          "prompt": "저는 그 사람보다 더 ___",
           "translation": "I look smarter than that person",
-          "answer": "보여요",
+          "answer": "똑똑해 보여요",
           "hint": "Base form: 보이다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 36 topic. Read the original explanation for additional detail.",
           "source_sentence": "저는 그 사람보다 더 똑똑해 보여요",
@@ -441,9 +441,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "회의가 끝나기 전에 교감선생님이 ___ 거예요",
+          "prompt": "회의가 끝나기 전에 교감선생님이 ___",
           "translation": "Before the meeting finishes, the vice principal will speak",
-          "answer": "말씀하실",
+          "answer": "말씀하실 거예요",
           "hint": "Base form: 말씀하시다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 39 topic. Read the original explanation for additional detail.",
           "source_sentence": "회의가 끝나기 전에 교감선생님이 말씀하실 거예요",
@@ -451,9 +451,9 @@
           "answer_form": "Honorific form"
         },
         {
-          "prompt": "부장님이 그 일을 망쳐서 부장님이 ___ 것을 듣는 사람이 별로 없어요",
+          "prompt": "부장님이 그 일을 망쳐서 부장님이 ___ 듣는 사람이 별로 없어요",
           "translation": "There aren’t really that many people who listen to the boss because he ruined that job",
-          "answer": "말씀하시는",
+          "answer": "말씀하시는 것을",
           "hint": "Base form: 말씀하시다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 39 topic. Read the original explanation for additional detail.",
           "source_sentence": "부장님이 그 일을 망쳐서 부장님이 말씀하시는 것을 듣는 사람이 별로 없어요",
@@ -855,10 +855,10 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
         {
-          "prompt": "너무 안타까워서 내일 그 왕따를 놀리지 ___",
+          "prompt": "너무 안타까워서 내일 그 왕따를 ___",
           "translation": "Let’s not tease that outcast tomorrow because it is too sad/sorry (of a situation)",
-          "answer": "말자",
-          "hint": "Base form: 말다",
+          "answer": "놀리지 말자",
+          "hint": "Base form: 놀리다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 44 topic. Read the original explanation for additional detail.",
           "answer_form": "Conversational form",
           "source_sentence": "너무 안타까워서 내일 그 왕따를 놀리지 말자",
@@ -927,10 +927,10 @@
           "answer_form": ""
         },
         {
-          "prompt": "저도 그것을 할 ___",
+          "prompt": "저도 그것을 ___",
           "translation": "I can do that too",
-          "answer": "수 있어요",
-          "hint": "Base form: 있다",
+          "answer": "할 수 있어요",
+          "hint": "Base form: 하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 45 topic. Read the original explanation for additional detail.",
           "source_sentence": "저도 그것을 할 수 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-45/",
@@ -993,54 +993,54 @@
       "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
       "cards": [
         {
-          "prompt": "나는 밥을 ___ 있다",
+          "prompt": "나는 밥을 ___",
           "translation": "I have the necessity to eat",
-          "answer": "먹을 필요가",
+          "answer": "먹을 필요가 있다",
           "hint": "Base form: 먹다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
           "source_sentence": "나는 밥을 먹을 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
-          "prompt": "나는 ___ 있다",
+          "prompt": "나는 ___",
           "translation": "I have the necessity to sleep",
-          "answer": "잘 필요가",
+          "answer": "잘 필요가 있다",
           "hint": "Base form: 자다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
           "source_sentence": "나는 잘 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
-          "prompt": "저는 그 여자랑 ___ 있어요",
+          "prompt": "저는 그 여자랑 ___",
           "translation": "I need to marry that girl",
-          "answer": "결혼할 필요가",
+          "answer": "결혼할 필요가 있어요",
           "hint": "Base form: 결혼하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
           "source_sentence": "저는 그 여자랑 결혼할 필요가 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "시험공부를 곧 ___ 있어요",
+          "prompt": "시험공부를 곧 ___",
           "translation": "I need to study soon",
-          "answer": "할 필요가",
+          "answer": "할 필요가 있어요",
           "hint": "Base form: 하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
           "source_sentence": "시험공부를 곧 할 필요가 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "강한 캐릭터를 ___ 있어요",
+          "prompt": "강한 캐릭터를 ___",
           "translation": "We need to make a strong character",
-          "answer": "만들 필요가",
+          "answer": "만들 필요가 있어요",
           "hint": "Base form: 만들다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 46 topic. Read the original explanation for additional detail.",
           "source_sentence": "강한 캐릭터를 만들 필요가 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         }
       ],
       "source_status": "published",

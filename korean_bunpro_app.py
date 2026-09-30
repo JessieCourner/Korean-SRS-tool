@@ -167,6 +167,10 @@ def is_postgres_connection(connection):
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
 SEED_PATH = Path("unit2_lessons_26_33.json")
 EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
+# Lessons whose main teaching goal is a set of lexical items. Their cards
+# must not collapse into one repeated answer; each card must ask for a
+# different target word or lexical expression.
+VOCABULARY_LESSON_NUMBERS = frozenset({11, 12, 25, 34, 59, 60, 79, 101, 130, 134, 135, 151, 152})
 # Bunpro-style review ladder. The level is the current consecutive-correct
 # streak. A wrong answer drops one level; the same card stays for retry.
 BUNPRO_INTERVALS = {
@@ -919,7 +923,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-29-cards-ui-v6"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v7"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1185,6 +1189,24 @@ def render_bts_motivation(in_dialog=False):
                 }
             }
 
+            function activeDialogSurface() {
+                return Array.from(win.document.querySelectorAll(".bts-dialog-surface"))
+                    .find((surface) => isVisible(surface)) || null;
+            }
+
+            function moveToggleToTopHost(modal) {
+                const toggle = win.document.getElementById("mochi-chibi-toggle");
+                if (!toggle) return;
+                const host = modal || win.document.body;
+                if (toggle.parentElement !== host) host.appendChild(toggle);
+                toggle.style.setProperty("position", "fixed", "important");
+                toggle.style.setProperty("right", "14px", "important");
+                toggle.style.setProperty("top", modal ? "14px" : "auto", "important");
+                toggle.style.setProperty("bottom", modal ? "auto" : "68px", "important");
+                toggle.style.setProperty("z-index", "2147483647", "important");
+                toggle.style.setProperty("pointer-events", "auto", "important");
+            }
+
             function clamp(value, minimum, maximum) {
                 return Math.min(Math.max(value, minimum), maximum);
             }
@@ -1247,14 +1269,22 @@ def render_bts_motivation(in_dialog=False):
             }
 
             function syncHosts() {
-                const modal = win.document.querySelector(".bts-dialog-surface");
+                const modal = activeDialogSurface();
                 const modalOpen = Boolean(modal && isVisible(modal));
+                // A dialog rerun can remove the old top-layer host together
+                // with its children. Recreate the toggle before trying to
+                // move it, otherwise the hide/show control disappears after
+                // closing a Study or Review window.
+                if (!win.document.getElementById("mochi-chibi-toggle")) {
+                    installDesktopSidebarLauncher();
+                }
                 win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
                     scene.style.display = "";
                 });
                 win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
                     scene.style.display = modalOpen ? "" : "none";
                 });
+                moveToggleToTopHost(modalOpen ? modal : null);
                 applyChibiVisibility();
                 return modalOpen;
             }
@@ -1387,6 +1417,7 @@ def render_bts_motivation(in_dialog=False):
                 }
                 toggle.style.setProperty("z-index", "2147483647", "important");
                 toggle.style.setProperty("pointer-events", "auto", "important");
+                moveToggleToTopHost(activeDialogSurface());
                 applyChibiVisibility();
 
                 function sidebarIsOpen() {
@@ -1429,8 +1460,6 @@ def render_bts_motivation(in_dialog=False):
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
-                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
-                    if (modalOpen !== inModal) return;
                     scene.querySelectorAll("img").forEach((image) => {
                         image.draggable = false;
                         image.setAttribute("draggable", "false");
@@ -1442,6 +1471,7 @@ def render_bts_motivation(in_dialog=False):
                     scene.style.zIndex = "2147483646";
                     const key = sceneKey(day, slot);
                     scene.dataset.chibiStorageKey = key;
+                    scene.style.setProperty("pointer-events", "auto", "important");
                     if (scene.dataset.chibiPositionBound === "1") {
                         keepOnScreen(scene);
                         return;
@@ -1691,6 +1721,29 @@ def normalize(text):
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
+def inferred_answer_form(card):
+    """Return a safe speech-level hint when a legacy card omitted one.
+
+    The seed's explicit label always wins. For older cards, only endings
+    whose speech level is unambiguous are inferred; grammar-only endings such
+    as -고 or -는지 remain unlabeled instead of guessing.
+    """
+    explicit = normalize(card["answer_form"] if "answer_form" in card.keys() else "")
+    if explicit:
+        return explicit
+    answer = normalize(card["answer"] if "answer" in card.keys() else "")
+    answer = re.sub(r"[.!?。！？]+$", "", answer).strip()
+    if re.search(r"(?:거든요|기는요|네요|군요|구요)$", answer):
+        return "Polite conversational form (-요)"
+    if re.search(r"(?:습니다|ㅂ니다|습니까|ㅂ니까|십시오|시오|오니)$", answer):
+        return "Formal polite/literary form"
+    if re.search(r"(?:어요|아요|여요|이에요|예요|세요|요)$", answer):
+        return "Polite conversational form (-요)"
+    if re.search(r"(?:거야|잖아|거든|구나|군|네|자|라|까|어|아|야)$", answer):
+        return "Informal/plain conversational form"
+    return ""
+
+
 # The lesson guide is stored directly on each lesson record in the unit seed
 # files.  It is not reconstructed from SRS cards or lesson titles, and the
 # guide examples remain separate from the cards array in the same lesson.
@@ -1709,6 +1762,20 @@ def load_htsk_guides():
             number = str(int(lesson["lesson_number"]))
             if number in guides:
                 raise ValueError(f"Lesson {number} appears in more than one seed file.")
+            cards = lesson.get("cards", [])
+            for card_index, card in enumerate(cards, start=1):
+                prompt = str(card.get("prompt", ""))
+                answer = str(card.get("answer", ""))
+                if prompt.count("___") != 1 or not answer.strip():
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} must have one blank and a complete answer."
+                    )
+            if int(number) in VOCABULARY_LESSON_NUMBERS:
+                answers = [normalize(card.get("answer", "")) for card in cards]
+                if len(answers) != len(set(answers)):
+                    raise ValueError(
+                        f"Vocabulary lesson {number} contains duplicate target answers."
+                    )
             guides[number] = {
                 "source_status": lesson.get("source_status"),
                 "source_title": lesson.get("source_title", lesson.get("title", "")),
@@ -1797,6 +1864,9 @@ def check_answer(card_id, answer_key):
         if not had_wrong_attempt:
             grade(card_id, "correct")
         else:
+            # The first wrong attempt already moved the card down, but the
+            # card is counted as completed only after the retry is correct.
+            st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
             st.session_state.pop(attempt_key, None)
             st.session_state.pop("wrong_feedback", None)
         st.rerun()
@@ -2056,6 +2126,28 @@ def daily_lessons():
     """, (today(),))
 
 
+def _reward_once_in_transaction(connection, event_key, amount, created_at):
+    """Add one idempotent reward without opening another database transaction."""
+    if amount <= 0:
+        return
+    params = (event_key, amount, created_at)
+    if is_postgres_connection(connection):
+        inserted = connection.execute(
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cursor = connection.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = bool(getattr(cursor, "rowcount", 0))
+    if was_inserted:
+        connection.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
+
+
 def grade(card_id, result):
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
     if not current:
@@ -2085,11 +2177,26 @@ def grade(card_id, result):
         WHERE card_id=?
     """, (new_level, next_date, due_text, now, result, mistakes, active, card_id))
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
+    # Keep the review write, activity counter and both idempotent rewards in
+    # one database transaction.  The old path committed the review, opened a
+    # second reward transaction, then opened a third activity transaction and
+    # a fourth streak query; that made every Enter feel like a freeze on a
+    # remote PostgreSQL database.
+    day = today()
+    c.execute(
+        "INSERT OR IGNORE INTO study_activity(day,lessons,reviews,last_activity) VALUES(?,?,?,?)",
+        (day, 0, 0, now),
+    )
+    c.execute(
+        "UPDATE study_activity SET reviews=reviews+1, last_activity=? WHERE day=?",
+        (now, day),
+    )
+    _reward_once_in_transaction(c, f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result], now)
+    _reward_once_in_transaction(c, f"streak_bonus:{day}", 5, now)
     c.commit()
     c.close()
-    award_crystals(f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result])
-    record_activity("review")
-    st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
+    if result == "correct":
+        st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     st.session_state.pop(f"attempts_{card_id}", None)
     st.session_state.pop("wrong_feedback", None)
@@ -2156,7 +2263,7 @@ def render_card(card):
     blank = f'<span class="inline-answer-slot" id="{slot_id}">...</span>'
     prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
-    answer_form = str(card["answer_form"] if "answer_form" in card.keys() else "").strip()
+    answer_form = inferred_answer_form(card)
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div>{f"<div class='answer-form-note'>Required answer form: {escape(answer_form)}</div>" if answer_form else ""}</div>''',
         unsafe_allow_html=True,
@@ -2491,10 +2598,12 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
+        render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
+        render_bts_motivation(in_dialog=True)
         render_review_contents()
 else:
     lesson_dialog = None

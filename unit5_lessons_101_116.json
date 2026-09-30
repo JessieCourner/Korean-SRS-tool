@@ -42,7 +42,7 @@
           "prompt": "___ 얼마예요?",
           "translation": "How much is this?",
           "answer": "이건",
-          "hint": "Base form: 이것은",
+          "hint": "Base form: 이것 (pronoun)",
           "explanation": "Colloquial contraction of 이것은.",
           "source_sentence": "이건 얼마예요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
@@ -52,7 +52,7 @@
           "prompt": "___ 하지 마세요",
           "translation": "Please do not do that",
           "answer": "그걸",
-          "hint": "Base form: 그것을",
+          "hint": "Base form: 그것 (pronoun)",
           "explanation": "Colloquial contraction of 그것을.",
           "source_sentence": "그걸 하지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
@@ -1317,14 +1317,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "우리는 불을 끈 ___ 영화를 봤다",
+          "prompt": "우리는 불을 ___ 영화를 봤다",
           "translation": "We watched a movie with the lights off",
-          "answer": "채로",
-          "hint": "Base form: 채",
+          "answer": "끈 채로",
+          "hint": "Base form: 끄다",
           "explanation": "Original practice for the HTSK Lesson 116 focus. Use the official Unit 5 lesson for the full explanation and additional examples.",
           "source_sentence": "우리는 불을 끈 채로 영화를 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": ""
+          "answer_form": "Plain/written form"
         },
         {
           "prompt": "우리는 ___ 영화를 봤다",
