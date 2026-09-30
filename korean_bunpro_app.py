@@ -171,6 +171,16 @@ EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34
 # must not collapse into one repeated answer; each card must ask for a
 # different target word or lexical expression.
 VOCABULARY_LESSON_NUMBERS = frozenset({11, 12, 25, 34, 59, 60, 79, 101, 130, 134, 135, 151, 152})
+# A complete card answer must include the lexical stem and the grammar. These
+# grammar-only tails appeared in older deployed databases when the blank was
+# placed too late in the sentence. Keep this guard close to the seed validator
+# so a future content edit cannot reintroduce that regression.
+INCOMPLETE_GRAMMAR_TAILS = frozenset({
+    "것 같아", "것 같아요", "것 같다", "것 같았어", "것 같았어요",
+    "것 같을 거야", "거예요", "거야", "수 있도록", "수 없도록",
+    "채로", "거라니까", "말이야", "걸까 싶어요", "중이오니",
+    "듯하다", "듯해", "듯해요", "요",
+})
 # Bunpro-style review ladder. The level is the current consecutive-correct
 # streak. A wrong answer drops one level; the same card stays for retry.
 BUNPRO_INTERVALS = {
@@ -927,15 +937,20 @@ def sync_htsk_metadata():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v8"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v9"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
 def bootstrap_app_data():
-    """Run database setup/synchronization once per app process and version."""
+    """Run database setup and content synchronization once per app process.
+
+    The resource cache makes this startup-only. Do not use the database's
+    content marker as an early return: an earlier deployment could write the
+    marker before the corrected seed files arrived, leaving old split answers
+    in an otherwise valid database. Running the idempotent sync at startup
+    repairs those records while preserving SRS levels and answer history.
+    """
     init_db()
-    if setting("content_sync_version", "") == CONTENT_SYNC_VERSION:
-        return
     import_seed_once()
     import_extended_seeds()
     sync_seed_card_content()
@@ -1773,6 +1788,11 @@ def load_htsk_guides():
                 if prompt.count("___") != 1 or not answer.strip():
                     raise ValueError(
                         f"Lesson {number} card {card_index} must have one blank and a complete answer."
+                    )
+                if normalize(answer) in INCOMPLETE_GRAMMAR_TAILS:
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} contains only a grammar tail; "
+                        "the answer must include the lexical word or stem too."
                     )
                 source_sentence = card.get("source_sentence")
                 if source_sentence:
