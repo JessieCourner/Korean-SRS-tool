@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-09-30-v11",
+  "schema_version": "2026-09-30-v12",
   "source_policy": "HTSK source sentence or explicitly curated HTSK lesson vocabulary; vocabulary lessons use distinct target answers",
   "lessons": {
     "0": {

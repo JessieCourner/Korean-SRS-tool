@@ -154,11 +154,20 @@ class PostgresConnection:
             cursor.close()
 
     def close(self):
-        # Keep one connection per Streamlit browser session.  The app opens
-        # many short read/write helpers during one rerun; closing the network
-        # connection after each helper made every click wait for a new TLS
-        # handshake against Supabase.
-        return None
+        # Keep one network connection per Streamlit browser session, but do
+        # finish the current PostgreSQL transaction when a helper is done.
+        # psycopg2 otherwise leaves a read transaction open after SELECT;
+        # that idle transaction holds an AccessShareLock and can make a later
+        # one-time ALTER TABLE migration wait until Supabase cancels it.
+        if getattr(self.raw, "closed", 1):
+            return None
+        try:
+            self.raw.commit()
+        except Exception:
+            # A failed statement leaves PostgreSQL in an aborted transaction.
+            # Release it before the persistent session is reused.
+            self.raw.rollback()
+        self.last_used = time.monotonic()
 
 
 def is_postgres_connection(connection):
@@ -704,12 +713,31 @@ def init_db():
         "retired": "INTEGER NOT NULL DEFAULT 0",
     }
     if is_postgres_connection(c):
-        # PostgreSQL migrations must be idempotent.  A warm Streamlit app can
-        # run this startup path more than once, and a second worker may see
-        # the schema change while the first worker is finishing it.
-        c.execute("ALTER TABLE cards ADD COLUMN IF NOT EXISTS answer_form TEXT DEFAULT ''")
+        # Do not issue a no-op ALTER TABLE on every Streamlit startup.  Even
+        # ``ADD COLUMN IF NOT EXISTS`` takes an ACCESS EXCLUSIVE lock on the
+        # table in PostgreSQL.  A review query from another browser can then
+        # hold that lock long enough for Supabase to cancel startup with
+        # psycopg2.errors.QueryCanceled.  The advisory lock above serializes
+        # the one real migration, so an explicit schema check is both safer
+        # and faster for already-migrated databases.
+        postgres_columns = lambda table: {
+            row["name"]
+            for row in c.execute(
+                """
+                SELECT column_name AS name
+                FROM information_schema.columns
+                WHERE table_schema='public' AND table_name=?
+                """,
+                (table,),
+            ).fetchall()
+        }
+        card_columns = postgres_columns("cards")
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        review_columns = postgres_columns("reviews")
         for column, definition in review_migrations.items():
-            c.execute(f"ALTER TABLE reviews ADD COLUMN IF NOT EXISTS {column} {definition}")
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
     else:
         review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
         card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
@@ -989,7 +1017,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v11"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v12"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
