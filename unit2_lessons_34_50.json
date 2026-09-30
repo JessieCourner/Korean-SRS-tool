@@ -431,14 +431,14 @@
           "answer_form": "Honorific form"
         },
         {
-          "prompt": "그저께 회의 ___ 동안 무슨 말씀을 하셨어요?",
+          "prompt": "그저께 회의 시간 동안 무슨 말씀을 ___?",
           "translation": "What did you say during the meeting two days ago?",
-          "answer": "시간",
-          "hint": "Base form: 시간",
+          "answer": "하셨어요",
+          "hint": "Base form: 하다",
           "explanation": "A concise practice lesson based on the HTSK Lesson 39 topic. Read the original explanation for additional detail.",
           "source_sentence": "그저께 회의 시간 동안 무슨 말씀을 하셨어요?",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": ""
+          "answer_form": "Honorific polite form"
         },
         {
           "prompt": "회의가 끝나기 전에 교감선생님이 ___",

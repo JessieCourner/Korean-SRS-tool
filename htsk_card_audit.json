@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-09-30-v9",
+  "schema_version": "2026-09-30-v10",
   "source_policy": "HTSK source sentence or explicitly curated HTSK lesson vocabulary; vocabulary lessons use distinct target answers",
   "lessons": {
     "0": {
@@ -1662,7 +1662,7 @@
         {
           "source_sentence": "그저께 회의 시간 동안 무슨 말씀을 하셨어요?",
           "translation": "What did you say during the meeting two days ago?",
-          "answer": "시간",
+          "answer": "하셨어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/"
         },
@@ -2278,7 +2278,7 @@
         {
           "source_sentence": "그는 “제가 하고 싶지 않습니다” 라고 했어요",
           "translation": "He said “I don’t want to do it”",
-          "answer": "라고 했어요",
+          "answer": "“제가 하고 싶지 않습니다” 라고 했어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-54/"
         },
@@ -2803,7 +2803,7 @@
         {
           "source_sentence": "저는 차를 칠 뻔 했어요",
           "translation": "I almost hit that car",
-          "answer": "뻔 했어요",
+          "answer": "차를 칠 뻔 했어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/"
         },
@@ -5239,7 +5239,7 @@
         {
           "source_sentence": "그 선생님은 상을 받을 만해요",
           "translation": "That teacher deserves an award",
-          "answer": "만해요",
+          "answer": "받을 만해요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/"
         },
@@ -5260,7 +5260,7 @@
         {
           "source_sentence": "먹을 만한 식당을 알아요?",
           "translation": "Do you know a worthwhile place to eat?",
-          "answer": "만한",
+          "answer": "먹을 만한",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/"
         }
@@ -5610,7 +5610,7 @@
         {
           "source_sentence": "그 사람이 지난 달에 취업하니 밥값을 못 낼 리가 없어요",
           "translation": "That person got a job last month, there is no way that he can’t pay for food (have enough money to put food on the plate)",
-          "answer": "리가 없어요",
+          "answer": "못 낼 리가 없어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/"
         },
@@ -6870,7 +6870,7 @@
         {
           "source_sentence": "이게 좋은 예라는 말이지",
           "translation": "This is a good example, you know",
-          "answer": "예라는",
+          "answer": "예라는 말이지",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/"
         },
@@ -6884,14 +6884,14 @@
         {
           "source_sentence": "그 사람은 정말 지적이라는 말이야",
           "translation": "What I’m saying is, that person is really intelligent",
-          "answer": "지적이라는",
+          "answer": "지적이라는 말이야",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/"
         },
         {
           "source_sentence": "이건 우리가 공동으로 만든 합작품이라는 말이야",
           "translation": "What I mean is, this is something we made together",
-          "answer": "합작품이라는",
+          "answer": "합작품이라는 말이야",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/"
         },

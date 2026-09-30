@@ -617,10 +617,10 @@
           "answer_form": ""
         },
         {
-          "prompt": "그 선생님은 상을 받을 ___",
+          "prompt": "그 선생님은 상을 ___",
           "translation": "That teacher deserves an award",
-          "answer": "만해요",
-          "hint": "Base form: 만하다",
+          "answer": "받을 만해요",
+          "hint": "Base form: 받다",
           "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
           "source_sentence": "그 선생님은 상을 받을 만해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
@@ -647,10 +647,10 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "먹을 ___ 식당을 알아요?",
+          "prompt": "___ 식당을 알아요?",
           "translation": "Do you know a worthwhile place to eat?",
-          "answer": "만한",
-          "hint": "Base form: 만하다",
+          "answer": "먹을 만한",
+          "hint": "Base form: 먹다",
           "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
           "source_sentence": "먹을 만한 식당을 알아요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",

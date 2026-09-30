@@ -178,7 +178,9 @@ VOCABULARY_LESSON_NUMBERS = frozenset({11, 12, 25, 34, 59, 60, 79, 101, 130, 134
 INCOMPLETE_GRAMMAR_TAILS = frozenset({
     "것 같아", "것 같아요", "것 같다", "것 같았어", "것 같았어요",
     "것 같을 거야", "거예요", "거야", "수 있도록", "수 없도록",
-    "채로", "거라니까", "말이야", "걸까 싶어요", "중이오니",
+    "채로", "거라니까", "말이야", "말이지", "라고 했어요",
+    "뻔 했어요", "뻔했어요", "만해요", "만한", "리가 없어요",
+    "걸까 싶어요", "중이오니",
     "듯하다", "듯해", "듯해요", "요",
 })
 # Bunpro-style review ladder. The level is the current consecutive-correct
@@ -937,7 +939,7 @@ def sync_htsk_metadata():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v9"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v10"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")

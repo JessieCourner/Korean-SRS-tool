@@ -267,9 +267,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/",
       "cards": [
         {
-          "prompt": "그는 “제가 하고 싶지 않습니다” ___",
+          "prompt": "그는 ___",
           "translation": "He said “I don’t want to do it”",
-          "answer": "라고 했어요",
+          "answer": "“제가 하고 싶지 않습니다” 라고 했어요",
           "hint": "Base form: 하다",
           "explanation": "Practice lesson based on the HTSK Lesson 54 topic. The examples are original practice sentences; use the source page for the full explanation.",
           "answer_form": "Quoted command form",
@@ -1329,10 +1329,10 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 차를 칠 ___",
+          "prompt": "저는 ___",
           "translation": "I almost hit that car",
-          "answer": "뻔 했어요",
-          "hint": "Base form: 뻔하다",
+          "answer": "차를 칠 뻔 했어요",
+          "hint": "Base form: 치다",
           "explanation": "Practice lesson based on the HTSK Lesson 66 topic. The examples are original practice sentences; use the source page for the full explanation.",
           "source_sentence": "저는 차를 칠 뻔 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
