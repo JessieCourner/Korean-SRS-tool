@@ -935,15 +935,65 @@ def sync_htsk_metadata():
     c.close()
 
 
+def verify_live_card_content():
+    """Fail loudly if the live database still differs from the checked-in cards.
+
+    A stale Streamlit resource cache used to make an old prompt look valid
+    after a deployment.  The sync now runs with an explicit version key, and
+    this second pass proves that every seeded card actually reached the live
+    database before the app renders a page.
+    """
+    c = db()
+    mismatches = []
+    fields = ("prompt", "translation", "answer", "hint", "explanation", "answer_form")
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        if not seed_path.exists():
+            continue
+        data = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson_data in data.get("lessons", []):
+            lesson = c.execute(
+                "SELECT id FROM lessons WHERE lesson_number=?",
+                (lesson_data["lesson_number"],),
+            ).fetchone()
+            if not lesson:
+                mismatches.append((lesson_data["lesson_number"], "lesson missing"))
+                continue
+            live_cards = c.execute(
+                "SELECT id, prompt, translation, answer, hint, explanation, answer_form "
+                "FROM cards WHERE lesson_id=? ORDER BY id",
+                (lesson["id"],),
+            ).fetchall()
+            seed_cards = lesson_data.get("cards", [])
+            if len(live_cards) < len(seed_cards):
+                mismatches.append(
+                    (lesson_data["lesson_number"], f"only {len(live_cards)} of {len(seed_cards)} cards")
+                )
+                continue
+            for index, seed_card in enumerate(seed_cards):
+                live = live_cards[index]
+                for field in fields:
+                    if live[field] != seed_card.get(field, ""):
+                        mismatches.append(
+                            (lesson_data["lesson_number"], index + 1, field, live[field], seed_card.get(field, ""))
+                        )
+                        break
+                if mismatches and mismatches[-1][0] == lesson_data["lesson_number"] and len(mismatches[-1]) == 5:
+                    break
+    c.close()
+    if mismatches:
+        sample = mismatches[0]
+        raise RuntimeError(f"Card content sync failed; first mismatch: {sample}")
+
+
 # Bump this whenever card prompts/answers change. Existing databases keep
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v10"
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v11"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
-def bootstrap_app_data():
+def bootstrap_app_data(sync_version):
     """Run database setup and content synchronization once per app process.
 
     The resource cache makes this startup-only. Do not use the database's
@@ -957,10 +1007,14 @@ def bootstrap_app_data():
     import_extended_seeds()
     sync_seed_card_content()
     sync_htsk_metadata()
+    verify_live_card_content()
+    # Static lesson/card query results can survive a Streamlit rerun in the
+    # same browser session.  Do not let those pre-sync rows remain visible.
+    st.session_state.pop("_content_query_cache", None)
     c = db()
     c.execute(
         "INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)",
-        ("content_sync_version", CONTENT_SYNC_VERSION),
+        ("content_sync_version", sync_version),
     )
     c.commit()
     c.close()
@@ -2785,7 +2839,7 @@ def page_shop():
                                 st.error("Not enough crystals yet.")
 
 
-bootstrap_app_data()
+bootstrap_app_data(CONTENT_SYNC_VERSION)
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
