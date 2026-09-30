@@ -923,7 +923,11 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v7"
+# Bump this whenever card prompts/answers change. Existing databases keep
+# their SRS levels and history, but every card is re-synced from the checked-in
+# lesson JSON on the next startup. This prevents an old split-answer record
+# from surviving after the seed content has been corrected.
+CONTENT_SYNC_VERSION = "2026-09-30-cards-content-ui-v8"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -1770,6 +1774,16 @@ def load_htsk_guides():
                     raise ValueError(
                         f"Lesson {number} card {card_index} must have one blank and a complete answer."
                     )
+                source_sentence = card.get("source_sentence")
+                if source_sentence:
+                    built = normalize(prompt.replace("___", answer, 1))
+                    expected_sentence = normalize(str(source_sentence))
+                    built = re.sub(r"[.!?。！？]+$", "", built)
+                    expected_sentence = re.sub(r"[.!?。！？]+$", "", expected_sentence)
+                    if built != expected_sentence:
+                        raise ValueError(
+                            f"Lesson {number} card {card_index} does not reconstruct its source sentence."
+                        )
             if int(number) in VOCABULARY_LESSON_NUMBERS:
                 answers = [normalize(card.get("answer", "")) for card in cards]
                 if len(answers) != len(set(answers)):
