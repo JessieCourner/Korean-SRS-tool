@@ -1148,7 +1148,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v21"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v22"
 
 
 def ensure_seed_bundle():
@@ -2155,17 +2155,23 @@ def check_answer(card_id, answer_key):
             st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
             st.session_state.pop(attempt_key, None)
             st.session_state.pop("wrong_feedback", None)
-        st.rerun()
+            # The result screen hides the input.  Give the next card a fresh
+            # widget key when Continue is pressed, including this retry path.
+            st.session_state["review_nonce"] = st.session_state.get("review_nonce", 0) + 1
+        # This function is a Streamlit on_change callback.  Streamlit already
+        # schedules the rerun after the callback returns.  Calling st.rerun()
+        # here as well can interrupt a dialog fragment and leave the browser
+        # on a blank page after an accepted answer.
     else:
         if not st.session_state.get(f"wrong_graded_{card_id}"):
             grade(card_id, "incorrect")
             st.session_state[f"wrong_graded_{card_id}"] = True
         st.session_state["retry_card_id"] = card_id
         st.session_state["wrong_feedback"] = card_id
-        # The callback runs before the widget is rendered again, so this is
-        # safe and gives the learner a clean field for the next attempt.
-        st.session_state[answer_key] = ""
-        st.rerun()
+        # grade() increments review_nonce, so the next automatic rerun gets a
+        # new widget key.  Do not mutate the current widget's value from its
+        # own callback; Streamlit can reject that mutation or trigger a
+        # second rerun.
 
 
 def focus_answer_field():
@@ -2435,8 +2441,13 @@ def _reward_once_in_transaction(connection, event_key, amount, created_at):
 
 
 def grade(card_id, result):
-    current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
+    # Keep the read and the write on one connection.  The previous path first
+    # opened/closed a separate helper query and then opened another connection
+    # for the write, which was needlessly slow with Supabase after Enter.
+    c = db()
+    current = c.execute("SELECT * FROM reviews WHERE card_id=?", (card_id,)).fetchone()
     if not current:
+        c.close()
         return
     old_level = max(0, int(current["level"] or 0))
     mistakes = int(current["mistakes"] or 0)
@@ -2456,7 +2467,6 @@ def grade(card_id, result):
     due_text = due_at.isoformat(timespec="seconds")
     next_date = due_at.date().isoformat()
     now = now_dt.isoformat(timespec="seconds")
-    c = db()
     c.execute("""
         UPDATE reviews SET level=?, next_review=?, due_at=?, last_review=?,
                            last_result=?, mistakes=?, active=?
@@ -2809,7 +2819,9 @@ def render_review_contents():
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
-                st.rerun()
+                # A button click already causes Streamlit to rerun.  Calling
+                # st.rerun() inside a dialog here can abort the fragment and
+                # produce the blank page seen after accepting an answer.
             components.html("""
                 <script>
                 (function() {
