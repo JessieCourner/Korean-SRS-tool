@@ -683,7 +683,8 @@ def init_db():
         answer TEXT NOT NULL,
         hint TEXT NOT NULL,
         explanation TEXT NOT NULL,
-        answer_form TEXT DEFAULT ''
+        answer_form TEXT DEFAULT '',
+        seed_index INTEGER
     );
     CREATE TABLE IF NOT EXISTS reviews (
         card_id INTEGER PRIMARY KEY,
@@ -750,6 +751,8 @@ def init_db():
         card_columns = postgres_columns("cards")
         if "answer_form" not in card_columns:
             c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        if "seed_index" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN seed_index INTEGER")
         review_columns = postgres_columns("reviews")
         for column, definition in review_migrations.items():
             if column not in review_columns:
@@ -759,6 +762,8 @@ def init_db():
         card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
         if "answer_form" not in card_columns:
             c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        if "seed_index" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN seed_index INTEGER")
         for column, definition in review_migrations.items():
             if column not in review_columns:
                 c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
@@ -799,12 +804,12 @@ def import_seed_once():
               lesson["explanation"], lesson["source_url"],
               "available" if lesson["lesson_number"] >= 26 else "completed"))
         lesson_id = cur.lastrowid
-        for card in lesson["cards"]:
+        for seed_index, card in enumerate(lesson["cards"], start=1):
             card_id = c.execute("""
-                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form)
-                VALUES(?,?,?,?,?,?,?)
+                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                VALUES(?,?,?,?,?,?,?,?)
             """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                  card["hint"], card["explanation"], card.get("answer_form", ""))).lastrowid
+                  card["hint"], card["explanation"], card.get("answer_form", ""), seed_index)).lastrowid
             c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
     c.commit()
     c.close()
@@ -844,12 +849,12 @@ def import_extended_seeds():
                     VALUES(?,?,?,?,?,?,?)
                 """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
                       lesson["explanation"], lesson["source_url"], "available")).lastrowid
-            for card in lesson.get("cards", []):
+            for seed_index, card in enumerate(lesson.get("cards", []), start=1):
                 card_id = c.execute("""
-                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form)
-                    VALUES(?,?,?,?,?,?,?)
+                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                    VALUES(?,?,?,?,?,?,?,?)
                 """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                      card["hint"], card["explanation"], card.get("answer_form", ""))).lastrowid
+                      card["hint"], card["explanation"], card.get("answer_form", ""), seed_index)).lastrowid
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
@@ -901,9 +906,12 @@ def sync_seed_card_content():
 
     The first version of the deployed app imported a card only once.  That
     meant a corrected HTSK example stayed wrong in an existing database.  We
-    now match cards by their stable lesson/order position and update only the
-    prompt, translation, answer, hint, and explanation.  Level, dates,
-    mistakes, active state, and answer history are intentionally untouched.
+    now assign every seed card a stable position inside its lesson and update
+    only the card content.  The first assignment uses the old translation
+    mapping so an already-reviewed card keeps its meaning; after that, the
+    durable ``seed_index`` makes every later migration deterministic.  Level,
+    dates, mistakes, active state, and answer history are intentionally
+    untouched.
     """
     c = db()
     lock_bootstrap(c)
@@ -919,11 +927,11 @@ def sync_seed_card_content():
             if not lesson:
                 continue
             existing = c.execute(
-                "SELECT id, translation FROM cards WHERE lesson_id=? ORDER BY id",
+                "SELECT id, translation, seed_index FROM cards WHERE lesson_id=? ORDER BY id",
                 (lesson["id"],),
             ).fetchall()
             matches, obsolete = _match_seed_cards(existing, lesson_data.get("cards", []))
-            for card, old_row in matches:
+            for seed_index, (card, old_row) in enumerate(matches, start=1):
                 values = (
                     card["prompt"],
                     card["translation"],
@@ -937,18 +945,25 @@ def sync_seed_card_content():
                         "UPDATE reviews SET retired=0 WHERE card_id=?",
                         (old_row["id"],),
                     )
+                    # A very old database can contain a card without its
+                    # review row.  Recreate only that missing row with the
+                    # default SRS state; existing progress is not touched.
+                    c.execute(
+                        "INSERT OR IGNORE INTO reviews(card_id) VALUES(?)",
+                        (old_row["id"],),
+                    )
                     c.execute(
                         """UPDATE cards
-                           SET prompt=?, translation=?, answer=?, hint=?, explanation=?, answer_form=?
+                           SET seed_index=?, prompt=?, translation=?, answer=?, hint=?, explanation=?, answer_form=?
                            WHERE id=?""",
-                        (*values, old_row["id"]),
+                        (seed_index, *values, old_row["id"]),
                     )
                 else:
                     card_id = c.execute(
                         """INSERT INTO cards
-                           (lesson_id,prompt,translation,answer,hint,explanation,answer_form)
-                           VALUES(?,?,?,?,?,?,?)""",
-                        (lesson["id"], *values),
+                           (lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                           VALUES(?,?,?,?,?,?,?,?)""",
+                        (lesson["id"], *values, seed_index),
                     ).lastrowid
                     c.execute(
                         "INSERT OR IGNORE INTO reviews(card_id) VALUES(?)",
@@ -961,6 +976,10 @@ def sync_seed_card_content():
             if obsolete:
                 obsolete_ids = [row["id"] for row in obsolete]
                 placeholders = ",".join("?" for _ in obsolete_ids)
+                c.execute(
+                    f"UPDATE cards SET seed_index=NULL WHERE id IN ({placeholders})",
+                    obsolete_ids,
+                )
                 c.execute(
                     f"UPDATE reviews SET active=0, retired=1 WHERE card_id IN ({placeholders})",
                     obsolete_ids,
@@ -1033,56 +1052,62 @@ def verify_live_card_content():
             continue
         data = json.loads(seed_path.read_text(encoding="utf-8"))
         for lesson_data in data.get("lessons", []):
+            lesson_number = lesson_data["lesson_number"]
             lesson = c.execute(
                 "SELECT id FROM lessons WHERE lesson_number=?",
-                (lesson_data["lesson_number"],),
+                (lesson_number,),
             ).fetchone()
             if not lesson:
-                mismatches.append((lesson_data["lesson_number"], "lesson missing"))
+                mismatches.append((lesson_number, 0, "lesson_missing"))
                 continue
-            live_cards = c.execute(
+            live_rows = c.execute(
                 """
-                SELECT cards.id, cards.prompt, cards.translation, cards.answer,
-                       cards.hint, cards.explanation, cards.answer_form
+                SELECT cards.id, cards.seed_index, cards.prompt, cards.translation,
+                       cards.answer, cards.hint, cards.explanation, cards.answer_form
                 FROM cards
                 LEFT JOIN reviews ON reviews.card_id=cards.id
-                WHERE cards.lesson_id=? AND COALESCE(reviews.retired, 0)=0
-                ORDER BY cards.id
+                WHERE cards.lesson_id=?
+                  AND COALESCE(reviews.retired, 0)=0
+                  AND cards.seed_index IS NOT NULL
+                ORDER BY cards.seed_index, cards.id
                 """,
                 (lesson["id"],),
             ).fetchall()
+            live_by_index = {}
+            for row in live_rows:
+                live_by_index.setdefault(int(row["seed_index"]), row)
             seed_cards = lesson_data.get("cards", [])
-            matches, _ = _match_seed_cards(live_cards, seed_cards)
-            for index, (seed_card, live) in enumerate(matches):
+            for index, seed_card in enumerate(seed_cards, start=1):
+                live = live_by_index.get(index)
                 if live is None:
-                    mismatches.append((lesson_data["lesson_number"], index + 1, "card_missing"))
+                    mismatches.append((lesson_number, index, "card_missing"))
                     continue
                 for field in fields:
                     live_value = "" if live[field] is None else live[field]
                     seed_value = seed_card.get(field, "")
                     seed_value = "" if seed_value is None else seed_value
                     if live_value != seed_value:
-                        mismatches.append(
-                            (lesson_data["lesson_number"], index + 1, field, live_value, seed_value)
-                        )
+                        mismatches.append((lesson_number, index, field))
                         break
-                if mismatches and mismatches[-1][0] == lesson_data["lesson_number"]:
-                    break
+            if len(live_by_index) != len(seed_cards):
+                mismatches.append((lesson_number, 0, "card_count"))
     c.close()
     if mismatches:
         # Keep the diagnostic safe (lesson/card/field only): Streamlit redacts
         # exception messages that contain Korean card text, which used to hide
         # the actual location of a real migration failure.
-        sample = mismatches[0]
-        location = f"lesson {sample[0]}, card {sample[1]}, field {sample[2]}"
-        raise RuntimeError(f"Card content sync failed at {location}")
+        lesson_number, card_index, field = mismatches[0]
+        raise RuntimeError(
+            f"Card content sync failed at lesson {lesson_number}, "
+            f"card {card_index}, field {field}"
+        )
 
 
 # Bump this whenever card prompts/answers change. Existing databases keep
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v15"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v16"
 
 
 def ensure_seed_bundle():
