@@ -887,7 +887,7 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-10-01-card-content-full-forms-v2"
+CONTENT_SYNC_VERSION = "2026-10-01-card-content-full-forms-v3"
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
@@ -2181,7 +2181,7 @@ def page_dashboard():
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(),))
+    """, (today(), today()))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]

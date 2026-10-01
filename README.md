@@ -54,7 +54,7 @@ The cards are manually curated practice prompts: the answer contains the lexical
 
 ## Deploy on Streamlit Community Cloud (beginner checklist)
 
-1. Download `korean_bunpro_content_full_20261001.zip` and unzip it. Do not upload only the Python file.
+1. Download `korean_bunpro_content_full_20261001_v3.zip` and unzip it. Do not upload only the Python file.
 2. Open your existing GitHub repository and upload all files from the unzipped folder into its root. Replace the old files when GitHub asks. The important files are `korean_bunpro_app.py`, all `unit*.json` files, `requirements.txt` and the complete `bts_chibi/` folder.
 3. Do not delete `korean_bunpro.db` if it is already in the repository. It contains progress. Do not create a new Streamlit app for this update.
 4. In Streamlit Cloud open the existing app and choose **Manage app → Settings** (or **Edit app**). Set **Main file path** to `korean_bunpro_app.py`, then save/redeploy.
