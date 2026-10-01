@@ -1107,7 +1107,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v16"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v17"
 
 
 def ensure_seed_bundle():
@@ -1968,6 +1968,7 @@ def load_htsk_guides():
             if number in guides:
                 raise ValueError(f"Lesson {number} appears in more than one seed file.")
             cards = lesson.get("cards", [])
+            lesson_number = int(number)
             for card_index, card in enumerate(cards, start=1):
                 prompt = str(card.get("prompt", ""))
                 answer = str(card.get("answer", ""))
@@ -1980,7 +1981,29 @@ def load_htsk_guides():
                         f"Lesson {number} card {card_index} contains only a grammar tail; "
                         "the answer must include the lexical word or stem too."
                     )
+                hint = normalize(card.get("hint", ""))
+                if not re.match(r"^Base forms?:\s+\S", hint):
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} must show a non-empty base-form hint."
+                    )
+                if hint in {
+                    "Base form: The base word is already shown",
+                    "Base forms: The base word is already shown",
+                    "Base form: TBD",
+                    "Base forms: TBD",
+                }:
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} contains a placeholder base-form hint."
+                    )
                 source_sentence = card.get("source_sentence")
+                if (
+                    26 <= lesson_number <= 202
+                    and lesson.get("source_status") == "published"
+                    and not source_sentence
+                ):
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} is missing its published HTSK source sentence."
+                    )
                 if source_sentence:
                     built = normalize(prompt.replace("___", answer, 1))
                     expected_sentence = normalize(str(source_sentence))
@@ -1990,12 +2013,14 @@ def load_htsk_guides():
                         raise ValueError(
                             f"Lesson {number} card {card_index} does not reconstruct its source sentence."
                         )
-            if int(number) in VOCABULARY_LESSON_NUMBERS:
-                answers = [normalize(card.get("answer", "")) for card in cards]
-                if len(answers) != len(set(answers)):
-                    raise ValueError(
-                        f"Vocabulary lesson {number} contains duplicate target answers."
-                    )
+            answers = [normalize(card.get("answer", "")) for card in cards]
+            if len(answers) != len(set(answers)):
+                raise ValueError(
+                    f"Lesson {number} contains duplicate target answers; each card must use "
+                    "a distinct lexical context or target expression."
+                )
+            if lesson_number in VOCABULARY_LESSON_NUMBERS and not cards:
+                raise ValueError(f"Vocabulary lesson {number} must contain target-word cards.")
             guides[number] = {
                 "source_status": lesson.get("source_status"),
                 "source_title": lesson.get("source_title", lesson.get("title", "")),
