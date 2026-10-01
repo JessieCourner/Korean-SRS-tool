@@ -13,35 +13,50 @@
           "translation": "I think it will all be over",
           "answer": "끝나리라고",
           "hint": "Base form: 끝나다",
-          "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "다 끝나리라고 생각해요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
         {
           "prompt": "그가 ___ 생각해요",
           "translation": "I think he will come",
           "answer": "오리라고",
           "hint": "Base form: 오다",
-          "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "그가 오리라고 생각해요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
         {
           "prompt": "그 사람이 ___ 생각해요",
           "translation": "I think that person will understand",
           "answer": "이해하리라고",
           "hint": "Base form: 이해하다",
-          "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "그 사람이 이해하리라고 생각해요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
         {
           "prompt": "이 영화가 ___ 생각해요",
           "translation": "I think this movie will be fun",
           "answer": "재미있으리라고",
           "hint": "Base form: 재미있다",
-          "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "이 영화가 재미있으리라고 생각해요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
         {
           "prompt": "그 선수가 ___ 생각했어요",
           "translation": "I thought that athlete would win",
           "answer": "이기리라고",
           "hint": "Base form: 이기다",
-          "explanation": "Practice for the HTSK Lesson 201 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "그 선수가 이기리라고 생각했어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         }
       ],
       "source_status": "published",
@@ -84,35 +99,50 @@
           "translation": "I waited, figuring they would hand it out",
           "answer": "주려니",
           "hint": "Base form: 주다",
-          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "나눠 주려니 해서 기다렸어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
         {
           "prompt": "사람도 별로 ___ 하고 나룻배를 탔는데 도착해 보니 사람이 많았어요",
           "translation": "I figured there probably wouldn’t be many people, so I took the ferry, but when I arrived, there were a lot of people",
           "answer": "없으려니",
           "hint": "Base form: 없다",
-          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "사람도 별로 없으려니 하고 나룻배를 탔는데 도착해 보니 사람이 많았어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
         {
           "prompt": "적이 이미 ___ 하고 기지를 비웠어요",
           "translation": "We abandoned the base, assuming the enemy had already retreated",
           "answer": "물러났으려니",
           "hint": "Base form: 물러나다",
-          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "적이 이미 물러났으려니 하고 기지를 비웠어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
         {
           "prompt": "설득력이 부족하니 반응이 ___ 싶었어요",
           "translation": "Since the argument wasn’t persuasive, I figured people would respond coldly",
           "answer": "냉담해지려니",
           "hint": "Base form: 냉담해지다",
-          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "설득력이 부족하니 반응이 냉담해지려니 싶었어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
         {
           "prompt": "전시 상황이라서 군사 활동이 ___ 생각했어요",
           "translation": "Since it was wartime, I assumed there would be a lot of military activity",
           "answer": "많으려니",
           "hint": "Base form: 많다",
-          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples."
+          "explanation": "Practice for the HTSK Lesson 202 focus. The official lesson contains the complete explanation and additional examples.",
+          "answer_form": "Formal or literary style",
+          "source_sentence": "전시 상황이라서 군사 활동이 많으려니 생각했어요",
+          "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         }
       ],
       "source_status": "published",

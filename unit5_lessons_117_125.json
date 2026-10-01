@@ -13,35 +13,50 @@
           "translation": "Did I take that class?",
           "answer": "들었던가",
           "hint": "Base form: 듣다",
-          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational form",
+          "source_sentence": "그 강좌를 들었던가?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
         {
           "prompt": "어제 설거지를 ___?",
           "translation": "Did I do the dishes yesterday?",
           "answer": "했던가",
           "hint": "Base form: 하다",
-          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational form",
+          "source_sentence": "어제 설거지를 했던가?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
         {
           "prompt": "그날에 학생증을 ___?",
           "translation": "Did I bring my student card that day?",
           "answer": "가져왔던가",
           "hint": "Base form: 가져오다",
-          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational form",
+          "source_sentence": "그날에 학생증을 가져왔던가?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
         {
           "prompt": "내가 책을 도서관에 ___?",
           "translation": "Did I return the book to the library?",
           "answer": "반납했던가",
           "hint": "Base form: 반납하다",
-          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational form",
+          "source_sentence": "내가 책을 도서관에 반납했던가?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
         {
           "prompt": "내가 이 책을 언제 ___?",
           "translation": "Did I read this book at some time?",
           "answer": "읽었던가",
           "hint": "Base form: 읽다",
-          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 117 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational form",
+          "source_sentence": "내가 이 책을 언제 읽었던가?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         }
       ],
       "source_status": "published",
@@ -84,35 +99,50 @@
           "translation": "I saw it rain yesterday",
           "answer": "오더라",
           "hint": "Base form: 오다",
-          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "어제 비가 오더라",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
         {
           "prompt": "어제 비가 ___",
           "translation": "I saw that it had rained yesterday",
           "answer": "왔더라",
           "hint": "Base form: 오다",
-          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "어제 비가 왔더라",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
         {
           "prompt": "그 병원에서 진료를 받으면 다른 데보다 ___",
           "translation": "I noticed that getting treated at that hospital is more expensive than other places",
           "answer": "비싸더라",
           "hint": "Base form: 비싸다",
-          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "그 병원에서 진료를 받으면 다른 데보다 비싸더라",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
         {
           "prompt": "그 선생님이 수업을 할 때 열정이 ___",
           "translation": "I saw/noticed that teacher is full of passion when he does his class",
           "answer": "가득하더라",
           "hint": "Base form: 가득하다",
-          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "그 선생님이 수업을 할 때 열정이 가득하더라",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
         {
           "prompt": "그 차고에 여러 가지 물건이 가득 쌓여 ___",
           "translation": "I saw/noticed that there are a lot of things piled up in the garage",
           "answer": "있더라",
           "hint": "Base form: 있다",
-          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 118 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "그 차고에 여러 가지 물건이 가득 쌓여 있더라",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         }
       ],
       "source_status": "published",
@@ -154,36 +184,51 @@
           "prompt": "논술문제를 열심히 ___ 손이 아파요",
           "translation": "I had the experience of writing the essay question, and because of that my hand is sore",
           "answer": "썼더니",
-          "hint": "Base form: 썼다",
-          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 쓰다",
+          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "논술문제를 열심히 썼더니 손이 아파요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
         {
           "prompt": "몸이 아파서 마사지를 ___ 몸이 더 이상 아프지 않았어요",
           "translation": "Because my body was sore, I received a massage, and because of that my body is not sore anymore",
           "answer": "받았더니",
           "hint": "Base form: 받다",
-          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "몸이 아파서 마사지를 받았더니 몸이 더 이상 아프지 않았어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
         {
           "prompt": "따뜻한 물에 ___ 잠이 오기 시작했어요",
           "translation": "I went into the warm water, and because of that I started to fall asleep",
           "answer": "들어갔더니",
           "hint": "Base form: 들어가다",
-          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "따뜻한 물에 들어갔더니 잠이 오기 시작했어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
         {
           "prompt": "제가 곰곰이 ___ 정답이 생각 났어요",
           "translation": "I thought really hard, and because of that I thought of the answer",
           "answer": "생각했더니",
           "hint": "Base form: 생각하다",
-          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "제가 곰곰이 생각했더니 정답이 생각 났어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
         {
           "prompt": "하루 종일 ___ 너무 피곤해요",
           "translation": "I walked all day, and because of that I am very tired",
           "answer": "걸었더니",
           "hint": "Base form: 걷다",
-          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 119 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "하루 종일 걸었더니 너무 피곤해요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         }
       ],
       "source_status": "published",
@@ -221,36 +266,51 @@
           "prompt": "너의 아버지도 ___ 기뻐",
           "translation": "I’m glad that your dad is coming as well",
           "answer": "오시다니",
-          "hint": "Base form: 오시다",
-          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 오다",
+          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Honorific form",
+          "source_sentence": "너의 아버지도 오시다니 기뻐",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
         {
           "prompt": "너의 부모님이 ___ 안됐다",
           "translation": "It’s too bad that your parents are getting a divorce",
           "answer": "이혼하시다니",
-          "hint": "Base form: 이혼하시다",
-          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 이혼하다",
+          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Honorific form",
+          "source_sentence": "너의 부모님이 이혼하시다니 안됐다",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
         {
           "prompt": "슬기가 대학원에 ___ 믿을 수 없어",
           "translation": "I can’t believe Seulgi is going to graduate school",
           "answer": "가다니",
           "hint": "Base form: 가다",
-          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "슬기가 대학원에 가다니 믿을 수 없어",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
         {
           "prompt": "해양 생물이 점점 사라지고 ___ 믿을 수가 없다",
           "translation": "I can’t believe that the organisms in the ocean are gradually disappearing",
           "answer": "있다니",
           "hint": "Base form: 있다",
-          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "해양 생물이 점점 사라지고 있다니 믿을 수가 없다",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
         {
           "prompt": "부모님의 허락도 없이 쌍꺼풀 수술을 ___ 정말 실망이다",
           "translation": "I’m disappointed that you would get double eyelid surgery without your parents’ permission",
           "answer": "하다니",
           "hint": "Base form: 하다",
-          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 120 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "부모님의 허락도 없이 쌍꺼풀 수술을 하다니 정말 실망이다",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         }
       ],
       "source_status": "published",
@@ -293,35 +353,50 @@
           "translation": "If I keep meeting this friend who is always talking behind people’s backs, I’m worried that she will talk about me when she meets other friends",
           "answer": "만나다 보면",
           "hint": "Base form: 만나다",
-          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "뒷담화하는 친구를 계속 만나다 보면 다른 친구랑 만났을 때도 제 이야기를 할 것 같아서 걱정돼요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
         {
           "prompt": "지혜로운 부모님 밑에서 ___ 아이들도 저절로 지혜로워져요",
           "translation": "If kids are raised by wise parents, their kids get wise by themselves",
           "answer": "크다 보면",
           "hint": "Base form: 크다",
-          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "지혜로운 부모님 밑에서 크다 보면 아이들도 저절로 지혜로워져요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
         {
           "prompt": "쓸데없이 차도를 다시 만드는 공사를 매년 ___ 시민들이 항의해요",
           "translation": "If you do construction on the road again without purpose the citizens will protest",
           "answer": "하다 보면",
           "hint": "Base form: 하다",
-          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "쓸데없이 차도를 다시 만드는 공사를 매년 하다 보면 시민들이 항의해요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
         {
           "prompt": "혼자서 ___ 부모님을 보고 싶은 것은 당연한 게 아니에요?",
           "translation": "If you (continue to) live alone, isn’t it obvious that you will want to see (miss) your parents?",
           "answer": "살다 보면",
           "hint": "Base form: 살다",
-          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "혼자서 살다 보면 부모님을 보고 싶은 것은 당연한 게 아니에요?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
         {
           "prompt": "새로운 단어를 계속 ___ 점점 헷갈려요",
           "translation": "If I keep memorizing new words, I gradually get confused",
           "answer": "외우다 보면",
           "hint": "Base form: 외우다",
-          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 121 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "",
+          "source_sentence": "새로운 단어를 계속 외우다 보면 점점 헷갈려요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         }
       ],
       "source_status": "published",
@@ -364,35 +439,50 @@
           "translation": "While I was studying, it became 12:00",
           "answer": "공부하다 보니",
           "hint": "Base form: 공부하다",
-          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "제가 공부하다 보니 12시가 되었어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
+          "answer_form": ""
         },
         {
-          "prompt": "___까 팔이 아팠어요",
+          "prompt": "___ 팔이 아팠어요",
           "translation": "While I was exercising, I realized that my arm was sore",
-          "answer": "운동하다 보니",
+          "answer": "운동하다 보니까",
           "hint": "Base form: 운동하다",
-          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "운동하다 보니까 팔이 아팠어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
+          "answer_form": ""
         },
         {
           "prompt": "화분을 ___ 누런 싹이 싹튼 식물이 몇 개 보였어요",
           "translation": "While cleaning the flower pots, I noticed/saw that a few yellow sprouts had sprouted",
           "answer": "청소하다 보니",
           "hint": "Base form: 청소하다",
-          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "화분을 청소하다 보니 누런 싹이 싹튼 식물이 몇 개 보였어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
+          "answer_form": ""
         },
         {
-          "prompt": "그리스라는 나라를 ___ 로마 제국까지 공부해야 한다는 것을 느꼈어요",
+          "prompt": "___ 로마 제국까지 공부해야 한다는 것을 느꼈어요",
           "translation": "While studying about the country of Greece, I felt that I should also study up to the Roman Empire",
-          "answer": "조사하다 보니",
-          "hint": "Base form: 조사하다",
-          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "그리스라는 나라를 공부하다 보니",
+          "hint": "Base form: 공부하다",
+          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "그리스라는 나라를 공부하다 보니 로마 제국까지 공부해야 한다는 것을 느꼈어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
+          "answer_form": ""
         },
         {
           "prompt": "셋째를 ___ 우리 아이 모두를 평등하게 돌보지 않을 뿐만 아니라 큰애에 매우 소홀하다는 것을 깨달았어요",
           "translation": "While looking after my third child, I realized that not only was I not looking after all of my children equally, but also that I was really neglecting my oldest one",
           "answer": "돌보다 보니",
           "hint": "Base form: 돌보다",
-          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 122 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "셋째를 돌보다 보니 우리 아이 모두를 평등하게 돌보지 않을 뿐만 아니라 큰애에 매우 소홀하다는 것을 깨달았어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
+          "answer_form": ""
         }
       ],
       "source_status": "published",
@@ -431,39 +521,54 @@
       "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
       "cards": [
         {
-          "prompt": "에너지를 발산하려고 ___ 삶의 원동력이 생겼어요",
+          "prompt": "에너지를 발산하려고 운동을 ___ 삶의 원동력이 생겼어요",
           "translation": "After having exercised to burn off some energy, I now have a will to live",
-          "answer": "운동을 해 보니까",
-          "hint": "Base form: 운동하다 (verb), 보다 (verb), ~아/어 보니까",
-          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "해 보니까",
+          "hint": "Base form: 하다",
+          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "에너지를 발산하려고 운동을 해 보니까 삶의 원동력이 생겼어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
+          "answer_form": ""
         },
         {
           "prompt": "유가의 가격을 강제적으로 ___ 시장에 문제가 생겼어요",
           "translation": "After having tried forcing the price of oil down, I now realize that it created problems in the market",
           "answer": "낮춰 보니까",
-          "hint": "Base form: 낮추다 (verb), 보다 (verb), ~아/어 보니까",
-          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 낮추다",
+          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "유가의 가격을 강제적으로 낮춰 보니까 시장에 문제가 생겼어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
+          "answer_form": ""
         },
         {
           "prompt": "양심적으로 ___ 자연스럽게 손님이 늘었어요",
           "translation": "After having tried running my business conscientiously, customers just started coming in naturally",
           "answer": "장사를 해 보니까",
-          "hint": "Base form: 장사하다 (verb), 보다 (verb), ~아/어 보니까",
-          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 장사하다",
+          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "양심적으로 장사를 해 보니까 자연스럽게 손님이 늘었어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
+          "answer_form": ""
         },
         {
-          "prompt": "연애를 한번 ___ 남자들을 더 잘 이해하게 되었다",
+          "prompt": "연애를 ___ 남자들을 더 잘 이해하게 되었다",
           "translation": "Now that I have tried/attempted having a boyfriend, I became able to understand men better",
-          "answer": "해 보니까",
-          "hint": "Base form: 하다 (verb), 보다 (verb), ~아/어 보니까",
-          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "한번 해 보니까",
+          "hint": "Base form: 연애하다",
+          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "연애를 한번 해 보니까 남자들을 더 잘 이해하게 되었다",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
+          "answer_form": ""
         },
         {
           "prompt": "공연을 진행할 때 더 활발하게 ___ 사람들이 더 환호했어요",
           "translation": "When I ran the performance, when we marched more actively people cheered more",
           "answer": "행진해 보니까",
-          "hint": "Base form: 행진하다 (verb), 보다 (verb), ~아/어 보니까",
-          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 행진하다",
+          "explanation": "Original practice for the HTSK Lesson 123 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "공연을 진행할 때 더 활발하게 행진해 보니까 사람들이 더 환호했어요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
+          "answer_form": ""
         }
       ],
       "source_status": "published",
@@ -505,36 +610,51 @@
           "prompt": "그것은 ___",
           "translation": "That is worth doing",
           "answer": "할 만하다",
-          "hint": "Base form: 하다 (verb), 만하다 (adjective expression)",
-          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 하다",
+          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "그것은 할 만하다",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
+          "answer_form": ""
         },
         {
-          "prompt": "그 선생님은 ___",
+          "prompt": "그 선생님은 상을 ___",
           "translation": "That teacher deserves an award",
-          "answer": "상을 받을 만해요",
-          "hint": "Base form: 받다 (verb), 만하다 (adjective expression)",
-          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "받을 만해요",
+          "hint": "Base form: 받다",
+          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "그 선생님은 상을 받을 만해요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
+          "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "그 의사는 많은 사람의 목숨을 살려서 ___",
+          "prompt": "그 의사는 많은 사람의 목숨을 살려서 칭찬을 ___",
           "translation": "That doctor deserves a lot of praise for saving a lot of people’s lives (because he/she saved a lot of people’s lives)",
-          "answer": "칭찬을 많이 받을 만해요",
-          "hint": "Base form: 받다 (verb), 만하다 (adjective expression)",
-          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "많이 받을 만해요",
+          "hint": "Base form: 받다",
+          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "그 의사는 많은 사람의 목숨을 살려서 칭찬을 많이 받을 만해요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
+          "answer_form": "Polite conversational form (-요)"
         },
         {
           "prompt": "우리 할아버지는 한국전쟁에서 싸우셨으므로 ___",
           "translation": "Our grandfather deserves a lot of respect for fighting in the Korean war",
           "answer": "존경을 받을 만해요",
-          "hint": "Base form: 받다 (verb), 만하다 (adjective expression)",
-          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 받다",
+          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "우리 할아버지는 한국전쟁에서 싸우셨으므로 존경을 받을 만해요",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
+          "answer_form": "Polite conversational form (-요)"
         },
         {
           "prompt": "___ 식당을 알아요?",
           "translation": "Do you know a worthwhile place to eat?",
           "answer": "먹을 만한",
-          "hint": "Base form: 먹다 (verb), 만하다 (adjective expression)",
-          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation."
+          "hint": "Base form: 먹다",
+          "explanation": "Original practice for the HTSK Lesson 124 focus. Use the official Unit 5 page for the full explanation.",
+          "source_sentence": "먹을 만한 식당을 알아요?",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
+          "answer_form": ""
         }
       ],
       "source_status": "published",
@@ -577,35 +697,50 @@
           "translation": "I already said that I have to go to work!",
           "answer": "된다니까",
           "hint": "Base form: 되다",
-          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "출근해야 된다니까!",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
         {
           "prompt": "아직 안 ___!",
           "translation": "I already said that they haven’t ripened yet!",
           "answer": "익었다니까",
           "hint": "Base form: 익다",
-          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "아직 안 익었다니까!",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
         {
           "prompt": "거스름돈을 안 ___!",
           "translation": "I already said that you didn’t give me my change!",
           "answer": "줬다니까",
           "hint": "Base form: 주다",
-          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "거스름돈을 안 줬다니까!",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
         {
           "prompt": "경기가 동점으로 ___! 우리가 이기지 못해서 기분이 별로야",
           "translation": "I already said that the game ended in a tie! Because we couldn’t win I’m not in the best mood",
           "answer": "끝났다니까",
           "hint": "Base form: 끝나다",
-          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation."
+          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "경기가 동점으로 끝났다니까! 우리가 이기지 못해서 기분이 별로야",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
         {
-          "prompt": "그렇게 하면 화재가 날 ___! 이제 그만해!",
+          "prompt": "그렇게 하면 화재가 ___! 이제 그만해!",
           "translation": "I told you that if you do that you’ll start a fire! Stop now!",
-          "answer": "거라니까",
-          "hint": "Base form: 가다",
-          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation."
+          "answer": "날 거라니까",
+          "hint": "Base form: 나다",
+          "explanation": "Original practice for the HTSK Lesson 125 focus. Use the official Unit 5 page for the full explanation.",
+          "answer_form": "Conversational emphasis form",
+          "source_sentence": "그렇게 하면 화재가 날 거라니까! 이제 그만해!",
+          "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         }
       ],
       "source_status": "published",

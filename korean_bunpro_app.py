@@ -19,7 +19,11 @@ except ImportError:
 
 
 APP_DIR = Path(__file__).resolve().parent
-DB_PATH = Path("korean_bunpro.db")
+# Resolve the database and lesson packs beside this script.  Streamlit Cloud
+# can start the script with a working directory different from the repository
+# root; relative paths then silently skipped the seed files and left an old
+# database's card text on screen.
+DB_PATH = APP_DIR / "korean_bunpro.db"
 try:
     SUPABASE_DB_URL = st.secrets.get("SUPABASE_DB_URL", "")
 except Exception:
@@ -122,7 +126,10 @@ class PostgresConnection:
         self._open_cursors = set()
 
     def _connect(self):
-        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
+        # Schema bootstrap can briefly wait for another Streamlit worker that
+        # is importing the same seed data.  Ten seconds was too short for a
+        # cold Supabase start and surfaced as psycopg2.errors.QueryCanceled.
+        connect_options = "-c statement_timeout=60000 -c lock_timeout=60000"
         self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
         self.last_used = time.monotonic()
 
@@ -151,19 +158,56 @@ class PostgresConnection:
             cursor.close()
 
     def close(self):
-        # Keep one connection per Streamlit browser session.  The app opens
-        # many short read/write helpers during one rerun; closing the network
-        # connection after each helper made every click wait for a new TLS
-        # handshake against Supabase.
-        return None
+        # Keep one network connection per Streamlit browser session, but do
+        # finish the current PostgreSQL transaction when a helper is done.
+        # psycopg2 otherwise leaves a read transaction open after SELECT;
+        # that idle transaction holds an AccessShareLock and can make a later
+        # one-time ALTER TABLE migration wait until Supabase cancels it.
+        if getattr(self.raw, "closed", 1):
+            return None
+        try:
+            self.raw.commit()
+        except Exception:
+            # A failed statement leaves PostgreSQL in an aborted transaction.
+            # Release it before the persistent session is reused.
+            self.raw.rollback()
+        self.last_used = time.monotonic()
 
 
 def is_postgres_connection(connection):
     """Recognize cached connections even after Streamlit reloads this module."""
     return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
-SEED_PATH = Path("unit2_lessons_26_33.json")
-EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
+SEED_PATH = APP_DIR / "unit2_lessons_26_33.json"
+EXTENDED_SEED_PATHS = [APP_DIR / name for name in (
+    "unit0_1_lessons_0_25.json",
+    "unit2_lessons_34_50.json",
+    "unit3_lessons_51_75.json",
+    "unit4_lessons_76_100.json",
+    "unit5_lessons_101_116.json",
+    "unit5_lessons_117_125.json",
+    "unit6_lessons_126_133.json",
+    "unit6_lessons_134_150.json",
+    "unit7_lessons_151_175.json",
+    "unit8_lessons_176_200.json",
+    "unit9_lessons_201_208.json",
+)]
+# Lessons whose main teaching goal is a set of lexical items. Their cards
+# must not collapse into one repeated answer; each card must ask for a
+# different target word or lexical expression.
+VOCABULARY_LESSON_NUMBERS = frozenset({11, 12, 25, 34, 59, 60, 79, 101, 130, 134, 135, 151, 152})
+# A complete card answer must include the lexical stem and the grammar. These
+# grammar-only tails appeared in older deployed databases when the blank was
+# placed too late in the sentence. Keep this guard close to the seed validator
+# so a future content edit cannot reintroduce that regression.
+INCOMPLETE_GRAMMAR_TAILS = frozenset({
+    "것 같아", "것 같아요", "것 같다", "것 같았어", "것 같았어요",
+    "것 같을 거야", "거예요", "거야", "수 있도록", "수 없도록",
+    "채로", "거라니까", "말이야", "말이지", "라고 했어요",
+    "뻔 했어요", "뻔했어요", "만해요", "만한", "리가 없어요",
+    "걸까 싶어요", "중이오니",
+    "듯하다", "듯해", "듯해요", "요",
+})
 # Bunpro-style review ladder. The level is the current consecutive-correct
 # streak. A wrong answer drops one level; the same card stays for retry.
 BUNPRO_INTERVALS = {
@@ -350,7 +394,7 @@ st.markdown("""
     .stButton > button:hover {border-color: #d99ac0; background: #fff3fa; transform: translateY(-1px);}
     [data-testid="stProgressBar"] > div {background: #eadff2 !important; border-radius: 12px;}
     [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
-    .review-progress {padding:16px 18px 12px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:10px 0 22px;}
+    .review-progress {position:relative; display:block; clear:both; z-index:2; padding:12px 18px 10px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:0 0 28px; width:100%; box-sizing:border-box;}
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
@@ -359,9 +403,23 @@ st.markdown("""
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
-    .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
-    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
-    .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
+    .review-question-paper {padding:13px 0 12px; margin:2px 0 10px; border:0; border-radius:0; background:transparent; box-shadow:none; text-align:center;}
+    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
+    .review-question-paper .review-translation {margin-top:8px; color:#654b78; font-family:"Aptos","Segoe UI",sans-serif; font-size:clamp(.98rem,2.2vw,1.08rem); font-weight:500; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
+    .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
+    .inline-answer-slot {display:inline-flex; align-items:baseline; vertical-align:baseline; min-width:1.25em; min-height:1.15em; text-align:left;}
+    .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
+    .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
+    .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
+    .inline-answer-element label, .inline-answer-element [data-testid="InputInstructions"] {display:none !important;}
+    .inline-answer-element, .inline-answer-element *, .inline-answer-element [data-testid="stTextInput"], .inline-answer-element [data-baseweb="input"], .inline-answer-element [data-baseweb="base-input"], .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {border:0 !important; border-width:0 !important; border-color:transparent !important; border-radius:0 !important; outline:0 !important; background:transparent !important; background-color:transparent !important; background-image:none !important; box-shadow:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
+    .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; font:inherit !important; line-height:1.3 !important; text-align:left; appearance:none !important; -webkit-appearance:none !important;}
+    .inline-answer-element:focus-within, .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
+    .inline-answer-element input::placeholder, input.inline-answer-input::placeholder, input[aria-label^="Answer for card "]::placeholder {color:inherit !important; -webkit-text-fill-color:inherit !important; opacity:1 !important;}
+    .answer-widget-marker {display:none !important;}
+    .answer-results {padding:8px 0; color:#514064; text-align:center; font-size:1.05rem; line-height:1.8;}
+    .answer-results .answer-result-value {color:#4f3d64; font-weight:800;}
+    @media (max-width: 700px) { .review-progress {padding:10px 12px 9px;} .review-progress-track {margin-left:4px; margin-right:4px;} }
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
@@ -375,17 +433,17 @@ st.markdown("""
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
     .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
-    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
-    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
+    .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
+    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto !important; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
     .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
     .bts-vector {width:100%; height:100%; overflow:visible;}
-    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto; cursor:grab;}
+    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto !important; cursor:grab;}
     .bts-scene-right .bts-speech {border-color:#cdb9ec;}
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
     .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
@@ -441,8 +499,8 @@ st.markdown("""
     [data-testid="stExpander"] summary span,
     [data-testid="stExpander"] summary p {color:#654b78 !important;}
     [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
-    .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
-    .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "]) {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "])::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
     .chibi-table {width:100%; border-collapse:collapse; color:#5b4770; min-width:680px;}
     .chibi-table th {background:#f7dbea; color:#684d7b; text-align:left; padding:12px 14px; font-weight:800;}
@@ -598,7 +656,9 @@ def today():
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
     if is_postgres_connection(c):
-        c.execute("SELECT pg_advisory_xact_lock(81620417)")
+        # Fetch the result so the cursor is completed/closed while the
+        # transaction-level advisory lock remains held until commit.
+        c.execute("SELECT pg_advisory_xact_lock(81620417)").fetchone()
 
 
 def init_db():
@@ -622,7 +682,8 @@ def init_db():
         translation TEXT NOT NULL,
         answer TEXT NOT NULL,
         hint TEXT NOT NULL,
-        explanation TEXT NOT NULL
+        explanation TEXT NOT NULL,
+        answer_form TEXT DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS reviews (
         card_id INTEGER PRIMARY KEY,
@@ -662,15 +723,45 @@ def init_db():
     # checked-in lesson pack.  Keep the row and its history for progress
     # safety, but never put it back into a deck when its lesson is activated.
     # ALTER TABLE is needed because deployed databases predate this column.
-    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
     review_migrations = {
         "due_at": "TEXT DEFAULT '2999-01-01T00:00:00'",
         "last_result": "TEXT",
         "retired": "INTEGER NOT NULL DEFAULT 0",
     }
-    for column, definition in review_migrations.items():
-        if column not in review_columns:
-            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+    if is_postgres_connection(c):
+        # Do not issue a no-op ALTER TABLE on every Streamlit startup.  Even
+        # ``ADD COLUMN IF NOT EXISTS`` takes an ACCESS EXCLUSIVE lock on the
+        # table in PostgreSQL.  A review query from another browser can then
+        # hold that lock long enough for Supabase to cancel startup with
+        # psycopg2.errors.QueryCanceled.  The advisory lock above serializes
+        # the one real migration, so an explicit schema check is both safer
+        # and faster for already-migrated databases.
+        postgres_columns = lambda table: {
+            row["name"]
+            for row in c.execute(
+                """
+                SELECT column_name AS name
+                FROM information_schema.columns
+                WHERE table_schema='public' AND table_name=?
+                """,
+                (table,),
+            ).fetchall()
+        }
+        card_columns = postgres_columns("cards")
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        review_columns = postgres_columns("reviews")
+        for column, definition in review_migrations.items():
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+    else:
+        review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+        card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        for column, definition in review_migrations.items():
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
     c.execute("UPDATE reviews SET due_at=next_review || 'T00:00:00' WHERE due_at IS NULL")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
@@ -710,10 +801,10 @@ def import_seed_once():
         lesson_id = cur.lastrowid
         for card in lesson["cards"]:
             card_id = c.execute("""
-                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
-                VALUES(?,?,?,?,?,?)
+                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form)
+                VALUES(?,?,?,?,?,?,?)
             """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                  card["hint"], card["explanation"])).lastrowid
+                  card["hint"], card["explanation"], card.get("answer_form", ""))).lastrowid
             c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
     c.commit()
     c.close()
@@ -755,10 +846,10 @@ def import_extended_seeds():
                       lesson["explanation"], lesson["source_url"], "available")).lastrowid
             for card in lesson.get("cards", []):
                 card_id = c.execute("""
-                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
-                    VALUES(?,?,?,?,?,?)
+                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form)
+                    VALUES(?,?,?,?,?,?,?)
                 """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                      card["hint"], card["explanation"])).lastrowid
+                      card["hint"], card["explanation"], card.get("answer_form", ""))).lastrowid
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
@@ -766,6 +857,43 @@ def import_extended_seeds():
                 c.commit()
     c.commit()
     c.close()
+
+
+def _card_content_key(value):
+    """Normalize a stable human-readable card key without changing content."""
+    return re.sub(r"\s+", " ", str(value or "").strip())
+
+
+def _match_seed_cards(existing_rows, seed_cards):
+    """Match seed cards to old rows before changing any card text.
+
+    Card IDs are database history, not content identity: old deployments could
+    insert a repaired card later or use a different order.  The translation is
+    stable across the content repair and is unique within these lesson packs;
+    position is used only as a controlled fallback for a genuinely new or
+    translated card.
+    """
+    by_translation = {}
+    for row in existing_rows:
+        by_translation.setdefault(_card_content_key(row["translation"]), []).append(row)
+    unused_ids = {row["id"] for row in existing_rows}
+    matches = []
+    for index, seed_card in enumerate(seed_cards):
+        translation_key = _card_content_key(seed_card.get("translation", ""))
+        candidate = next(
+            (row for row in by_translation.get(translation_key, []) if row["id"] in unused_ids),
+            None,
+        )
+        if candidate is None:
+            candidate = next(
+                (row for row in existing_rows if row["id"] in unused_ids),
+                None,
+            )
+        if candidate is not None:
+            unused_ids.remove(candidate["id"])
+        matches.append((seed_card, candidate))
+    obsolete = [row for row in existing_rows if row["id"] in unused_ids]
+    return matches, obsolete
 
 
 def sync_seed_card_content():
@@ -791,33 +919,35 @@ def sync_seed_card_content():
             if not lesson:
                 continue
             existing = c.execute(
-                "SELECT id FROM cards WHERE lesson_id=? ORDER BY id",
+                "SELECT id, translation FROM cards WHERE lesson_id=? ORDER BY id",
                 (lesson["id"],),
             ).fetchall()
-            for index, card in enumerate(lesson_data.get("cards", [])):
+            matches, obsolete = _match_seed_cards(existing, lesson_data.get("cards", []))
+            for card, old_row in matches:
                 values = (
                     card["prompt"],
                     card["translation"],
                     card["answer"],
                     card["hint"],
                     card["explanation"],
+                    card.get("answer_form", ""),
                 )
-                if index < len(existing):
+                if old_row is not None:
                     c.execute(
                         "UPDATE reviews SET retired=0 WHERE card_id=?",
-                        (existing[index]["id"],),
+                        (old_row["id"],),
                     )
                     c.execute(
                         """UPDATE cards
-                           SET prompt=?, translation=?, answer=?, hint=?, explanation=?
+                           SET prompt=?, translation=?, answer=?, hint=?, explanation=?, answer_form=?
                            WHERE id=?""",
-                        (*values, existing[index]["id"]),
+                        (*values, old_row["id"]),
                     )
                 else:
                     card_id = c.execute(
                         """INSERT INTO cards
-                           (lesson_id,prompt,translation,answer,hint,explanation)
-                           VALUES(?,?,?,?,?,?)""",
+                           (lesson_id,prompt,translation,answer,hint,explanation,answer_form)
+                           VALUES(?,?,?,?,?,?,?)""",
                         (lesson["id"], *values),
                     ).lastrowid
                     c.execute(
@@ -828,8 +958,8 @@ def sync_seed_card_content():
             # older deployed database.  Keep the old review/history rows for
             # progress safety, but take obsolete cards out of the active deck
             # so stale examples cannot reappear after an app update.
-            if len(existing) > len(lesson_data.get("cards", [])):
-                obsolete_ids = [row["id"] for row in existing[len(lesson_data.get("cards", [])):]]
+            if obsolete:
+                obsolete_ids = [row["id"] for row in obsolete]
                 placeholders = ",".join("?" for _ in obsolete_ids)
                 c.execute(
                     f"UPDATE reviews SET active=0, retired=1 WHERE card_id IN ({placeholders})",
@@ -887,23 +1017,109 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-10-01-card-content-full-forms-v3"
+def verify_live_card_content():
+    """Verify that the live database contains the checked-in card content.
+
+    A stale Streamlit resource cache used to make an old prompt look valid
+    after a deployment.  The sync now runs with an explicit version key, and
+    this second pass proves that every seeded card actually reached the live
+    database before the app renders a page.
+    """
+    c = db()
+    mismatches = []
+    fields = ("prompt", "translation", "answer", "hint", "explanation", "answer_form")
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        if not seed_path.exists():
+            continue
+        data = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson_data in data.get("lessons", []):
+            lesson = c.execute(
+                "SELECT id FROM lessons WHERE lesson_number=?",
+                (lesson_data["lesson_number"],),
+            ).fetchone()
+            if not lesson:
+                mismatches.append((lesson_data["lesson_number"], "lesson missing"))
+                continue
+            live_cards = c.execute(
+                """
+                SELECT cards.id, cards.prompt, cards.translation, cards.answer,
+                       cards.hint, cards.explanation, cards.answer_form
+                FROM cards
+                LEFT JOIN reviews ON reviews.card_id=cards.id
+                WHERE cards.lesson_id=? AND COALESCE(reviews.retired, 0)=0
+                ORDER BY cards.id
+                """,
+                (lesson["id"],),
+            ).fetchall()
+            seed_cards = lesson_data.get("cards", [])
+            matches, _ = _match_seed_cards(live_cards, seed_cards)
+            for index, (seed_card, live) in enumerate(matches):
+                if live is None:
+                    mismatches.append((lesson_data["lesson_number"], index + 1, "card_missing"))
+                    continue
+                for field in fields:
+                    live_value = "" if live[field] is None else live[field]
+                    seed_value = seed_card.get(field, "")
+                    seed_value = "" if seed_value is None else seed_value
+                    if live_value != seed_value:
+                        mismatches.append(
+                            (lesson_data["lesson_number"], index + 1, field, live_value, seed_value)
+                        )
+                        break
+                if mismatches and mismatches[-1][0] == lesson_data["lesson_number"]:
+                    break
+    c.close()
+    if mismatches:
+        # Keep the diagnostic safe (lesson/card/field only): Streamlit redacts
+        # exception messages that contain Korean card text, which used to hide
+        # the actual location of a real migration failure.
+        sample = mismatches[0]
+        location = f"lesson {sample[0]}, card {sample[1]}, field {sample[2]}"
+        raise RuntimeError(f"Card content sync failed at {location}")
+
+
+# Bump this whenever card prompts/answers change. Existing databases keep
+# their SRS levels and history, but every card is re-synced from the checked-in
+# lesson JSON on the next startup. This prevents an old split-answer record
+# from surviving after the seed content has been corrected.
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v15"
+
+
+def ensure_seed_bundle():
+    """Fail loudly instead of showing stale card text from an old database."""
+    missing = [path.name for path in [SEED_PATH, *EXTENDED_SEED_PATHS] if not path.exists()]
+    if missing:
+        names = ", ".join(missing)
+        raise RuntimeError(
+            "The complete lesson bundle is required next to korean_bunpro_app.py; "
+            f"missing: {names}"
+        )
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
-def bootstrap_app_data():
-    """Run database setup/synchronization once per app process and version."""
+def bootstrap_app_data(sync_version):
+    """Run database setup and content synchronization once per app process.
+
+    The resource cache makes this startup-only. Do not use the database's
+    content marker as an early return: an earlier deployment could write the
+    marker before the corrected seed files arrived, leaving old split answers
+    in an otherwise valid database. Running the idempotent sync at startup
+    repairs those records while preserving SRS levels and answer history.
+    """
+    ensure_seed_bundle()
     init_db()
-    if setting("content_sync_version", "") == CONTENT_SYNC_VERSION:
-        return
     import_seed_once()
     import_extended_seeds()
     sync_seed_card_content()
     sync_htsk_metadata()
+    verify_live_card_content()
+    # Static lesson/card query results can survive a Streamlit rerun in the
+    # same browser session.  Do not let those pre-sync rows remain visible.
+    st.session_state.pop("_content_query_cache", None)
     c = db()
     c.execute(
         "INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)",
-        ("content_sync_version", CONTENT_SYNC_VERSION),
+        ("content_sync_version", sync_version),
     )
     c.commit()
     c.close()
@@ -1153,6 +1369,24 @@ def render_bts_motivation(in_dialog=False):
                 }
             }
 
+            function activeDialogSurface() {
+                return Array.from(win.document.querySelectorAll(".bts-dialog-surface"))
+                    .find((surface) => isVisible(surface)) || null;
+            }
+
+            function moveToggleToTopHost(modal) {
+                const toggle = win.document.getElementById("mochi-chibi-toggle");
+                if (!toggle) return;
+                const host = modal || win.document.body;
+                if (toggle.parentElement !== host) host.appendChild(toggle);
+                toggle.style.setProperty("position", "fixed", "important");
+                toggle.style.setProperty("right", "14px", "important");
+                toggle.style.setProperty("top", modal ? "14px" : "auto", "important");
+                toggle.style.setProperty("bottom", modal ? "auto" : "68px", "important");
+                toggle.style.setProperty("z-index", "2147483647", "important");
+                toggle.style.setProperty("pointer-events", "auto", "important");
+            }
+
             function clamp(value, minimum, maximum) {
                 return Math.min(Math.max(value, minimum), maximum);
             }
@@ -1215,14 +1449,22 @@ def render_bts_motivation(in_dialog=False):
             }
 
             function syncHosts() {
-                const modal = win.document.querySelector(".bts-dialog-surface");
+                const modal = activeDialogSurface();
                 const modalOpen = Boolean(modal && isVisible(modal));
+                // A dialog rerun can remove the old top-layer host together
+                // with its children. Recreate the toggle before trying to
+                // move it, otherwise the hide/show control disappears after
+                // closing a Study or Review window.
+                if (!win.document.getElementById("mochi-chibi-toggle")) {
+                    installDesktopSidebarLauncher();
+                }
                 win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
-                    scene.style.display = modalOpen ? "none" : "";
+                    scene.style.display = "";
                 });
                 win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
                     scene.style.display = modalOpen ? "" : "none";
                 });
+                moveToggleToTopHost(modalOpen ? modal : null);
                 applyChibiVisibility();
                 return modalOpen;
             }
@@ -1312,7 +1554,7 @@ def render_bts_motivation(in_dialog=False):
                     Object.assign(toggle.style, {
                         position: "fixed",
                         right: "14px",
-                        bottom: "14px",
+                        bottom: "68px",
                         zIndex: "2147483647",
                         display: "flex",
                         alignItems: "center",
@@ -1334,6 +1576,8 @@ def render_bts_motivation(in_dialog=False):
                         pointerEvents: "auto",
                         touchAction: "manipulation",
                     });
+                    toggle.style.setProperty("z-index", "2147483647", "important");
+                    toggle.style.setProperty("pointer-events", "auto", "important");
                     toggle.addEventListener("click", () => {
                         const hidden = !chibisAreHidden();
                         try {
@@ -1351,6 +1595,9 @@ def render_bts_motivation(in_dialog=False):
                     });
                     doc.body.appendChild(toggle);
                 }
+                toggle.style.setProperty("z-index", "2147483647", "important");
+                toggle.style.setProperty("pointer-events", "auto", "important");
+                moveToggleToTopHost(activeDialogSurface());
                 applyChibiVisibility();
 
                 function sidebarIsOpen() {
@@ -1393,8 +1640,6 @@ def render_bts_motivation(in_dialog=False):
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
-                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
-                    if (modalOpen !== inModal) return;
                     scene.querySelectorAll("img").forEach((image) => {
                         image.draggable = false;
                         image.setAttribute("draggable", "false");
@@ -1403,9 +1648,10 @@ def render_bts_motivation(in_dialog=False):
                     });
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
-                    scene.style.zIndex = "2147483000";
+                    scene.style.zIndex = "2147483646";
                     const key = sceneKey(day, slot);
                     scene.dataset.chibiStorageKey = key;
+                    scene.style.setProperty("pointer-events", "auto", "important");
                     if (scene.dataset.chibiPositionBound === "1") {
                         keepOnScreen(scene);
                         return;
@@ -1442,7 +1688,7 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v5";
+            const dragControllerVersion = "drag-v6";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -1655,6 +1901,29 @@ def normalize(text):
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
+def inferred_answer_form(card):
+    """Return a safe speech-level hint when a legacy card omitted one.
+
+    The seed's explicit label always wins. For older cards, only endings
+    whose speech level is unambiguous are inferred; grammar-only endings such
+    as -고 or -는지 remain unlabeled instead of guessing.
+    """
+    explicit = normalize(card["answer_form"] if "answer_form" in card.keys() else "")
+    if explicit:
+        return explicit
+    answer = normalize(card["answer"] if "answer" in card.keys() else "")
+    answer = re.sub(r"[.!?。！？]+$", "", answer).strip()
+    if re.search(r"(?:거든요|기는요|네요|군요|구요)$", answer):
+        return "Polite conversational form (-요)"
+    if re.search(r"(?:습니다|ㅂ니다|습니까|ㅂ니까|십시오|시오|오니)$", answer):
+        return "Formal polite/literary form"
+    if re.search(r"(?:어요|아요|여요|이에요|예요|세요|요)$", answer):
+        return "Polite conversational form (-요)"
+    if re.search(r"(?:거야|잖아|거든|구나|군|네|자|라|까|어|아|야)$", answer):
+        return "Informal/plain conversational form"
+    return ""
+
+
 # The lesson guide is stored directly on each lesson record in the unit seed
 # files.  It is not reconstructed from SRS cards or lesson titles, and the
 # guide examples remain separate from the cards array in the same lesson.
@@ -1673,6 +1942,35 @@ def load_htsk_guides():
             number = str(int(lesson["lesson_number"]))
             if number in guides:
                 raise ValueError(f"Lesson {number} appears in more than one seed file.")
+            cards = lesson.get("cards", [])
+            for card_index, card in enumerate(cards, start=1):
+                prompt = str(card.get("prompt", ""))
+                answer = str(card.get("answer", ""))
+                if prompt.count("___") != 1 or not answer.strip():
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} must have one blank and a complete answer."
+                    )
+                if normalize(answer) in INCOMPLETE_GRAMMAR_TAILS:
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} contains only a grammar tail; "
+                        "the answer must include the lexical word or stem too."
+                    )
+                source_sentence = card.get("source_sentence")
+                if source_sentence:
+                    built = normalize(prompt.replace("___", answer, 1))
+                    expected_sentence = normalize(str(source_sentence))
+                    built = re.sub(r"[.!?。！？]+$", "", built)
+                    expected_sentence = re.sub(r"[.!?。！？]+$", "", expected_sentence)
+                    if built != expected_sentence:
+                        raise ValueError(
+                            f"Lesson {number} card {card_index} does not reconstruct its source sentence."
+                        )
+            if int(number) in VOCABULARY_LESSON_NUMBERS:
+                answers = [normalize(card.get("answer", "")) for card in cards]
+                if len(answers) != len(set(answers)):
+                    raise ValueError(
+                        f"Vocabulary lesson {number} contains duplicate target answers."
+                    )
             guides[number] = {
                 "source_status": lesson.get("source_status"),
                 "source_title": lesson.get("source_title", lesson.get("title", "")),
@@ -1761,6 +2059,9 @@ def check_answer(card_id, answer_key):
         if not had_wrong_attempt:
             grade(card_id, "correct")
         else:
+            # The first wrong attempt already moved the card down, but the
+            # card is counted as completed only after the retry is correct.
+            st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
             st.session_state.pop(attempt_key, None)
             st.session_state.pop("wrong_feedback", None)
         st.rerun()
@@ -1783,9 +2084,7 @@ def focus_answer_field():
     (function() {
         const parentWindow = window.parent;
         function focusAnswer() {
-            const input = parentWindow.document.querySelector(
-                'input[aria-label="Your answer"]'
-            );
+            const input = parentWindow.document.querySelector('input[aria-label^="Answer for card "]');
             if (!input) return false;
             input.focus();
             const end = input.value.length;
@@ -1801,6 +2100,83 @@ def focus_answer_field():
         }, 100);
         parentWindow.setTimeout(focusAnswer, 0);
     })();
+    </script>
+    """, height=1)
+
+
+def mount_inline_answer(slot_id, marker_id, input_label):
+    """Move the real Streamlit widget into the sentence blank.
+
+    Streamlit still owns the input and its ``on_change`` callback, so Enter
+    grades the answer normally.  The small DOM bridge only changes its visual
+    position and resizes it locally while typing; it never causes a rerun per
+    character.
+    """
+    components.html(f"""
+    <script>
+    (function() {{
+        const parentWindow = window.parent;
+        const slotId = {json.dumps(slot_id)};
+        const markerId = {json.dumps(marker_id)};
+        const inputLabel = {json.dumps(input_label)};
+        function resize(input) {{
+            const measure = parentWindow.document.createElement('span');
+            const style = parentWindow.getComputedStyle(input);
+            measure.style.position = 'absolute';
+            measure.style.visibility = 'hidden';
+            measure.style.whiteSpace = 'pre';
+            measure.style.font = style.font;
+            measure.textContent = input.value || '...';
+            parentWindow.document.body.appendChild(measure);
+            const width = Math.max(parseFloat(style.fontSize) * 1.25, measure.getBoundingClientRect().width + 5);
+            input.style.width = Math.ceil(width) + 'px';
+            measure.remove();
+        }}
+        function mount() {{
+            const slot = parentWindow.document.getElementById(slotId);
+            const marker = parentWindow.document.getElementById(markerId);
+            const input = parentWindow.document.querySelector('input[aria-label="' + inputLabel + '"]');
+            if (!slot || !marker || !input) return false;
+            const inputElement = input.closest('[data-testid="stElementContainer"]') || input.closest('[data-testid="stTextInput"]') || input;
+            const markerElement = marker.closest('[data-testid="stElementContainer"]');
+            if (markerElement) markerElement.style.display = 'none';
+            inputElement.classList.add('inline-answer-element');
+            input.classList.add('inline-answer-input');
+            function clearAnswerChrome(node) {{
+                if (!node) return;
+                node.style.setProperty('border', '0', 'important');
+                node.style.setProperty('border-width', '0', 'important');
+                node.style.setProperty('border-color', 'transparent', 'important');
+                node.style.setProperty('border-radius', '0', 'important');
+                node.style.setProperty('outline', '0', 'important');
+                node.style.setProperty('background', 'transparent', 'important');
+                node.style.setProperty('background-color', 'transparent', 'important');
+                node.style.setProperty('background-image', 'none', 'important');
+                node.style.setProperty('box-shadow', 'none', 'important');
+                node.style.setProperty('appearance', 'none', 'important');
+                node.style.setProperty('-webkit-appearance', 'none', 'important');
+                node.style.setProperty('color', 'inherit', 'important');
+                node.style.setProperty('-webkit-text-fill-color', 'inherit', 'important');
+            }}
+            [input, inputElement, input.closest('[data-baseweb="input"]'), input.closest('[data-baseweb="base-input"]'), input.closest('[data-testid="stTextInput"]')].forEach(clearAnswerChrome);
+            inputElement.querySelectorAll('*').forEach(clearAnswerChrome);
+            if (slot.firstElementChild !== inputElement) {{
+                slot.replaceChildren(inputElement);
+            }}
+            if (!input.dataset.inlineResizeBound) {{
+                input.dataset.inlineResizeBound = '1';
+                input.addEventListener('input', function() {{ resize(input); }});
+            }}
+            resize(input);
+            return true;
+        }}
+        let attempts = 0;
+        const timer = parentWindow.setInterval(function() {{
+            attempts += 1;
+            if (mount() || attempts >= 30) parentWindow.clearInterval(timer);
+        }}, 80);
+        parentWindow.setTimeout(mount, 0);
+    }})();
     </script>
     """, height=1)
 
@@ -1945,6 +2321,28 @@ def daily_lessons():
     """, (today(),))
 
 
+def _reward_once_in_transaction(connection, event_key, amount, created_at):
+    """Add one idempotent reward without opening another database transaction."""
+    if amount <= 0:
+        return
+    params = (event_key, amount, created_at)
+    if is_postgres_connection(connection):
+        inserted = connection.execute(
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cursor = connection.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = bool(getattr(cursor, "rowcount", 0))
+    if was_inserted:
+        connection.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
+
+
 def grade(card_id, result):
     current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
     if not current:
@@ -1974,11 +2372,26 @@ def grade(card_id, result):
         WHERE card_id=?
     """, (new_level, next_date, due_text, now, result, mistakes, active, card_id))
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
+    # Keep the review write, activity counter and both idempotent rewards in
+    # one database transaction.  The old path committed the review, opened a
+    # second reward transaction, then opened a third activity transaction and
+    # a fourth streak query; that made every Enter feel like a freeze on a
+    # remote PostgreSQL database.
+    day = today()
+    c.execute(
+        "INSERT OR IGNORE INTO study_activity(day,lessons,reviews,last_activity) VALUES(?,?,?,?)",
+        (day, 0, 0, now),
+    )
+    c.execute(
+        "UPDATE study_activity SET reviews=reviews+1, last_activity=? WHERE day=?",
+        (now, day),
+    )
+    _reward_once_in_transaction(c, f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result], now)
+    _reward_once_in_transaction(c, f"streak_bonus:{day}", 5, now)
     c.commit()
     c.close()
-    award_crystals(f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result])
-    record_activity("review")
-    st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
+    if result == "correct":
+        st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     st.session_state.pop(f"attempts_{card_id}", None)
     st.session_state.pop("wrong_feedback", None)
@@ -2037,24 +2450,34 @@ def open_review():
 
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
-    prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
+    nonce = st.session_state.get("review_nonce", 0)
+    answer_key = f"answer_{card['id']}_{nonce}"
+    slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
+    marker_id = f"inline_answer_marker_{card['id']}_{nonce}"
+    input_label = f"Answer for card {card['id']}"
+    blank = f'<span class="inline-answer-slot" id="{slot_id}">...</span>'
+    prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
+    answer_form = inferred_answer_form(card)
     st.markdown(
-        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
+        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div>{f"<div class='answer-form-note'>Required answer form: {escape(answer_form)}</div>" if answer_form else ""}</div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
         st.write(card["hint"])
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
-    answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
-    answer = st.text_input(
-        "Your answer",
-        key=answer_key,
-        on_change=check_answer,
-        args=(card["id"], answer_key),
-        placeholder="Type the complete Korean word + grammar form and press Enter",
-    )
+    with st.container():
+        st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
+        answer = st.text_input(
+            input_label,
+            key=answer_key,
+            on_change=check_answer,
+            args=(card["id"], answer_key),
+            placeholder="...",
+            label_visibility="collapsed",
+        )
+    mount_inline_answer(slot_id, marker_id, input_label)
     attempts = st.session_state.get(f"attempts_{card['id']}", 0)
     if st.session_state.get("wrong_feedback") == card["id"]:
         st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
@@ -2149,29 +2572,6 @@ def render_review_dialog():
 def page_dashboard():
     st.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
     st.title("Mochi Hangul")
-    face = active_item("face")
-    design = active_item("design")
-    character_id = setting("active_character", "")
-    character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
-    mascot = character["icon"] if character else face["icon"]
-    design_colors = {
-        "design_sakura": ("#ffdceb", "#ffeef7", "#fff8fc"),
-        "design_lavender": ("#e9e0ff", "#f2edff", "#f8f5ff"),
-        "design_peach": ("#ffe0c2", "#fff0df", "#fff8ef"),
-        "design_mint": ("#d6f4e9", "#effff8", "#f8fffc"),
-        "design_sky": ("#d7efff", "#effaff", "#f8fdff"),
-        "design_night": ("#d9d8f5", "#eeeefe", "#f8f7ff"),
-    }
-    color_a, color_b, color_c = design_colors.get(design["id"], ("#ffdceb", "#e9e0ff", "#dff7ff"))
-    st.markdown("""
-    <div class="chibi-hero" style="background:linear-gradient(110deg, COLOR_A, COLOR_B 58%, COLOR_C);">
-        <div class="chibi-face">MASCOT</div>
-        <div>
-            <div class="chibi-title">Welcome back, little learner!</div>
-            <div class="chibi-subtitle">A tiny step today = a big Korean win tomorrow ✨</div>
-        </div>
-    </div>
-    """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot), unsafe_allow_html=True)
     summary = one("""
         SELECT
           (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
@@ -2181,7 +2581,7 @@ def page_dashboard():
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(), today()))
+    """, (datetime.now().isoformat(timespec="seconds"), today()))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]
@@ -2286,13 +2686,8 @@ def render_review_contents():
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    st.markdown(
-        f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
-        unsafe_allow_html=True,
-    )
-    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
     st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
-        <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
+        <div class="review-progress-title"><span>{frame_icon} Today's progress</span><span>{completed} / {total} cards</span></div>
         <div class="review-progress-track">
             <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
@@ -2309,15 +2704,15 @@ def render_review_contents():
             user_answer = escape(str(st.session_state.get("result_user_answer", "")))
             answered_prompt = escape(str(result_card["prompt"])).replace(
                 "___",
-                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                f'''<span class="answer-result-value">{user_answer}</span>''',
                 1,
             )
             st.markdown(
-                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
                 unsafe_allow_html=True,
             )
             st.markdown(
-                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
+                f'''<div class="answer-results"><div>Your answer: <span class="answer-result-value">{user_answer}</span></div><div>Correct answer: <span class="answer-result-value">{escape(str(st.session_state.get("result_correct_answer", "")))}</span></div></div>''',
                 unsafe_allow_html=True,
             )
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
@@ -2549,7 +2944,7 @@ def page_shop():
                                 st.error("Not enough crystals yet.")
 
 
-bootstrap_app_data()
+bootstrap_app_data(CONTENT_SYNC_VERSION)
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
