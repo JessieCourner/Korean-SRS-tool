@@ -1079,14 +1079,19 @@ def verify_live_card_content():
             if not lesson:
                 mismatches.append((lesson_number, 0, "lesson_missing"))
                 continue
+            # ``retired`` is a scheduling/availability flag, not a content
+            # flag. Lessons that HTSK has not published yet (203–208) keep
+            # their seed cards in the database but are intentionally retired
+            # by sync_htsk_metadata(). Excluding them here made a valid
+            # database fail startup with a false card_missing/card_count
+            # mismatch. Verify the stored text for every seeded card;
+            # availability is handled separately by lesson/status queries.
             live_rows = c.execute(
                 """
                 SELECT cards.id, cards.seed_index, cards.prompt, cards.translation,
                        cards.answer, cards.hint, cards.explanation, cards.answer_form
                 FROM cards
-                LEFT JOIN reviews ON reviews.card_id=cards.id
                 WHERE cards.lesson_id=?
-                  AND COALESCE(reviews.retired, 0)=0
                   AND cards.seed_index IS NOT NULL
                 ORDER BY cards.seed_index, cards.id
                 """,
@@ -1126,7 +1131,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v18"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v19"
 
 
 def ensure_seed_bundle():
