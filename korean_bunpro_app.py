@@ -293,6 +293,7 @@ TRACKER_COLORS = {
     "tracker_rainbow": "#f0a6a6",
     "tracker_sakura": "#e8a7c5",
 }
+BTS_IMAGE_HTML_CACHE = {}
 
 # These are original in-app encouragements written for the chibi companions.
 # The two daily friends rotate through the requested pairs: Jimin with Jung
@@ -1148,7 +1149,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v22"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v24"
 
 
 def ensure_seed_bundle():
@@ -1316,6 +1317,9 @@ def learner_level():
 
 def daily_bts_message():
     """Select a deterministic daily two-member encouragement at the user level."""
+    cached = st.session_state.get("_daily_bts_message_cache")
+    if cached and cached.get("day") == today():
+        return cached["message"], cached["level"], cached["highest"]
     level, highest = learner_level()
     choices = [item for item in BTS_MOTIVATION if item["level"] == level]
     if not choices:
@@ -1332,6 +1336,12 @@ def daily_bts_message():
         en_member=en_member,
         en_icon=en_icon,
     )
+    st.session_state["_daily_bts_message_cache"] = {
+        "day": today(),
+        "message": choice,
+        "level": level,
+        "highest": highest,
+    }
     return choice, level, highest
 
 
@@ -1346,8 +1356,14 @@ def bts_character_image(member, fallback_icon):
     filename = BTS_ASSET_FILES.get(member)
     asset_path = BTS_ASSET_DIR / filename if filename else None
     if asset_path and asset_path.is_file():
+        cache_key = (member, asset_path.stat().st_mtime_ns, asset_path.stat().st_size)
+        cached = BTS_IMAGE_HTML_CACHE.get(cache_key)
+        if cached is not None:
+            return cached
         encoded = base64.b64encode(asset_path.read_bytes()).decode("ascii")
-        return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="Daily chibi character">'
+        cached = f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="Daily chibi character">'
+        BTS_IMAGE_HTML_CACHE[cache_key] = cached
+        return cached
     hair, outfit = BTS_VECTOR_PALETTE.get(member, ("#9276c9", "#5a477d"))
     skin = "#f4c7ad"
     return f'''<div class="bts-vector-fallback" role="img" aria-label="Daily chibi character">
@@ -1904,7 +1920,13 @@ def active_item(kind):
     key = f"active_{kind}"
     defaults = {"face": "face_bunny", "design": "design_lavender", "frame": "frame_sakura", "tracker": "tracker_mochi"}
     item_id = setting(key, defaults.get(kind, ""))
-    return one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+    cache = st.session_state.setdefault("_active_item_cache", {})
+    cache_key = (kind, item_id)
+    if cache_key in cache:
+        return cache[cache_key]
+    item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+    cache[cache_key] = item
+    return item
 
 
 def buy_or_activate(item_id):
@@ -1922,6 +1944,8 @@ def buy_or_activate(item_id):
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
     st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
+    st.session_state.setdefault("_active_item_cache", {}).pop((item["kind"], item_id), None)
+    st.session_state.pop("_daily_bts_message_cache", None)
     return True
 
 
@@ -2332,7 +2356,7 @@ def activate_lesson(lesson_id):
     record_activity("lesson")
     # If Review was opened earlier in the same browser session, discard its
     # old denominator so newly added cards appear immediately in the queue.
-    for key in ("review_total", "review_completed", "checked"):
+    for key in ("review_total", "review_completed", "checked", "_daily_bts_message_cache"):
         st.session_state.pop(key, None)
     return True
 
@@ -2779,8 +2803,6 @@ def render_review_contents():
     tracker = active_item("tracker")
     frame_icon = escape(frame["icon"] if frame else "🌸")
     tracker_icon = escape(tracker["icon"] if tracker else "🍡")
-    character = active_item("character")
-    character_icon = escape(character["icon"] if character else "🐰")
     frame_style = FRAME_STYLES.get(frame["id"] if frame else "frame_sakura", FRAME_STYLES["frame_sakura"])
     frame_border = frame_style["border"]
     frame_bg = frame_style["background"]
@@ -2819,32 +2841,34 @@ def render_review_contents():
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
-                # A button click already causes Streamlit to rerun.  Calling
-                # st.rerun() inside a dialog here can abort the fragment and
-                # produce the blank page seen after accepting an answer.
-            components.html("""
-                <script>
-                (function() {
-                    const win = window.parent;
-                    if (win.__mochiContinueHandler) {
-                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
-                    }
-                    win.__mochiContinueHandler = function(event) {
-                        if (event.key !== 'Enter' && event.key !== ' ') return;
-                        const buttons = Array.from(win.document.querySelectorAll('button'));
-                        const button = buttons.find((item) =>
-                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
-                        );
-                        if (!button) return;
-                        event.preventDefault();
-                        event.stopPropagation();
-                        button.click();
-                    };
-                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
-                })();
-                </script>
-            """, height=1)
-            return
+                # The button event has already caused this dialog fragment to
+                # rerun.  Continue directly into the next-card branch in this
+                # same pass instead of leaving the fragment with no content.
+                result_card_id = None
+            else:
+                components.html("""
+                    <script>
+                    (function() {
+                        const win = window.parent;
+                        if (win.__mochiContinueHandler) {
+                            win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
+                        }
+                        win.__mochiContinueHandler = function(event) {
+                            if (event.key !== 'Enter' && event.key !== ' ') return;
+                            const buttons = Array.from(win.document.querySelectorAll('button'));
+                            const button = buttons.find((item) =>
+                                (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                            );
+                            if (!button) return;
+                            event.preventDefault();
+                            event.stopPropagation();
+                            button.click();
+                        };
+                        win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
+                    })();
+                    </script>
+                """, height=1)
+                return
 
     retry_id = st.session_state.get("retry_card_id")
     due = None
@@ -2896,12 +2920,10 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
-        render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
-        render_bts_motivation(in_dialog=True)
         render_review_contents()
 else:
     lesson_dialog = None
