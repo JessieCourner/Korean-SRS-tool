@@ -420,6 +420,8 @@ st.markdown("""
     .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
     .inline-answer-slot {display:inline-block; vertical-align:baseline; width:1.25em; min-width:1.25em; min-height:1.15em; text-align:left; white-space:pre;}
     .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
+    .inline-answer-element[data-testid="stTextInput"], .inline-answer-element[data-baseweb="base-input"] {display:inline-flex !important; align-items:baseline !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline !important;}
+    .inline-answer-element[data-testid="stTextInput"] > div, .inline-answer-element[data-baseweb="base-input"] > div {display:inline-flex !important; align-items:baseline !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element label, .inline-answer-element [data-testid="InputInstructions"] {display:none !important;}
@@ -427,6 +429,8 @@ st.markdown("""
     .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 .06em .04em !important; font:inherit !important; line-height:1.3 !important; text-align:left; appearance:none !important; -webkit-appearance:none !important;}
     .inline-answer-element:focus-within, .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; border-color:transparent !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important;}
     .inline-answer-element input::placeholder, input.inline-answer-input::placeholder, input[aria-label^="Answer for card "]::placeholder {color:inherit !important; -webkit-text-fill-color:inherit !important; opacity:1 !important;}
+    [data-testid="stForm"].review-answer-form, [data-testid="stForm"] {border:0 !important; background:transparent !important; padding:0 !important;}
+    [data-testid="stForm"] [data-testid="stFormSubmitButton"] {display:none !important; height:0 !important; min-height:0 !important; margin:0 !important; padding:0 !important; overflow:hidden !important;}
     .answer-widget-marker {display:none !important;}
     .answer-results {padding:8px 0; color:#514064; text-align:center; font-size:1.05rem; line-height:1.8;}
     .answer-results .answer-result-value {color:#4f3d64; font-weight:800;}
@@ -1151,7 +1155,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v26"
+CONTENT_SYNC_VERSION = "2026-10-02-cards-content-ui-content-v28"
 
 
 def ensure_seed_bundle():
@@ -2016,6 +2020,8 @@ def inferred_answer_form(card):
         return "Polite conversational form (-요)"
     if re.search(r"(?:거야|잖아|거든|구나|군|네|자|라|까|어|아|야)$", answer):
         return "Informal/plain conversational form"
+    if re.search(r"(?:는다|ㄴ다|다)$", answer):
+        return "Informal/plain written form (-다)"
     return ""
 
 
@@ -2295,7 +2301,10 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             const input = parentWindow.document.querySelector('input[aria-label="' + inputLabel + '"]');
             if (!slot || !marker || !input) return false;
             const prompt = slot.closest('.review-prompt');
-            const inputElement = input.closest('[data-testid="stElementContainer"]') || input.closest('[data-testid="stTextInput"]') || input;
+            // Position the actual text-input block, not the larger Streamlit
+            // element container that also carries vertical spacing. Using
+            // the outer container made the answer appear above the sentence.
+            const inputElement = input.closest('[data-testid="stTextInput"]') || input.closest('[data-baseweb="base-input"]') || input.closest('[data-testid="stElementContainer"]') || input;
             const markerElement = marker.closest('[data-testid="stElementContainer"]');
             if (markerElement) markerElement.style.display = 'none';
             inputElement.classList.add('inline-answer-element');
@@ -2320,7 +2329,9 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             inputElement.querySelectorAll('*').forEach(clearAnswerChrome);
             // Do not move or replace the widget node. Streamlit's frontend
             // reconciler expects this element to remain under its own block.
-            inputElement.style.setProperty('display', 'block', 'important');
+            inputElement.style.setProperty('display', 'inline-flex', 'important');
+            inputElement.style.setProperty('align-items', 'baseline', 'important');
+            inputElement.style.setProperty('vertical-align', 'baseline', 'important');
             inputElement.style.setProperty('visibility', 'visible', 'important');
             if (!input.dataset.inlineResizeBound) {{
                 input.dataset.inlineResizeBound = '1';
@@ -2571,8 +2582,11 @@ def grade(card_id, result):
     _reward_once_in_transaction(c, f"streak_bonus:{day}", 5, now)
     c.commit()
     c.close()
-    if result == "correct":
-        st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
+    # Both a correct and an incorrect submission finish this card in the
+    # current Review queue. An incorrect card gets a later due_at timestamp;
+    # it is not rendered again immediately and is not counted as an extra
+    # attempt.
+    st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
     # Remove keys from older deployed versions so a warm browser session
     # cannot resurrect the old retry UI after this build is loaded.
@@ -2639,27 +2653,35 @@ def render_card(card):
     slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
     marker_id = f"inline_answer_marker_{card['id']}_{nonce}"
     input_label = f"Answer for card {card['id']}"
+    form_key = f"review_answer_form_{card['id']}_{nonce}"
+    submit_key = f"submit_answer_{card['id']}_{nonce}"
     blank = f'<span class="inline-answer-slot" id="{slot_id}"></span>'
     prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
-    answer_form = inferred_answer_form(card)
+    answer_form = inferred_answer_form(card) or "No speech-level ending — match the sentence context"
     st.markdown(
-        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div>{f"<div class='answer-form-note'>Required answer form: {escape(answer_form)}</div>" if answer_form else ""}</div>''',
+        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div><div class='answer-form-note'>Required answer form: {escape(answer_form)}</div></div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
         st.write(card["hint"])
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
-    with st.container():
+    with st.form(key=form_key, clear_on_submit=False):
         st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
-        answer = st.text_input(
+        st.text_input(
             input_label,
             key=answer_key,
-            on_change=check_answer,
-            args=(card["id"], answer_key),
             placeholder="...",
             label_visibility="collapsed",
+        )
+        # A form batches the widget value. The callback therefore runs only
+        # when Enter submits the form, never when a hint expander steals focus.
+        st.form_submit_button(
+            "Submit",
+            key=submit_key,
+            on_click=check_answer,
+            args=(card["id"], answer_key),
         )
     mount_inline_answer(slot_id, marker_id, input_label)
     focus_answer_field()
@@ -2741,15 +2763,15 @@ def render_lesson_dialog(lesson_id, daily=False):
 
 
 def render_review_dialog():
-    """Render Review as a stable full-page view.
-
-    Review used to be put inside ``st.dialog``. That makes every answer a
-    fragment rerun, and a DOM-positioned text input can leave the page empty
-    when Streamlit reconciles the fragment. The Review layout itself is
-    unchanged; only the unstable native dialog wrapper is removed.
-    """
-    st.markdown('<div class="review-page-heading">✨ <span>Review</span></div>', unsafe_allow_html=True)
-    render_review_contents()
+    """Open Review as one dedicated window containing one current card."""
+    if review_dialog is not None:
+        review_dialog()
+        return
+    # Compatibility fallback for Streamlit versions without st.dialog.
+    review_placeholder = st.empty()
+    with review_placeholder.container():
+        st.markdown('<div class="review-page-heading">✨ <span>Review</span></div>', unsafe_allow_html=True)
+        render_review_contents()
 
 
 def page_dashboard():
@@ -2849,7 +2871,7 @@ def page_dashboard():
 
 
 def render_review_contents():
-    """Render the Review experience in the stable full-page view."""
+    """Render exactly one Review card inside the dedicated Review window."""
     if "review_total" not in st.session_state:
         remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.due_at<=? OR (reviews.due_at IS NULL AND (reviews.next_review<=? OR reviews.last_review IS NULL))) AND lessons.status IN ('available','studying')", (datetime.now().isoformat(timespec='seconds'), today()))["n"]
         st.session_state["review_total"] = remaining
@@ -2899,10 +2921,11 @@ def render_review_contents():
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
-                # The button event has already caused this dialog fragment to
-                # rerun.  Continue directly into the next-card branch in this
-                # same pass instead of leaving the fragment with no content.
-                result_card_id = None
+                # Do not render the old result and the next card in one
+                # Streamlit run. That was the source of cards appearing one
+                # below another. A clean full-page rerun leaves exactly one
+                # current card in the Review view.
+                st.rerun()
             else:
                 components.html("""
                     <script>
@@ -2970,8 +2993,16 @@ if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
         lesson_preview(lesson_id, daily)
+
+    @st.dialog("✨ Review", width="large")
+    def review_dialog():
+        # The dialog contains only the progress bar, result/current card and
+        # one Continue action. The old result is cleared with st.rerun()
+        # before the next card is selected, so cards never stack vertically.
+        render_review_contents()
 else:
     lesson_dialog = None
+    review_dialog = None
 
 
 def page_lessons():
