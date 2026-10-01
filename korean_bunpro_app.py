@@ -408,6 +408,7 @@ st.markdown("""
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
     .progress-mascot {position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:left .35s ease, transform .15s ease;}
+    .review-page-heading {margin:2px 0 18px; color:#4f3d64; font-size:clamp(1.55rem,3vw,2rem); font-weight:900; line-height:1.2;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
@@ -1149,7 +1150,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v24"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v25"
 
 
 def ensure_seed_bundle():
@@ -2205,7 +2206,8 @@ def focus_answer_field():
     (function() {
         const parentWindow = window.parent;
         function focusAnswer() {
-            const input = parentWindow.document.querySelector('input[aria-label^="Answer for card "]');
+            const inputs = Array.from(parentWindow.document.querySelectorAll('input[aria-label^="Answer for card "]'));
+            const input = inputs.filter((item) => item.isConnected && item.getClientRects().length).at(-1);
             if (!input) return false;
             input.focus();
             const end = input.value.length;
@@ -2226,12 +2228,14 @@ def focus_answer_field():
 
 
 def mount_inline_answer(slot_id, marker_id, input_label):
-    """Move the real Streamlit widget into the sentence blank.
+    """Visually place the real Streamlit widget over the sentence blank.
 
-    Streamlit still owns the input and its ``on_change`` callback, so Enter
-    grades the answer normally.  The small DOM bridge only changes its visual
-    position and resizes it locally while typing; it never causes a rerun per
-    character.
+    Streamlit must keep ownership of the widget DOM. Reparenting a native
+    Streamlit input into an HTML markdown span makes the next rerun unstable,
+    especially when a dialog fragment is involved. The bridge therefore
+    leaves the widget in its original Streamlit container and positions that
+    container over the blank with ``position: fixed``. Enter still goes
+    through the normal ``on_change`` callback and typing remains local.
     """
     components.html(f"""
     <script>
@@ -2252,6 +2256,21 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             const width = Math.max(parseFloat(style.fontSize) * 1.25, measure.getBoundingClientRect().width + 5);
             input.style.width = Math.ceil(width) + 'px';
             measure.remove();
+        }}
+        function position(input, inputElement, slot) {{
+            const rect = slot.getBoundingClientRect();
+            if (!rect.width && !rect.height) return;
+            inputElement.style.setProperty('position', 'fixed', 'important');
+            inputElement.style.setProperty('left', Math.round(rect.left) + 'px', 'important');
+            inputElement.style.setProperty('top', Math.round(rect.top) + 'px', 'important');
+            inputElement.style.setProperty('width', 'max-content', 'important');
+            inputElement.style.setProperty('min-width', '0', 'important');
+            inputElement.style.setProperty('margin', '0', 'important');
+            inputElement.style.setProperty('padding', '0', 'important');
+            inputElement.style.setProperty('z-index', '2147483645', 'important');
+            inputElement.style.setProperty('pointer-events', 'auto', 'important');
+            inputElement.style.setProperty('background', 'transparent', 'important');
+            inputElement.style.setProperty('height', Math.max(24, Math.ceil(rect.height)) + 'px', 'important');
         }}
         function mount() {{
             const slot = parentWindow.document.getElementById(slotId);
@@ -2281,14 +2300,32 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             }}
             [input, inputElement, input.closest('[data-baseweb="input"]'), input.closest('[data-baseweb="base-input"]'), input.closest('[data-testid="stTextInput"]')].forEach(clearAnswerChrome);
             inputElement.querySelectorAll('*').forEach(clearAnswerChrome);
-            if (slot.firstElementChild !== inputElement) {{
-                slot.replaceChildren(inputElement);
-            }}
+            // Do not move or replace the widget node. Streamlit's frontend
+            // reconciler expects this element to remain under its own block.
+            inputElement.style.setProperty('display', 'block', 'important');
+            inputElement.style.setProperty('visibility', 'visible', 'important');
             if (!input.dataset.inlineResizeBound) {{
                 input.dataset.inlineResizeBound = '1';
-                input.addEventListener('input', function() {{ resize(input); }});
+                input.addEventListener('input', function() {{
+                    resize(input);
+                    position(input, inputElement, slot);
+                }});
             }}
             resize(input);
+            position(input, inputElement, slot);
+            const registry = parentWindow.__mochiInlineAnswerRegistry || (parentWindow.__mochiInlineAnswerRegistry = {{}});
+            const oldBinding = registry[slotId];
+            if (oldBinding) {{
+                parentWindow.removeEventListener('resize', oldBinding);
+                parentWindow.removeEventListener('scroll', oldBinding, true);
+            }}
+            const binding = function() {{
+                if (!input.isConnected || !slot.isConnected) return;
+                position(input, inputElement, slot);
+            }};
+            registry[slotId] = binding;
+            parentWindow.addEventListener('resize', binding, {{passive:true}});
+            parentWindow.addEventListener('scroll', binding, {{passive:true, capture:true}});
             return true;
         }}
         let attempts = 0;
@@ -2687,11 +2724,15 @@ def render_lesson_dialog(lesson_id, daily=False):
 
 
 def render_review_dialog():
-    """Open Review as a large internal modal, with an inline fallback."""
-    if hasattr(st, "dialog"):
-        review_dialog()
-    else:
-        render_review_contents()
+    """Render Review as a stable full-page view.
+
+    Review used to be put inside ``st.dialog``. That makes every answer a
+    fragment rerun, and a DOM-positioned text input can leave the page empty
+    when Streamlit reconciles the fragment. The Review layout itself is
+    unchanged; only the unstable native dialog wrapper is removed.
+    """
+    st.markdown('<div class="review-page-heading">✨ <span>Review</span></div>', unsafe_allow_html=True)
+    render_review_contents()
 
 
 def page_dashboard():
@@ -2791,7 +2832,7 @@ def page_dashboard():
 
 
 def render_review_contents():
-    """Render the Review experience inside the app's full-screen dialog."""
+    """Render the Review experience in the stable full-page view."""
     if "review_total" not in st.session_state:
         remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.due_at<=? OR (reviews.due_at IS NULL AND (reviews.next_review<=? OR reviews.last_review IS NULL))) AND lessons.status IN ('available','studying')", (datetime.now().isoformat(timespec='seconds'), today()))["n"]
         st.session_state["review_total"] = remaining
@@ -2921,13 +2962,8 @@ if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
         lesson_preview(lesson_id, daily)
-
-    @st.dialog("✨ Review", width="large")
-    def review_dialog():
-        render_review_contents()
 else:
     lesson_dialog = None
-    review_dialog = None
 
 
 def page_lessons():
