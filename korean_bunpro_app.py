@@ -792,11 +792,20 @@ def import_seed_once():
         return
     c = db()
     lock_bootstrap(c)
-    if c.execute("SELECT COUNT(*) FROM lessons").fetchone()[0] > 0:
-        c.close()
-        return
     data = json.loads(SEED_PATH.read_text(encoding="utf-8"))
     for lesson in data["lessons"]:
+        # An older deployment could already contain Unit 2+ while never
+        # importing the completed foundation lessons 0–25. A database that
+        # contains any lesson is therefore not proof that this seed pack is
+        # complete. Add only missing lesson numbers; existing lessons and
+        # their review history remain untouched and are refreshed by the
+        # content sync below.
+        existing = c.execute(
+            "SELECT id FROM lessons WHERE lesson_number=?",
+            (lesson["lesson_number"],),
+        ).fetchone()
+        if existing:
+            continue
         cur = c.execute("""
             INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
             VALUES(?,?,?,?,?,?,?)
@@ -1131,7 +1140,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v19"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v20"
 
 
 def ensure_seed_bundle():
