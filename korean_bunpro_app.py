@@ -217,7 +217,8 @@ INCOMPLETE_GRAMMAR_TAILS = frozenset({
     "듯하다", "듯해", "듯해요", "요",
 })
 # Bunpro-style review ladder. The level is the current consecutive-correct
-# streak. A wrong answer drops one level; the same card stays for retry.
+# streak. Each submitted answer is graded once; there is no local attempt
+# counter and a failed card is not held on screen for another try.
 BUNPRO_INTERVALS = {
     0: timedelta(hours=4), 1: timedelta(hours=8), 2: timedelta(days=1),
     3: timedelta(days=2), 4: timedelta(days=4), 5: timedelta(days=8),
@@ -417,7 +418,7 @@ st.markdown("""
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
     .review-question-paper .review-translation {margin-top:8px; color:#654b78; font-family:"Aptos","Segoe UI",sans-serif; font-size:clamp(.98rem,2.2vw,1.08rem); font-weight:500; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
     .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
-    .inline-answer-slot {display:inline-flex; align-items:baseline; vertical-align:baseline; min-width:1.25em; min-height:1.15em; text-align:left;}
+    .inline-answer-slot {display:inline-block; vertical-align:baseline; width:1.25em; min-width:1.25em; min-height:1.15em; text-align:left; white-space:pre;}
     .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
     .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
     .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
@@ -1150,7 +1151,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v25"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v26"
 
 
 def ensure_seed_bundle():
@@ -1771,7 +1772,10 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v6";
+            // Force one clean binding after deployments that loaded an older
+            // controller; otherwise an old page can keep the non-draggable
+            // handlers alive until the browser is manually refreshed.
+            const dragControllerVersion = "drag-v7";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -2146,10 +2150,12 @@ def answer_is_correct(user, answer):
 
 
 def check_answer(card_id, answer_key):
-    """Automatically grade a card from the number of attempts.
+    """Grade one submitted answer exactly once and advance to the next card.
 
-    A wrong answer lowers the Bunpro streak once and keeps the same card on
-    screen. The next correct answer confirms the retry and keeps that level.
+    Bunpro's review level is stored on the card, not inferred from how many
+    times the learner typed into the same widget.  A correct submission moves
+    the level up and an incorrect submission moves it down; both submissions
+    finish the card in the current Review queue.
     """
     # The current card was already loaded for rendering.  Reusing its answer
     # removes one network round-trip on every Enter press against Supabase.
@@ -2161,42 +2167,14 @@ def check_answer(card_id, answer_key):
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
-    attempt_key = f"attempts_{card_id}"
-    attempts = st.session_state.get(attempt_key, 0) + 1
-    st.session_state[attempt_key] = attempts
-    if answer_is_correct(user_answer, card["answer"]):
-        had_wrong_attempt = st.session_state.pop(f"wrong_graded_{card_id}", False)
-        st.session_state.pop("retry_card_id", None)
-        result = "incorrect → correct" if had_wrong_attempt else "correct"
-        st.session_state["result_card_id"] = card_id
-        st.session_state["result_user_answer"] = user_answer
-        st.session_state["result_correct_answer"] = card["answer"]
-        st.session_state["result_grade"] = result
-        if not had_wrong_attempt:
-            grade(card_id, "correct")
-        else:
-            # The first wrong attempt already moved the card down, but the
-            # card is counted as completed only after the retry is correct.
-            st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
-            st.session_state.pop(attempt_key, None)
-            st.session_state.pop("wrong_feedback", None)
-            # The result screen hides the input.  Give the next card a fresh
-            # widget key when Continue is pressed, including this retry path.
-            st.session_state["review_nonce"] = st.session_state.get("review_nonce", 0) + 1
-        # This function is a Streamlit on_change callback.  Streamlit already
-        # schedules the rerun after the callback returns.  Calling st.rerun()
-        # here as well can interrupt a dialog fragment and leave the browser
-        # on a blank page after an accepted answer.
-    else:
-        if not st.session_state.get(f"wrong_graded_{card_id}"):
-            grade(card_id, "incorrect")
-            st.session_state[f"wrong_graded_{card_id}"] = True
-        st.session_state["retry_card_id"] = card_id
-        st.session_state["wrong_feedback"] = card_id
-        # grade() increments review_nonce, so the next automatic rerun gets a
-        # new widget key.  Do not mutate the current widget's value from its
-        # own callback; Streamlit can reject that mutation or trigger a
-        # second rerun.
+    result = "correct" if answer_is_correct(user_answer, card["answer"]) else "incorrect"
+    st.session_state["result_card_id"] = card_id
+    st.session_state["result_user_answer"] = user_answer
+    st.session_state["result_correct_answer"] = card["answer"]
+    st.session_state["result_grade"] = result
+    # grade() performs the single SRS update and advances the queue.  The
+    # callback returns normally so Streamlit performs one ordinary rerun.
+    grade(card_id, result)
 
 
 def focus_answer_field():
@@ -2244,39 +2222,79 @@ def mount_inline_answer(slot_id, marker_id, input_label):
         const slotId = {json.dumps(slot_id)};
         const markerId = {json.dumps(marker_id)};
         const inputLabel = {json.dumps(input_label)};
-        function resize(input) {{
+        function copyPromptFont(node, style) {{
+            if (!node) return;
+            [
+                ['font-family', style.fontFamily],
+                ['font-size', style.fontSize],
+                ['font-weight', style.fontWeight],
+                ['font-style', style.fontStyle],
+                ['font-variant', style.fontVariant],
+                ['line-height', style.lineHeight],
+                ['letter-spacing', style.letterSpacing],
+                ['color', style.color],
+                ['-webkit-text-fill-color', style.color],
+            ].forEach(function(pair) {{
+                if (pair[1]) node.style.setProperty(pair[0], pair[1], 'important');
+            }});
+        }}
+        function lineHeightPx(style) {{
+            const size = parseFloat(style.fontSize) || 16;
+            if (style.lineHeight && style.lineHeight !== 'normal') {{
+                const value = parseFloat(style.lineHeight);
+                if (Number.isFinite(value)) return value;
+            }}
+            return size * 1.45;
+        }}
+        function syncGeometry(input, inputElement, slot, prompt) {{
+            if (!input || !inputElement || !slot) return;
+            const promptStyle = parentWindow.getComputedStyle(prompt || input);
+            copyPromptFont(input, promptStyle);
+            copyPromptFont(inputElement, promptStyle);
             const measure = parentWindow.document.createElement('span');
-            const style = parentWindow.getComputedStyle(input);
             measure.style.position = 'absolute';
             measure.style.visibility = 'hidden';
             measure.style.whiteSpace = 'pre';
-            measure.style.font = style.font;
-            measure.textContent = input.value || '...';
+            copyPromptFont(measure, promptStyle);
+            measure.textContent = input.value || input.placeholder || '...';
             parentWindow.document.body.appendChild(measure);
-            const width = Math.max(parseFloat(style.fontSize) * 1.25, measure.getBoundingClientRect().width + 5);
-            input.style.width = Math.ceil(width) + 'px';
+            const minimum = (parseFloat(promptStyle.fontSize) || 16) * 1.25;
+            const width = Math.max(minimum, measure.getBoundingClientRect().width + 6);
+            const widthText = Math.ceil(width) + 'px';
+            // The blank is a real inline box in the Korean sentence. Its
+            // width changes with the value, so the complete sentence remains
+            // centered and never runs underneath the answer text.
+            slot.style.setProperty('display', 'inline-block', 'important');
+            slot.style.setProperty('width', widthText, 'important');
+            slot.style.setProperty('min-width', widthText, 'important');
+            slot.style.setProperty('height', Math.ceil(lineHeightPx(promptStyle)) + 'px', 'important');
+            input.style.setProperty('width', widthText, 'important');
+            input.style.setProperty('height', Math.ceil(lineHeightPx(promptStyle)) + 'px', 'important');
+            input.style.setProperty('padding', '0 0.06em 0.04em', 'important');
             measure.remove();
         }}
         function position(input, inputElement, slot) {{
             const rect = slot.getBoundingClientRect();
             if (!rect.width && !rect.height) return;
+            const height = Math.max(24, Math.ceil(rect.height));
             inputElement.style.setProperty('position', 'fixed', 'important');
             inputElement.style.setProperty('left', Math.round(rect.left) + 'px', 'important');
-            inputElement.style.setProperty('top', Math.round(rect.top) + 'px', 'important');
-            inputElement.style.setProperty('width', 'max-content', 'important');
+            inputElement.style.setProperty('top', Math.round(rect.top + Math.max(0, (rect.height - height) / 2)) + 'px', 'important');
+            inputElement.style.setProperty('width', Math.ceil(rect.width) + 'px', 'important');
             inputElement.style.setProperty('min-width', '0', 'important');
             inputElement.style.setProperty('margin', '0', 'important');
             inputElement.style.setProperty('padding', '0', 'important');
             inputElement.style.setProperty('z-index', '2147483645', 'important');
             inputElement.style.setProperty('pointer-events', 'auto', 'important');
             inputElement.style.setProperty('background', 'transparent', 'important');
-            inputElement.style.setProperty('height', Math.max(24, Math.ceil(rect.height)) + 'px', 'important');
+            inputElement.style.setProperty('height', height + 'px', 'important');
         }}
         function mount() {{
             const slot = parentWindow.document.getElementById(slotId);
             const marker = parentWindow.document.getElementById(markerId);
             const input = parentWindow.document.querySelector('input[aria-label="' + inputLabel + '"]');
             if (!slot || !marker || !input) return false;
+            const prompt = slot.closest('.review-prompt');
             const inputElement = input.closest('[data-testid="stElementContainer"]') || input.closest('[data-testid="stTextInput"]') || input;
             const markerElement = marker.closest('[data-testid="stElementContainer"]');
             if (markerElement) markerElement.style.display = 'none';
@@ -2307,11 +2325,11 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             if (!input.dataset.inlineResizeBound) {{
                 input.dataset.inlineResizeBound = '1';
                 input.addEventListener('input', function() {{
-                    resize(input);
+                    syncGeometry(input, inputElement, slot, prompt);
                     position(input, inputElement, slot);
                 }});
             }}
-            resize(input);
+            syncGeometry(input, inputElement, slot, prompt);
             position(input, inputElement, slot);
             const registry = parentWindow.__mochiInlineAnswerRegistry || (parentWindow.__mochiInlineAnswerRegistry = {{}});
             const oldBinding = registry[slotId];
@@ -2321,6 +2339,7 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             }}
             const binding = function() {{
                 if (!input.isConnected || !slot.isConnected) return;
+                syncGeometry(input, inputElement, slot, prompt);
                 position(input, inputElement, slot);
             }};
             registry[slotId] = binding;
@@ -2555,7 +2574,10 @@ def grade(card_id, result):
     if result == "correct":
         st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
     st.session_state.pop("checked", None)
+    # Remove keys from older deployed versions so a warm browser session
+    # cannot resurrect the old retry UI after this build is loaded.
     st.session_state.pop(f"attempts_{card_id}", None)
+    st.session_state.pop(f"wrong_graded_{card_id}", None)
     st.session_state.pop("wrong_feedback", None)
     st.session_state.pop(f"revealed_answer_{card_id}", None)
     # A widget key cannot be changed after the widget is created in the
@@ -2617,7 +2639,7 @@ def render_card(card):
     slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
     marker_id = f"inline_answer_marker_{card['id']}_{nonce}"
     input_label = f"Answer for card {card['id']}"
-    blank = f'<span class="inline-answer-slot" id="{slot_id}">...</span>'
+    blank = f'<span class="inline-answer-slot" id="{slot_id}"></span>'
     prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
     answer_form = inferred_answer_form(card)
@@ -2640,11 +2662,6 @@ def render_card(card):
             label_visibility="collapsed",
         )
     mount_inline_answer(slot_id, marker_id, input_label)
-    attempts = st.session_state.get(f"attempts_{card['id']}", 0)
-    if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
-    elif attempts:
-        st.caption(f"Attempts: {attempts}. Enter your answer again.")
     focus_answer_field()
 
 
@@ -2911,21 +2928,12 @@ def render_review_contents():
                 """, height=1)
                 return
 
-    retry_id = st.session_state.get("retry_card_id")
-    due = None
-    if retry_id:
-        due = one("""
-            SELECT cards.*, lessons.title AS lesson_title, lessons.pattern,
-                   reviews.level, reviews.next_review, reviews.due_at, reviews.last_review
-            FROM cards
-            JOIN lessons ON lessons.id=cards.lesson_id
-            JOIN reviews ON reviews.card_id=cards.id
-            WHERE cards.id=? AND reviews.active=1 AND reviews.retired=0
-        """, (retry_id,))
-        if not due:
-            st.session_state.pop("retry_card_id", None)
-    if not due:
-        due = next_due_card()
+    # Older sessions may still contain the retry marker.  It must never
+    # override the normal due-card rotation: every submitted answer finishes
+    # the current card and the next render selects the next due card.
+    st.session_state.pop("retry_card_id", None)
+    st.session_state.pop("wrong_feedback", None)
+    due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
         if st.button("← Close Review", key="close_review_modal_empty", use_container_width=True):
