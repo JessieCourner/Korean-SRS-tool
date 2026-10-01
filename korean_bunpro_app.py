@@ -77,6 +77,14 @@ class PostgresCursor:
             # immediately so the next button click can still work.
             self.connection.raw.rollback()
             raise
+        # Bootstrap runs a deliberately large, single migration transaction
+        # (all lesson/card packs must be synchronized together).  Mark the
+        # connection as active after every successful statement so the
+        # liveness guard cannot mistake that long transaction for an idle
+        # socket and reconnect halfway through it.  Reconnecting there would
+        # roll back the first lessons and make verify_live_card_content report
+        # a misleading card_missing error.
+        self.connection.last_used = time.monotonic()
         return self
 
     def executescript(self, sql):
@@ -1140,7 +1148,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v20"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v21"
 
 
 def ensure_seed_bundle():
