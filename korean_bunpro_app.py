@@ -872,23 +872,42 @@ def _card_content_key(value):
 def _match_seed_cards(existing_rows, seed_cards):
     """Match seed cards to old rows before changing any card text.
 
-    Card IDs are database history, not content identity: old deployments could
-    insert a repaired card later or use a different order.  The translation is
-    stable across the content repair and is unique within these lesson packs;
-    position is used only as a controlled fallback for a genuinely new or
-    translated card.
+    Card IDs are database history, not content identity.  Once a database has
+    a ``seed_index``, that position is the authoritative identity inside a
+    lesson.  Older databases do not have it, so their translation is used as
+    the first migration key and position is the final controlled fallback.
+    Matching by position first on already-migrated rows is important: a
+    corrected card can legitimately have the same translation as another card
+    or a translation can change while the learner's SRS row must remain.
     """
+    by_seed_index = {}
+    for row in existing_rows:
+        value = row["seed_index"]
+        if value is None:
+            continue
+        try:
+            value = int(value)
+        except (TypeError, ValueError):
+            continue
+        by_seed_index.setdefault(value, []).append(row)
+
     by_translation = {}
     for row in existing_rows:
         by_translation.setdefault(_card_content_key(row["translation"]), []).append(row)
     unused_ids = {row["id"] for row in existing_rows}
     matches = []
     for index, seed_card in enumerate(seed_cards):
-        translation_key = _card_content_key(seed_card.get("translation", ""))
+        seed_position = index + 1
         candidate = next(
-            (row for row in by_translation.get(translation_key, []) if row["id"] in unused_ids),
+            (row for row in by_seed_index.get(seed_position, []) if row["id"] in unused_ids),
             None,
         )
+        if candidate is None:
+            translation_key = _card_content_key(seed_card.get("translation", ""))
+            candidate = next(
+                (row for row in by_translation.get(translation_key, []) if row["id"] in unused_ids),
+                None,
+            )
         if candidate is None:
             candidate = next(
                 (row for row in existing_rows if row["id"] in unused_ids),
@@ -1107,7 +1126,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v17"
+CONTENT_SYNC_VERSION = "2026-10-01-cards-content-ui-content-v18"
 
 
 def ensure_seed_bundle():
