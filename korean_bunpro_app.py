@@ -1155,7 +1155,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-02-cards-content-ui-content-v31"
+CONTENT_SYNC_VERSION = "2026-10-02-cards-content-ui-content-v32"
 
 
 def ensure_seed_bundle():
@@ -2289,6 +2289,11 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             input.style.setProperty('padding', '0', 'important');
             input.style.setProperty('line-height', lineHeightText, 'important');
             input.style.setProperty('vertical-align', 'baseline', 'important');
+            // BaseWeb centers the glyph inside its input box a little above
+            // the surrounding Korean baseline. A tiny optical correction
+            // keeps the typed answer level with the sentence without adding
+            // a border, background, or extra layout line.
+            input.style.setProperty('transform', 'translateY(0.08em)', 'important');
             inputElement.style.setProperty('height', lineHeightText, 'important');
             inputElement.querySelectorAll('div').forEach(function(node) {{
                 node.style.setProperty('height', lineHeightText, 'important');
