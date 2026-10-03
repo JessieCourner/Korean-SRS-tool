@@ -1901,7 +1901,7 @@
           "answer": "어느 책이 좋아요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "어느 책이 좋아요?"
         },
         {
@@ -1919,7 +1919,7 @@
           "answer": "몇 명의 사람이 왔어요?",
           "hint": "Base form: 몇",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "몇 명의 사람이 왔어요?"
         },
         {
@@ -1928,7 +1928,7 @@
           "answer": "어느 영화를 좋아해요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "",
+          "answer_form": "Polite conversational form (-요)",
           "source_sentence": "어느 영화를 좋아해요?"
         }
       ]

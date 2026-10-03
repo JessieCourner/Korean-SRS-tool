@@ -1,8 +1,9 @@
 # Mochi Hangul
 
-## v34
+## v36
 
-- Lowered the transparent inline answer text by 12px so typed text sits on the same baseline as the Korean sentence.
+- Positions the entire transparent inline answer widget 10px lower so typed text sits on the same baseline as the Korean sentence after Streamlit reruns.
+- Replaces lesson-card explanation placeholders with the lesson's actual grammar explanation, and keeps the required answer form visible on both the active card and the graded result.
 
 A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-room theme, based on the lesson structure of How to Study Korean.
 

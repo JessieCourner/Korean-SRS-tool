@@ -1155,7 +1155,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-02-cards-content-ui-content-v33"
+CONTENT_SYNC_VERSION = "2026-10-03-forms-explanations-v36"
 
 
 def ensure_seed_bundle():
@@ -2001,28 +2001,15 @@ def normalize(text):
 
 
 def inferred_answer_form(card):
-    """Return a safe speech-level hint when a legacy card omitted one.
+    """Return only the form explicitly assigned to this card.
 
-    The seed's explicit label always wins. For older cards, only endings
-    whose speech level is unambiguous are inferred; grammar-only endings such
-    as -고 or -는지 remain unlabeled instead of guessing.
+    A Korean answer can end in a grammar connector, noun phrase, particle,
+    or modifier, so guessing a speech level from the final syllables can
+    mislabel embedded answers (for example, a comparative phrase ending in
+    보다). The checked lesson data supplies labels only where a speech level
+    or special register is actually required.
     """
-    explicit = normalize(card["answer_form"] if "answer_form" in card.keys() else "")
-    if explicit:
-        return explicit
-    answer = normalize(card["answer"] if "answer" in card.keys() else "")
-    answer = re.sub(r"[.!?。！？]+$", "", answer).strip()
-    if re.search(r"(?:거든요|기는요|네요|군요|구요)$", answer):
-        return "Polite conversational form (-요)"
-    if re.search(r"(?:습니다|ㅂ니다|습니까|ㅂ니까|십시오|시오|오니)$", answer):
-        return "Formal polite/literary form"
-    if re.search(r"(?:어요|아요|여요|이에요|예요|세요|요)$", answer):
-        return "Polite conversational form (-요)"
-    if re.search(r"(?:거야|잖아|거든|구나|군|네|자|라|까|어|아|야)$", answer):
-        return "Informal/plain conversational form"
-    if re.search(r"(?:는다|ㄴ다|다)$", answer):
-        return "Informal/plain written form (-다)"
-    return ""
+    return normalize(card["answer_form"] if "answer_form" in card.keys() else "")
 
 
 # The lesson guide is stored directly on each lesson record in the unit seed
@@ -3025,6 +3012,11 @@ def render_review_contents():
             )
             st.markdown(
                 f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                unsafe_allow_html=True,
+            )
+            result_answer_form = inferred_answer_form(result_card) or "Embedded grammar phrase — match the sentence context"
+            st.markdown(
+                f'''<div class="answer-form-note">Required answer form: {escape(result_answer_form)}</div>''',
                 unsafe_allow_html=True,
             )
             st.markdown(
