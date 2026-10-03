@@ -1,8 +1,8 @@
 # Mochi Hangul
 
-## v33
+## v34
 
-- Lowered the transparent inline answer input by 4px so typed text sits level with the Korean sentence.
+- Lowered the transparent inline answer text by 12px so typed text sits on the same baseline as the Korean sentence.
 
 A responsive Bunpro-style Korean grammar review tool with a pastel chibi study-room theme, based on the lesson structure of How to Study Korean.
 
