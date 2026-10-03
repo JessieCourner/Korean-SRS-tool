@@ -2289,11 +2289,11 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             input.style.setProperty('padding', '0', 'important');
             input.style.setProperty('line-height', lineHeightText, 'important');
             input.style.setProperty('vertical-align', 'baseline', 'important');
-            // BaseWeb centers the glyph inside its input box above the
-            // surrounding Korean baseline. Move only the glyph down to the
-            // sentence baseline; the inline slot and the centered sentence
-            // must keep their original geometry.
-            input.style.setProperty('transform', 'translateY(12px)', 'important');
+            // The whole Streamlit widget is positioned against the inline
+            // blank below. Keep the input itself untransformed; the baseline
+            // correction is applied to the widget container in position(),
+            // otherwise Streamlit can reset it during reconciliation.
+            input.style.setProperty('transform', 'none', 'important');
             inputElement.style.setProperty('height', lineHeightText, 'important');
             inputElement.querySelectorAll('div').forEach(function(node) {{
                 node.style.setProperty('height', lineHeightText, 'important');
@@ -2306,9 +2306,10 @@ def mount_inline_answer(slot_id, marker_id, input_label):
             const rect = slot.getBoundingClientRect();
             if (!rect.width && !rect.height) return;
             const height = Math.max(24, Math.ceil(rect.height));
+            const baselineOffset = 10;
             inputElement.style.setProperty('position', 'fixed', 'important');
             inputElement.style.setProperty('left', Math.round(rect.left) + 'px', 'important');
-            inputElement.style.setProperty('top', Math.round(rect.top + Math.max(0, (rect.height - height) / 2)) + 'px', 'important');
+            inputElement.style.setProperty('top', Math.round(rect.top + Math.max(0, (rect.height - height) / 2) + baselineOffset) + 'px', 'important');
             inputElement.style.setProperty('width', Math.ceil(rect.width) + 'px', 'important');
             inputElement.style.setProperty('min-width', '0', 'important');
             inputElement.style.setProperty('margin', '0', 'important');
