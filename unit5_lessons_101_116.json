@@ -16,7 +16,7 @@
           "explanation": "Informal contraction of 너는; use it in casual speech.",
           "source_sentence": "넌 누구를 기다리고 있니?",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational form"
+          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
         },
         {
           "prompt": "___ 천둥이 치는 소리를 들었어",
@@ -26,7 +26,7 @@
           "explanation": "Informal contraction of 나는; use it in casual speech.",
           "source_sentence": "난 천둥이 치는 소리를 들었어",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational form"
+          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
         },
         {
           "prompt": "___ 이 손목시계 늘 차고 있어",
@@ -36,7 +36,7 @@
           "explanation": "Use the short casual subject form in a spoken sentence.",
           "source_sentence": "나 이 손목시계 늘 차고 있어",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational form"
+          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
         },
         {
           "prompt": "___ 얼마예요?",
@@ -46,7 +46,7 @@
           "explanation": "Colloquial contraction of 이것은.",
           "source_sentence": "이건 얼마예요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational form"
+          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
         },
         {
           "prompt": "___ 하지 마세요",
@@ -56,7 +56,7 @@
           "explanation": "Colloquial contraction of 그것을.",
           "source_sentence": "그걸 하지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational form"
+          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
         }
       ],
       "source_status": "published",
@@ -1228,7 +1228,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "국에 김이 많이 안 나서 안 뜨거울 줄 알았는데 그래도 국자를 쓸걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸)"
+          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
         },
         {
           "prompt": "아까 그 표지를 더 자세히 ___",
@@ -1238,7 +1238,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "아까 그 표지를 더 자세히 볼걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸)"
+          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
         },
         {
           "prompt": "식칼 ___",
@@ -1248,7 +1248,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "식칼 대신에 과도 쓸걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸)"
+          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
         },
         {
           "prompt": "이용 수칙을 제대로 ___",
@@ -1258,7 +1258,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "이용 수칙을 제대로 읽을걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸)"
+          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
         },
         {
           "prompt": "만료일이 ___",
@@ -1268,7 +1268,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "만료일이 언제까지인지 제대로 볼걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸)"
+          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
         }
       ],
       "source_status": "published",
@@ -1324,7 +1324,7 @@
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
           "source_sentence": "우리는 불을 끈 채로 영화를 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
         },
         {
           "prompt": "우리는 ___ 영화를 봤다",

@@ -37,7 +37,7 @@
           "explanation": "Use the modifier form before a noun-like expression.",
           "source_sentence": "나의 꿈은 선생님이 되는 것이다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Formal/written plain form (-는 것이다)"
         },
         {
           "prompt": "저는 영화를 ___ 좋아해요",
@@ -615,7 +615,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 먹는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-야; 반말)"
         },
         {
           "prompt": "나는 ___",
@@ -625,7 +625,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 공부하는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-야; 반말)"
         },
         {
           "prompt": "나는 ___",
@@ -635,7 +635,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 공부 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-야; 반말)"
         },
         {
           "prompt": "저는 ___",

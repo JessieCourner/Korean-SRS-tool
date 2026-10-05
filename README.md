@@ -1,5 +1,9 @@
 # Mochi Hangul
 
+## v37
+
+- Rechecked and made answer-form labels explicit for non-polite, polite, honorific, formal/literary, command, question, proposal, and embedded grammar answers.
+
 ## v36
 
 - Positions the entire transparent inline answer widget 10px lower so typed text sits on the same baseline as the Korean sentence after Streamlit reruns.

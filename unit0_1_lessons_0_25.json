@@ -534,7 +534,7 @@
           "answer": "바쁘다",
           "hint": "Base form: 바쁘다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-다; non-polite)"
         },
         {
           "prompt": "___ 한국 사람입니다.",
@@ -550,7 +550,7 @@
           "answer": "좋다",
           "hint": "Base form: 좋다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-다; non-polite)"
         },
         {
           "prompt": "저는 ___",
@@ -867,7 +867,7 @@
           "answer": "의사일 것이다",
           "hint": "Base form: 의사",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Formal/written plain form (-ㄹ/을 것이다)"
         },
         {
           "prompt": "저녁에 ___",
@@ -875,7 +875,7 @@
           "answer": "공부할 것이다",
           "hint": "Base form: 공부하다",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Formal/written plain form (-ㄹ/을 것이다)"
         }
       ]
     },

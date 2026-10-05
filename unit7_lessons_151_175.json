@@ -726,7 +726,7 @@
           "answer": "완벽지 않아",
           "hint": "Base form: 완벽하다",
           "explanation": "~치 않다 is an abbreviated spoken form related to ~하지 않다 and a shortened negative expression.\n\nUse it in colloquial speech when a negative form is shortened, while recognizing the register.\n\nUse the contracted form attached to the relevant verb or adjective as shown in HTSK; do not treat 치 as a general negative suffix for every word.",
-          "answer_form": "Informal/plain form",
+          "answer_form": "Informal/plain conversational form (-아; 반말)",
           "source_sentence": "학생은 발표 준비가 완벽지 않아 자신만만하지 못한 태도를 보였어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-159/"
         }
@@ -1032,7 +1032,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이게 좋은 예라는 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
         },
         {
           "prompt": "내 소원은 그 사람과 다시 만나게 되는 ___",
@@ -1042,7 +1042,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "내 소원은 그 사람과 다시 만나게 되는 거란 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
         },
         {
           "prompt": "그 사람은 정말 ___",
@@ -1052,7 +1052,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "그 사람은 정말 지적이라는 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
         },
         {
           "prompt": "이건 우리가 공동으로 만든 ___",
@@ -1062,7 +1062,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이건 우리가 공동으로 만든 합작품이라는 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
         },
         {
           "prompt": "이런 공동체에서 서로 돕는 건 ___",
@@ -1072,7 +1072,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이런 공동체에서 서로 돕는 건 당연한 거란 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
         }
       ],
       "source_status": "published",
@@ -1118,7 +1118,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "경제도 어렵고 월급도 오르지 않아서 요즘 살맛이 나려면 좀 더 안정된 직장이 있어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
         },
         {
           "prompt": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 ___",
@@ -1128,7 +1128,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 단서가 더 있어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
         },
         {
           "prompt": "예전엔 이 바다에서 다양한 어종을 볼 수 있었는데, 남획이 너무 심해서 지금이라도 보호 대책이 ___",
@@ -1138,7 +1138,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "예전엔 이 바다에서 다양한 어종을 볼 수 있었는데, 남획이 너무 심해서 지금이라도 보호 대책이 마련되어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
         },
         {
           "prompt": "이번 태풍으로 동해안의 피해가 심각한데 복구하려고 해도 정부의 지원이 빨리 ___",
@@ -1148,7 +1148,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "이번 태풍으로 동해안의 피해가 심각한데 복구하려고 해도 정부의 지원이 빨리 와야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
         },
         {
           "prompt": "그렇게 ___",
@@ -1158,7 +1158,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "그렇게 해야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
         }
       ],
       "source_status": "published",
@@ -1204,7 +1204,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "반박을 정확히 했으니 말이지 아니었으면 논리에서 밀릴 뻔했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
         },
         {
           "prompt": "반박할 논리가 ___ 상대방이 더 이상 반론하지 못했어",
@@ -1214,7 +1214,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "반박할 논리가 분명했기에 말이지 상대방이 더 이상 반론하지 못했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
         },
         {
           "prompt": "___ 한 마리도 못 잡을 뻔했어",
@@ -1224,7 +1224,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "사냥을 신중하게 했으니 말이지 한 마리도 못 잡을 뻔했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
         },
         {
           "prompt": "우리가 사냥을 성공적으로 ___ 먹을 것이 충분했어",
@@ -1234,7 +1234,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "우리가 사냥을 성공적으로 했기에 말이지 먹을 것이 충분했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
         },
         {
           "prompt": "유해한 물질을 분비하지 ___ 이 식물을 안전하게 키울 수 있었어",
@@ -1244,7 +1244,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "유해한 물질을 분비하지 않기에 말이지 이 식물을 안전하게 키울 수 있었어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Conversational emphasis form"
+          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
         }
       ],
       "source_status": "published",

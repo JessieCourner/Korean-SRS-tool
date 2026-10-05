@@ -90,7 +90,7 @@
           "explanation": "~ㄹ/을 것 같다 expresses a guess, possibility or impression: it seems or might be. HTSK also shows the common expression 그럴 것 같다.\n\nUse it when making a prediction or describing an impression without presenting it as a firm fact.\n\nAttach ~ㄹ 것 같다 after a vowel or ㄹ stem and ~을 것 같다 after another consonant. Use the past and present modifier forms for other time references.",
           "source_sentence": "나는 밥을 먹을 것 같다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain form (-다; non-polite)"
         },
         {
           "prompt": "저는 친구들이랑 내일 낚시를 ___",
@@ -110,7 +110,7 @@
           "explanation": "~ㄹ/을 것 같다 expresses a guess, possibility or impression: it seems or might be. HTSK also shows the common expression 그럴 것 같다.\n\nUse it when making a prediction or describing an impression without presenting it as a firm fact.\n\nAttach ~ㄹ 것 같다 after a vowel or ㄹ stem and ~을 것 같다 after another consonant. Use the past and present modifier forms for other time references.",
           "source_sentence": "우리 아빠는 저것을 싫어할 것 같아",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-아; 반말)"
         },
         {
           "prompt": "선생님이 그 수업을 ___",
@@ -168,7 +168,7 @@
           "explanation": "The blank is the noun being compared. Use noun + 같이 보이다. Here 보여 is the informal/plain conversational form of 보이다.",
           "source_sentence": "너는 원숭이 같이 보여",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-36/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Informal/plain conversational form (-어; noun + 같이 보이다)"
         },
         {
           "prompt": "저의 남자친구는 ___",
@@ -188,7 +188,7 @@
           "explanation": "The blank is the noun being compared. Use noun + 같이 보이다. Here 보여 is the informal/plain conversational form of 보이다.",
           "source_sentence": "너는 고등학생 같이 보여",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-36/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Informal/plain conversational form (-어; noun + 같이 보이다)"
         },
         {
           "prompt": "저의 ___",
@@ -418,7 +418,7 @@
           "explanation": "The honorific ~시~ marks respect toward the person performing an action. HTSK also introduces special honorific vocabulary.\n\nUse it for teachers, elders, customers, senior colleagues and other respected subjects.\n\nInsert ~시~ into the conjugated verb or adjective before the speech ending: 가시다, 읽으시다, and polite ~세요 forms.",
           "source_sentence": "지금 교장선생님께서 잠깐 말씀을 하시겠습니다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": "Honorific formal polite form"
+          "answer_form": "Honorific formal polite form (-(으)시겠습니다)"
         },
         {
           "prompt": "선생님이 ___ 말씀을 잘 들었어요?",
@@ -428,7 +428,7 @@
           "explanation": "The honorific ~시~ marks respect toward the person performing an action. HTSK also introduces special honorific vocabulary.\n\nUse it for teachers, elders, customers, senior colleagues and other respected subjects.\n\nInsert ~시~ into the conjugated verb or adjective before the speech ending: 가시다, 읽으시다, and polite ~세요 forms.",
           "source_sentence": "선생님이 하시는 말씀을 잘 들었어요?",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": "Honorific form"
+          "answer_form": "Honorific modifier (-(으)시-; embedded form)"
         },
         {
           "prompt": "그저께 회의 시간 동안 무슨 말씀을 ___?",
@@ -438,7 +438,7 @@
           "explanation": "The honorific ~시~ marks respect toward the person performing an action. HTSK also introduces special honorific vocabulary.\n\nUse it for teachers, elders, customers, senior colleagues and other respected subjects.\n\nInsert ~시~ into the conjugated verb or adjective before the speech ending: 가시다, 읽으시다, and polite ~세요 forms.",
           "source_sentence": "그저께 회의 시간 동안 무슨 말씀을 하셨어요?",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": "Honorific polite form"
+          "answer_form": "Honorific polite conversational form (-시- ... -어요)"
         },
         {
           "prompt": "회의가 끝나기 전에 교감선생님이 ___",
@@ -448,7 +448,7 @@
           "explanation": "The honorific ~시~ marks respect toward the person performing an action. HTSK also introduces special honorific vocabulary.\n\nUse it for teachers, elders, customers, senior colleagues and other respected subjects.\n\nInsert ~시~ into the conjugated verb or adjective before the speech ending: 가시다, 읽으시다, and polite ~세요 forms.",
           "source_sentence": "회의가 끝나기 전에 교감선생님이 말씀하실 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": "Honorific form"
+          "answer_form": "Honorific + polite conversational form (-시- ... -요)"
         },
         {
           "prompt": "부장님이 그 일을 망쳐서 부장님이 ___ 듣는 사람이 별로 없어요",
@@ -458,7 +458,7 @@
           "explanation": "The honorific ~시~ marks respect toward the person performing an action. HTSK also introduces special honorific vocabulary.\n\nUse it for teachers, elders, customers, senior colleagues and other respected subjects.\n\nInsert ~시~ into the conjugated verb or adjective before the speech ending: 가시다, 읽으시다, and polite ~세요 forms.",
           "source_sentence": "부장님이 그 일을 망쳐서 부장님이 말씀하시는 것을 듣는 사람이 별로 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/",
-          "answer_form": "Honorific form"
+          "answer_form": "Honorific modifier (-(으)시-; embedded form)"
         }
       ],
       "source_status": "published",
@@ -494,7 +494,7 @@
           "answer": "먹지 마세요",
           "hint": "Base form: 먹다",
           "explanation": "Korean imperative endings give commands and instructions with different levels of politeness and force. The lesson also covers negative commands.\n\nUse ~세요 for a polite request, casual endings with close people, formal forms in formal settings, and ~지 말다 for do not.\n\nAttach the appropriate imperative ending such as ~아/어, ~(으)세요, ~아/어라 or ~(으)십시오. Use V-지 마 for a negative command.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-지 마세요)",
           "source_sentence": "너무 빨리 먹지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"
         },
@@ -504,7 +504,7 @@
           "answer": "부끄러워하지 마세요",
           "hint": "Base form: 부끄러워하다",
           "explanation": "Korean imperative endings give commands and instructions with different levels of politeness and force. The lesson also covers negative commands.\n\nUse ~세요 for a polite request, casual endings with close people, formal forms in formal settings, and ~지 말다 for do not.\n\nAttach the appropriate imperative ending such as ~아/어, ~(으)세요, ~아/어라 or ~(으)십시오. Use V-지 마 for a negative command.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-지 마세요)",
           "source_sentence": "부끄러워하지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"
         },
@@ -514,7 +514,7 @@
           "answer": "하지 마",
           "hint": "Base form: 하다",
           "explanation": "Korean imperative endings give commands and instructions with different levels of politeness and force. The lesson also covers negative commands.\n\nUse ~세요 for a polite request, casual endings with close people, formal forms in formal settings, and ~지 말다 for do not.\n\nAttach the appropriate imperative ending such as ~아/어, ~(으)세요, ~아/어라 or ~(으)십시오. Use V-지 마 for a negative command.",
-          "answer_form": "Informal/plain command",
+          "answer_form": "Informal/plain command (-지 마; 반말)",
           "source_sentence": "그렇게 하지 마!",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"
         },
@@ -524,7 +524,7 @@
           "answer": "가지 마",
           "hint": "Base form: 가다",
           "explanation": "Korean imperative endings give commands and instructions with different levels of politeness and force. The lesson also covers negative commands.\n\nUse ~세요 for a polite request, casual endings with close people, formal forms in formal settings, and ~지 말다 for do not.\n\nAttach the appropriate imperative ending such as ~아/어, ~(으)세요, ~아/어라 or ~(으)십시오. Use V-지 마 for a negative command.",
-          "answer_form": "Informal/plain command",
+          "answer_form": "Informal/plain command (-지 마; 반말)",
           "source_sentence": "집에 가지 마!",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"
         },
@@ -534,7 +534,7 @@
           "answer": "싸지 마세요",
           "hint": "Base form: 싸다",
           "explanation": "Korean imperative endings give commands and instructions with different levels of politeness and force. The lesson also covers negative commands.\n\nUse ~세요 for a polite request, casual endings with close people, formal forms in formal settings, and ~지 말다 for do not.\n\nAttach the appropriate imperative ending such as ~아/어, ~(으)세요, ~아/어라 or ~(으)십시오. Use V-지 마 for a negative command.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-지 마세요)",
           "source_sentence": "여기에 오줌을 싸지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"
         }
@@ -572,7 +572,7 @@
           "answer": "놓아 주었어",
           "hint": "Base form: 놓다",
           "explanation": "주다 means to give. With ~아/어 주다 it describes an action done as a favor or for somebody's benefit.\n\nUse it when asking for help, offering help or showing who benefits from an action.\n\nUse noun + 을/를 주다 for an object. Attach ~아/어 주다 to a verb stem; polite requests commonly end in ~아/어 주세요.",
-          "answer_form": "Informal/plain form",
+          "answer_form": "Informal/plain conversational form (-어; 반말)",
           "source_sentence": "엄마가 과자를 내 손바닥에 놓아 주었어",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"
         },
@@ -582,7 +582,7 @@
           "answer": "만들어 주세요",
           "hint": "Base form: 만들다",
           "explanation": "주다 means to give. With ~아/어 주다 it describes an action done as a favor or for somebody's benefit.\n\nUse it when asking for help, offering help or showing who benefits from an action.\n\nUse noun + 을/를 주다 for an object. Attach ~아/어 주다 to a verb stem; polite requests commonly end in ~아/어 주세요.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-아/어 주세요)",
           "source_sentence": "이것을 만들어 주세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"
         },
@@ -592,7 +592,7 @@
           "answer": "붙여 주세요",
           "hint": "Base form: 붙이다",
           "explanation": "주다 means to give. With ~아/어 주다 it describes an action done as a favor or for somebody's benefit.\n\nUse it when asking for help, offering help or showing who benefits from an action.\n\nUse noun + 을/를 주다 for an object. Attach ~아/어 주다 to a verb stem; polite requests commonly end in ~아/어 주세요.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-아/어 주세요)",
           "source_sentence": "이것을 이마에 붙여 주세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"
         },
@@ -602,7 +602,7 @@
           "answer": "받아 주세요",
           "hint": "Base form: 받다",
           "explanation": "주다 means to give. With ~아/어 주다 it describes an action done as a favor or for somebody's benefit.\n\nUse it when asking for help, offering help or showing who benefits from an action.\n\nUse noun + 을/를 주다 for an object. Attach ~아/어 주다 to a verb stem; polite requests commonly end in ~아/어 주세요.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-아/어 주세요)",
           "source_sentence": "우리 아이를 이 유치원에 받아 주세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"
         },
@@ -612,7 +612,7 @@
           "answer": "보여주세요",
           "hint": "Base form: 보여주다",
           "explanation": "주다 means to give. With ~아/어 주다 it describes an action done as a favor or for somebody's benefit.\n\nUse it when asking for help, offering help or showing who benefits from an action.\n\nUse noun + 을/를 주다 for an object. Attach ~아/어 주다 to a verb stem; polite requests commonly end in ~아/어 주세요.",
-          "answer_form": "Polite request/command",
+          "answer_form": "Polite request/command (-아/어 주세요)",
           "source_sentence": "얼굴을 보여주세요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"
         }
@@ -830,7 +830,7 @@
           "answer": "올라가자",
           "hint": "Base form: 올라가다",
           "explanation": "~자, ~(으)ㅂ시다 and ~ㄹ래요 can make suggestions or ask about a shared intention.\n\nUse them when proposing an action, choosing the ending according to politeness and the relationship between speakers.\n\nUse verb stem + ~자 in casual speech, ~(으)ㅂ시다 in formal polite speech, and ~ㄹ/을래요 for a willingness or suggestion question.",
-          "answer_form": "Conversational form",
+          "answer_form": "Informal/plain proposal form (-자)",
           "source_sentence": "무대에 같이 올라가자",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
@@ -840,7 +840,7 @@
           "answer": "얘기하자",
           "hint": "Base form: 얘기하다",
           "explanation": "~자, ~(으)ㅂ시다 and ~ㄹ래요 can make suggestions or ask about a shared intention.\n\nUse them when proposing an action, choosing the ending according to politeness and the relationship between speakers.\n\nUse verb stem + ~자 in casual speech, ~(으)ㅂ시다 in formal polite speech, and ~ㄹ/을래요 for a willingness or suggestion question.",
-          "answer_form": "Conversational form",
+          "answer_form": "Informal/plain proposal form (-자)",
           "source_sentence": "요새 벌이 조금 공평하지 않아. 내일 그것을 선생님이랑 얘기하자",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
@@ -850,7 +850,7 @@
           "answer": "보내자",
           "hint": "Base form: 보내다",
           "explanation": "~자, ~(으)ㅂ시다 and ~ㄹ래요 can make suggestions or ask about a shared intention.\n\nUse them when proposing an action, choosing the ending according to politeness and the relationship between speakers.\n\nUse verb stem + ~자 in casual speech, ~(으)ㅂ시다 in formal polite speech, and ~ㄹ/을래요 for a willingness or suggestion question.",
-          "answer_form": "Conversational form",
+          "answer_form": "Informal/plain proposal form (-자)",
           "source_sentence": "쪽지를 서로 보내자",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
@@ -860,7 +860,7 @@
           "answer": "놀리지 말자",
           "hint": "Base form: 놀리다",
           "explanation": "~자, ~(으)ㅂ시다 and ~ㄹ래요 can make suggestions or ask about a shared intention.\n\nUse them when proposing an action, choosing the ending according to politeness and the relationship between speakers.\n\nUse verb stem + ~자 in casual speech, ~(으)ㅂ시다 in formal polite speech, and ~ㄹ/을래요 for a willingness or suggestion question.",
-          "answer_form": "Conversational form",
+          "answer_form": "Informal/plain proposal form (-자)",
           "source_sentence": "너무 안타까워서 내일 그 왕따를 놀리지 말자",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         },
@@ -870,7 +870,7 @@
           "answer": "들어가자",
           "hint": "Base form: 들어가다",
           "explanation": "~자, ~(으)ㅂ시다 and ~ㄹ래요 can make suggestions or ask about a shared intention.\n\nUse them when proposing an action, choosing the ending according to politeness and the relationship between speakers.\n\nUse verb stem + ~자 in casual speech, ~(으)ㅂ시다 in formal polite speech, and ~ㄹ/을래요 for a willingness or suggestion question.",
-          "answer_form": "Conversational form",
+          "answer_form": "Informal/plain proposal form (-자)",
           "source_sentence": "물에 알몸으로 들어가자",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"
         }
@@ -1000,7 +1000,7 @@
           "explanation": "~아/어야 하다 expresses obligation, must or have to. ~ㄹ/을 필요가 있다 expresses the need to do something.\n\nUse these forms for duties, requirements and necessary actions.\n\nUse the normal 아/어 form before 야 하다. Attach ~ㄹ 필요가 있다 after a vowel or ㄹ and ~을 필요가 있다 after another consonant.",
           "source_sentence": "나는 밥을 먹을 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Plain/written form (-다)"
         },
         {
           "prompt": "나는 ___",
@@ -1010,7 +1010,7 @@
           "explanation": "~아/어야 하다 expresses obligation, must or have to. ~ㄹ/을 필요가 있다 expresses the need to do something.\n\nUse these forms for duties, requirements and necessary actions.\n\nUse the normal 아/어 form before 야 하다. Attach ~ㄹ 필요가 있다 after a vowel or ㄹ and ~을 필요가 있다 after another consonant.",
           "source_sentence": "나는 잘 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Plain/written form (-다)"
         },
         {
           "prompt": "저는 그 여자랑 ___",

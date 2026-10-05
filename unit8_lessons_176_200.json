@@ -100,7 +100,7 @@
           "answer": "등록되오니",
           "hint": "Base form: 등록되다",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms.\n\nUse it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.\n\nLearn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
-          "answer_form": "Formal/literary style",
+          "answer_form": "Formal/literary form (-오니)",
           "source_sentence": "관내 발급된 전표는 시스템에 자동 등록되오니 별도의 제출은 필요하지 않습니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -110,7 +110,7 @@
           "answer": "어두우오니",
           "hint": "Base form: 어둡다",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms.\n\nUse it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.\n\nLearn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
-          "answer_form": "Formal/literary style",
+          "answer_form": "Formal/literary form (-오니)",
           "source_sentence": "이 길은 어두우오니 등불을 챙기기 바랍니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -120,7 +120,7 @@
           "answer": "흐르오니",
           "hint": "Base form: 흐르다",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms.\n\nUse it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.\n\nLearn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
-          "answer_form": "Formal/literary style",
+          "answer_form": "Formal/literary form (-오니)",
           "source_sentence": "고압 전류가 흐르오니 절대 손대지 마십시오",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -130,7 +130,7 @@
           "answer": "점검되오니",
           "hint": "Base form: 점검되다",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms.\n\nUse it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.\n\nLearn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
-          "answer_form": "Formal/literary style",
+          "answer_form": "Formal/literary form (-오니)",
           "source_sentence": "본 시스템은 정기적으로 점검되오니 일시적인 접속 지연이 발생할 수 있습니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         },
@@ -140,7 +140,7 @@
           "answer": "작업 중이오니",
           "hint": "Base form: 중",
           "explanation": "The literary infix ~오~ appears in older, literary or formal-style verb forms.\n\nUse it when reading literary Korean or fixed formal expressions, not as ordinary modern conversational conjugation.\n\nLearn the specific stems and endings that contain 오 as listed by HTSK; it is a historical/literary form rather than a free suffix.",
-          "answer_form": "Formal/literary style",
+          "answer_form": "Formal/literary form (-오니)",
           "source_sentence": "작업 중이오니 통행을 삼가 주시기 바랍니다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-177/"
         }
@@ -360,7 +360,7 @@
           "explanation": "~듯하다 means seem, appear or be as if, expressing an inference or resemblance.\n\nUse it when the speaker judges that a situation appears to be true based on signs or impression.\n\nUse the appropriate modifier before 듯하다: V-는 듯하다, V-ㄴ/은 듯하다 or V-ㄹ/을 듯하다, with adjective and noun forms as shown.",
           "source_sentence": "비가 오는 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Plain/written form (-다)"
         },
         {
           "prompt": "___",
@@ -370,7 +370,7 @@
           "explanation": "~듯하다 means seem, appear or be as if, expressing an inference or resemblance.\n\nUse it when the speaker judges that a situation appears to be true based on signs or impression.\n\nUse the appropriate modifier before 듯하다: V-는 듯하다, V-ㄴ/은 듯하다 or V-ㄹ/을 듯하다, with adjective and noun forms as shown.",
           "source_sentence": "비가 온 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Plain/written form (-다)"
         },
         {
           "prompt": "___",
@@ -380,7 +380,7 @@
           "explanation": "~듯하다 means seem, appear or be as if, expressing an inference or resemblance.\n\nUse it when the speaker judges that a situation appears to be true based on signs or impression.\n\nUse the appropriate modifier before 듯하다: V-는 듯하다, V-ㄴ/은 듯하다 or V-ㄹ/을 듯하다, with adjective and noun forms as shown.",
           "source_sentence": "비가 올 듯하다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-180/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Plain/written form (-다)"
         },
         {
           "prompt": "노동자가 ___",
@@ -444,7 +444,7 @@
           "answer": "정보조차",
           "hint": "Base form: 정보",
           "explanation": "~조차 means even, emphasizing that an unexpected or extreme item is included.\n\nUse it when not even the least expected person, thing or action is excluded from the statement.\n\nAttach 조차 to the noun or noun-like clause being emphasized; place it after the relevant particle or expression as in HTSK.",
-          "answer_form": "Plain/written form",
+          "answer_form": "Embedded noun + particle form (-조차; no independent speech-level ending)",
           "source_sentence": "제대로 된 정보조차 없는 상황에서 필사의 각오로 뛰어들었어요",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-176-183/lesson-181/"
         },
@@ -1228,7 +1228,7 @@
           "answer": "개입하나 마나야",
           "hint": "Base form: 개입하다",
           "explanation": "하나 마나 means there is no point in doing something because the result is unchanged.\n\nUse it to dismiss an action as ineffective or pointless.\n\nUse the verb before 하나 마나 in the fixed construction; conjugate the surrounding sentence normally.",
-          "answer_form": "Informal/plain form",
+          "answer_form": "Informal/plain conversational form (-야; 반말)",
           "source_sentence": "이 구역은 이미 자동 관제 시스템이 작동 중이라서 사람이 개입하나 마나야",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-184-191/lesson-190/"
         },
@@ -1390,7 +1390,7 @@
           "answer": "않는단다",
           "hint": "Base form: 않다",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.\n\nUse it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.\n\nContract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
-          "answer_form": "Motherly/plain speech",
+          "answer_form": "Motherly/plain speech (-ㄴ/는단다)",
           "source_sentence": "그 선수는 마지막까지 포기하지 않는단다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/"
         },
@@ -1400,7 +1400,7 @@
           "answer": "초조하단다",
           "hint": "Base form: 초조하다",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.\n\nUse it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.\n\nContract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
-          "answer_form": "Motherly/plain speech",
+          "answer_form": "Motherly/plain speech (-ㄴ/는단다)",
           "source_sentence": "중요한 발표를 앞두고 많이 초조하단다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/"
         },
@@ -1410,7 +1410,7 @@
           "answer": "투지란다",
           "hint": "Base form: 투지",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.\n\nUse it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.\n\nContract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
-          "answer_form": "Motherly/plain speech",
+          "answer_form": "Motherly/plain speech (-ㄴ/는단다)",
           "source_sentence": "그의 성공 비결은 투지란다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/"
         },
@@ -1420,7 +1420,7 @@
           "answer": "않았단다",
           "hint": "Base form: 않다",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.\n\nUse it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.\n\nContract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
-          "answer_form": "Motherly/plain speech",
+          "answer_form": "Motherly/plain speech (-ㄴ/는단다)",
           "source_sentence": "그는 시련 속에서도 투지를 잃지 않았단다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/"
         },
@@ -1430,7 +1430,7 @@
           "answer": "많았단다",
           "hint": "Base form: 많다",
           "explanation": "~ㄴ/는단다 is a motherly or nurturing contraction of quoted ~ㄴ/는다고 한다; related forms include ~단다, ~(이)란다 and ~았/었단다.\n\nUse it when an older speaker tells a younger person something with affection, repetition or a gentle explanatory tone.\n\nContract the quoted forms as HTSK shows: verbs use ~ㄴ/는단다, adjectives ~단다, nouns ~(이)란다 and past forms ~았/었단다.",
-          "answer_form": "Motherly/plain speech",
+          "answer_form": "Motherly/plain speech (-ㄴ/는단다)",
           "source_sentence": "엄마도 어릴 땐 상심해서 혼자 울던 날이 많았단다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-192/"
         }
@@ -1474,7 +1474,7 @@
           "explanation": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.\n\nUse it for gentle advice or instructions, especially in family or nurturing speech.\n\nAttach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
           "source_sentence": "입덧이 심하면 무리하지 말고 푹 쉬렴",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
-          "answer_form": "Informal command to a younger person"
+          "answer_form": "Informal command to a younger person (-렴)"
         },
         {
           "prompt": "요즘 금리가 높으니까 돈은 조심해서 ___",
@@ -1484,7 +1484,7 @@
           "explanation": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.\n\nUse it for gentle advice or instructions, especially in family or nurturing speech.\n\nAttach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
           "source_sentence": "요즘 금리가 높으니까 돈은 조심해서 저금하렴",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
-          "answer_form": "Informal command to a younger person"
+          "answer_form": "Informal command to a younger person (-렴)"
         },
         {
           "prompt": "공황이 올 것 같으면 ___",
@@ -1494,7 +1494,7 @@
           "explanation": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.\n\nUse it for gentle advice or instructions, especially in family or nurturing speech.\n\nAttach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
           "source_sentence": "공황이 올 것 같으면 숨을 천천히 쉬렴",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
-          "answer_form": "Informal command to a younger person"
+          "answer_form": "Informal command to a younger person (-렴)"
         },
         {
           "prompt": "사탕 먹었으면 이빨 ___",
@@ -1504,7 +1504,7 @@
           "explanation": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.\n\nUse it for gentle advice or instructions, especially in family or nurturing speech.\n\nAttach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
           "source_sentence": "사탕 먹었으면 이빨 닦으렴",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
-          "answer_form": "Informal command to a younger person"
+          "answer_form": "Informal command to a younger person (-렴)"
         },
         {
           "prompt": "저상버스가 오면 ___",
@@ -1514,7 +1514,7 @@
           "explanation": "~(으)렴 is a soft, affectionate command often used by an older speaker to a younger person.\n\nUse it for gentle advice or instructions, especially in family or nurturing speech.\n\nAttach ~렴 after a vowel or ㄹ stem and ~으렴 after another consonant; use the negative command pattern described by HTSK when needed.",
           "source_sentence": "저상버스가 오면 탈 준비하렴",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-193/",
-          "answer_form": "Informal command to a younger person"
+          "answer_form": "Informal command to a younger person (-렴)"
         }
       ],
       "source_status": "published",
@@ -1654,7 +1654,7 @@
           "answer": "안타깝기 그지없다",
           "hint": "Base form: 안타깝다",
           "explanation": "~기 그지없다 is an expressive formal form meaning extremely, utterly or beyond description.\n\nUse it to intensify an adjective or state, often in formal writing or elevated speech.\n\nNominalize the adjective or verb with ~기, then add 그지없다 and conjugate 없다 as needed.",
-          "answer_form": "Plain/written form",
+          "answer_form": "Plain/written form (-다)",
           "source_sentence": "그의 분노의 근원은 억울함이니, 안타깝기 그지없다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-195/"
         },
@@ -1664,7 +1664,7 @@
           "answer": "무식하기 그지없다",
           "hint": "Base form: 무식하다",
           "explanation": "~기 그지없다 is an expressive formal form meaning extremely, utterly or beyond description.\n\nUse it to intensify an adjective or state, often in formal writing or elevated speech.\n\nNominalize the adjective or verb with ~기, then add 그지없다 and conjugate 없다 as needed.",
-          "answer_form": "Plain/written form",
+          "answer_form": "Plain/written form (-다)",
           "source_sentence": "그는 기본적인 역사 지식조차 없어 무식하기 그지없다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-195/"
         },
@@ -1674,7 +1674,7 @@
           "answer": "창백하기 그지없었다",
           "hint": "Base form: 창백하다",
           "explanation": "~기 그지없다 is an expressive formal form meaning extremely, utterly or beyond description.\n\nUse it to intensify an adjective or state, often in formal writing or elevated speech.\n\nNominalize the adjective or verb with ~기, then add 그지없다 and conjugate 없다 as needed.",
-          "answer_form": "Plain/written form",
+          "answer_form": "Plain/written form (-다)",
           "source_sentence": "그 환자의 얼굴은 피 한 방울 없는 듯 창백하기 그지없었다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-195/"
         },
@@ -1684,7 +1684,7 @@
           "answer": "한심하기 그지없다",
           "hint": "Base form: 한심하다",
           "explanation": "~기 그지없다 is an expressive formal form meaning extremely, utterly or beyond description.\n\nUse it to intensify an adjective or state, often in formal writing or elevated speech.\n\nNominalize the adjective or verb with ~기, then add 그지없다 and conjugate 없다 as needed.",
-          "answer_form": "Plain/written form",
+          "answer_form": "Plain/written form (-다)",
           "source_sentence": "그 정도 일도 못 하다니 한심하기 그지없다",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-195/"
         }
@@ -1904,7 +1904,7 @@
           "explanation": "~ㄴ/은 셈이다 means it amounts to, it is effectively the same as or it can be considered that.\n\nUse it when interpreting an outcome or saying that the result counts as a certain situation even if it is not literal.\n\nAttach the appropriate modifier before 셈이다: V-ㄴ/은 셈이다 for a completed result, with other tense and clause forms from HTSK.",
           "source_sentence": "그렇게 착하고 예쁘면 요정인 셈이지",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-198/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-지; 반말)"
         },
         {
           "prompt": "연락을 계속 피하니까 나를 ___",
@@ -1914,7 +1914,7 @@
           "explanation": "~ㄴ/은 셈이다 means it amounts to, it is effectively the same as or it can be considered that.\n\nUse it when interpreting an outcome or saying that the result counts as a certain situation even if it is not literal.\n\nAttach the appropriate modifier before 셈이다: V-ㄴ/은 셈이다 for a completed result, with other tense and clause forms from HTSK.",
           "source_sentence": "연락을 계속 피하니까 나를 멀리한 셈이지",
           "source_url": "https://www.howtostudykorean.com/unit-8/lessons-192-200/lesson-198/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Informal/plain conversational form (-지; 반말)"
         },
         {
           "prompt": "그 직책을 준 것은 권한을 ___",

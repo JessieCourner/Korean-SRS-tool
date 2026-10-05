@@ -1155,7 +1155,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-03-forms-explanations-v36"
+CONTENT_SYNC_VERSION = "2026-10-04-answer-forms-v37"
 
 
 def ensure_seed_bundle():
