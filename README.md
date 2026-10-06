@@ -1,5 +1,9 @@
 # Mochi Hangul
 
+## v39
+
+- Removed grammar names, endings and lexical answer hints from the Required answer form labels. The labels retain only useful speech-level/context information; card prompts, complete answers, base-form hints, explanations, design and SRS are unchanged.
+
 ## v38
 
 - Replaced every within-lesson duplicate English translation whose Korean source sentence differed with a different official HTSK sentence from the same lesson grammar. The complete answer, base-form hint and required answer form were updated together; the other cards and SRS logic were left unchanged.

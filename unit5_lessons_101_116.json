@@ -16,7 +16,7 @@
           "explanation": "Informal contraction of 너는; use it in casual speech.",
           "source_sentence": "넌 누구를 기다리고 있니?",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
+          "answer_form": "Conversational form"
         },
         {
           "prompt": "___ 천둥이 치는 소리를 들었어",
@@ -26,7 +26,7 @@
           "explanation": "Informal contraction of 나는; use it in casual speech.",
           "source_sentence": "난 천둥이 치는 소리를 들었어",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
+          "answer_form": "Conversational form"
         },
         {
           "prompt": "___ 이 손목시계 늘 차고 있어",
@@ -36,7 +36,7 @@
           "explanation": "Use the short casual subject form in a spoken sentence.",
           "source_sentence": "나 이 손목시계 늘 차고 있어",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
+          "answer_form": "Conversational form"
         },
         {
           "prompt": "___ 얼마예요?",
@@ -46,7 +46,7 @@
           "explanation": "Colloquial contraction of 이것은.",
           "source_sentence": "이건 얼마예요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
+          "answer_form": "Conversational form"
         },
         {
           "prompt": "___ 하지 마세요",
@@ -56,7 +56,7 @@
           "explanation": "Colloquial contraction of 그것을.",
           "source_sentence": "그걸 하지 마세요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-101/",
-          "answer_form": "Conversational contracted pronoun form (no speech-level ending)"
+          "answer_form": "Conversational form"
         }
       ],
       "source_status": "published",
@@ -100,7 +100,7 @@
           "answer": "싫대요",
           "hint": "Base form: 싫다",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.\n\nUse these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.\n\nChoose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "야시장에 가기 싫대요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/"
         },
@@ -110,7 +110,7 @@
           "answer": "싫었대요",
           "hint": "Base form: 싫다",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.\n\nUse these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.\n\nChoose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "야시장에 가기 싫었대요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/"
         },
@@ -120,7 +120,7 @@
           "answer": "결혼기념일이래요",
           "hint": "Base form: 결혼기념일",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.\n\nUse these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.\n\nChoose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "그 커플이 오늘 결혼기념일이래요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/"
         },
@@ -130,7 +130,7 @@
           "answer": "좋대요",
           "hint": "Base form: 좋다",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.\n\nUse these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.\n\nChoose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "그 남자가 체격이 좋대요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/"
         },
@@ -140,7 +140,7 @@
           "answer": "된대요",
           "hint": "Base form: 되다",
           "explanation": "Quoted abbreviations contract longer reported-speech forms such as ~다고 해요, ~(이)라고 해요, ~자고 해요 and ~냐고 해요 into short conversational endings.\n\nUse these forms when relaying another person’s statement, question, suggestion or command in casual spoken Korean. They are common in speech but are not automatically appropriate in formal writing.\n\nChoose the contraction that matches the quote: ~다고 해요 → ~대요, ~(이)라고 해요 → ~(이)래요, ~자고 해요 → ~재요, and ~냐고 해요 → ~냬요. Keep the tense and honorific details from the original quoted clause.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "눈이 안 좋아서 앞줄에 앉아야 된대요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-102/"
         }
@@ -218,7 +218,7 @@
           "explanation": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다.\n\nUse each item in the specific formal, approximate, general or passive/affected meaning explained in the lesson.\n\nThese are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern.",
           "source_sentence": "집에 가는 동안 사고를 당했어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-103/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "그 왕따 학생은 다른 ___",
@@ -228,7 +228,7 @@
           "explanation": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다.\n\nUse each item in the specific formal, approximate, general or passive/affected meaning explained in the lesson.\n\nThese are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern.",
           "source_sentence": "그 왕따 학생은 다른 학생들한테 괴롭힘을 당했어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-103/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",
@@ -362,7 +362,7 @@
           "answer": "활성화해요",
           "hint": "Base form: 활성화하다",
           "explanation": "This lesson formally introduces several smaller points that HTSK considers essential, including ~아/어지다 versus ~아/어뜨리다, ~화, adding 이 to names, ~아/어 하다 with adjectives and the subject marker ~께서.\n\nUse the relevant point for changes that happen versus actions that cause change, making nouns with ~화, addressing names, describing another person's feelings and marking a respected subject.\n\nThese are separate patterns. Follow the individual source sections: intransitive ~아/어지다 versus transitive ~아/어뜨리다, noun + 화, name + 이, adjective + ~아/어 하다 and subject + 께서.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "운동은 피의 순환을 활성화해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-105a/"
         },
@@ -624,7 +624,7 @@
           "answer": "운전했었어요",
           "hint": "Base form: 운전하다",
           "explanation": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.\n\nUse it when looking back on something that had been true or regularly happened before another past point, or is no longer true.\n\nAdd the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "제가 운전을 처음 배웠을 때 초보 운전자 스티커를 붙이고 운전했었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/"
         },
@@ -634,7 +634,7 @@
           "answer": "존재했었어요",
           "hint": "Base form: 존재하다",
           "explanation": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.\n\nUse it when looking back on something that had been true or regularly happened before another past point, or is no longer true.\n\nAdd the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "오래 전에는 공룡이 실제로 존재했었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/"
         },
@@ -644,7 +644,7 @@
           "answer": "있었었어요",
           "hint": "Base form: 있다",
           "explanation": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.\n\nUse it when looking back on something that had been true or regularly happened before another past point, or is no longer true.\n\nAdd the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "제가 어렸을 때 얼굴에 흉터가 있었었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/"
         },
@@ -654,7 +654,7 @@
           "answer": "다녔었어요",
           "hint": "Base form: 다니다",
           "explanation": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.\n\nUse it when looking back on something that had been true or regularly happened before another past point, or is no longer true.\n\nAdd the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어렸을 때 등교할 때마다 이 지름길로 다녔었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/"
         },
@@ -664,7 +664,7 @@
           "answer": "좋아했었어요",
           "hint": "Base form: 좋아하다",
           "explanation": "An extra past ~었 in forms such as 했었다 marks an earlier or formerly true past state and can distinguish it from a later past reference.\n\nUse it when looking back on something that had been true or regularly happened before another past point, or is no longer true.\n\nAdd the extra past marker before the ending: 하 + 였 + 었다 contracts to 했었다, with the regular past and speech-level changes shown by HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "그녀가 애교가 많아서 그녀를 잠깐 좋아했었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-101-108/lesson-108/"
         }
@@ -710,7 +710,7 @@
           "answer": "휴게실이나 봐요",
           "hint": "Base form: 휴게실",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.\n\nUse them when the speaker infers a situation rather than directly witnessing or asserting it as fact.\n\nUse the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "여기가 휴게실이나 봐요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/"
         },
@@ -720,7 +720,7 @@
           "answer": "어렵나 봐요",
           "hint": "Base form: 어렵다",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.\n\nUse them when the speaker infers a situation rather than directly witnessing or asserting it as fact.\n\nUse the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "시험이 어렵나 봐요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/"
         },
@@ -730,7 +730,7 @@
           "answer": "싫나 봐요",
           "hint": "Base form: 싫다",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.\n\nUse them when the speaker infers a situation rather than directly witnessing or asserting it as fact.\n\nUse the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "그 사람이 싫나 봐요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/"
         },
@@ -740,7 +740,7 @@
           "answer": "나오나 봐요",
           "hint": "Base form: 나오다",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.\n\nUse them when the speaker infers a situation rather than directly witnessing or asserting it as fact.\n\nUse the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "온수가 잘 안 나오나 봐요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/"
         },
@@ -750,7 +750,7 @@
           "answer": "있나 봐요",
           "hint": "Base form: 있다",
           "explanation": "~는가 보다, ~나 보다 and ~나 봐 express an inference or conclusion based on evidence: it seems or I guess.\n\nUse them when the speaker infers a situation rather than directly witnessing or asserting it as fact.\n\nUse the appropriate present, past or future form before 보다; spoken forms such as ~나 봐 follow the contractions and politeness patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "애기가 지금 욕조에 있나 봐요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-109/"
         }
@@ -798,7 +798,7 @@
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "흔적이 없어서 어쩔 수 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "___",
@@ -808,7 +808,7 @@
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "애기가 삐져서 어쩔 수 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "___",
@@ -818,7 +818,7 @@
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "강아지가 소심해서 어쩔 수 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "장비를 ___",
@@ -828,7 +828,7 @@
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "장비를 안 가져와서 어쩔 수 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "밀이 ___",
@@ -838,7 +838,7 @@
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "밀이 있었으면 좋겠지만 어쩔 수 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-110/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",
@@ -968,7 +968,7 @@
           "answer": "많은 편이에요",
           "hint": "Base form: 많다",
           "explanation": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.\n\nUse it to make a softened generalization such as tending to, being relatively or usually being that way.\n\nUse N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "그 사람이 돈이 많은 편이에요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/"
         },
@@ -978,7 +978,7 @@
           "answer": "똑똑한 편이에요",
           "hint": "Base form: 똑똑하다",
           "explanation": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.\n\nUse it to make a softened generalization such as tending to, being relatively or usually being that way.\n\nUse N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "우리 아이는 똑똑한 편이에요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/"
         },
@@ -988,7 +988,7 @@
           "answer": "잘생긴 편이에요",
           "hint": "Base form: 잘생기다",
           "explanation": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.\n\nUse it to make a softened generalization such as tending to, being relatively or usually being that way.\n\nUse N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저의 남자친구가 잘생긴 편이에요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/"
         },
@@ -998,7 +998,7 @@
           "answer": "높은 편이에요",
           "hint": "Base form: 높다",
           "explanation": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.\n\nUse it to make a softened generalization such as tending to, being relatively or usually being that way.\n\nUse N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "제가 벌고 있는 급여가 높은 편이에요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/"
         },
@@ -1008,7 +1008,7 @@
           "answer": "비싼 편이었어요",
           "hint": "Base form: 비싸다",
           "explanation": "편 is a noun meaning side or tendency and ~는 편이다 describes a tendency, degree or preference.\n\nUse it to make a softened generalization such as tending to, being relatively or usually being that way.\n\nUse N인 편이다, V-는 편이다 or the appropriate adjective and past forms before 편이다; conjugate 이다 normally.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "이 배낭여행용 가방이 비싼 편이었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-112/"
         }
@@ -1086,7 +1086,7 @@
           "explanation": "~는 길 treats 길 as a noun in the expression the way or act of doing something, and can also mean on the way.\n\nUse it when describing an action in progress or something done while going somewhere.\n\nPut the present modifier ~는 before 길, then add particles such as 에 or 로 and the predicate that HTSK demonstrates.",
           "source_sentence": "제가 산을 올라가는 길이에요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-113/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "제가 집에 ___ 빵을 사 줄까요?",
@@ -1228,7 +1228,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "국에 김이 많이 안 나서 안 뜨거울 줄 알았는데 그래도 국자를 쓸걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "아까 그 표지를 더 자세히 ___",
@@ -1238,7 +1238,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "아까 그 표지를 더 자세히 볼걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "식칼 ___",
@@ -1248,7 +1248,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "식칼 대신에 과도 쓸걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "이용 수칙을 제대로 ___",
@@ -1258,7 +1258,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "이용 수칙을 제대로 읽을걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "만료일이 ___",
@@ -1268,7 +1268,7 @@
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "만료일이 언제까지인지 제대로 볼걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Conversational regret form (-ㄹ/을걸; 반말)"
+          "answer_form": "Informal/plain conversational form"
         }
       ],
       "source_status": "published",
@@ -1324,7 +1324,7 @@
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
           "source_sentence": "우리는 불을 끈 채로 영화를 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
+          "answer_form": "No independent speech-level ending"
         },
         {
           "prompt": "신발을 ___ 위층에 올라갔어요",
@@ -1334,7 +1334,7 @@
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
           "source_sentence": "신발을 신은 채로 위층에 올라갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
+          "answer_form": "No independent speech-level ending"
         },
         {
           "prompt": "생선 가시가 목에 ___ 병원에 갔어요",
@@ -1344,7 +1344,7 @@
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
           "source_sentence": "생선 가시가 목에 찔린 채로 병원에 갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
+          "answer_form": "No independent speech-level ending"
         },
         {
           "prompt": "눈을 ___ 그 숫자를 외워 봤어요",

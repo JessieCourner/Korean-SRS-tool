@@ -434,7 +434,7 @@
           "explanation": "Use 참 when an action is just about to happen.",
           "source_sentence": "캠핑에서 먹을 삼시 세끼를 준비하려는 참이에요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "은퇴식이 ___",
@@ -444,7 +444,7 @@
           "explanation": "Use 참 when an event is just about to happen.",
           "source_sentence": "은퇴식이 시작되는 참이에요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-156/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "창공을 ___ 비행기가 지나갔어요",
@@ -686,7 +686,7 @@
           "answer": "체험치 못했어요",
           "hint": "Base form: 체험하다",
           "explanation": "~치 않다 is an abbreviated spoken form related to ~하지 않다 and a shortened negative expression.\n\nUse it in colloquial speech when a negative form is shortened, while recognizing the register.\n\nUse the contracted form attached to the relevant verb or adjective as shown in HTSK; do not treat 치 as a general negative suffix for every word.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 그것을 직접 체험치 못했어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-159/"
         },
@@ -726,7 +726,7 @@
           "answer": "완벽지 않아",
           "hint": "Base form: 완벽하다",
           "explanation": "~치 않다 is an abbreviated spoken form related to ~하지 않다 and a shortened negative expression.\n\nUse it in colloquial speech when a negative form is shortened, while recognizing the register.\n\nUse the contracted form attached to the relevant verb or adjective as shown in HTSK; do not treat 치 as a general negative suffix for every word.",
-          "answer_form": "Informal/plain conversational form (-아; 반말)",
+          "answer_form": "Informal/plain conversational form",
           "source_sentence": "학생은 발표 준비가 완벽지 않아 자신만만하지 못한 태도를 보였어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-159/"
         }
@@ -1032,7 +1032,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이게 좋은 예라는 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "내 소원은 그 사람과 다시 만나게 되는 ___",
@@ -1042,7 +1042,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "내 소원은 그 사람과 다시 만나게 되는 거란 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "그 사람은 정말 ___",
@@ -1052,7 +1052,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "그 사람은 정말 지적이라는 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "이건 우리가 공동으로 만든 ___",
@@ -1062,7 +1062,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이건 우리가 공동으로 만든 합작품이라는 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "이런 공동체에서 서로 돕는 건 ___",
@@ -1072,7 +1072,7 @@
           "explanation": "말이다 at the end of a sentence repeats, stresses or checks what has already been said. Depending on the quoted clause, it can mean ‘what I’m saying is…’ or ‘you mean…?’.\n\nUse it in conversational speech to emphasize a statement, clarify what someone meant or check an interpretation. HTSK notes that a forceful tone can sound rude, so intonation matters.\n\nPut the appropriate modifier or quoted form before 말이다: ~다는 말이야, ~(이)라는 말이야, ~느냐는 말이야, ~(으)라는 말이야 or ~자는 말이야. Use the informal endings shown in the lesson, such as 말이야 and 말이지.",
           "source_sentence": "이런 공동체에서 서로 돕는 건 당연한 거란 말이야",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-163/",
-          "answer_form": "Informal/plain conversational emphasis (-말이지/-말이야)"
+          "answer_form": "Informal/plain conversational form"
         }
       ],
       "source_status": "published",
@@ -1118,7 +1118,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "경제도 어렵고 월급도 오르지 않아서 요즘 살맛이 나려면 좀 더 안정된 직장이 있어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 ___",
@@ -1128,7 +1128,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 단서가 더 있어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "예전엔 이 바다에서 다양한 어종을 볼 수 있었는데, 남획이 너무 심해서 지금이라도 보호 대책이 ___",
@@ -1138,7 +1138,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "예전엔 이 바다에서 다양한 어종을 볼 수 있었는데, 남획이 너무 심해서 지금이라도 보호 대책이 마련되어야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "이번 태풍으로 동해안의 피해가 심각한데 복구하려고 해도 정부의 지원이 빨리 ___",
@@ -1148,7 +1148,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "이번 태풍으로 동해안의 피해가 심각한데 복구하려고 해도 정부의 지원이 빨리 와야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "그렇게 ___",
@@ -1158,7 +1158,7 @@
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "그렇게 해야 말이지",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-164/",
-          "answer_form": "Informal/plain conversational emphasis (-아/어야 말이지)"
+          "answer_form": "Informal/plain conversational form"
         }
       ],
       "source_status": "published",
@@ -1204,7 +1204,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "반박을 정확히 했으니 말이지 아니었으면 논리에서 밀릴 뻔했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "반박할 논리가 ___ 상대방이 더 이상 반론하지 못했어",
@@ -1214,7 +1214,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "반박할 논리가 분명했기에 말이지 상대방이 더 이상 반론하지 못했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "___ 한 마리도 못 잡을 뻔했어",
@@ -1224,7 +1224,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "사냥을 신중하게 했으니 말이지 한 마리도 못 잡을 뻔했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "우리가 사냥을 성공적으로 ___ 먹을 것이 충분했어",
@@ -1234,7 +1234,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "우리가 사냥을 성공적으로 했기에 말이지 먹을 것이 충분했어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "유해한 물질을 분비하지 ___ 이 식물을 안전하게 키울 수 있었어",
@@ -1244,7 +1244,7 @@
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "유해한 물질을 분비하지 않기에 말이지 이 식물을 안전하게 키울 수 있었어",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-165/",
-          "answer_form": "Informal/plain conversational emphasis (-(으)니/기에 말이지)"
+          "answer_form": "Informal/plain conversational form"
         }
       ],
       "source_status": "published",
@@ -1632,7 +1632,7 @@
           "answer": "입원하고 말았어요",
           "hint": "Base form: 입원하다",
           "explanation": "~고 말았다 describes an event that happened despite an attempt to prevent it, often with an unfortunate or unintended nuance. ~고 말겠다 expresses a firm determination to complete an action, and ~고야 말겠다 makes that determination even stronger.\n\nUse ~고 말았다 for an outcome the speaker ended up experiencing, especially one that was undesirable. Use ~고 말겠다 or ~고야 말겠다 when promising or insisting that an action will definitely be completed.\n\nAttach ~고 to a verb stem and conjugate 말다 for the tense: 소리치다 → 소리치고 말았어요. For determination, use ~고 말겠어요; add 야 after 고 for extra emphasis: 찾다 → 찾고야 말겠어요.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "산모가 너무 무리해서 결국 병원에 입원하고 말았어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-170/"
         },
@@ -1642,7 +1642,7 @@
           "answer": "알리고야 말겠어요",
           "hint": "Base form: 알리다",
           "explanation": "~고 말았다 describes an event that happened despite an attempt to prevent it, often with an unfortunate or unintended nuance. ~고 말겠다 expresses a firm determination to complete an action, and ~고야 말겠다 makes that determination even stronger.\n\nUse ~고 말았다 for an outcome the speaker ended up experiencing, especially one that was undesirable. Use ~고 말겠다 or ~고야 말겠다 when promising or insisting that an action will definitely be completed.\n\nAttach ~고 to a verb stem and conjugate 말다 for the tense: 소리치다 → 소리치고 말았어요. For determination, use ~고 말겠어요; add 야 after 고 for extra emphasis: 찾다 → 찾고야 말겠어요.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "우리 쌍둥이가 일란성이라는 걸 모두에게 알리고야 말겠어요!",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-170/"
         },
@@ -1652,7 +1652,7 @@
           "answer": "남기고 말겠어요",
           "hint": "Base form: 남기다",
           "explanation": "~고 말았다 describes an event that happened despite an attempt to prevent it, often with an unfortunate or unintended nuance. ~고 말겠다 expresses a firm determination to complete an action, and ~고야 말겠다 makes that determination even stronger.\n\nUse ~고 말았다 for an outcome the speaker ended up experiencing, especially one that was undesirable. Use ~고 말겠다 or ~고야 말겠다 when promising or insisting that an action will definitely be completed.\n\nAttach ~고 to a verb stem and conjugate 말다 for the tense: 소리치다 → 소리치고 말았어요. For determination, use ~고 말겠어요; add 야 after 고 for extra emphasis: 찾다 → 찾고야 말겠어요.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "아름다운 해질녘을 사진으로 남기고 말겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-170/"
         },
@@ -1662,7 +1662,7 @@
           "answer": "상처받고 말았어요",
           "hint": "Base form: 상처받다",
           "explanation": "~고 말았다 describes an event that happened despite an attempt to prevent it, often with an unfortunate or unintended nuance. ~고 말겠다 expresses a firm determination to complete an action, and ~고야 말겠다 makes that determination even stronger.\n\nUse ~고 말았다 for an outcome the speaker ended up experiencing, especially one that was undesirable. Use ~고 말겠다 or ~고야 말겠다 when promising or insisting that an action will definitely be completed.\n\nAttach ~고 to a verb stem and conjugate 말다 for the tense: 소리치다 → 소리치고 말았어요. For determination, use ~고 말겠어요; add 야 after 고 for extra emphasis: 찾다 → 찾고야 말겠어요.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "아빠의 말이 너무 날카로워서 결국 상처받고 말았어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-170/"
         },
@@ -1672,7 +1672,7 @@
           "answer": "다짐하고야 말겠어요",
           "hint": "Base form: 다짐하다",
           "explanation": "~고 말았다 describes an event that happened despite an attempt to prevent it, often with an unfortunate or unintended nuance. ~고 말겠다 expresses a firm determination to complete an action, and ~고야 말겠다 makes that determination even stronger.\n\nUse ~고 말았다 for an outcome the speaker ended up experiencing, especially one that was undesirable. Use ~고 말겠다 or ~고야 말겠다 when promising or insisting that an action will definitely be completed.\n\nAttach ~고 to a verb stem and conjugate 말다 for the tense: 소리치다 → 소리치고 말았어요. For determination, use ~고 말겠어요; add 야 after 고 for extra emphasis: 찾다 → 찾고야 말겠어요.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "더 이상 억지로 이 일을 하지 않겠다고 다짐하고야 말겠어요!",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-170/"
         }
@@ -1718,7 +1718,7 @@
           "answer": "괜찮다 싶었어요",
           "hint": "Base form: 괜찮다",
           "explanation": "~다 싶다 expresses a thought or impression such as just when I thought, it feels like or I figured.\n\nUse it when the speaker forms an impression about a state or notices a change while events unfold.\n\nAttach the appropriate plain predicate form before 싶다, following the tense and clause patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "새로운 근무지가 생각보다 괜찮다 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-171/"
         },
@@ -1728,7 +1728,7 @@
           "answer": "다쳤다 싶었어요",
           "hint": "Base form: 다치다",
           "explanation": "~다 싶다 expresses a thought or impression such as just when I thought, it feels like or I figured.\n\nUse it when the speaker forms an impression about a state or notices a change while events unfold.\n\nAttach the appropriate plain predicate form before 싶다, following the tense and clause patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "새끼손가락이 욱신거려서 다쳤다 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-171/"
         },
@@ -1738,7 +1738,7 @@
           "answer": "조심해야겠다 싶었어요",
           "hint": "Base form: 조심하다",
           "explanation": "~다 싶다 expresses a thought or impression such as just when I thought, it feels like or I figured.\n\nUse it when the speaker forms an impression about a state or notices a change while events unfold.\n\nAttach the appropriate plain predicate form before 싶다, following the tense and clause patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "길이 꽤 가파른 경사라서 조심해야겠다 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-171/"
         },
@@ -1748,7 +1748,7 @@
           "answer": "심하다 싶었어요",
           "hint": "Base form: 심하다",
           "explanation": "~다 싶다 expresses a thought or impression such as just when I thought, it feels like or I figured.\n\nUse it when the speaker forms an impression about a state or notices a change while events unfold.\n\nAttach the appropriate plain predicate form before 싶다, following the tense and clause patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "하늘을 보니 황사가 심하다 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-171/"
         },
@@ -1758,7 +1758,7 @@
           "answer": "매콤하다 싶었어요",
           "hint": "Base form: 매콤하다",
           "explanation": "~다 싶다 expresses a thought or impression such as just when I thought, it feels like or I figured.\n\nUse it when the speaker forms an impression about a state or notices a change while events unfold.\n\nAttach the appropriate plain predicate form before 싶다, following the tense and clause patterns in HTSK.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "국물 맛을 보니 생각보다 매콤하다 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-171/"
         }
@@ -1806,7 +1806,7 @@
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "사람들의 분노가 가라앉았으면 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-172/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "부모님의 우려가 ___",
@@ -1816,7 +1816,7 @@
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "부모님의 우려가 없었으면 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-172/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "이 상품의 재고가 ___",
@@ -1826,7 +1826,7 @@
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "이 상품의 재고가 충분했으면 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-172/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "오늘까지 월급이 ___",
@@ -1836,7 +1836,7 @@
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "오늘까지 월급이 입금되었으면 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-172/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "___",
@@ -1846,7 +1846,7 @@
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "시험에서 부정행위가 없었으면 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-172/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",
@@ -1892,7 +1892,7 @@
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "하늘이 너무 검어서 폭풍이 올까 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "하늘이 이렇게 검으니 곧 폭우가 ___",
@@ -1902,7 +1902,7 @@
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "하늘이 이렇게 검으니 곧 폭우가 쏟아질까 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "지폐의 촉감이 이상해서 혹시 위조된 돈이 ___",
@@ -1912,7 +1912,7 @@
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "지폐의 촉감이 이상해서 혹시 위조된 돈이 아닐까 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 ___",
@@ -1922,7 +1922,7 @@
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "광대뼈가 아픈 걸 보니 어젯밤에 장난치다가 다친 걸까 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "승인 요청이 아직 안 된 것을 보니 뭔가 ___",
@@ -1932,7 +1932,7 @@
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "승인 요청이 아직 안 된 것을 보니 뭔가 문제가 생긴 걸까 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-173/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",
@@ -1976,7 +1976,7 @@
           "answer": "높기는요",
           "hint": "Base form: 높다",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment.\n\nUse these forms when politely rejecting praise or showing modesty in conversation.\n\nAttach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite.",
-          "answer_form": "Polite conversational form (-기는요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "높기는요. 그냥 조명 때문에 그렇게 보이는 거예요.",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-174/"
         },
@@ -1986,7 +1986,7 @@
           "answer": "만점이기는요",
           "hint": "Base form: 만점",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment.\n\nUse these forms when politely rejecting praise or showing modesty in conversation.\n\nAttach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite.",
-          "answer_form": "Polite conversational form (-기는요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "만점이기는요. 찍은 문제도 많았어요.",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-174/"
         },
@@ -1996,7 +1996,7 @@
           "answer": "잘하기는요",
           "hint": "Base form: 잘하다",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment.\n\nUse these forms when politely rejecting praise or showing modesty in conversation.\n\nAttach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite.",
-          "answer_form": "Polite conversational form (-기는요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "잘하기는요. 그냥 물에 뜨는 거예요.",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-174/"
         },
@@ -2006,7 +2006,7 @@
           "answer": "프로이기는요",
           "hint": "Base form: 프로",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment.\n\nUse these forms when politely rejecting praise or showing modesty in conversation.\n\nAttach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite.",
-          "answer_form": "Polite conversational form (-기는요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "프로이기는요. 몇 번이나 숨차서 멈췄어요.",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-174/"
         },
@@ -2016,7 +2016,7 @@
           "answer": "선수이기는요",
           "hint": "Base form: 선수",
           "explanation": "Korean can respond to praise with humble expressions such as ~기는요, downplaying or denying the compliment.\n\nUse these forms when politely rejecting praise or showing modesty in conversation.\n\nAttach ~기는요 to the praised predicate, or use the lexical humble reply shown by HTSK; the tone is conversational and polite.",
-          "answer_form": "Polite conversational form (-기는요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "선수이기는요. 그냥 친구 따라서 하는 거예요.",
           "source_url": "https://www.howtostudykorean.com/unit-7/lessons-167-175/lesson-174/"
         }

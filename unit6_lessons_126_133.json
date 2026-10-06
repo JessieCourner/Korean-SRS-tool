@@ -112,7 +112,7 @@
           "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩.\n\nUse it for equal distribution, repeated intervals or gradual amounts.\n\nAttach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK.",
           "source_sentence": "배가 아프니 밥을 조금씩 드세요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-127/",
-          "answer_form": "Adverbial form (조금씩; no speech-level ending)"
+          "answer_form": "No independent speech-level ending"
         },
         {
           "prompt": "저는 아이들에게 ___ 줄 거예요",
@@ -186,7 +186,7 @@
           "answer": "열어 놓아",
           "hint": "Base form: 열다",
           "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains.\n\nUse it when something has been done and left that way for later, preparation or continued effect.\n\nAttach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action.",
-          "answer_form": "Informal/plain command (-어 놓아; 반말)",
+          "answer_form": "Informal/plain command",
           "source_sentence": "문을 열어 놓아",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-128/"
         },
@@ -196,7 +196,7 @@
           "answer": "실어 놓았어요",
           "hint": "Base form: 싣다",
           "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains.\n\nUse it when something has been done and left that way for later, preparation or continued effect.\n\nAttach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 짐을 벌써 차에 실어 놓았어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-128/"
         },
@@ -206,7 +206,7 @@
           "answer": "붙여 놓았어요",
           "hint": "Base form: 붙이다",
           "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains.\n\nUse it when something has been done and left that way for later, preparation or continued effect.\n\nAttach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "자석을 냉장고에 그냥 붙여 놓았어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-128/"
         },
@@ -216,7 +216,7 @@
           "answer": "걸어 놓았어요",
           "hint": "Base form: 걸다",
           "explanation": "~아/어 놓다 describes an action completed in advance whose resulting state remains.\n\nUse it when something has been done and left that way for later, preparation or continued effect.\n\nAttach ~아/어 놓다 with the normal vowel rule; conjugate 놓다 and distinguish the continuing result from simply completing an action.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 자켓을 옷걸이에 걸어 놓았어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-128/"
         },
@@ -610,7 +610,7 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "그 사람이 지난 달에 취업하니 밥값을 못 낼 리가 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "드라마에서 그렇게 중요한 역할을 하는 인물이 ___",
@@ -620,7 +620,7 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "드라마에서 그렇게 중요한 역할을 하는 인물이 죽을 리가 없다",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Informal/plain form (-다; non-polite)"
+          "answer_form": "Informal/plain form"
         },
         {
           "prompt": "삼성이 이 축제를 후원해서 ___",
@@ -630,7 +630,7 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "삼성이 이 축제를 후원해서 돈이 부족할 리가 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "매일 열심히 운동을 하는데 ___",
@@ -640,7 +640,7 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "매일 열심히 운동을 하는데 그렇게 아플 리가 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "그 학생이 내용을 아주 대충 훑어서 ___",
@@ -650,7 +650,7 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "그 학생이 내용을 아주 대충 훑어서 다 외울 리가 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",

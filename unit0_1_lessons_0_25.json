@@ -121,7 +121,7 @@
           "answer": "학생이에요",
           "hint": "Base form: 학생",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "이것은 ___",
@@ -129,7 +129,7 @@
           "answer": "펜이에요",
           "hint": "Base form: 펜",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "저 사람은 ___",
@@ -137,7 +137,7 @@
           "answer": "의사예요",
           "hint": "Base form: 의사",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "저것은 ___",
@@ -145,7 +145,7 @@
           "answer": "의자예요",
           "hint": "Base form: 의자",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "민수는 ___",
@@ -153,7 +153,7 @@
           "answer": "선생님이에요",
           "hint": "Base form: 선생님",
           "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -217,7 +217,7 @@
           "answer": "집에 있어요",
           "hint": "Base form: 있다",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "친구가 집에 있어요"
         },
         {
@@ -235,7 +235,7 @@
           "answer": "학교에 있어요",
           "hint": "Base form: 있다",
           "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "동생이 학교에 있어요"
         }
       ]
@@ -282,7 +282,7 @@
           "answer": "제 책이에요",
           "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "이것은 제 책이에요."
         },
         {
@@ -300,7 +300,7 @@
           "answer": "음악을 좋아해요",
           "hint": "Base form: 좋아하다",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 음악을 좋아해요"
         },
         {
@@ -309,7 +309,7 @@
           "answer": "제 우산이에요",
           "hint": "Base form: 제",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "이것은 제 우산이에요."
         },
         {
@@ -318,7 +318,7 @@
           "answer": "한국 음식을 좋아해요",
           "hint": "Base form: 좋아하다",
           "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 한국 음식을 좋아해요"
         }
       ]
@@ -397,7 +397,7 @@
           "answer": "공부해요",
           "hint": "Base form: 공부하다",
           "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -443,7 +443,7 @@
           "answer": "먹었어요",
           "hint": "Base form: 먹다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어제 밥을 먹었어요"
         },
         {
@@ -452,7 +452,7 @@
           "answer": "가요",
           "hint": "Base form: 가다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "오늘 학교에 가요"
         },
         {
@@ -461,7 +461,7 @@
           "answer": "공부할 거예요",
           "hint": "Base form: 공부하다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "내일 공부할 거예요"
         },
         {
@@ -470,7 +470,7 @@
           "answer": "봤어요",
           "hint": "Base form: 보다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "지난주에 영화를 봤어요"
         },
         {
@@ -479,7 +479,7 @@
           "answer": "만날 거예요",
           "hint": "Base form: 만나다",
           "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "주말에 친구를 만날 거예요"
         }
       ]
@@ -526,7 +526,7 @@
           "answer": "학생이에요",
           "hint": "Base form: 학생",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "나 오늘 ___",
@@ -534,7 +534,7 @@
           "answer": "바쁘다",
           "hint": "Base form: 바쁘다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain conversational form (-다; non-polite)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "___ 한국 사람입니다.",
@@ -550,7 +550,7 @@
           "answer": "좋다",
           "hint": "Base form: 좋다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain conversational form (-다; non-polite)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "저는 ___",
@@ -558,7 +558,7 @@
           "answer": "회사원이에요",
           "hint": "Base form: 회사원",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -604,7 +604,7 @@
           "answer": "추워요",
           "hint": "Base form: 춥다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "한국어를 ___",
@@ -612,7 +612,7 @@
           "answer": "들어요",
           "hint": "Base form: 듣다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "친구를 ___",
@@ -620,7 +620,7 @@
           "answer": "도와요",
           "hint": "Base form: 돕다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "모르다 → ___",
@@ -628,7 +628,7 @@
           "answer": "몰라요",
           "hint": "Base form: 모르다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "쓰다 → ___",
@@ -636,7 +636,7 @@
           "answer": "써요",
           "hint": "Base form: 쓰다",
           "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -682,7 +682,7 @@
           "answer": "추워요",
           "hint": "Base form: 춥다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "듣다 → ___",
@@ -690,7 +690,7 @@
           "answer": "들어요",
           "hint": "Base form: 듣다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "돕다 → ___",
@@ -698,7 +698,7 @@
           "answer": "도와요",
           "hint": "Base form: 돕다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "모르다 → ___",
@@ -706,7 +706,7 @@
           "answer": "몰라요",
           "hint": "Base form: 모르다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "하얗다 → ___",
@@ -714,7 +714,7 @@
           "answer": "하얘요",
           "hint": "Base form: 하얗다",
           "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -760,7 +760,7 @@
           "answer": "안 가요",
           "hint": "Base form: 안",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "오늘 학교에 안 가요."
         },
         {
@@ -769,7 +769,7 @@
           "answer": "못 해요",
           "hint": "Base form: 못",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "한국어를 못 해요."
         },
         {
@@ -778,7 +778,7 @@
           "answer": "마시지 않아요",
           "hint": "Base form: 마시다",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "커피를 마시지 않아요."
         },
         {
@@ -787,7 +787,7 @@
           "answer": "안 와요",
           "hint": "Base form: 안",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "오늘은 비가 안 와요."
         },
         {
@@ -796,7 +796,7 @@
           "answer": "못 먹어요",
           "hint": "Base form: 못",
           "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "매운 음식을 못 먹어요."
         }
       ]
@@ -843,7 +843,7 @@
           "answer": "학생이에요",
           "hint": "Base form: 학생",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "___",
@@ -851,7 +851,7 @@
           "answer": "의사예요",
           "hint": "Base form: 의사",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "내일 ___",
@@ -859,7 +859,7 @@
           "answer": "갈 거예요",
           "hint": "Base form: 가다",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "그 사람은 ___",
@@ -867,7 +867,7 @@
           "answer": "의사일 것이다",
           "hint": "Base form: 의사",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Formal/written plain form (-ㄹ/을 것이다)"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저녁에 ___",
@@ -875,7 +875,7 @@
           "answer": "공부할 것이다",
           "hint": "Base form: 공부하다",
           "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
-          "answer_form": "Formal/written plain form (-ㄹ/을 것이다)"
+          "answer_form": "Formal/written plain form"
         }
       ]
     },
@@ -1248,7 +1248,7 @@
           "answer": "문이 열렸어요",
           "hint": "Base form: 열다",
           "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "문이 열렸어요"
         },
         {
@@ -1257,7 +1257,7 @@
           "answer": "책이 읽혔어요",
           "hint": "Base form: 읽다",
           "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "책이 읽혔어요"
         },
         {
@@ -1266,7 +1266,7 @@
           "answer": "사진이 찍혔어요",
           "hint": "Base form: 찍다",
           "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "사진이 찍혔어요"
         },
         {
@@ -1275,7 +1275,7 @@
           "answer": "창문이 닫혔어요",
           "hint": "Base form: 닫다",
           "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "창문이 닫혔어요"
         },
         {
@@ -1284,7 +1284,7 @@
           "answer": "바람에 열렸어요",
           "hint": "Base form: 열다",
           "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "문이 바람에 열렸어요"
         }
       ]
@@ -1331,7 +1331,7 @@
           "answer": "좋아해요",
           "hint": "Base form: 좋아하다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "감기에 ___",
@@ -1339,7 +1339,7 @@
           "answer": "걸렸어요",
           "hint": "Base form: 걸리다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "약을 ___",
@@ -1347,7 +1347,7 @@
           "answer": "먹었어요",
           "hint": "Base form: 먹다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "저는 매운 음식을 ___",
@@ -1355,7 +1355,7 @@
           "answer": "싫어해요",
           "hint": "Base form: 싫어하다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "머리가 ___",
@@ -1363,7 +1363,7 @@
           "answer": "아파요",
           "hint": "Base form: 아프다",
           "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -1496,7 +1496,7 @@
           "answer": "가고 싶어요",
           "hint": "Base form: 가다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "한국에 가고 싶어요."
         },
         {
@@ -1523,7 +1523,7 @@
           "answer": "여행하고 싶어요",
           "hint": "Base form: 여행하다",
           "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "여행하고 싶어요."
         }
       ]
@@ -1570,7 +1570,7 @@
           "answer": "읽고 있어요",
           "hint": "Base form: 읽다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "날씨가 ___.",
@@ -1578,7 +1578,7 @@
           "answer": "추워지고 있어요",
           "hint": "Base form: 춥다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "한국어를 ___.",
@@ -1586,7 +1586,7 @@
           "answer": "공부하고 있어요",
           "hint": "Base form: 공부하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "친구를 ___.",
@@ -1594,7 +1594,7 @@
           "answer": "기다리고 있어요",
           "hint": "Base form: 기다리다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "날이 ___.",
@@ -1602,7 +1602,7 @@
           "answer": "따뜻해지고 있어요",
           "hint": "Base form: 따뜻하다",
           "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ]
     },
@@ -1666,7 +1666,7 @@
           "answer": "제일 좋아요",
           "hint": "Base form: 제일",
           "explanation": "Make comparative and superlative sentences and understand the common word 더.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "이것이 제일 좋아요."
         },
         {
@@ -1684,7 +1684,7 @@
           "answer": "제일 커요",
           "hint": "Base form: 제일",
           "explanation": "Make comparative and superlative sentences and understand the common word 더.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "서울이 한국에서 제일 커요."
         }
       ]
@@ -1731,7 +1731,7 @@
           "answer": "한국어를 잘해요",
           "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "한국어를 잘해요."
         },
         {
@@ -1740,7 +1740,7 @@
           "answer": "운전을 못해요",
           "hint": "Base form: 못하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "운전을 못해요."
         },
         {
@@ -1749,7 +1749,7 @@
           "answer": "요리를 잘해요",
           "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 요리를 잘해요."
         },
         {
@@ -1758,7 +1758,7 @@
           "answer": "수영을 잘해요",
           "hint": "Base form: 잘하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "저는 수영을 잘해요."
         },
         {
@@ -1767,7 +1767,7 @@
           "answer": "노래를 못해요",
           "hint": "Base form: 못하다",
           "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "동생은 노래를 못해요."
         }
       ]
@@ -1901,7 +1901,7 @@
           "answer": "어느 책이 좋아요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어느 책이 좋아요?"
         },
         {
@@ -1919,7 +1919,7 @@
           "answer": "몇 명의 사람이 왔어요?",
           "hint": "Base form: 몇",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "몇 명의 사람이 왔어요?"
         },
         {
@@ -1928,7 +1928,7 @@
           "answer": "어느 영화를 좋아해요?",
           "hint": "Base form: 어느",
           "explanation": "Ask questions with how, which and how many.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어느 영화를 좋아해요?"
         }
       ]
@@ -1975,7 +1975,7 @@
           "answer": "날씨가 파래요",
           "hint": "Base form: 파랗다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "날씨가 파래요."
         },
         {
@@ -1984,7 +1984,7 @@
           "answer": "어떤 색이에요?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어떤 색이에요?"
         },
         {
@@ -1993,7 +1993,7 @@
           "answer": "어떤 사람입니까?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "Formal polite form (-ㅂ/습니다)",
+          "answer_form": "Formal polite form",
           "source_sentence": "어떤 사람입니까?"
         },
         {
@@ -2002,7 +2002,7 @@
           "answer": "하늘이 파래요",
           "hint": "Base form: 파랗다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "하늘이 파래요."
         },
         {
@@ -2011,7 +2011,7 @@
           "answer": "어떤 모양이에요?",
           "hint": "Base form: 어떻다",
           "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
-          "answer_form": "Polite conversational form (-요)",
+          "answer_form": "Polite conversational form",
           "source_sentence": "어떤 모양이에요?"
         }
       ]

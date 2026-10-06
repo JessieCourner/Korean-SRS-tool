@@ -37,7 +37,7 @@
           "explanation": "Use the modifier form before a noun-like expression.",
           "source_sentence": "나의 꿈은 선생님이 되는 것이다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": "Formal/written plain form (-는 것이다)"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저는 영화를 ___ 좋아해요",
@@ -199,7 +199,7 @@
           "explanation": "Use the future modifier for an intended or expected action.",
           "source_sentence": "저는 집을 지을 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "그 사람은 서울에서 부산까지 ___ 첫 번째 사람이었다",
@@ -371,7 +371,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "내일 공원에 갈지 영화를 볼지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": "Embedded uncertain-clause form (~ㄹ지; sentence ends polite -요)"
+          "answer_form": "Polite conversational sentence"
         },
         {
           "prompt": "엄마가 누구랑 ___ 모르겠어요",
@@ -549,7 +549,7 @@
           "explanation": "Use ~아/어 보다 for trying an action or having the experience.",
           "source_sentence": "나는 밥을 먹어 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": "Informal/plain written form (-다)"
+          "answer_form": "Informal/plain written form"
         },
         {
           "prompt": "___ 노력해요",
@@ -615,7 +615,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 먹는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain conversational form (-야; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "나는 ___",
@@ -625,7 +625,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 공부하는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain conversational form (-야; 반말)"
+          "answer_form": "Informal/plain conversational form"
         },
         {
           "prompt": "우리는 그 감정적인 장면을 ___",
@@ -635,7 +635,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "우리는 그 감정적인 장면을 촬영하는 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "저는 ___",
@@ -645,7 +645,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "저는 생각 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         },
         {
           "prompt": "그 상가가 ___",
@@ -655,7 +655,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "그 상가가 지금 공사 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Polite conversational form"
         }
       ],
       "source_status": "published",
