@@ -1327,24 +1327,24 @@
           "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
         },
         {
-          "prompt": "우리는 ___ 영화를 봤다",
-          "translation": "We watched a movie with the lights off",
-          "answer": "불이 꺼진 채로",
-          "hint": "Base form: 꺼지다",
+          "prompt": "신발을 ___ 위층에 올라갔어요",
+          "translation": "I went upstairs with my shoes on",
+          "answer": "신은 채로",
+          "hint": "Base form: 신다",
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
-          "source_sentence": "우리는 불이 꺼진 채로 영화를 봤다",
+          "source_sentence": "신발을 신은 채로 위층에 올라갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": ""
+          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
         },
         {
-          "prompt": "우리는 불이 꺼져 ___ 영화를 봤다",
-          "translation": "We watched a movie with the lights off",
-          "answer": "있는 채로",
-          "hint": "Base form: 있다",
+          "prompt": "생선 가시가 목에 ___ 병원에 갔어요",
+          "translation": "I went to the hospital with a fish bone stuck in my throat",
+          "answer": "찔린 채로",
+          "hint": "Base form: 찔리다",
           "explanation": "채 means remaining in a state while another action happens, often translated while still or without changing.\n\nUse it when the original state continues during the next action.\n\nUse N인 채(로), V-은/는 채(로) or the tense appropriate to the state, then add 로 or the following predicate as shown by HTSK.",
-          "source_sentence": "우리는 불이 꺼져 있는 채로 영화를 봤다",
+          "source_sentence": "생선 가시가 목에 찔린 채로 병원에 갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/",
-          "answer_form": ""
+          "answer_form": "Embedded modifier form (-ㄴ/은 채로; no independent speech-level ending)"
         },
         {
           "prompt": "눈을 ___ 그 숫자를 외워 봤어요",

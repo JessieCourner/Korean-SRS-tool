@@ -105,14 +105,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 아이들에게 과자를 ___ 줄 거예요",
-          "translation": "I will give one cookie to each kid",
-          "answer": "하나씩",
-          "hint": "Base form: 하나",
+          "prompt": "배가 아프니 밥을 ___ 드세요",
+          "translation": "Only eat a little bit of rice at a time because your stomach is sore",
+          "answer": "조금씩",
+          "hint": "Base form: 조금 (adverb) + 씩",
           "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩.\n\nUse it for equal distribution, repeated intervals or gradual amounts.\n\nAttach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK.",
-          "source_sentence": "저는 아이들에게 과자를 하나씩 줄 거예요",
+          "source_sentence": "배가 아프니 밥을 조금씩 드세요",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-127/",
-          "answer_form": ""
+          "answer_form": "Adverbial form (조금씩; no speech-level ending)"
         },
         {
           "prompt": "저는 아이들에게 ___ 줄 거예요",

@@ -257,13 +257,13 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {
-          "prompt": "___ 공원에 가고 싶어요",
-          "translation": "It is Sunday, so I want to go to the park",
-          "answer": "일요일이라서",
-          "hint": "Base form: 일요일",
+          "prompt": "저는 ___ 공원에 가고 싶어요",
+          "translation": "I am bored, therefore, I want to go to the park",
+          "answer": "심심해서",
+          "hint": "Base form: 심심하다",
           "explanation": "~아/어서 connects clauses with a natural cause-and-result relationship: because or so.\n\nUse it when the first clause naturally explains the result in the second clause, especially in everyday speech.\n\nAttach ~아서 after a ㅏ/ㅗ stem, ~어서 after other vowels, and ~해서 after 하다. The second clause normally carries the tense.",
-          "answer_form": "",
-          "source_sentence": "일요일이라서 공원에 가고 싶어요",
+          "answer_form": "Embedded connective form (-아서; sentence ends polite -요)",
+          "source_sentence": "저는 심심해서 공원에 가고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {
@@ -277,13 +277,13 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {
-          "prompt": "예쁜 ___ 똑똑하지 않을 것 같아",
-          "translation": "She is a pretty girl, so she is probably not smart",
-          "answer": "여자라서",
-          "hint": "Base form: 여자",
+          "prompt": "고속도로가 ___ 일반 길로 갈 거예요",
+          "translation": "I will take the normal road because the highway is blocked up",
+          "answer": "막혀서",
+          "hint": "Base form: 막히다",
           "explanation": "~아/어서 connects clauses with a natural cause-and-result relationship: because or so.\n\nUse it when the first clause naturally explains the result in the second clause, especially in everyday speech.\n\nAttach ~아서 after a ㅏ/ㅗ stem, ~어서 after other vowels, and ~해서 after 하다. The second clause normally carries the tense.",
-          "answer_form": "",
-          "source_sentence": "예쁜 여자라서 똑똑하지 않을 것 같아",
+          "answer_form": "Embedded connective form (-아서; sentence ends polite -요)",
+          "source_sentence": "고속도로가 막혀서 일반 길로 갈 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {

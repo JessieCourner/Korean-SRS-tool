@@ -373,14 +373,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "밥을 ___ 부탁 드렸어요",
-          "translation": "I asked him to make (the rice) quickly",
-          "answer": "빨리 만들어 달라고",
-          "hint": "Base form: 만들다",
+          "prompt": "비타민이 풍부하게 들어가 있는 과일만 ___",
+          "translation": "I requested to only buy fruit that is abundant with vitamins (fruits rich in vitamins)",
+          "answer": "사 달라고 했어요",
+          "hint": "Base form: 사다",
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
-          "source_sentence": "밥을 빨리 만들어 달라고 부탁 드렸어요",
+          "source_sentence": "비타민이 풍부하게 들어가 있는 과일만 사 달라고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": ""
+          "answer_form": "Polite conversational form (-요)"
         },
         {
           "prompt": "엄마에게 그것을 ___ 부탁 드렸어요",
@@ -565,12 +565,12 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "저는 학생들에게 ___",
-          "translation": "I made the students clean the classroom",
-          "answer": "교실을 청소하라고 시켰어요",
-          "hint": "Base form: 청소하다",
+          "prompt": "저는 열심히 일해서 부장님을 ___",
+          "translation": "I worked very hard, so I satisfied my boss",
+          "answer": "만족시켰어요",
+          "hint": "Base form: 만족시키다",
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
-          "source_sentence": "저는 학생들에게 교실을 청소하라고 시켰어요",
+          "source_sentence": "저는 열심히 일해서 부장님을 만족시켰어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
           "answer_form": "Polite conversational form (-요)"
         }
@@ -1759,14 +1759,14 @@
           "answer_form": "Polite conversational form (-요)"
         },
         {
-          "prompt": "이 뷔페가격은 포도주가 ___",
-          "translation": "This buffet price includes wine",
-          "answer": "포함돼요",
-          "hint": "Base form: 포함되다",
+          "prompt": "저의 친구를 ___ 열 명이 같이 여행할 거예요",
+          "translation": "Including my friend, ten people will go travel together",
+          "answer": "포함해",
+          "hint": "Base form: 포함하다",
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
-          "source_sentence": "이 뷔페가격은 포도주가 포함돼요",
+          "source_sentence": "저의 친구를 포함해 열 명이 같이 여행할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Polite conversational form (-요)"
+          "answer_form": "Embedded connective form (-해; sentence ends polite -요)"
         },
         {
           "prompt": "나의 월세는 가스비가 ___",

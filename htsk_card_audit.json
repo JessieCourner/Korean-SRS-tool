@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-09-30-v14",
+  "schema_version": "2026-10-06-v15",
   "source_policy": "HTSK source sentence or explicitly curated HTSK lesson vocabulary; vocabulary lessons use distinct target answers",
   "lessons": {
     "0": {
@@ -1275,9 +1275,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/"
         },
         {
-          "source_sentence": "저는 친구가 어디 가는지 모르겠어요",
-          "translation": "I don’t know where my friend is going",
-          "answer": "친구가 어디 가는지",
+          "source_sentence": "내일 공원에 갈지 영화를 볼지 모르겠어요",
+          "translation": "I don’t know if I will see a movie or go to the park tomorrow",
+          "answer": "갈지 영화를 볼지",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/"
         },
@@ -1408,9 +1408,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/"
         },
         {
-          "source_sentence": "나는 공부 중이야",
-          "translation": "I am studying",
-          "answer": "공부 중이야",
+          "source_sentence": "우리는 그 감정적인 장면을 촬영하는 중이에요",
+          "translation": "We are filming that emotional scene now",
+          "answer": "촬영하는 중이에요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/"
         },
@@ -1569,9 +1569,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {
-          "source_sentence": "일요일이라서 공원에 가고 싶어요",
-          "translation": "It is Sunday, so I want to go to the park",
-          "answer": "일요일이라서",
+          "source_sentence": "저는 심심해서 공원에 가고 싶어요",
+          "translation": "I am bored, therefore, I want to go to the park",
+          "answer": "심심해서",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
@@ -1583,9 +1583,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
         {
-          "source_sentence": "예쁜 여자라서 똑똑하지 않을 것 같아",
-          "translation": "She is a pretty girl, so she is probably not smart",
-          "answer": "여자라서",
+          "source_sentence": "고속도로가 막혀서 일반 길로 갈 거예요",
+          "translation": "I will take the normal road because the highway is blocked up",
+          "answer": "막혀서",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"
         },
@@ -2332,9 +2332,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/"
         },
         {
-          "source_sentence": "밥을 빨리 만들어 달라고 부탁 드렸어요",
-          "translation": "I asked him to make (the rice) quickly",
-          "answer": "빨리 만들어 달라고",
+          "source_sentence": "비타민이 풍부하게 들어가 있는 과일만 사 달라고 했어요",
+          "translation": "I requested to only buy fruit that is abundant with vitamins (fruits rich in vitamins)",
+          "answer": "사 달라고 했어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/"
         },
@@ -2430,9 +2430,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/"
         },
         {
-          "source_sentence": "저는 학생들에게 교실을 청소하라고 시켰어요",
-          "translation": "I made the students clean the classroom",
-          "answer": "교실을 청소하라고 시켰어요",
+          "source_sentence": "저는 열심히 일해서 부장님을 만족시켰어요",
+          "translation": "I worked very hard, so I satisfied my boss",
+          "answer": "만족시켰어요",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/"
         }
@@ -3011,9 +3011,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/"
         },
         {
-          "source_sentence": "이 뷔페가격은 포도주가 포함돼요",
-          "translation": "This buffet price includes wine",
-          "answer": "포함돼요",
+          "source_sentence": "저의 친구를 포함해 열 명이 같이 여행할 거예요",
+          "translation": "Including my friend, ten people will go travel together",
+          "answer": "포함해",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/"
         },
@@ -4908,16 +4908,16 @@
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/"
         },
         {
-          "source_sentence": "우리는 불이 꺼진 채로 영화를 봤다",
-          "translation": "We watched a movie with the lights off",
-          "answer": "불이 꺼진 채로",
+          "source_sentence": "신발을 신은 채로 위층에 올라갔어요",
+          "translation": "I went upstairs with my shoes on",
+          "answer": "신은 채로",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/"
         },
         {
-          "source_sentence": "우리는 불이 꺼져 있는 채로 영화를 봤다",
-          "translation": "We watched a movie with the lights off",
-          "answer": "있는 채로",
+          "source_sentence": "생선 가시가 목에 찔린 채로 병원에 갔어요",
+          "translation": "I went to the hospital with a fish bone stuck in my throat",
+          "answer": "찔린 채로",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-116/"
         },
@@ -5363,9 +5363,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-127/"
         },
         {
-          "source_sentence": "저는 아이들에게 과자를 하나씩 줄 거예요",
-          "translation": "I will give one cookie to each kid",
-          "answer": "하나씩",
+          "source_sentence": "배가 아프니 밥을 조금씩 드세요",
+          "translation": "Only eat a little bit of rice at a time because your stomach is sore",
+          "answer": "조금씩",
           "source_kind": "HTSK selected sentence",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-127/"
         },

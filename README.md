@@ -1,5 +1,9 @@
 # Mochi Hangul
 
+## v38
+
+- Replaced every within-lesson duplicate English translation whose Korean source sentence differed with a different official HTSK sentence from the same lesson grammar. The complete answer, base-form hint and required answer form were updated together; the other cards and SRS logic were left unchanged.
+
 ## v37
 
 - Rechecked and made answer-form labels explicit for non-polite, polite, honorific, formal/literary, command, question, proposal, and embedded grammar answers.
@@ -78,7 +82,7 @@ The chibi messages are original in-app encouragements; they are not presented as
 
 ## Final card-content pass
 
-This archive contains the final content pass (`2026-10-02-cards-content-ui-content-v33`). Lessons 26–202 were checked lesson by lesson: every published card reconstructs its complete HTSK source sentence, repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied target words, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary; cards without a speech-level ending explicitly say to match the sentence context.
+This archive contains the reviewed card content through 2026-10-06 (`2026-10-06-translation-dedup-v38`). Lessons 26–202 were checked lesson by lesson: every published card reconstructs its complete HTSK source sentence, repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied target words, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary; cards without a speech-level ending explicitly say to match the sentence context.
 
 On startup, the v33 content sync refreshes every card's prompt, complete answer, hint, explanation and answer-form in an existing local or Supabase database while preserving review levels, dates and history. It also fills in missing foundation lessons 0–25 when an older database already contains later lessons; existing lesson rows are never duplicated or reset. The migration records a permanent `seed_index` for each card inside its lesson and uses that position first on already-migrated databases, so later updates do not guess from visible text. The first migration still uses the old translation only to attach an existing SRS row to the correct new content; missing review rows are restored without changing existing progress. Obsolete rows are retired, and a strict post-sync verification checks the repaired content before the app renders. Verification includes retired/unpublished seed cards too, because retirement controls availability rather than whether their stored content is valid. The sync version is part of Streamlit's cache key and the old static card-query cache is cleared. This specifically replaces older records where a grammar tail was left outside the blank, even if an earlier deployment had already written a content marker. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page, and the hide/show control stays above the app controls.
 
