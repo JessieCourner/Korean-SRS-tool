@@ -106,12 +106,12 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 휴지를 다 버렸어요",
-          "translation": "I threw out all the tissue paper that the baby had used",
-          "answer": "저는 애기가 썼던",
-          "hint": "Base form: 쓰다",
+          "prompt": "우리가 지난 번에 ___ 곳에서 먹고 싶어요",
+          "translation": "I want to eat at the place that we ate at last time",
+          "answer": "먹었던",
+          "hint": "Base form: 먹다",
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
-          "source_sentence": "저는 애기가 썼던 휴지를 다 버렸어요",
+          "source_sentence": "우리가 지난 번에 먹었던 곳에서 먹고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
           "answer_form": ""
         },
@@ -222,9 +222,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 친구가 ___ 봤어요",
+          "prompt": "저는 친구가 문을 ___ 봤어요",
           "translation": "I saw my friend open the door",
-          "answer": "문을 여는 것을",
+          "answer": "여는 것을",
           "hint": "Base form: 열다",
           "explanation": "Use the noun-like expression for an action that was observed.",
           "source_sentence": "저는 친구가 문을 여는 것을 봤어요",
@@ -364,14 +364,14 @@
           "answer_form": ""
         },
         {
-          "prompt": "내일 공원에 ___ 모르겠어요",
+          "prompt": "내일 공원에 ___ 영화를 볼지 모르겠어요",
           "translation": "I don’t know if I will see a movie or go to the park tomorrow",
-          "answer": "갈지 영화를 볼지",
+          "answer": "갈지",
           "hint": "Base forms: 가다 + 보다",
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "내일 공원에 갈지 영화를 볼지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": "Polite conversational sentence"
+          "answer_form": ""
         },
         {
           "prompt": "엄마가 누구랑 ___ 모르겠어요",
@@ -384,9 +384,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 모르겠어요",
+          "prompt": "엄마가 ___ 모르겠어요",
           "translation": "I don’t know what mom is eating",
-          "answer": "엄마가 뭐 먹는지",
+          "answer": "뭐 먹는지",
           "hint": "Base form: 먹다",
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "엄마가 뭐 먹는지 모르겠어요",
@@ -394,9 +394,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 모르겠어요",
+          "prompt": "엄마가 ___ 모르겠어요",
           "translation": "I don’t know where mom is eating",
-          "answer": "엄마가 어디서 먹는지",
+          "answer": "어디서 먹는지",
           "hint": "Base form: 먹다",
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "엄마가 어디서 먹는지 모르겠어요",
@@ -522,9 +522,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
       "cards": [
         {
-          "prompt": "___ 행사에 가고 있어요",
+          "prompt": "공연을 ___ 행사에 가고 있어요",
           "translation": "I am going to the event to see the performance",
-          "answer": "공연을 보러",
+          "answer": "보러",
           "hint": "Base form: 보다",
           "explanation": "Use ~(으)러 with a movement verb to express purpose.",
           "source_sentence": "공연을 보러 행사에 가고 있어요",
@@ -532,9 +532,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "나는 ___ 노력했다",
+          "prompt": "나는 밥을 ___ 노력했다",
           "translation": "I tried to eat rice",
-          "answer": "밥을 먹으려고",
+          "answer": "먹으려고",
           "hint": "Base form: 먹다",
           "explanation": "Use ~려고 to state the purpose or intention of the action.",
           "source_sentence": "나는 밥을 먹으려고 노력했다",
@@ -542,19 +542,19 @@
           "answer_form": ""
         },
         {
-          "prompt": "나는 ___",
+          "prompt": "나는 밥을 ___",
           "translation": "I tried eating rice",
-          "answer": "밥을 먹어 봤다",
+          "answer": "먹어 봤다",
           "hint": "Base form: 먹다",
           "explanation": "Use ~아/어 보다 for trying an action or having the experience.",
           "source_sentence": "나는 밥을 먹어 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": "Informal/plain written form"
+          "answer_form": "Formal/written plain form"
         },
         {
-          "prompt": "___ 노력해요",
+          "prompt": "그 친구를 매 주말 ___ 노력해요",
           "translation": "I try to meet that friend every weekend",
-          "answer": "그 친구를 매 주말 만나려고",
+          "answer": "만나려고",
           "hint": "Base form: 만나다",
           "explanation": "Use ~려고 before a verb of effort or intention.",
           "source_sentence": "그 친구를 매 주말 만나려고 노력해요",
@@ -562,9 +562,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 노력하고 있어요",
+          "prompt": "한국어를 ___ 노력하고 있어요",
           "translation": "I am trying to learn Korean",
-          "answer": "한국어를 배우려고",
+          "answer": "배우려고",
           "hint": "Base form: 배우다",
           "explanation": "Use ~려고 to show the goal of the effort.",
           "source_sentence": "한국어를 배우려고 노력하고 있어요",
@@ -648,9 +648,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "그 상가가 ___",
+          "prompt": "그 상가가 지금 ___",
           "translation": "That building is under construction",
-          "answer": "지금 공사 중이에요",
+          "answer": "공사 중이에요",
           "hint": "Base form: 공사",
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "그 상가가 지금 공사 중이에요",

@@ -221,9 +221,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "그 왕따 학생은 다른 ___",
+          "prompt": "그 왕따 학생은 다른 학생들한테 ___",
           "translation": "That outcast was humiliated by other students",
-          "answer": "학생들한테 괴롭힘을 당했어요",
+          "answer": "괴롭힘을 당했어요",
           "hint": "Base form: 당하다",
           "explanation": "HTSK brings together several smaller points: 한 and 약, ~(으)므로, 전반에 and 당하다.\n\nUse each item in the specific formal, approximate, general or passive/affected meaning explained in the lesson.\n\nThese are separate constructions: learn 한/약 with quantities, ~(으)므로 as a formal reason, 전반에 for an overall period/area, and 당하다 in the passive/affected pattern.",
           "source_sentence": "그 왕따 학생은 다른 학생들한테 괴롭힘을 당했어요",
@@ -801,9 +801,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "___",
+          "prompt": "애기가 삐져서 ___",
           "translation": "The baby is upset, there is nothing we can do",
-          "answer": "애기가 삐져서 어쩔 수 없어요",
+          "answer": "어쩔 수 없어요",
           "hint": "Base form: 어쩔 수 없다",
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "애기가 삐져서 어쩔 수 없어요",
@@ -811,9 +811,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "___",
+          "prompt": "강아지가 소심해서 ___",
           "translation": "The dog is very timid, there is nothing we can do",
-          "answer": "강아지가 소심해서 어쩔 수 없어요",
+          "answer": "어쩔 수 없어요",
           "hint": "Base form: 어쩔 수 없다",
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "강아지가 소심해서 어쩔 수 없어요",
@@ -821,9 +821,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "장비를 ___",
+          "prompt": "장비를 안 가져와서 ___",
           "translation": "We didn’t bring the equipment, there is nothing we can do",
-          "answer": "안 가져와서 어쩔 수 없어요",
+          "answer": "어쩔 수 없어요",
           "hint": "Base form: 어쩔 수 없다",
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "장비를 안 가져와서 어쩔 수 없어요",
@@ -831,9 +831,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "밀이 ___",
+          "prompt": "밀이 있었으면 좋겠지만 ___",
           "translation": "It would be nice if we had some flour, but there is nothing we can do",
-          "answer": "있었으면 좋겠지만 어쩔 수 없어요",
+          "answer": "어쩔 수 없어요",
           "hint": "Base form: 어쩔 수 없다",
           "explanation": "어쩔 수 없다 means there is no way, nothing can be done or one cannot help it.\n\nUse it when circumstances leave no alternative or when an unavoidable result is being accepted.\n\nUse the fixed expression 어쩔 수 없다, optionally after a clause explaining the situation; conjugate 없다 for tense and politeness.",
           "source_sentence": "밀이 있었으면 좋겠지만 어쩔 수 없어요",
@@ -1241,14 +1241,14 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "식칼 ___",
+          "prompt": "식칼 대신에 과도 ___",
           "translation": "I should have used a fruit knife instead of a kitchen knife",
-          "answer": "대신에 과도 쓸걸",
+          "answer": "쓸걸",
           "hint": "Base form: 쓰다",
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "식칼 대신에 과도 쓸걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": ""
         },
         {
           "prompt": "이용 수칙을 제대로 ___",
@@ -1261,14 +1261,14 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "만료일이 ___",
+          "prompt": "만료일이 언제까지인지 제대로 ___",
           "translation": "I should have looked at when the expiry date is until",
-          "answer": "언제까지인지 제대로 볼걸",
+          "answer": "볼걸",
           "hint": "Base form: 보다",
           "explanation": "~ㄹ/을걸 그랬다 expresses regret about a past choice: I should have or I wish I had.\n\nUse it when looking back and wishing the action had been done differently.\n\nAttach ~ㄹ걸 그랬다 after a vowel or ㄹ stem and ~을걸 그랬다 after another consonant; use the negative form when regretting an action not done.",
           "source_sentence": "만료일이 언제까지인지 제대로 볼걸",
           "source_url": "https://www.howtostudykorean.com/unit-5/lessons-109-116/lesson-115/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": ""
         }
       ],
       "source_status": "published",

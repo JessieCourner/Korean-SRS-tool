@@ -534,7 +534,7 @@
           "answer": "바쁘다",
           "hint": "Base form: 바쁘다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "___ 한국 사람입니다.",
@@ -550,7 +550,7 @@
           "answer": "좋다",
           "hint": "Base form: 좋다",
           "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저는 ___",

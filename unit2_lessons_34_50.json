@@ -90,7 +90,7 @@
           "explanation": "~ㄹ/을 것 같다 expresses a guess, possibility or impression: it seems or might be. HTSK also shows the common expression 그럴 것 같다.\n\nUse it when making a prediction or describing an impression without presenting it as a firm fact.\n\nAttach ~ㄹ 것 같다 after a vowel or ㄹ stem and ~을 것 같다 after another consonant. Use the past and present modifier forms for other time references.",
           "source_sentence": "나는 밥을 먹을 것 같다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-35/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저는 친구들이랑 내일 낚시를 ___",
@@ -191,9 +191,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "저의 ___",
+          "prompt": "저의 여자친구는 ___",
           "translation": "My girlfriend looks like a celebrity",
-          "answer": "여자친구는 연예인 같이 보여요",
+          "answer": "연예인 같이 보여요",
           "hint": "Base form: 보이다",
           "explanation": "The blank is the noun being compared. Use noun + 같이 보이다. Here 보여요 is the polite conversational form of 보이다.",
           "source_sentence": "저의 여자친구는 연예인 같이 보여요",
@@ -739,9 +739,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-43/",
       "cards": [
         {
-          "prompt": "만약 지금 환경을 보존하지 ___ 미래에 더 큰 문제가 생길 것 같아요",
+          "prompt": "만약 지금 환경을 ___ 미래에 더 큰 문제가 생길 것 같아요",
           "translation": "If we don’t preserve the environment now, there will probably be bigger problems in the future",
-          "answer": "않으면",
+          "answer": "보존하지 않으면",
           "hint": "Base form: 않다",
           "explanation": "~(으)면 and ~ㄴ/는다면 express a condition such as if or when; ~ㄴ/는다면 can make the situation more hypothetical.\n\nUse them for conditions, suggestions and imagined or possible situations.\n\nUse ~면 after a vowel and ~으면 after a consonant. For verbs, use ~ㄴ다면 after a vowel or ㄹ and ~는다면 after another consonant.",
           "answer_form": "",
@@ -914,7 +914,7 @@
           "explanation": "~ㄹ/을 수 있다 and ~ㄹ/을 수 없다 express ability or possibility: can or cannot.\n\nUse them to say that an action is possible, impossible, permitted by circumstances or within someone's ability.\n\nAttach ~ㄹ 수 있다 after a vowel or ㄹ stem and ~을 수 있다 after another consonant; replace 있다 with 없다 for the negative.",
           "source_sentence": "공부할 수 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-45/",
-          "answer_form": "Informal/plain written form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "___",
@@ -924,7 +924,7 @@
           "explanation": "~ㄹ/을 수 있다 and ~ㄹ/을 수 없다 express ability or possibility: can or cannot.\n\nUse them to say that an action is possible, impossible, permitted by circumstances or within someone's ability.\n\nAttach ~ㄹ 수 있다 after a vowel or ㄹ stem and ~을 수 있다 after another consonant; replace 있다 with 없다 for the negative.",
           "source_sentence": "공부할 수 없다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-45/",
-          "answer_form": "Informal/plain written form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저도 그것을 ___",
@@ -937,9 +937,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "저는 그 ___",
+          "prompt": "저는 그 지점에서 ___",
           "translation": "I can meet at that point",
-          "answer": "지점에서 만날 수 있어요",
+          "answer": "만날 수 있어요",
           "hint": "Base form: 만나다",
           "explanation": "~ㄹ/을 수 있다 and ~ㄹ/을 수 없다 express ability or possibility: can or cannot.\n\nUse them to say that an action is possible, impossible, permitted by circumstances or within someone's ability.\n\nAttach ~ㄹ 수 있다 after a vowel or ㄹ stem and ~을 수 있다 after another consonant; replace 있다 with 없다 for the negative.",
           "source_sentence": "저는 그 지점에서 만날 수 있어요",
@@ -947,9 +947,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "이 로션을 ___",
+          "prompt": "이 로션을 온몸에 ___",
           "translation": "You can apply this lotion all over your body",
-          "answer": "온몸에 바를 수 있어요",
+          "answer": "바를 수 있어요",
           "hint": "Base form: 바르다",
           "explanation": "~ㄹ/을 수 있다 and ~ㄹ/을 수 없다 express ability or possibility: can or cannot.\n\nUse them to say that an action is possible, impossible, permitted by circumstances or within someone's ability.\n\nAttach ~ㄹ 수 있다 after a vowel or ㄹ stem and ~을 수 있다 after another consonant; replace 있다 with 없다 for the negative.",
           "source_sentence": "이 로션을 온몸에 바를 수 있어요",
@@ -1000,7 +1000,7 @@
           "explanation": "~아/어야 하다 expresses obligation, must or have to. ~ㄹ/을 필요가 있다 expresses the need to do something.\n\nUse these forms for duties, requirements and necessary actions.\n\nUse the normal 아/어 form before 야 하다. Attach ~ㄹ 필요가 있다 after a vowel or ㄹ and ~을 필요가 있다 after another consonant.",
           "source_sentence": "나는 밥을 먹을 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "나는 ___",
@@ -1010,7 +1010,7 @@
           "explanation": "~아/어야 하다 expresses obligation, must or have to. ~ㄹ/을 필요가 있다 expresses the need to do something.\n\nUse these forms for duties, requirements and necessary actions.\n\nUse the normal 아/어 form before 야 하다. Attach ~ㄹ 필요가 있다 after a vowel or ㄹ and ~을 필요가 있다 after another consonant.",
           "source_sentence": "나는 잘 필요가 있다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-46/",
-          "answer_form": "Plain/written form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "저는 그 여자랑 ___",
@@ -1267,12 +1267,12 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "지금 ___?",
-          "translation": "You don’t need to eat (rice) now?",
-          "answer": "밥을 안 먹어도 돼요",
-          "hint": "Base form: 먹다",
+          "prompt": "지금 문을 ___",
+          "translation": "You may open the door now",
+          "answer": "열어도 돼요",
+          "hint": "Base form: 열다",
           "explanation": "~아/어도 되다 asks or states whether something is allowed. ~지 않아도 되다 means do not have to.\n\nUse it to ask permission, give permission or reassure someone that an action is unnecessary.\n\nAttach ~아도 되다 or ~어도 되다 using the normal vowel rule. For do not have to, use V-지 않아도 되다.",
-          "source_sentence": "지금 밥을 안 먹어도 돼요?",
+          "source_sentence": "지금 문을 열어도 돼요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-49/",
           "answer_form": "Polite conversational form"
         },

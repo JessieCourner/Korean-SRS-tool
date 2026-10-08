@@ -1,5 +1,18 @@
 # Mochi Hangul
 
+## v41
+
+- Continued the card-by-card answer-span audit. Ten remaining split answers now require the complete semantic phrase plus the lesson grammar, including `보존하지 않으면`, `해고하지 않았으면 좋겠다`, `좋아하지 않을까 봐`, `원활하지 않은 경우`, `위조된 돈이 아닐까 싶어요`, `자청하지 않기 마련이에요`, and the full `-단다` predicates.
+- The visible sentence now keeps the unrelated subject, object and context outside the blank; only the lexical predicate/noun phrase that carries the lesson target is required.
+- The source sentence, translation, base-form hint and speech-level labels remain unchanged except where the blank boundary changed. UI and SRS logic were not changed.
+
+## v40
+
+- Audited 91 card answer spans. The blank now contains the lexical word/phrase that carries the lesson grammar, while unrelated subjects, time adverbs, discourse words and surrounding context remain visible in the sentence. For example, Lesson 27 now asks for `먹었던` in `우리가 지난 번에 ___ 곳에서 먹고 싶어요`; it no longer asks for `저는 애기가 썼던`.
+- Replaced the cards that could not be repaired by moving the blank with distinct official HTSK examples from the same lesson (Lessons 27, 49, 80, 85, 86 and 87). The card's sentence, translation, answer, base-form hint and speech-level label were updated together.
+- Rechecked speech-level labels for sentence-final `다`: these are marked `Formal/written plain form`, not informal conversational form. Embedded phrases have no invented speech-level label.
+- The content validator now rejects duplicate HTSK source sentences, while allowing the same target word to appear in different source contexts when a lesson teaches one fixed expression or vocabulary item. UI, SRS and stored progress logic were not changed.
+
 ## v39
 
 - Removed grammar names, endings and lexical answer hints from the Required answer form labels. The labels retain only useful speech-level/context information; card prompts, complete answers, base-form hints, explanations, design and SRS are unchanged.
@@ -86,7 +99,7 @@ The chibi messages are original in-app encouragements; they are not presented as
 
 ## Final card-content pass
 
-This archive contains the reviewed card content through 2026-10-06 (`2026-10-06-translation-dedup-v38`). Lessons 26–202 were checked lesson by lesson: every published card reconstructs its complete HTSK source sentence, repeated grammar targets use different HTSK contexts and lexical stems, vocabulary lessons use varied target words, and the base-form hint follows the word's part of speech (noun, adjective, verb, adverb or fixed construction). Review explanations describe the pattern without printing the completed answer. Where a register matters, the card includes an answer-form label such as polite conversational, informal/plain, quoted command, motherly/plain or formal/literary; cards without a speech-level ending explicitly say to match the sentence context.
+This archive contains the full-answer-span and speech-form pass through 2026-10-07 (`2026-10-07-full-answer-spans-and-speech-forms-v41`). Lessons 26–202 retain their HTSK source sentences and were checked so the answer span contains the lexical base plus the lesson grammar, while unrelated sentence context stays outside the blank. Where the previous example could only be repaired by changing the source, it was replaced with another official HTSK example from the same lesson. Base-form hints continue to follow the word's part of speech (noun, adjective, verb, adverb or fixed construction), and sentence-final `다` forms are labeled as written/plain rather than informal conversation. Repeated fixed targets are allowed only when their HTSK source sentences are distinct.
 
 On startup, the v33 content sync refreshes every card's prompt, complete answer, hint, explanation and answer-form in an existing local or Supabase database while preserving review levels, dates and history. It also fills in missing foundation lessons 0–25 when an older database already contains later lessons; existing lesson rows are never duplicated or reset. The migration records a permanent `seed_index` for each card inside its lesson and uses that position first on already-migrated databases, so later updates do not guess from visible text. The first migration still uses the old translation only to attach an existing SRS row to the correct new content; missing review rows are restored without changing existing progress. Obsolete rows are retired, and a strict post-sync verification checks the repaired content before the app renders. Verification includes retired/unpublished seed cards too, because retirement controls availability rather than whether their stored content is valid. The sync version is part of Streamlit's cache key and the old static card-query cache is cleared. This specifically replaces older records where a grammar tail was left outside the blank, even if an earlier deployment had already written a content marker. The dashboard welcome panel is removed; the single global chibi pair remains draggable above every page, and the hide/show control stays above the app controls.
 
@@ -111,6 +124,6 @@ The PostgreSQL startup migration is serialized and checks `information_schema` b
 - Continuing a card uses a fragment-scoped rerun inside the Review dialog, so the dialog does not close and reopen between cards.
 - Review snapshots the due-card IDs at the start of each visit and removes an ID only after its answer is graded; the progress count therefore cannot say `35 / 41` while the remaining cards have disappeared from the window.
 - The final cleanup also covers every descendant of the answer widget and disables native input appearance, preventing a dark theme or browser default from drawing a colored rectangle.
-- The content validator rejects a card with anything other than one blank, rejects an empty or grammar-tail-only answer, requires a real base-form hint, requires a source sentence for every published lesson 26–202 card, and rejects duplicate target answers in any lesson before the app starts.
+- The content validator rejects a card with anything other than one blank, rejects an empty or grammar-tail-only answer, requires a real base-form hint, requires a source sentence for every published lesson 26–202 card, and rejects duplicate HTSK source sentences before the app starts.
 - Repaired split answers now keep the lexical stem and the grammar chunk together (for example, `할 것 같아요`, `수 있도록`, `끈 채로`, `날 거라니까`), so the learner supplies the complete target phrase.
 - The archive must be deployed as a complete folder: replacing only `korean_bunpro_app.py` cannot change card content because the corrected cards live in the `unit*.json` packs.

@@ -115,9 +115,9 @@
           "answer_form": "No independent speech-level ending"
         },
         {
-          "prompt": "저는 아이들에게 ___ 줄 거예요",
+          "prompt": "저는 아이들에게 과자를 ___ 줄 거예요",
           "translation": "I will give two cookies to each kid",
-          "answer": "과자를 두 개씩",
+          "answer": "두 개씩",
           "hint": "Base form: 개",
           "explanation": "~씩 distributes something by each or at regular intervals. It combines with quantities and adverbs such as 조금씩 and 가끔씩.\n\nUse it for equal distribution, repeated intervals or gradual amounts.\n\nAttach 씩 to the noun or number being divided; combine it with the quantity or frequency expression in the order shown by HTSK.",
           "source_sentence": "저는 아이들에게 과자를 두 개씩 줄 거예요",
@@ -620,12 +620,12 @@
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "드라마에서 그렇게 중요한 역할을 하는 인물이 죽을 리가 없다",
           "source_url": "https://www.howtostudykorean.com/unit-6/lessons-126-133/lesson-133/",
-          "answer_form": "Informal/plain form"
+          "answer_form": "Formal/written plain form"
         },
         {
-          "prompt": "삼성이 이 축제를 후원해서 ___",
+          "prompt": "삼성이 이 축제를 후원해서 돈이 ___",
           "translation": "Samsung is sponsoring this event, so there is no way money can run out",
-          "answer": "돈이 부족할 리가 없어요",
+          "answer": "부족할 리가 없어요",
           "hint": "Base form: 부족하다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "삼성이 이 축제를 후원해서 돈이 부족할 리가 없어요",
@@ -633,9 +633,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "매일 열심히 운동을 하는데 ___",
+          "prompt": "매일 열심히 운동을 하는데 그렇게 ___",
           "translation": "You exercise every day – there is no way that you can be that sick",
-          "answer": "그렇게 아플 리가 없어요",
+          "answer": "아플 리가 없어요",
           "hint": "Base form: 아프다",
           "explanation": "~ㄹ/을 리가 없다 means there is no way that something is true or will happen.\n\nUse it to strongly deny a possibility or say that an outcome is impossible based on reason or expectation.\n\nUse the noun 리 with the modifier ~ㄹ/을 and add 가 없다; apply the consonant-vowel rule before 리.",
           "source_sentence": "매일 열심히 운동을 하는데 그렇게 아플 리가 없어요",

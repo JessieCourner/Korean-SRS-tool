@@ -215,6 +215,12 @@ INCOMPLETE_GRAMMAR_TAILS = frozenset({
     "뻔 했어요", "뻔했어요", "만해요", "만한", "리가 없어요",
     "걸까 싶어요", "중이오니",
     "듯하다", "듯해", "듯해요", "요",
+    # Split tails found in the second full-span audit.  These must not be
+    # accepted as an answer when the lexical predicate is still before the
+    # blank (for example, 보존하지 ___ -> 보존하지 않으면).
+    "않으면", "않았으면 좋겠다", "않을까 봐", "고프니까",
+    "않은 경우", "않기에 말이지", "아닐까 싶어요", "않기 마련이에요",
+    "않는단다", "않았단다",
 })
 # Bunpro-style review ladder. The level is the current consecutive-correct
 # streak. Each submitted answer is graded once; there is no local attempt
@@ -1155,7 +1161,7 @@ def verify_live_card_content():
 # their SRS levels and history, but every card is re-synced from the checked-in
 # lesson JSON on the next startup. This prevents an old split-answer record
 # from surviving after the seed content has been corrected.
-CONTENT_SYNC_VERSION = "2026-10-06-answer-form-hints-v39"
+CONTENT_SYNC_VERSION = "2026-10-07-full-answer-spans-and-speech-forms-v41"
 
 
 def ensure_seed_bundle():
@@ -2076,11 +2082,15 @@ def load_htsk_guides():
                         raise ValueError(
                             f"Lesson {number} card {card_index} does not reconstruct its source sentence."
                         )
-            answers = [normalize(card.get("answer", "")) for card in cards]
-            if len(answers) != len(set(answers)):
+            source_sentences = [
+                normalize(card.get("source_sentence", ""))
+                for card in cards
+                if card.get("source_sentence")
+            ]
+            if len(source_sentences) != len(set(source_sentences)):
                 raise ValueError(
-                    f"Lesson {number} contains duplicate target answers; each card must use "
-                    "a distinct lexical context or target expression."
+                    f"Lesson {number} contains duplicate HTSK source sentences; "
+                    "each card must remain a distinct source example."
                 )
             if lesson_number in VOCABULARY_LESSON_NUMBERS and not cards:
                 raise ValueError(f"Vocabulary lesson {number} must contain target-word cards.")

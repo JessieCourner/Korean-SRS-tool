@@ -221,9 +221,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 저도 맞았어요",
+          "prompt": "독감주사가 ___ 저도 맞았어요",
           "translation": "They say that the flu shot is a necessity, so I also got it",
-          "answer": "독감주사가 필수라고 하길래",
+          "answer": "필수라고 하길래",
           "hint": "Base form: 하다",
           "explanation": "~기에 and ~길래 can give a reason, with different perspectives and discourse nuances.\n\nUse them when explaining a basis or reason, especially when the speaker's discovery or situation motivates the following statement.\n\nAttach ~기에 or ~길래 to the first clause using the forms in HTSK; the second clause gives the consequence or response.",
           "source_sentence": "독감주사가 필수라고 하길래 저도 맞았어요",
@@ -303,9 +303,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 신맛이 나요",
+          "prompt": "음식에 레몬을 ___ 신맛이 나요",
           "translation": "Only if you put lemon in food does the sour taste come out (does it taste sour)",
-          "answer": "음식에 레몬을 넣어야",
+          "answer": "넣어야",
           "hint": "Base form: 넣다",
           "explanation": "~아/어야 can express necessity or a condition without the full 하다 expression.\n\nUse it in constructions where the required condition or action is followed by a result, command or conclusion.\n\nAttach ~아야 after a ㅏ/ㅗ stem and ~어야 after other vowels; 하다 becomes 해야, then add the following clause or predicate.",
           "source_sentence": "음식에 레몬을 넣어야 신맛이 나요",
@@ -553,9 +553,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 결승전에서 큰 활약을 했다",
+          "prompt": "슬기는 축구팀의 ___ 결승전에서 큰 활약을 했다",
           "translation": "Seulgi played a big active role in the playoffs as the captain/leader of the soccer team",
-          "answer": "슬기는 축구팀의 주장으로서",
+          "answer": "주장으로서",
           "hint": "Base form: 주장",
           "explanation": "~(으)로서 means as a role, capacity or position.\n\nUse it to identify the role from which someone acts or is evaluated.\n\nAttach ~로서 after a vowel and ~으로서 after a consonant; place it after the noun naming the role.",
           "source_sentence": "슬기는 축구팀의 주장으로서 결승전에서 큰 활약을 했다",
@@ -771,9 +771,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-143/",
       "cards": [
         {
-          "prompt": "___",
+          "prompt": "거기에 아직 사람이 ___",
           "translation": "There probably isn't anybody there yet",
-          "answer": "거기에 아직 사람이 없을걸",
+          "answer": "없을걸",
           "hint": "Base form: 없다",
           "explanation": "Use the conjectural ending for a confident but non-absolute guess.",
           "source_sentence": "거기에 아직 사람이 없을걸",
@@ -781,9 +781,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "___",
+          "prompt": "사람이 ___",
           "translation": "There probably won't be anybody",
-          "answer": "사람이 없을걸",
+          "answer": "없을걸",
           "hint": "Base form: 없다",
           "explanation": "Use the conjectural ending for a confident but non-absolute guess.",
           "source_sentence": "사람이 없을걸",
@@ -1069,9 +1069,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "제대로 쉬지 않고 ___ 결국 아이를 유산했다",
+          "prompt": "제대로 쉬지 않고 계속 일만 ___ 결국 아이를 유산했다",
           "translation": "I eventually had a miscarriage because I never got a chance to rest and was only working",
-          "answer": "계속 일만 하느라고",
+          "answer": "하느라고",
           "hint": "Base form: 하다",
           "explanation": "~느라고 gives a reason based on being occupied with one action, usually with a negative or inconvenient result.\n\nUse it when one activity prevents, delays or causes difficulty for another action.\n\nAttach ~느라고 to a verb stem; the subject and tense restrictions and the negative-result nuance are important in HTSK.",
           "source_sentence": "제대로 쉬지 않고 계속 일만 하느라고 결국 아이를 유산했다",
@@ -1287,9 +1287,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-149/",
       "cards": [
         {
-          "prompt": "신선한 바람을 쐬러 시간을 내서 ___ 비가 오기 시작했어",
+          "prompt": "신선한 바람을 쐬러 시간을 내서 나왔는데 ___ 비가 오기 시작했어",
           "translation": "I took the time to come outside to get some fresh air and, of all things, it started raining",
-          "answer": "나왔는데 하필",
+          "answer": "하필",
           "hint": "Base form: 하필",
           "explanation": "Use the adverb for an especially unfortunate or ironic coincidence.",
           "source_sentence": "신선한 바람을 쐬러 시간을 내서 나왔는데 하필 비가 오기 시작했어",
@@ -1297,9 +1297,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 떨어졌어!",
+          "prompt": "___ 계란만 떨어졌어!",
           "translation": "Of all things to fall out, only the eggs fell!",
-          "answer": "하필 계란만",
+          "answer": "하필",
           "hint": "Base form: 하필",
           "explanation": "Use the adverb for an especially unfortunate or ironic coincidence.",
           "source_sentence": "하필 계란만 떨어졌어!",
@@ -1307,9 +1307,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 그 헌책방만 문을 닫았어",
+          "prompt": "___ 오늘 그 헌책방만 문을 닫았어",
           "translation": "Of all things to be closed, it had to be the used book store",
-          "answer": "하필 오늘",
+          "answer": "하필",
           "hint": "Base form: 하필",
           "explanation": "Use the adverb for an especially unfortunate or ironic coincidence.",
           "source_sentence": "하필 오늘 그 헌책방만 문을 닫았어",
@@ -1317,9 +1317,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 흥얼거리고 있는데 친구가 들어와서 얼굴이 화끈거렸어",
+          "prompt": "___ 노래를 흥얼거리고 있는데 친구가 들어와서 얼굴이 화끈거렸어",
           "translation": "Of all things, I was humming when my friend came in",
-          "answer": "하필 노래를",
+          "answer": "하필",
           "hint": "Base form: 하필",
           "explanation": "Use the adverb for an especially unfortunate or ironic coincidence.",
           "source_sentence": "하필 노래를 흥얼거리고 있는데 친구가 들어와서 얼굴이 화끈거렸어",
@@ -1327,9 +1327,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 유명한 가수의 공연이 근처에 있어서 지하철이 더 번잡했어",
+          "prompt": "___ 그날 유명한 가수의 공연이 근처에 있어서 지하철이 더 번잡했어",
           "translation": "Of all things, a famous singer's concert made the subway more crowded that day",
-          "answer": "하필 그날",
+          "answer": "하필",
           "hint": "Base form: 하필",
           "explanation": "Use the adverb for an especially unfortunate or ironic coincidence.",
           "source_sentence": "하필 그날 유명한 가수의 공연이 근처에 있어서 지하철이 더 번잡했어",
@@ -1373,9 +1373,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-6/lessons-142-150/lesson-150/",
       "cards": [
         {
-          "prompt": "___ 많아요",
+          "prompt": "___ 돈이 많아요",
           "translation": "No wonder they have so much money",
-          "answer": "어쩐지 돈이",
+          "answer": "어쩐지",
           "hint": "Base form: 어쩐지",
           "explanation": "Use the adverb when a later fact explains an earlier impression.",
           "source_sentence": "어쩐지 돈이 많아요",
@@ -1383,9 +1383,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "맞벌이 ___ 돈이 많아요",
+          "prompt": "맞벌이 부부라서 ___ 돈이 많아요",
           "translation": "They are a dual-income couple, so no wonder they have money",
-          "answer": "부부라서 어쩐지",
+          "answer": "어쩐지",
           "hint": "Base form: 어쩐지",
           "explanation": "Use the adverb when a later fact explains an earlier impression.",
           "source_sentence": "맞벌이 부부라서 어쩐지 돈이 많아요",
@@ -1393,9 +1393,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 불편했어요",
+          "prompt": "___ 침대가 불편했어요",
           "translation": "No wonder the bed was uncomfortable",
-          "answer": "어쩐지 침대가",
+          "answer": "어쩐지",
           "hint": "Base form: 어쩐지",
           "explanation": "Use the adverb when a later fact explains an earlier impression.",
           "source_sentence": "어쩐지 침대가 불편했어요",
@@ -1403,9 +1403,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "침대 스프링이 ___ 침대가 불편했어요",
+          "prompt": "침대 스프링이 망가져서 ___ 침대가 불편했어요",
           "translation": "The bed spring was broken, so no wonder the bed was uncomfortable",
-          "answer": "망가져서 어쩐지",
+          "answer": "어쩐지",
           "hint": "Base form: 어쩐지",
           "explanation": "Use the adverb when a later fact explains an earlier impression.",
           "source_sentence": "침대 스프링이 망가져서 어쩐지 침대가 불편했어요",
@@ -1413,9 +1413,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 사람들로 붐볐어요",
+          "prompt": "___ 장터가 사람들로 붐볐어요",
           "translation": "No wonder the marketplace was bustling",
-          "answer": "어쩐지 장터가",
+          "answer": "어쩐지",
           "hint": "Base form: 어쩐지",
           "explanation": "Use the adverb when a later fact explains an earlier impression.",
           "source_sentence": "어쩐지 장터가 사람들로 붐볐어요",

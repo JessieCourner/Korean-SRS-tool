@@ -513,9 +513,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-7/lessons-151-158/lesson-157/",
       "cards": [
         {
-          "prompt": "통신이 원활하지 ___ 지원 팀에 연락하세요",
+          "prompt": "통신이 ___ 지원 팀에 연락하세요",
           "translation": "In cases where communication is not smooth, contact the support team",
-          "answer": "않은 경우",
+          "answer": "원활하지 않은 경우",
           "hint": "Base form: 경우",
           "explanation": "경우 means a case, situation or circumstance. It is a noun that lets Korean single out the situation being discussed.\n\nUse 경우 when you want to say ‘in the case of…’, ‘when…’ or ‘if…’, especially when describing a specific situation rather than simply naming a time.\n\nPut a noun before 경우 with 의, or put an adjective or verb modifier before it: 한국의 경우, 불안한 경우, 비가 오는 경우. Add particles such as 에는 when the sentence needs them.",
           "source_sentence": "통신이 원활하지 않은 경우 지원 팀에 연락하세요",
@@ -873,9 +873,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 이야기가 사람들 사이에서 퍼졌어요",
+          "prompt": "악마가 정말 ___ 이야기가 사람들 사이에서 퍼졌어요",
           "translation": "The story of whether the devil truly exists spread among people",
-          "answer": "악마가 정말 존재하느냐는",
+          "answer": "존재하느냐는",
           "hint": "Base form: 존재하다",
           "explanation": "~느냐는 turns a question clause into a noun-modifying expression: the question of whether or what someone does.\n\nUse it before nouns such as question, discussion, rumor or judgment when the content of the question is being described.\n\nAttach ~느냐는 to the question clause, then add the noun it modifies; follow the verb, adjective and tense forms shown by HTSK.",
           "source_sentence": "악마가 정말 존재하느냐는 이야기가 사람들 사이에서 퍼졌어요",
@@ -949,9 +949,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "우리가 ___ 달려 있어요",
+          "prompt": "우리가 내일 언제 ___ 달려 있어요",
           "translation": "When we go tomorrow is still hanging in the balance",
-          "answer": "내일 언제 가느냐에 따라서",
+          "answer": "가느냐에 따라서",
           "hint": "Base form: 가다",
           "explanation": "~느냐에 따라서 means depending on whether or how a situation is, with the result varying accordingly.\n\nUse it when a result changes according to an answer, choice or condition expressed as a question clause.\n\nAttach ~느냐에 따라(서) to the question clause, then state the result or difference in the main clause.",
           "source_sentence": "우리가 내일 언제 가느냐에 따라서 달려 있어요",
@@ -1121,9 +1121,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 ___",
+          "prompt": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 단서가 더 ___",
           "translation": "The police haven’t confirmed the suspect’s whereabouts, so even if they wanted to continue the search, they need more clues, you know!",
-          "answer": "단서가 더 있어야 말이지",
+          "answer": "있어야 말이지",
           "hint": "Base form: 있다",
           "explanation": "~아/어야 말이지 expresses that something has to happen, while adding the speaker’s frustration that this should be obvious. It is often rendered as ‘...has to happen, you know!’.\n\nUse it when a necessary condition is missing or needs to be stressed, especially when the speaker is annoyed that they even have to point out this obvious requirement.\n\nAttach ~아야 or ~어야 to a verb or adjective stem, then add 말이지: 하다 → 해야 말이지, 좋다 → 좋아야 말이지. The ending is usually conversational and can follow a longer context.",
           "source_sentence": "경찰이 용의자의 소재를 확인하지 못해서 수색을 진행하려고 해도 단서가 더 있어야 말이지",
@@ -1217,9 +1217,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "___ 한 마리도 못 잡을 뻔했어",
+          "prompt": "사냥을 신중하게 ___ 한 마리도 못 잡을 뻔했어",
           "translation": "It’s a good thing we hunted carefully; otherwise, we might not have caught anything",
-          "answer": "사냥을 신중하게 했으니 말이지",
+          "answer": "했으니 말이지",
           "hint": "Base form: 하다",
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "사냥을 신중하게 했으니 말이지 한 마리도 못 잡을 뻔했어",
@@ -1237,9 +1237,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "유해한 물질을 분비하지 ___ 이 식물을 안전하게 키울 수 있었어",
+          "prompt": "유해한 물질을 ___ 이 식물을 안전하게 키울 수 있었어",
           "translation": "It’s a good thing this plant doesn’t secrete harmful substances; otherwise, we wouldn’t be able to grow it safely",
-          "answer": "않기에 말이지",
+          "answer": "분비하지 않기에 말이지",
           "hint": "Base form: 않다",
           "explanation": "~(으)니 말이지 and ~기에 말이지 mark a fortunate reason: the first clause explains what prevented or avoided a bad result, with a feeling of relief.\n\nUse them when something happened or was accomplished and, because of it, an unwanted event did not happen. The following clause often describes the hypothetical result that was avoided.\n\nAttach ~(으)니 or ~기에 to the verb or adjective clause, then add 말이지: 챙겼으니 말이지, 깊기에 말이지. A following clause commonly uses 안 그랬으면, ~았/었을 거야 or ~ㄹ/을 뻔했어.",
           "source_sentence": "유해한 물질을 분비하지 않기에 말이지 이 식물을 안전하게 키울 수 있었어",
@@ -1283,9 +1283,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-7/lessons-159-166/lesson-166/",
       "cards": [
         {
-          "prompt": "___ 간의 평화를 유지하는 핵심 요소예요",
+          "prompt": "___ 국가 간의 평화를 유지하는 핵심 요소예요",
           "translation": "Diplomacy is truly the key to maintaining peace between nations",
-          "answer": "외교야말로 국가",
+          "answer": "외교야말로",
           "hint": "Base form: 외교",
           "explanation": "Use the emphatic form to single out the most representative or important example.",
           "source_sentence": "외교야말로 국가 간의 평화를 유지하는 핵심 요소예요",
@@ -1293,9 +1293,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 성공을 위해 필수적인 인재예요",
+          "prompt": "___ 기업의 성공을 위해 필수적인 인재예요",
           "translation": "Analysts are truly essential talents for a company's success",
-          "answer": "분석가야말로 기업의",
+          "answer": "분석가야말로",
           "hint": "Base form: 분석가",
           "explanation": "Use the emphatic form to single out the most representative example.",
           "source_sentence": "분석가야말로 기업의 성공을 위해 필수적인 인재예요",
@@ -1303,9 +1303,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "정부는 ___ 다루어져야 한다고 강조했어요",
+          "prompt": "정부는 ___ 신중하게 다루어져야 한다고 강조했어요",
           "translation": "The government emphasized that diplomacy is what must be handled carefully",
-          "answer": "외교야말로 신중하게",
+          "answer": "외교야말로",
           "hint": "Base form: 외교",
           "explanation": "Use the emphatic form to stress the central subject.",
           "source_sentence": "정부는 외교야말로 신중하게 다루어져야 한다고 강조했어요",
@@ -1313,9 +1313,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 진솔한 생각이 담긴 문학 형식이에요",
+          "prompt": "___ 작가의 진솔한 생각이 담긴 문학 형식이에요",
           "translation": "Essays are truly a literary form containing an author's sincere thoughts",
-          "answer": "수필이야말로 작가의",
+          "answer": "수필이야말로",
           "hint": "Base form: 수필",
           "explanation": "Use the emphatic form to stress the defining example.",
           "source_sentence": "수필이야말로 작가의 진솔한 생각이 담긴 문학 형식이에요",
@@ -1323,9 +1323,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 어려운 감정이에요",
+          "prompt": "___ 극복하기 어려운 감정이에요",
           "translation": "A sense of guilt is truly a difficult emotion to overcome",
-          "answer": "죄책감이야말로 극복하기",
+          "answer": "죄책감이야말로",
           "hint": "Base form: 죄책감",
           "explanation": "Use the emphatic form to stress the defining example.",
           "source_sentence": "죄책감이야말로 극복하기 어려운 감정이에요",
@@ -1839,9 +1839,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "___",
+          "prompt": "시험에서 부정행위가 ___",
           "translation": "I hope there is no cheating on the test",
-          "answer": "시험에서 부정행위가 없었으면 싶어요",
+          "answer": "없었으면 싶어요",
           "hint": "Base form: 없다",
           "explanation": "~으면 싶다 and related forms express a wish or hope, similar to I would like it if or I wish.\n\nUse it for a personal hope or desired situation, often softer or more conversational than a direct command.\n\nAttach ~으면 싶다 after a consonant and ~면 싶다 after a vowel; use the past-looking wish forms shown in HTSK.",
           "source_sentence": "시험에서 부정행위가 없었으면 싶어요",
@@ -1905,9 +1905,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "지폐의 촉감이 이상해서 혹시 위조된 돈이 ___",
+          "prompt": "지폐의 촉감이 이상해서 혹시 ___",
           "translation": "The texture of the bill feels strange, so I wonder if it’s counterfeit",
-          "answer": "아닐까 싶어요",
+          "answer": "위조된 돈이 아닐까 싶어요",
           "hint": "Base form: 아니다",
           "explanation": "~ㄹ까 싶다 expresses a tentative thought or plan: I am thinking of, I wonder if or perhaps I will.\n\nUse it when considering an action without making a firm commitment.\n\nAttach ~ㄹ까 싶다 after a vowel or ㄹ stem and ~을까 싶다 after another consonant; conjugate 싶다 as required.",
           "source_sentence": "지폐의 촉감이 이상해서 혹시 위조된 돈이 아닐까 싶어요",

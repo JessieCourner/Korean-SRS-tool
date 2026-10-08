@@ -135,9 +135,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "현금인출기에서 현금을 뽑으러 ___ 말할 거예요",
+          "prompt": "현금인출기에서 현금을 뽑으러 은행에 ___ 말할 거예요",
           "translation": "I’m going to say that I need to go to the bank to take out cash from the ATM",
-          "answer": "은행에 가야 된다고",
+          "answer": "가야 된다고",
           "hint": "Base form: 되다",
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "현금인출기에서 현금을 뽑으러 은행에 가야 된다고 말할 거예요",
@@ -697,9 +697,9 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
       "cards": [
         {
-          "prompt": "___ 올지도 몰라요",
+          "prompt": "___ 그녀가 올지도 몰라요",
           "translation": "Maybe she will come",
-          "answer": "어쩌면 그녀가",
+          "answer": "어쩌면",
           "hint": "Base form: 어쩌면",
           "explanation": "Use the possibility adverb when the outcome is uncertain.",
           "source_sentence": "어쩌면 그녀가 올지도 몰라요",
@@ -707,9 +707,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 우리를 만나러 안 올 것 같아요",
+          "prompt": "___ 그녀가 우리를 만나러 안 올 것 같아요",
           "translation": "She probably will not come to meet us",
-          "answer": "아무래도 그녀가",
+          "answer": "아무래도",
           "hint": "Base form: 아무래도",
           "explanation": "Use the inference adverb when the evidence points to a likely conclusion.",
           "source_sentence": "아무래도 그녀가 우리를 만나러 안 올 것 같아요",
@@ -717,9 +717,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "엄마가 전화를 갑자기 끊었어요. ___ 통화하기 싫어하는 것 같아요",
+          "prompt": "엄마가 전화를 갑자기 끊었어요. ___ 저랑 통화하기 싫어하는 것 같아요",
           "translation": "Mom suddenly hung up. In other words, she seems not to want to talk to me",
-          "answer": "즉 저랑",
+          "answer": "즉",
           "hint": "Base form: 즉",
           "explanation": "Use the connector to restate or draw out the meaning of the previous clause.",
           "source_sentence": "엄마가 전화를 갑자기 끊었어요. 즉 저랑 통화하기 싫어하는 것 같아요",
@@ -889,12 +889,12 @@
       "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/",
       "cards": [
         {
-          "prompt": "그것 때문에 나를 해고하지 ___",
+          "prompt": "그것 때문에 나를 ___",
           "translation": "I wish/hope you don’t fire me because of that",
-          "answer": "않았으면 좋겠다",
+          "answer": "해고하지 않았으면 좋겠다",
           "hint": "Base form: 않다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Informal/plain form",
+          "answer_form": "Formal/written plain form",
           "source_sentence": "그것 때문에 나를 해고하지 않았으면 좋겠다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         },
@@ -1101,9 +1101,9 @@
           "answer_form": "Informal/plain conversational question/proposal"
         },
         {
-          "prompt": "___?",
+          "prompt": "(내가) ___?",
           "translation": "What should I eat?",
-          "answer": "(내가) 뭐 먹을까",
+          "answer": "뭐 먹을까",
           "hint": "Base form: 먹다",
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "(내가) 뭐 먹을까?",
@@ -1253,9 +1253,9 @@
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         },
         {
-          "prompt": "그녀가 나를 좋아하지 ___ 걱정돼",
+          "prompt": "그녀가 나를 ___ 걱정돼",
           "translation": "I’m worried that she won’t like me",
-          "answer": "않을까 봐",
+          "answer": "좋아하지 않을까 봐",
           "hint": "Base form: 않다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
           "answer_form": "",
@@ -1329,9 +1329,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 ___",
+          "prompt": "저는 차를 ___",
           "translation": "I almost hit that car",
-          "answer": "차를 칠 뻔 했어요",
+          "answer": "칠 뻔 했어요",
           "hint": "Base form: 치다",
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "저는 차를 칠 뻔 했어요",
@@ -1339,9 +1339,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "거미를 ___",
+          "prompt": "거미를 보고 ___",
           "translation": "I saw a spider and then almost died",
-          "answer": "보고 죽을 뻔 했어요",
+          "answer": "죽을 뻔 했어요",
           "hint": "Base form: 죽다",
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "거미를 보고 죽을 뻔 했어요",
@@ -1349,9 +1349,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "우리는 ___",
+          "prompt": "우리는 1등급을 ___",
           "translation": "We almost received the first ranking",
-          "answer": "1등급을 받을 뻔 했어요",
+          "answer": "받을 뻔 했어요",
           "hint": "Base form: 받다",
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "우리는 1등급을 받을 뻔 했어요",
@@ -1359,9 +1359,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "화가 너무 나서 ___",
+          "prompt": "화가 너무 나서 친구를 ___",
           "translation": "I was so mad I almost hit my friend",
-          "answer": "친구를 때릴 뻔 했어요",
+          "answer": "때릴 뻔 했어요",
           "hint": "Base form: 때리다",
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "화가 너무 나서 친구를 때릴 뻔 했어요",
@@ -1776,12 +1776,12 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "나의 월세는 가스비가 포함된다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Informal/plain written form"
+          "answer_form": "Formal/written plain form"
         },
         {
-          "prompt": "이 조명 ___",
+          "prompt": "이 조명 가격은 ___",
           "translation": "The price of these lights includes tax",
-          "answer": "가격은 세금이 포함돼요",
+          "answer": "세금이 포함돼요",
           "hint": "Base form: 포함되다",
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "이 조명 가격은 세금이 포함돼요",
@@ -2039,9 +2039,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "우리는 ___",
+          "prompt": "우리는 거기에 ___",
           "translation": "It doesn’t matter if we go there",
-          "answer": "거기에 가도 상관없어",
+          "answer": "가도 상관없어",
           "hint": "Base form: 가다",
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "우리는 거기에 가도 상관없어",
@@ -2095,9 +2095,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "저는 그에 ___",
+          "prompt": "저는 그에 대해 별로 ___",
           "translation": "I don’t really care about him",
-          "answer": "대해 별로 신경을 안 써요",
+          "answer": "신경을 안 써요",
           "hint": "Base form: 신경 쓰다",
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "저는 그에 대해 별로 신경을 안 써요",
@@ -2115,9 +2115,9 @@
           "answer_form": "Informal/plain conversational form"
         },
         {
-          "prompt": "입시 시험 ___",
+          "prompt": "입시 시험 점수에 대해 ___",
           "translation": "I don’t care about my score on the entrance exam",
-          "answer": "점수에 대해 신경을 안 써요",
+          "answer": "신경을 안 써요",
           "hint": "Base form: 신경 쓰다",
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "입시 시험 점수에 대해 신경을 안 써요",
@@ -2125,9 +2125,9 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "저는 천국과 ___",
+          "prompt": "저는 천국과 지옥에 대해 ___",
           "translation": "I don’t care about heaven or hell",
-          "answer": "지옥에 대해 신경을 안 써요",
+          "answer": "신경을 안 써요",
           "hint": "Base form: 신경 쓰다",
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "저는 천국과 지옥에 대해 신경을 안 써요",

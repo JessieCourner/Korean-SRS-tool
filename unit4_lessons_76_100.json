@@ -369,22 +369,22 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "그 ___",
-          "translation": "You must not say that in English",
-          "answer": "말을 영어로 하면 안 돼요",
-          "hint": "Base form: 하다",
+          "prompt": "이 차에 디젤을 ___",
+          "translation": "You must not put diesel fuel in this car",
+          "answer": "넣으면 안 됩니다",
+          "hint": "Base form: 넣다",
           "explanation": "~아/어서는 안 되다 and ~(으)면 안 되다 express prohibition, must not or should not. The positive ~(으)면 되다 says that doing something is sufficient.\n\nUse them for rules, warnings, restrictions and instructions about what is or is not allowed or necessary.\n\nUse the clause before 아/어서는 안 되다 or ~(으)면 안 되다. Use ~면 되다 for the condition that is enough, with the normal stem rule.",
-          "source_sentence": "그 말을 영어로 하면 안 돼요",
+          "source_sentence": "이 차에 디젤을 넣으면 안 됩니다",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-80/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Formal polite form"
         },
         {
-          "prompt": "그런 ___",
-          "translation": "You must not say that type of thing to a child",
-          "answer": "말을 유아에게 하면 안 돼요",
-          "hint": "Base form: 하다",
+          "prompt": "정서장애가 있는 친구들을 ___",
+          "translation": "You must not tease friends with emotional disabilities",
+          "answer": "놀리면 안 돼요",
+          "hint": "Base form: 놀리다",
           "explanation": "~아/어서는 안 되다 and ~(으)면 안 되다 express prohibition, must not or should not. The positive ~(으)면 되다 says that doing something is sufficient.\n\nUse them for rules, warnings, restrictions and instructions about what is or is not allowed or necessary.\n\nUse the clause before 아/어서는 안 되다 or ~(으)면 안 되다. Use ~면 되다 for the condition that is enough, with the normal stem rule.",
-          "source_sentence": "그런 말을 유아에게 하면 안 돼요",
+          "source_sentence": "정서장애가 있는 친구들을 놀리면 안 돼요",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-80/",
           "answer_form": "Polite conversational form"
         },
@@ -435,9 +435,9 @@
       "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-81/",
       "cards": [
         {
-          "prompt": "제가 배가 안 ___ 더 먹기 싫어요",
+          "prompt": "제가 배가 ___ 더 먹기 싫어요",
           "translation": "I don’t want to eat anymore because I am full",
-          "answer": "고프니까",
+          "answer": "안 고프니까",
           "hint": "Base form: 고프다",
           "explanation": "~(으)니까 and ~으니 express a reason or basis, with uses and nuances that HTSK compares with ~아/어서.\n\nUse them when giving a reason, especially before commands, suggestions or questions, and in the formal or literary uses described in the lesson.\n\nAttach ~으니까/~으니 after a consonant and ~니까/~니 after a vowel or ㄹ; conjugate the following clause normally.",
           "answer_form": "",
@@ -719,9 +719,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 우리가 특허를 신청해야 돼요",
+          "prompt": "이 신제품이 ___ 우리가 특허를 신청해야 돼요",
           "translation": "As soon as this new product comes out, we have to apply for a patent",
-          "answer": "이 신제품이 나오자마자",
+          "answer": "나오자마자",
           "hint": "Base form: 나오다",
           "explanation": "~자마자 means as soon as, while ~자 can mark the moment one action happens before another.\n\nUse them when the second event follows immediately or at the point when the first event occurs.\n\nAttach ~자마자 to a verb stem. Use verb stem + ~자 in the temporal construction and follow the source examples for the difference.",
           "source_sentence": "이 신제품이 나오자마자 우리가 특허를 신청해야 돼요",
@@ -811,12 +811,12 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "___?",
-          "translation": "Do you know how to do that?",
-          "answer": "그것을 할 줄 알아요",
+          "prompt": "그것을 ___?",
+          "translation": "You don't know how to do that?",
+          "answer": "할 줄 몰라요",
           "hint": "Base form: 하다",
           "explanation": "~ㄹ/을 줄 알다 and ~ㄹ/을 줄 모르다 express knowing or not knowing how to do something. HTSK also revisits 알다시피.\n\nUse them for learned ability or knowledge of a method, not simply knowing that a fact is true.\n\nAttach ~ㄹ 줄 알다 after a vowel or ㄹ stem and ~을 줄 알다 after another consonant; replace 알다 with 모르다 for the negative.",
-          "source_sentence": "그것을 할 줄 알아요?",
+          "source_sentence": "그것을 할 줄 몰라요?",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-85/",
           "answer_form": "Polite conversational form"
         }
@@ -877,12 +877,12 @@
           "answer_form": ""
         },
         {
-          "prompt": "이 문제를 해결하는 최선의 ___ 우리가 만나서 문제를 어떻게 해결하는지에 대해 얘기해야 하는 것이에요",
-          "translation": "The best way to solve this problem is not to go on strike, it is for us to meet and talk about how we can solve the problem",
-          "answer": "방법은 파업을 하는 게 아니라",
-          "hint": "Base form: 하다",
+          "prompt": "저는 한국에서 ___ 캐나다에서 태어난 교포예요",
+          "translation": "I wasn't born in Korea; I am a Korean born in Canada",
+          "answer": "태어난 게 아니라",
+          "hint": "Base form: 태어나다",
           "explanation": "~는 게 아니라 means not A but B and corrects or contrasts an earlier assumption.\n\nUse it to deny one description and replace it with the more accurate one.\n\nNominalize the first clause with 것, contract 것 + 이 to 게, then add 아니라 and the contrasting clause.",
-          "source_sentence": "이 문제를 해결하는 최선의 방법은 파업을 하는 게 아니라 우리가 만나서 문제를 어떻게 해결하는지에 대해 얘기해야 하는 것이에요",
+          "source_sentence": "저는 한국에서 태어난 게 아니라 캐나다에서 태어난 교포예요",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-86/",
           "answer_form": ""
         },
@@ -943,9 +943,9 @@
       "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-87/",
       "cards": [
         {
-          "prompt": "제가 친구를 ___",
+          "prompt": "제가 친구를 공원에서 ___",
           "translation": "I decided to meet my friend in the park",
-          "answer": "공원에서 만나기로 했어요",
+          "answer": "만나기로 했어요",
           "hint": "Base form: 만나다",
           "explanation": "~기로 하다 means decide to or agree to do something.\n\nUse it for a decision, agreement or plan that has been made.\n\nAttach ~기로 하다 to the verb stem and conjugate 하다 for tense and politeness; add the subject or context of the decision as needed.",
           "source_sentence": "제가 친구를 공원에서 만나기로 했어요",
@@ -953,29 +953,29 @@
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "우리가 ___",
-          "translation": "We decided to meet tomorrow",
-          "answer": "내일 만나기로 했어요",
-          "hint": "Base form: 만나다",
+          "prompt": "저는 선생님이 ___",
+          "translation": "I decided to become a teacher",
+          "answer": "되기로 했어요",
+          "hint": "Base form: 되다",
           "explanation": "~기로 하다 means decide to or agree to do something.\n\nUse it for a decision, agreement or plan that has been made.\n\nAttach ~기로 하다 to the verb stem and conjugate 하다 for tense and politeness; add the subject or context of the decision as needed.",
-          "source_sentence": "우리가 내일 만나기로 했어요",
+          "source_sentence": "저는 선생님이 되기로 했어요",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-87/",
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "우리가 ___",
-          "translation": "We decided to meet yesterday",
-          "answer": "어제 만나기로 했어요",
-          "hint": "Base form: 만나다",
+          "prompt": "지금부터 그 친구를 ___",
+          "translation": "From now on I decided not to trust that friend",
+          "answer": "신용하지 않기로 했어요",
+          "hint": "Base form: 신용하다",
           "explanation": "~기로 하다 means decide to or agree to do something.\n\nUse it for a decision, agreement or plan that has been made.\n\nAttach ~기로 하다 to the verb stem and conjugate 하다 for tense and politeness; add the subject or context of the decision as needed.",
-          "source_sentence": "우리가 어제 만나기로 했어요",
+          "source_sentence": "지금부터 그 친구를 신용하지 않기로 했어요",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-87/",
           "answer_form": "Polite conversational form"
         },
         {
-          "prompt": "애기가 이제 하품을 많이 해서 집에 ___",
+          "prompt": "애기가 이제 하품을 많이 해서 집에 곧 ___",
           "translation": "I decided to go home soon because the baby is yawning a lot now",
-          "answer": "곧 가기로 했어요",
+          "answer": "가기로 했어요",
           "hint": "Base form: 가다",
           "explanation": "~기로 하다 means decide to or agree to do something.\n\nUse it for a decision, agreement or plan that has been made.\n\nAttach ~기로 하다 to the verb stem and conjugate 하다 for tense and politeness; add the subject or context of the decision as needed.",
           "source_sentence": "애기가 이제 하품을 많이 해서 집에 곧 가기로 했어요",
@@ -1203,9 +1203,9 @@
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-90/"
         },
         {
-          "prompt": "___! 그래서 우리가 일찍 가야 될 것 같아요",
+          "prompt": "내일은 ___! 그래서 우리가 일찍 가야 될 것 같아요",
           "translation": "You should know that tomorrow is Saturday, so we should probably go early!",
-          "answer": "내일은 토요일이잖아요",
+          "answer": "토요일이잖아요",
           "hint": "Base form: 토요일",
           "explanation": "~잖다 and ~잖아요 remind the listener of shared knowledge or something the speaker assumes should be known.\n\nUse them to point out an obvious fact, give a reminder or add a mildly persuasive or corrective tone.\n\nAttach ~잖다 to the clause in the appropriate tense and politeness form; polite speech commonly uses ~잖아요.",
           "answer_form": "Polite conversational form",
@@ -1213,9 +1213,9 @@
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-90/"
         },
         {
-          "prompt": "나는 ___!",
+          "prompt": "나는 돈이 ___!",
           "translation": "Don’t forget that I don’t have any money/you should know that I don’t have any money",
-          "answer": "돈이 없잖아",
+          "answer": "없잖아",
           "hint": "Base form: 없다",
           "explanation": "~잖다 and ~잖아요 remind the listener of shared knowledge or something the speaker assumes should be known.\n\nUse them to point out an obvious fact, give a reminder or add a mildly persuasive or corrective tone.\n\nAttach ~잖다 to the clause in the appropriate tense and politeness form; polite speech commonly uses ~잖아요.",
           "answer_form": "Informal/plain conversational form",
@@ -1223,9 +1223,9 @@
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-90/"
         },
         {
-          "prompt": "___!",
+          "prompt": "윌리가 ___!",
           "translation": "Willy is hungry!/You should know that Willy is hungry/Don’t forget that Willy is hungry!",
-          "answer": "윌리가 배고프잖아",
+          "answer": "배고프잖아",
           "hint": "Base form: 배고프다",
           "explanation": "~잖다 and ~잖아요 remind the listener of shared knowledge or something the speaker assumes should be known.\n\nUse them to point out an obvious fact, give a reminder or add a mildly persuasive or corrective tone.\n\nAttach ~잖다 to the clause in the appropriate tense and politeness form; polite speech commonly uses ~잖아요.",
           "answer_form": "Informal/plain conversational form",
@@ -1279,9 +1279,9 @@
       "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-84-91/lesson-91/",
       "cards": [
         {
-          "prompt": "저는 요즘에 너무 늦게 자요. ___",
+          "prompt": "저는 요즘에 너무 늦게 자요. 일이 ___",
           "translation": "These days I am going to bed too late. Because I have so much work.",
-          "answer": "일이 많거든요",
+          "answer": "많거든요",
           "hint": "Base form: 많다",
           "explanation": "~거든(요) gives a reason, background or correction, and can also set up a condition in conversation.\n\nUse it when adding an explanation, revealing relevant background or saying if/when something is the case.\n\nAttach ~거든(요) to the clause using the form required for verbs, adjectives and nouns; follow the conversational placement in HTSK.",
           "answer_form": "Polite conversational form",
@@ -1616,7 +1616,7 @@
           "answer": "부작용뿐이다",
           "hint": "Base form: 부작용",
           "explanation": "뿐 means only or just, and ~뿐만 아니라 means not only A but also B.\n\nUse them to limit a statement or to add a second, stronger item to the first.\n\nUse noun + 뿐 or clause + 것일 뿐 as appropriate. Use N뿐만 아니라 or the clause construction before the additional clause.",
-          "answer_form": "Informal/plain written form",
+          "answer_form": "Formal/written plain form",
           "source_sentence": "이제 걱정할 것은 부작용뿐이다",
           "source_url": "https://www.howtostudykorean.com/upper-intermediate-korean-grammar/unit-4-lessons-92-100/lesson-95/"
         },
@@ -1803,9 +1803,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "저는 지난 주에 읽던 ___ 왔어요",
+          "prompt": "저는 지난 주에 읽던 책을 마침내 ___ 왔어요",
           "translation": "I finally brought the book that I was reading last week",
-          "answer": "책을 마침내 가지고",
+          "answer": "가지고",
           "hint": "Base form: 가지다",
           "explanation": "갖다 is a colloquial contraction of 가지다 and has special behavior in common spoken forms.\n\nUse it in conversational Korean where speakers shorten 가지다, while recognizing that the full form remains possible.\n\nLearn the contracted lexical forms as shown by HTSK rather than applying a general verb rule; conjugate the resulting spoken form naturally.",
           "source_sentence": "저는 지난 주에 읽던 책을 마침내 가지고 왔어요",
@@ -1823,9 +1823,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "지금까지 아주 끔찍한 시간인 것을 알고 있지만 조금 더 ___ 다시 나가 보세요",
+          "prompt": "지금까지 아주 끔찍한 시간인 것을 알고 있지만 조금 더 힘내고 ___ 다시 나가 보세요",
           "translation": "I know it has been a very terrible time so far, but try to cheer up a bit, get some confidence and go outside again",
-          "answer": "힘내고 자신감을 가지고",
+          "answer": "자신감을 가지고",
           "hint": "Base form: 가지다",
           "explanation": "갖다 is a colloquial contraction of 가지다 and has special behavior in common spoken forms.\n\nUse it in conversational Korean where speakers shorten 가지다, while recognizing that the full form remains possible.\n\nLearn the contracted lexical forms as shown by HTSK rather than applying a general verb rule; conjugate the resulting spoken form naturally.",
           "source_sentence": "지금까지 아주 끔찍한 시간인 것을 알고 있지만 조금 더 힘내고 자신감을 가지고 다시 나가 보세요",

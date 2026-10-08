@@ -465,9 +465,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "___ 로마 제국까지 공부해야 한다는 것을 느꼈어요",
+          "prompt": "그리스라는 나라를 ___ 로마 제국까지 공부해야 한다는 것을 느꼈어요",
           "translation": "While studying about the country of Greece, I felt that I should also study up to the Roman Empire",
-          "answer": "그리스라는 나라를 공부하다 보니",
+          "answer": "공부하다 보니",
           "hint": "Base form: 공부하다",
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "그리스라는 나라를 공부하다 보니 로마 제국까지 공부해야 한다는 것을 느꼈어요",
@@ -541,9 +541,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "양심적으로 ___ 자연스럽게 손님이 늘었어요",
+          "prompt": "양심적으로 장사를 ___ 자연스럽게 손님이 늘었어요",
           "translation": "After having tried running my business conscientiously, customers just started coming in naturally",
-          "answer": "장사를 해 보니까",
+          "answer": "해 보니까",
           "hint": "Base form: 장사하다",
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "양심적으로 장사를 해 보니까 자연스럽게 손님이 늘었어요",
@@ -551,9 +551,9 @@
           "answer_form": ""
         },
         {
-          "prompt": "연애를 ___ 남자들을 더 잘 이해하게 되었다",
+          "prompt": "연애를 한번 ___ 남자들을 더 잘 이해하게 되었다",
           "translation": "Now that I have tried/attempted having a boyfriend, I became able to understand men better",
-          "answer": "한번 해 보니까",
+          "answer": "해 보니까",
           "hint": "Base form: 연애하다",
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "연애를 한번 해 보니까 남자들을 더 잘 이해하게 되었다",
@@ -614,7 +614,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "그것은 할 만하다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": "Informal/plain written form"
+          "answer_form": "Formal/written plain form"
         },
         {
           "prompt": "그 선생님은 상을 ___",
