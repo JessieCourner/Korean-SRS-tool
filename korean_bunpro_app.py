@@ -757,6 +757,7 @@ def init_db():
     # The catalog is session-cached for speed.  Clear only that read cache so
     # newly added shop rows become visible immediately after an app update.
     st.session_state.pop("_content_query_cache", None)
+    st.session_state.pop("_owned_item_ids", None)
 
 
 def import_seed_once():
@@ -1671,7 +1672,11 @@ def active_item(kind):
 
 def owns_item(item_id):
     """Return whether a shop item has been bought in the persistent inventory."""
-    return one("SELECT 1 FROM inventory WHERE item_id=?", (item_id,)) is not None
+    owned_ids = st.session_state.get("_owned_item_ids")
+    if owned_ids is None:
+        owned_ids = {row["item_id"] for row in rows("SELECT item_id FROM inventory")}
+        st.session_state["_owned_item_ids"] = owned_ids
+    return item_id in owned_ids
 
 
 def buy_or_activate(item_id):
@@ -1687,6 +1692,7 @@ def buy_or_activate(item_id):
         c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
         c.commit()
         c.close()
+        st.session_state.pop("_owned_item_ids", None)
     # Perks are cumulative: buying one enables it and does not deactivate a
     # different perk.  Cosmetic categories remain single-select and use the
     # active_* setting below.
@@ -2303,7 +2309,7 @@ def page_dashboard():
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(),))
+    """, (datetime.now().isoformat(timespec="seconds"), today()))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]
