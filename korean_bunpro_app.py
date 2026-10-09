@@ -19,7 +19,11 @@ except ImportError:
 
 
 APP_DIR = Path(__file__).resolve().parent
-DB_PATH = Path("korean_bunpro.db")
+# Resolve the database and lesson packs beside this script.  Streamlit Cloud
+# can start the script with a working directory different from the repository
+# root; relative paths then silently skipped the seed files and left an old
+# database's card text on screen.
+DB_PATH = APP_DIR / "korean_bunpro.db"
 try:
     SUPABASE_DB_URL = st.secrets.get("SUPABASE_DB_URL", "")
 except Exception:
@@ -73,6 +77,14 @@ class PostgresCursor:
             # immediately so the next button click can still work.
             self.connection.raw.rollback()
             raise
+        # Bootstrap runs a deliberately large, single migration transaction
+        # (all lesson/card packs must be synchronized together).  Mark the
+        # connection as active after every successful statement so the
+        # liveness guard cannot mistake that long transaction for an idle
+        # socket and reconnect halfway through it.  Reconnecting there would
+        # roll back the first lessons and make verify_live_card_content report
+        # a misleading card_missing error.
+        self.connection.last_used = time.monotonic()
         return self
 
     def executescript(self, sql):
@@ -122,7 +134,10 @@ class PostgresConnection:
         self._open_cursors = set()
 
     def _connect(self):
-        connect_options = "-c statement_timeout=30000 -c lock_timeout=10000"
+        # Schema bootstrap can briefly wait for another Streamlit worker that
+        # is importing the same seed data.  Ten seconds was too short for a
+        # cold Supabase start and surfaced as psycopg2.errors.QueryCanceled.
+        connect_options = "-c statement_timeout=60000 -c lock_timeout=60000"
         self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
         self.last_used = time.monotonic()
 
@@ -151,21 +166,65 @@ class PostgresConnection:
             cursor.close()
 
     def close(self):
-        # Keep one connection per Streamlit browser session.  The app opens
-        # many short read/write helpers during one rerun; closing the network
-        # connection after each helper made every click wait for a new TLS
-        # handshake against Supabase.
-        return None
+        # Keep one network connection per Streamlit browser session, but do
+        # finish the current PostgreSQL transaction when a helper is done.
+        # psycopg2 otherwise leaves a read transaction open after SELECT;
+        # that idle transaction holds an AccessShareLock and can make a later
+        # one-time ALTER TABLE migration wait until Supabase cancels it.
+        if getattr(self.raw, "closed", 1):
+            return None
+        try:
+            self.raw.commit()
+        except Exception:
+            # A failed statement leaves PostgreSQL in an aborted transaction.
+            # Release it before the persistent session is reused.
+            self.raw.rollback()
+        self.last_used = time.monotonic()
 
 
 def is_postgres_connection(connection):
     """Recognize cached connections even after Streamlit reloads this module."""
     return hasattr(connection, "raw") and hasattr(connection, "commit")
 BTS_ASSET_DIR = APP_DIR / "bts_chibi"
-SEED_PATH = Path("unit2_lessons_26_33.json")
-EXTENDED_SEED_PATHS = [Path("unit0_1_lessons_0_25.json"), Path("unit2_lessons_34_50.json"), Path("unit3_lessons_51_75.json"), Path("unit4_lessons_76_100.json"), Path("unit5_lessons_101_116.json"), Path("unit5_lessons_117_125.json"), Path("unit6_lessons_126_133.json"), Path("unit6_lessons_134_150.json"), Path("unit7_lessons_151_175.json"), Path("unit8_lessons_176_200.json"), Path("unit9_lessons_201_208.json")]
+SEED_PATH = APP_DIR / "unit2_lessons_26_33.json"
+EXTENDED_SEED_PATHS = [APP_DIR / name for name in (
+    "unit0_1_lessons_0_25.json",
+    "unit2_lessons_34_50.json",
+    "unit3_lessons_51_75.json",
+    "unit4_lessons_76_100.json",
+    "unit5_lessons_101_116.json",
+    "unit5_lessons_117_125.json",
+    "unit6_lessons_126_133.json",
+    "unit6_lessons_134_150.json",
+    "unit7_lessons_151_175.json",
+    "unit8_lessons_176_200.json",
+    "unit9_lessons_201_208.json",
+)]
+# Lessons whose main teaching goal is a set of lexical items. Their cards
+# must not collapse into one repeated answer; each card must ask for a
+# different target word or lexical expression.
+VOCABULARY_LESSON_NUMBERS = frozenset({11, 12, 25, 34, 59, 60, 79, 101, 130, 134, 135, 151, 152})
+# A complete card answer must include the lexical stem and the grammar. These
+# grammar-only tails appeared in older deployed databases when the blank was
+# placed too late in the sentence. Keep this guard close to the seed validator
+# so a future content edit cannot reintroduce that regression.
+INCOMPLETE_GRAMMAR_TAILS = frozenset({
+    "것 같아", "것 같아요", "것 같다", "것 같았어", "것 같았어요",
+    "것 같을 거야", "거예요", "거야", "수 있도록", "수 없도록",
+    "채로", "거라니까", "말이야", "말이지", "라고 했어요",
+    "뻔 했어요", "뻔했어요", "만해요", "만한", "리가 없어요",
+    "걸까 싶어요", "중이오니",
+    "듯하다", "듯해", "듯해요", "요",
+    # Split tails found in the second full-span audit.  These must not be
+    # accepted as an answer when the lexical predicate is still before the
+    # blank (for example, 보존하지 ___ -> 보존하지 않으면).
+    "않으면", "않았으면 좋겠다", "않을까 봐", "고프니까",
+    "않은 경우", "않기에 말이지", "아닐까 싶어요", "않기 마련이에요",
+    "않는단다", "않았단다",
+})
 # Bunpro-style review ladder. The level is the current consecutive-correct
-# streak. A wrong answer drops one level; the same card stays for retry.
+# streak. Each submitted answer is graded once; there is no local attempt
+# counter and a failed card is not held on screen for another try.
 BUNPRO_INTERVALS = {
     0: timedelta(hours=4), 1: timedelta(hours=8), 2: timedelta(days=1),
     3: timedelta(days=2), 4: timedelta(days=4), 5: timedelta(days=8),
@@ -241,60 +300,7 @@ TRACKER_COLORS = {
     "tracker_rainbow": "#f0a6a6",
     "tracker_sakura": "#e8a7c5",
 }
-
-# Room designs are application themes, not just a preview image in the shop.
-# The selected palette is injected into the whole Streamlit surface below, so
-# the change is visible immediately on Dashboard, Review, Lessons and Shop.
-ROOM_THEMES = {
-    "design_sakura": {
-        "page": ("#fff8fc", "#f8eef8", "#eefaff"),
-        "surface": "#fffaff",
-        "soft": "#fff1f8",
-        "border": "#efb8d6",
-        "accent": "#ef8fbb",
-        "ink": "#5b4770",
-    },
-    "design_lavender": {
-        "page": ("#faf8ff", "#eee8ff", "#eef5ff"),
-        "surface": "#fcfaff",
-        "soft": "#f2edff",
-        "border": "#cdb9ec",
-        "accent": "#9b82d5",
-        "ink": "#564477",
-    },
-    "design_peach": {
-        "page": ("#fffaf4", "#fff0df", "#fff7ed"),
-        "surface": "#fffdf9",
-        "soft": "#fff1e4",
-        "border": "#efc39f",
-        "accent": "#e99a71",
-        "ink": "#6d4c45",
-    },
-    "design_mint": {
-        "page": ("#f7fffc", "#e9fff5", "#effbff"),
-        "surface": "#fbfffd",
-        "soft": "#edfff7",
-        "border": "#a9dfcc",
-        "accent": "#63b99c",
-        "ink": "#3f655c",
-    },
-    "design_sky": {
-        "page": ("#f7fcff", "#e8f7ff", "#edf0ff"),
-        "surface": "#fbfeff",
-        "soft": "#edf9ff",
-        "border": "#a9d8ed",
-        "accent": "#69b9da",
-        "ink": "#3f5d78",
-    },
-    "design_night": {
-        "page": ("#f7f7ff", "#e9e8fb", "#e3effa"),
-        "surface": "#fbfbff",
-        "soft": "#efefff",
-        "border": "#b9b8df",
-        "accent": "#7e7fc0",
-        "ink": "#47466f",
-    },
-}
+BTS_IMAGE_HTML_CACHE = {}
 
 # These are original in-app encouragements written for the chibi companions.
 # The two daily friends rotate through the requested pairs: Jimin with Jung
@@ -363,10 +369,6 @@ SHOP_ITEMS = [
     ("design_sakura", "Sakura Dream", "design", 220, "🌸", "Pink sakura study room"),
     ("design_lavender", "Lavender Cloud", "design", 260, "☁️", "Soft purple cloud theme"),
     ("design_peach", "Peach Soda", "design", 320, "🍑", "Warm peachy study theme"),
-    ("decor_books", "Tiny Book Nook", "decor", 0, "📚", "Your starter room decoration"),
-    ("decor_lamp", "Mochi Lantern", "decor", 220, "🏮", "A warm little light for the study room"),
-    ("decor_window", "Seoul Window", "decor", 300, "🌆", "A city view for your study room"),
-    ("decor_plant", "Tiny Green Corner", "decor", 360, "🪴", "A calm plant friend for your desk"),
     ("frame_sakura", "Sakura Border", "frame", 180, "🌸", "A delicate blossom frame for review cards"),
     ("frame_cloud", "Cloudy Border", "frame", 220, "☁️", "A soft cloud border for calm study sessions"),
     ("tracker_mochi", "Mochi Tracker", "tracker", 240, "🍡", "A cute mochi progress-bar style"),
@@ -386,9 +388,6 @@ SHOP_ITEMS = [
     ("tracker_bubbles", "Bubble Tracker", "tracker", 340, "🫧", "A bubbly progress journey"),
     ("tracker_rainbow", "Rainbow Tracker", "tracker", 420, "🌈", "A colorful progress journey"),
     ("tracker_sakura", "Sakura Petals", "tracker", 500, "🌸", "Petals bloom as your review grows"),
-    ("perk_crystal_bloom", "Crystal Bloom", "perk", 420, "💎", "+1 crystal for every correct review answer"),
-    ("perk_daily_bloom", "Daily Bloom", "perk", 460, "+10", "+10 crystals when you finish both daily lessons"),
-    ("perk_streak_spark", "Streak Spark", "perk", 380, "🔥", "Adds a special sparkle to your study streak"),
 ]
 
 st.set_page_config(page_title="Mochi Hangul", page_icon="🍡", layout="wide")
@@ -411,18 +410,37 @@ st.markdown("""
     .stButton > button:hover {border-color: #d99ac0; background: #fff3fa; transform: translateY(-1px);}
     [data-testid="stProgressBar"] > div {background: #eadff2 !important; border-radius: 12px;}
     [data-testid="stProgressBar"] > div > div {background: linear-gradient(90deg, #f4a8c9, #b9a7ee) !important; border-radius: 12px;}
-    .review-progress {padding:16px 18px 12px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:10px 0 22px;}
+    .review-progress {position:relative; display:block; clear:both; z-index:2; padding:12px 18px 10px; border:2px solid #f0c5df; border-radius:24px; background:linear-gradient(110deg,#fff7fc,#f4efff); box-shadow:0 8px 20px rgba(134,101,156,.10); margin:0 0 28px; width:100%; box-sizing:border-box;}
     .review-progress-title {display:flex; justify-content:space-between; align-items:center; color:#654b78; font-weight:800; margin-bottom:8px;}
     .review-progress-track {height:20px; position:relative; border-radius:99px; background:#eadff2; overflow:visible; border:1px solid #e2cbe1; margin:8px 10px 14px;}
     .review-progress-fill {height:100%; border-radius:99px; background:linear-gradient(90deg,#f5a6c8,#c1a7f1,#9edbe0); transition:width .35s ease;}
     .progress-mascot {position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:3; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#fff; border:3px solid #fff; box-shadow:0 4px 12px rgba(104,77,123,.22); font-size:23px; line-height:1; transition:left .35s ease, transform .15s ease;}
+    .review-page-heading {margin:2px 0 18px; color:#4f3d64; font-size:clamp(1.55rem,3vw,2rem); font-weight:900; line-height:1.2;}
     .review-frame {border:3px solid #efb8d6; border-radius:30px; padding:18px 22px 8px; background:rgba(255,255,255,.55); box-shadow:0 10px 25px rgba(134,101,156,.08);}
     .review-card-top {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:5px 2px 14px; color:#654b78; font-weight:800; font-size:15px;}
     .review-card-top span {display:inline-flex; align-items:center; gap:7px;}
     .review-card-bottom {padding:14px 2px 2px; text-align:center; color:#987a9d; font-size:13px;}
-    .review-question-paper {padding:17px 19px 15px; margin:7px 0 14px; border:1px solid #efd8e8; border-radius:22px; background:#ffffff; box-shadow:0 6px 16px rgba(134,101,156,.09);}
-    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere;}
-    .review-question-paper .review-translation {margin-top:10px; color:#654b78; font-size:1rem; line-height:1.5; overflow-wrap:anywhere;}
+    .review-question-paper {padding:13px 0 12px; margin:2px 0 10px; border:0; border-radius:0; background:transparent; box-shadow:none; text-align:center;}
+    .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
+    .review-question-paper .review-translation {margin-top:8px; color:#654b78; font-family:"Aptos","Segoe UI",sans-serif; font-size:clamp(.98rem,2.2vw,1.08rem); font-weight:500; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
+    .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
+    .inline-answer-slot {display:inline-block; vertical-align:baseline; width:1.25em; min-width:1.25em; min-height:1.15em; text-align:left; white-space:pre;}
+    .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
+    .inline-answer-element[data-testid="stTextInput"], .inline-answer-element[data-baseweb="base-input"] {display:inline-flex !important; align-items:baseline !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline !important;}
+    .inline-answer-element[data-testid="stTextInput"] > div, .inline-answer-element[data-baseweb="base-input"] > div {display:inline-flex !important; align-items:baseline !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
+    .inline-answer-element [data-testid="stTextInput"] {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
+    .inline-answer-element [data-testid="stTextInput"] > div {display:inline-flex !important; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important;}
+    .inline-answer-element label, .inline-answer-element [data-testid="InputInstructions"] {display:none !important;}
+    .inline-answer-element, .inline-answer-element *, .inline-answer-element [data-testid="stTextInput"], .inline-answer-element [data-baseweb="input"], .inline-answer-element [data-baseweb="base-input"], .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {border:0 !important; border-width:0 !important; border-color:transparent !important; border-bottom:0 !important; border-radius:0 !important; outline:0 !important; background:transparent !important; background-color:transparent !important; background-image:none !important; box-shadow:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important; text-decoration:none !important;}
+    .inline-answer-element input, input.inline-answer-input, input[aria-label^="Answer for card "] {display:inline-block !important; width:1.35em; min-width:1.35em; max-width:none !important; height:1.45em; margin:0 !important; padding:0 !important; font:inherit !important; line-height:inherit !important; vertical-align:baseline !important; text-align:left; appearance:none !important; -webkit-appearance:none !important;}
+    .inline-answer-element:focus-within, .inline-answer-element input:focus, input.inline-answer-input:focus, input[aria-label^="Answer for card "]:focus, .inline-answer-element input:hover, input.inline-answer-input:hover, input[aria-label^="Answer for card "]:hover {border:0 !important; border-width:0 !important; border-color:transparent !important; border-bottom:0 !important; outline:0 !important; box-shadow:none !important; background:transparent !important; background-color:transparent !important; background-image:none !important; color:inherit !important; -webkit-text-fill-color:inherit !important; text-decoration:none !important;}
+    .inline-answer-element input::placeholder, input.inline-answer-input::placeholder, input[aria-label^="Answer for card "]::placeholder {color:inherit !important; -webkit-text-fill-color:inherit !important; opacity:1 !important;}
+    [data-testid="stForm"].review-answer-form, [data-testid="stForm"] {border:0 !important; background:transparent !important; padding:0 !important;}
+    [data-testid="stForm"] [data-testid="stFormSubmitButton"] {display:none !important; height:0 !important; min-height:0 !important; margin:0 !important; padding:0 !important; overflow:hidden !important;}
+    .answer-widget-marker {display:none !important;}
+    .answer-results {padding:8px 0; color:#514064; text-align:center; font-size:1.05rem; line-height:1.8;}
+    .answer-results .answer-result-value {color:#4f3d64; font-weight:800;}
+    @media (max-width: 700px) { .review-progress {padding:10px 12px 9px;} .review-progress-track {margin-left:4px; margin-right:4px;} }
     .frame-sparkles {letter-spacing:4px; color:#d98eb8; font-size:16px;}
     .streak-card {display:flex; align-items:center; justify-content:space-between; gap:16px; padding:13px 18px; margin:14px 0 18px; border:2px solid #f0c5df; border-radius:22px; background:linear-gradient(110deg,#fff7df,#fff3f8 55%,#f2edff); box-shadow:0 7px 18px rgba(134,101,156,.08);}
     .streak-main {display:flex; align-items:center; gap:10px; color:#654b78; font-weight:900; font-size:18px;}
@@ -436,17 +454,17 @@ st.markdown("""
     .bts-surface {position:relative; width:0; height:0; min-height:0; margin:0; padding:0; overflow:visible; background:transparent;}
     .bts-dialog-surface {position:fixed; inset:0; width:100vw; height:100vh; z-index:2147483002; pointer-events:none; overflow:visible;}
     .bts-dialog-surface .bts-scene {z-index:2147483003;}
-    .bts-scene {position:fixed; z-index:2147483000; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
-    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483001;}
+    .bts-scene {position:fixed; z-index:2147483646 !important; display:flex; align-items:flex-end; gap:10px; width:max-content; max-width:calc(100vw - 20px); pointer-events:auto !important; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; will-change:left,top;}
+    .bts-scene.bts-dragging {cursor:grabbing; z-index:2147483646 !important;}
     .bts-scene-right {flex-direction:row-reverse;}
-    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
+    .bts-character {width:128px; height:205px; flex:0 0 auto; object-fit:contain; pointer-events:auto !important; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-character {animation-delay:-1.3s;}
     @keyframes bts-float {0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
     .bts-character-fallback {display:flex; align-items:center; justify-content:center; width:92px; height:150px; flex:0 0 auto; font-size:54px;}
     .bts-vector-fallback {width:128px; height:205px; flex:0 0 auto; display:flex; align-items:flex-end; justify-content:center; pointer-events:auto; filter:drop-shadow(0 9px 8px rgba(91,71,112,.18)); animation:bts-float 3.8s ease-in-out infinite;}
     .bts-scene-right .bts-vector-fallback {animation-delay:-1.3s;}
     .bts-vector {width:100%; height:100%; overflow:visible;}
-    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto; cursor:grab;}
+    .bts-speech {position:relative; width:max-content; max-width:250px; min-width:168px; padding:11px 14px 12px; border:2px solid #e9b9d7; border-radius:22px; background:rgba(255,255,255,.96); box-shadow:0 7px 16px rgba(134,101,156,.13); color:#5b4770; pointer-events:auto !important; cursor:grab;}
     .bts-scene-right .bts-speech {border-color:#cdb9ec;}
     .bts-scene-left .bts-speech::after, .bts-scene-right .bts-speech::after {content:""; position:absolute; top:54%; width:0; height:0; border-style:solid;}
     .bts-scene-left .bts-speech::after {left:-12px; border-width:9px 12px 9px 0; border-color:transparent #e9b9d7 transparent transparent;}
@@ -502,8 +520,8 @@ st.markdown("""
     [data-testid="stExpander"] summary span,
     [data-testid="stExpander"] summary p {color:#654b78 !important;}
     [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
-    .stTextInput input {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
-    .stTextInput input::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "]) {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
+    .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "])::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
     .chibi-table {width:100%; border-collapse:collapse; color:#5b4770; min-width:680px;}
     .chibi-table th {background:#f7dbea; color:#684d7b; text-align:left; padding:12px 14px; font-weight:800;}
@@ -511,7 +529,6 @@ st.markdown("""
     .chibi-table tr:nth-child(even) td {background:#fffafd;}
     .chibi-hero {display:flex; align-items:center; gap:20px; padding:22px 26px; margin:8px 0 24px; border-radius:28px; background:linear-gradient(110deg,#ffdceb,#e9e0ff 58%,#dff7ff); border:2px solid #f2c8df; box-shadow:0 10px 24px rgba(134,101,156,.10);}
     .chibi-face {font-size:42px; line-height:1; white-space:nowrap;}
-    .chibi-decor {margin-left:auto; padding:10px 14px; border-radius:20px; background:rgba(255,255,255,.55); font-size:34px; line-height:1; box-shadow:0 5px 12px rgba(134,101,156,.10);}
     .shop-item-icon {display:flex; align-items:center; justify-content:center; min-width:0; min-height:48px; font-size:30px; line-height:1.1; white-space:nowrap; overflow:visible;}
     .chibi-title {font-size:24px; font-weight:800; color:#654b78; margin-bottom:4px;}
     .chibi-subtitle {color:#886d91; font-size:15px;}
@@ -579,7 +596,6 @@ st.markdown("""
         h2 {font-size: 1.35rem;}
         .chibi-hero {padding:18px; gap:12px;}
         .chibi-face {font-size:30px;}
-        .chibi-decor {font-size:25px; padding:7px 10px;}
         .shop-item-icon {font-size:24px; min-height:42px;}
         .chibi-title {font-size:19px;}
         .stButton button {min-height: 2.8rem; width: 100%;}
@@ -661,7 +677,9 @@ def today():
 def lock_bootstrap(c):
     """Serialize schema and seed migrations when several sessions start together."""
     if is_postgres_connection(c):
-        c.execute("SELECT pg_advisory_xact_lock(81620417)")
+        # Fetch the result so the cursor is completed/closed while the
+        # transaction-level advisory lock remains held until commit.
+        c.execute("SELECT pg_advisory_xact_lock(81620417)").fetchone()
 
 
 def init_db():
@@ -685,7 +703,9 @@ def init_db():
         translation TEXT NOT NULL,
         answer TEXT NOT NULL,
         hint TEXT NOT NULL,
-        explanation TEXT NOT NULL
+        explanation TEXT NOT NULL,
+        answer_form TEXT DEFAULT '',
+        seed_index INTEGER
     );
     CREATE TABLE IF NOT EXISTS reviews (
         card_id INTEGER PRIMARY KEY,
@@ -725,15 +745,49 @@ def init_db():
     # checked-in lesson pack.  Keep the row and its history for progress
     # safety, but never put it back into a deck when its lesson is activated.
     # ALTER TABLE is needed because deployed databases predate this column.
-    review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
     review_migrations = {
         "due_at": "TEXT DEFAULT '2999-01-01T00:00:00'",
         "last_result": "TEXT",
         "retired": "INTEGER NOT NULL DEFAULT 0",
     }
-    for column, definition in review_migrations.items():
-        if column not in review_columns:
-            c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+    if is_postgres_connection(c):
+        # Do not issue a no-op ALTER TABLE on every Streamlit startup.  Even
+        # ``ADD COLUMN IF NOT EXISTS`` takes an ACCESS EXCLUSIVE lock on the
+        # table in PostgreSQL.  A review query from another browser can then
+        # hold that lock long enough for Supabase to cancel startup with
+        # psycopg2.errors.QueryCanceled.  The advisory lock above serializes
+        # the one real migration, so an explicit schema check is both safer
+        # and faster for already-migrated databases.
+        postgres_columns = lambda table: {
+            row["name"]
+            for row in c.execute(
+                """
+                SELECT column_name AS name
+                FROM information_schema.columns
+                WHERE table_schema='public' AND table_name=?
+                """,
+                (table,),
+            ).fetchall()
+        }
+        card_columns = postgres_columns("cards")
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        if "seed_index" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN seed_index INTEGER")
+        review_columns = postgres_columns("reviews")
+        for column, definition in review_migrations.items():
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
+    else:
+        review_columns = {row[1] for row in c.execute("PRAGMA table_info(reviews)").fetchall()}
+        card_columns = {row[1] for row in c.execute("PRAGMA table_info(cards)").fetchall()}
+        if "answer_form" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN answer_form TEXT DEFAULT ''")
+        if "seed_index" not in card_columns:
+            c.execute("ALTER TABLE cards ADD COLUMN seed_index INTEGER")
+        for column, definition in review_migrations.items():
+            if column not in review_columns:
+                c.execute(f"ALTER TABLE reviews ADD COLUMN {column} {definition}")
     c.execute("UPDATE reviews SET due_at=next_review || 'T00:00:00' WHERE due_at IS NULL")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('start_unit','2')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('new_lessons_per_day','2')")
@@ -746,17 +800,12 @@ def init_db():
         c.execute("UPDATE shop_items SET name=?, kind=?, price=?, icon=?, description=? WHERE id=?", (item[1], item[2], item[3], item[4], item[5], item[0]))
     c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('face_bunny',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('design_lavender',?)", (datetime.now().isoformat(timespec='seconds'),))
-    c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('decor_books',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_face','face_bunny')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_design','design_lavender')")
-    c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_decor','decor_books')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_frame','frame_sakura')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_tracker','tracker_mochi')")
     c.commit()
     c.close()
-    # The catalog is session-cached for speed.  Clear only that read cache so
-    # newly added shop rows become visible immediately after an app update.
-    st.session_state.pop("_content_query_cache", None)
 
 
 def import_seed_once():
@@ -764,11 +813,20 @@ def import_seed_once():
         return
     c = db()
     lock_bootstrap(c)
-    if c.execute("SELECT COUNT(*) FROM lessons").fetchone()[0] > 0:
-        c.close()
-        return
     data = json.loads(SEED_PATH.read_text(encoding="utf-8"))
     for lesson in data["lessons"]:
+        # An older deployment could already contain Unit 2+ while never
+        # importing the completed foundation lessons 0–25. A database that
+        # contains any lesson is therefore not proof that this seed pack is
+        # complete. Add only missing lesson numbers; existing lessons and
+        # their review history remain untouched and are refreshed by the
+        # content sync below.
+        existing = c.execute(
+            "SELECT id FROM lessons WHERE lesson_number=?",
+            (lesson["lesson_number"],),
+        ).fetchone()
+        if existing:
+            continue
         cur = c.execute("""
             INSERT INTO lessons(unit,lesson_number,title,pattern,explanation,source_url,status)
             VALUES(?,?,?,?,?,?,?)
@@ -776,12 +834,12 @@ def import_seed_once():
               lesson["explanation"], lesson["source_url"],
               "available" if lesson["lesson_number"] >= 26 else "completed"))
         lesson_id = cur.lastrowid
-        for card in lesson["cards"]:
+        for seed_index, card in enumerate(lesson["cards"], start=1):
             card_id = c.execute("""
-                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
-                VALUES(?,?,?,?,?,?)
+                INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                VALUES(?,?,?,?,?,?,?,?)
             """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                  card["hint"], card["explanation"])).lastrowid
+                  card["hint"], card["explanation"], card.get("answer_form", ""), seed_index)).lastrowid
             c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
     c.commit()
     c.close()
@@ -821,12 +879,12 @@ def import_extended_seeds():
                     VALUES(?,?,?,?,?,?,?)
                 """, (lesson["unit"], lesson["lesson_number"], lesson["title"], lesson["pattern"],
                       lesson["explanation"], lesson["source_url"], "available")).lastrowid
-            for card in lesson.get("cards", []):
+            for seed_index, card in enumerate(lesson.get("cards", []), start=1):
                 card_id = c.execute("""
-                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation)
-                    VALUES(?,?,?,?,?,?)
+                    INSERT INTO cards(lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                    VALUES(?,?,?,?,?,?,?,?)
                 """, (lesson_id, card["prompt"], card["translation"], card["answer"],
-                      card["hint"], card["explanation"])).lastrowid
+                      card["hint"], card["explanation"], card.get("answer_form", ""), seed_index)).lastrowid
                 c.execute("INSERT INTO reviews(card_id) VALUES(?)", (card_id,))
             # Keep each lesson's write short so a cancelled browser request
             # cannot hold the unique lesson index for the entire course.
@@ -836,14 +894,73 @@ def import_extended_seeds():
     c.close()
 
 
+def _card_content_key(value):
+    """Normalize a stable human-readable card key without changing content."""
+    return re.sub(r"\s+", " ", str(value or "").strip())
+
+
+def _match_seed_cards(existing_rows, seed_cards):
+    """Match seed cards to old rows before changing any card text.
+
+    Card IDs are database history, not content identity.  Once a database has
+    a ``seed_index``, that position is the authoritative identity inside a
+    lesson.  Older databases do not have it, so their translation is used as
+    the first migration key and position is the final controlled fallback.
+    Matching by position first on already-migrated rows is important: a
+    corrected card can legitimately have the same translation as another card
+    or a translation can change while the learner's SRS row must remain.
+    """
+    by_seed_index = {}
+    for row in existing_rows:
+        value = row["seed_index"]
+        if value is None:
+            continue
+        try:
+            value = int(value)
+        except (TypeError, ValueError):
+            continue
+        by_seed_index.setdefault(value, []).append(row)
+
+    by_translation = {}
+    for row in existing_rows:
+        by_translation.setdefault(_card_content_key(row["translation"]), []).append(row)
+    unused_ids = {row["id"] for row in existing_rows}
+    matches = []
+    for index, seed_card in enumerate(seed_cards):
+        seed_position = index + 1
+        candidate = next(
+            (row for row in by_seed_index.get(seed_position, []) if row["id"] in unused_ids),
+            None,
+        )
+        if candidate is None:
+            translation_key = _card_content_key(seed_card.get("translation", ""))
+            candidate = next(
+                (row for row in by_translation.get(translation_key, []) if row["id"] in unused_ids),
+                None,
+            )
+        if candidate is None:
+            candidate = next(
+                (row for row in existing_rows if row["id"] in unused_ids),
+                None,
+            )
+        if candidate is not None:
+            unused_ids.remove(candidate["id"])
+        matches.append((seed_card, candidate))
+    obsolete = [row for row in existing_rows if row["id"] in unused_ids]
+    return matches, obsolete
+
+
 def sync_seed_card_content():
     """Refresh checked-in card text while preserving every review record.
 
     The first version of the deployed app imported a card only once.  That
     meant a corrected HTSK example stayed wrong in an existing database.  We
-    now match cards by their stable lesson/order position and update only the
-    prompt, translation, answer, hint, and explanation.  Level, dates,
-    mistakes, active state, and answer history are intentionally untouched.
+    now assign every seed card a stable position inside its lesson and update
+    only the card content.  The first assignment uses the old translation
+    mapping so an already-reviewed card keeps its meaning; after that, the
+    durable ``seed_index`` makes every later migration deterministic.  Level,
+    dates, mistakes, active state, and answer history are intentionally
+    untouched.
     """
     c = db()
     lock_bootstrap(c)
@@ -859,34 +976,43 @@ def sync_seed_card_content():
             if not lesson:
                 continue
             existing = c.execute(
-                "SELECT id FROM cards WHERE lesson_id=? ORDER BY id",
+                "SELECT id, translation, seed_index FROM cards WHERE lesson_id=? ORDER BY id",
                 (lesson["id"],),
             ).fetchall()
-            for index, card in enumerate(lesson_data.get("cards", [])):
+            matches, obsolete = _match_seed_cards(existing, lesson_data.get("cards", []))
+            for seed_index, (card, old_row) in enumerate(matches, start=1):
                 values = (
                     card["prompt"],
                     card["translation"],
                     card["answer"],
                     card["hint"],
                     card["explanation"],
+                    card.get("answer_form", ""),
                 )
-                if index < len(existing):
+                if old_row is not None:
                     c.execute(
                         "UPDATE reviews SET retired=0 WHERE card_id=?",
-                        (existing[index]["id"],),
+                        (old_row["id"],),
+                    )
+                    # A very old database can contain a card without its
+                    # review row.  Recreate only that missing row with the
+                    # default SRS state; existing progress is not touched.
+                    c.execute(
+                        "INSERT OR IGNORE INTO reviews(card_id) VALUES(?)",
+                        (old_row["id"],),
                     )
                     c.execute(
                         """UPDATE cards
-                           SET prompt=?, translation=?, answer=?, hint=?, explanation=?
+                           SET seed_index=?, prompt=?, translation=?, answer=?, hint=?, explanation=?, answer_form=?
                            WHERE id=?""",
-                        (*values, existing[index]["id"]),
+                        (seed_index, *values, old_row["id"]),
                     )
                 else:
                     card_id = c.execute(
                         """INSERT INTO cards
-                           (lesson_id,prompt,translation,answer,hint,explanation)
-                           VALUES(?,?,?,?,?,?)""",
-                        (lesson["id"], *values),
+                           (lesson_id,prompt,translation,answer,hint,explanation,answer_form,seed_index)
+                           VALUES(?,?,?,?,?,?,?,?)""",
+                        (lesson["id"], *values, seed_index),
                     ).lastrowid
                     c.execute(
                         "INSERT OR IGNORE INTO reviews(card_id) VALUES(?)",
@@ -896,9 +1022,13 @@ def sync_seed_card_content():
             # older deployed database.  Keep the old review/history rows for
             # progress safety, but take obsolete cards out of the active deck
             # so stale examples cannot reappear after an app update.
-            if len(existing) > len(lesson_data.get("cards", [])):
-                obsolete_ids = [row["id"] for row in existing[len(lesson_data.get("cards", [])):]]
+            if obsolete:
+                obsolete_ids = [row["id"] for row in obsolete]
                 placeholders = ",".join("?" for _ in obsolete_ids)
+                c.execute(
+                    f"UPDATE cards SET seed_index=NULL WHERE id IN ({placeholders})",
+                    obsolete_ids,
+                )
                 c.execute(
                     f"UPDATE reviews SET active=0, retired=1 WHERE card_id IN ({placeholders})",
                     obsolete_ids,
@@ -955,23 +1085,120 @@ def sync_htsk_metadata():
     c.close()
 
 
-CONTENT_SYNC_VERSION = "2026-09-10-hints-v1"
+def verify_live_card_content():
+    """Verify that the live database contains the checked-in card content.
+
+    A stale Streamlit resource cache used to make an old prompt look valid
+    after a deployment.  The sync now runs with an explicit version key, and
+    this second pass proves that every seeded card actually reached the live
+    database before the app renders a page.
+    """
+    c = db()
+    mismatches = []
+    fields = ("prompt", "translation", "answer", "hint", "explanation", "answer_form")
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        if not seed_path.exists():
+            continue
+        data = json.loads(seed_path.read_text(encoding="utf-8"))
+        for lesson_data in data.get("lessons", []):
+            lesson_number = lesson_data["lesson_number"]
+            lesson = c.execute(
+                "SELECT id FROM lessons WHERE lesson_number=?",
+                (lesson_number,),
+            ).fetchone()
+            if not lesson:
+                mismatches.append((lesson_number, 0, "lesson_missing"))
+                continue
+            # ``retired`` is a scheduling/availability flag, not a content
+            # flag. Lessons that HTSK has not published yet (203–208) keep
+            # their seed cards in the database but are intentionally retired
+            # by sync_htsk_metadata(). Excluding them here made a valid
+            # database fail startup with a false card_missing/card_count
+            # mismatch. Verify the stored text for every seeded card;
+            # availability is handled separately by lesson/status queries.
+            live_rows = c.execute(
+                """
+                SELECT cards.id, cards.seed_index, cards.prompt, cards.translation,
+                       cards.answer, cards.hint, cards.explanation, cards.answer_form
+                FROM cards
+                WHERE cards.lesson_id=?
+                  AND cards.seed_index IS NOT NULL
+                ORDER BY cards.seed_index, cards.id
+                """,
+                (lesson["id"],),
+            ).fetchall()
+            live_by_index = {}
+            for row in live_rows:
+                live_by_index.setdefault(int(row["seed_index"]), row)
+            seed_cards = lesson_data.get("cards", [])
+            for index, seed_card in enumerate(seed_cards, start=1):
+                live = live_by_index.get(index)
+                if live is None:
+                    mismatches.append((lesson_number, index, "card_missing"))
+                    continue
+                for field in fields:
+                    live_value = "" if live[field] is None else live[field]
+                    seed_value = seed_card.get(field, "")
+                    seed_value = "" if seed_value is None else seed_value
+                    if live_value != seed_value:
+                        mismatches.append((lesson_number, index, field))
+                        break
+            if len(live_by_index) != len(seed_cards):
+                mismatches.append((lesson_number, 0, "card_count"))
+    c.close()
+    if mismatches:
+        # Keep the diagnostic safe (lesson/card/field only): Streamlit redacts
+        # exception messages that contain Korean card text, which used to hide
+        # the actual location of a real migration failure.
+        lesson_number, card_index, field = mismatches[0]
+        raise RuntimeError(
+            f"Card content sync failed at lesson {lesson_number}, "
+            f"card {card_index}, field {field}"
+        )
+
+
+# Bump this whenever card prompts/answers change. Existing databases keep
+# their SRS levels and history, but every card is re-synced from the checked-in
+# lesson JSON on the next startup. This prevents an old split-answer record
+# from surviving after the seed content has been corrected.
+CONTENT_SYNC_VERSION = "2026-10-07-full-answer-spans-and-speech-forms-v41"
+
+
+def ensure_seed_bundle():
+    """Fail loudly instead of showing stale card text from an old database."""
+    missing = [path.name for path in [SEED_PATH, *EXTENDED_SEED_PATHS] if not path.exists()]
+    if missing:
+        names = ", ".join(missing)
+        raise RuntimeError(
+            "The complete lesson bundle is required next to korean_bunpro_app.py; "
+            f"missing: {names}"
+        )
 
 
 @st.cache_resource(show_spinner="Preparing your Korean course…")
-def bootstrap_app_data():
-    """Run database setup/synchronization once per app process and version."""
+def bootstrap_app_data(sync_version):
+    """Run database setup and content synchronization once per app process.
+
+    The resource cache makes this startup-only. Do not use the database's
+    content marker as an early return: an earlier deployment could write the
+    marker before the corrected seed files arrived, leaving old split answers
+    in an otherwise valid database. Running the idempotent sync at startup
+    repairs those records while preserving SRS levels and answer history.
+    """
+    ensure_seed_bundle()
     init_db()
-    if setting("content_sync_version", "") == CONTENT_SYNC_VERSION:
-        return
     import_seed_once()
     import_extended_seeds()
     sync_seed_card_content()
     sync_htsk_metadata()
+    verify_live_card_content()
+    # Static lesson/card query results can survive a Streamlit rerun in the
+    # same browser session.  Do not let those pre-sync rows remain visible.
+    st.session_state.pop("_content_query_cache", None)
     c = db()
     c.execute(
         "INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)",
-        ("content_sync_version", CONTENT_SYNC_VERSION),
+        ("content_sync_version", sync_version),
     )
     c.commit()
     c.close()
@@ -1102,6 +1329,9 @@ def learner_level():
 
 def daily_bts_message():
     """Select a deterministic daily two-member encouragement at the user level."""
+    cached = st.session_state.get("_daily_bts_message_cache")
+    if cached and cached.get("day") == today():
+        return cached["message"], cached["level"], cached["highest"]
     level, highest = learner_level()
     choices = [item for item in BTS_MOTIVATION if item["level"] == level]
     if not choices:
@@ -1118,6 +1348,12 @@ def daily_bts_message():
         en_member=en_member,
         en_icon=en_icon,
     )
+    st.session_state["_daily_bts_message_cache"] = {
+        "day": today(),
+        "message": choice,
+        "level": level,
+        "highest": highest,
+    }
     return choice, level, highest
 
 
@@ -1132,8 +1368,14 @@ def bts_character_image(member, fallback_icon):
     filename = BTS_ASSET_FILES.get(member)
     asset_path = BTS_ASSET_DIR / filename if filename else None
     if asset_path and asset_path.is_file():
+        cache_key = (member, asset_path.stat().st_mtime_ns, asset_path.stat().st_size)
+        cached = BTS_IMAGE_HTML_CACHE.get(cache_key)
+        if cached is not None:
+            return cached
         encoded = base64.b64encode(asset_path.read_bytes()).decode("ascii")
-        return f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="Daily chibi character">'
+        cached = f'<img class="bts-character" src="data:image/png;base64,{encoded}" alt="Daily chibi character">'
+        BTS_IMAGE_HTML_CACHE[cache_key] = cached
+        return cached
     hair, outfit = BTS_VECTOR_PALETTE.get(member, ("#9276c9", "#5a477d"))
     skin = "#f4c7ad"
     return f'''<div class="bts-vector-fallback" role="img" aria-label="Daily chibi character">
@@ -1221,6 +1463,24 @@ def render_bts_motivation(in_dialog=False):
                 }
             }
 
+            function activeDialogSurface() {
+                return Array.from(win.document.querySelectorAll(".bts-dialog-surface"))
+                    .find((surface) => isVisible(surface)) || null;
+            }
+
+            function moveToggleToTopHost(modal) {
+                const toggle = win.document.getElementById("mochi-chibi-toggle");
+                if (!toggle) return;
+                const host = modal || win.document.body;
+                if (toggle.parentElement !== host) host.appendChild(toggle);
+                toggle.style.setProperty("position", "fixed", "important");
+                toggle.style.setProperty("right", "14px", "important");
+                toggle.style.setProperty("top", modal ? "14px" : "auto", "important");
+                toggle.style.setProperty("bottom", modal ? "auto" : "68px", "important");
+                toggle.style.setProperty("z-index", "2147483647", "important");
+                toggle.style.setProperty("pointer-events", "auto", "important");
+            }
+
             function clamp(value, minimum, maximum) {
                 return Math.min(Math.max(value, minimum), maximum);
             }
@@ -1283,14 +1543,22 @@ def render_bts_motivation(in_dialog=False):
             }
 
             function syncHosts() {
-                const modal = win.document.querySelector(".bts-dialog-surface");
+                const modal = activeDialogSurface();
                 const modalOpen = Boolean(modal && isVisible(modal));
+                // A dialog rerun can remove the old top-layer host together
+                // with its children. Recreate the toggle before trying to
+                // move it, otherwise the hide/show control disappears after
+                // closing a Study or Review window.
+                if (!win.document.getElementById("mochi-chibi-toggle")) {
+                    installDesktopSidebarLauncher();
+                }
                 win.document.querySelectorAll(".bts-global-surface .bts-scene").forEach((scene) => {
-                    scene.style.display = modalOpen ? "none" : "";
+                    scene.style.display = "";
                 });
                 win.document.querySelectorAll(".bts-dialog-surface .bts-scene").forEach((scene) => {
                     scene.style.display = modalOpen ? "" : "none";
                 });
+                moveToggleToTopHost(modalOpen ? modal : null);
                 applyChibiVisibility();
                 return modalOpen;
             }
@@ -1380,7 +1648,7 @@ def render_bts_motivation(in_dialog=False):
                     Object.assign(toggle.style, {
                         position: "fixed",
                         right: "14px",
-                        bottom: "14px",
+                        bottom: "68px",
                         zIndex: "2147483647",
                         display: "flex",
                         alignItems: "center",
@@ -1402,6 +1670,8 @@ def render_bts_motivation(in_dialog=False):
                         pointerEvents: "auto",
                         touchAction: "manipulation",
                     });
+                    toggle.style.setProperty("z-index", "2147483647", "important");
+                    toggle.style.setProperty("pointer-events", "auto", "important");
                     toggle.addEventListener("click", () => {
                         const hidden = !chibisAreHidden();
                         try {
@@ -1419,6 +1689,9 @@ def render_bts_motivation(in_dialog=False):
                     });
                     doc.body.appendChild(toggle);
                 }
+                toggle.style.setProperty("z-index", "2147483647", "important");
+                toggle.style.setProperty("pointer-events", "auto", "important");
+                moveToggleToTopHost(activeDialogSurface());
                 applyChibiVisibility();
 
                 function sidebarIsOpen() {
@@ -1461,8 +1734,6 @@ def render_bts_motivation(in_dialog=False):
                 if (!stage) return false;
                 const day = stage.dataset.btsDay || "today";
                 win.document.querySelectorAll(".bts-scene").forEach((scene, index) => {
-                    const inModal = Boolean(scene.closest(".bts-dialog-surface"));
-                    if (modalOpen !== inModal) return;
                     scene.querySelectorAll("img").forEach((image) => {
                         image.draggable = false;
                         image.setAttribute("draggable", "false");
@@ -1471,9 +1742,10 @@ def render_bts_motivation(in_dialog=False):
                     });
                     const slot = scene.dataset.chibiSlot || String(index);
                     scene.style.position = "fixed";
-                    scene.style.zIndex = "2147483000";
+                    scene.style.zIndex = "2147483646";
                     const key = sceneKey(day, slot);
                     scene.dataset.chibiStorageKey = key;
+                    scene.style.setProperty("pointer-events", "auto", "important");
                     if (scene.dataset.chibiPositionBound === "1") {
                         keepOnScreen(scene);
                         return;
@@ -1510,7 +1782,10 @@ def render_bts_motivation(in_dialog=False):
             // creates another HTML host, but must not destroy the controller
             // that owns the global chibis. Otherwise closing the dialog can
             // leave the global characters hidden and no longer draggable.
-            const dragControllerVersion = "drag-v5";
+            // Force one clean binding after deployments that loaded an older
+            // controller; otherwise an old page can keep the non-draggable
+            // handlers alive until the browser is manually refreshed.
+            const dragControllerVersion = "drag-v7";
             if (win.__mochiBtsDragController && win.__mochiBtsDragController.version === dragControllerVersion && win.__mochiBtsDragController.refresh) {
                 installDesktopSidebarLauncher();
                 win.__mochiBtsDragController.refresh();
@@ -1658,26 +1933,19 @@ def render_bts_motivation(in_dialog=False):
 
 def active_item(kind):
     key = f"active_{kind}"
-    defaults = {
-        "face": "face_bunny",
-        "design": "design_lavender",
-        "decor": "decor_books",
-        "frame": "frame_sakura",
-        "tracker": "tracker_mochi",
-    }
+    defaults = {"face": "face_bunny", "design": "design_lavender", "frame": "frame_sakura", "tracker": "tracker_mochi"}
     item_id = setting(key, defaults.get(kind, ""))
-    return one("SELECT * FROM shop_items WHERE id=?", (item_id,))
-
-
-def owns_item(item_id):
-    """Return whether a shop item has been bought in the persistent inventory."""
-    return one("SELECT 1 FROM inventory WHERE item_id=?", (item_id,)) is not None
+    cache = st.session_state.setdefault("_active_item_cache", {})
+    cache_key = (kind, item_id)
+    if cache_key in cache:
+        return cache[cache_key]
+    item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+    cache[cache_key] = item
+    return item
 
 
 def buy_or_activate(item_id):
     item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
-    if not item:
-        return False
     owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item_id,))
     if not owned:
         if crystals() < item["price"]:
@@ -1687,49 +1955,13 @@ def buy_or_activate(item_id):
         c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
         c.commit()
         c.close()
-    # Perks are cumulative: buying one enables it and does not deactivate a
-    # different perk.  Cosmetic categories remain single-select and use the
-    # active_* setting below.
-    if item["kind"] == "perk":
-        return True
     set_key = f"active_{item['kind']}"
     set_value = item_id
     c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
     st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
+    st.session_state.setdefault("_active_item_cache", {}).pop((item["kind"], item_id), None)
+    st.session_state.pop("_daily_bts_message_cache", None)
     return True
-
-
-def render_room_theme():
-    """Apply the purchased room design to the whole app on every rerun."""
-    design = active_item("design")
-    theme = ROOM_THEMES.get(design["id"] if design else "design_lavender", ROOM_THEMES["design_lavender"])
-    page_a, page_b, page_c = theme["page"]
-    st.markdown(
-        f'''<style id="mochi-room-theme">
-        :root {{
-            --mochi-room-a:{page_a}; --mochi-room-b:{page_b}; --mochi-room-c:{page_c};
-            --mochi-room-surface:{theme["surface"]}; --mochi-room-soft:{theme["soft"]};
-            --mochi-room-border:{theme["border"]}; --mochi-room-accent:{theme["accent"]};
-            --mochi-room-ink:{theme["ink"]};
-        }}
-        html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"], .stApp {{
-            background:linear-gradient(135deg,var(--mochi-room-a) 0%,var(--mochi-room-b) 52%,var(--mochi-room-c) 100%) !important;
-        }}
-        [data-testid="stSidebar"] {{
-            background:linear-gradient(180deg,var(--mochi-room-soft) 0%,var(--mochi-room-b) 100%) !important;
-        }}
-        [data-testid="stMetric"] {{background:var(--mochi-room-surface) !important;border-color:var(--mochi-room-border) !important;}}
-        .cute-note, .streak-card, .quest-card {{border-color:var(--mochi-room-border) !important;background:linear-gradient(110deg,var(--mochi-room-soft),var(--mochi-room-surface)) !important;}}
-        .stButton > button {{border-color:var(--mochi-room-border) !important;color:var(--mochi-room-ink) !important;}}
-        .stButton > button:hover {{border-color:var(--mochi-room-accent) !important;background:var(--mochi-room-soft) !important;}}
-        .review-question-paper {{background:var(--mochi-room-surface) !important;border-color:var(--mochi-room-border) !important;}}
-        .review-question-paper .review-prompt, .review-question-paper .review-translation {{color:var(--mochi-room-ink) !important;}}
-        [data-testid="stDialog"] > div::before, .stDialog > div::before {{background:var(--mochi-room-surface) !important;}}
-        .room-theme-chip {{display:inline-flex;align-items:center;gap:7px;margin:0 0 14px;padding:7px 12px;border:2px solid var(--mochi-room-border);border-radius:999px;background:var(--mochi-room-soft);color:var(--mochi-room-ink);font-size:13px;font-weight:800;}}
-        .room-design-preview {{height:52px;display:flex;align-items:center;justify-content:center;border:2px solid var(--mochi-room-border);border-radius:17px;color:var(--mochi-room-ink);font-weight:800;letter-spacing:.2px;}}
-        </style>''',
-        unsafe_allow_html=True,
-    )
 
 
 def is_static_content_query(sql):
@@ -1774,6 +2006,18 @@ def normalize(text):
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
+def inferred_answer_form(card):
+    """Return only the form explicitly assigned to this card.
+
+    A Korean answer can end in a grammar connector, noun phrase, particle,
+    or modifier, so guessing a speech level from the final syllables can
+    mislabel embedded answers (for example, a comparative phrase ending in
+    보다). The checked lesson data supplies labels only where a speech level
+    or special register is actually required.
+    """
+    return normalize(card["answer_form"] if "answer_form" in card.keys() else "")
+
+
 # The lesson guide is stored directly on each lesson record in the unit seed
 # files.  It is not reconstructed from SRS cards or lesson titles, and the
 # guide examples remain separate from the cards array in the same lesson.
@@ -1792,6 +2036,64 @@ def load_htsk_guides():
             number = str(int(lesson["lesson_number"]))
             if number in guides:
                 raise ValueError(f"Lesson {number} appears in more than one seed file.")
+            cards = lesson.get("cards", [])
+            lesson_number = int(number)
+            for card_index, card in enumerate(cards, start=1):
+                prompt = str(card.get("prompt", ""))
+                answer = str(card.get("answer", ""))
+                if prompt.count("___") != 1 or not answer.strip():
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} must have one blank and a complete answer."
+                    )
+                if normalize(answer) in INCOMPLETE_GRAMMAR_TAILS:
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} contains only a grammar tail; "
+                        "the answer must include the lexical word or stem too."
+                    )
+                hint = normalize(card.get("hint", ""))
+                if not re.match(r"^Base forms?:\s+\S", hint):
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} must show a non-empty base-form hint."
+                    )
+                if hint in {
+                    "Base form: The base word is already shown",
+                    "Base forms: The base word is already shown",
+                    "Base form: TBD",
+                    "Base forms: TBD",
+                }:
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} contains a placeholder base-form hint."
+                    )
+                source_sentence = card.get("source_sentence")
+                if (
+                    26 <= lesson_number <= 202
+                    and lesson.get("source_status") == "published"
+                    and not source_sentence
+                ):
+                    raise ValueError(
+                        f"Lesson {number} card {card_index} is missing its published HTSK source sentence."
+                    )
+                if source_sentence:
+                    built = normalize(prompt.replace("___", answer, 1))
+                    expected_sentence = normalize(str(source_sentence))
+                    built = re.sub(r"[.!?。！？]+$", "", built)
+                    expected_sentence = re.sub(r"[.!?。！？]+$", "", expected_sentence)
+                    if built != expected_sentence:
+                        raise ValueError(
+                            f"Lesson {number} card {card_index} does not reconstruct its source sentence."
+                        )
+            source_sentences = [
+                normalize(card.get("source_sentence", ""))
+                for card in cards
+                if card.get("source_sentence")
+            ]
+            if len(source_sentences) != len(set(source_sentences)):
+                raise ValueError(
+                    f"Lesson {number} contains duplicate HTSK source sentences; "
+                    "each card must remain a distinct source example."
+                )
+            if lesson_number in VOCABULARY_LESSON_NUMBERS and not cards:
+                raise ValueError(f"Vocabulary lesson {number} must contain target-word cards.")
             guides[number] = {
                 "source_status": lesson.get("source_status"),
                 "source_title": lesson.get("source_title", lesson.get("title", "")),
@@ -1851,11 +2153,22 @@ def answer_is_correct(user, answer):
 
 
 def check_answer(card_id, answer_key):
-    """Automatically grade a card from the number of attempts.
+    """Grade one submitted answer exactly once and advance to the next card.
 
-    A wrong answer lowers the Bunpro streak once and keeps the same card on
-    screen. The next correct answer confirms the retry and keeps that level.
+    Bunpro's review level is stored on the card, not inferred from how many
+    times the learner typed into the same widget.  A correct submission moves
+    the level up and an incorrect submission moves it down; both submissions
+    finish the card in the current Review queue.
     """
+    # A submit callback can be delivered twice by a browser after Enter.  The
+    # per-visit set makes grading idempotent before any database work starts.
+    graded_ids = {
+        int(value)
+        for value in st.session_state.get("review_graded_ids", [])
+        if str(value).isdigit()
+    }
+    if int(card_id) in graded_ids:
+        return
     # The current card was already loaded for rendering.  Reusing its answer
     # removes one network round-trip on every Enter press against Supabase.
     answer_cache = st.session_state.setdefault("_review_answer_cache", {})
@@ -1866,33 +2179,14 @@ def check_answer(card_id, answer_key):
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
-    attempt_key = f"attempts_{card_id}"
-    attempts = st.session_state.get(attempt_key, 0) + 1
-    st.session_state[attempt_key] = attempts
-    if answer_is_correct(user_answer, card["answer"]):
-        had_wrong_attempt = st.session_state.pop(f"wrong_graded_{card_id}", False)
-        st.session_state.pop("retry_card_id", None)
-        result = "incorrect → correct" if had_wrong_attempt else "correct"
-        st.session_state["result_card_id"] = card_id
-        st.session_state["result_user_answer"] = user_answer
-        st.session_state["result_correct_answer"] = card["answer"]
-        st.session_state["result_grade"] = result
-        if not had_wrong_attempt:
-            grade(card_id, "correct")
-        else:
-            st.session_state.pop(attempt_key, None)
-            st.session_state.pop("wrong_feedback", None)
-        st.rerun()
-    else:
-        if not st.session_state.get(f"wrong_graded_{card_id}"):
-            grade(card_id, "incorrect")
-            st.session_state[f"wrong_graded_{card_id}"] = True
-        st.session_state["retry_card_id"] = card_id
-        st.session_state["wrong_feedback"] = card_id
-        # The callback runs before the widget is rendered again, so this is
-        # safe and gives the learner a clean field for the next attempt.
-        st.session_state[answer_key] = ""
-        st.rerun()
+    result = "correct" if answer_is_correct(user_answer, card["answer"]) else "incorrect"
+    st.session_state["result_card_id"] = card_id
+    st.session_state["result_user_answer"] = user_answer
+    st.session_state["result_correct_answer"] = card["answer"]
+    st.session_state["result_grade"] = result
+    # grade() performs the single SRS update and advances the queue.  The
+    # callback returns normally so Streamlit performs one ordinary rerun.
+    grade(card_id, result)
 
 
 def focus_answer_field():
@@ -1902,9 +2196,8 @@ def focus_answer_field():
     (function() {
         const parentWindow = window.parent;
         function focusAnswer() {
-            const input = parentWindow.document.querySelector(
-                'input[aria-label="Your answer"]'
-            );
+            const inputs = Array.from(parentWindow.document.querySelectorAll('input[aria-label^="Answer for card "]'));
+            const input = inputs.filter((item) => item.isConnected && item.getClientRects().length).at(-1);
             if (!input) return false;
             input.focus();
             const end = input.value.length;
@@ -1920,6 +2213,181 @@ def focus_answer_field():
         }, 100);
         parentWindow.setTimeout(focusAnswer, 0);
     })();
+    </script>
+    """, height=1)
+
+
+def mount_inline_answer(slot_id, marker_id, input_label):
+    """Visually place the real Streamlit widget over the sentence blank.
+
+    Streamlit must keep ownership of the widget DOM. Reparenting a native
+    Streamlit input into an HTML markdown span makes the next rerun unstable,
+    especially when a dialog fragment is involved. The bridge therefore
+    leaves the widget in its original Streamlit container and positions that
+    container over the blank with ``position: fixed``. Enter still goes
+    through the normal ``on_change`` callback and typing remains local.
+    """
+    components.html(f"""
+    <script>
+    (function() {{
+        const parentWindow = window.parent;
+        const slotId = {json.dumps(slot_id)};
+        const markerId = {json.dumps(marker_id)};
+        const inputLabel = {json.dumps(input_label)};
+        function copyPromptFont(node, style) {{
+            if (!node) return;
+            [
+                ['font-family', style.fontFamily],
+                ['font-size', style.fontSize],
+                ['font-weight', style.fontWeight],
+                ['font-style', style.fontStyle],
+                ['font-variant', style.fontVariant],
+                ['line-height', style.lineHeight],
+                ['letter-spacing', style.letterSpacing],
+                ['color', style.color],
+                ['-webkit-text-fill-color', style.color],
+            ].forEach(function(pair) {{
+                if (pair[1]) node.style.setProperty(pair[0], pair[1], 'important');
+            }});
+        }}
+        function lineHeightPx(style) {{
+            const size = parseFloat(style.fontSize) || 16;
+            if (style.lineHeight && style.lineHeight !== 'normal') {{
+                const value = parseFloat(style.lineHeight);
+                if (Number.isFinite(value)) return value;
+            }}
+            return size * 1.45;
+        }}
+        function syncGeometry(input, inputElement, slot, prompt) {{
+            if (!input || !inputElement || !slot) return;
+            const promptStyle = parentWindow.getComputedStyle(prompt || input);
+            copyPromptFont(input, promptStyle);
+            copyPromptFont(inputElement, promptStyle);
+            const measure = parentWindow.document.createElement('span');
+            measure.style.position = 'absolute';
+            measure.style.visibility = 'hidden';
+            measure.style.whiteSpace = 'pre';
+            copyPromptFont(measure, promptStyle);
+            measure.textContent = input.value || input.placeholder || '...';
+            parentWindow.document.body.appendChild(measure);
+            const minimum = (parseFloat(promptStyle.fontSize) || 16) * 1.25;
+            const width = Math.max(minimum, measure.getBoundingClientRect().width + 6);
+            const widthText = Math.ceil(width) + 'px';
+            const lineHeightText = Math.ceil(lineHeightPx(promptStyle)) + 'px';
+            // The blank is a real inline box in the Korean sentence. Its
+            // width changes with the value, so the complete sentence remains
+            // centered and never runs underneath the answer text.
+            slot.style.setProperty('display', 'inline-block', 'important');
+            slot.style.setProperty('width', widthText, 'important');
+            slot.style.setProperty('min-width', widthText, 'important');
+            slot.style.setProperty('height', lineHeightText, 'important');
+            input.style.setProperty('width', widthText, 'important');
+            input.style.setProperty('height', lineHeightText, 'important');
+            input.style.setProperty('padding', '0', 'important');
+            input.style.setProperty('line-height', lineHeightText, 'important');
+            input.style.setProperty('vertical-align', 'baseline', 'important');
+            // The whole Streamlit widget is positioned against the inline
+            // blank below. Keep the input itself untransformed; the baseline
+            // correction is applied to the widget container in position(),
+            // otherwise Streamlit can reset it during reconciliation.
+            input.style.setProperty('transform', 'none', 'important');
+            inputElement.style.setProperty('height', lineHeightText, 'important');
+            inputElement.querySelectorAll('div').forEach(function(node) {{
+                node.style.setProperty('height', lineHeightText, 'important');
+                node.style.setProperty('min-height', '0', 'important');
+                node.style.setProperty('line-height', lineHeightText, 'important');
+            }});
+            measure.remove();
+        }}
+        function position(input, inputElement, slot) {{
+            const rect = slot.getBoundingClientRect();
+            if (!rect.width && !rect.height) return;
+            const height = Math.max(24, Math.ceil(rect.height));
+            const baselineOffset = 10;
+            inputElement.style.setProperty('position', 'fixed', 'important');
+            inputElement.style.setProperty('left', Math.round(rect.left) + 'px', 'important');
+            inputElement.style.setProperty('top', Math.round(rect.top + Math.max(0, (rect.height - height) / 2) + baselineOffset) + 'px', 'important');
+            inputElement.style.setProperty('width', Math.ceil(rect.width) + 'px', 'important');
+            inputElement.style.setProperty('min-width', '0', 'important');
+            inputElement.style.setProperty('margin', '0', 'important');
+            inputElement.style.setProperty('padding', '0', 'important');
+            inputElement.style.setProperty('z-index', '2147483645', 'important');
+            inputElement.style.setProperty('pointer-events', 'auto', 'important');
+            inputElement.style.setProperty('background', 'transparent', 'important');
+            inputElement.style.setProperty('height', height + 'px', 'important');
+        }}
+        function mount() {{
+            const slot = parentWindow.document.getElementById(slotId);
+            const marker = parentWindow.document.getElementById(markerId);
+            const input = parentWindow.document.querySelector('input[aria-label="' + inputLabel + '"]');
+            if (!slot || !marker || !input) return false;
+            const prompt = slot.closest('.review-prompt');
+            // Position the actual text-input block, not the larger Streamlit
+            // element container that also carries vertical spacing. Using
+            // the outer container made the answer appear above the sentence.
+            const inputElement = input.closest('[data-testid="stTextInput"]') || input.closest('[data-baseweb="base-input"]') || input.closest('[data-testid="stElementContainer"]') || input;
+            const markerElement = marker.closest('[data-testid="stElementContainer"]');
+            if (markerElement) markerElement.style.display = 'none';
+            inputElement.classList.add('inline-answer-element');
+            input.classList.add('inline-answer-input');
+            function clearAnswerChrome(node) {{
+                if (!node) return;
+                node.style.setProperty('border', '0', 'important');
+                node.style.setProperty('border-width', '0', 'important');
+                node.style.setProperty('border-color', 'transparent', 'important');
+                node.style.setProperty('border-radius', '0', 'important');
+                node.style.setProperty('outline', '0', 'important');
+                node.style.setProperty('background', 'transparent', 'important');
+                node.style.setProperty('background-color', 'transparent', 'important');
+                node.style.setProperty('background-image', 'none', 'important');
+                node.style.setProperty('box-shadow', 'none', 'important');
+                node.style.setProperty('appearance', 'none', 'important');
+                node.style.setProperty('-webkit-appearance', 'none', 'important');
+                node.style.setProperty('border-bottom', '0', 'important');
+                node.style.setProperty('color', 'inherit', 'important');
+                node.style.setProperty('-webkit-text-fill-color', 'inherit', 'important');
+                node.style.setProperty('text-decoration', 'none', 'important');
+            }}
+            [input, inputElement, input.closest('[data-baseweb="input"]'), input.closest('[data-baseweb="base-input"]'), input.closest('[data-testid="stTextInput"]')].forEach(clearAnswerChrome);
+            inputElement.querySelectorAll('*').forEach(clearAnswerChrome);
+            // Do not move or replace the widget node. Streamlit's frontend
+            // reconciler expects this element to remain under its own block.
+            inputElement.style.setProperty('display', 'inline-flex', 'important');
+            inputElement.style.setProperty('align-items', 'baseline', 'important');
+            inputElement.style.setProperty('vertical-align', 'baseline', 'important');
+            inputElement.style.setProperty('visibility', 'visible', 'important');
+            if (!input.dataset.inlineResizeBound) {{
+                input.dataset.inlineResizeBound = '1';
+                input.addEventListener('input', function() {{
+                    syncGeometry(input, inputElement, slot, prompt);
+                    position(input, inputElement, slot);
+                }});
+            }}
+            syncGeometry(input, inputElement, slot, prompt);
+            position(input, inputElement, slot);
+            const registry = parentWindow.__mochiInlineAnswerRegistry || (parentWindow.__mochiInlineAnswerRegistry = {{}});
+            const oldBinding = registry[slotId];
+            if (oldBinding) {{
+                parentWindow.removeEventListener('resize', oldBinding);
+                parentWindow.removeEventListener('scroll', oldBinding, true);
+            }}
+            const binding = function() {{
+                if (!input.isConnected || !slot.isConnected) return;
+                syncGeometry(input, inputElement, slot, prompt);
+                position(input, inputElement, slot);
+            }};
+            registry[slotId] = binding;
+            parentWindow.addEventListener('resize', binding, {{passive:true}});
+            parentWindow.addEventListener('scroll', binding, {{passive:true, capture:true}});
+            return true;
+        }}
+        let attempts = 0;
+        const timer = parentWindow.setInterval(function() {{
+            attempts += 1;
+            if (mount() || attempts >= 30) parentWindow.clearInterval(timer);
+        }}, 80);
+        parentWindow.setTimeout(mount, 0);
+    }})();
     </script>
     """, height=1)
 
@@ -1978,7 +2446,7 @@ def activate_lesson(lesson_id):
     record_activity("lesson")
     # If Review was opened earlier in the same browser session, discard its
     # old denominator so newly added cards appear immediately in the queue.
-    for key in ("review_total", "review_completed", "checked"):
+    for key in ("review_total", "review_completed", "checked", "_daily_bts_message_cache"):
         st.session_state.pop(key, None)
     return True
 
@@ -2064,9 +2532,36 @@ def daily_lessons():
     """, (today(),))
 
 
+def _reward_once_in_transaction(connection, event_key, amount, created_at):
+    """Add one idempotent reward without opening another database transaction."""
+    if amount <= 0:
+        return
+    params = (event_key, amount, created_at)
+    if is_postgres_connection(connection):
+        inserted = connection.execute(
+            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
+            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
+            params,
+        ).fetchone()
+        was_inserted = inserted is not None
+    else:
+        cursor = connection.execute(
+            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
+            params,
+        )
+        was_inserted = bool(getattr(cursor, "rowcount", 0))
+    if was_inserted:
+        connection.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
+
+
 def grade(card_id, result):
-    current = one("SELECT * FROM reviews WHERE card_id=?", (card_id,))
+    # Keep the read and the write on one connection.  The previous path first
+    # opened/closed a separate helper query and then opened another connection
+    # for the write, which was needlessly slow with Supabase after Enter.
+    c = db()
+    current = c.execute("SELECT * FROM reviews WHERE card_id=?", (card_id,)).fetchone()
     if not current:
+        c.close()
         return
     old_level = max(0, int(current["level"] or 0))
     mistakes = int(current["mistakes"] or 0)
@@ -2086,23 +2581,48 @@ def grade(card_id, result):
     due_text = due_at.isoformat(timespec="seconds")
     next_date = due_at.date().isoformat()
     now = now_dt.isoformat(timespec="seconds")
-    c = db()
     c.execute("""
         UPDATE reviews SET level=?, next_review=?, due_at=?, last_review=?,
                            last_result=?, mistakes=?, active=?
         WHERE card_id=?
     """, (new_level, next_date, due_text, now, result, mistakes, active, card_id))
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
+    # Keep the review write, activity counter and both idempotent rewards in
+    # one database transaction.  The old path committed the review, opened a
+    # second reward transaction, then opened a third activity transaction and
+    # a fourth streak query; that made every Enter feel like a freeze on a
+    # remote PostgreSQL database.
+    day = today()
+    c.execute(
+        "INSERT OR IGNORE INTO study_activity(day,lessons,reviews,last_activity) VALUES(?,?,?,?)",
+        (day, 0, 0, now),
+    )
+    c.execute(
+        "UPDATE study_activity SET reviews=reviews+1, last_activity=? WHERE day=?",
+        (now, day),
+    )
+    _reward_once_in_transaction(c, f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result], now)
+    _reward_once_in_transaction(c, f"streak_bonus:{day}", 5, now)
     c.commit()
     c.close()
-    reward = {"correct": 3, "incorrect": 0}[result]
-    if result == "correct" and owns_item("perk_crystal_bloom"):
-        reward += 1
-    award_crystals(f"card_review:{card_id}:{due_text}:{result}", reward)
-    record_activity("review")
-    st.session_state["review_completed"] = st.session_state.get("review_completed", 0) + 1
+    # Both a correct and an incorrect submission finish this card in the
+    # current Review queue. An incorrect card gets a later due_at timestamp;
+    # it is not rendered again immediately and is not counted as an extra
+    # attempt.
+    graded_ids = [
+        int(value)
+        for value in st.session_state.get("review_graded_ids", [])
+        if str(value).isdigit()
+    ]
+    if int(card_id) not in graded_ids:
+        graded_ids.append(int(card_id))
+    st.session_state["review_graded_ids"] = graded_ids
+    st.session_state["review_completed"] = len(graded_ids)
     st.session_state.pop("checked", None)
+    # Remove keys from older deployed versions so a warm browser session
+    # cannot resurrect the old retry UI after this build is loaded.
     st.session_state.pop(f"attempts_{card_id}", None)
+    st.session_state.pop(f"wrong_graded_{card_id}", None)
     st.session_state.pop("wrong_feedback", None)
     st.session_state.pop(f"revealed_answer_{card_id}", None)
     # A widget key cannot be changed after the widget is created in the
@@ -2126,8 +2646,43 @@ def next_new_lesson():
 
 
 def next_due_card():
+    # Once a Review visit has started, use its immutable opening queue.  The
+    # SRS write intentionally moves a graded card's due_at into the future;
+    # querying only the live due set here made the remaining cards disappear
+    # while the progress denominator still referred to the opening queue.
+    queue_ids = [
+        int(value)
+        for value in st.session_state.get("review_queue_ids", [])
+        if str(value).isdigit()
+    ]
+    graded_ids = {
+        int(value)
+        for value in st.session_state.get("review_graded_ids", [])
+        if str(value).isdigit()
+    }
+    pending_ids = [card_id for card_id in queue_ids if card_id not in graded_ids]
+    if queue_ids:
+        for card_id in pending_ids:
+            # One candidate per query keeps the queue portable across SQLite
+            # and PostgreSQL even when all 1,017 cards are due at once; an
+            # IN/CASE statement would exceed SQLite's parameter limit.
+            candidate = one("""
+                SELECT cards.*, lessons.title AS lesson_title, lessons.pattern,
+                       reviews.level, reviews.next_review, reviews.due_at, reviews.last_review
+                FROM cards
+                JOIN lessons ON lessons.id=cards.lesson_id
+                JOIN reviews ON reviews.card_id=cards.id
+                WHERE cards.id=?
+                  AND reviews.retired=0
+                  AND lessons.status IN ('available','studying')
+            """, (card_id,))
+            if candidate:
+                return candidate
+        return None
+
+    # Compatibility path for a page opened by an older warm session that has
+    # no queue snapshot yet. New visits initialize the snapshot below.
     # Rotation rule: cards reviewed today go last; NULL/old last_review go first.
-    # This matters when all cards in a grammar point share the same due date.
     # A newly added card has no last_review yet, so it belongs in Review even
     # if an older database left its placeholder next_review in the future.
     return one("""
@@ -2150,38 +2705,93 @@ def next_due_card():
 
 def open_review():
     """Start a fresh Review visit from a dashboard or lesson action."""
-    for key in ("review_total", "review_completed", "checked"):
+    for key in (
+        "review_total", "review_completed", "review_queue_ids",
+        "review_graded_ids", "checked", "result_card_id",
+        "result_user_answer", "result_correct_answer", "result_grade",
+    ):
         st.session_state.pop(key, None)
+    st.session_state["_review_page_active"] = False
     st.session_state["go_review"] = True
     st.session_state.pop("retry_card_id", None)
     st.rerun()
 
 
+def start_review_session():
+    """Snapshot the due cards for one Review window.
+
+    The old implementation used the live SRS due query for every render.  A
+    card that had just been graded moved to a future ``due_at`` immediately,
+    while the denominator stayed at the opening snapshot.  After a few
+    answers that could produce e.g. ``35 / 41`` together with an empty queue.
+    Review must finish the cards that were due when it was opened, so the
+    session owns an immutable queue and removes cards only after submission.
+    """
+    queue_rows = rows("""
+        SELECT reviews.card_id
+        FROM reviews
+        JOIN cards ON cards.id=reviews.card_id
+        JOIN lessons ON lessons.id=cards.lesson_id
+        WHERE reviews.active=1
+          AND reviews.retired=0
+          AND (reviews.due_at<=? OR (reviews.due_at IS NULL AND (reviews.next_review<=? OR reviews.last_review IS NULL)))
+          AND lessons.status IN ('available','studying')
+        ORDER BY
+            CASE WHEN substr(reviews.last_review,1,10)=? THEN 1 ELSE 0 END,
+            COALESCE(reviews.last_review,'0000-01-01T00:00:00'),
+            reviews.next_review, reviews.card_id
+    """, (datetime.now().isoformat(timespec="seconds"), today(), today()))
+    queue_ids = [int(row["card_id"]) for row in queue_rows]
+    st.session_state["review_queue_ids"] = queue_ids
+    st.session_state["review_graded_ids"] = []
+    st.session_state["review_total"] = len(queue_ids)
+    st.session_state["review_completed"] = 0
+    st.session_state["review_nonce"] = 0
+    for key in (
+        "result_card_id", "result_user_answer", "result_correct_answer",
+        "result_grade", "checked", "retry_card_id", "wrong_feedback",
+    ):
+        st.session_state.pop(key, None)
+
+
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
-    prompt_html = escape(str(card["prompt"])).replace("\n", "<br>")
+    nonce = st.session_state.get("review_nonce", 0)
+    answer_key = f"answer_{card['id']}_{nonce}"
+    slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
+    marker_id = f"inline_answer_marker_{card['id']}_{nonce}"
+    input_label = f"Answer for card {card['id']}"
+    form_key = f"review_answer_form_{card['id']}_{nonce}"
+    submit_key = f"submit_answer_{card['id']}_{nonce}"
+    blank = f'<span class="inline-answer-slot" id="{slot_id}"></span>'
+    prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = escape(str(card["translation"])).replace("\n", "<br>")
+    answer_form = inferred_answer_form(card) or "No speech-level ending — match the sentence context"
     st.markdown(
-        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation"><b>Translation:</b> {translation_html}</div></div>''',
+        f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div><div class='answer-form-note'>Required answer form: {escape(answer_form)}</div></div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
         st.write(card["hint"])
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
-    answer_key = f"answer_{card['id']}_{st.session_state.get('review_nonce', 0)}"
-    answer = st.text_input(
-        "Your answer",
-        key=answer_key,
-        on_change=check_answer,
-        args=(card["id"], answer_key),
-        placeholder="Type the complete Korean word + grammar form and press Enter",
-    )
-    attempts = st.session_state.get(f"attempts_{card['id']}", 0)
-    if st.session_state.get("wrong_feedback") == card["id"]:
-        st.warning(f"Not quite yet. Try again — attempt {attempts + 1}.")
-    elif attempts:
-        st.caption(f"Attempts: {attempts}. Enter your answer again.")
+    with st.form(key=form_key, clear_on_submit=False):
+        st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
+        st.text_input(
+            input_label,
+            key=answer_key,
+            placeholder="...",
+            label_visibility="collapsed",
+        )
+        # A form batches the widget value. The callback therefore runs only
+        # when Enter submits the form, never when a hint expander steals focus.
+        st.form_submit_button(
+            "Submit",
+            key=submit_key,
+            on_click=check_answer,
+            args=(card["id"], answer_key),
+        )
+    mount_inline_answer(slot_id, marker_id, input_label)
     focus_answer_field()
 
 
@@ -2261,39 +2871,20 @@ def render_lesson_dialog(lesson_id, daily=False):
 
 
 def render_review_dialog():
-    """Open Review as a large internal modal, with an inline fallback."""
-    if hasattr(st, "dialog"):
+    """Open Review as one dedicated window containing one current card."""
+    if review_dialog is not None:
         review_dialog()
-    else:
+        return
+    # Compatibility fallback for Streamlit versions without st.dialog.
+    review_placeholder = st.empty()
+    with review_placeholder.container():
+        st.markdown('<div class="review-page-heading">✨ <span>Review</span></div>', unsafe_allow_html=True)
         render_review_contents()
 
 
 def page_dashboard():
     st.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
     st.title("Mochi Hangul")
-    face = active_item("face")
-    design = active_item("design")
-    decor = active_item("decor")
-    character_id = setting("active_character", "")
-    character = one("SELECT * FROM shop_items WHERE id=?", (character_id,)) if character_id else None
-    mascot = character["icon"] if character else face["icon"]
-    theme = ROOM_THEMES.get(design["id"] if design else "design_lavender", ROOM_THEMES["design_lavender"])
-    color_a, color_b, color_c = theme["page"]
-    decor_icon = decor["icon"] if decor else "📚"
-    st.markdown("""
-    <div class="chibi-hero" style="background:linear-gradient(110deg, COLOR_A, COLOR_B 58%, COLOR_C);">
-        <div class="chibi-face">MASCOT</div>
-        <div>
-            <div class="chibi-title">Welcome back, little learner!</div>
-            <div class="chibi-subtitle">A tiny step today = a big Korean win tomorrow ✨</div>
-        </div>
-        <div class="chibi-decor" title="Your room decoration">DECOR</div>
-    </div>
-    """.replace("COLOR_A", color_a).replace("COLOR_B", color_b).replace("COLOR_C", color_c).replace("MASCOT", mascot).replace("DECOR", escape(str(decor_icon))), unsafe_allow_html=True)
-    st.markdown(
-        f"<div class='room-theme-chip'>🎨 Room design: {escape(str(design['name'] if design else 'Lavender Cloud'))}</div>",
-        unsafe_allow_html=True,
-    )
     summary = one("""
         SELECT
           (SELECT COUNT(*) FROM reviews JOIN cards ON cards.id=reviews.card_id
@@ -2303,7 +2894,7 @@ def page_dashboard():
                AND lessons.status IN ('available','studying')) AS due,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0) AS active,
           (SELECT COUNT(*) FROM reviews WHERE active=1 AND retired=0 AND level>=8) AS mastered
-    """, (today(),))
+    """, (datetime.now().isoformat(timespec="seconds"), today()))
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]
@@ -2314,9 +2905,8 @@ def page_dashboard():
     st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     current_streak = streak_info()
     streak_status = "Your flame is lit today — keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
-    streak_spark = " ✨" if owns_item("perk_streak_spark") else ""
     st.markdown(
-        f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">🔥</span><span>{current_streak['current']} day streak{streak_spark}</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
+        f'''<div class="streak-card"><div class="streak-main"><span class="streak-fire">🔥</span><span>{current_streak['current']} day streak</span></div><div class="streak-meta"><b>Best: {current_streak['best']} days</b><br>{streak_status}</div></div>''',
         unsafe_allow_html=True,
     )
     if due:
@@ -2370,8 +2960,6 @@ def page_dashboard():
 
     if todays and completed == len(todays):
         award_crystals(f"daily_goal:{today()}", 30)
-        if owns_item("perk_daily_bloom"):
-            award_crystals(f"daily_goal_bonus:{today()}", 10)
         st.markdown('<div class="cute-note">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა No new topics for today. Great job!</div>', unsafe_allow_html=True)
     elif todays:
         st.markdown('<div class="cute-note">(ง •̀ᴗ•́)ง You can do it! Finish today\'s tiny quest.</div>', unsafe_allow_html=True)
@@ -2391,33 +2979,28 @@ def page_dashboard():
 
 
 def render_review_contents():
-    """Render the Review experience inside the app's full-screen dialog."""
-    if "review_total" not in st.session_state:
-        remaining = one("SELECT COUNT(*) AS n FROM reviews JOIN cards ON cards.id=reviews.card_id JOIN lessons ON lessons.id=cards.lesson_id WHERE reviews.active=1 AND reviews.retired=0 AND (reviews.due_at<=? OR (reviews.due_at IS NULL AND (reviews.next_review<=? OR reviews.last_review IS NULL))) AND lessons.status IN ('available','studying')", (datetime.now().isoformat(timespec='seconds'), today()))["n"]
-        st.session_state["review_total"] = remaining
-        st.session_state["review_completed"] = 0
+    """Render exactly one Review card inside the dedicated Review window."""
+    if "review_queue_ids" not in st.session_state:
+        # This also repairs a warm browser session created by a pre-queue
+        # build. It deliberately starts a coherent new visit instead of
+        # keeping the old denominator with a different live due set.
+        start_review_session()
     total = st.session_state.get("review_total", 0)
-    completed = min(st.session_state.get("review_completed", 0), total) if total else 0
+    completed = min(len(st.session_state.get("review_graded_ids", [])), total) if total else 0
+    st.session_state["review_completed"] = completed
     progress = 1.0 if total == 0 else completed / total
     frame = active_item("frame")
     tracker = active_item("tracker")
     frame_icon = escape(frame["icon"] if frame else "🌸")
     tracker_icon = escape(tracker["icon"] if tracker else "🍡")
-    character = active_item("character")
-    character_icon = escape(character["icon"] if character else "🐰")
     frame_style = FRAME_STYLES.get(frame["id"] if frame else "frame_sakura", FRAME_STYLES["frame_sakura"])
     frame_border = frame_style["border"]
     frame_bg = frame_style["background"]
     frame_decor = escape(frame_style["decor"])
     frame_label = escape(frame_style["label"])
     tracker_color = TRACKER_COLORS.get(tracker["id"] if tracker else "tracker_mochi", "#f5a6c8")
-    st.markdown(
-        f'''<div class="modal-kicker"><strong>✨ Review</strong><span>{character_icon} cozy Korean garden · {completed} / {total} today</span></div>''',
-        unsafe_allow_html=True,
-    )
-    st.markdown(f'''<div class="review-frame" style="border-color:{frame_border};background:{frame_bg}"><div style="font-size:18px;font-weight:800;color:#654b78">{character_icon} Welcome to your cozy review corner!</div><div style="color:#886d91;margin-top:4px">Small steps, pretty progress, big Korean wins ✨</div></div>''', unsafe_allow_html=True)
     st.markdown(f'''<div class="review-progress" style="border-color:{frame_border};background:linear-gradient(110deg,{frame_bg},#f4efff)">
-        <div class="review-progress-title"><span>{frame_icon} Today's review quest</span><span>{completed} / {total} cards</span></div>
+        <div class="review-progress-title"><span>{frame_icon} Today's progress</span><span>{completed} / {total} cards</span></div>
         <div class="review-progress-track">
             <div class="review-progress-fill" style="width:{progress * 100:.1f}%;background:{tracker_color}"></div>
             <div class="progress-mascot" style="left:clamp(0px,calc({progress * 100:.1f}% - 19px),calc(100% - 38px));border-color:{tracker_color}">{tracker_icon}</div>
@@ -2434,60 +3017,64 @@ def render_review_contents():
             user_answer = escape(str(st.session_state.get("result_user_answer", "")))
             answered_prompt = escape(str(result_card["prompt"])).replace(
                 "___",
-                f'''<span style="display:inline-block;padding:1px 9px;border:2px solid #e8a8cc;border-radius:12px;background:#fff7fc;font-weight:800">{user_answer}</span>''',
+                f'''<span class="answer-result-value">{user_answer}</span>''',
                 1,
             )
             st.markdown(
-                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation"><b>Translation:</b> {escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{escape(str(result_card["translation"])).replace(chr(10), "<br>")}</div></div>''',
+                unsafe_allow_html=True,
+            )
+            result_answer_form = inferred_answer_form(result_card) or "Embedded grammar phrase — match the sentence context"
+            st.markdown(
+                f'''<div class="answer-form-note">Required answer form: {escape(result_answer_form)}</div>''',
                 unsafe_allow_html=True,
             )
             st.markdown(
-                f'''<div style="padding:8px 0;color:#514064"><div>Your answer: <code>{user_answer}</code></div><div>Correct answer: <code>{escape(str(st.session_state.get("result_correct_answer", "")))}</code></div></div>''',
+                f'''<div class="answer-results"><div>Your answer: <span class="answer-result-value">{user_answer}</span></div><div>Correct answer: <span class="answer-result-value">{escape(str(st.session_state.get("result_correct_answer", "")))}</span></div></div>''',
                 unsafe_allow_html=True,
             )
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
-                st.rerun()
-            components.html("""
-                <script>
-                (function() {
-                    const win = window.parent;
-                    if (win.__mochiContinueHandler) {
-                        win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
-                    }
-                    win.__mochiContinueHandler = function(event) {
-                        if (event.key !== 'Enter' && event.key !== ' ') return;
-                        const buttons = Array.from(win.document.querySelectorAll('button'));
-                        const button = buttons.find((item) =>
-                            (item.innerText || item.textContent || '').trim().startsWith('Continue')
-                        );
-                        if (!button) return;
-                        event.preventDefault();
-                        event.stopPropagation();
-                        button.click();
-                    };
-                    win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
-                })();
-                </script>
-            """, height=1)
-            return
+                # Do not render the old result and the next card in one
+                # Streamlit run. A fragment rerun refreshes the dialog in
+                # place, so the window stays open while exactly one current
+                # card is rendered.
+                if review_dialog is not None:
+                    st.rerun(scope="fragment")
+                else:
+                    st.rerun()
+            else:
+                components.html("""
+                    <script>
+                    (function() {
+                        const win = window.parent;
+                        if (win.__mochiContinueHandler) {
+                            win.document.removeEventListener('keydown', win.__mochiContinueHandler, true);
+                        }
+                        win.__mochiContinueHandler = function(event) {
+                            if (event.key !== 'Enter' && event.key !== ' ') return;
+                            const buttons = Array.from(win.document.querySelectorAll('button'));
+                            const button = buttons.find((item) =>
+                                (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                            );
+                            if (!button) return;
+                            event.preventDefault();
+                            event.stopPropagation();
+                            button.click();
+                        };
+                        win.document.addEventListener('keydown', win.__mochiContinueHandler, true);
+                    })();
+                    </script>
+                """, height=1)
+                return
 
-    retry_id = st.session_state.get("retry_card_id")
-    due = None
-    if retry_id:
-        due = one("""
-            SELECT cards.*, lessons.title AS lesson_title, lessons.pattern,
-                   reviews.level, reviews.next_review, reviews.due_at, reviews.last_review
-            FROM cards
-            JOIN lessons ON lessons.id=cards.lesson_id
-            JOIN reviews ON reviews.card_id=cards.id
-            WHERE cards.id=? AND reviews.active=1 AND reviews.retired=0
-        """, (retry_id,))
-        if not due:
-            st.session_state.pop("retry_card_id", None)
-    if not due:
-        due = next_due_card()
+    # Older sessions may still contain the retry marker.  It must never
+    # override the normal due-card rotation: every submitted answer finishes
+    # the current card and the next render selects the next due card.
+    st.session_state.pop("retry_card_id", None)
+    st.session_state.pop("wrong_feedback", None)
+    due = next_due_card()
     if not due:
         st.success("No reviews due today. Your review quest is complete! ✨")
         if st.button("← Close Review", key="close_review_modal_empty", use_container_width=True):
@@ -2523,12 +3110,13 @@ def render_review_contents():
 if hasattr(st, "dialog"):
     @st.dialog("📖 Study lesson", width="large")
     def lesson_dialog(lesson_id, daily=False):
-        render_bts_motivation(in_dialog=True)
         lesson_preview(lesson_id, daily)
 
     @st.dialog("✨ Review", width="large")
     def review_dialog():
-        render_bts_motivation(in_dialog=True)
+        # The dialog contains only the progress bar, result/current card and
+        # one Continue action. The old result is cleared with st.rerun()
+        # before the next card is selected, so cards never stack vertically.
         render_review_contents()
 else:
     lesson_dialog = None
@@ -2630,22 +3218,8 @@ def page_progress():
 def page_shop():
     st.title("Crystal Shop ✨")
     st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
-    current_design = active_item("design")
-    current_decor = active_item("decor")
-    st.markdown(
-        f"<div class='room-theme-chip'>🎨 Active room: {escape(str(current_design['name'] if current_design else 'Lavender Cloud'))} · {escape(str(current_decor['name'] if current_decor else 'Tiny Book Nook'))}</div>",
-        unsafe_allow_html=True,
-    )
-    st.write("Earn crystals by studying and reviewing. Buy a companion, decorate your room, or unlock a small study bonus.")
-    categories = [
-        ("Faces", "face", "Choose your study buddy"),
-        ("Characters", "character", "A little friend for your dashboard"),
-        ("Room designs", "design", "Change the mood of the whole app"),
-        ("Room decorations", "decor", "Add a little detail to your study room"),
-        ("Card frames", "frame", "Decorate your Review screen"),
-        ("Progress trackers", "tracker", "Choose how your progress grows"),
-        ("Study perks", "perk", "Small bonuses that stay enabled after purchase"),
-    ]
+    st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
+    categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
     tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
     for tab, (name, kind, subtitle) in zip(tabs, categories):
         with tab:
@@ -2674,24 +3248,8 @@ def page_shop():
                                 f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">{item['icon']}</div></div>''',
                                 unsafe_allow_html=True,
                             )
-                        elif kind == "design":
-                            theme = ROOM_THEMES.get(item["id"], ROOM_THEMES["design_lavender"])
-                            a, b, c = theme["page"]
-                            st.markdown(
-                                f'''<div class="room-design-preview" style="background:linear-gradient(110deg,{a},{b} 58%,{c});border-color:{theme['border']}">Preview · {escape(item['name'])}</div>''',
-                                unsafe_allow_html=True,
-                            )
-                        elif kind == "decor":
-                            st.markdown(
-                                f'''<div class="room-design-preview" style="background:linear-gradient(110deg,#fffaf4,#fff4fb);border-color:#efc8df;font-size:26px">{escape(item['icon'])}</div>''',
-                                unsafe_allow_html=True,
-                            )
-                        elif kind == "perk":
-                            st.caption("Enabled for this account after purchase.")
                     with right:
-                        if kind == "perk" and owned:
-                            st.success("Owned · active")
-                        elif is_active:
+                        if is_active:
                             st.success("Active")
                         elif owned:
                             if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
@@ -2704,8 +3262,7 @@ def page_shop():
                                 st.error("Not enough crystals yet.")
 
 
-bootstrap_app_data()
-render_room_theme()
+bootstrap_app_data(CONTENT_SYNC_VERSION)
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
@@ -2716,6 +3273,14 @@ render_bts_motivation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Korean grammar SRS</div></div></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
 st.sidebar.markdown(f"💎 **{crystals()} crystals**")
+if page == "Review":
+    # Sidebar navigation enters Review without going through the Dashboard's
+    # button callback. Start one queue snapshot for that visit as well.
+    if not st.session_state.get("_review_page_active", False):
+        start_review_session()
+        st.session_state["_review_page_active"] = True
+else:
+    st.session_state["_review_page_active"] = False
 if page == "Dashboard": page_dashboard()
 elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
