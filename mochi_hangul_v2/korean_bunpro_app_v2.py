@@ -3480,7 +3480,11 @@ install_v2(globals())
 # outside that cache as well, so a warm process or a cache created by the
 # previous entrypoint cannot skip the V2 tables (manual_mastery and the
 # vocabulary tables) before Lessons or Vocabulary Review queries them.
-init_db()
+# Avoid replaying schema setup and content checks on every Streamlit widget rerun.
+# Each browser session initializes once; bootstrap's shared cache handles the seed.
+if not st.session_state.get("_v2_schema_ready_for_session"):
+    init_db()
+    st.session_state["_v2_schema_ready_for_session"] = True
 bootstrap_app_data(CONTENT_SYNC_VERSION)
 _render_room_theme_v2()
 if st.session_state.pop("go_review", False):

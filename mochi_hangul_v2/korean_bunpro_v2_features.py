@@ -173,8 +173,11 @@ def install_v2(namespace):
     def set_mastery(kind, item_id, value):
         conn = namespace["db"]()
         now = datetime.now().isoformat(timespec="seconds")
-        conn.execute("INSERT OR IGNORE INTO manual_mastery(item_kind,item_id,mastered,updated_at) VALUES(?,?,?,?)", (kind, str(item_id), int(value), now))
-        conn.execute("UPDATE manual_mastery SET mastered=?,updated_at=? WHERE item_kind=? AND item_id=?", (int(value), now, kind, str(item_id)))
+        # One atomic write instead of INSERT + UPDATE for every click.
+        conn.execute("""INSERT INTO manual_mastery(item_kind,item_id,mastered,updated_at)
+            VALUES(?,?,?,?) ON CONFLICT(item_kind,item_id)
+            DO UPDATE SET mastered=excluded.mastered,updated_at=excluded.updated_at""",
+            (kind, str(item_id), int(value), now))
         conn.commit()
         conn.close()
         st.session_state.pop("_content_query_cache", None)
@@ -790,38 +793,34 @@ def install_v2(namespace):
     namespace["page_lessons"] = page_lessons_v2
 
     def page_progress_v2():
-        counts = v2_one("""SELECT
-            (SELECT COUNT(*) FROM manual_mastery WHERE item_kind='grammar_lesson' AND mastered=1) AS grammar_count,
-            (SELECT COUNT(*) FROM manual_mastery WHERE item_kind='vocab_pack' AND mastered=1) AS vocab_count,
-            (SELECT COUNT(*) FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1) AS word_count,
-            (SELECT COUNT(*) FROM manual_mastery m JOIN v2_vocab_packs p ON p.id=m.item_id
-                WHERE m.item_kind='vocab_pack' AND m.mastered=1 AND p.pack_type='topik') AS topik_count,
-            (SELECT COUNT(*) FROM manual_mastery m JOIN v2_vocab_packs p ON p.id=m.item_id
-                WHERE m.item_kind='vocab_pack' AND m.mastered=1 AND p.pack_type='music') AS music_count""")
-        grammar_count = counts["grammar_count"]
-        vocab_count = counts["vocab_count"]
-        word_count = counts["word_count"]
-        topik_count = counts["topik_count"]
-        music_count = counts["music_count"]
-        st.title("Study achievements")
-        cols = st.columns(5)
-        cols[0].metric("Grammar lessons mastered", grammar_count)
-        cols[1].metric("Vocabulary packs mastered", vocab_count)
-        cols[2].metric("TOPIK packs mastered", topik_count)
-        cols[3].metric("Music packs mastered", music_count)
-        cols[4].metric("Words mastered", word_count)
-        badges = [
-            (grammar_count >= 1, "🌱 First grammar lesson", "Mark one HTSK lesson mastered."),
-            (topik_count >= 1, "📚 Topic collector", "Master one TOPIK vocabulary pack."),
-            (music_count >= 1, "🎧 First encore", "Master one song vocabulary pack."),
-            (music_count >= 10, "🎼 Set-list star", "Master ten music packs."),
-            (vocab_count >= 20, "🍡 Word garden", "Master twenty vocabulary packs."),
-            (word_count >= 25, "🌼 Word by word", "Mark twenty-five vocabulary items mastered."),
-        ]
-        st.subheader("Badges")
-        for earned, title, requirement in badges:
-            st.markdown(f"{'🏅' if earned else '🔒'} **{title}** — {requirement}")
-        original_page_progress()
+        st.title("Progress")
+        grammar_tab, vocab_tab = st.tabs(["📖 Grammar", "🌸 Vocabulary"])
+        with grammar_tab:
+            grammar_count = v2_one("SELECT COUNT(*) AS n FROM manual_mastery WHERE item_kind='grammar_lesson' AND mastered=1")["n"]
+            st.metric("Grammar lessons mastered", grammar_count)
+            original_page_progress()
+        with vocab_tab:
+            counts = v2_one("""SELECT
+                (SELECT COUNT(*) FROM manual_mastery WHERE item_kind='vocab_pack' AND mastered=1) AS vocab_count,
+                (SELECT COUNT(*) FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1) AS word_count,
+                (SELECT COUNT(*) FROM manual_mastery m JOIN v2_vocab_packs p ON p.id=m.item_id
+                    WHERE m.item_kind='vocab_pack' AND m.mastered=1 AND p.pack_type='topik') AS topik_count,
+                (SELECT COUNT(*) FROM manual_mastery m JOIN v2_vocab_packs p ON p.id=m.item_id
+                    WHERE m.item_kind='vocab_pack' AND m.mastered=1 AND p.pack_type='music') AS music_count""")
+            cols = st.columns(4)
+            cols[0].metric("Vocabulary packs mastered", counts["vocab_count"])
+            cols[1].metric("TOPIK packs mastered", counts["topik_count"])
+            cols[2].metric("Music packs mastered", counts["music_count"])
+            cols[3].metric("Words mastered", counts["word_count"])
+            st.subheader("Vocabulary achievements")
+            for earned, title, requirement in [
+                (counts["topik_count"] >= 1, "📚 Topic collector", "Master one TOPIK pack."),
+                (counts["music_count"] >= 1, "🎧 First encore", "Master one song pack."),
+                (counts["music_count"] >= 10, "🎼 Set-list star", "Master ten music packs."),
+                (counts["vocab_count"] >= 20, "🍡 Word garden", "Master twenty vocabulary packs."),
+                (counts["word_count"] >= 25, "🌼 Word by word", "Master twenty-five vocabulary items."),
+            ]:
+                st.markdown(f"{'🏅' if earned else '🔒'} **{title}** — {requirement}")
 
     namespace["page_progress"] = page_progress_v2
 
