@@ -687,6 +687,41 @@ st.markdown("""
     div[data-baseweb="popover"] div[role="option"]:hover {
         background:#f9e4f2 !important;
     }
+
+    /* All vocabulary and music filters: force the actual BaseWeb control light. */
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] > div,
+    div[data-testid="stSelectbox"] [role="combobox"],
+    div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
+    div[data-testid="stSelectbox"] [data-baseweb="select"] > div > div,
+    div[data-testid="stSelectbox"] [data-baseweb="select"] input,
+    div[data-testid="stMultiSelect"] div[data-baseweb="select"] > div,
+    div[data-testid="stMultiSelect"] [role="combobox"] {
+      background: #fff9fd !important;
+      background-color: #fff9fd !important;
+      color: #59446d !important;
+      -webkit-text-fill-color: #59446d !important;
+      color-scheme: light !important;
+    }
+    div[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    div[data-testid="stMultiSelect"] [data-baseweb="select"] > div {
+      border: 1.5px solid #e7bedc !important;
+      border-radius: 12px !important;
+      box-shadow: none !important;
+    }
+    div[data-testid="stSelectbox"] [data-baseweb="select"] *,
+    div[data-testid="stMultiSelect"] [data-baseweb="select"] * {
+      color: #59446d !important;
+      -webkit-text-fill-color: #59446d !important;
+    }
+    div[data-baseweb="popover"] [role="listbox"],
+    div[data-baseweb="popover"] [role="option"] {
+      background: #fff9fd !important;
+      color: #59446d !important;
+    }
+    div[data-baseweb="popover"] [role="option"]:hover {
+      background: #f9e4f2 !important;
+    }
+
     .mochi-lyric-line {color:#58416f; font-size:1.05rem; line-height:1.85; margin-top:.45rem;}
     .mochi-lyric-link, .mochi-lyric-link:visited {
         color:#a43e82 !important; font-weight:700; text-decoration:underline !important;
