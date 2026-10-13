@@ -1,0 +1,37 @@
+{
+  "packs": [
+    {
+      "id": "bts_example_song",
+      "title": "My music pack",
+      "level": "TOPIK 2",
+      "topic": "Music",
+      "description": "Words from one song, reviewed in context.",
+      "source_label": "Official song source",
+      "source_url": "https://example.com/source",
+      "artist": "Artist",
+      "song": "Song title",
+      "catalog_url": "https://example.com/artist"
+    }
+  ],
+  "cards": [
+    {
+      "id": "bts_example_song_01",
+      "pack_id": "bts_example_song",
+      "card_type": "lyric",
+      "target": "단어",
+      "part_of_speech": "noun",
+      "target_translation": "word",
+      "prompt": "여기에 ___ 가사가 들어갑니다.",
+      "source_sentence": "여기에 단어 가사가 들어갑니다.",
+      "translation": "The highlighted word goes in this lyric.",
+      "answer": "단어",
+      "base_form": "단어 (noun)",
+      "answer_form": "Noun",
+      "explanation": "",
+      "source_label": "Official song source",
+      "source_url": "https://example.com/source",
+      "artist": "Artist",
+      "song": "Song title"
+    }
+  ]
+}

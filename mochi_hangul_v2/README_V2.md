@@ -24,14 +24,14 @@ The first V2 launch creates and seeds only `v2_vocab_packs`, `v2_vocab_cards`, `
 - Cards use examples from the supplied supplemental dictionary only when the English sense matches. Other cards use short controlled present or past contexts designed to test the vocabulary word. The English target is highlighted in the review translation.
 - The source extraction and build scripts are `import_topik_sources.py` and `build_topik_full.py`; `CONTENT_AUDIT_V2.md` records the counts and checks.
 - Four themed packs (40 cards): K-pop fandom, K-drama, everyday slang, and Korean sound/motion words. Slang cards identify informal and vulgar usage.
-- 40 music packs: 10 tracks each for BTS, Stray Kids, TXT, and SEVENTEEN. Each track has one short lyric-context cloze and a separate original-sentence cloze (80 cards total). Lyric excerpts are kept to at most 10 whitespace-separated tokens per track.
+- Music is a separate area in the Vocabulary menu. The archive contains a Music Packs list and a JSON template for importing your own lyric/context cards; its cards are reviewed through the common Vocabulary Review and are not placed into the daily TOPIK queue automatically. User music packs are stored as `music_custom` and are never removed by a later built-in content sync.
 - Vocabulary review, per-pack review, per-word and per-pack Mastered markers, answer-form/base-form details, source links, and additional room themes/shop items.
 
 `build_vocab_seed.py` regenerates `vocabulary_packs_v2.json` and checks the blank, answer reconstruction, target translation, and excerpt length for every card. `CONTENT_AUDIT_V2.md` records the package counts and checks.
 
 ## Vocabulary source and coverage
 
-The 240 TOPIK cards in this build are a curated starter selection, not a full Korean vocabulary course. I checked a more complete, source-backed route for a later vocabulary expansion:
+The 5,665 TOPIK cards in this build come from the six supplied lists. They are a broad study library, not an official word-by-word TOPIK syllabus. I checked a more complete, source-backed route for a later vocabulary expansion:
 
 - NIKL's [2017 International Standard Curriculum vocabulary and grammar grade spreadsheet](https://www.korean.go.kr/front/reportData/reportDataView.do?mn_id=45&pageIndex=5&report_seq=932) supplies curriculum grades 1–6. These are curriculum grades, not official TOPIK word-by-word labels.
 - NIKL's [Basic Korean Dictionary](https://krdict.korean.go.kr/eng/openApi/openApiInfo) supplies headwords, parts of speech, definitions, usage examples, and semantic categories. Its API documentation lists searchable semantic categories and requires an API key. The dictionary's simple learner-grade filter is elementary/intermediate/advanced.

@@ -44,11 +44,11 @@ def install_v2(namespace):
     original_init_db = namespace["init_db"]
     original_page_lessons = namespace["page_lessons"]
     original_page_progress = namespace["page_progress"]
-    namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review")
+    namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs")
     namespace["SHOP_ITEMS"] = list(namespace["SHOP_ITEMS"]) + EXTRA_SHOP_ITEMS
     namespace["FRAME_STYLES"].update(EXTRA_FRAME_STYLES)
     namespace["TRACKER_COLORS"].update(EXTRA_TRACKER_COLORS)
-    namespace["CONTENT_SYNC_VERSION"] = "2026-10-12-v2-topik-music-packs"
+    namespace["CONTENT_SYNC_VERSION"] = "2026-10-13-v2-topik-user-music"
 
     def v2_rows(sql, params=()):
         conn = namespace["db"]()
@@ -99,13 +99,15 @@ def install_v2(namespace):
             )""",
         ):
             conn.execute(statement)
-        # The V2 seed is authoritative for vocabulary content. Remove old V2
-        # starter packs/cards that are no longer in the seed while leaving all
-        # V41 grammar tables and SRS history untouched.
+        # Only built-in content is synchronized here. User-created music packs
+        # are stored with pack_type=music_custom and must survive every update.
         valid_pack_ids = [pack["id"] for pack in data["packs"]]
         placeholders = ",".join("?" for _ in valid_pack_ids)
-        conn.execute(f"DELETE FROM v2_vocab_cards WHERE pack_id NOT IN ({placeholders})", tuple(valid_pack_ids))
-        conn.execute(f"DELETE FROM v2_vocab_packs WHERE id NOT IN ({placeholders})", tuple(valid_pack_ids))
+        conn.execute(f"""DELETE FROM v2_vocab_cards
+            WHERE pack_id NOT IN ({placeholders})
+              AND pack_id NOT IN (SELECT id FROM v2_vocab_packs WHERE pack_type='music_custom')""", tuple(valid_pack_ids))
+        conn.execute(f"""DELETE FROM v2_vocab_packs
+            WHERE id NOT IN ({placeholders}) AND pack_type <> 'music_custom'""", tuple(valid_pack_ids))
         conn.execute("DELETE FROM v2_vocab_progress WHERE card_id NOT IN (SELECT id FROM v2_vocab_cards)")
         for pack in data["packs"]:
             found = conn.execute("SELECT id FROM v2_vocab_packs WHERE id=?", (pack["id"],)).fetchone()
@@ -165,10 +167,11 @@ def install_v2(namespace):
 
     namespace["render_room_theme"] = render_room_theme
 
-    def page_vocabulary_packs():
-        st.title("Vocabulary Packs")
-        st.caption("Context cloze cards from beginner and intermediate topic vocabulary, plus one short song excerpt and a second original sentence per track.")
-        packs = v2_rows("SELECT * FROM v2_vocab_packs ORDER BY CASE WHEN pack_type='topik' THEN 0 ELSE 1 END, level, topic, artist, title")
+    def page_vocabulary_packs(title="Vocabulary Packs", pack_type_filter="topik"):
+        st.title(title)
+        caption = "TOPIK vocabulary packs." if pack_type_filter == "topik" else "Themed vocabulary packs, separate from TOPIK vocabulary."
+        st.caption(caption)
+        packs = v2_rows("SELECT * FROM v2_vocab_packs WHERE pack_type=? ORDER BY level, topic, artist, title", (pack_type_filter,))
         levels = ["All levels"] + sorted({p["level"] for p in packs})
         selected_level = st.selectbox("Level", levels, key="v2_pack_level")
         topics = ["All topics"] + sorted({p["topic"] for p in packs if selected_level == "All levels" or p["level"] == selected_level})
@@ -189,8 +192,6 @@ def install_v2(namespace):
                     st.caption(f"{pack['level']} · {pack['topic']} · {count} cards · {'Mastered' if mastered else 'In progress'}")
                     st.write(pack["description"])
                     st.markdown(f"[Vocabulary source ↗]({pack['source_url']})")
-                    if pack["pack_type"] == "music":
-                        st.markdown(f"[Artist's official catalog ↗]({pack['catalog_url']})")
                 with action:
                     label = "Undo mastered" if mastered else "Mark mastered"
                     if st.button(label, key=f"v2_master_{pack['id']}", use_container_width=True):
@@ -232,6 +233,159 @@ def install_v2(namespace):
 
     namespace["page_vocabulary_packs"] = page_vocabulary_packs
 
+    def page_themed_packs():
+        page_vocabulary_packs("Themed Packs", "theme")
+
+    namespace["page_themed_packs"] = page_themed_packs
+
+    def _music_payload(raw):
+        """Validate one uploaded user music-pack JSON payload."""
+        payload = json.loads(raw.decode("utf-8") if isinstance(raw, (bytes, bytearray)) else raw)
+        packs = payload.get("packs") if isinstance(payload, dict) else None
+        cards = payload.get("cards") if isinstance(payload, dict) else None
+        if packs is None and isinstance(payload, dict) and payload.get("pack"):
+            packs, cards = [payload["pack"]], payload.get("cards", [])
+        if not isinstance(packs, list) or not isinstance(cards, list) or not packs:
+            raise ValueError("The file must contain 'packs' and 'cards' arrays (or one 'pack' and 'cards').")
+        pack_ids = set()
+        clean_packs = []
+        for pack in packs:
+            if not isinstance(pack, dict):
+                raise ValueError("Each pack must be an object.")
+            pack_id = str(pack.get("id", "")).strip()
+            if not pack_id:
+                raise ValueError("Every music pack needs a unique id.")
+            pack_id = pack_id if pack_id.startswith("custom_music_") else f"custom_music_{pack_id}"
+            if pack_id in pack_ids:
+                raise ValueError(f"Duplicate pack id: {pack_id}")
+            pack_ids.add(pack_id)
+            clean_packs.append({
+                "id": pack_id,
+                "title": str(pack.get("title", "")).strip(),
+                "level": str(pack.get("level", "Themed")).strip(),
+                "topic": str(pack.get("topic", "Music")).strip(),
+                "description": str(pack.get("description", "User-added music vocabulary")).strip(),
+                "source_label": str(pack.get("source_label", "User-added music pack")).strip(),
+                "source_url": str(pack.get("source_url", "")).strip(),
+                "artist": str(pack.get("artist", "")).strip(),
+                "song": str(pack.get("song", "")).strip(),
+                "catalog_url": str(pack.get("catalog_url", "")).strip(),
+            })
+            if not clean_packs[-1]["title"]:
+                raise ValueError(f"Pack {pack_id} needs a title.")
+        clean_cards = []
+        card_ids = set()
+        for card in cards:
+            if not isinstance(card, dict):
+                raise ValueError("Each card must be an object.")
+            card_id = str(card.get("id", "")).strip()
+            pack_id = str(card.get("pack_id", "")).strip()
+            required = ("target", "target_translation", "prompt", "translation", "answer", "base_form", "answer_form")
+            if not card_id or not pack_id or any(not str(card.get(key, "")).strip() for key in required):
+                raise ValueError(f"Card {card_id or '<missing id>'} is missing a required field.")
+            pack_id = pack_id if pack_id.startswith("custom_music_") else f"custom_music_{pack_id}"
+            if pack_id not in pack_ids:
+                raise ValueError(f"Card {card_id} refers to unknown pack {pack_id}.")
+            if card_id in card_ids:
+                raise ValueError(f"Duplicate card id: {card_id}")
+            card_ids.add(card_id)
+            clean_cards.append({
+                "id": card_id if card_id.startswith("custom_music_") else f"custom_music_{card_id}",
+                "pack_id": pack_id,
+                "card_type": str(card.get("card_type", "lyric")).strip(),
+                "target": str(card["target"]).strip(),
+                "part_of_speech": str(card.get("part_of_speech", "word")).strip(),
+                "target_translation": str(card["target_translation"]).strip(),
+                "prompt": str(card["prompt"]).strip(),
+                "source_sentence": str(card.get("source_sentence", card["prompt"])).strip(),
+                "translation": str(card["translation"]).strip(),
+                "answer": str(card["answer"]).strip(),
+                "base_form": str(card["base_form"]).strip(),
+                "answer_form": str(card["answer_form"]).strip(),
+                "explanation": str(card.get("explanation", "")).strip(),
+                "source_label": str(card.get("source_label", "User-added music pack")).strip(),
+                "source_url": str(card.get("source_url", "")).strip(),
+                "artist": str(card.get("artist", "")).strip(),
+                "song": str(card.get("song", "")).strip(),
+            })
+        if not clean_cards:
+            raise ValueError("At least one card is required.")
+        return clean_packs, clean_cards
+
+    def import_music_payload(raw):
+        packs, cards = _music_payload(raw)
+        conn = namespace["db"]()
+        try:
+            for pack in packs:
+                conn.execute("""INSERT INTO v2_vocab_packs
+                    (id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?)
+                    ON CONFLICT(id) DO UPDATE SET title=excluded.title,level=excluded.level,topic=excluded.topic,
+                    pack_type='music_custom',description=excluded.description,source_label=excluded.source_label,
+                    source_url=excluded.source_url,artist=excluded.artist,song=excluded.song,catalog_url=excluded.catalog_url""",
+                    (pack["id"], pack["title"], pack["level"], pack["topic"], "music_custom", pack["description"],
+                     pack["source_label"], pack["source_url"], pack["artist"], pack["song"], pack["catalog_url"]))
+            for card in cards:
+                conn.execute("""INSERT INTO v2_vocab_cards
+                    (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,
+                     base_form,answer_form,explanation,source_label,source_url,artist,song)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                    ON CONFLICT(id) DO UPDATE SET pack_id=excluded.pack_id,card_type=excluded.card_type,target=excluded.target,
+                    part_of_speech=excluded.part_of_speech,target_translation=excluded.target_translation,prompt=excluded.prompt,
+                    source_sentence=excluded.source_sentence,translation=excluded.translation,answer=excluded.answer,
+                    base_form=excluded.base_form,answer_form=excluded.answer_form,explanation=excluded.explanation,
+                    source_label=excluded.source_label,source_url=excluded.source_url,artist=excluded.artist,song=excluded.song""",
+                    tuple(card[key] for key in ("id","pack_id","card_type","target","part_of_speech","target_translation","prompt",
+                                                "source_sentence","translation","answer","base_form","answer_form","explanation",
+                                                "source_label","source_url","artist","song")))
+                conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", (card["id"],))
+            conn.commit()
+        finally:
+            conn.close()
+
+    def page_music_packs():
+        st.title("Music Packs")
+        st.caption("Your own music vocabulary lives here, separately from TOPIK vocabulary.")
+        template_path = Path(__file__).with_name("music_pack_template.json")
+        if template_path.exists():
+            st.download_button("Download music-pack template", template_path.read_bytes(), file_name="music_pack_template.json", mime="application/json", key="v2_music_template")
+        uploaded = st.file_uploader("Add your music pack (.json)", type=["json"], key="v2_music_upload")
+        if uploaded is not None and st.button("Import music pack", type="primary", key="v2_music_import"):
+            try:
+                import_music_payload(uploaded.getvalue())
+                st.success("Music pack imported. It will not be removed by future app updates.")
+                st.rerun()
+            except Exception as exc:
+                st.error(f"Could not import this pack: {exc}")
+        packs = v2_rows("SELECT * FROM v2_vocab_packs WHERE pack_type IN ('music','music_custom') ORDER BY artist,title,level,topic")
+        if not packs:
+            st.info("No user music packs yet. Download the template, fill it in, and import it here.")
+            return
+        counts = {row["pack_id"]: row["n"] for row in v2_rows("SELECT pack_id,COUNT(*) AS n FROM v2_vocab_cards GROUP BY pack_id")}
+        mastered = {row["item_id"] for row in v2_rows("SELECT item_id FROM manual_mastery WHERE item_kind='vocab_pack' AND mastered=1")}
+        for pack in packs:
+            with st.container(border=True):
+                left, action, review = st.columns([6, 1.6, 1.7])
+                with left:
+                    st.markdown(f"### {pack['title']}")
+                    st.caption(f"{pack['artist'] or 'Music'} · {pack['level']} · {counts.get(pack['id'], 0)} cards · {'Mastered' if pack['id'] in mastered else 'In progress'}")
+                    st.write(pack["description"])
+                    if pack["source_url"]:
+                        st.markdown(f"[Source ↗]({pack['source_url']})")
+                with action:
+                    done = pack["id"] in mastered
+                    if st.button("Undo mastered" if done else "Mark mastered", key=f"v2_music_master_{pack['id']}", use_container_width=True):
+                        set_mastery("vocab_pack", pack["id"], not done)
+                        st.rerun()
+                with review:
+                    if st.button("Review pack", key=f"v2_music_review_{pack['id']}", type="primary", use_container_width=True):
+                        st.session_state["vocab_review_pack"] = pack["id"]
+                        st.session_state["nav"] = "Vocabulary Review"
+                        st.session_state.pop("vocab_queue_ids", None)
+                        st.rerun()
+
+    namespace["page_music_packs"] = page_music_packs
+
     def highlight_translation(translation, target):
         safe = escape(str(translation or ""))
         if not target:
@@ -270,17 +424,23 @@ def install_v2(namespace):
 
     namespace["grade_vocab"] = grade_vocab
 
-    def start_vocab_queue(pack_id):
+    def start_vocab_queue(pack_id, pack_type_filter=None):
         now = datetime.now().isoformat(timespec="seconds")
-        params = [now, pack_id, pack_id, pack_id]
-        filters = [
-            "v.next_review<=?",
-            "(?='__all__' OR c.pack_id=?)",
-            "(?<>'__all__' OR NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1))",
+        params = [now]
+        filters = ["v.next_review<=?"]
+        if pack_id != "__all__":
+            filters.append("c.pack_id=?")
+            params.append(pack_id)
+        elif pack_type_filter:
+            filters.append("p.pack_type=?")
+            params.append(pack_type_filter)
+        filters.extend([
+            "NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)",
             "NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)",
-        ]
+        ])
         where = "WHERE " + " AND ".join(filters)
         rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
+            JOIN v2_vocab_packs p ON p.id=c.pack_id
             {where} ORDER BY v.next_review,c.pack_id,c.id""", tuple(params))
         ids = [row["id"] for row in rows_due]
         st.session_state["vocab_queue_ids"] = ids
@@ -290,9 +450,18 @@ def install_v2(namespace):
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
-    def page_vocabulary_review():
-        st.title("Vocabulary Review")
-        packs = v2_rows("SELECT id,title,pack_type,level,artist,song FROM v2_vocab_packs ORDER BY CASE WHEN pack_type='topik' THEN 0 ELSE 1 END,level,topic,artist,title")
+    def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
+        st.title(title)
+        if isinstance(pack_type_filter, (tuple, list)):
+            pack_where = " WHERE pack_type IN (" + ",".join("?" for _ in pack_type_filter) + ")"
+            pack_params = tuple(pack_type_filter)
+        elif pack_type_filter is None:
+            pack_where = ""
+            pack_params = ()
+        else:
+            pack_where = " WHERE pack_type=?"
+            pack_params = (pack_type_filter,) if pack_type_filter else ()
+        packs = v2_rows("SELECT id,title,pack_type,level,artist,song FROM v2_vocab_packs" + pack_where + " ORDER BY level,topic,artist,title", pack_params)
         options = [("__all__", "All vocabulary packs")] + [(p["id"], p["title"]) for p in packs]
         default_pack = st.session_state.get("vocab_review_pack", "__all__")
         default_index = next((i for i, item in enumerate(options) if item[0] == default_pack), 0)
@@ -301,7 +470,7 @@ def install_v2(namespace):
                                    key="v2_review_select")
         if "vocab_queue_ids" not in st.session_state or st.session_state.get("vocab_queue_pack") != selected_id:
             if st.button("Start vocabulary review", key="v2_start_vocab_review", type="primary"):
-                start_vocab_queue(selected_id)
+                start_vocab_queue(selected_id, pack_type_filter)
                 st.rerun()
             st.caption("Choose a pack, then start. New cards are included; each answer is scheduled using the same Bunpro-style interval ladder as grammar review.")
             return
@@ -371,6 +540,7 @@ def install_v2(namespace):
             st.rerun()
 
     namespace["page_vocabulary_review"] = page_vocabulary_review
+
 
     def page_lessons_v2():
         st.title("Lessons")

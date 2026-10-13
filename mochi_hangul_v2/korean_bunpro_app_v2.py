@@ -523,6 +523,15 @@ st.markdown("""
     [data-testid="stExpander"] summary svg {color:#684d7b !important; fill:#684d7b !important;}
     .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "]) {font-size: 1.1rem; border-radius: 16px; border: 2px solid #e8cfe1; background: #ffffff !important; color: #5b4770 !important; -webkit-text-fill-color: #5b4770 !important;}
     .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "])::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
+    /* Keep Streamlit selectboxes on the Mochi light palette even when the
+       browser or Cloud runtime prefers a dark color scheme. */
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    [data-testid="stMultiSelect"] [data-baseweb="select"] > div {background:#fffaff !important; color:#5b4770 !important; border:2px solid #e8cfe1 !important; border-radius:14px !important;}
+    [data-testid="stSelectbox"] [data-baseweb="select"] span,
+    [data-testid="stMultiSelect"] [data-baseweb="select"] span {color:#5b4770 !important; -webkit-text-fill-color:#5b4770 !important;}
+    [data-baseweb="popover"] [role="listbox"], [data-baseweb="menu"] {background:#fffaff !important; color:#5b4770 !important;}
+    [data-baseweb="popover"] [role="option"], [data-baseweb="menu"] [role="option"] {background:#fffaff !important; color:#5b4770 !important;}
+    [data-baseweb="popover"] [role="option"]:hover, [data-baseweb="menu"] [role="option"]:hover {background:#fbe7f3 !important; color:#5b4770 !important;}
     .chibi-table-wrap {overflow-x:auto; border:2px solid #f0cfe0; border-radius:20px; background:rgba(255,255,255,.82); box-shadow:0 8px 20px rgba(134,101,156,.08);}
     .chibi-table {width:100%; border-collapse:collapse; color:#5b4770; min-width:680px;}
     .chibi-table th {background:#f7dbea; color:#684d7b; text-align:left; padding:12px 14px; font-weight:800;}
@@ -2506,13 +2515,26 @@ def ensure_daily_lessons():
         return
 
     completed_statuses = {"studying", "completed"}
+    # Lesson status was not always preserved by older deployments.  Rebuild
+    # the durable "already started" set from the review rows as well, so a
+    # migrated SRS database cannot make the new-lesson schedule begin again
+    # at lesson 26.  An active card or any recorded review means that lesson
+    # has already been opened and belongs before the next pair.
+    progressed_rows = rows("""
+        SELECT cards.lesson_id,
+               MAX(CASE WHEN reviews.active=1 OR reviews.last_review IS NOT NULL
+                        OR reviews.retired=1 THEN 1 ELSE 0 END) AS progressed
+        FROM cards JOIN reviews ON reviews.card_id=cards.id
+        GROUP BY cards.lesson_id
+    """)
+    progressed_ids = {row["lesson_id"] for row in progressed_rows if int(row["progressed"] or 0) == 1}
     unlocked_pair = None
     # Start at the first unfinished lesson, then take the next lesson too.
     # This keeps the natural sequence intact even when the learner began at
     # an odd lesson number (for example 31–32, then 33–34).
     first_unfinished = next(
         (index for index, lesson in enumerate(lessons)
-         if lesson["status"] not in completed_statuses),
+         if lesson["status"] not in completed_statuses and lesson["id"] not in progressed_ids),
         None,
     )
     if first_unfinished is not None:
@@ -3294,6 +3316,11 @@ def page_shop():
 from korean_bunpro_v2_features import install_v2
 install_v2(globals())
 
+# `bootstrap_app_data` is cached by Streamlit.  Run the V2 initializer once
+# outside that cache as well, so a warm process or a cache created by the
+# previous entrypoint cannot skip the V2 tables (manual_mastery and the
+# vocabulary tables) before Lessons or Vocabulary Review queries them.
+init_db()
 bootstrap_app_data(CONTENT_SYNC_VERSION)
 _render_room_theme_v2()
 if st.session_state.pop("go_review", False):
@@ -3320,4 +3347,6 @@ elif page == "Lessons": page_lessons()
 elif page == "Progress": page_progress()
 elif page == "Vocabulary Packs": page_vocabulary_packs()
 elif page == "Vocabulary Review": page_vocabulary_review()
+elif page == "Themed Packs": page_themed_packs()
+elif page == "Music Packs": page_music_packs()
 else: page_shop()
