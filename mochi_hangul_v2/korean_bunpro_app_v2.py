@@ -404,6 +404,28 @@ st.markdown("""
     [data-testid="stSidebar"] {background: linear-gradient(180deg, #ffe9f2 0%, #eee7ff 100%);}
     [data-testid="stSidebar"] * {color: #5b4770 !important;}
     [data-testid="stMetric"] {background: rgba(255,255,255,.78); border: 2px solid #f4d8e7; border-radius: 22px; padding: 14px 18px; box-shadow: 0 6px 18px rgba(140,105,150,.08);}
+    /* Music pack upload: match Mochi Hangul pastel theme. */
+    [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"],
+    [data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] {
+        background: #fff8fc !important;
+        border: 2px dashed #dfb8db !important;
+        border-radius: 18px !important;
+        color: #654b78 !important;
+    }
+    [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] *,
+    [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"],
+    [data-testid="stFileUploader"] small {
+        color: #654b78 !important;
+    }
+    [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] button {
+        background: #fbe5f3 !important;
+        color: #654b78 !important;
+        border: 1px solid #ddb5d5 !important;
+        border-radius: 12px !important;
+    }
+    [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] button:hover {
+        background: #f5d5ea !important;
+    }
     [data-testid="stMetricLabel"] {color: #9b7090 !important;}
     [data-testid="stMetricValue"] {color: #654b78 !important;}
     .stButton > button {border-radius: 18px; border: 2px solid #e9c8dd; background: #fff !important; color: #684d7b !important; font-weight: 700; transition: .15s ease;}

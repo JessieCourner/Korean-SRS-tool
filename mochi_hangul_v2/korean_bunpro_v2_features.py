@@ -208,6 +208,8 @@ def install_v2(namespace):
             "SELECT pack_id,COUNT(*) AS n FROM v2_vocab_cards GROUP BY pack_id")}
         mastered_packs = {row["item_id"] for row in v2_rows(
             "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_pack' AND mastered=1")}
+        import hashlib
+        word_pack_id = st.session_state.get("v2_word_pack")
         for pack in visible:
             count = pack_counts.get(pack["id"], 0)
             mastered = pack["id"] in mastered_packs
@@ -224,8 +226,9 @@ def install_v2(namespace):
                         set_mastery("vocab_pack", pack["id"], not mastered)
                         st.rerun()
                 with words:
-                    if st.button("Words", key=f"v2_words_{pack['id']}", use_container_width=True):
-                        st.session_state["v2_word_pack"] = pack["id"]
+                    is_open = word_pack_id == pack["id"]
+                    if st.button("Hide words" if is_open else "Words", key=f"v2_words_{pack['id']}", use_container_width=True):
+                        st.session_state["v2_word_pack"] = None if is_open else pack["id"]
                         st.rerun()
                 with review:
                     if st.button("Review pack", key=f"v2_review_pack_{pack['id']}", type="primary", use_container_width=True):
@@ -235,27 +238,31 @@ def install_v2(namespace):
                         st.session_state.pop("vocab_queue_ids", None)
                         st.rerun()
 
-        word_pack_id = st.session_state.get("v2_word_pack")
-        selected_pack = next((pack for pack in visible if pack["id"] == word_pack_id), None)
-        if selected_pack:
-            st.subheader(f"Words · {selected_pack['title']}")
-            word_rows = v2_rows("""SELECT target,part_of_speech,target_translation,base_form
-                FROM v2_vocab_cards WHERE pack_id=? GROUP BY target,part_of_speech,target_translation,base_form
-                ORDER BY target""", (word_pack_id,))
-            mastered_words = {row["item_id"] for row in v2_rows(
-                "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
-            for word in word_rows:
-                word_id = f"{word_pack_id}:{word['target']}"
-                mastered = word_id in mastered_words
-                label_col, action_col = st.columns([5, 1.5])
-                with label_col:
-                    st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']}")
-                with action_col:
-                    if st.button("Undo mastered" if mastered else "Mark mastered",
-                                  key=f"v2_word_master_{word_pack_id}_{word['target']}",
-                                  use_container_width=True):
-                        set_mastery("vocab_word", word_id, not mastered)
-                        st.rerun()
+                # Keep the expanded word list inside its own pack card, not at page bottom.
+                if is_open:
+                    st.markdown("#### Words")
+                    word_rows = v2_rows("""SELECT target,part_of_speech,target_translation,base_form
+                        FROM v2_vocab_cards WHERE pack_id=?
+                        GROUP BY target,part_of_speech,target_translation,base_form
+                        ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
+                    mastered_words = {row["item_id"] for row in v2_rows(
+                        "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
+                    for index, word in enumerate(word_rows):
+                        # Disambiguate homographs: identical Korean targets can have different meanings.
+                        word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
+                        legacy_id = f"{pack['id']}:{word['target']}"
+                        mastered_word = word_id in mastered_words or legacy_id in mastered_words
+                        unique_key = hashlib.sha256(f"{pack['id']}:{index}:{word_id}".encode("utf-8")).hexdigest()[:20]
+                        label_col, action_col = st.columns([5, 1.5])
+                        with label_col:
+                            st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']}")
+                        with action_col:
+                            if st.button("Undo mastered" if mastered_word else "Mark mastered",
+                                         key=f"v2_word_master_{unique_key}", use_container_width=True):
+                                set_mastery("vocab_word", word_id, not mastered_word)
+                                if legacy_id in mastered_words:
+                                    set_mastery("vocab_word", legacy_id, False)
+                                st.rerun()
 
     namespace["page_vocabulary_packs"] = page_vocabulary_packs
 
@@ -369,8 +376,105 @@ def install_v2(namespace):
         finally:
             conn.close()
 
+    def open_vocabulary_pack_review(pack_id, set_selector=False):
+        # Streamlit forbids modifying a widget key after its radio was rendered.
+        # Button callbacks run before the next script pass, so navigation is safe.
+        st.session_state["vocab_review_pack"] = pack_id
+        if set_selector:
+            st.session_state["v2_review_select"] = pack_id
+        st.session_state.pop("vocab_queue_ids", None)
+        st.session_state["nav"] = "Vocabulary Review"
+
+    def add_song_word(song, word):
+        """Enroll exactly two cards for one selected word; never reset progress."""
+        pack_id = song["id"]
+        lemma = word["lemma"]
+        idx = word["line"]
+        source = song["lines"][idx]["ko"]
+        surface = word["surface"]
+        if surface not in source:
+            raise ValueError("Selected word is not present in its lyric line")
+        prompt_lyric = source.replace(surface, "___", 1)
+        example = word["example"]
+        # The independent sentence uses a natural inflected form, not the dictionary form.
+        independent_surface = next((token for token in re.findall(r"[가-힣]+", example)
+            if token.startswith(lemma[:-1]) and len(lemma) > 2), None)
+        if not independent_surface:
+            # For nouns the example can have an attached particle.
+            independent_surface = next((token for token in re.findall(r"[가-힣]+", example)
+                if token.startswith(lemma)), None)
+        if not independent_surface:
+            independent_surface = re.findall(r"[가-힣]+", example)[0]
+        independent_prompt = example.replace(independent_surface, "___", 1)
+        conn = namespace["db"]()
+        try:
+            conn.execute("""INSERT OR IGNORE INTO v2_vocab_packs
+                (id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url)
+                VALUES(?,?,?,?,?,?,?,?,?,?,?)""",(pack_id,song["title"],"Music","Songs","music_custom",
+                "Vocabulary selected from your supplied lyrics","User-supplied lyrics","",song["artist"],song["title"],""))
+            for kind,prompt,full,translation,answer in (
+                ("lyric",prompt_lyric,source,"Song context · " + word["gloss"],surface),
+                ("independent",independent_prompt,example,word["example_en"],independent_surface)):
+                cid = pack_id + ":" + hashlib.sha1((lemma+"|"+kind).encode()).hexdigest()[:16]
+                conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
+                    (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,
+                    answer,base_form,answer_form,explanation,source_label,source_url,artist,song)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    (cid,pack_id,kind,lemma,word["pos"],word["gloss"],prompt,full,translation,
+                     answer,lemma,"form used in sentence","","User-supplied lyrics","",song["artist"],song["title"]))
+                conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",(cid,))
+            conn.commit()
+        finally:
+            conn.close()
+
+    def page_song_library():
+        library_file = Path(__file__).with_name("music_lyrics_library.json")
+        if not library_file.exists():
+            return
+        songs = json.loads(library_file.read_text(encoding="utf-8"))
+        st.subheader("Song lyrics & vocabulary")
+        st.caption("39 songs from your document. Click a highlighted word to see its meaning and add its two review cards. English line translations are not yet complete; word meanings and independent example translations are provided.")
+        artist = st.selectbox("Artist", ["All artists"] + sorted({x["artist"] for x in songs}), key="song_artist_filter")
+        visible_songs = [x for x in songs if artist == "All artists" or x["artist"] == artist]
+        chosen = st.selectbox("Song", range(len(visible_songs)),
+            format_func=lambda i: visible_songs[i]["artist"] + " · " + visible_songs[i]["title"],
+            key="music_song_choice")
+        for song in [visible_songs[chosen]]:
+            with st.container(border=True):
+                if not song["words"]:
+                    st.info("This song needs additional manual vocabulary curation.")
+                st.markdown("**Suggested vocabulary — click any word to inspect and enroll:**")
+                cols = st.columns(2)
+                for wi,word in enumerate(song["words"]):
+                    with cols[wi%2]:
+                        with st.popover(word["lemma"] + " · " + word["gloss"]):
+                            st.markdown(f"**{word['lemma']}** — {word['gloss']} ({word['pos']})")
+                            st.write("Independent example:",word["example"])
+                            st.caption(word["example_en"])
+                            if st.button("Add to study · 2 cards",key=f"enroll_{song['id']}_{wi}"):
+                                add_song_word(song,word)
+                                st.success("Added to the shared Vocabulary Review (or already enrolled).")
+                st.markdown("**Lyrics (original text)**")
+                # Text supplied by the user; remove duplicate sections only from vocabulary selection,
+                # not from the lyric display itself.
+                for li,line in enumerate(song["lines"]):
+                    matches=[w for w in song["words"] if w["line"]==li]
+                    if matches:
+                        st.markdown("**" + escape(line["ko"]) + "**")
+                        for w in matches:
+                            with st.popover(w["surface"] + " · " + w["gloss"]):
+                                st.write(w["lemma"], "—", w["gloss"])
+                                st.caption(w["example"] + " — " + w["example_en"])
+                                if st.button("Add to study · 2 cards", key=f"lyric_enroll_{song['id']}_{li}_{w['lemma']}"):
+                                    add_song_word(song,w)
+                                    st.success("Added to shared Vocabulary Review.")
+                    else:
+                        st.text(line["ko"])
+        st.caption("All enrolled music cards share the same SRS and Vocabulary Review as TOPIK and themed packs.")
+
     def page_music_packs():
         st.title("Music Packs")
+        page_song_library()
         st.caption("Your own music vocabulary lives here, separately from TOPIK vocabulary.")
         template_path = Path(__file__).with_name("music_pack_template.json")
         if template_path.exists():
@@ -391,7 +495,7 @@ def install_v2(namespace):
         mastered = {row["item_id"] for row in v2_rows("SELECT item_id FROM manual_mastery WHERE item_kind='vocab_pack' AND mastered=1")}
         for pack in packs:
             with st.container(border=True):
-                left, action, review = st.columns([6, 1.6, 1.7])
+                left, action, words, review = st.columns([5, 1.6, 1.2, 1.7])
                 with left:
                     st.markdown(f"### {pack['title']}")
                     st.caption(f"{pack['artist'] or 'Music'} · {pack['level']} · {counts.get(pack['id'], 0)} cards · {'Mastered' if pack['id'] in mastered else 'In progress'}")
@@ -403,12 +507,37 @@ def install_v2(namespace):
                     if st.button("Undo mastered" if done else "Mark mastered", key=f"v2_music_master_{pack['id']}", use_container_width=True):
                         set_mastery("vocab_pack", pack["id"], not done)
                         st.rerun()
-                with review:
-                    if st.button("Review pack", key=f"v2_music_review_{pack['id']}", type="primary", use_container_width=True):
-                        st.session_state["vocab_review_pack"] = pack["id"]
-                        st.session_state["nav"] = "Vocabulary Review"
-                        st.session_state.pop("vocab_queue_ids", None)
+                with words:
+                    is_open = st.session_state.get("v2_music_words_pack") == pack["id"]
+                    if st.button("Hide words" if is_open else "Words", key=f"v2_music_words_{pack['id']}", use_container_width=True):
+                        st.session_state["v2_music_words_pack"] = None if is_open else pack["id"]
                         st.rerun()
+                with review:
+                    st.button("Review pack", key=f"v2_music_review_{pack['id']}", type="primary", use_container_width=True,
+                              on_click=open_vocabulary_pack_review, args=(pack["id"],))
+                if is_open:
+                    st.markdown("#### Words in this music pack")
+                    music_words = v2_rows("""SELECT target,part_of_speech,target_translation,base_form,
+                        COUNT(*) AS card_count FROM v2_vocab_cards WHERE pack_id=?
+                        GROUP BY target,part_of_speech,target_translation,base_form
+                        ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
+                    mastered_words = {r["item_id"] for r in v2_rows(
+                        "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
+                    import hashlib
+                    for index, word in enumerate(music_words):
+                        word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
+                        legacy_id = f"{pack['id']}:{word['target']}"
+                        done_word = word_id in mastered_words or legacy_id in mastered_words
+                        label_col, master_col = st.columns([5, 1.5])
+                        with label_col:
+                            st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']} ({word['part_of_speech']})")
+                        with master_col:
+                            word_key = hashlib.sha256(f"music:{pack['id']}:{index}:{word_id}".encode()).hexdigest()[:20]
+                            if st.button("Undo mastered" if done_word else "Mark mastered", key=f"v2_music_word_{word_key}", use_container_width=True):
+                                set_mastery("vocab_word", word_id, not done_word)
+                                if legacy_id in mastered_words:
+                                    set_mastery("vocab_word", legacy_id, False)
+                                st.rerun()
 
     namespace["page_music_packs"] = page_music_packs
 
