@@ -14,7 +14,7 @@
           "answer": "예쁘기도 하고",
           "hint": "Base form: 예쁘다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both.\n\nUse it when describing two or more actions or properties together, including repeated or contrasting possibilities.\n\nAttach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그녀가 예쁘기도 하고 똑똑하기도 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-51/"
         },
@@ -24,7 +24,7 @@
           "answer": "사기도 하고",
           "hint": "Base form: 사다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both.\n\nUse it when describing two or more actions or properties together, including repeated or contrasting possibilities.\n\nAttach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "제가 치약을 사기도 하고 칫솔을 사기도 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-51/"
         },
@@ -34,7 +34,7 @@
           "answer": "썰기도 하고",
           "hint": "Base form: 썰다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both.\n\nUse it when describing two or more actions or properties together, including repeated or contrasting possibilities.\n\nAttach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "양파를 썰기도 하고 물을 끓이기도 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-51/"
         },
@@ -44,7 +44,7 @@
           "answer": "가르치기도 하고",
           "hint": "Base form: 가르치다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both.\n\nUse it when describing two or more actions or properties together, including repeated or contrasting possibilities.\n\nAttach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "아르키메데스는 철학을 가르치기도 하고 중요한 발명품을 발명하기도 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-51/"
         },
@@ -54,7 +54,7 @@
           "answer": "세기도 하고",
           "hint": "Base form: 세다",
           "explanation": "~기도 하고 ~기도 하다 lists multiple facts or alternating activities, with the meaning also, sometimes or both.\n\nUse it when describing two or more actions or properties together, including repeated or contrasting possibilities.\n\nAttach ~기도 하다 to each relevant clause; commonly connect the clauses with ~기도 하고 and finish with ~기도 하다.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "유럽 사람들이 쓰는 영어 억양의 개수를 세기도 하고 비교하기도 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-51/"
         }
@@ -84,7 +84,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 51 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Doing two things / also with ~기도 하다"
     },
     {
       "unit": 3,
@@ -102,7 +104,7 @@
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "밧줄의 길이가 너무 부족하다고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 그 밧줄의 길이를 늘여야 ___ 이미 말했어요",
@@ -112,7 +114,7 @@
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "저는 그 밧줄의 길이를 늘여야 된다고 이미 말했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "대부분 사람들이 이 영화의 주인공이 아주 ___ 말해요",
@@ -122,7 +124,7 @@
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "대부분 사람들이 이 영화의 주인공이 아주 잘생겼다고 말해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 이 소설가가 다른 소설가들보다 월등히 ___ 생각합니다",
@@ -132,7 +134,7 @@
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "저는 이 소설가가 다른 소설가들보다 월등히 낫다고 생각합니다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "현금인출기에서 현금을 뽑으러 은행에 ___ 말할 거예요",
@@ -142,7 +144,7 @@
           "explanation": "~다고 하다 quotes a statement indirectly. The form changes with verbs, adjectives, nouns and tense.\n\nUse it to report what someone said, thought or stated without repeating the exact quotation.\n\nConjugate the quoted sentence in the plain form, add ~고, then use 하다; follow the verb, adjective, noun and tense patterns in HTSK.",
           "source_sentence": "현금인출기에서 현금을 뽑으러 은행에 가야 된다고 말할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-52/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -170,7 +172,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 52 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Quoting statements with ~다고 하다"
     },
     {
       "unit": 3,
@@ -186,7 +190,7 @@
           "answer": "예쁘냐고",
           "hint": "Base form: 예쁘다",
           "explanation": "Korean quotes questions, suggestions and noun statements with ~냐고, ~자고 and ~(이)라고 하다; the lesson contrasts indirect and direct quotation.\n\nUse them to report what someone asked, suggested or called something, or to reproduce a direct quote with 라고.\n\nUse the appropriate quoted ending before 하다: ~냐고 for questions, ~자고 for let's suggestions, and ~(이)라고 for noun statements.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 친구에게 그 여자가 예쁘냐고 물어봤어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-53/"
         },
@@ -196,7 +200,7 @@
           "answer": "편안하냐고",
           "hint": "Base form: 편안하다",
           "explanation": "Korean quotes questions, suggestions and noun statements with ~냐고, ~자고 and ~(이)라고 하다; the lesson contrasts indirect and direct quotation.\n\nUse them to report what someone asked, suggested or called something, or to reproduce a direct quote with 라고.\n\nUse the appropriate quoted ending before 하다: ~냐고 for questions, ~자고 for let's suggestions, and ~(이)라고 for noun statements.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "아빠에게 지금 편안하냐고 물어봤어",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-53/"
         },
@@ -206,7 +210,7 @@
           "answer": "아름다우냐고",
           "hint": "Base form: 아름답다",
           "explanation": "Korean quotes questions, suggestions and noun statements with ~냐고, ~자고 and ~(이)라고 하다; the lesson contrasts indirect and direct quotation.\n\nUse them to report what someone asked, suggested or called something, or to reproduce a direct quote with 라고.\n\nUse the appropriate quoted ending before 하다: ~냐고 for questions, ~자고 for let's suggestions, and ~(이)라고 for noun statements.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "너의 며느리가 아름다우냐고 물어보고 싶어",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-53/"
         },
@@ -216,7 +220,7 @@
           "answer": "추우냐고",
           "hint": "Base form: 춥다",
           "explanation": "Korean quotes questions, suggestions and noun statements with ~냐고, ~자고 and ~(이)라고 하다; the lesson contrasts indirect and direct quotation.\n\nUse them to report what someone asked, suggested or called something, or to reproduce a direct quote with 라고.\n\nUse the appropriate quoted ending before 하다: ~냐고 for questions, ~자고 for let's suggestions, and ~(이)라고 for noun statements.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "냉동실이 왜 이렇게 추우냐고 물어봤어",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-53/"
         },
@@ -226,7 +230,7 @@
           "answer": "많으냐고",
           "hint": "Base form: 많다",
           "explanation": "Korean quotes questions, suggestions and noun statements with ~냐고, ~자고 and ~(이)라고 하다; the lesson contrasts indirect and direct quotation.\n\nUse them to report what someone asked, suggested or called something, or to reproduce a direct quote with 라고.\n\nUse the appropriate quoted ending before 하다: ~냐고 for questions, ~자고 for let's suggestions, and ~(이)라고 for noun statements.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "이런 반팔이 집에 많으냐고 물어봤어",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-53/"
         }
@@ -256,7 +260,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 53 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Quoting questions and suggestions"
     },
     {
       "unit": 3,
@@ -272,7 +278,7 @@
           "answer": "“제가 하고 싶지 않습니다” 라고 했어요",
           "hint": "Base form: 하다",
           "explanation": "~(으)라고 하다 reports a command or instruction: someone told somebody to do something.\n\nUse it when conveying an imperative, direction or instruction from another speaker.\n\nAttach ~(으)라고 to the verb stem before 하다: ~라고 after a vowel and ~으라고 after a consonant; include the listener when needed.",
-          "answer_form": "Polite conversational sentence",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "그는 “제가 하고 싶지 않습니다” 라고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-lessons-51-58/lesson-54/"
         },
@@ -282,7 +288,7 @@
           "answer": "하라고",
           "hint": "Base form: 하다",
           "explanation": "~(으)라고 하다 reports a command or instruction: someone told somebody to do something.\n\nUse it when conveying an imperative, direction or instruction from another speaker.\n\nAttach ~(으)라고 to the verb stem before 하다: ~라고 after a vowel and ~으라고 after a consonant; include the listener when needed.",
-          "answer_form": "Polite conversational sentence",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "한국어실력을 늘리고 싶으면 선생님이 한국 사람들이랑 의사소통을 많이 하라고 그랬어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/"
         },
@@ -292,7 +298,7 @@
           "answer": "먹으라고",
           "hint": "Base form: 먹다",
           "explanation": "~(으)라고 하다 reports a command or instruction: someone told somebody to do something.\n\nUse it when conveying an imperative, direction or instruction from another speaker.\n\nAttach ~(으)라고 to the verb stem before 하다: ~라고 after a vowel and ~으라고 after a consonant; include the listener when needed.",
-          "answer_form": "Polite conversational sentence",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "엄마가 한 조각 더 먹으라고 했지만 제가 배불러서 더 못 먹었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/"
         },
@@ -302,7 +308,7 @@
           "answer": "선택하라고",
           "hint": "Base form: 선택하다",
           "explanation": "~(으)라고 하다 reports a command or instruction: someone told somebody to do something.\n\nUse it when conveying an imperative, direction or instruction from another speaker.\n\nAttach ~(으)라고 to the verb stem before 하다: ~라고 after a vowel and ~으라고 after a consonant; include the listener when needed.",
-          "answer_form": "Polite conversational sentence",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "대학교 때 자유롭게 공부하고 싶으면 지도교사가 전공을 나중에 선택하라고 말했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/"
         },
@@ -312,7 +318,7 @@
           "answer": "마시라고",
           "hint": "Base form: 마시다",
           "explanation": "~(으)라고 하다 reports a command or instruction: someone told somebody to do something.\n\nUse it when conveying an imperative, direction or instruction from another speaker.\n\nAttach ~(으)라고 to the verb stem before 하다: ~라고 after a vowel and ~으라고 after a consonant; include the listener when needed.",
-          "answer_form": "Polite conversational sentence",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "식중독에 걸리면 물을 많이 마시라고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-54/"
         }
@@ -342,7 +348,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 54 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Quoting commands"
     },
     {
       "unit": 3,
@@ -360,7 +368,7 @@
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
           "source_sentence": "밥을 빨리 만들어 달라고 부탁했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 그에게 더 자세히 ___ 부탁했어요",
@@ -370,7 +378,7 @@
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
           "source_sentence": "저는 그에게 더 자세히 설명해 달라고 부탁했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "비타민이 풍부하게 들어가 있는 과일만 ___",
@@ -380,7 +388,7 @@
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
           "source_sentence": "비타민이 풍부하게 들어가 있는 과일만 사 달라고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "엄마에게 그것을 ___ 부탁 드렸어요",
@@ -390,7 +398,7 @@
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
           "source_sentence": "엄마에게 그것을 사 달라고 부탁 드렸어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "부장님은 우리회사가 행사를 개최할 때 끝까지 ___ 했어요",
@@ -400,7 +408,7 @@
           "explanation": "~아/어 달라고 하다 reports a request for the speaker or another person to do something for the requester.\n\nUse it when saying that someone asked for a favor or requested a particular action.\n\nAttach ~아/어 달라고 to the requested verb and add 하다 or 부탁하다; conjugate the verb before 달라고.",
           "source_sentence": "부장님은 우리회사가 행사를 개최할 때 끝까지 애써 달라고 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-55/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -428,7 +436,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 55 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Asking someone to do something with 달라고"
     },
     {
       "unit": 3,
@@ -444,7 +454,7 @@
           "answer": "자게 할 거예요",
           "hint": "Base form: 자다",
           "explanation": "~게 하다 makes or lets somebody do something. The lesson covers causation and permission through 하다.\n\nUse it when one person causes, allows or arranges for another person to perform an action.\n\nPut the person or group in the appropriate object-like position, attach verb/adjective + ~게, then add 하다 and conjugate it.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "저는 그를 자게 할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -454,7 +464,7 @@
           "answer": "화나게 했어요",
           "hint": "Base form: 화나다",
           "explanation": "~게 하다 makes or lets somebody do something. The lesson covers causation and permission through 하다.\n\nUse it when one person causes, allows or arranges for another person to perform an action.\n\nPut the person or group in the appropriate object-like position, attach verb/adjective + ~게, then add 하다 and conjugate it.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "학생들은 선생님을 화나게 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -464,7 +474,7 @@
           "answer": "준비하게 했어요",
           "hint": "Base form: 준비하다",
           "explanation": "~게 하다 makes or lets somebody do something. The lesson covers causation and permission through 하다.\n\nUse it when one person causes, allows or arranges for another person to perform an action.\n\nPut the person or group in the appropriate object-like position, attach verb/adjective + ~게, then add 하다 and conjugate it.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "저는 학생들을 바로 준비하게 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -474,7 +484,7 @@
           "answer": "일어나게 했어요",
           "hint": "Base form: 일어나다",
           "explanation": "~게 하다 makes or lets somebody do something. The lesson covers causation and permission through 하다.\n\nUse it when one person causes, allows or arranges for another person to perform an action.\n\nPut the person or group in the appropriate object-like position, attach verb/adjective + ~게, then add 하다 and conjugate it.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "저는 아들을 오늘 아침에 일찍 일어나게 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         },
@@ -484,7 +494,7 @@
           "answer": "둘러보게 했어요",
           "hint": "Base form: 둘러보다",
           "explanation": "~게 하다 makes or lets somebody do something. The lesson covers causation and permission through 하다.\n\nUse it when one person causes, allows or arranges for another person to perform an action.\n\nPut the person or group in the appropriate object-like position, attach verb/adjective + ~게, then add 하다 and conjugate it.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "저는 딸을 상점에서 조금 더 둘러보게 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-56/"
         }
@@ -514,7 +524,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 56 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Making or letting someone do something"
     },
     {
       "unit": 3,
@@ -532,7 +544,7 @@
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
           "source_sentence": "저는 매일 저의 여자친구에게 제가 그녀를 사랑하는 것을 상기시켜요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "선생님은 학생들에게 숙제를 해야 하는 것을 ___",
@@ -542,7 +554,7 @@
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
           "source_sentence": "선생님은 학생들에게 숙제를 해야 하는 것을 상기시켰어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "저는 회사원들에게 일을 ___",
@@ -552,7 +564,7 @@
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
           "source_sentence": "저는 회사원들에게 일을 시켰어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "저는 학생들에게 ___",
@@ -562,7 +574,7 @@
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
           "source_sentence": "저는 학생들에게 교실 청소를 시켰어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "저는 열심히 일해서 부장님을 ___",
@@ -572,7 +584,7 @@
           "explanation": "~시키다 expresses making or having someone do an action; it is also used in many causative or lexical verbs.\n\nUse it when an agent orders, causes or arranges for another person to perform an action.\n\nAttach ~시키다 to the relevant noun or use the causative verb shown by HTSK; conjugate 시키다 for tense and politeness.",
           "source_sentence": "저는 열심히 일해서 부장님을 만족시켰어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-57/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         }
       ],
       "source_status": "published",
@@ -600,7 +612,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 57 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Making someone do something with ~시키다"
     },
     {
       "unit": 3,
@@ -616,7 +630,7 @@
           "answer": "빵이나",
           "hint": "Base form: 빵",
           "explanation": "~(이)나 and ~거나 express alternatives, or.\n\nUse ~이나/나 with nouns and ~거나 with verbs or adjectives when presenting choices or alternatives.\n\nUse ~이나 after a consonant noun and ~나 after a vowel noun. Attach ~거나 to verb or adjective stems and add the final predicate.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 빵이나 밥을 먹고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-58/"
         },
@@ -626,7 +640,7 @@
           "answer": "묶거나",
           "hint": "Base form: 묶다",
           "explanation": "~(이)나 and ~거나 express alternatives, or.\n\nUse ~이나/나 with nouns and ~거나 with verbs or adjectives when presenting choices or alternatives.\n\nUse ~이나 after a consonant noun and ~나 after a vowel noun. Attach ~거나 to verb or adjective stems and add the final predicate.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "신발끈을 묶거나 신발을 벗으세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-58/"
         },
@@ -636,7 +650,7 @@
           "answer": "고치거나",
           "hint": "Base form: 고치다",
           "explanation": "~(이)나 and ~거나 express alternatives, or.\n\nUse ~이나/나 with nouns and ~거나 with verbs or adjectives when presenting choices or alternatives.\n\nUse ~이나 after a consonant noun and ~나 after a vowel noun. Attach ~거나 to verb or adjective stems and add the final predicate.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "오래된 차를 고치거나 새로운 차를 사야 돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-58/"
         },
@@ -646,7 +660,7 @@
           "answer": "덧붙이거나",
           "hint": "Base form: 덧붙이다",
           "explanation": "~(이)나 and ~거나 express alternatives, or.\n\nUse ~이나/나 with nouns and ~거나 with verbs or adjectives when presenting choices or alternatives.\n\nUse ~이나 after a consonant noun and ~나 after a vowel noun. Attach ~거나 to verb or adjective stems and add the final predicate.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "제가 하는 말에 뭔가를 덧붙이거나 수정하고 싶으면 지금 말씀하세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-58/"
         },
@@ -656,7 +670,7 @@
           "answer": "어렵거나",
           "hint": "Base form: 어렵다",
           "explanation": "~(이)나 and ~거나 express alternatives, or.\n\nUse ~이나/나 with nouns and ~거나 with verbs or adjectives when presenting choices or alternatives.\n\nUse ~이나 after a consonant noun and ~나 after a vowel noun. Attach ~거나 to verb or adjective stems and add the final predicate.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "이 문제가 너무 어렵거나 도움이 필요하면 교무실로 오세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-51-58/lesson-58/"
         }
@@ -686,7 +700,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 58 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Or with ~(이)나 and ~거나"
     },
     {
       "unit": 3,
@@ -704,7 +720,7 @@
           "explanation": "Use the possibility adverb when the outcome is uncertain.",
           "source_sentence": "어쩌면 그녀가 올지도 몰라요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "___ 그녀가 우리를 만나러 안 올 것 같아요",
@@ -714,7 +730,7 @@
           "explanation": "Use the inference adverb when the evidence points to a likely conclusion.",
           "source_sentence": "아무래도 그녀가 우리를 만나러 안 올 것 같아요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "엄마가 전화를 갑자기 끊었어요. ___ 저랑 통화하기 싫어하는 것 같아요",
@@ -724,7 +740,7 @@
           "explanation": "Use the connector to restate or draw out the meaning of the previous clause.",
           "source_sentence": "엄마가 전화를 갑자기 끊었어요. 즉 저랑 통화하기 싫어하는 것 같아요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나이가 먹으면 정원을 ___ 좋은 운동이에요",
@@ -734,7 +750,7 @@
           "explanation": "Use the verb 가꾸다 for growing plants or looking after a garden.",
           "source_sentence": "나이가 먹으면 정원을 가꾸는 것은 좋은 운동이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "___ 어떻게 되세요?",
@@ -744,7 +760,7 @@
           "explanation": "Use the honorific noun 연세 when respectfully asking about an older person’s age.",
           "source_sentence": "연세가 어떻게 되세요?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": "Honorific form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 어제 선생님의 할아버지를 ___",
@@ -754,7 +770,7 @@
           "explanation": "Use the honorific verb 뵈다 when the person being seen deserves a high level of respect.",
           "source_sentence": "저는 어제 선생님의 할아버지를 뵈었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": "Honorific polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "그는 잠옷 ___ 밖에 나갔어요",
@@ -764,7 +780,7 @@
           "explanation": "Use 차림 after clothing words to describe what someone is wearing or the state of their outfit.",
           "source_sentence": "그는 잠옷 차림으로 밖에 나갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-59/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -792,7 +808,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 59 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Difficult words: 어쩌면, 아무래도, 가꾸다, 연세, 뵈다, 차림, 즉"
     },
     {
       "unit": 3,
@@ -810,7 +828,7 @@
           "explanation": "Describe a space that is filled to capacity.",
           "source_sentence": "교실이 학생들로 완전히 차 있었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "시험 결과를 보고 저는 기쁨으로 ___",
@@ -820,7 +838,7 @@
           "explanation": "Describe something as full of a feeling or substance.",
           "source_sentence": "시험 결과를 보고 저는 기쁨으로 가득 찼어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "그녀는 ___ 한국어를 배우고 싶었어요",
@@ -830,7 +848,7 @@
           "explanation": "Use the adverb when the reason is felt but not clearly known.",
           "source_sentence": "그녀는 왠지 한국어를 배우고 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "___ 그가 이미 떠났을까요?",
@@ -840,7 +858,7 @@
           "explanation": "Use the adverb to express disbelief or a doubtful guess.",
           "source_sentence": "설마 그가 이미 떠났을까요?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 와서 ___",
@@ -850,7 +868,7 @@
           "explanation": "Use the noun to say that a situation turned out fortunately.",
           "source_sentence": "제가 와서 다행이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-60/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         }
       ],
       "source_status": "published",
@@ -878,7 +896,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 60 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Lesson 60: Difficult words: 차다, 가득, 왠지, 설마, 찍다, 다행, ~달"
     },
     {
       "unit": 3,
@@ -892,9 +912,9 @@
           "prompt": "그것 때문에 나를 ___",
           "translation": "I wish/hope you don’t fire me because of that",
           "answer": "해고하지 않았으면 좋겠다",
-          "hint": "Base form: 않다",
+          "hint": "Base form: 해고하다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Formal/written plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그것 때문에 나를 해고하지 않았으면 좋겠다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         },
@@ -904,7 +924,7 @@
           "answer": "많았으면 좋겠어요",
           "hint": "Base form: 많다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "양이 많았으면 좋겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         },
@@ -914,7 +934,7 @@
           "answer": "살았으면 좋겠어",
           "hint": "Base form: 살다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "삶을 한가롭게 살았으면 좋겠어",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         },
@@ -924,7 +944,7 @@
           "answer": "청결했으면 좋겠어요",
           "hint": "Base form: 청결하다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "집에 가서 집이 청결했으면 좋겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         },
@@ -934,7 +954,7 @@
           "answer": "왔으면 좋겠어요",
           "hint": "Base form: 오다",
           "explanation": "~았/었으면 좋겠다 and 바라다 express a wish or hope about a situation.\n\nUse them to say that you hope something happens, does not happen or could become true.\n\nUse the past-looking form ~았/었으면 좋겠다 for a wish, or attach 바라다 to a quoted or nominalized wish as explained in HTSK.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "엄마가 저를 데리러 왔으면 좋겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-61/"
         }
@@ -964,7 +984,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 61 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Hoping with ~았/었으면 좋겠다"
     },
     {
       "unit": 3,
@@ -980,7 +1002,7 @@
           "answer": "누르면서",
           "hint": "Base form: 누르다",
           "explanation": "~(으)면서 connects two actions happening at the same time: while doing one thing, another thing happens.\n\nUse it when the same subject performs simultaneous actions or when contrasting activities occur together.\n\nAttach ~면서 after a vowel or ㄹ stem and ~으면서 after another consonant; normally keep the same subject across the clauses.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "도움이 필요하면 이 벨을 누르면서 말씀하세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-62/"
         },
@@ -990,7 +1012,7 @@
           "answer": "쌓이면서",
           "hint": "Base form: 쌓이다",
           "explanation": "~(으)면서 connects two actions happening at the same time: while doing one thing, another thing happens.\n\nUse it when the same subject performs simultaneous actions or when contrasting activities occur together.\n\nAttach ~면서 after a vowel or ㄹ stem and ~으면서 after another consonant; normally keep the same subject across the clauses.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "눈이 길에 계속 쌓이면서 길이 점점 미끄러워져요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-62/"
         },
@@ -1000,7 +1022,7 @@
           "answer": "보면서",
           "hint": "Base form: 보다",
           "explanation": "~(으)면서 connects two actions happening at the same time: while doing one thing, another thing happens.\n\nUse it when the same subject performs simultaneous actions or when contrasting activities occur together.\n\nAttach ~면서 after a vowel or ㄹ stem and ~으면서 after another consonant; normally keep the same subject across the clauses.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "우리가 거기에 가는 길을 몰라서 지도를 보면서 앞에 있는 차를 뒤따라가고 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-62/"
         },
@@ -1010,7 +1032,7 @@
           "answer": "기념하면서",
           "hint": "Base form: 기념하다",
           "explanation": "~(으)면서 connects two actions happening at the same time: while doing one thing, another thing happens.\n\nUse it when the same subject performs simultaneous actions or when contrasting activities occur together.\n\nAttach ~면서 after a vowel or ㄹ stem and ~으면서 after another consonant; normally keep the same subject across the clauses.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "이 행사에서 지난 10년의 성공을 기념하면서 이 동영상을 보겠습니다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-62/"
         },
@@ -1020,7 +1042,7 @@
           "answer": "운동하면서",
           "hint": "Base form: 운동하다",
           "explanation": "~(으)면서 connects two actions happening at the same time: while doing one thing, another thing happens.\n\nUse it when the same subject performs simultaneous actions or when contrasting activities occur together.\n\nAttach ~면서 after a vowel or ㄹ stem and ~으면서 after another consonant; normally keep the same subject across the clauses.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저의 여자친구는 운동하면서 운동하고 있는 다른 남자들을 항상 쳐다봐요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-62/"
         }
@@ -1050,7 +1072,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 62 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Doing two actions at once with ~(으)면서"
     },
     {
       "unit": 3,
@@ -1068,7 +1092,7 @@
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "친구를 만날까?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-63/",
-          "answer_form": "Informal/plain conversational question/proposal"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "공연을 보러 ___?",
@@ -1078,7 +1102,7 @@
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "공연을 보러 갈까?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-63/",
-          "answer_form": "Informal/plain conversational question/proposal"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "(내가) 밥을 ___?",
@@ -1088,7 +1112,7 @@
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "(내가) 밥을 먹을까?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-63/",
-          "answer_form": "Informal/plain conversational question/proposal"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "(내가) 이렇게 ___?",
@@ -1098,7 +1122,7 @@
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "(내가) 이렇게 할까?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-63/",
-          "answer_form": "Informal/plain conversational question/proposal"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "(내가) ___?",
@@ -1108,7 +1132,7 @@
           "explanation": "~ㄹ/을까(요) has several uses, including wondering or making a suggestion, while ~ㄹ/을게요 expresses a speaker's promise or willingness.\n\nUse ~ㄹ/을까(요) for shall we, should I and wondering; use ~ㄹ/을게요 when promising to do something in response to the listener.\n\nAttach ~ㄹ까 after a vowel or ㄹ and ~을까 after another consonant. Use ~ㄹ게요/~을게요 with the same stem rule.",
           "source_sentence": "(내가) 뭐 먹을까?",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-63/",
-          "answer_form": "Informal/plain conversational question/proposal"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         }
       ],
       "source_status": "published",
@@ -1136,7 +1160,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 63 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Uses of ~ㄹ/을까 and ~ㄹ/을게요"
     },
     {
       "unit": 3,
@@ -1152,7 +1178,7 @@
           "answer": "공부할까 해요",
           "hint": "Base form: 공부하다",
           "explanation": "~ㄹ/을까 can express wondering, considering an action or thinking about what may be true.\n\nUse it for an internal question, a tentative plan or a thought such as I wonder whether or perhaps I should.\n\nAttach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then use the ending appropriate to the sentence.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "대학교에서 물리학을 공부할까 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-64/"
         },
@@ -1162,7 +1188,7 @@
           "answer": "등록할까 해요",
           "hint": "Base form: 등록하다",
           "explanation": "~ㄹ/을까 can express wondering, considering an action or thinking about what may be true.\n\nUse it for an internal question, a tentative plan or a thought such as I wonder whether or perhaps I should.\n\nAttach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then use the ending appropriate to the sentence.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "이 제품에 상표를 등록할까 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-64/"
         },
@@ -1172,7 +1198,7 @@
           "answer": "지명할까 해요",
           "hint": "Base form: 지명하다",
           "explanation": "~ㄹ/을까 can express wondering, considering an action or thinking about what may be true.\n\nUse it for an internal question, a tentative plan or a thought such as I wonder whether or perhaps I should.\n\nAttach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then use the ending appropriate to the sentence.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "그 선생님을 국제부장으로 지명할까 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-64/"
         },
@@ -1182,7 +1208,7 @@
           "answer": "여행할까 해요",
           "hint": "Base form: 여행하다",
           "explanation": "~ㄹ/을까 can express wondering, considering an action or thinking about what may be true.\n\nUse it for an internal question, a tentative plan or a thought such as I wonder whether or perhaps I should.\n\nAttach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then use the ending appropriate to the sentence.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "대구 서부에 1박 2일로 여행할까 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-64/"
         },
@@ -1192,7 +1218,7 @@
           "answer": "볼까 해요",
           "hint": "Base form: 보다",
           "explanation": "~ㄹ/을까 can express wondering, considering an action or thinking about what may be true.\n\nUse it for an internal question, a tentative plan or a thought such as I wonder whether or perhaps I should.\n\nAttach ~ㄹ까 after a vowel or ㄹ stem and ~을까 after another consonant, then use the ending appropriate to the sentence.",
-          "answer_form": "Polite conversational form",
+          "answer_form": "Informal polite form (해요체)",
           "source_sentence": "그 영화를 볼까 해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-64/"
         }
@@ -1222,7 +1248,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 64 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Wondering and considering with ~ㄹ/을까"
     },
     {
       "unit": 3,
@@ -1238,7 +1266,7 @@
           "answer": "볼까 봐",
           "hint": "Base form: 보다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "시험을 잘 못 볼까 봐 걱정돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         },
@@ -1248,7 +1276,7 @@
           "answer": "올까 봐",
           "hint": "Base form: 오다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "비가 올까 봐 걱정돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         },
@@ -1256,9 +1284,9 @@
           "prompt": "그녀가 나를 ___ 걱정돼",
           "translation": "I’m worried that she won’t like me",
           "answer": "좋아하지 않을까 봐",
-          "hint": "Base form: 않다",
+          "hint": "Base form: 좋아하다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그녀가 나를 좋아하지 않을까 봐 걱정돼",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         },
@@ -1268,7 +1296,7 @@
           "answer": "없을까 봐",
           "hint": "Base form: 없다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "논문을 여름까지 끝낼 수 없을까 봐 걱정돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         },
@@ -1278,7 +1306,7 @@
           "answer": "봤을까 봐",
           "hint": "Base form: 보다",
           "explanation": "~ㄹ/을까 봐 expresses worry or concern that something may happen.\n\nUse it when a feared possibility motivates the action in the main clause.\n\nAttach ~ㄹ까 봐 after a vowel or ㄹ stem and ~을까 봐 after another consonant; conjugate the main clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "시험을 잘 못 봤을까 봐 걱정돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-65/"
         }
@@ -1308,7 +1336,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 65 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Worrying with ~ㄹ/을까 봐"
     },
     {
       "unit": 3,
@@ -1326,7 +1356,7 @@
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "저는 밥을 거의 다 먹었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 차를 ___",
@@ -1336,7 +1366,7 @@
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "저는 차를 칠 뻔 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "거미를 보고 ___",
@@ -1346,7 +1376,7 @@
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "거미를 보고 죽을 뻔 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "우리는 1등급을 ___",
@@ -1356,7 +1386,7 @@
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "우리는 1등급을 받을 뻔 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "화가 너무 나서 친구를 ___",
@@ -1366,7 +1396,7 @@
           "explanation": "거의 means almost, and ~ㄹ/을 뻔하다 says that something nearly happened.\n\nUse them for near misses or events that came close to occurring, often with a result that did not actually happen.\n\nUse 거의 as an adverb. Attach ~ㄹ 뻔하다 after a vowel or ㄹ and ~을 뻔하다 after another consonant.",
           "source_sentence": "화가 너무 나서 친구를 때릴 뻔 했어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/unit-3-lessons-59-66/lesson-66/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         }
       ],
       "source_status": "published",
@@ -1394,7 +1424,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 66 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Almost with 거의 and ~ㄹ/을 뻔하다"
     },
     {
       "unit": 3,
@@ -1410,7 +1442,7 @@
           "answer": "전처럼",
           "hint": "Base form: 전",
           "explanation": "~처럼 means like, while ~는 듯이 and ~듯이 mean as if or in a manner resembling something. HTSK explains the difference between the similar forms.\n\nUse ~처럼 for a comparison to a noun and ~듯이 for an appearance or manner that resembles a situation.\n\nUse noun + 처럼. Use the appropriate verb, adjective or noun form before 듯이, including ~는 듯이 for a present action.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 그 전처럼 하고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-67/"
         },
@@ -1420,7 +1452,7 @@
           "answer": "비빔밥처럼",
           "hint": "Base form: 비빔밥",
           "explanation": "~처럼 means like, while ~는 듯이 and ~듯이 mean as if or in a manner resembling something. HTSK explains the difference between the similar forms.\n\nUse ~처럼 for a comparison to a noun and ~듯이 for an appearance or manner that resembles a situation.\n\nUse noun + 처럼. Use the appropriate verb, adjective or noun form before 듯이, including ~는 듯이 for a present action.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "재료를 비빔밥처럼 비벼야 돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-67/"
         },
@@ -1430,7 +1462,7 @@
           "answer": "강아지처럼",
           "hint": "Base form: 강아지",
           "explanation": "~처럼 means like, while ~는 듯이 and ~듯이 mean as if or in a manner resembling something. HTSK explains the difference between the similar forms.\n\nUse ~처럼 for a comparison to a noun and ~듯이 for an appearance or manner that resembles a situation.\n\nUse noun + 처럼. Use the appropriate verb, adjective or noun form before 듯이, including ~는 듯이 for a present action.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "강아지처럼 구멍을 파고 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-67/"
         },
@@ -1440,7 +1472,7 @@
           "answer": "나처럼",
           "hint": "Base form: 나",
           "explanation": "~처럼 means like, while ~는 듯이 and ~듯이 mean as if or in a manner resembling something. HTSK explains the difference between the similar forms.\n\nUse ~처럼 for a comparison to a noun and ~듯이 for an appearance or manner that resembles a situation.\n\nUse noun + 처럼. Use the appropriate verb, adjective or noun form before 듯이, including ~는 듯이 for a present action.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그 사람은 나처럼 돈이 별로 없어",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-67/"
         },
@@ -1450,7 +1482,7 @@
           "answer": "평소처럼",
           "hint": "Base form: 평소",
           "explanation": "~처럼 means like, while ~는 듯이 and ~듯이 mean as if or in a manner resembling something. HTSK explains the difference between the similar forms.\n\nUse ~처럼 for a comparison to a noun and ~듯이 for an appearance or manner that resembles a situation.\n\nUse noun + 처럼. Use the appropriate verb, adjective or noun form before 듯이, including ~는 듯이 for a present action.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 오늘 평소처럼 공부해야 돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-67/"
         }
@@ -1480,7 +1512,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 67 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Like: ~처럼, As if: ~는 듯이, ~듯이"
     },
     {
       "unit": 3,
@@ -1498,7 +1532,7 @@
           "explanation": "Use the attributive form before a noun when there is only one such person or thing.",
           "source_sentence": "저는 그 식당에서 먹는 사람 중에 유일한 단골 고객이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 ___ 싶은 음식은 삼겹살입니다",
@@ -1508,7 +1542,7 @@
           "explanation": "Use the adverbial form to limit the action to one choice.",
           "source_sentence": "제가 유일하게 먹고 싶은 음식은 삼겹살입니다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 ___ 싶은 것은 밥을 먹는 것이에요",
@@ -1518,7 +1552,7 @@
           "explanation": "Use the adverbial form to limit the action to one choice.",
           "source_sentence": "제가 유일하게 하고 싶은 것은 밥을 먹는 것이에요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 ___ 싶은 사람은 저의 여자 친구입니다",
@@ -1528,7 +1562,7 @@
           "explanation": "Use the adverbial form to limit the action to one choice.",
           "source_sentence": "제가 유일하게 결혼하고 싶은 사람은 저의 여자 친구입니다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나는 ___ 샀어",
@@ -1538,7 +1572,7 @@
           "explanation": "Use the attributive form before a noun when there is only one such thing.",
           "source_sentence": "나는 유일한 사과를 샀어",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-68/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -1566,7 +1600,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 68 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Only: 유일하다/유일하게"
     },
     {
       "unit": 3,
@@ -1582,7 +1618,7 @@
           "answer": "친구밖에",
           "hint": "Base form: 친구",
           "explanation": "~밖에 expresses nothing but or only and normally appears with a negative predicate. HTSK also covers ~ㄹ/을 수밖에 없다, have no choice but to.\n\nUse it when the set of available things is limited or when an unavoidable choice is being described.\n\nPlace noun + 밖에 before a negative predicate. For the unavoidable construction use verb + ~(으)ㄹ 수밖에 없다 with the consonant rule.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 친구밖에 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-69/"
         },
@@ -1592,7 +1628,7 @@
           "answer": "밥밖에",
           "hint": "Base form: 밥",
           "explanation": "~밖에 expresses nothing but or only and normally appears with a negative predicate. HTSK also covers ~ㄹ/을 수밖에 없다, have no choice but to.\n\nUse it when the set of available things is limited or when an unavoidable choice is being described.\n\nPlace noun + 밖에 before a negative predicate. For the unavoidable construction use verb + ~(으)ㄹ 수밖에 없다 with the consonant rule.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "우리가 먹을 것은 밥밖에 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-69/"
         },
@@ -1602,7 +1638,7 @@
           "answer": "청소년들밖에",
           "hint": "Base form: 청소년",
           "explanation": "~밖에 expresses nothing but or only and normally appears with a negative predicate. HTSK also covers ~ㄹ/을 수밖에 없다, have no choice but to.\n\nUse it when the set of available things is limited or when an unavoidable choice is being described.\n\nPlace noun + 밖에 before a negative predicate. For the unavoidable construction use verb + ~(으)ㄹ 수밖에 없다 with the consonant rule.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "유행을 따라가는 사람들이 청소년들밖에 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-69/"
         },
@@ -1612,7 +1648,7 @@
           "answer": "원밖에",
           "hint": "Base form: 원",
           "explanation": "~밖에 expresses nothing but or only and normally appears with a negative predicate. HTSK also covers ~ㄹ/을 수밖에 없다, have no choice but to.\n\nUse it when the set of available things is limited or when an unavoidable choice is being described.\n\nPlace noun + 밖에 before a negative predicate. For the unavoidable construction use verb + ~(으)ㄹ 수밖에 없다 with the consonant rule.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그거를 사고 싶지만 만 원밖에 없어서 못 사요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-69/"
         },
@@ -1622,7 +1658,7 @@
           "answer": "명밖에",
           "hint": "Base form: 명",
           "explanation": "~밖에 expresses nothing but or only and normally appears with a negative predicate. HTSK also covers ~ㄹ/을 수밖에 없다, have no choice but to.\n\nUse it when the set of available things is limited or when an unavoidable choice is being described.\n\nPlace noun + 밖에 before a negative predicate. For the unavoidable construction use verb + ~(으)ㄹ 수밖에 없다 with the consonant rule.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 친구가 세 명밖에 없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-69/"
         }
@@ -1652,7 +1688,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 69 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Nothing but: 밖에 (~ㄹ/을 수밖에 없다)"
     },
     {
       "unit": 3,
@@ -1668,7 +1706,7 @@
           "answer": "걸어서",
           "hint": "Base form: 걷다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier.\n\nUse it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because.\n\nAttach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 걸어서 집에 갔어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-70/"
         },
@@ -1678,7 +1716,7 @@
           "answer": "모여서",
           "hint": "Base form: 모이다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier.\n\nUse it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because.\n\nAttach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "경찰관이 모여서 실종자를 찾았어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-70/"
         },
@@ -1688,7 +1726,7 @@
           "answer": "들여서",
           "hint": "Base form: 들이다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier.\n\nUse it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because.\n\nAttach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "제가 당신을 위해 정성 들여서 만든 음식입니다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-70/"
         },
@@ -1698,7 +1736,7 @@
           "answer": "해서",
           "hint": "Base form: 하다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier.\n\nUse it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because.\n\nAttach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "대통령이 연설을 해서 청중을 사로잡았다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-70/"
         },
@@ -1708,7 +1746,7 @@
           "answer": "다해서",
           "hint": "Base form: 다하다",
           "explanation": "~아/어(서) can join clauses as a connector whose subtle relationship is distinct from the ordinary cause-and-result use studied earlier.\n\nUse it when the two clauses are linked in the ways explained by HTSK, including sequential or closely connected actions; do not reduce every example to because.\n\nAttach ~아서 after a ㅏ/ㅗ stem and ~어서 after other vowels, with 하다 becoming 해서. Read the source examples for the context-dependent nuance.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 전력을 다해서 이 일을 내일까지 마무리해 볼 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-70/"
         }
@@ -1738,7 +1776,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 70 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Clause Connector: ~아/어(서)"
     },
     {
       "unit": 3,
@@ -1756,7 +1796,7 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "이 뷔페가격은 포도주를 포함해요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "저의 친구를 ___ 열 명이 같이 여행할 거예요",
@@ -1766,7 +1806,7 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "저의 친구를 포함해 열 명이 같이 여행할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Polite conversational sentence"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "나의 월세는 가스비가 ___",
@@ -1776,7 +1816,7 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "나의 월세는 가스비가 포함된다",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "이 조명 가격은 ___",
@@ -1786,7 +1826,7 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "이 조명 가격은 세금이 포함돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "이 회원권 가격은 ___",
@@ -1796,7 +1836,7 @@
           "explanation": "포함하다 means to include and 제외하다 means to exclude or except.\n\nUse these verbs when specifying what is included in a group, list, price or statement and what is left out.\n\nUse the noun as the object of 포함하다 or 제외하다 and conjugate the verb normally; the source examples show common particles and passive forms.",
           "source_sentence": "이 회원권 가격은 일대일 트레이닝이 포함돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-71/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -1824,7 +1864,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 71 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "To include (포함하다), to exclude (제외하다)"
     },
     {
       "unit": 3,
@@ -1840,7 +1882,7 @@
           "answer": "나만큼",
           "hint": "Base form: 나",
           "explanation": "~만큼 and 정도 can express as much as, as many as, or an approximate degree. HTSK compares their related but not identical uses.\n\nUse them for comparison, quantity, degree and approximate amounts.\n\nPlace ~만큼 after the comparison or reference point. Use 정도 after a noun, number or clause in the construction shown by HTSK.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그는 나만큼 축구를 잘해",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-72/"
         },
@@ -1850,7 +1892,7 @@
           "answer": "밥만큼",
           "hint": "Base form: 밥",
           "explanation": "~만큼 and 정도 can express as much as, as many as, or an approximate degree. HTSK compares their related but not identical uses.\n\nUse them for comparison, quantity, degree and approximate amounts.\n\nPlace ~만큼 after the comparison or reference point. Use 정도 after a noun, number or clause in the construction shown by HTSK.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "과일은 밥만큼 건강에 좋아요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-72/"
         },
@@ -1860,7 +1902,7 @@
           "answer": "배우만큼",
           "hint": "Base form: 배우",
           "explanation": "~만큼 and 정도 can express as much as, as many as, or an approximate degree. HTSK compares their related but not identical uses.\n\nUse them for comparison, quantity, degree and approximate amounts.\n\nPlace ~만큼 after the comparison or reference point. Use 정도 after a noun, number or clause in the construction shown by HTSK.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "여배우들은 남자 배우만큼 돈을 못 벌어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-72/"
         },
@@ -1870,7 +1912,7 @@
           "answer": "사람만큼",
           "hint": "Base form: 사람",
           "explanation": "~만큼 and 정도 can express as much as, as many as, or an approximate degree. HTSK compares their related but not identical uses.\n\nUse them for comparison, quantity, degree and approximate amounts.\n\nPlace ~만큼 after the comparison or reference point. Use 정도 after a noun, number or clause in the construction shown by HTSK.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 한국 사람만큼 한국말을 할 수 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-72/"
         },
@@ -1880,7 +1922,7 @@
           "answer": "너만큼",
           "hint": "Base form: 너",
           "explanation": "~만큼 and 정도 can express as much as, as many as, or an approximate degree. HTSK compares their related but not identical uses.\n\nUse them for comparison, quantity, degree and approximate amounts.\n\nPlace ~만큼 after the comparison or reference point. Use 정도 after a noun, number or clause in the construction shown by HTSK.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "내 키가 너만큼 컸으면 그것에 손이 닿았을 거야",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-72/"
         }
@@ -1910,7 +1952,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 72 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "As much as: ~만큼, 정도"
     },
     {
       "unit": 3,
@@ -1928,7 +1972,7 @@
           "explanation": "대신 and 대신에 express instead, in place of or in exchange for something.\n\nUse them when replacing one action or object with another, or when saying that somebody does something on another person's behalf.\n\nUse noun + 대신(에), or use the clause patterns with 대신(에) explained in HTSK; attach particles according to the role of the replacement.",
           "source_sentence": "저는 밥 대신에 빵을 먹었어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-73/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 ___ 펜을 쓸 거예요",
@@ -1938,7 +1982,7 @@
           "explanation": "대신 and 대신에 express instead, in place of or in exchange for something.\n\nUse them when replacing one action or object with another, or when saying that somebody does something on another person's behalf.\n\nUse noun + 대신(에), or use the clause patterns with 대신(에) explained in HTSK; attach particles according to the role of the replacement.",
           "source_sentence": "저는 연필 대신에 펜을 쓸 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-73/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "애기는 ___ 물만 마시고 싶어요",
@@ -1948,7 +1992,7 @@
           "explanation": "대신 and 대신에 express instead, in place of or in exchange for something.\n\nUse them when replacing one action or object with another, or when saying that somebody does something on another person's behalf.\n\nUse noun + 대신(에), or use the clause patterns with 대신(에) explained in HTSK; attach particles according to the role of the replacement.",
           "source_sentence": "애기는 우유 대신에 물만 마시고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-73/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "___ 머리띠를 주세요",
@@ -1958,7 +2002,7 @@
           "explanation": "대신 and 대신에 express instead, in place of or in exchange for something.\n\nUse them when replacing one action or object with another, or when saying that somebody does something on another person's behalf.\n\nUse noun + 대신(에), or use the clause patterns with 대신(에) explained in HTSK; attach particles according to the role of the replacement.",
           "source_sentence": "머리핀 대신에 머리띠를 주세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-73/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "___ 가로만 재 보세요",
@@ -1968,7 +2012,7 @@
           "explanation": "대신 and 대신에 express instead, in place of or in exchange for something.\n\nUse them when replacing one action or object with another, or when saying that somebody does something on another person's behalf.\n\nUse noun + 대신(에), or use the clause patterns with 대신(에) explained in HTSK; attach particles according to the role of the replacement.",
           "source_sentence": "부피 대신에 가로만 재 보세요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-73/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -1988,7 +2032,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 73 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "Instead (대신에)"
     },
     {
       "unit": 3,
@@ -2006,7 +2052,7 @@
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "네가 배고파도 상관없어",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-74/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "우리가 어디 ___ 상관없어요",
@@ -2016,7 +2062,7 @@
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "우리가 어디 가든지 상관없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-74/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "내일 주식이 떨어지거나 오르거나 ___",
@@ -2026,7 +2072,7 @@
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "내일 주식이 떨어지거나 오르거나 상관없어요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-74/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "학생들의 불량한 태도와 ___ 제가 선생님이라 수업을 계속 해야 돼요",
@@ -2036,7 +2082,7 @@
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "학생들의 불량한 태도와 상관없이 제가 선생님이라 수업을 계속 해야 돼요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-74/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "우리는 거기에 ___",
@@ -2046,7 +2092,7 @@
           "explanation": "상관없다 means it does not matter or it is irrelevant; 상관없이 means regardless of. HTSK combines it with ~는지, ~아/어도 and ~든.\n\nUse it when saying that a choice, condition, time, place or result is irrelevant to the speaker.\n\nUse a clause with ~는지, ~아/어도 or ~든 before 상관없다, or noun + 상관없이 in the middle of a sentence.",
           "source_sentence": "우리는 거기에 가도 상관없어",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-74/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         }
       ],
       "source_status": "published",
@@ -2074,7 +2120,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 74 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "It doesn’t matter/ Regardless of (상관없다/상관없이)"
     },
     {
       "unit": 3,
@@ -2092,7 +2140,7 @@
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "저는 돈에 대해 신경을 안 써요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-75/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 그에 대해 별로 ___",
@@ -2102,7 +2150,7 @@
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "저는 그에 대해 별로 신경을 안 써요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-75/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "그는 자기 아버지에 대해 ___",
@@ -2112,7 +2160,7 @@
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "그는 자기 아버지에 대해 신경을 안 써",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-75/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "입시 시험 점수에 대해 ___",
@@ -2122,7 +2170,7 @@
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "입시 시험 점수에 대해 신경을 안 써요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-75/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 천국과 지옥에 대해 ___",
@@ -2132,7 +2180,7 @@
           "explanation": "신경을 쓰다 means to care or pay attention, and 신경을 안 쓰다 means not to care. The lesson treats 신경 as a noun.\n\nUse it for caring about a noun, a clause, a question or a condition, especially in the common negative form.\n\nUse noun + 에 대해 신경을 쓰다/안 쓰다. Use ~는 것, ~는지 or ~아/어도 before the expression for clauses and conditions.",
           "source_sentence": "저는 천국과 지옥에 대해 신경을 안 써요",
           "source_url": "https://www.howtostudykorean.com/unit-3-intermediate-korean-grammar/lessons-67-75/lesson-75/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -2160,7 +2208,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 75 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 3",
+      "topic": "I don’t care: 신경 안 쓰다"
     }
   ]
 }

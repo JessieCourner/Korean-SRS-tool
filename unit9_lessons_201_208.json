@@ -14,7 +14,7 @@
           "answer": "끝나리라고",
           "hint": "Base form: 끝나다",
           "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "다 끝나리라고 생각해요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
@@ -24,7 +24,7 @@
           "answer": "오리라고",
           "hint": "Base form: 오다",
           "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그가 오리라고 생각해요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
@@ -34,7 +34,7 @@
           "answer": "이해하리라고",
           "hint": "Base form: 이해하다",
           "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그 사람이 이해하리라고 생각해요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
@@ -44,7 +44,7 @@
           "answer": "재미있으리라고",
           "hint": "Base form: 재미있다",
           "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "이 영화가 재미있으리라고 생각해요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         },
@@ -54,7 +54,7 @@
           "answer": "이기리라고",
           "hint": "Base form: 이기다",
           "explanation": "Use the formal/literary prediction pattern; the ending agrees with the verb or adjective stem.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "그 선수가 이기리라고 생각했어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-201/"
         }
@@ -84,7 +84,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 201 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 9",
+      "topic": "~(으)리라고: Formal Prediction"
     },
     {
       "unit": 9,
@@ -100,7 +102,7 @@
           "answer": "주려니",
           "hint": "Base form: 주다",
           "explanation": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.\n\nUse it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.\n\nAttach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "나눠 주려니 해서 기다렸어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
@@ -110,7 +112,7 @@
           "answer": "없으려니",
           "hint": "Base form: 없다",
           "explanation": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.\n\nUse it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.\n\nAttach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "사람도 별로 없으려니 하고 나룻배를 탔는데 도착해 보니 사람이 많았어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
@@ -120,7 +122,7 @@
           "answer": "물러났으려니",
           "hint": "Base form: 물러나다",
           "explanation": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.\n\nUse it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.\n\nAttach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "적이 이미 물러났으려니 하고 기지를 비웠어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
@@ -130,7 +132,7 @@
           "answer": "냉담해지려니",
           "hint": "Base form: 냉담해지다",
           "explanation": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.\n\nUse it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.\n\nAttach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "설득력이 부족하니 반응이 냉담해지려니 싶었어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         },
@@ -140,7 +142,7 @@
           "answer": "많으려니",
           "hint": "Base form: 많다",
           "explanation": "~(으)려니 expresses an assumption or expectation that the speaker accepts, often with a resigned or matter-of-fact tone.\n\nUse it when assuming a situation will be a certain way, sometimes as a basis for waiting or accepting what follows.\n\nAttach ~려니 after a vowel or ㄹ stem and ~으려니 after another consonant, then use 생각하다 or the surrounding construction shown by HTSK.",
-          "answer_form": "Formal/literary plain form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "전시 상황이라서 군사 활동이 많으려니 생각했어요",
           "source_url": "https://www.howtostudykorean.com/unit-9/lessons-201-208/lesson-202/"
         }
@@ -170,7 +172,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 202 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 9",
+      "topic": "~(으)려니: Settled Assumption"
     },
     {
       "unit": 9,
@@ -188,7 +192,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Advanced formal assumption"
     },
     {
       "unit": 9,
@@ -206,7 +212,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Advanced condition and concession"
     },
     {
       "unit": 9,
@@ -224,7 +232,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Formal purpose with ~고자"
     },
     {
       "unit": 9,
@@ -242,7 +252,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Unexpected contrast (advanced)"
     },
     {
       "unit": 9,
@@ -260,7 +272,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Contrasting situations"
     },
     {
       "unit": 9,
@@ -278,7 +292,9 @@
       "how_to_build": "",
       "examples": [],
       "examples_source": "",
-      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples."
+      "source_note": "The official HTSK Unit 9 index currently lists published content for Lessons 201–202 only. This lesson has no published HTSK content yet, so the app does not invent a guide or examples.",
+      "level": "HTSK Unit 9",
+      "topic": "Even / as far as with ~마저"
     }
   ]
 }

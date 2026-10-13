@@ -423,6 +423,7 @@ st.markdown("""
     .review-question-paper {padding:13px 0 12px; margin:2px 0 10px; border:0; border-radius:0; background:transparent; box-shadow:none; text-align:center;}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
     .review-question-paper .review-translation {margin-top:8px; color:#654b78; font-family:"Aptos","Segoe UI",sans-serif; font-size:clamp(.98rem,2.2vw,1.08rem); font-weight:500; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
+    .grammar-target, .vocab-target {color:#d66ea8; font-weight:800;}
     .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
     .inline-answer-slot {display:inline-block; vertical-align:baseline; width:1.25em; min-width:1.25em; min-height:1.15em; text-align:left; white-space:pre;}
     .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
@@ -2754,6 +2755,27 @@ def start_review_session():
         st.session_state.pop(key, None)
 
 
+
+
+def meaningful_base_form_hint(card):
+    """Show lexical verb as well as the auxiliary in -지 않다 negatives."""
+    original = str(card.get("hint") or "").strip()
+    answer = str(card.get("answer") or card.get("answer_form") or "").strip()
+    prompt = str(card.get("prompt") or "")
+    full = prompt.replace("___", answer, 1)
+    if not re.search(r"(?:지\s*않|지\s*못)", full) and not re.search(r"(?:지\s*않|지\s*못)", answer):
+        return "Base form unavailable" if re.search(r"(?:않다|못하다)", original) else original
+    # A lexical stem immediately preceding -지 is the reliable surface cue.
+    matches = re.findall(r"([가-힣]+)지\s*(않|못)(?:[가-힣]*)", full)
+    if not matches:
+        return "Base form unavailable" if re.search(r"(?:않다|못하다)", original) else original
+    stem, auxiliary = matches[-1]
+    if not stem or stem in {"않", "못"}:
+        return "Base form unavailable"
+    lemma = stem + "다"
+    construction = stem + "지 " + auxiliary + "다"
+    return f"Base form: {lemma}"
+
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     nonce = st.session_state.get("review_nonce", 0)
@@ -2772,7 +2794,7 @@ def render_card(card):
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
-        st.write(card["hint"])
+        st.write(meaningful_base_form_hint(card))
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
     with st.form(key=form_key, clear_on_submit=False):

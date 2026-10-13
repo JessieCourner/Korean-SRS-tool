@@ -17,7 +17,7 @@
           "explanation": "Use the present modifier to describe the noun by what someone wants.",
           "source_sentence": "내가 가장 원하는 것은 차야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 친구가 사과를 ___ 원해요",
@@ -27,7 +27,7 @@
           "explanation": "Use the present modifier before 것 for an action in progress or viewed generally.",
           "source_sentence": "저는 친구가 사과를 가져오는 것을 원해요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나의 꿈은 선생님이 ___",
@@ -37,7 +37,7 @@
           "explanation": "Use the modifier form before a noun-like expression.",
           "source_sentence": "나의 꿈은 선생님이 되는 것이다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "저는 영화를 ___ 좋아해요",
@@ -47,7 +47,7 @@
           "explanation": "Use the present modifier when the action is treated as a thing.",
           "source_sentence": "저는 영화를 보는 것을 좋아해요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 ___ 음식",
@@ -57,7 +57,7 @@
           "explanation": "Use the past modifier when the action happened before the noun reference.",
           "source_sentence": "제가 먹은 음식",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -85,7 +85,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 26 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "Describing nouns with verbs"
     },
     {
       "unit": 2,
@@ -103,7 +105,7 @@
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
           "source_sentence": "그 컴퓨터는 작년에 썼던 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "우리가 지난 번에 ___ 곳에서 먹고 싶어요",
@@ -113,7 +115,7 @@
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
           "source_sentence": "우리가 지난 번에 먹었던 곳에서 먹고 싶어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "한때 ___ 시험을 다시 공부했어요",
@@ -123,7 +125,7 @@
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
           "source_sentence": "한때 포기했던 시험을 다시 공부했어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "대통령이 여기에 ___ 시민들에게 돈을 줬어요",
@@ -133,7 +135,7 @@
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
           "source_sentence": "대통령이 여기에 살았던 시민들에게 돈을 줬어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "우리가 지난 주에 ___ 내용을 다시 공부할 거예요",
@@ -143,7 +145,7 @@
           "explanation": "Use the remembered-past form that matches whether the event was ongoing/repeated or completed.",
           "source_sentence": "우리가 지난 주에 배웠던 내용을 다시 공부할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-27/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -171,7 +173,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 27 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "Lesson 27: Using ~던/었던 to Describe Past Tense"
     },
     {
       "unit": 2,
@@ -189,7 +193,7 @@
           "explanation": "Apply the irregular present modifier before the noun.",
           "source_sentence": "그 집을 지은 사람은 누구예요?",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 집을 ___",
@@ -199,7 +203,7 @@
           "explanation": "Use the future modifier for an intended or expected action.",
           "source_sentence": "저는 집을 지을 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "그 사람은 서울에서 부산까지 ___ 첫 번째 사람이었다",
@@ -209,7 +213,7 @@
           "explanation": "Use the irregular modifier that fits the completed action.",
           "source_sentence": "그 사람은 서울에서 부산까지 걸은 첫 번째 사람이었다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "제가 ___ 게 있나요?",
@@ -219,7 +223,7 @@
           "explanation": "Use the future/possible modifier before the noun-like 게.",
           "source_sentence": "제가 도울 게 있나요?",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "저는 친구가 문을 ___ 봤어요",
@@ -229,7 +233,7 @@
           "explanation": "Use the noun-like expression for an action that was observed.",
           "source_sentence": "저는 친구가 문을 여는 것을 봤어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-28/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -257,7 +261,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 28 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "More uses of ~는 것"
     },
     {
       "unit": 2,
@@ -273,7 +279,7 @@
           "answer": "변하기",
           "hint": "Base form: 변하다",
           "explanation": "Nominalize the verb or adjective in the form that fits the following predicate and register.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "쌀을 물에 넣은 후에 쌀의 색깔이 변하기 시작했어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/"
         },
@@ -283,7 +289,7 @@
           "answer": "먹기",
           "hint": "Base form: 먹다",
           "explanation": "Nominalize the verb or adjective in the form that fits the following predicate and register.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "밥을 먹기 싫어",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/"
         },
@@ -293,7 +299,7 @@
           "answer": "씻기",
           "hint": "Base form: 씻다",
           "explanation": "Nominalize the verb or adjective in the form that fits the following predicate and register.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "쌀을 씻기 싫어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/"
         },
@@ -303,7 +309,7 @@
           "answer": "달리기를",
           "hint": "Base form: 달리다",
           "explanation": "Nominalize the verb or adjective in the form that fits the following predicate and register.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 달리기를 할 거예요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/"
         },
@@ -313,7 +319,7 @@
           "answer": "줄넘기를",
           "hint": "Base form: 줄넘기",
           "explanation": "Nominalize the verb or adjective in the form that fits the following predicate and register.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "저는 줄넘기를 못해요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-29/"
         }
@@ -343,7 +349,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 29 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "Nominalizing with ~기 and ~ㅁ/음"
     },
     {
       "unit": 2,
@@ -361,7 +369,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "저는 친구가 어디 가는지 몰라요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "내일 공원에 ___ 영화를 볼지 모르겠어요",
@@ -371,7 +379,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "내일 공원에 갈지 영화를 볼지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "엄마가 누구랑 ___ 모르겠어요",
@@ -381,7 +389,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "엄마가 누구랑 먹는지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "엄마가 ___ 모르겠어요",
@@ -391,7 +399,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "엄마가 뭐 먹는지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "엄마가 ___ 모르겠어요",
@@ -401,7 +409,7 @@
           "explanation": "Use ~는지, ~(으)ㄴ지, and ~(으)ㄹ지 to express uncertainty. You will also see these forms used with 얼마나 and for actions continuing over a period of time.",
           "source_sentence": "엄마가 어디서 먹는지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-30/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         }
       ],
       "source_status": "published",
@@ -429,7 +437,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 30 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "Expressing uncertainty and duration"
     },
     {
       "unit": 2,
@@ -445,7 +455,7 @@
           "answer": "불법인",
           "hint": "Base form: 불법",
           "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "슬기는 불법인 일을 하고 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/"
         },
@@ -455,7 +465,7 @@
           "answer": "배우인",
           "hint": "Base form: 배우",
           "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "Titanic 배우인 Leonardo Dicaprio는 잘생겼어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/"
         },
@@ -465,7 +475,7 @@
           "answer": "선생님인지",
           "hint": "Base form: 선생님",
           "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그 사람이 선생님인지 아닌지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/"
         },
@@ -475,7 +485,7 @@
           "answer": "동갑인지",
           "hint": "Base form: 동갑",
           "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "우리가 동갑인지 몰랐어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/"
         },
@@ -485,7 +495,7 @@
           "answer": "어디인지",
           "hint": "Base form: 어디",
           "explanation": "Apply the ~는 것 principle to 이다 and use the contraction ~는 거예요 in natural spoken Korean.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "비상출구가 어디인지 모르겠어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-31/"
         }
@@ -511,7 +521,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 31 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "~는 것 with 이다"
     },
     {
       "unit": 2,
@@ -529,7 +541,7 @@
           "explanation": "Use ~(으)러 with a movement verb to express purpose.",
           "source_sentence": "공연을 보러 행사에 가고 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나는 밥을 ___ 노력했다",
@@ -539,7 +551,7 @@
           "explanation": "Use ~려고 to state the purpose or intention of the action.",
           "source_sentence": "나는 밥을 먹으려고 노력했다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나는 밥을 ___",
@@ -549,7 +561,7 @@
           "explanation": "Use ~아/어 보다 for trying an action or having the experience.",
           "source_sentence": "나는 밥을 먹어 봤다",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "그 친구를 매 주말 ___ 노력해요",
@@ -559,7 +571,7 @@
           "explanation": "Use ~려고 before a verb of effort or intention.",
           "source_sentence": "그 친구를 매 주말 만나려고 노력해요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "한국어를 ___ 노력하고 있어요",
@@ -569,7 +581,7 @@
           "explanation": "Use ~려고 to show the goal of the effort.",
           "source_sentence": "한국어를 배우려고 노력하고 있어요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -597,7 +609,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 32 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "Purpose and trying"
     },
     {
       "unit": 2,
@@ -615,7 +629,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 먹는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "나는 ___",
@@ -625,7 +639,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "나는 공부하는 중이야",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Informal/plain conversational form"
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         },
         {
           "prompt": "우리는 그 감정적인 장면을 ___",
@@ -635,7 +649,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "우리는 그 감정적인 장면을 촬영하는 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "저는 ___",
@@ -645,7 +659,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "저는 생각 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "그 상가가 지금 ___",
@@ -655,7 +669,7 @@
           "explanation": "Learn two common uses of 중: after a verb with ~는 것 to mean ‘in the middle of doing’, and after a group of nouns to mean ‘among’.",
           "source_sentence": "그 상가가 지금 공사 중이에요",
           "source_url": "https://www.howtostudykorean.com/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-33/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         }
       ],
       "source_status": "published",
@@ -683,7 +697,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 33 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 2",
+      "topic": "The noun 중"
     }
   ]
 }

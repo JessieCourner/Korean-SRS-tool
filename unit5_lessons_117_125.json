@@ -14,7 +14,7 @@
           "answer": "들었던가",
           "hint": "Base form: 듣다",
           "explanation": "~던가 is used to recall, question or check a past experience or memory.\n\nUse it when the speaker is trying to remember whether or how something happened, often in a conversational question.\n\nAttach the appropriate past or descriptive form before ~던가 and follow the tense and speech-level examples from HTSK.",
-          "answer_form": "Informal/plain conversational recall question",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그 강좌를 들었던가?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
@@ -24,7 +24,7 @@
           "answer": "했던가",
           "hint": "Base form: 하다",
           "explanation": "~던가 is used to recall, question or check a past experience or memory.\n\nUse it when the speaker is trying to remember whether or how something happened, often in a conversational question.\n\nAttach the appropriate past or descriptive form before ~던가 and follow the tense and speech-level examples from HTSK.",
-          "answer_form": "Informal/plain conversational recall question",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "어제 설거지를 했던가?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
@@ -34,7 +34,7 @@
           "answer": "가져왔던가",
           "hint": "Base form: 가져오다",
           "explanation": "~던가 is used to recall, question or check a past experience or memory.\n\nUse it when the speaker is trying to remember whether or how something happened, often in a conversational question.\n\nAttach the appropriate past or descriptive form before ~던가 and follow the tense and speech-level examples from HTSK.",
-          "answer_form": "Informal/plain conversational recall question",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그날에 학생증을 가져왔던가?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
@@ -44,7 +44,7 @@
           "answer": "반납했던가",
           "hint": "Base form: 반납하다",
           "explanation": "~던가 is used to recall, question or check a past experience or memory.\n\nUse it when the speaker is trying to remember whether or how something happened, often in a conversational question.\n\nAttach the appropriate past or descriptive form before ~던가 and follow the tense and speech-level examples from HTSK.",
-          "answer_form": "Informal/plain conversational recall question",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "내가 책을 도서관에 반납했던가?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         },
@@ -54,7 +54,7 @@
           "answer": "읽었던가",
           "hint": "Base form: 읽다",
           "explanation": "~던가 is used to recall, question or check a past experience or memory.\n\nUse it when the speaker is trying to remember whether or how something happened, often in a conversational question.\n\nAttach the appropriate past or descriptive form before ~던가 and follow the tense and speech-level examples from HTSK.",
-          "answer_form": "Informal/plain conversational recall question",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "내가 이 책을 언제 읽었던가?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-117/"
         }
@@ -84,7 +84,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 117 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Recalling experience with ~던가"
     },
     {
       "unit": 5,
@@ -100,7 +102,7 @@
           "answer": "오더라",
           "hint": "Base form: 오다",
           "explanation": "~더라 reports a fact or situation that the speaker personally experienced, noticed or discovered.\n\nUse it when telling someone about an observed or experienced fact, often with a feeling of realization.\n\nAttach ~더라 to the relevant predicate using the forms in HTSK; the ending itself carries the speaker's firsthand perspective.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "어제 비가 오더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -110,7 +112,7 @@
           "answer": "왔더라",
           "hint": "Base form: 오다",
           "explanation": "~더라 reports a fact or situation that the speaker personally experienced, noticed or discovered.\n\nUse it when telling someone about an observed or experienced fact, often with a feeling of realization.\n\nAttach ~더라 to the relevant predicate using the forms in HTSK; the ending itself carries the speaker's firsthand perspective.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "어제 비가 왔더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -120,7 +122,7 @@
           "answer": "비싸더라",
           "hint": "Base form: 비싸다",
           "explanation": "~더라 reports a fact or situation that the speaker personally experienced, noticed or discovered.\n\nUse it when telling someone about an observed or experienced fact, often with a feeling of realization.\n\nAttach ~더라 to the relevant predicate using the forms in HTSK; the ending itself carries the speaker's firsthand perspective.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그 병원에서 진료를 받으면 다른 데보다 비싸더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -130,7 +132,7 @@
           "answer": "가득하더라",
           "hint": "Base form: 가득하다",
           "explanation": "~더라 reports a fact or situation that the speaker personally experienced, noticed or discovered.\n\nUse it when telling someone about an observed or experienced fact, often with a feeling of realization.\n\nAttach ~더라 to the relevant predicate using the forms in HTSK; the ending itself carries the speaker's firsthand perspective.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그 선생님이 수업을 할 때 열정이 가득하더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         },
@@ -140,7 +142,7 @@
           "answer": "있더라",
           "hint": "Base form: 있다",
           "explanation": "~더라 reports a fact or situation that the speaker personally experienced, noticed or discovered.\n\nUse it when telling someone about an observed or experienced fact, often with a feeling of realization.\n\nAttach ~더라 to the relevant predicate using the forms in HTSK; the ending itself carries the speaker's firsthand perspective.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그 차고에 여러 가지 물건이 가득 쌓여 있더라",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-118/"
         }
@@ -170,7 +172,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 118 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Stating an experienced fact with ~더라"
     },
     {
       "unit": 5,
@@ -186,7 +190,7 @@
           "answer": "썼더니",
           "hint": "Base form: 쓰다",
           "explanation": "~더니 links a past observation with a later change, result or contrast.\n\nUse it when the speaker observed one situation and then saw what happened afterward, especially an unexpected result.\n\nAttach ~더니 to the first clause and conjugate the following clause normally; follow the subject and tense restrictions described by HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "논술문제를 열심히 썼더니 손이 아파요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
@@ -196,7 +200,7 @@
           "answer": "받았더니",
           "hint": "Base form: 받다",
           "explanation": "~더니 links a past observation with a later change, result or contrast.\n\nUse it when the speaker observed one situation and then saw what happened afterward, especially an unexpected result.\n\nAttach ~더니 to the first clause and conjugate the following clause normally; follow the subject and tense restrictions described by HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "몸이 아파서 마사지를 받았더니 몸이 더 이상 아프지 않았어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
@@ -206,7 +210,7 @@
           "answer": "들어갔더니",
           "hint": "Base form: 들어가다",
           "explanation": "~더니 links a past observation with a later change, result or contrast.\n\nUse it when the speaker observed one situation and then saw what happened afterward, especially an unexpected result.\n\nAttach ~더니 to the first clause and conjugate the following clause normally; follow the subject and tense restrictions described by HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "따뜻한 물에 들어갔더니 잠이 오기 시작했어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
@@ -216,7 +220,7 @@
           "answer": "생각했더니",
           "hint": "Base form: 생각하다",
           "explanation": "~더니 links a past observation with a later change, result or contrast.\n\nUse it when the speaker observed one situation and then saw what happened afterward, especially an unexpected result.\n\nAttach ~더니 to the first clause and conjugate the following clause normally; follow the subject and tense restrictions described by HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "제가 곰곰이 생각했더니 정답이 생각 났어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         },
@@ -226,7 +230,7 @@
           "answer": "걸었더니",
           "hint": "Base form: 걷다",
           "explanation": "~더니 links a past observation with a later change, result or contrast.\n\nUse it when the speaker observed one situation and then saw what happened afterward, especially an unexpected result.\n\nAttach ~더니 to the first clause and conjugate the following clause normally; follow the subject and tense restrictions described by HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "하루 종일 걸었더니 너무 피곤해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-119/"
         }
@@ -252,7 +256,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 119 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Change or result with ~더니"
     },
     {
       "unit": 5,
@@ -268,7 +274,7 @@
           "answer": "오시다니",
           "hint": "Base form: 오다",
           "explanation": "~다니 is a quoted or exclaimed form used to react with surprise, disbelief or strong feeling toward information.\n\nUse it when the speaker is reacting to what was said or what has happened, often with an emotional tone.\n\nForm the relevant quotation before 니: verb, adjective, noun and past forms use the contractions explained in HTSK.",
-          "answer_form": "Honorific form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "너의 아버지도 오시다니 기뻐",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
@@ -278,7 +284,7 @@
           "answer": "이혼하시다니",
           "hint": "Base form: 이혼하다",
           "explanation": "~다니 is a quoted or exclaimed form used to react with surprise, disbelief or strong feeling toward information.\n\nUse it when the speaker is reacting to what was said or what has happened, often with an emotional tone.\n\nForm the relevant quotation before 니: verb, adjective, noun and past forms use the contractions explained in HTSK.",
-          "answer_form": "Honorific form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "너의 부모님이 이혼하시다니 안됐다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
@@ -288,7 +294,7 @@
           "answer": "가다니",
           "hint": "Base form: 가다",
           "explanation": "~다니 is a quoted or exclaimed form used to react with surprise, disbelief or strong feeling toward information.\n\nUse it when the speaker is reacting to what was said or what has happened, often with an emotional tone.\n\nForm the relevant quotation before 니: verb, adjective, noun and past forms use the contractions explained in HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "슬기가 대학원에 가다니 믿을 수 없어",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
@@ -298,7 +304,7 @@
           "answer": "있다니",
           "hint": "Base form: 있다",
           "explanation": "~다니 is a quoted or exclaimed form used to react with surprise, disbelief or strong feeling toward information.\n\nUse it when the speaker is reacting to what was said or what has happened, often with an emotional tone.\n\nForm the relevant quotation before 니: verb, adjective, noun and past forms use the contractions explained in HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "해양 생물이 점점 사라지고 있다니 믿을 수가 없다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         },
@@ -308,7 +314,7 @@
           "answer": "하다니",
           "hint": "Base form: 하다",
           "explanation": "~다니 is a quoted or exclaimed form used to react with surprise, disbelief or strong feeling toward information.\n\nUse it when the speaker is reacting to what was said or what has happened, often with an emotional tone.\n\nForm the relevant quotation before 니: verb, adjective, noun and past forms use the contractions explained in HTSK.",
-          "answer_form": "",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "부모님의 허락도 없이 쌍꺼풀 수술을 하다니 정말 실망이다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-120/"
         }
@@ -338,7 +344,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 120 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Surprise with ~다니"
     },
     {
       "unit": 5,
@@ -354,7 +362,7 @@
           "answer": "만나다 보면",
           "hint": "Base form: 만나다",
           "explanation": "~다 보면 means if one continues doing something or as time passes while doing it, a result may occur.\n\nUse it for a result that emerges naturally through repeated or continued experience.\n\nAttach the appropriate quoted/plain form + 보면 to the first clause and conjugate the result clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "뒷담화하는 친구를 계속 만나다 보면 다른 친구랑 만났을 때도 제 이야기를 할 것 같아서 걱정돼요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
@@ -364,7 +372,7 @@
           "answer": "크다 보면",
           "hint": "Base form: 크다",
           "explanation": "~다 보면 means if one continues doing something or as time passes while doing it, a result may occur.\n\nUse it for a result that emerges naturally through repeated or continued experience.\n\nAttach the appropriate quoted/plain form + 보면 to the first clause and conjugate the result clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "지혜로운 부모님 밑에서 크다 보면 아이들도 저절로 지혜로워져요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
@@ -374,7 +382,7 @@
           "answer": "하다 보면",
           "hint": "Base form: 하다",
           "explanation": "~다 보면 means if one continues doing something or as time passes while doing it, a result may occur.\n\nUse it for a result that emerges naturally through repeated or continued experience.\n\nAttach the appropriate quoted/plain form + 보면 to the first clause and conjugate the result clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "쓸데없이 차도를 다시 만드는 공사를 매년 하다 보면 시민들이 항의해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
@@ -384,7 +392,7 @@
           "answer": "살다 보면",
           "hint": "Base form: 살다",
           "explanation": "~다 보면 means if one continues doing something or as time passes while doing it, a result may occur.\n\nUse it for a result that emerges naturally through repeated or continued experience.\n\nAttach the appropriate quoted/plain form + 보면 to the first clause and conjugate the result clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "혼자서 살다 보면 부모님을 보고 싶은 것은 당연한 게 아니에요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         },
@@ -394,7 +402,7 @@
           "answer": "외우다 보면",
           "hint": "Base form: 외우다",
           "explanation": "~다 보면 means if one continues doing something or as time passes while doing it, a result may occur.\n\nUse it for a result that emerges naturally through repeated or continued experience.\n\nAttach the appropriate quoted/plain form + 보면 to the first clause and conjugate the result clause normally.",
-          "answer_form": "",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
           "source_sentence": "새로운 단어를 계속 외우다 보면 점점 헷갈려요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-121/"
         }
@@ -424,7 +432,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 121 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "As time passes with ~다 보면"
     },
     {
       "unit": 5,
@@ -442,7 +452,7 @@
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "제가 공부하다 보니 12시가 되었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "___ 팔이 아팠어요",
@@ -452,7 +462,7 @@
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "운동하다 보니까 팔이 아팠어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "화분을 ___ 누런 싹이 싹튼 식물이 몇 개 보였어요",
@@ -462,7 +472,7 @@
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "화분을 청소하다 보니 누런 싹이 싹튼 식물이 몇 개 보였어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "그리스라는 나라를 ___ 로마 제국까지 공부해야 한다는 것을 느꼈어요",
@@ -472,7 +482,7 @@
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "그리스라는 나라를 공부하다 보니 로마 제국까지 공부해야 한다는 것을 느꼈어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "셋째를 ___ 우리 아이 모두를 평등하게 돌보지 않을 뿐만 아니라 큰애에 매우 소홀하다는 것을 깨달았어요",
@@ -482,7 +492,7 @@
           "explanation": "~다 보니 means that after doing something or as a result of continuing, the speaker discovered an often unexpected result.\n\nUse it when the result becomes apparent through experience rather than being planned in advance.\n\nAttach the relevant verb form before 보니, following the contraction and tense patterns shown by HTSK.",
           "source_sentence": "셋째를 돌보다 보니 우리 아이 모두를 평등하게 돌보지 않을 뿐만 아니라 큰애에 매우 소홀하다는 것을 깨달았어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-122/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         }
       ],
       "source_status": "published",
@@ -510,7 +520,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 122 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Unexpected result with ~다 보니"
     },
     {
       "unit": 5,
@@ -528,7 +540,7 @@
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "에너지를 발산하려고 운동을 해 보니까 삶의 원동력이 생겼어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "유가의 가격을 강제적으로 ___ 시장에 문제가 생겼어요",
@@ -538,7 +550,7 @@
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "유가의 가격을 강제적으로 낮춰 보니까 시장에 문제가 생겼어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "양심적으로 장사를 ___ 자연스럽게 손님이 늘었어요",
@@ -548,7 +560,7 @@
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "양심적으로 장사를 해 보니까 자연스럽게 손님이 늘었어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "연애를 한번 ___ 남자들을 더 잘 이해하게 되었다",
@@ -558,7 +570,7 @@
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "연애를 한번 해 보니까 남자들을 더 잘 이해하게 되었다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "공연을 진행할 때 더 활발하게 ___ 사람들이 더 환호했어요",
@@ -568,7 +580,7 @@
           "explanation": "~아/어 보니까 means after trying or experiencing something, I found or realized that.\n\nUse it when direct experience leads to a discovery or changed understanding.\n\nAttach ~아/어 보니까 to the verb stem with the normal vowel rule; the following clause states what was discovered.",
           "source_sentence": "공연을 진행할 때 더 활발하게 행진해 보니까 사람들이 더 환호했어요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-123/",
-          "answer_form": ""
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         }
       ],
       "source_status": "published",
@@ -596,7 +608,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 123 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "After trying with ~아/어 보니까"
     },
     {
       "unit": 5,
@@ -614,7 +628,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "그것은 할 만하다",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": "Formal/written plain form"
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
         },
         {
           "prompt": "그 선생님은 상을 ___",
@@ -624,7 +638,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "그 선생님은 상을 받을 만해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "그 의사는 많은 사람의 목숨을 살려서 칭찬을 ___",
@@ -634,7 +648,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "그 의사는 많은 사람의 목숨을 살려서 칭찬을 많이 받을 만해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "우리 할아버지는 한국전쟁에서 싸우셨으므로 ___",
@@ -644,7 +658,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "우리 할아버지는 한국전쟁에서 싸우셨으므로 존경을 받을 만해요",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": "Polite conversational form"
+          "answer_form": "Informal polite form (해요체)"
         },
         {
           "prompt": "___ 식당을 알아요?",
@@ -654,7 +668,7 @@
           "explanation": "~ㄹ/을 만하다 means worth doing or sufficiently possible, and 가치가 있다 expresses that something has value.\n\nUse it to evaluate whether an action or experience is worth the time, effort or risk.\n\nAttach ~ㄹ 만하다 after a vowel or ㄹ stem and ~을 만하다 after another consonant; use 가치가 있다 in the noun construction from HTSK.",
           "source_sentence": "먹을 만한 식당을 알아요?",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-124/",
-          "answer_form": ""
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
         }
       ],
       "source_status": "published",
@@ -682,7 +696,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 124 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Worth doing with ~ㄹ/을 만하다"
     },
     {
       "unit": 5,
@@ -698,7 +714,7 @@
           "answer": "된다니까",
           "hint": "Base form: 되다",
           "explanation": "~ㄴ/는다니까 is a contracted quoted form used to insist that the speaker has already said something, often with frustration or emphasis.\n\nUse it in a response when repeating information that the listener should already know; HTSK warns that it can sound rude or sassy.\n\nStart from the plain quoted form + 고 하니까 and contract it: present verbs, past, future, adjectives, nouns and commands have the separate forms shown by HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "출근해야 된다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -708,7 +724,7 @@
           "answer": "익었다니까",
           "hint": "Base form: 익다",
           "explanation": "~ㄴ/는다니까 is a contracted quoted form used to insist that the speaker has already said something, often with frustration or emphasis.\n\nUse it in a response when repeating information that the listener should already know; HTSK warns that it can sound rude or sassy.\n\nStart from the plain quoted form + 고 하니까 and contract it: present verbs, past, future, adjectives, nouns and commands have the separate forms shown by HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "아직 안 익었다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -718,7 +734,7 @@
           "answer": "줬다니까",
           "hint": "Base form: 주다",
           "explanation": "~ㄴ/는다니까 is a contracted quoted form used to insist that the speaker has already said something, often with frustration or emphasis.\n\nUse it in a response when repeating information that the listener should already know; HTSK warns that it can sound rude or sassy.\n\nStart from the plain quoted form + 고 하니까 and contract it: present verbs, past, future, adjectives, nouns and commands have the separate forms shown by HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "거스름돈을 안 줬다니까!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -728,7 +744,7 @@
           "answer": "끝났다니까",
           "hint": "Base form: 끝나다",
           "explanation": "~ㄴ/는다니까 is a contracted quoted form used to insist that the speaker has already said something, often with frustration or emphasis.\n\nUse it in a response when repeating information that the listener should already know; HTSK warns that it can sound rude or sassy.\n\nStart from the plain quoted form + 고 하니까 and contract it: present verbs, past, future, adjectives, nouns and commands have the separate forms shown by HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "경기가 동점으로 끝났다니까! 우리가 이기지 못해서 기분이 별로야",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         },
@@ -738,7 +754,7 @@
           "answer": "날 거라니까",
           "hint": "Base form: 나다",
           "explanation": "~ㄴ/는다니까 is a contracted quoted form used to insist that the speaker has already said something, often with frustration or emphasis.\n\nUse it in a response when repeating information that the listener should already know; HTSK warns that it can sound rude or sassy.\n\nStart from the plain quoted form + 고 하니까 and contract it: present verbs, past, future, adjectives, nouns and commands have the separate forms shown by HTSK.",
-          "answer_form": "Informal/plain conversational form",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
           "source_sentence": "그렇게 하면 화재가 날 거라니까! 이제 그만해!",
           "source_url": "https://www.howtostudykorean.com/unit-5/unit-5-lessons-117-125/lesson-125-i-said-that/"
         }
@@ -768,7 +784,9 @@
         ]
       ],
       "examples_source": "HTSK Lesson 125 page",
-      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards."
+      "source_note": "The guide is a concise paraphrase of the official HTSK lesson; the examples are separate sentences taken from that lesson page, not from the SRS cards.",
+      "level": "HTSK Unit 5",
+      "topic": "Insisting with ~ㄴ/는다니까"
     }
   ]
 }
