@@ -186,19 +186,29 @@ def install_v2(namespace):
         row = v2_one("SELECT mastered FROM manual_mastery WHERE item_kind=? AND item_id=?", (kind, str(item_id)))
         return bool(row and row["mastered"])
 
-    @st.fragment
-    def mastery_button_fragment(kind, item_id, widget_key, legacy_id=None):
-        """Rerender only one button; keep the parent word list mounted."""
+    def _mastery_click(kind, item_id, legacy_id=None):
+        """Persist the clicked value before the fragment renders again."""
         current = is_mastered(kind, item_id)
         if legacy_id and is_mastered(kind, legacy_id):
             current = True
-        if st.button("Undo mastered" if current else "Mark mastered",
-                     key=widget_key, use_container_width=True):
-            # A fragment click does not rerun the surrounding pack/list UI.
-            set_mastery(kind, item_id, not current)
-            if legacy_id and is_mastered(kind, legacy_id):
-                set_mastery(kind, legacy_id, False)
-            st.rerun(scope="fragment")
+        set_mastery(kind, item_id, not current)
+        if legacy_id and is_mastered(kind, legacy_id):
+            set_mastery(kind, legacy_id, False)
+        # Display the committed result even if a read replica/cache is delayed.
+        st.session_state[f"_mastery_value:{kind}:{item_id}"] = not current
+
+    @st.fragment
+    def mastery_button_fragment(kind, item_id, widget_key, legacy_id=None):
+        """Only rerender this button; do not rerun the parent word list."""
+        current = is_mastered(kind, item_id)
+        if legacy_id and is_mastered(kind, legacy_id):
+            current = True
+        state_key = f"_mastery_value:{kind}:{item_id}"
+        if state_key in st.session_state:
+            current = st.session_state[state_key]
+        st.button("Undo mastered" if current else "Mark mastered",
+                  key=widget_key, use_container_width=True,
+                  on_click=_mastery_click, args=(kind, item_id, legacy_id))
 
     def render_room_theme():
         chosen = namespace["setting"]("active_design", "design_lavender")
