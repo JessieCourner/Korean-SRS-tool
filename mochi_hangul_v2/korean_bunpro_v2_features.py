@@ -440,40 +440,68 @@ def install_v2(namespace):
         songs = json.loads(library_file.read_text(encoding="utf-8"))
         st.subheader("Song lyrics & vocabulary")
         st.caption("39 songs with line-by-line English translations. Select a word to inspect it and add two cards to the shared review.")
+        requested_song = st.query_params.get("music_song")
+        requested_word = st.query_params.get("music_word")
+        if requested_song is not None and requested_word is not None:
+            try:
+                st.session_state["music_selected_word"] = (str(requested_song), int(requested_word))
+                requested_artist = next((x["artist"] for x in songs if x["id"] == requested_song), None)
+                if requested_artist and st.session_state.get("song_artist_filter") not in ("All artists", requested_artist):
+                    st.session_state["song_artist_filter"] = requested_artist
+            except (ValueError, TypeError):
+                st.session_state["music_selected_word"] = None
+        else:
+            st.session_state["music_selected_word"] = None
         artist = st.selectbox("Artist", ["All artists"] + sorted({x["artist"] for x in songs}), key="song_artist_filter")
         visible_songs = [x for x in songs if artist == "All artists" or x["artist"] == artist]
         chosen = st.selectbox("Song", range(len(visible_songs)),
             format_func=lambda i: visible_songs[i]["artist"] + " · " + visible_songs[i]["title"],
             key="music_song_choice")
+        if requested_song and any(x["id"] == requested_song for x in visible_songs):
+            chosen = next(i for i,x in enumerate(visible_songs) if x["id"] == requested_song)
         for song in [visible_songs[chosen]]:
             with st.container(border=True):
                 if not song["words"]:
                     st.info("This song needs additional manual vocabulary curation.")
-                st.markdown("**Suggested vocabulary — click any word to inspect and enroll:**")
-                cols = st.columns(2)
-                for wi,word in enumerate(song["words"]):
-                    with cols[wi%2]:
-                        with st.popover(word["lemma"] + " · " + word["gloss"]):
-                            st.markdown(f"**{word['lemma']}** — {word['gloss']} ({word['pos']})")
-                            st.write("Independent example:",word["example"])
-                            st.caption(word["example_en"])
-                            if st.button("Add to study · 2 cards",key=f"enroll_{song['id']}_{wi}"):
-                                add_song_word(song,word)
-                                st.success("Added to the shared Vocabulary Review (or already enrolled).")
-                st.markdown("**Lyrics (original text)**")
-                # Text supplied by the user; remove duplicate sections only from vocabulary selection,
-                # not from the lyric display itself.
-                for li,line in enumerate(song["lines"]):
-                    matches=[w for w in song["words"] if w["line"]==li]
-                    st.markdown("**" + escape(line["ko"]) + "**")
+                st.markdown("**Lyrics · select a highlighted word to see its meaning and add it to study**")
+                # No separate dark vocabulary buttons: vocabulary is linked in the lyrics.
+                selected_word = st.session_state.get("music_selected_word")
+                for li, line in enumerate(song["lines"]):
+                    matches = [(wi, w) for wi, w in enumerate(song["words"]) if w["line"] == li]
+                    if matches:
+                        # Build an inline text run with actual clickable words using HTML anchors.
+                        # Query params preserve the song and identify the selected word.
+                        from urllib.parse import quote
+                        from html import escape as html_escape
+                        raw = line["ko"]
+                        hits = []
+                        for wi, w in matches:
+                            token = w.get("surface", "")
+                            pos = raw.find(token)
+                            if token and pos >= 0:
+                                hits.append((pos, pos + len(token), wi, w))
+                        hits.sort(key=lambda x: (x[0], -(x[1]-x[0])))
+                        chunks = []; last = 0
+                        for start, end, wi, w in hits:
+                            if start < last: continue
+                            chunks.append(html_escape(raw[last:start]))
+                            link = "?music_song=" + quote(song["id"],safe="") + "&music_word=" + str(wi)
+                            chunks.append('<a class="mochi-lyric-link" href="' + html_escape(link,quote=True) + '" title="' + html_escape(w["gloss"],quote=True) + '">' + html_escape(raw[start:end]) + '</a>')
+                            last = end
+                        chunks.append(html_escape(raw[last:]))
+                        st.markdown('<div class="mochi-lyric-line">' + ''.join(chunks) + '</div>', unsafe_allow_html=True)
+                    else:
+                        st.markdown('<div class="mochi-lyric-line">' + html_escape(line["ko"]) + '</div>', unsafe_allow_html=True)
                     st.caption(line.get("en") or "Translation unavailable")
-                    for wi, w in enumerate(matches):
-                        with st.popover(w["surface"] + " · " + w["gloss"]):
-                            st.write(w["lemma"], "—", w["gloss"])
-                            st.caption(w["example"] + " — " + w["example_en"])
-                            if st.button("Add to study · 2 cards", key=f"lyric_enroll_{song['id']}_{li}_{wi}"):
-                                add_song_word(song,w)
-                                st.success("Added to shared Vocabulary Review.")
+                    for wi, w in matches:
+                        if selected_word == (song["id"], wi):
+                            with st.container(border=True):
+                                st.markdown(f"**{w['lemma']}** — {w['gloss']} ({w['pos']})")
+                                st.write("Independent example:", w["example"])
+                                st.caption(w["example_en"])
+                                if st.button("Add to study · 2 cards",key=f"lyric_enroll_{song['id']}_{li}_{wi}"):
+                                    add_song_word(song,w)
+                                    st.success("Added to shared Vocabulary Review (or already enrolled).")
         st.caption("All enrolled music cards share the same SRS and Vocabulary Review as TOPIK and themed packs.")
 
     def page_music_packs():

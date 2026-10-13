@@ -643,6 +643,21 @@ st.markdown("""
         .streak-card {align-items:flex-start; flex-direction:column; gap:6px;}
         .streak-meta {text-align:left;}
     }
+
+    /* Mochi music library: soft controls and inline clickable lyric vocabulary */
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    [data-testid="stSelectbox"] [data-baseweb="select"] input,
+    [data-testid="stSelectbox"] [data-baseweb="select"] span {
+        background-color:#fffaff !important; color:#5b4770 !important;
+        -webkit-text-fill-color:#5b4770 !important;
+    }
+    .mochi-lyric-line {color:#58416f; font-size:1.05rem; line-height:1.85; margin-top:.45rem;}
+    .mochi-lyric-link, .mochi-lyric-link:visited {
+        color:#a43e82 !important; font-weight:700; text-decoration:underline !important;
+        text-decoration-color:#e6a2cb !important; text-underline-offset:3px;
+        background:transparent !important; border:0 !important; padding:0 !important;
+    }
+    .mochi-lyric-link:hover {color:#772c76 !important; background:#fce4f1 !important; border-radius:3px;}
 </style>
 """, unsafe_allow_html=True)
 
