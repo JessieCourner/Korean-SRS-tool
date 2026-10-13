@@ -651,6 +651,42 @@ st.markdown("""
         background-color:#fffaff !important; color:#5b4770 !important;
         -webkit-text-fill-color:#5b4770 !important;
     }
+
+    /* Selectbox: BaseWeb paints its inner combobox, not just the wrapper. */
+    div[data-testid="stSelectbox"] div[data-baseweb="select"],
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] > div,
+    div[data-testid="stSelectbox"] div[role="combobox"],
+    div[data-testid="stSelectbox"] div[aria-haspopup="listbox"],
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] [data-baseweb="select"] {
+        background:#fff9fd !important;
+        background-color:#fff9fd !important;
+        color:#59446d !important;
+        border-color:#eac7df !important;
+        box-shadow:none !important;
+        color-scheme:light !important;
+    }
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+        border:2px solid #eac7df !important;
+        border-radius:14px !important;
+    }
+    div[data-testid="stSelectbox"] div[role="combobox"] *,
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] span,
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] svg {
+        color:#59446d !important;
+        fill:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    div[data-baseweb="popover"] ul[role="listbox"],
+    div[data-baseweb="popover"] li[role="option"],
+    div[data-baseweb="popover"] div[role="option"] {
+        background:#fff9fd !important;
+        color:#59446d !important;
+        color-scheme:light !important;
+    }
+    div[data-baseweb="popover"] li[role="option"]:hover,
+    div[data-baseweb="popover"] div[role="option"]:hover {
+        background:#f9e4f2 !important;
+    }
     .mochi-lyric-line {color:#58416f; font-size:1.05rem; line-height:1.85; margin-top:.45rem;}
     .mochi-lyric-link, .mochi-lyric-link:visited {
         color:#a43e82 !important; font-weight:700; text-decoration:underline !important;
@@ -2872,6 +2908,27 @@ def start_review_session():
         st.session_state.pop(key, None)
 
 
+
+
+def meaningful_base_form_hint(card):
+    """Show lexical verb as well as the auxiliary in -지 않다 negatives."""
+    original = str(card.get("hint") or "").strip()
+    answer = str(card.get("answer") or card.get("answer_form") or "").strip()
+    prompt = str(card.get("prompt") or "")
+    full = prompt.replace("___", answer, 1)
+    if not re.search(r"(?:지\s*않|지\s*못)", full) and not re.search(r"(?:지\s*않|지\s*못)", answer):
+        return "Base form unavailable" if re.search(r"(?:않다|못하다)", original) else original
+    # A lexical stem immediately preceding -지 is the reliable surface cue.
+    matches = re.findall(r"([가-힣]+)지\s*(않|못)(?:[가-힣]*)", full)
+    if not matches:
+        return "Base form unavailable" if re.search(r"(?:않다|못하다)", original) else original
+    stem, auxiliary = matches[-1]
+    if not stem or stem in {"않", "못"}:
+        return "Base form unavailable"
+    lemma = stem + "다"
+    construction = stem + "지 " + auxiliary + "다"
+    return f"Base form: {lemma}"
+
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
     nonce = st.session_state.get("review_nonce", 0)
@@ -2890,7 +2947,7 @@ def render_card(card):
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
-        st.write(card["hint"])
+        st.write(meaningful_base_form_hint(card))
     with st.expander("Show the grammar explanation"):
         st.write(card["explanation"])
     with st.form(key=form_key, clear_on_submit=False):
@@ -3127,7 +3184,7 @@ def render_review_contents():
     result_card_id = st.session_state.get("result_card_id")
     if result_card_id:
         result_card = one("""
-            SELECT cards.*, lessons.title AS lesson_title, lessons.source_url AS lesson_source_url
+            SELECT cards.*, lessons.title AS lesson_title, lessons.pattern AS pattern, lessons.source_url AS lesson_source_url
             FROM cards JOIN lessons ON lessons.id=cards.lesson_id
             WHERE cards.id=?
         """, (result_card_id,))
