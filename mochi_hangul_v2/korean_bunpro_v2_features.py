@@ -109,16 +109,31 @@ def install_v2(namespace):
             conn.commit()
             conn.close()
             return
+        # A previous version could have completed all row writes and then
+        # stalled only on its cleanup DELETE before recording this marker.
+        # Recognize that already-complete state with two indexed counts and
+        # avoid rewriting thousands of unchanged cards.
+        built_pack_count = conn.execute(
+            "SELECT COUNT(*) AS n FROM v2_vocab_packs WHERE pack_type <> 'music_custom'"
+        ).fetchone()["n"]
+        built_card_count = conn.execute(
+            """SELECT COUNT(*) AS n FROM v2_vocab_cards c
+               JOIN v2_vocab_packs p ON p.id=c.pack_id
+               WHERE p.pack_type <> 'music_custom'"""
+        ).fetchone()["n"]
+        if int(built_pack_count or 0) == len(data["packs"]) and int(built_card_count or 0) == len(data["cards"]):
+            conn.execute("INSERT INTO v2_content_meta(key,value) VALUES('seed_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (seed_hash,))
+            conn.commit()
+            conn.close()
+            return
         # Only built-in content is synchronized here. User-created music packs
         # are stored with pack_type=music_custom and must survive every update.
-        valid_pack_ids = [pack["id"] for pack in data["packs"]]
-        placeholders = ",".join("?" for _ in valid_pack_ids)
-        conn.execute(f"""DELETE FROM v2_vocab_cards
-            WHERE pack_id NOT IN ({placeholders})
-              AND pack_id NOT IN (SELECT id FROM v2_vocab_packs WHERE pack_type='music_custom')""", tuple(valid_pack_ids))
-        conn.execute(f"""DELETE FROM v2_vocab_packs
-            WHERE id NOT IN ({placeholders}) AND pack_type <> 'music_custom'""", tuple(valid_pack_ids))
-        conn.execute("DELETE FROM v2_vocab_progress WHERE card_id NOT IN (SELECT id FROM v2_vocab_cards)")
+        # Do not delete rows during startup.  On Postgres, a cleanup query
+        # over a large vocabulary table can wait on another browser session
+        # and make Streamlit show a blank page with QueryCanceled.  Seed rows
+        # below are upserted by id; user-created music packs and existing
+        # progress remain safe, and obsolete rows are harmless until an
+        # explicit maintenance action is added.
         for pack in data["packs"]:
             found = conn.execute("SELECT id FROM v2_vocab_packs WHERE id=?", (pack["id"],)).fetchone()
             values = (pack["title"], pack["level"], pack["topic"], pack["pack_type"], pack["description"],

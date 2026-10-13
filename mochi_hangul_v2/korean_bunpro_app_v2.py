@@ -1197,6 +1197,37 @@ def bootstrap_app_data(sync_version):
     """
     ensure_seed_bundle()
     init_db()
+    # A deployed database already contains the verified V41 seed.  Re-running
+    # the full lesson-by-lesson migration on every fresh Cloud worker can
+    # leave the browser on a blank loading surface for several minutes.
+    # Content changes always use a new sync_version, so this fast path keeps
+    # the existing SRS history while avoiding redundant writes.
+    marker_connection = db()
+    marker = marker_connection.execute(
+        "SELECT value FROM settings WHERE key='content_sync_version'"
+    ).fetchone()
+    if marker and marker["value"] == sync_version:
+        marker_connection.close()
+        st.session_state.pop("_content_query_cache", None)
+        return
+    # Existing deployments already contain the complete V41 course.  If the
+    # marker was lost during a cancelled Cloud restart, do not replay the
+    # whole migration just to recreate it: the row counts are a cheap,
+    # deterministic completeness check for this fixed course bundle.
+    course_counts = marker_connection.execute(
+        "SELECT (SELECT COUNT(*) FROM lessons) AS lessons, "
+        "(SELECT COUNT(*) FROM cards WHERE seed_index IS NOT NULL) AS cards"
+    ).fetchone()
+    if course_counts and int(course_counts["lessons"] or 0) >= 209 and int(course_counts["cards"] or 0) >= 1017:
+        marker_connection.execute(
+            "INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)",
+            ("content_sync_version", sync_version),
+        )
+        marker_connection.commit()
+        marker_connection.close()
+        st.session_state.pop("_content_query_cache", None)
+        return
+    marker_connection.close()
     import_seed_once()
     import_extended_seeds()
     sync_seed_card_content()
