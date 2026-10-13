@@ -248,30 +248,32 @@ def install_v2(namespace):
                         st.rerun()
 
                 # Keep the expanded word list inside its own pack card, not at page bottom.
-                if is_open:
-                    st.markdown("#### Words")
-                    word_rows = v2_rows("""SELECT target,part_of_speech,target_translation,base_form
-                        FROM v2_vocab_cards WHERE pack_id=?
-                        GROUP BY target,part_of_speech,target_translation,base_form
-                        ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
-                    mastered_words = {row["item_id"] for row in v2_rows(
-                        "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
-                    for index, word in enumerate(word_rows):
-                        # Disambiguate homographs: identical Korean targets can have different meanings.
-                        word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
-                        legacy_id = f"{pack['id']}:{word['target']}"
-                        mastered_word = word_id in mastered_words or legacy_id in mastered_words
-                        unique_key = hashlib.sha256(f"{pack['id']}:{index}:{word_id}".encode("utf-8")).hexdigest()[:20]
-                        label_col, action_col = st.columns([5, 1.5])
-                        with label_col:
-                            st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']}")
-                        with action_col:
-                            if st.button("Undo mastered" if mastered_word else "Mark mastered",
-                                         key=f"v2_word_master_{unique_key}", use_container_width=True):
-                                set_mastery("vocab_word", word_id, not mastered_word)
-                                if legacy_id in mastered_words:
-                                    set_mastery("vocab_word", legacy_id, False)
-                                st.rerun()
+                @st.fragment
+                def render_words_fragment_topik():
+                    if is_open:
+                        st.markdown("#### Words")
+                        word_rows = v2_rows("""SELECT target,part_of_speech,target_translation,base_form
+                            FROM v2_vocab_cards WHERE pack_id=?
+                            GROUP BY target,part_of_speech,target_translation,base_form
+                            ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
+                        mastered_words = {row["item_id"] for row in v2_rows(
+                            "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
+                        for index, word in enumerate(word_rows):
+                            # Disambiguate homographs: identical Korean targets can have different meanings.
+                            word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
+                            legacy_id = f"{pack['id']}:{word['target']}"
+                            mastered_word = word_id in mastered_words or legacy_id in mastered_words
+                            unique_key = hashlib.sha256(f"{pack['id']}:{index}:{word_id}".encode("utf-8")).hexdigest()[:20]
+                            label_col, action_col = st.columns([5, 1.5])
+                            with label_col:
+                                st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']}")
+                            with action_col:
+                                if st.button("Undo mastered" if mastered_word else "Mark mastered",
+                                             key=f"v2_word_master_{unique_key}", use_container_width=True):
+                                    set_mastery("vocab_word", word_id, not mastered_word)
+                                    if legacy_id in mastered_words:
+                                        set_mastery("vocab_word", legacy_id, False)
+                    render_words_fragment_topik()
 
     namespace["page_vocabulary_packs"] = page_vocabulary_packs
 
@@ -550,29 +552,31 @@ def install_v2(namespace):
                 with review:
                     st.button("Review pack", key=f"v2_music_review_{pack['id']}", type="primary", use_container_width=True,
                               on_click=open_vocabulary_pack_review, args=(pack["id"],))
-                if is_open:
-                    st.markdown("#### Words in this music pack")
-                    music_words = v2_rows("""SELECT target,part_of_speech,target_translation,base_form,
-                        COUNT(*) AS card_count FROM v2_vocab_cards WHERE pack_id=?
-                        GROUP BY target,part_of_speech,target_translation,base_form
-                        ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
-                    mastered_words = {r["item_id"] for r in v2_rows(
-                        "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
-                    import hashlib
-                    for index, word in enumerate(music_words):
-                        word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
-                        legacy_id = f"{pack['id']}:{word['target']}"
-                        done_word = word_id in mastered_words or legacy_id in mastered_words
-                        label_col, master_col = st.columns([5, 1.5])
-                        with label_col:
-                            st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']} ({word['part_of_speech']})")
-                        with master_col:
-                            word_key = hashlib.sha256(f"music:{pack['id']}:{index}:{word_id}".encode()).hexdigest()[:20]
-                            if st.button("Undo mastered" if done_word else "Mark mastered", key=f"v2_music_word_{word_key}", use_container_width=True):
-                                set_mastery("vocab_word", word_id, not done_word)
-                                if legacy_id in mastered_words:
-                                    set_mastery("vocab_word", legacy_id, False)
-                                st.rerun()
+                @st.fragment
+                def render_words_fragment_music():
+                    if is_open:
+                        st.markdown("#### Words in this music pack")
+                        music_words = v2_rows("""SELECT target,part_of_speech,target_translation,base_form,
+                            COUNT(*) AS card_count FROM v2_vocab_cards WHERE pack_id=?
+                            GROUP BY target,part_of_speech,target_translation,base_form
+                            ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
+                        mastered_words = {r["item_id"] for r in v2_rows(
+                            "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
+                        import hashlib
+                        for index, word in enumerate(music_words):
+                            word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
+                            legacy_id = f"{pack['id']}:{word['target']}"
+                            done_word = word_id in mastered_words or legacy_id in mastered_words
+                            label_col, master_col = st.columns([5, 1.5])
+                            with label_col:
+                                st.markdown(f"**{word['target']}** · {word['target_translation']} · {word['base_form']} ({word['part_of_speech']})")
+                            with master_col:
+                                word_key = hashlib.sha256(f"music:{pack['id']}:{index}:{word_id}".encode()).hexdigest()[:20]
+                                if st.button("Undo mastered" if done_word else "Mark mastered", key=f"v2_music_word_{word_key}", use_container_width=True):
+                                    set_mastery("vocab_word", word_id, not done_word)
+                                    if legacy_id in mastered_words:
+                                        set_mastery("vocab_word", legacy_id, False)
+                    render_words_fragment_music()
 
     namespace["page_music_packs"] = page_music_packs
 
