@@ -156,7 +156,13 @@ def install_v2(namespace):
                 conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
                     (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,
                      base_form,answer_form,explanation,source_label,source_url,artist,song)
-                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", (card["id"], *values))
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                    ON CONFLICT(id) DO UPDATE SET
+                        target=excluded.target,part_of_speech=excluded.part_of_speech,
+                        target_translation=excluded.target_translation,prompt=excluded.prompt,
+                        source_sentence=excluded.source_sentence,translation=excluded.translation,
+                        answer=excluded.answer,base_form=excluded.base_form,
+                        answer_form=excluded.answer_form,explanation=excluded.explanation""", (card["id"], *values))
             conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", (card["id"],))
         conn.execute("INSERT INTO v2_content_meta(key,value) VALUES('seed_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (seed_hash,))
         conn.commit()
@@ -413,7 +419,7 @@ def install_v2(namespace):
                 VALUES(?,?,?,?,?,?,?,?,?,?,?)""",(pack_id,song["title"],"Music","Songs","music_custom",
                 "Vocabulary selected from your supplied lyrics","User-supplied lyrics","",song["artist"],song["title"],""))
             for kind,prompt,full,translation,answer in (
-                ("lyric",prompt_lyric,source,"Song context · " + word["gloss"],surface),
+                ("lyric",prompt_lyric,source,song["lines"][idx].get("en") or word["gloss"],surface),
                 ("independent",independent_prompt,example,word["example_en"],independent_surface)):
                 cid = pack_id + ":" + hashlib.sha1((lemma+"|"+kind).encode()).hexdigest()[:16]
                 conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
@@ -433,7 +439,7 @@ def install_v2(namespace):
             return
         songs = json.loads(library_file.read_text(encoding="utf-8"))
         st.subheader("Song lyrics & vocabulary")
-        st.caption("39 songs from your document. Click a highlighted word to see its meaning and add its two review cards. English line translations are not yet complete; word meanings and independent example translations are provided.")
+        st.caption("39 songs with line-by-line English translations. Select a word to inspect it and add two cards to the shared review.")
         artist = st.selectbox("Artist", ["All artists"] + sorted({x["artist"] for x in songs}), key="song_artist_filter")
         visible_songs = [x for x in songs if artist == "All artists" or x["artist"] == artist]
         chosen = st.selectbox("Song", range(len(visible_songs)),
@@ -459,17 +465,15 @@ def install_v2(namespace):
                 # not from the lyric display itself.
                 for li,line in enumerate(song["lines"]):
                     matches=[w for w in song["words"] if w["line"]==li]
-                    if matches:
-                        st.markdown("**" + escape(line["ko"]) + "**")
-                        for w in matches:
-                            with st.popover(w["surface"] + " · " + w["gloss"]):
-                                st.write(w["lemma"], "—", w["gloss"])
-                                st.caption(w["example"] + " — " + w["example_en"])
-                                if st.button("Add to study · 2 cards", key=f"lyric_enroll_{song['id']}_{li}_{w['lemma']}"):
-                                    add_song_word(song,w)
-                                    st.success("Added to shared Vocabulary Review.")
-                    else:
-                        st.text(line["ko"])
+                    st.markdown("**" + escape(line["ko"]) + "**")
+                    st.caption(line.get("en") or "Translation unavailable")
+                    for wi, w in enumerate(matches):
+                        with st.popover(w["surface"] + " · " + w["gloss"]):
+                            st.write(w["lemma"], "—", w["gloss"])
+                            st.caption(w["example"] + " — " + w["example_en"])
+                            if st.button("Add to study · 2 cards", key=f"lyric_enroll_{song['id']}_{li}_{wi}"):
+                                add_song_word(song,w)
+                                st.success("Added to shared Vocabulary Review.")
         st.caption("All enrolled music cards share the same SRS and Vocabulary Review as TOPIK and themed packs.")
 
     def page_music_packs():
