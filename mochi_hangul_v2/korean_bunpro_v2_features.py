@@ -7,6 +7,7 @@ tables for vocabulary cards and manual mastery markers.
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 from datetime import datetime
 from html import escape
@@ -70,6 +71,7 @@ def install_v2(namespace):
         if not seed_path.exists():
             raise RuntimeError("Missing vocabulary_packs_v2.json beside the V2 app files.")
         data = json.loads(seed_path.read_text(encoding="utf-8"))
+        seed_hash = hashlib.sha256(seed_path.read_bytes()).hexdigest()
         conn = namespace["db"]()
         for statement in (
             """CREATE TABLE IF NOT EXISTS v2_vocab_packs (
@@ -97,8 +99,16 @@ def install_v2(namespace):
                 mastered INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL,
                 PRIMARY KEY(item_kind, item_id)
             )""",
+            """CREATE TABLE IF NOT EXISTS v2_content_meta (
+                key TEXT PRIMARY KEY, value TEXT NOT NULL
+            )""",
         ):
             conn.execute(statement)
+        synced = conn.execute("SELECT value FROM v2_content_meta WHERE key='seed_hash'").fetchone()
+        if synced and synced["value"] == seed_hash:
+            conn.commit()
+            conn.close()
+            return
         # Only built-in content is synchronized here. User-created music packs
         # are stored with pack_type=music_custom and must survive every update.
         valid_pack_ids = [pack["id"] for pack in data["packs"]]
@@ -133,6 +143,7 @@ def install_v2(namespace):
                      base_form,answer_form,explanation,source_label,source_url,artist,song)
                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", (card["id"], *values))
             conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", (card["id"],))
+        conn.execute("INSERT INTO v2_content_meta(key,value) VALUES('seed_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (seed_hash,))
         conn.commit()
         conn.close()
 
