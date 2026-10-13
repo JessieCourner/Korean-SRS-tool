@@ -1,0 +1,2155 @@
+{
+  "curriculum": "How to Study Korean — Units 0–1",
+  "lessons": [
+    {
+      "unit": 0,
+      "lesson_number": 0,
+      "title": "Unit 0: Learn How to Read Hangul",
+      "pattern": "Hangul reading basics",
+      "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+      "source_url": "https://www.howtostudykorean.com/unit0/unit0lesson1/",
+      "source_status": "published",
+      "source_title": "Learn How to Read Hangul",
+      "meaning": "HTSK Unit 0 teaches basic Korean consonants and vowels, syllable blocks, final consonants, additional letters and combined vowels. It also recommends moving away from romanization and using Korean audio and reading practice.",
+      "when_to_use": "Use this unit before grammar to learn to read and pronounce Korean syllable blocks without relying on romanization.",
+      "how_to_build": "Build one syllable block from a consonant and vowel; add a final consonant underneath when needed. Continue with the additional letters and combined vowels in the next Unit 0 lessons.",
+      "examples": [
+        [
+          "ㄱ + ㅏ = 가",
+          "Combine the consonant and vowel."
+        ],
+        [
+          "ㅂ + ㅏ + ㅂ = 밥",
+          "Write “bab” as one syllable block."
+        ],
+        [
+          "ㅗ + ㅏ = ㅘ",
+          "Combine two vowels into a complex vowel."
+        ],
+        [
+          "ㄴ + ㅏ = 나",
+          "Combine ㄴ and ㅏ into one syllable."
+        ],
+        [
+          "ㄱ + ㅗ + ㄱ = 곡",
+          "Write “gok” as one syllable block."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "ㄱ + ㅏ = ___",
+          "translation": "Combine the consonant and vowel.",
+          "answer": "가",
+          "hint": "Base form: 가",
+          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "ㅂ + ㅏ + ㅂ = ___",
+          "translation": "Write “bab” as one syllable block.",
+          "answer": "밥",
+          "hint": "Base form: 밥",
+          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "ㅗ + ㅏ = ___",
+          "translation": "Combine two vowels into a complex vowel.",
+          "answer": "ㅘ",
+          "hint": "Base form: ㅘ",
+          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "ㄴ + ㅏ = ___",
+          "translation": "Combine ㄴ and ㅏ into one syllable.",
+          "answer": "나",
+          "hint": "Base form: 나",
+          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "ㄱ + ㅗ + ㄱ = ___",
+          "translation": "Write “gok” as one syllable block.",
+          "answer": "곡",
+          "hint": "Base form: 곡",
+          "explanation": "Learn the Korean alphabet, syllable blocks, consonants, vowels and the combinations needed to read Korean words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 0",
+      "topic": "Unit 0: Learn How to Read Hangul"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 1,
+      "title": "Basic sentence structure and 이다",
+      "pattern": "이다",
+      "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-1/",
+      "source_status": "published",
+      "source_title": "Basic sentence structure and 이다",
+      "meaning": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+      "when_to_use": "Use 이다 to identify people and things: “A is B.” It is the basic Korean noun-predicate pattern.",
+      "how_to_build": "Attach 이에요 after a noun ending in a consonant and 예요 after a noun ending in a vowel. The noun before 이다 is the thing being identified.",
+      "examples": [
+        [
+          "저는 학생이에요",
+          "I am a student."
+        ],
+        [
+          "이것은 펜이에요",
+          "This is a pen."
+        ],
+        [
+          "저 사람은 의사예요",
+          "That person is a doctor."
+        ],
+        [
+          "저것은 의자예요",
+          "That is a chair."
+        ],
+        [
+          "민수는 선생님이에요",
+          "Minsu is a teacher."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "저는 ___",
+          "translation": "I am a student.",
+          "answer": "학생이에요",
+          "hint": "Base form: 학생",
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "이것은 ___",
+          "translation": "This is a pen.",
+          "answer": "펜이에요",
+          "hint": "Base form: 펜",
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "저 사람은 ___",
+          "translation": "That person is a doctor.",
+          "answer": "의사예요",
+          "hint": "Base form: 의사",
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "저것은 ___",
+          "translation": "That is a chair.",
+          "answer": "의자예요",
+          "hint": "Base form: 의자",
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "민수는 ___",
+          "translation": "Minsu is a teacher.",
+          "answer": "선생님이에요",
+          "hint": "Base form: 선생님",
+          "explanation": "Learn the basic structure of Korean sentences and how to make sentences with 이다 (“to be”).",
+          "answer_form": "Informal polite form (해요체)"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Basic sentence structure and 이다"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 2,
+      "title": "이/가 and 있다",
+      "pattern": "이/가 · 있다",
+      "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-2/",
+      "source_status": "published",
+      "source_title": "이/가 and 있다",
+      "meaning": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+      "when_to_use": "Use 이/가 to mark the subject and 있다 for existence, location and possession.",
+      "how_to_build": "Attach 이 after a consonant and 가 after a vowel. 있다 can mean “exist/be located” or “have,” depending on the sentence.",
+      "examples": [
+        [
+          "학교에 있어요.",
+          "I am at school."
+        ],
+        [
+          "책이 있어요.",
+          "There is a book."
+        ],
+        [
+          "친구가 집에 있어요",
+          "My friend is at home."
+        ],
+        [
+          "가방 안에 책이 있어요.",
+          "There is a book inside the bag."
+        ],
+        [
+          "동생이 학교에 있어요",
+          "My younger sibling is at school."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 있어요.",
+          "translation": "I am at school.",
+          "answer": "학교에",
+          "hint": "Base form: 학교",
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "학교에 있어요."
+        },
+        {
+          "prompt": "___ 있어요.",
+          "translation": "There is a book.",
+          "answer": "책이",
+          "hint": "Base form: 책",
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "책이 있어요."
+        },
+        {
+          "prompt": "친구가 ___",
+          "translation": "My friend is at home.",
+          "answer": "집에 있어요",
+          "hint": "Base form: 있다",
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "친구가 집에 있어요"
+        },
+        {
+          "prompt": "가방 ___ 책이 있어요.",
+          "translation": "There is a book inside the bag.",
+          "answer": "안에",
+          "hint": "Base form: 안",
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "가방 안에 책이 있어요."
+        },
+        {
+          "prompt": "동생이 ___",
+          "translation": "My younger sibling is at school.",
+          "answer": "학교에 있어요",
+          "hint": "Base form: 있다",
+          "explanation": "Learn the subject particles 이/가 and use 있다 to express existence, location and possession.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "동생이 학교에 있어요"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "이/가 and 있다"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 3,
+      "title": "Adjectives, verbs and possession",
+      "pattern": "의 · 좋다 · 좋아하다",
+      "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-3/",
+      "source_status": "published",
+      "source_title": "Adjectives, verbs and possession",
+      "meaning": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+      "when_to_use": "Use simple verbs and adjectives to describe situations; use 의 for possession and distinguish “to be good” from “to like.”",
+      "how_to_build": "Conjugate verbs and adjectives in the polite form; attach 의 between possessor and possessed noun; 좋다 describes a thing, while 좋아하다 takes an object.",
+      "examples": [
+        [
+          "이것은 제 책이에요.",
+          "This is my book."
+        ],
+        [
+          "한국의 음식",
+          "Korean food."
+        ],
+        [
+          "저는 음악을 좋아해요",
+          "I like music."
+        ],
+        [
+          "이것은 제 우산이에요.",
+          "This is my umbrella."
+        ],
+        [
+          "저는 한국 음식을 좋아해요",
+          "I like Korean food."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "이것은 ___",
+          "translation": "This is my book.",
+          "answer": "제 책이에요",
+          "hint": "Base form: 제",
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "이것은 제 책이에요."
+        },
+        {
+          "prompt": "___",
+          "translation": "Korean food.",
+          "answer": "한국의 음식",
+          "hint": "Base form: 한국",
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "한국의 음식"
+        },
+        {
+          "prompt": "저는 ___",
+          "translation": "I like music.",
+          "answer": "음악을 좋아해요",
+          "hint": "Base form: 좋아하다",
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "저는 음악을 좋아해요"
+        },
+        {
+          "prompt": "이것은 ___",
+          "translation": "This is my umbrella.",
+          "answer": "제 우산이에요",
+          "hint": "Base form: 제",
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "이것은 제 우산이에요."
+        },
+        {
+          "prompt": "저는 ___",
+          "translation": "I like Korean food.",
+          "answer": "한국 음식을 좋아해요",
+          "hint": "Base form: 좋아하다",
+          "explanation": "Learn to make sentences with adjectives and verbs, express possession with 의, and distinguish 좋다 from 좋아하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "저는 한국 음식을 좋아해요"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Adjectives, verbs and possession"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 4,
+      "title": "Adjective modifiers and 도",
+      "pattern": "은/ㄴ · 도",
+      "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-4/",
+      "source_status": "published",
+      "source_title": "Adjective modifiers and 도",
+      "meaning": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+      "when_to_use": "Use adjective modifiers before nouns and 도 when adding the meaning “also/too.”",
+      "how_to_build": "Change an adjective to its noun-modifying form before a noun; attach 도 to the noun or particle phrase that is being added.",
+      "examples": [
+        [
+          "재미있는 영화",
+          "An interesting movie."
+        ],
+        [
+          "저도 학생도 왔어요.",
+          "That student also came."
+        ],
+        [
+          "맛있는 음식",
+          "Delicious food."
+        ],
+        [
+          "친절한 사람을 만났어요.",
+          "I met a kind person."
+        ],
+        [
+          "저도 한국어를 공부해요",
+          "I also study Korean."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 영화",
+          "translation": "An interesting movie.",
+          "answer": "재미있는",
+          "hint": "Base form: 재미있다",
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 학생도 왔어요.",
+          "translation": "That student also came.",
+          "answer": "저도",
+          "hint": "Base form: 저",
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 음식",
+          "translation": "Delicious food.",
+          "answer": "맛있는",
+          "hint": "Base form: 맛있다",
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 사람을 만났어요.",
+          "translation": "I met a kind person.",
+          "answer": "친절한",
+          "hint": "Base form: 친절하다",
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "저도 한국어를 ___",
+          "translation": "I also study Korean.",
+          "answer": "공부해요",
+          "hint": "Base form: 공부하다",
+          "explanation": "Learn how adjectives modify nouns and how to use the particle 도 (“also/too”).",
+          "answer_form": "Informal polite form (해요체)"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Adjective modifiers and 도"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 5,
+      "title": "Present, past and future foundations",
+      "pattern": "아/어/여요 · 았/었어요 · (으)ㄹ 거예요",
+      "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-5/",
+      "source_status": "published",
+      "source_title": "Present, past and future foundations",
+      "meaning": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+      "when_to_use": "Use the present, past and future forms when talking about actions and states across time.",
+      "how_to_build": "Remove 다 from the dictionary form and apply the 아/어 rules; use 았/었어요 for past and (으)ㄹ 거예요 after the future stem.",
+      "examples": [
+        [
+          "어제 밥을 먹었어요",
+          "I ate rice yesterday."
+        ],
+        [
+          "오늘 학교에 가요",
+          "I go to school today."
+        ],
+        [
+          "내일 공부할 거예요",
+          "I will study tomorrow."
+        ],
+        [
+          "지난주에 영화를 봤어요",
+          "I watched a movie last week."
+        ],
+        [
+          "주말에 친구를 만날 거예요",
+          "I will meet a friend on the weekend."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "어제 밥을 ___",
+          "translation": "I ate rice yesterday.",
+          "answer": "먹었어요",
+          "hint": "Base form: 먹다",
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "어제 밥을 먹었어요"
+        },
+        {
+          "prompt": "오늘 학교에 ___",
+          "translation": "I go to school today.",
+          "answer": "가요",
+          "hint": "Base form: 가다",
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "오늘 학교에 가요"
+        },
+        {
+          "prompt": "내일 ___",
+          "translation": "I will study tomorrow.",
+          "answer": "공부할 거예요",
+          "hint": "Base form: 공부하다",
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "내일 공부할 거예요"
+        },
+        {
+          "prompt": "지난주에 영화를 ___",
+          "translation": "I watched a movie last week.",
+          "answer": "봤어요",
+          "hint": "Base form: 보다",
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "지난주에 영화를 봤어요"
+        },
+        {
+          "prompt": "주말에 친구를 ___",
+          "translation": "I will meet a friend on the weekend.",
+          "answer": "만날 거예요",
+          "hint": "Base form: 만나다",
+          "explanation": "Build the first foundation for conjugating Korean verbs and adjectives into present, past and future forms.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "주말에 친구를 만날 거예요"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Present, past and future foundations"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 6,
+      "title": "Polite and casual speech",
+      "pattern": "해요체 · 반말",
+      "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-6/",
+      "source_status": "published",
+      "source_title": "Polite and casual speech",
+      "meaning": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+      "when_to_use": "Choose polite or casual speech according to the relationship and situation; choose 저 or 나 appropriately.",
+      "how_to_build": "Use 해요체 for polite conversation and plain forms for casual speech. 저 is humble/polite “I”; 나 is casual “I.”",
+      "examples": [
+        [
+          "저는 학생이에요",
+          "I am a student, politely."
+        ],
+        [
+          "나 오늘 바쁘다",
+          "I am busy today, casually."
+        ],
+        [
+          "저는 한국 사람입니다.",
+          "I am Korean, formally."
+        ],
+        [
+          "오늘은 날씨가 좋다",
+          "The weather is good today, casually."
+        ],
+        [
+          "저는 회사원이에요",
+          "I am an office worker, politely."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "저는 ___",
+          "translation": "I am a student, politely.",
+          "answer": "학생이에요",
+          "hint": "Base form: 학생",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "나 오늘 ___",
+          "translation": "I am busy today, casually.",
+          "answer": "바쁘다",
+          "hint": "Base form: 바쁘다",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
+        },
+        {
+          "prompt": "___ 한국 사람입니다.",
+          "translation": "I am Korean, formally.",
+          "answer": "저는",
+          "hint": "Base form: 저",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "오늘은 날씨가 ___",
+          "translation": "The weather is good today, casually.",
+          "answer": "좋다",
+          "hint": "Base form: 좋다",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
+        },
+        {
+          "prompt": "저는 ___",
+          "translation": "I am an office worker, politely.",
+          "answer": "회사원이에요",
+          "hint": "Base form: 회사원",
+          "explanation": "Learn polite and casual conjugation and choose the Korean word for “I” according to the level of respect.",
+          "answer_form": "Informal polite form (해요체)"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Polite and casual speech"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 7,
+      "title": "Korean irregulars",
+      "pattern": "불규칙 활용",
+      "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-7/",
+      "source_status": "published",
+      "source_title": "Korean irregulars",
+      "meaning": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+      "when_to_use": "Use these irregular rules whenever a verb or adjective stem changes during conjugation.",
+      "how_to_build": "Apply the relevant ㄷ, ㅂ, 르, ㅅ, ㅎ or other irregular rule before adding the ending; the exact rule depends on the final stem letter.",
+      "examples": [
+        [
+          "날씨가 추워요",
+          "The weather is cold."
+        ],
+        [
+          "한국어를 들어요",
+          "I listen to Korean."
+        ],
+        [
+          "친구를 도와요",
+          "I help my friend."
+        ],
+        [
+          "모르다 → 몰라요",
+          "Conjugate “not to know” politely."
+        ],
+        [
+          "쓰다 → 써요",
+          "Conjugate “to write/use” politely."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "날씨가 ___",
+          "translation": "The weather is cold.",
+          "answer": "추워요",
+          "hint": "Base form: 춥다",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "한국어를 ___",
+          "translation": "I listen to Korean.",
+          "answer": "들어요",
+          "hint": "Base form: 듣다",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "친구를 ___",
+          "translation": "I help my friend.",
+          "answer": "도와요",
+          "hint": "Base form: 돕다",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "모르다 → ___",
+          "translation": "Conjugate “not to know” politely.",
+          "answer": "몰라요",
+          "hint": "Base form: 모르다",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "쓰다 → ___",
+          "translation": "Conjugate “to write/use” politely.",
+          "answer": "써요",
+          "hint": "Base form: 쓰다",
+          "explanation": "Learn the irregular patterns needed to conjugate Korean verbs and adjectives correctly.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Korean irregulars"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 8,
+      "title": "Irregular quick reference",
+      "pattern": "불규칙 활용 복습",
+      "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-8/",
+      "source_status": "published",
+      "source_title": "Irregular quick reference",
+      "meaning": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+      "when_to_use": "Use this as a quick reference when an irregular form is familiar but its exact conjugation is easy to forget.",
+      "how_to_build": "Keep this reference beside the detailed irregular lesson: identify the stem type first, then apply the corresponding vowel or consonant change.",
+      "examples": [
+        [
+          "춥다 → 추워요",
+          "Conjugate “to be cold” politely."
+        ],
+        [
+          "듣다 → 들어요",
+          "Conjugate “to listen” politely."
+        ],
+        [
+          "돕다 → 도와요",
+          "Conjugate “to help” politely."
+        ],
+        [
+          "모르다 → 몰라요",
+          "Review the 르 irregular politely."
+        ],
+        [
+          "하얗다 → 하얘요",
+          "Review the ㅎ irregular politely."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "춥다 → ___",
+          "translation": "Conjugate “to be cold” politely.",
+          "answer": "추워요",
+          "hint": "Base form: 춥다",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "듣다 → ___",
+          "translation": "Conjugate “to listen” politely.",
+          "answer": "들어요",
+          "hint": "Base form: 듣다",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "돕다 → ___",
+          "translation": "Conjugate “to help” politely.",
+          "answer": "도와요",
+          "hint": "Base form: 돕다",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "모르다 → ___",
+          "translation": "Review the 르 irregular politely.",
+          "answer": "몰라요",
+          "hint": "Base form: 모르다",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "하얗다 → ___",
+          "translation": "Review the ㅎ irregular politely.",
+          "answer": "하얘요",
+          "hint": "Base form: 하얗다",
+          "explanation": "Use a compact HTSK reference for reviewing Korean irregular conjugation patterns.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Irregular quick reference"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 9,
+      "title": "Adverbs and negation",
+      "pattern": "안 · 못 · -지 않다",
+      "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-9/",
+      "source_status": "published",
+      "source_title": "Adverbs and negation",
+      "meaning": "Learn common adverbs and several ways to create negative Korean sentences.",
+      "when_to_use": "Use adverbs to change how an action happens and 안/못 or -지 않다 to make negative sentences.",
+      "how_to_build": "Place 안 or 못 before the verb, or attach -지 않다/-지 못하다 to the verb stem. The choice depends on simple negation versus inability.",
+      "examples": [
+        [
+          "오늘 학교에 안 가요.",
+          "I do not go to school today."
+        ],
+        [
+          "한국어를 못 해요.",
+          "I cannot speak Korean well."
+        ],
+        [
+          "커피를 마시지 않아요.",
+          "I do not drink coffee."
+        ],
+        [
+          "오늘은 비가 안 와요.",
+          "It is not raining today."
+        ],
+        [
+          "매운 음식을 못 먹어요.",
+          "I cannot eat spicy food."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "오늘 학교에 ___",
+          "translation": "I do not go to school today.",
+          "answer": "안 가요",
+          "hint": "Base form: 안",
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "오늘 학교에 안 가요."
+        },
+        {
+          "prompt": "한국어를 ___",
+          "translation": "I cannot speak Korean well.",
+          "answer": "못 해요",
+          "hint": "Base form: 해요다",
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "한국어를 못 해요."
+        },
+        {
+          "prompt": "커피를 ___",
+          "translation": "I do not drink coffee.",
+          "answer": "마시지 않아요",
+          "hint": "Base form: 마시다",
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "커피를 마시지 않아요."
+        },
+        {
+          "prompt": "오늘은 비가 ___",
+          "translation": "It is not raining today.",
+          "answer": "안 와요",
+          "hint": "Base form: 안",
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "오늘은 비가 안 와요."
+        },
+        {
+          "prompt": "매운 음식을 ___",
+          "translation": "I cannot eat spicy food.",
+          "answer": "못 먹어요",
+          "hint": "Base form: 먹다",
+          "explanation": "Learn common adverbs and several ways to create negative Korean sentences.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "매운 음식을 못 먹어요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Adverbs and negation"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 10,
+      "title": "Conjugating 이다 and future forms",
+      "pattern": "이다 · 것/거예요",
+      "explanation": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-10/",
+      "source_status": "published",
+      "source_title": "Conjugating 이다 and future forms",
+      "meaning": "Learn how 이다 conjugates differently and how to form future expressions such as 먹을 거예요.",
+      "when_to_use": "Use the special 이다 forms in formalities and use 것이다/거예요 for future or explanatory statements.",
+      "how_to_build": "Conjugate 이다 separately from regular verbs and adjectives; combine a verb/adjective future modifier with 것이다 or 거예요.",
+      "examples": [
+        [
+          "학생이에요",
+          "I am a student."
+        ],
+        [
+          "의사예요",
+          "I am a doctor."
+        ],
+        [
+          "내일 갈 거예요",
+          "The thing/fact that I will go tomorrow."
+        ],
+        [
+          "그 사람은 의사일 것이다",
+          "That person is a doctor."
+        ],
+        [
+          "저녁에 공부할 것이다",
+          "The thing/fact that I will study in the evening."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___",
+          "translation": "I am a student.",
+          "answer": "학생이에요",
+          "hint": "Base form: 학생",
+          "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "___",
+          "translation": "I am a doctor.",
+          "answer": "의사예요",
+          "hint": "Base form: 의사",
+          "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "내일 ___",
+          "translation": "The thing/fact that I will go tomorrow.",
+          "answer": "갈 거예요",
+          "hint": "Base form: 가다",
+          "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "그 사람은 ___",
+          "translation": "That person is a doctor.",
+          "answer": "의사일 것이다",
+          "hint": "Base form: 의사",
+          "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
+        },
+        {
+          "prompt": "저녁에 ___",
+          "translation": "The thing/fact that I will study in the evening.",
+          "answer": "공부할 것이다",
+          "hint": "Base form: 공부하다",
+          "explanation": "Use the noun predicate and future pattern that fits the time reference; the blank itself is not supplied here.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Conjugating 이다 and future forms"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 11,
+      "title": "Numbers, counters and time",
+      "pattern": "Native/Sino-Korean numbers",
+      "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-11/",
+      "source_status": "published",
+      "source_title": "Numbers, counters and time",
+      "meaning": "Learn the two Korean number systems, counters and how to tell the time.",
+      "when_to_use": "Use native Korean numbers for counting and hours, Sino-Korean numbers for minutes and many numerical contexts, and counters with nouns.",
+      "how_to_build": "Use 하나/둘/셋... before counters for native counting and 일/이/삼... for Sino-Korean numbers. Use 시 with native hours and 분 with Sino-Korean minutes.",
+      "examples": [
+        [
+          "사과 세 개",
+          "three apples."
+        ],
+        [
+          "지금 두 시예요.",
+          "It is two o’clock now."
+        ],
+        [
+          "오후 세 시",
+          "3:00 p.m."
+        ],
+        [
+          "사람 세 명이 왔어요.",
+          "Three people came."
+        ],
+        [
+          "지금 열두 시예요.",
+          "It is twelve o’clock now."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "사과 ___",
+          "translation": "three apples.",
+          "answer": "세 개",
+          "hint": "Base form: 세",
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "사과 세 개"
+        },
+        {
+          "prompt": "지금 ___예요.",
+          "translation": "It is two o’clock now.",
+          "answer": "두 시",
+          "hint": "Base form: 시",
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "지금 두 시예요."
+        },
+        {
+          "prompt": "오후 ___",
+          "translation": "3:00 p.m.",
+          "answer": "세 시",
+          "hint": "Base form: 시",
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "오후 세 시"
+        },
+        {
+          "prompt": "사람 ___ 왔어요.",
+          "translation": "Three people came.",
+          "answer": "세 명이",
+          "hint": "Base form: 세",
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "사람 세 명이 왔어요."
+        },
+        {
+          "prompt": "지금 ___예요.",
+          "translation": "It is twelve o’clock now.",
+          "answer": "열두 시",
+          "hint": "Base form: 시",
+          "explanation": "Learn the two Korean number systems, counters and how to tell the time.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "지금 열두 시예요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Numbers, counters and time"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 12,
+      "title": "Words of time",
+      "pattern": "동안 · 전 · 후",
+      "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-12/",
+      "source_status": "published",
+      "source_title": "Words of time",
+      "meaning": "Use common time expressions to say how long something lasted and when it happened.",
+      "when_to_use": "Use 동안 for duration and time words such as 전 and 후 to place an action before or after another time.",
+      "how_to_build": "Attach 동안 after a duration; use 전에/후에 around a time or event to mean before/after it.",
+      "examples": [
+        [
+          "두 시간동안 공부했어요.",
+          "I studied for two hours."
+        ],
+        [
+          "3년 전 한국에 왔어요.",
+          "I came to Korea three years ago."
+        ],
+        [
+          "수업 후에 만나요.",
+          "Let’s meet after class."
+        ],
+        [
+          "한 달동안 한국어를 공부했어요.",
+          "I studied Korean for one month."
+        ],
+        [
+          "점심 후에 전화할게요.",
+          "I will call after lunch."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 공부했어요.",
+          "translation": "I studied for two hours.",
+          "answer": "두 시간 동안",
+          "hint": "Base form: 시간",
+          "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "두 시간 동안 공부했어요."
+        },
+        {
+          "prompt": "3년 ___ 한국에 왔어요.",
+          "translation": "I came to Korea three years ago.",
+          "answer": "전에",
+          "hint": "Base form: 전",
+          "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "3년 전에 한국에 왔어요."
+        },
+        {
+          "prompt": "___ 만나요.",
+          "translation": "Let’s meet after class.",
+          "answer": "수업 후에",
+          "hint": "Base form: 후",
+          "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "수업 후에 만나요."
+        },
+        {
+          "prompt": "___ 한국어를 공부했어요.",
+          "translation": "I studied Korean for one month.",
+          "answer": "한 달 동안",
+          "hint": "Base form: 달",
+          "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "한 달 동안 한국어를 공부했어요."
+        },
+        {
+          "prompt": "___ 전화할게요.",
+          "translation": "I will call after lunch.",
+          "answer": "점심 후에",
+          "hint": "Base form: 후",
+          "explanation": "Use common time expressions to say how long something lasted and when it happened.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "점심 후에 전화할게요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Words of time"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 13,
+      "title": "Common particles I",
+      "pattern": "들 · 만 · 에서 · 부터 · 까지 · 로",
+      "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-13/",
+      "source_status": "published",
+      "source_title": "Common particles I",
+      "meaning": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+      "when_to_use": "Use these particles to express plural meaning, limitation, place, starting point, endpoint, route and means.",
+      "how_to_build": "Attach each particle to the noun phrase it marks: 들 for plural, 만 for only, 에서 for a place of action/from, 부터–까지 for a range, 로 for route or means.",
+      "examples": [
+        [
+          "친구들과 같이 갔어요.",
+          "I went together with friends."
+        ],
+        [
+          "주말만 쉬어요.",
+          "I rest only on weekends."
+        ],
+        [
+          "집에서 학교까지 걸어요.",
+          "I walk from home to school."
+        ],
+        [
+          "친구들과 영화를 봤어요.",
+          "I watched a movie with friends."
+        ],
+        [
+          "서울에서 부산까지 갔어요.",
+          "I went from Seoul to Busan."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 갔어요.",
+          "translation": "I went together with friends.",
+          "answer": "친구들과 같이",
+          "hint": "Base form: 친구",
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "친구들과 같이 갔어요."
+        },
+        {
+          "prompt": "___ 쉬어요.",
+          "translation": "I rest only on weekends.",
+          "answer": "주말만",
+          "hint": "Base form: 주말",
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "주말만 쉬어요."
+        },
+        {
+          "prompt": "___ 학교까지 걸어요.",
+          "translation": "I walk from home to school.",
+          "answer": "집에서",
+          "hint": "Base form: 집",
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "집에서 학교까지 걸어요."
+        },
+        {
+          "prompt": "___ 봤어요.",
+          "translation": "I watched a movie with friends.",
+          "answer": "친구들과 영화를",
+          "hint": "Base form: 친구",
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "친구들과 영화를 봤어요."
+        },
+        {
+          "prompt": "___ 부산까지 갔어요.",
+          "translation": "I went from Seoul to Busan.",
+          "answer": "서울에서",
+          "hint": "Base form: 서울",
+          "explanation": "Learn frequently used particles for plural meaning, limitation, place, starting point, endpoint and direction.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "서울에서 부산까지 갔어요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Common particles I"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 14,
+      "title": "Common particles II",
+      "pattern": "와/과 · 하고 · 에게 · 한테 · 위해 · 대해",
+      "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-14/",
+      "source_status": "published",
+      "source_title": "Common particles II",
+      "meaning": "Learn ways to express and/with, to/from a person, for and about.",
+      "when_to_use": "Use these particles to say with/and, to or from a person, for someone or something, and about a topic.",
+      "how_to_build": "Choose 와/과, 랑/이랑 or 하고 for and/with; use 에게/한테/께 for “to,” 으로부터/에게서 for “from,” 위해 for “for” and 대해 for “about.”",
+      "examples": [
+        [
+          "친구하고 영화를 봤어요.",
+          "I watched a movie with my friend."
+        ],
+        [
+          "선생님에게 질문했어요.",
+          "I asked the teacher a question."
+        ],
+        [
+          "가족을 위해 선물을 샀어요.",
+          "I bought a gift for my family."
+        ],
+        [
+          "동생하고 이야기했어요.",
+          "I talked with my younger sibling."
+        ],
+        [
+          "친구에게 편지를 보냈어요.",
+          "I sent a letter to my friend."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 영화를 봤어요.",
+          "translation": "I watched a movie with my friend.",
+          "answer": "친구하고",
+          "hint": "Base form: 친구",
+          "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 질문했어요.",
+          "translation": "I asked the teacher a question.",
+          "answer": "선생님에게",
+          "hint": "Base form: 선생님",
+          "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 선물을 샀어요.",
+          "translation": "I bought a gift for my family.",
+          "answer": "가족을 위해",
+          "hint": "Base form: 가족",
+          "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)"
+        },
+        {
+          "prompt": "___ 이야기했어요.",
+          "translation": "I talked with my younger sibling.",
+          "answer": "동생하고",
+          "hint": "Base form: 동생",
+          "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 편지를 보냈어요.",
+          "translation": "I sent a letter to my friend.",
+          "answer": "친구에게",
+          "hint": "Base form: 친구",
+          "explanation": "Learn ways to express and/with, to/from a person, for and about.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Common particles II"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 15,
+      "title": "Passive verbs",
+      "pattern": "이/히/리/기",
+      "explanation": "Learn the basic idea of passive verbs and common suffixes used to form them.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-15/",
+      "source_status": "published",
+      "source_title": "Passive verbs",
+      "meaning": "Learn the basic idea of passive verbs and common suffixes used to form them.",
+      "when_to_use": "Use passive forms when the subject receives an action rather than intentionally performing it.",
+      "how_to_build": "Use the passive suffix appropriate to the verb or an established passive form; the affected noun becomes the subject of the sentence.",
+      "examples": [
+        [
+          "문이 열렸어요",
+          "The door was opened."
+        ],
+        [
+          "책이 읽혔어요",
+          "The book was read."
+        ],
+        [
+          "사진이 찍혔어요",
+          "The photo was taken."
+        ],
+        [
+          "창문이 닫혔어요",
+          "The window was closed."
+        ],
+        [
+          "문이 바람에 열렸어요",
+          "The door was opened by the wind."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___",
+          "translation": "The door was opened.",
+          "answer": "문이 열렸어요",
+          "hint": "Base form: 열다",
+          "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "문이 열렸어요"
+        },
+        {
+          "prompt": "___",
+          "translation": "The book was read.",
+          "answer": "책이 읽혔어요",
+          "hint": "Base form: 읽다",
+          "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "책이 읽혔어요"
+        },
+        {
+          "prompt": "___",
+          "translation": "The photo was taken.",
+          "answer": "사진이 찍혔어요",
+          "hint": "Base form: 찍다",
+          "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "사진이 찍혔어요"
+        },
+        {
+          "prompt": "___",
+          "translation": "The window was closed.",
+          "answer": "창문이 닫혔어요",
+          "hint": "Base form: 닫다",
+          "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "창문이 닫혔어요"
+        },
+        {
+          "prompt": "문이 ___",
+          "translation": "The door was opened by the wind.",
+          "answer": "바람에 열렸어요",
+          "hint": "Base form: 열다",
+          "explanation": "The subject receives the action. Choose the passive form that matches the verb and the sentence’s tense.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "문이 바람에 열렸어요"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Passive verbs"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 16,
+      "title": "Miscellaneous grammar",
+      "pattern": "아/어 하다 · 들다 · 걸리다",
+      "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-16/",
+      "source_status": "published",
+      "source_title": "Miscellaneous grammar",
+      "meaning": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+      "when_to_use": "Use these common expressions for feelings, preferences, compound actions, homonyms and illness.",
+      "how_to_build": "Conjugate 좋다/싫다 with 하다 when describing a person’s feelings, and learn each meaning separately when one verb such as 들다 or 걸리다 has several uses.",
+      "examples": [
+        [
+          "저는 음악을 좋아해요",
+          "I like music."
+        ],
+        [
+          "감기에 걸렸어요",
+          "I caught a cold."
+        ],
+        [
+          "약을 먹었어요",
+          "I took medicine."
+        ],
+        [
+          "저는 매운 음식을 싫어해요",
+          "I dislike spicy food."
+        ],
+        [
+          "머리가 아파요",
+          "I have a headache."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "저는 음악을 ___",
+          "translation": "I like music.",
+          "answer": "좋아해요",
+          "hint": "Base form: 좋아하다",
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "감기에 ___",
+          "translation": "I caught a cold.",
+          "answer": "걸렸어요",
+          "hint": "Base form: 걸리다",
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "약을 ___",
+          "translation": "I took medicine.",
+          "answer": "먹었어요",
+          "hint": "Base form: 먹다",
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "저는 매운 음식을 ___",
+          "translation": "I dislike spicy food.",
+          "answer": "싫어해요",
+          "hint": "Base form: 싫어하다",
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "머리가 ___",
+          "translation": "I have a headache.",
+          "answer": "아파요",
+          "hint": "Base form: 아프다",
+          "explanation": "Review useful grammar points, homonyms, compound verbs and expressions for describing illness.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Miscellaneous grammar"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 17,
+      "title": "적 and 스럽다",
+      "pattern": "적 · 스럽다",
+      "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-17/",
+      "source_status": "published",
+      "source_title": "적 and 스럽다",
+      "meaning": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+      "when_to_use": "Use 적 and 스럽다 to derive related adjectives and describe qualities such as “cultural” or “natural.”",
+      "how_to_build": "Attach 적 to certain nouns to make “-al/-ic” adjectives and 스럽다 to express a quality or characteristic; apply normal adjective conjugation afterward.",
+      "examples": [
+        [
+          "한국적인 음식",
+          "Korean-style food."
+        ],
+        [
+          "사랑스러운 사람",
+          "A loving person."
+        ],
+        [
+          "자연적인 환경",
+          "A natural environment."
+        ],
+        [
+          "문화적인 차이",
+          "A cultural difference."
+        ],
+        [
+          "자연스러운 분위기",
+          "A natural atmosphere."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 음식",
+          "translation": "Korean-style food.",
+          "answer": "한국적인",
+          "hint": "Base form: 한국적이다",
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 사람",
+          "translation": "A loving person.",
+          "answer": "사랑스러운",
+          "hint": "Base form: 사랑스럽다",
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 환경",
+          "translation": "A natural environment.",
+          "answer": "자연적인",
+          "hint": "Base form: 자연적이다",
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 차이",
+          "translation": "A cultural difference.",
+          "answer": "문화적인",
+          "hint": "Base form: 문화적이다",
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 분위기",
+          "translation": "A natural atmosphere.",
+          "answer": "자연스러운",
+          "hint": "Base form: 자연스럽다",
+          "explanation": "Learn how 적 and 스럽다 attach to words and change their meaning.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "적 and 스럽다"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 18,
+      "title": "Connecting clauses with 고",
+      "pattern": "고 · 고 싶다",
+      "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-18/",
+      "source_status": "published",
+      "source_title": "Connecting clauses with 고",
+      "meaning": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+      "when_to_use": "Use 고 to connect clauses and 고 싶다 to say that you want to do something.",
+      "how_to_build": "Attach 고 to the first clause and conjugate the final clause. For desire, attach 고 싶다 to the verb stem.",
+      "examples": [
+        [
+          "밥을 먹고 공부했어요.",
+          "I ate and studied."
+        ],
+        [
+          "한국에 가고 싶어요.",
+          "I want to go to Korea."
+        ],
+        [
+          "책을 읽고 음악을 들었어요.",
+          "I read a book and listened to music."
+        ],
+        [
+          "아침을 먹고 학교에 갔어요.",
+          "I ate breakfast and went to school."
+        ],
+        [
+          "여행하고 싶어요.",
+          "I want to travel."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___ 공부했어요.",
+          "translation": "I ate and studied.",
+          "answer": "밥을 먹고",
+          "hint": "Base form: 먹다",
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "밥을 먹고 공부했어요."
+        },
+        {
+          "prompt": "한국에 ___",
+          "translation": "I want to go to Korea.",
+          "answer": "가고 싶어요",
+          "hint": "Base form: 가다",
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "한국에 가고 싶어요."
+        },
+        {
+          "prompt": "책을 ___ 음악을 들었어요.",
+          "translation": "I read a book and listened to music.",
+          "answer": "읽고",
+          "hint": "Base form: 읽다",
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "책을 읽고 음악을 들었어요."
+        },
+        {
+          "prompt": "___ 학교에 갔어요.",
+          "translation": "I ate breakfast and went to school.",
+          "answer": "아침을 먹고",
+          "hint": "Base form: 먹다",
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "아침을 먹고 학교에 갔어요."
+        },
+        {
+          "prompt": "___",
+          "translation": "I want to travel.",
+          "answer": "여행하고 싶어요",
+          "hint": "Base form: 여행하다",
+          "explanation": "Use 고 to connect ideas and use 고 싶다 to express a desire to do something.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "여행하고 싶어요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Connecting clauses with 고"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 19,
+      "title": "Progressive and change of state",
+      "pattern": "고 있다 · 아/어지다",
+      "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-19/",
+      "source_status": "published",
+      "source_title": "Progressive and change of state",
+      "meaning": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+      "when_to_use": "Use 고 있다 for an action in progress and 아/어지다 when a quality or state changes.",
+      "how_to_build": "Attach 고 있다 to the verb stem for an ongoing action; attach 아/어지다 to an adjective stem for “become/get.”",
+      "examples": [
+        [
+          "지금 책을 읽고 있어요.",
+          "I am reading a book now."
+        ],
+        [
+          "날씨가 추워지고 있어요.",
+          "The weather is becoming cold."
+        ],
+        [
+          "한국어를 공부하고 있어요.",
+          "I am studying Korean."
+        ],
+        [
+          "친구를 기다리고 있어요.",
+          "I am waiting for my friend."
+        ],
+        [
+          "날이 따뜻해지고 있어요.",
+          "The weather is getting warm."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "지금 책을 ___.",
+          "translation": "I am reading a book now.",
+          "answer": "읽고 있어요",
+          "hint": "Base form: 읽다",
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "날씨가 ___.",
+          "translation": "The weather is becoming cold.",
+          "answer": "추워지고 있어요",
+          "hint": "Base form: 춥다",
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "한국어를 ___.",
+          "translation": "I am studying Korean.",
+          "answer": "공부하고 있어요",
+          "hint": "Base form: 공부하다",
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "친구를 ___.",
+          "translation": "I am waiting for my friend.",
+          "answer": "기다리고 있어요",
+          "hint": "Base form: 기다리다",
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+          "answer_form": "Informal polite form (해요체)"
+        },
+        {
+          "prompt": "날이 ___.",
+          "translation": "The weather is getting warm.",
+          "answer": "따뜻해지고 있어요",
+          "hint": "Base form: 따뜻하다",
+          "explanation": "Use 고 있다 for an ongoing action and 아/어지다 to express becoming a certain way.",
+          "answer_form": "Informal polite form (해요체)"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Progressive and change of state"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 20,
+      "title": "Comparatives and superlatives",
+      "pattern": "보다 · 더 · 제일/가장",
+      "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-20/",
+      "source_status": "published",
+      "source_title": "Comparatives and superlatives",
+      "meaning": "Make comparative and superlative sentences and understand the common word 더.",
+      "when_to_use": "Use 보다 for “more ... than” and 제일/가장 for “the most”; 더 means “more.”",
+      "how_to_build": "Put 보다 after the comparison target and 더 before the comparative adjective; put 제일 or 가장 before the superlative expression.",
+      "examples": [
+        [
+          "한국어가 영어보다 어려워요.",
+          "Korean is more difficult than English."
+        ],
+        [
+          "오늘은 어제보다 더워요.",
+          "Today is hotter than yesterday."
+        ],
+        [
+          "이것이 제일 좋아요.",
+          "This is the best."
+        ],
+        [
+          "이 가방은 저 가방보다 비싸요.",
+          "This bag is more expensive than that bag."
+        ],
+        [
+          "서울이 한국에서 제일 커요.",
+          "Seoul is the biggest in Korea."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "한국어가 ___ 어려워요.",
+          "translation": "Korean is more difficult than English.",
+          "answer": "영어보다",
+          "hint": "Base form: 영어",
+          "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
+          "source_sentence": "한국어가 영어보다 어려워요."
+        },
+        {
+          "prompt": "오늘은 ___ 더워요.",
+          "translation": "Today is hotter than yesterday.",
+          "answer": "어제보다",
+          "hint": "Base form: 어제",
+          "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
+          "source_sentence": "오늘은 어제보다 더워요."
+        },
+        {
+          "prompt": "이것이 ___",
+          "translation": "This is the best.",
+          "answer": "제일 좋아요",
+          "hint": "Base form: 제일",
+          "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "이것이 제일 좋아요."
+        },
+        {
+          "prompt": "이 가방은 저 ___ 비싸요.",
+          "translation": "This bag is more expensive than that bag.",
+          "answer": "가방보다",
+          "hint": "Base form: 가방",
+          "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
+          "source_sentence": "이 가방은 저 가방보다 비싸요."
+        },
+        {
+          "prompt": "서울이 한국에서 ___",
+          "translation": "Seoul is the biggest in Korea.",
+          "answer": "제일 커요",
+          "hint": "Base form: 제일",
+          "explanation": "Make comparative and superlative sentences and understand the common word 더.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "서울이 한국에서 제일 커요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Comparatives and superlatives"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 21,
+      "title": "잘 and 못",
+      "pattern": "잘 · 못 · 잘하다 · 못하다",
+      "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-21/",
+      "source_status": "published",
+      "source_title": "잘 and 못",
+      "meaning": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+      "when_to_use": "Use 잘 and 못 before a verb for doing something well or poorly, and 잘하다/못하다 when the whole ability is the predicate.",
+      "how_to_build": "Put 잘 or 못 before the verb for manner/ability; use 잘하다 or 못하다 as lexical predicates meaning to be good or bad at an activity.",
+      "examples": [
+        [
+          "한국어를 잘해요.",
+          "I speak Korean well."
+        ],
+        [
+          "운전을 못해요.",
+          "I cannot drive well."
+        ],
+        [
+          "저는 요리를 잘해요",
+          "I am good at cooking."
+        ],
+        [
+          "저는 수영을 잘해요.",
+          "I am good at swimming."
+        ],
+        [
+          "동생은 노래를 못해요.",
+          "My younger sibling sings poorly."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___",
+          "translation": "I speak Korean well.",
+          "answer": "한국어를 잘해요",
+          "hint": "Base form: 잘하다",
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "한국어를 잘해요."
+        },
+        {
+          "prompt": "___",
+          "translation": "I cannot drive well.",
+          "answer": "운전을 못해요",
+          "hint": "Base form: 운전하다",
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "운전을 못해요."
+        },
+        {
+          "prompt": "저는 ___",
+          "translation": "I am good at cooking.",
+          "answer": "요리를 잘해요",
+          "hint": "Base form: 잘하다",
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "저는 요리를 잘해요."
+        },
+        {
+          "prompt": "저는 ___",
+          "translation": "I am good at swimming.",
+          "answer": "수영을 잘해요",
+          "hint": "Base form: 잘하다",
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "저는 수영을 잘해요."
+        },
+        {
+          "prompt": "동생은 ___",
+          "translation": "My younger sibling sings poorly.",
+          "answer": "노래를 못해요",
+          "hint": "Base form: 노래하다",
+          "explanation": "Learn how 잘 and 못 express doing something well or poorly and how they differ from 잘하다 and 못하다.",
+          "answer_form": "Informal polite form (해요체)",
+          "source_sentence": "동생은 노래를 못해요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "잘 and 못"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 22,
+      "title": "Questions I",
+      "pattern": "누구 · 뭐 · 언제 · 왜 · 어디",
+      "explanation": "Form questions without question words and use common words such as who, what, when, why and where.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-22/",
+      "source_status": "published",
+      "source_title": "Questions I",
+      "meaning": "Form questions without question words and use common words such as who, what, when, why and where.",
+      "when_to_use": "Use Korean question intonation and question words such as 누구, 뭐, 언제, 왜 and 어디.",
+      "how_to_build": "Keep the question word in the position of the missing information: 누구 for a person, 뭐 for a thing, 언제 for time, 왜 for reason and 어디 for place.",
+      "examples": [
+        [
+          "어제 누구를 만났어요?",
+          "Whom did you meet yesterday?"
+        ],
+        [
+          "뭐를 먹었어요?",
+          "What did you eat?"
+        ],
+        [
+          "왜 와요?",
+          "Why are you coming?"
+        ],
+        [
+          "언제 학교에 갔어요?",
+          "When did you go to school?"
+        ],
+        [
+          "어디에 살아요?",
+          "Where do you live?"
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "어제 ___ 만났어요?",
+          "translation": "Whom did you meet yesterday?",
+          "answer": "누구를",
+          "hint": "Base form: 누구",
+          "explanation": "Form questions without question words and use common words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 먹었어요?",
+          "translation": "What did you eat?",
+          "answer": "뭐를",
+          "hint": "Base form: 뭐",
+          "explanation": "Form questions without question words and use common words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 와요?",
+          "translation": "Why are you coming?",
+          "answer": "왜",
+          "hint": "Base form: 왜",
+          "explanation": "Form questions without question words and use common words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 학교에 갔어요?",
+          "translation": "When did you go to school?",
+          "answer": "언제",
+          "hint": "Base form: 언제",
+          "explanation": "Form questions without question words and use common words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        },
+        {
+          "prompt": "___ 살아요?",
+          "translation": "Where do you live?",
+          "answer": "어디에",
+          "hint": "Base form: 어디",
+          "explanation": "Form questions without question words and use common words.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Questions I"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 23,
+      "title": "Questions II",
+      "pattern": "어떻게 · 어느 · 몇",
+      "explanation": "Ask questions with how, which and how many.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-23/",
+      "source_status": "published",
+      "source_title": "Questions II",
+      "meaning": "Ask questions with how, which and how many.",
+      "when_to_use": "Use 어떻게, 어느 and 몇 to ask how, which and how many.",
+      "how_to_build": "Use 어떻게 for manner, 어느 before a noun for “which,” and 몇 before a counter or noun for “how many.”",
+      "examples": [
+        [
+          "한국어를 어떻게 공부해요?",
+          "How do you study Korean?"
+        ],
+        [
+          "어느 책이 좋아요?",
+          "Which book do you like?"
+        ],
+        [
+          "사과를 몇 개 샀어요?",
+          "How many apples did you buy?"
+        ],
+        [
+          "몇 사람이 왔어요?",
+          "How many people came?"
+        ],
+        [
+          "어느 영화를 좋아해요?",
+          "Which movie do you like?"
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "한국어를 ___ 공부해요?",
+          "translation": "How do you study Korean?",
+          "answer": "어떻게",
+          "hint": "Base form: 어떻게",
+          "explanation": "Ask questions with how, which and how many.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "한국어를 어떻게 공부해요?"
+        },
+        {
+          "prompt": "___",
+          "translation": "Which book do you like?",
+          "answer": "어느 책이 좋아요?",
+          "hint": "Base form: 어느",
+          "explanation": "Ask questions with how, which and how many.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "어느 책이 좋아요?"
+        },
+        {
+          "prompt": "사과를 ___ 샀어요?",
+          "translation": "How many apples did you buy?",
+          "answer": "몇 개",
+          "hint": "Base form: 몇",
+          "explanation": "Ask questions with how, which and how many.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "사과를 몇 개 샀어요?"
+        },
+        {
+          "prompt": "___",
+          "translation": "How many people came?",
+          "answer": "몇 명의 사람이 왔어요?",
+          "hint": "Base form: 몇",
+          "explanation": "Ask questions with how, which and how many.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "몇 명의 사람이 왔어요?"
+        },
+        {
+          "prompt": "___",
+          "translation": "Which movie do you like?",
+          "answer": "어느 영화를 좋아해요?",
+          "hint": "Base form: 어느",
+          "explanation": "Ask questions with how, which and how many.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "어느 영화를 좋아해요?"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Questions II"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 24,
+      "title": "ㅎ irregular and colors",
+      "pattern": "ㅎ 불규칙",
+      "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-24/",
+      "source_status": "published",
+      "source_title": "ㅎ irregular and colors",
+      "meaning": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+      "when_to_use": "Use the ㅎ irregular with relevant adjectives such as colors and with 이렇다, 그렇다 and 저렇다.",
+      "how_to_build": "When a ㅎ-irregular adjective meets a vowel beginning ending, ㅎ disappears and the vowel changes according to the irregular pattern.",
+      "examples": [
+        [
+          "날씨가 파래요",
+          "The sky is blue/clear."
+        ],
+        [
+          "어떤 색이에요?",
+          "What kind of color is it?"
+        ],
+        [
+          "어떤 사람입니까?",
+          "What kind of person is he/she?"
+        ],
+        [
+          "하늘이 파래요",
+          "The sky is blue."
+        ],
+        [
+          "어떤 모양이에요?",
+          "What kind of shape is it?"
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "___",
+          "translation": "The sky is blue/clear.",
+          "answer": "날씨가 파래요",
+          "hint": "Base form: 파랗다",
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "날씨가 파래요."
+        },
+        {
+          "prompt": "___",
+          "translation": "What kind of color is it?",
+          "answer": "어떤 색이에요?",
+          "hint": "Base form: 어떻다",
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "어떤 색이에요?"
+        },
+        {
+          "prompt": "___",
+          "translation": "What kind of person is he/she?",
+          "answer": "어떤 사람입니까?",
+          "hint": "Base form: 어떻다",
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "어떤 사람입니까?"
+        },
+        {
+          "prompt": "___",
+          "translation": "The sky is blue.",
+          "answer": "하늘이 파래요",
+          "hint": "Base form: 파랗다",
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "하늘이 파래요."
+        },
+        {
+          "prompt": "___",
+          "translation": "What kind of shape is it?",
+          "answer": "어떤 모양이에요?",
+          "hint": "Base form: 어떻다",
+          "explanation": "Use the ㅎ irregular with colors and with 이렇다, 그렇다 and 저렇다.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "어떤 모양이에요?"
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "ㅎ irregular and colors"
+    },
+    {
+      "unit": 1,
+      "lesson_number": 25,
+      "title": "Time expressions and indefinite words",
+      "pattern": "전 · 후 · 이래로 · 이내 · 누구든지",
+      "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+      "source_url": "https://www.howtostudykorean.com/home-page/unit-1-lessons-1-25/lesson-25/",
+      "source_status": "published",
+      "source_title": "Time expressions and indefinite words",
+      "meaning": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+      "when_to_use": "Use 전, 후, 이래로 and 이내 to position events in time, and indefinite words to mean anybody, somebody or everybody.",
+      "how_to_build": "Place 전/후/이래로/이내 after the relevant time expression; combine 누구/뭐/어디 with -든지 or related forms for indefinite meanings.",
+      "examples": [
+        [
+          "수업 후에 복습해요.",
+          "I review after class."
+        ],
+        [
+          "누구든지 올 수 있어요.",
+          "Anybody can come."
+        ],
+        [
+          "한 시간 이내에 끝나요.",
+          "It ends within one hour."
+        ],
+        [
+          "회의 전에에 도착했어요.",
+          "I arrived before the meeting."
+        ],
+        [
+          "한 달 이내에 끝낼 거예요.",
+          "I will finish within one month."
+        ]
+      ],
+      "examples_source": "How to Study Korean lesson-based sentence practice",
+      "cards": [
+        {
+          "prompt": "수업 ___에 복습해요.",
+          "translation": "I review after class.",
+          "answer": "후",
+          "hint": "Base form: 후",
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "수업 후에 복습해요."
+        },
+        {
+          "prompt": "___ 올 수 있어요.",
+          "translation": "Anybody can come.",
+          "answer": "누구든지",
+          "hint": "Base form: 누구",
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+          "answer_form": "Informal/plain conversational form (해체/한다체)",
+          "source_sentence": "누구든지 올 수 있어요."
+        },
+        {
+          "prompt": "___에 끝나요.",
+          "translation": "It ends within one hour.",
+          "answer": "한 시간 이내",
+          "hint": "Base form: 이내",
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "한 시간 이내에 끝나요."
+        },
+        {
+          "prompt": "회의 ___ 도착했어요.",
+          "translation": "I arrived before the meeting.",
+          "answer": "전에",
+          "hint": "Base form: 전",
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "회의 전에 도착했어요."
+        },
+        {
+          "prompt": "___에 끝낼 거예요.",
+          "translation": "I will finish within one month.",
+          "answer": "한 달 이내",
+          "hint": "Base form: 이내",
+          "explanation": "Use time words meaning before, after, since and within, and learn indefinite expressions.",
+          "answer_form": "No speech-level ending required — enter the target word or grammar form",
+          "source_sentence": "한 달 이내에 끝낼 거예요."
+        }
+      ],
+      "level": "HTSK Unit 1",
+      "topic": "Time expressions and indefinite words"
+    }
+  ]
+}
