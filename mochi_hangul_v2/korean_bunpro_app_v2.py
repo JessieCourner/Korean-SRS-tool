@@ -547,6 +547,25 @@ st.markdown("""
     .stTextInput input:not(.inline-answer-input):not([aria-label^="Answer for card "])::placeholder {color: #9b82a5 !important; -webkit-text-fill-color: #9b82a5 !important; opacity: 1 !important;}
     /* Keep Streamlit selectboxes on the Mochi light palette even when the
        browser or Cloud runtime prefers a dark color scheme. */
+
+    /* Word page pagination: number input and its +/- buttons */
+    [data-testid="stNumberInput"] [data-baseweb="input"] > div,
+    [data-testid="stNumberInput"] [data-baseweb="input"] {
+      background:#FFF9FD !important; color:#5B4770 !important;
+      border-color:#E8CFE1 !important; border-radius:12px !important;
+    }
+    [data-testid="stNumberInput"] input {
+      background:#FFF9FD !important; color:#5B4770 !important;
+      -webkit-text-fill-color:#5B4770 !important; caret-color:#5B4770 !important;
+    }
+    [data-testid="stNumberInput"] button,
+    [data-testid="stNumberInput"] [data-baseweb="button"] {
+      background:#FBEAF5 !important; color:#5B4770 !important;
+      border-color:#E8CFE1 !important;
+    }
+    [data-testid="stNumberInput"] button svg,
+    [data-testid="stNumberInput"] button svg path {color:#5B4770 !important; stroke:#5B4770 !important;}
+    [data-testid="stNumberInput"] button:hover {background:#F4DDEC !important;}
     [data-testid="stSelectbox"] [data-baseweb="select"] > div,
     [data-testid="stMultiSelect"] [data-baseweb="select"] > div {background:#fffaff !important; color:#5b4770 !important; border:2px solid #e8cfe1 !important; border-radius:14px !important;}
     [data-testid="stSelectbox"] [data-baseweb="select"] span,
