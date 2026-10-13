@@ -258,7 +258,15 @@ def install_v2(namespace):
                             ORDER BY target,part_of_speech,target_translation,base_form""", (pack["id"],))
                         mastered_words = {row["item_id"] for row in v2_rows(
                             "SELECT item_id FROM manual_mastery WHERE item_kind='vocab_word' AND mastered=1")}
-                        for index, word in enumerate(word_rows):
+                        page_size = 40
+                        total_pages = max(1, (len(word_rows) + page_size - 1) // page_size)
+                        current_page = st.number_input(
+                            "Word page", min_value=1, max_value=total_pages, value=1,
+                            step=1, key=f"v2_word_page_{pack['id']}",
+                        ) if total_pages > 1 else 1
+                        st.caption(f"{len(word_rows)} words · Page {current_page} of {total_pages}")
+                        start = (current_page - 1) * page_size
+                        for index, word in enumerate(word_rows[start:start + page_size], start=start):
                             # Disambiguate homographs: identical Korean targets can have different meanings.
                             word_id = f"{pack['id']}:{word['target']}:{word['part_of_speech']}:{word['target_translation']}:{word['base_form']}"
                             legacy_id = f"{pack['id']}:{word['target']}"
@@ -273,7 +281,7 @@ def install_v2(namespace):
                                     set_mastery("vocab_word", word_id, not mastered_word)
                                     if legacy_id in mastered_words:
                                         set_mastery("vocab_word", legacy_id, False)
-                    render_words_fragment_topik()
+                render_words_fragment_topik()
 
     namespace["page_vocabulary_packs"] = page_vocabulary_packs
 
@@ -576,7 +584,7 @@ def install_v2(namespace):
                                     set_mastery("vocab_word", word_id, not done_word)
                                     if legacy_id in mastered_words:
                                         set_mastery("vocab_word", legacy_id, False)
-                    render_words_fragment_music()
+                render_words_fragment_music()
 
     namespace["page_music_packs"] = page_music_packs
 
