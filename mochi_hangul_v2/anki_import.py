@@ -459,7 +459,9 @@ def import_progress(conn, mappings):
                 total += max(0, cursor.rowcount)
             finally:
                 cursor.close()
-        return total
+        updated = max(0, total)
+        destination_count = len({row[0] for row in rows})
+        return updated, max(0, destination_count - updated)
 
     # Local SQLite copy/test path. executemany keeps this one local operation
     # efficient while applying the same untouched-card guard.
@@ -469,7 +471,9 @@ def import_progress(conn, mappings):
           AND last_review IS NULL AND interval_days=0""",
         [(level, due, last, reviews, interval, lapses, card_id)
          for card_id, level, due, last, reviews, interval, lapses in rows])
-    return max(0, cursor.rowcount), max(0, len(rows) - max(0, cursor.rowcount))
+    updated = max(0, cursor.rowcount)
+    destination_count = len({row[0] for row in rows})
+    return updated, max(0, destination_count - updated)
 
 
 def curated_plan(source, cards, bundle):
