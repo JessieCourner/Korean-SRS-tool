@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import html
 import io
 import json
@@ -425,18 +426,15 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
     return inserted, max(0, int(present) - inserted)
 
 
-def import_progress(conn, mappings, force_card_ids=None):
-    """Import to blank rows, honor reviewed transfers, and refresh dedicated Anki cards safely."""
-    force_card_ids = {str(value) for value in (force_card_ids or set())}
+def import_progress(conn, mappings):
+    """Replace the SRS schedule on every destination selected by the reviewed plan."""
     rows = [(
         str(card["id"]), int(source["level"]), source["due"], source["last"],
         int(source["reviews"]), int(source["interval"]), int(source["lapses"]),
-        str(card["id"]) in force_card_ids, str(card["id"]).startswith("anki_"),
     ) for source, card in mappings]
     if not rows:
-        return 0, 0
+        return 0
 
-    # A deployed database may not yet have a progress row for every card.
     if hasattr(conn, "raw"):
         from psycopg2.extras import execute_values
         cursor = conn.raw.cursor()
@@ -446,33 +444,13 @@ def import_progress(conn, mappings, force_card_ids=None):
                 [(row[0],) for row in rows], page_size=250)
         finally:
             cursor.close()
-    else:
-        conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
-                         [(row[0],) for row in rows])
-
-    if hasattr(conn, "raw"):
-        from psycopg2.extras import execute_values
         sql = """UPDATE v2_vocab_progress AS target
             SET level=source.level, next_review=source.next_review,
                 last_review=source.last_review, reviews=source.reviews,
                 interval_days=source.interval_days, lapses=source.lapses
             FROM (VALUES %s) AS source
-                (card_id, level, next_review, last_review, reviews, interval_days, lapses, force_override, dedicated_anki)
-            WHERE target.card_id=source.card_id AND (
-                source.force_override OR (
-                    COALESCE(target.reviews,0)=0 AND COALESCE(target.level,0)=0
-                    AND COALESCE(target.mastered,0)=0
-                    AND COALESCE(NULLIF(BTRIM(target.last_review), ''), '')=''
-                    AND COALESCE(target.interval_days,0)=0
-                ) OR (
-                    source.dedicated_anki
-                    AND COALESCE(target.reviews,0)<=source.reviews
-                    AND (
-                        COALESCE(NULLIF(BTRIM(target.last_review), ''), '')=''
-                        OR (source.last_review IS NOT NULL AND target.last_review<=source.last_review)
-                    )
-                )
-            )"""
+                (card_id, level, next_review, last_review, reviews, interval_days, lapses)
+            WHERE target.card_id=source.card_id"""
         updated = 0
         for start in range(0, len(rows), 250):
             cursor = conn.raw.cursor()
@@ -481,29 +459,16 @@ def import_progress(conn, mappings, force_card_ids=None):
                 updated += max(0, cursor.rowcount)
             finally:
                 cursor.close()
-    else:
-        cursor = conn.executemany("""UPDATE v2_vocab_progress
-            SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
-            WHERE card_id=? AND (
-                ? OR (
-                    COALESCE(reviews,0)=0 AND COALESCE(level,0)=0 AND COALESCE(mastered,0)=0
-                    AND COALESCE(NULLIF(TRIM(last_review),''),'')=''
-                    AND COALESCE(interval_days,0)=0
-                ) OR (
-                    ? AND COALESCE(reviews,0)<=?
-                    AND (
-                        COALESCE(NULLIF(TRIM(last_review),''),'')=''
-                        OR (? IS NOT NULL AND last_review<=?)
-                    )
-                )
-            )""",
-            [(level, due, last, reviews, interval, lapses, card_id,
-              int(force), int(dedicated), reviews, last, last)
-             for card_id, level, due, last, reviews, interval, lapses, force, dedicated in rows])
-        updated = max(0, cursor.rowcount)
+        return updated
 
-    destination_count = len({row[0] for row in rows})
-    return updated, max(0, destination_count - updated)
+    conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
+                     [(row[0],) for row in rows])
+    cursor = conn.executemany("""UPDATE v2_vocab_progress
+        SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
+        WHERE card_id=?""",
+        [(level, due, last, reviews, interval, lapses, card_id)
+         for card_id, level, due, last, reviews, interval, lapses in rows])
+    return max(0, cursor.rowcount)
 
 
 def curated_plan(source, cards, bundle):
@@ -598,13 +563,31 @@ def render(st, db):
         except (OSError, ValueError, KeyError, TypeError):
             curated = None
     mappings, report = curated if curated is not None else plan(source, cards)
+    deck_hash = hashlib.sha256(upload.getvalue()).hexdigest()
+    previous_import = None
+    if curated is not None:
+        conn = db()
+        try:
+            conn.execute("""CREATE TABLE IF NOT EXISTS anki_progress_import_runs (
+                deck_hash TEXT PRIMARY KEY, imported_at TEXT NOT NULL,
+                mapped_cards INTEGER NOT NULL, excluded_cards INTEGER NOT NULL
+            )""")
+            conn.commit()
+            previous_import = conn.execute(
+                "SELECT imported_at,mapped_cards,excluded_cards FROM anki_progress_import_runs WHERE deck_hash=?",
+                (deck_hash,)).fetchone()
+        finally:
+            conn.close()
     counts = defaultdict(int)
     for row in report:
         counts[row["status"]] += 1
     if curated is not None:
-        st.write(f"Reviewed plan: {len(source)} cards checked, {counts['matched']} matched, {counts['new card']} separate Anki cards, {counts['unresolved']} left unresolved, {counts['excluded by user']} excluded by your instruction.")
+        st.write(f"Reviewed plan: {len(source)} cards checked; {len(mappings)} schedules will transfer; {counts['excluded by user']} excluded by your decision.")
+        st.warning("This import replaces the schedule on every mapped Mochi card with its Anki schedule. The 163 cards excluded in your reviewed plan will remain untouched.")
+        if previous_import:
+            st.info(f"This exact Anki deck was already imported on {previous_import['imported_at']}. It is locked to prevent resetting progress from a repeat import.")
     else:
-        st.write(f"{len(source)} Anki cards checked: {counts['matched']} matched, {counts['ambiguous']} ambiguous, {counts['meaning mismatch']} sense mismatches, {counts['missing']} not found, {counts['not imported']} suspended or buried.")
+        st.error("This .apkg does not match the reviewed 1,896-card plan. Import is disabled so unmatched cards cannot overwrite Mochi progress.")
     output = io.StringIO()
     fields = list(report[0]) if report else ["status"]
     writer = csv.DictWriter(output, fieldnames=fields)
@@ -617,8 +600,9 @@ def render(st, db):
     } for a, c in mappings], use_container_width=True)
     if not mappings:
         st.warning("There are no progress rows to import from this plan.")
-    if st.button("Import matched progress", disabled=not mappings, key="anki_import_confirm"):
-        with st.spinner(f"Saving Anki progress for {len(mappings):,} planned cards…"):
+    import_disabled = not mappings or curated is None or previous_import is not None
+    if st.button("Transfer all reviewed Anki schedules", disabled=import_disabled, key="anki_import_confirm"):
+        with st.spinner(f"Replacing schedules on all {len(mappings):,} mapped cards…"):
             conn = db()
             try:
                 # Additive migrations. PostgreSQL uses IF NOT EXISTS; SQLite checks its schema.
@@ -631,12 +615,14 @@ def render(st, db):
                         conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN interval_days INTEGER NOT NULL DEFAULT 0")
                     if "lapses" not in columns:
                         conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN lapses INTEGER NOT NULL DEFAULT 0")
-                if curated is not None:
-                    added_cards, existing_separate_cards = ensure_reviewed_anki_cards(conn, bundle, mappings)
-                    forced_ids = explicitly_selected_transfer_ids(bundle, mappings)
-                else:
-                    added_cards, existing_separate_cards, forced_ids = 0, 0, set()
-                imported, preserved = import_progress(conn, mappings, forced_ids)
+                # Recheck the one-time guard inside the write transaction.
+                already = conn.execute("SELECT 1 FROM anki_progress_import_runs WHERE deck_hash=?", (deck_hash,)).fetchone()
+                if already:
+                    raise RuntimeError("This exact Anki deck has already been imported; no progress was changed.")
+                added_cards, existing_separate_cards = ensure_reviewed_anki_cards(conn, bundle, mappings)
+                imported = import_progress(conn, mappings)
+                conn.execute("INSERT INTO anki_progress_import_runs(deck_hash,imported_at,mapped_cards,excluded_cards) VALUES(?,?,?,?)",
+                             (deck_hash, datetime.now(LOCAL_TZ).isoformat(timespec="seconds"), len(mappings), counts["excluded by user"]))
                 conn.commit()
             except Exception:
                 if hasattr(conn, "raw"):
@@ -647,4 +633,4 @@ def render(st, db):
             finally:
                 conn.close()
         st.session_state.pop("vocab_queue_ids", None)
-        st.success(f"Applied Anki schedules to {imported:,} cards. Separate cards: {added_cards:,} added now and {existing_separate_cards:,} already present. Other Mochi schedules preserved: {preserved:,}.")
+        st.success(f"Transferred Anki schedules to {imported:,} mapped cards. Separate cards: {added_cards:,} created and {existing_separate_cards:,} already present. Excluded by your decision: {counts['excluded by user']:,}.")
