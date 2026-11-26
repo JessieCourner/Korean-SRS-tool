@@ -332,21 +332,144 @@ def plan(source: list[dict], destination_cards: list[dict]):
     return mappings, report
 
 
+def anki_card_from_report(row):
+    """Build a standalone vocabulary card for a reviewed Anki-only mapping."""
+    korean = clean(row.get("korean", ""))
+    english = clean(row.get("english", ""))
+    example_ko = clean(row.get("example_korean", ""))
+    example_en = clean(row.get("example_english", ""))
+    return {
+        "id": f"anki_{row.get('anki_id', '')}",
+        "pack_id": "anki_import_reviewed",
+        "card_type": "translation",
+        "target": korean,
+        "part_of_speech": "vocabulary",
+        "target_translation": english,
+        "prompt": f"Translate into Korean: {english}",
+        "source_sentence": example_ko,
+        "translation": example_en,
+        "answer": korean,
+        "base_form": korean,
+        "answer_form": korean,
+        "explanation": "Imported from the reviewed Anki migration plan.",
+        "source_label": "Anki import",
+        "source_url": "",
+        "artist": "",
+        "song": "",
+    }
+
+
+def ensure_reviewed_anki_cards(conn, bundle, mappings):
+    """Create reviewed standalone cards once, so their Anki schedules have destinations."""
+    wanted = {str(card["id"]) for _, card in mappings if str(card["id"]).startswith("anki_")}
+    report_by_id = {str(row.get("anki_id", "")): row for row in bundle.get("report_rows", [])}
+    cards = []
+    for destination_id in wanted:
+        anki_id = destination_id.removeprefix("anki_")
+        row = report_by_id.get(anki_id)
+        if row and row.get("final_status") == "new card":
+            cards.append(anki_card_from_report(row))
+    if not cards:
+        return 0
+
+    conn.execute("""INSERT OR IGNORE INTO v2_vocab_packs
+        (id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?)""",
+        ("anki_import_reviewed", "Imported Anki Cards", "Anki", "Imported", "themed",
+         "Cards kept separate to preserve their reviewed Anki meanings and schedules.",
+         "Anki import", "", "", "", ""))
+    columns = ("id", "pack_id", "card_type", "target", "part_of_speech", "target_translation",
+               "prompt", "source_sentence", "translation", "answer", "base_form", "answer_form",
+               "explanation", "source_label", "source_url", "artist", "song")
+    values = [tuple(card[key] for key in columns) for card in cards]
+    placeholders = "(" + ",".join("?" for _ in columns) + ")"
+    if hasattr(conn, "raw"):
+        from psycopg2.extras import execute_values
+        inserted = 0
+        for start in range(0, len(values), 250):
+            cursor = conn.raw.cursor()
+            try:
+                execute_values(cursor,
+                    "INSERT INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES %s ON CONFLICT(id) DO NOTHING",
+                    values[start:start + 250], page_size=250)
+                inserted += max(0, cursor.rowcount)
+            finally:
+                cursor.close()
+        progress_cursor = conn.raw.cursor()
+        try:
+            execute_values(progress_cursor,
+                "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT(card_id) DO NOTHING",
+                [(card["id"],) for card in cards], page_size=250)
+        finally:
+            progress_cursor.close()
+        return inserted
+
+    cursor = conn.executemany(
+        "INSERT OR IGNORE INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES " + placeholders,
+        values)
+    inserted = max(0, cursor.rowcount)
+    conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
+                     [(card["id"],) for card in cards])
+    return inserted
+
+
 def import_progress(conn, mappings):
-    """Apply only to untouched cards; scheduling fields are retained verbatim."""
-    count = 0
-    for source, card in mappings:
-        result = conn.execute("""
-            UPDATE v2_vocab_progress
-            SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
-            WHERE card_id=? AND reviews=0 AND level=0 AND mastered=0
-              AND last_review IS NULL AND interval_days=0
-        """, (
-            source["level"], source["due"], source["last"], source["reviews"],
-            source["interval"], source["lapses"], card["id"],
-        ))
-        count += result.rowcount
-    return count
+    """Apply reviewed schedules to blank destinations; keep existing Mochi progress unchanged."""
+    rows = [(
+        str(card["id"]), int(source["level"]), source["due"], source["last"],
+        int(source["reviews"]), int(source["interval"]), int(source["lapses"]),
+    ) for source, card in mappings]
+    if not rows:
+        return 0
+
+    # A deployed database may not yet have a progress row for every card.
+    # Insert blank rows first so those destinations are eligible for import.
+    if hasattr(conn, "raw"):
+        from psycopg2.extras import execute_values
+        cursor = conn.raw.cursor()
+        try:
+            execute_values(cursor,
+                "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT(card_id) DO NOTHING",
+                [(row[0],) for row in rows], page_size=250)
+        finally:
+            cursor.close()
+    else:
+        conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
+                         [(row[0],) for row in rows])
+
+    where = """target.card_id=source.card_id
+        AND target.reviews=0 AND target.level=0 AND target.mastered=0
+        AND target.last_review IS NULL AND target.interval_days=0"""
+    if hasattr(conn, "raw"):
+        # Supabase/PostgreSQL: batch the reviewed plan into a small number of
+        # UPDATE statements instead of waiting on one network round-trip per card.
+        from psycopg2.extras import execute_values
+        sql = f"""UPDATE v2_vocab_progress AS target
+            SET level=source.level, next_review=source.next_review,
+                last_review=source.last_review, reviews=source.reviews,
+                interval_days=source.interval_days, lapses=source.lapses
+            FROM (VALUES %s) AS source
+                (card_id, level, next_review, last_review, reviews, interval_days, lapses)
+            WHERE {where}"""
+        total = 0
+        for start in range(0, len(rows), 250):
+            cursor = conn.raw.cursor()
+            try:
+                execute_values(cursor, sql, rows[start:start + 250], page_size=250)
+                total += max(0, cursor.rowcount)
+            finally:
+                cursor.close()
+        return total
+
+    # Local SQLite copy/test path. executemany keeps this one local operation
+    # efficient while applying the same untouched-card guard.
+    cursor = conn.executemany("""UPDATE v2_vocab_progress
+        SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
+        WHERE card_id=? AND reviews=0 AND level=0 AND mastered=0
+          AND last_review IS NULL AND interval_days=0""",
+        [(level, due, last, reviews, interval, lapses, card_id)
+         for card_id, level, due, last, reviews, interval, lapses in rows])
+    return max(0, cursor.rowcount), max(0, len(rows) - max(0, cursor.rowcount))
 
 
 def curated_plan(source, cards, bundle):
@@ -357,9 +480,14 @@ def curated_plan(source, cards, bundle):
     if len(expected) != bundle.get("checked_cards") or set(by_source) != expected:
         return None
     mappings = []
+    report_by_source = {str(row.get("anki_id", "")): row for row in bundle.get("report_rows", [])}
     for entry in bundle.get("progress_mappings", []):
         original = by_source.get(str(entry["anki_id"]))
         card = by_card.get(str(entry["destination_id"]))
+        if not card and str(entry["destination_id"]).startswith("anki_"):
+            reviewed_row = report_by_source.get(str(entry["anki_id"]))
+            if reviewed_row and reviewed_row.get("final_status") == "new card":
+                card = anki_card_from_report(reviewed_row)
         if not original or not card:
             continue
         scheduled = dict(original)
@@ -430,28 +558,32 @@ def render(st, db):
         "word": a["word"], "meaning": a["meaning"], "destination": c["target_translation"],
         "interval_days": a["interval"], "next_review": a["due"], "last_review": a["last"],
     } for a, c in mappings], use_container_width=True)
+    if not mappings:
+        st.warning("There are no progress rows to import from this plan.")
     if st.button("Import matched progress", disabled=not mappings, key="anki_import_confirm"):
-        conn = db()
-        try:
-            # Additive migrations. PostgreSQL uses IF NOT EXISTS; SQLite checks its schema.
+        with st.spinner(f"Saving Anki progress for {len(mappings):,} planned cards…"):
+            conn = db()
             try:
-                conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN IF NOT EXISTS interval_days INTEGER NOT NULL DEFAULT 0")
-                conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN IF NOT EXISTS lapses INTEGER NOT NULL DEFAULT 0")
+                # Additive migrations. PostgreSQL uses IF NOT EXISTS; SQLite checks its schema.
+                try:
+                    conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN IF NOT EXISTS interval_days INTEGER NOT NULL DEFAULT 0")
+                    conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN IF NOT EXISTS lapses INTEGER NOT NULL DEFAULT 0")
+                except Exception:
+                    columns = {r[1] for r in conn.execute("PRAGMA table_info(v2_vocab_progress)").fetchall()}
+                    if "interval_days" not in columns:
+                        conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN interval_days INTEGER NOT NULL DEFAULT 0")
+                    if "lapses" not in columns:
+                        conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN lapses INTEGER NOT NULL DEFAULT 0")
+                added_cards = ensure_reviewed_anki_cards(conn, bundle, mappings) if curated is not None else 0
+                imported, preserved = import_progress(conn, mappings)
+                conn.commit()
             except Exception:
-                columns = {r[1] for r in conn.execute("PRAGMA table_info(v2_vocab_progress)").fetchall()}
-                if "interval_days" not in columns:
-                    conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN interval_days INTEGER NOT NULL DEFAULT 0")
-                if "lapses" not in columns:
-                    conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN lapses INTEGER NOT NULL DEFAULT 0")
-            imported = import_progress(conn, mappings)
-            conn.commit()
-        except Exception:
-            if hasattr(conn, "raw"):
-                conn.raw.rollback()
-            else:
-                conn.rollback()
-            raise
-        finally:
-            conn.close()
+                if hasattr(conn, "raw"):
+                    conn.raw.rollback()
+                else:
+                    conn.rollback()
+                raise
+            finally:
+                conn.close()
         st.session_state.pop("vocab_queue_ids", None)
-        st.success(f"Imported progress to {imported} untouched Mochi cards. Existing progress was preserved.")
+        st.success(f"Imported Anki schedules to {imported:,} cards and added {added_cards:,} separate Anki cards. Existing Mochi progress was preserved on {preserved:,} cards.")
