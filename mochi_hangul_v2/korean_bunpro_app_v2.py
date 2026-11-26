@@ -3518,7 +3518,10 @@ install_v2(globals())
 # Avoid replaying schema setup and content checks on every Streamlit widget rerun.
 # Each browser session initializes once; bootstrap's shared cache handles the seed.
 if not st.session_state.get("_v2_schema_ready_for_session"):
-    init_db()
+    # Show a visible loading state while the first-run schema/content sync runs.
+    # This prevents a theme-colored blank page during database initialization.
+    with st.spinner("Loading your study data…"):
+        init_db()
     st.session_state["_v2_schema_ready_for_session"] = True
 bootstrap_app_data(CONTENT_SYNC_VERSION)
 _render_room_theme_v2()

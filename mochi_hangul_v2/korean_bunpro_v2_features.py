@@ -144,20 +144,53 @@ def install_v2(namespace):
         # content rows can block on another active Supabase session and cause
         # QueryCanceled before Streamlit renders. Existing user progress is
         # stored separately and remains untouched.
-        for pack in data["packs"]:
-            values = (pack["title"], pack["level"], pack["topic"], pack["pack_type"], pack["description"],
-                      pack["source_label"], pack["source_url"], pack.get("artist", ""), pack.get("song", ""), pack.get("catalog_url", ""))
-            conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url) VALUES(?,?,?,?,?,?,?,?,?,?,?)", (pack["id"], *values))
-        for card in data["cards"]:
-            values = (card["pack_id"], card["card_type"], card["target"], card["part_of_speech"], card["target_translation"],
-                      card["prompt"], card["source_sentence"], card["translation"], card["answer"], card["base_form"],
-                      card["answer_form"], card.get("explanation", ""), card["source_label"], card["source_url"],
-                      card.get("artist", ""), card.get("song", ""))
-            conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
-                (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,
-                 base_form,answer_form,explanation,source_label,source_url,artist,song)
-                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", (card["id"], *values))
-            conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", (card["id"],))
+        is_postgres = namespace["is_postgres_connection"](conn)
+
+        def insert_ignore_many(sqlite_sql, postgres_sql, rows):
+            if not rows:
+                return
+            if is_postgres:
+                # One batched INSERT per table avoids thousands of network
+                # round-trips before Streamlit can render its first page.
+                from psycopg2.extras import execute_values
+                cursor = conn.raw.cursor()
+                try:
+                    execute_values(cursor, postgres_sql, rows, page_size=500)
+                finally:
+                    cursor.close()
+                conn.last_used = __import__("time").monotonic()
+            else:
+                conn.executemany(sqlite_sql, rows)
+
+        pack_rows = [
+            (pack["id"], pack["title"], pack["level"], pack["topic"], pack["pack_type"], pack["description"],
+             pack["source_label"], pack["source_url"], pack.get("artist", ""), pack.get("song", ""), pack.get("catalog_url", ""))
+            for pack in data["packs"]
+        ]
+        insert_ignore_many(
+            "INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+            "INSERT INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url) VALUES %s ON CONFLICT DO NOTHING",
+            pack_rows,
+        )
+
+        card_rows = [
+            (card["id"], card["pack_id"], card["card_type"], card["target"], card["part_of_speech"], card["target_translation"],
+             card["prompt"], card["source_sentence"], card["translation"], card["answer"], card["base_form"],
+             card["answer_form"], card.get("explanation", ""), card["source_label"], card["source_url"],
+             card.get("artist", ""), card.get("song", ""))
+            for card in data["cards"]
+        ]
+        insert_ignore_many(
+            "INSERT OR IGNORE INTO v2_vocab_cards(id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,base_form,answer_form,explanation,source_label,source_url,artist,song) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "INSERT INTO v2_vocab_cards(id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,base_form,answer_form,explanation,source_label,source_url,artist,song) VALUES %s ON CONFLICT DO NOTHING",
+            card_rows,
+        )
+        progress_rows = [(card["id"],) for card in data["cards"]]
+        insert_ignore_many(
+            "INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
+            "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT DO NOTHING",
+            progress_rows,
+        )
         conn.execute("INSERT INTO v2_content_meta(key,value) VALUES('seed_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (seed_hash,))
         conn.commit()
         conn.close()
