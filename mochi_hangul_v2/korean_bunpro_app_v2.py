@@ -126,18 +126,17 @@ class PostgresCursor:
 
 class PostgresConnection:
     def __init__(self, url):
-        # A short timeout prevents a blocked startup from looking like a blank
-        # page in Streamlit Cloud.  The bootstrap lock below serializes the
-        # first-run schema/seed work across multiple Streamlit sessions.
+        # Bootstrap serialization below uses nonblocking database lock retries
+        # so a startup session is not canceled while waiting for another one.
         self.url = url
         self._connect()
         self._open_cursors = set()
 
     def _connect(self):
-        # Schema bootstrap can briefly wait for another Streamlit worker that
-        # is importing the same seed data.  Ten seconds was too short for a
-        # cold Supabase start and surfaced as psycopg2.errors.QueryCanceled.
-        connect_options = "-c statement_timeout=60000 -c lock_timeout=60000"
+        # Allow a cold-start schema/content sync to finish. The prior
+        # 60-second timeout canceled a session while it waited for the
+        # transaction-scoped startup lock.
+        connect_options = "-c statement_timeout=300000 -c lock_timeout=300000"
         self.raw = psycopg2.connect(self.url, connect_timeout=15, options=connect_options) if "sslmode=" in self.url else psycopg2.connect(self.url, sslmode="require", connect_timeout=15, options=connect_options)
         self.last_used = time.monotonic()
 
@@ -812,11 +811,28 @@ def today():
 
 
 def lock_bootstrap(c):
-    """Serialize schema and seed migrations when several sessions start together."""
+    """Serialize schema and seed migrations without a cancellable lock wait."""
     if is_postgres_connection(c):
-        # Fetch the result so the cursor is completed/closed while the
-        # transaction-level advisory lock remains held until commit.
-        c.execute("SELECT pg_advisory_xact_lock(81620417)").fetchone()
+        # pg_advisory_xact_lock blocks inside one statement. Supabase's
+        # statement_timeout can cancel that wait and prevent the app rendering.
+        # Try the transaction-scoped lock briefly, roll back the empty trial
+        # transaction when busy, then retry until the other bootstrap finishes.
+        deadline = time.monotonic() + 300
+        delay = 0.5
+        while True:
+            row = c.execute(
+                "SELECT pg_try_advisory_xact_lock(81620417) AS acquired"
+            ).fetchone()
+            if row and row["acquired"]:
+                return
+            c.raw.rollback()
+            if time.monotonic() >= deadline:
+                raise RuntimeError(
+                    "Database startup is still busy after 5 minutes. "
+                    "Close any other app sessions and restart the deployment."
+                )
+            time.sleep(delay)
+            delay = min(delay * 1.5, 2.0)
 
 
 def init_db():
