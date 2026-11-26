@@ -18,6 +18,10 @@ V2 uses the same database path and the same `SUPABASE_DB_URL` secret as V41. It 
 
 The first V2 launch creates and seeds only `v2_vocab_packs`, `v2_vocab_cards`, `v2_vocab_progress`, and `manual_mastery`. The normal V41 bootstrap continues to synchronize the existing grammar content.
 
+## Import Anki progress
+
+Open **Import Anki Progress**, upload `Korean.apkg`, review the prepared 1,896-card plan, and click **Import matched progress** when you are ready. The checked-in plan carries 1,785 progress mappings and keeps the 49 entries with conflicting schedules or no safe Mochi sense as separate cards. Existing Mochi review progress is only updated when that card has no review history. The import page is an explicit action; launching the app does not import the deck.
+
 ## V2 contents
 
 - Six TOPIK vocabulary packs built from the supplied TOPIK 1–6 PDFs: 5,665 review cards for 5,665 usable Korean headwords. Each word has its own card, individual Mastered marker, base form and answer-form label. One level-4 source row had no Korean headword and is recorded in `skipped_source_records`.

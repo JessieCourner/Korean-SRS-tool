@@ -45,7 +45,7 @@ def install_v2(namespace):
     original_init_db = namespace["init_db"]
     original_page_lessons = namespace["page_lessons"]
     original_page_progress = namespace["page_progress"]
-    namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs")
+    namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs", "Import Anki Progress")
     namespace["SHOP_ITEMS"] = list(namespace["SHOP_ITEMS"]) + EXTRA_SHOP_ITEMS
     namespace["FRAME_STYLES"].update(EXTRA_FRAME_STYLES)
     namespace["TRACKER_COLORS"].update(EXTRA_TRACKER_COLORS)
@@ -225,6 +225,12 @@ def install_v2(namespace):
         </style>""", unsafe_allow_html=True)
 
     namespace["render_room_theme"] = render_room_theme
+
+    def page_anki_import():
+        from anki_import import render as render_anki_import
+        render_anki_import(st, namespace["db"])
+
+    namespace["page_anki_import"] = page_anki_import
 
     def page_vocabulary_packs(title="Vocabulary Packs", pack_type_filter="topik"):
         st.title(title)
