@@ -413,17 +413,18 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
     return inserted
 
 
-def import_progress(conn, mappings):
-    """Apply reviewed schedules to blank destinations; keep existing Mochi progress unchanged."""
+def import_progress(conn, mappings, force_card_ids=None):
+    """Apply schedules to blank rows, plus destinations explicitly selected by the user."""
+    force_card_ids = {str(value) for value in (force_card_ids or set())}
     rows = [(
         str(card["id"]), int(source["level"]), source["due"], source["last"],
         int(source["reviews"]), int(source["interval"]), int(source["lapses"]),
+        str(card["id"]) in force_card_ids,
     ) for source, card in mappings]
     if not rows:
-        return 0
+        return 0, 0
 
     # A deployed database may not yet have a progress row for every card.
-    # Insert blank rows first so those destinations are eligible for import.
     if hasattr(conn, "raw"):
         from psycopg2.extras import execute_values
         cursor = conn.raw.cursor()
@@ -437,41 +438,46 @@ def import_progress(conn, mappings):
         conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
                          [(row[0],) for row in rows])
 
-    where = """target.card_id=source.card_id
-        AND target.reviews=0 AND target.level=0 AND target.mastered=0
-        AND target.last_review IS NULL AND target.interval_days=0"""
     if hasattr(conn, "raw"):
-        # Supabase/PostgreSQL: batch the reviewed plan into a small number of
-        # UPDATE statements instead of waiting on one network round-trip per card.
+        # Treat both NULL and legacy empty-string last_review values as untouched.
+        # Explicitly reviewed user choices may replace an existing schedule for
+        # that chosen destination; all other Mochi schedules remain intact.
         from psycopg2.extras import execute_values
-        sql = f"""UPDATE v2_vocab_progress AS target
+        sql = """UPDATE v2_vocab_progress AS target
             SET level=source.level, next_review=source.next_review,
                 last_review=source.last_review, reviews=source.reviews,
                 interval_days=source.interval_days, lapses=source.lapses
             FROM (VALUES %s) AS source
-                (card_id, level, next_review, last_review, reviews, interval_days, lapses)
-            WHERE {where}"""
-        total = 0
+                (card_id, level, next_review, last_review, reviews, interval_days, lapses, force_override)
+            WHERE target.card_id=source.card_id AND (
+                source.force_override OR (
+                    target.reviews=0 AND target.level=0 AND target.mastered=0
+                    AND COALESCE(NULLIF(BTRIM(target.last_review), ''), '')=''
+                    AND COALESCE(target.interval_days,0)=0
+                )
+            )"""
+        updated = 0
         for start in range(0, len(rows), 250):
             cursor = conn.raw.cursor()
             try:
                 execute_values(cursor, sql, rows[start:start + 250], page_size=250)
-                total += max(0, cursor.rowcount)
+                updated += max(0, cursor.rowcount)
             finally:
                 cursor.close()
-        updated = max(0, total)
-        destination_count = len({row[0] for row in rows})
-        return updated, max(0, destination_count - updated)
+    else:
+        cursor = conn.executemany("""UPDATE v2_vocab_progress
+            SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
+            WHERE card_id=? AND (
+                ? OR (
+                    reviews=0 AND level=0 AND mastered=0
+                    AND COALESCE(NULLIF(TRIM(last_review),''),'')=''
+                    AND COALESCE(interval_days,0)=0
+                )
+            )""",
+            [(level, due, last, reviews, interval, lapses, card_id, int(force))
+             for card_id, level, due, last, reviews, interval, lapses, force in rows])
+        updated = max(0, cursor.rowcount)
 
-    # Local SQLite copy/test path. executemany keeps this one local operation
-    # efficient while applying the same untouched-card guard.
-    cursor = conn.executemany("""UPDATE v2_vocab_progress
-        SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
-        WHERE card_id=? AND reviews=0 AND level=0 AND mastered=0
-          AND last_review IS NULL AND interval_days=0""",
-        [(level, due, last, reviews, interval, lapses, card_id)
-         for card_id, level, due, last, reviews, interval, lapses in rows])
-    updated = max(0, cursor.rowcount)
     destination_count = len({row[0] for row in rows})
     return updated, max(0, destination_count - updated)
 
@@ -517,6 +523,29 @@ def curated_plan(source, cards, bundle):
             "review_comment": row.get("review_comment", ""),
         })
     return mappings, report
+
+
+def explicitly_selected_transfer_ids(bundle, mappings):
+    """Targets whose reviewed instructions explicitly say to use Anki progress."""
+    report = {str(row.get("anki_id", "")): row for row in bundle.get("report_rows", [])}
+    selected_sources = set()
+    for source_id, row in report.items():
+        if row.get("final_status") != "matched":
+            continue
+        action = (row.get("action") or "").casefold()
+        explicit = (
+            "transfer anki schedule" in action
+            or ("user selected" in action and "anki schedule" in action)
+            or ("user confirmed" in action and "anki progress" in action)
+            or "progress on each meaning-compatible" in action
+        )
+        if explicit:
+            selected_sources.add(source_id)
+    return {
+        str(card["id"])
+        for source, card in mappings
+        if str(source.get("cid", "")) in selected_sources
+    }
 
 
 def render(st, db):
@@ -579,7 +608,8 @@ def render(st, db):
                     if "lapses" not in columns:
                         conn.execute("ALTER TABLE v2_vocab_progress ADD COLUMN lapses INTEGER NOT NULL DEFAULT 0")
                 added_cards = ensure_reviewed_anki_cards(conn, bundle, mappings) if curated is not None else 0
-                imported, preserved = import_progress(conn, mappings)
+                forced_ids = explicitly_selected_transfer_ids(bundle, mappings) if curated is not None else set()
+                imported, preserved = import_progress(conn, mappings, forced_ids)
                 conn.commit()
             except Exception:
                 if hasattr(conn, "raw"):
@@ -590,4 +620,4 @@ def render(st, db):
             finally:
                 conn.close()
         st.session_state.pop("vocab_queue_ids", None)
-        st.success(f"Imported Anki schedules to {imported:,} cards and added {added_cards:,} separate Anki cards. Existing Mochi progress was preserved on {preserved:,} cards.")
+        st.success(f"Applied Anki schedules to {imported:,} cards. Created {added_cards:,} new separate cards; {preserved:,} other existing schedules were preserved. Explicit transfer choices from your reviewed plan were applied.")
