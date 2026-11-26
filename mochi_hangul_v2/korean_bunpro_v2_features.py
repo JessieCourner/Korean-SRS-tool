@@ -73,6 +73,12 @@ def install_v2(namespace):
         data = json.loads(seed_path.read_text(encoding="utf-8"))
         seed_hash = hashlib.sha256(seed_path.read_bytes()).hexdigest()
         conn = namespace["db"]()
+        # V2 vocabulary seeding runs after the legacy schema bootstrap, on its
+        # own connection/transaction. The legacy lock has been released by then,
+        # so concurrent Streamlit sessions can otherwise update the same pack
+        # rows and PostgreSQL may cancel a waiting UPDATE. Reuse the transaction
+        # advisory lock to serialize the complete V2 content sync.
+        namespace["lock_bootstrap"](conn)
         for statement in (
             """CREATE TABLE IF NOT EXISTS v2_vocab_packs (
                 id TEXT PRIMARY KEY, title TEXT NOT NULL, level TEXT NOT NULL,
