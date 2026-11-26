@@ -140,35 +140,23 @@ def install_v2(namespace):
         # below are upserted by id; user-created music packs and existing
         # progress remain safe, and obsolete rows are harmless until an
         # explicit maintenance action is added.
+        # Existing seed packs and cards are insert-only at startup. Rewriting
+        # content rows can block on another active Supabase session and cause
+        # QueryCanceled before Streamlit renders. Existing user progress is
+        # stored separately and remains untouched.
         for pack in data["packs"]:
-            found = conn.execute("SELECT id FROM v2_vocab_packs WHERE id=?", (pack["id"],)).fetchone()
             values = (pack["title"], pack["level"], pack["topic"], pack["pack_type"], pack["description"],
                       pack["source_label"], pack["source_url"], pack.get("artist", ""), pack.get("song", ""), pack.get("catalog_url", ""))
-            if found:
-                conn.execute("UPDATE v2_vocab_packs SET title=?,level=?,topic=?,pack_type=?,description=?,source_label=?,source_url=?,artist=?,song=?,catalog_url=? WHERE id=?", (*values, pack["id"]))
-            else:
-                conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url) VALUES(?,?,?,?,?,?,?,?,?,?,?)", (pack["id"], *values))
+            conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url,artist,song,catalog_url) VALUES(?,?,?,?,?,?,?,?,?,?,?)", (pack["id"], *values))
         for card in data["cards"]:
-            found = conn.execute("SELECT id FROM v2_vocab_cards WHERE id=?", (card["id"],)).fetchone()
             values = (card["pack_id"], card["card_type"], card["target"], card["part_of_speech"], card["target_translation"],
                       card["prompt"], card["source_sentence"], card["translation"], card["answer"], card["base_form"],
                       card["answer_form"], card.get("explanation", ""), card["source_label"], card["source_url"],
                       card.get("artist", ""), card.get("song", ""))
-            if found:
-                conn.execute("""UPDATE v2_vocab_cards SET pack_id=?,card_type=?,target=?,part_of_speech=?,target_translation=?,
-                    prompt=?,source_sentence=?,translation=?,answer=?,base_form=?,answer_form=?,explanation=?,source_label=?,
-                    source_url=?,artist=?,song=? WHERE id=?""", (*values, card["id"]))
-            else:
-                conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
-                    (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,
-                     base_form,answer_form,explanation,source_label,source_url,artist,song)
-                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-                    ON CONFLICT(id) DO UPDATE SET
-                        target=excluded.target,part_of_speech=excluded.part_of_speech,
-                        target_translation=excluded.target_translation,prompt=excluded.prompt,
-                        source_sentence=excluded.source_sentence,translation=excluded.translation,
-                        answer=excluded.answer,base_form=excluded.base_form,
-                        answer_form=excluded.answer_form,explanation=excluded.explanation""", (card["id"], *values))
+            conn.execute("""INSERT OR IGNORE INTO v2_vocab_cards
+                (id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,
+                 base_form,answer_form,explanation,source_label,source_url,artist,song)
+                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", (card["id"], *values))
             conn.execute("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", (card["id"],))
         conn.execute("INSERT INTO v2_content_meta(key,value) VALUES('seed_hash',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (seed_hash,))
         conn.commit()
