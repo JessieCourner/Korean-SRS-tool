@@ -299,6 +299,7 @@ def install_v2(namespace):
                         st.session_state["nav"] = "Vocabulary Review"
                         st.session_state["v2_review_select"] = pack["id"]
                         st.session_state.pop("vocab_queue_ids", None)
+                        st.session_state.pop("vocab_queue_mode", None)
                         st.rerun()
 
                 # Keep the expanded word list inside its own pack card, not at page bottom.
@@ -671,10 +672,16 @@ def install_v2(namespace):
 
     namespace["grade_vocab"] = grade_vocab
 
-    def start_vocab_queue(pack_id, pack_type_filter=None):
-        now = datetime.now().isoformat(timespec="seconds")
-        params = [now]
-        filters = ["v.next_review<=?"]
+    def start_vocab_queue(pack_id, pack_type_filter=None, mode="due", new_limit=10):
+        now = datetime.now().isoformat()
+        params = []
+        filters = []
+        if mode == "new":
+            filters.append("COALESCE(v.reviews,0)=0")
+        else:
+            # New cards use the old 1900 sentinel and must never appear as overdue reviews.
+            filters.extend(["COALESCE(v.reviews,0)>0", "v.next_review<=?"])
+            params.append(now)
         if pack_id != "__all__":
             filters.append("c.pack_id=?")
             params.append(pack_id)
@@ -686,18 +693,32 @@ def install_v2(namespace):
             "NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)",
         ])
         where = "WHERE " + " AND ".join(filters)
-        rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
-            JOIN v2_vocab_packs p ON p.id=c.pack_id
-            {where} ORDER BY v.next_review,c.pack_id,c.id""", tuple(params))
+        if mode == "new":
+            limit = max(1, min(20, int(new_limit)))
+            rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
+                JOIN v2_vocab_packs p ON p.id=c.pack_id
+                {where} ORDER BY c.pack_id,c.id LIMIT ?""", tuple(params + [limit]))
+        else:
+            rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
+                JOIN v2_vocab_packs p ON p.id=c.pack_id
+                {where} ORDER BY v.next_review,c.pack_id,c.id""", tuple(params))
         ids = [row["id"] for row in rows_due]
         st.session_state["vocab_queue_ids"] = ids
         st.session_state["vocab_queue_index"] = 0
         st.session_state["vocab_queue_pack"] = pack_id
+        st.session_state["vocab_queue_mode"] = mode
         st.session_state.pop("vocab_result", None)
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
+        # Drop any oversized queue created by the previous all-cards behavior.
+        if st.session_state.get("vocab_queue_version") != 2:
+            st.session_state.pop("vocab_queue_ids", None)
+            st.session_state.pop("vocab_queue_index", None)
+            st.session_state.pop("vocab_queue_pack", None)
+            st.session_state.pop("vocab_queue_mode", None)
+            st.session_state["vocab_queue_version"] = 2
         st.title(title)
         if isinstance(pack_type_filter, (tuple, list)):
             pack_where = " WHERE pack_type IN (" + ",".join("?" for _ in pack_type_filter) + ")"
@@ -716,10 +737,17 @@ def install_v2(namespace):
                                    format_func=lambda item_id: next((name for key, name in options if key == item_id), item_id),
                                    key="v2_review_select")
         if "vocab_queue_ids" not in st.session_state or st.session_state.get("vocab_queue_pack") != selected_id:
-            if st.button("Start vocabulary review", key="v2_start_vocab_review", type="primary"):
-                start_vocab_queue(selected_id, pack_type_filter)
-                st.rerun()
-            st.caption("Choose a pack, then start. New cards are included; each answer is scheduled using the same Bunpro-style interval ladder as grammar review.")
+            new_limit = st.selectbox("New cards per session", [5, 10, 20], index=1, key="v2_new_vocab_limit")
+            due_col, new_col = st.columns(2)
+            with due_col:
+                if st.button("Start due reviews", key="v2_start_vocab_due", type="primary", use_container_width=True):
+                    start_vocab_queue(selected_id, pack_type_filter, mode="due")
+                    st.rerun()
+            with new_col:
+                if st.button(f"Study {new_limit} new cards", key="v2_start_vocab_new", use_container_width=True):
+                    start_vocab_queue(selected_id, pack_type_filter, mode="new", new_limit=new_limit)
+                    st.rerun()
+            st.caption("Due reviews include only cards you have already answered. New cards are studied separately in small sessions.")
             return
         queue = st.session_state.get("vocab_queue_ids", [])
         index = int(st.session_state.get("vocab_queue_index", 0))
@@ -752,10 +780,15 @@ def install_v2(namespace):
                 st.rerun()
             return
         if not queue or index >= len(queue):
-            st.success("This vocabulary review is complete.")
+            mode = st.session_state.get("vocab_queue_mode", "due")
+            if not queue:
+                st.info("No due vocabulary reviews in this selection." if mode == "due" else "No new vocabulary cards in this selection.")
+            else:
+                st.success("Due vocabulary reviews are complete." if mode == "due" else "New-card session is complete.")
             st.progress(1.0)
-            if st.button("Choose another pack", key="v2_vocab_restart"):
+            if st.button("Choose another pack or session", key="v2_vocab_restart"):
                 st.session_state.pop("vocab_queue_ids", None)
+                st.session_state.pop("vocab_queue_mode", None)
                 st.session_state.pop("vocab_review_pack", None)
                 st.rerun()
             return
@@ -764,7 +797,8 @@ def install_v2(namespace):
         if not card:
             st.session_state["vocab_queue_index"] = index + 1
             st.rerun()
-        st.progress(index / max(1, len(queue)), text=f"{index} / {len(queue)} cards")
+        mode_label = "new" if st.session_state.get("vocab_queue_mode") == "new" else "due"
+        st.progress(index / max(1, len(queue)), text=f"{index} / {len(queue)} {mode_label} cards")
         slot_id = f"v2_vocab_slot_{card_id}"
         marker_id = f"v2_vocab_marker_{card_id}"
         label = f"Answer for card {card_id}"
