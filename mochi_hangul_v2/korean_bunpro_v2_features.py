@@ -700,22 +700,26 @@ def install_v2(namespace):
     def start_vocab_queue(pack_id="__all__", pack_type_filter=None, mode="mixed", new_limit=20):
         now = datetime.now().isoformat(timespec="seconds")
         day = datetime.now().date().isoformat()
+        # Query the full overdue backlog; missed days remain due until reviewed.
+        new_limit = max(1, min(20, int(new_limit)))
         due = v2_rows("""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
             WHERE COALESCE(v.reviews,0)>0 AND v.next_review<=?
             AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)
-            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)""", (now,))
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)
+            ORDER BY v.next_review, c.id""", (now,))
         selected = v2_rows("""SELECT c.id FROM v2_vocab_daily_selection d
             JOIN v2_vocab_cards c ON c.id=d.card_id JOIN v2_vocab_progress v ON v.card_id=c.id
             WHERE d.study_date<=? AND COALESCE(v.reviews,0)=0
             AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)
-            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)""", (day,))
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)
+            ORDER BY d.study_date, c.id LIMIT ?""", (day, new_limit))
         ids = list(dict.fromkeys([r["id"] for r in due] + [r["id"] for r in selected]))
         random.shuffle(ids)
         st.session_state["vocab_queue_ids"] = ids
         st.session_state["vocab_queue_index"] = 0
         st.session_state["vocab_queue_pack"] = "__all__"
         st.session_state["vocab_queue_mode"] = "mixed"
-        st.session_state["vocab_queue_version"] = 4
+        st.session_state["vocab_queue_version"] = 6
         st.session_state.pop("vocab_result", None)
 
     namespace["start_vocab_queue"] = start_vocab_queue
@@ -724,14 +728,14 @@ def install_v2(namespace):
         st.session_state["v2_manual_card_open"] = False
 
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
-        if st.session_state.get("vocab_queue_version") != 4:
+        if st.session_state.get("vocab_queue_version") != 6:
             st.session_state.pop("vocab_queue_ids", None)
             st.session_state.pop("vocab_queue_index", None)
             st.session_state.pop("vocab_queue_pack", None)
             st.session_state.pop("vocab_queue_mode", None)
-            st.session_state["vocab_queue_version"] = 4
+            st.session_state["vocab_queue_version"] = 6
         st.title(title)
-        st.caption("New words and due reviews are mixed into one shuffled deck. You can add 20 new words per day; extra selections are scheduled for the next open day.")
+        st.caption("The review deck includes all due cards, including reviews carried over from previous days. Unreviewed new-word selections stay in the queue too.")
         today_key = datetime.now().date().isoformat()
         selected_today = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", (today_key,))["n"]
         selected_tomorrow = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", ((datetime.now().date()+timedelta(days=1)).isoformat(),))["n"]
@@ -816,7 +820,7 @@ def install_v2(namespace):
         if added_flash:
             st.success("Added to today’s deck." if added_flash==today_key else f"Added to your study queue for {added_flash}.")
         if st.button("Start today’s mixed vocabulary deck", key="v2_start_vocab_mixed", type="primary", use_container_width=True):
-            start_vocab_queue()
+            start_vocab_queue(new_limit=today_limit)
             st.rerun()
         queue = st.session_state.get("vocab_queue_ids", [])
         index = int(st.session_state.get("vocab_queue_index", 0))

@@ -929,7 +929,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-NAV_PAGES = ("Dashboard", "Review", "Lessons", "Progress", "Crystal Shop")
+NAV_PAGES = ("Dashboard", "Review", "Lessons", "Progress")
 
 
 def render_mobile_navigation():
@@ -1125,12 +1125,6 @@ def init_db():
     # The current course plan is two new lessons per day. Keep this migration
     # explicit so an older database that used three is corrected as well.
     c.execute("UPDATE settings SET value='2' WHERE key='new_lessons_per_day'")
-    c.execute("INSERT OR IGNORE INTO wallet(id,crystals) VALUES(1,0)")
-    for item in SHOP_ITEMS:
-        c.execute("INSERT OR IGNORE INTO shop_items(id,name,kind,price,icon,description) VALUES(?,?,?,?,?,?)", item)
-        c.execute("UPDATE shop_items SET name=?, kind=?, price=?, icon=?, description=? WHERE id=?", (item[1], item[2], item[3], item[4], item[5], item[0]))
-    c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('face_bunny',?)", (datetime.now().isoformat(timespec='seconds'),))
-    c.execute("INSERT OR IGNORE INTO inventory(item_id,purchased_at) VALUES('design_lavender',?)", (datetime.now().isoformat(timespec='seconds'),))
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_face','face_bunny')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_design','design_lavender')")
     c.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('active_frame','frame_sakura')")
@@ -1578,35 +1572,9 @@ def setting(key, default):
     return value
 
 
-def crystals():
-    row = one("SELECT crystals FROM wallet WHERE id=1")
-    return row["crystals"] if row else 0
-
-
-def award_crystals(event_key, amount):
-    if amount <= 0:
-        return
-    c = db()
-    params = (event_key, amount, datetime.now().isoformat(timespec="seconds"))
-    if is_postgres_connection(c):
-        # RETURNING is reliable for PostgreSQL and avoids relying on the
-        # SQLite-only cursor.rowcount convention for a duplicate-safe insert.
-        inserted = c.execute(
-            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
-            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
-            params,
-        ).fetchone()
-        was_inserted = inserted is not None
-    else:
-        cur = c.execute(
-            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
-            params,
-        )
-        was_inserted = bool(getattr(cur, "rowcount", 0))
-    if was_inserted:
-        c.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
-    c.commit()
-    c.close()
+def award_crystals(*_args, **_kwargs):
+    """Crystal rewards are disabled; legacy stored balances are left untouched."""
+    return None
 
 
 def streak_info():
@@ -1642,7 +1610,7 @@ def streak_info():
 
 
 def record_activity(kind):
-    """Count a lesson or review as study activity and award one daily bonus."""
+    """Count a lesson or review as study activity for the streak."""
     if kind not in {"lesson", "review"}:
         return streak_info()
     column = "lessons" if kind == "lesson" else "reviews"
@@ -1662,7 +1630,6 @@ def record_activity(kind):
     current = streak_info()
     # The event key makes this idempotent: reviewing ten cards today does not
     # multiply the streak bonus ten times.
-    award_crystals(f"streak_bonus:{day}", 5)
     return current
 
 
@@ -2301,29 +2268,12 @@ def active_item(kind):
     cache_key = (kind, item_id)
     if cache_key in cache:
         return cache[cache_key]
-    item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
+    definition = next((row for row in SHOP_ITEMS if row[0] == item_id), None)
+    item = None if definition is None else dict(zip(
+        ("id", "name", "kind", "price", "icon", "description"), definition
+    ))
     cache[cache_key] = item
     return item
-
-
-def buy_or_activate(item_id):
-    item = one("SELECT * FROM shop_items WHERE id=?", (item_id,))
-    owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item_id,))
-    if not owned:
-        if crystals() < item["price"]:
-            return False
-        c = db()
-        c.execute("UPDATE wallet SET crystals=crystals-? WHERE id=1", (item["price"],))
-        c.execute("INSERT INTO inventory(item_id,purchased_at) VALUES(?,?)", (item_id, datetime.now().isoformat(timespec="seconds")))
-        c.commit()
-        c.close()
-    set_key = f"active_{item['kind']}"
-    set_value = item_id
-    c = db(); c.execute("INSERT OR REPLACE INTO settings(key,value) VALUES(?,?)", (set_key, set_value)); c.commit(); c.close()
-    st.session_state.setdefault("_settings_cache", {})[set_key] = set_value
-    st.session_state.setdefault("_active_item_cache", {}).pop((item["kind"], item_id), None)
-    st.session_state.pop("_daily_bts_message_cache", None)
-    return True
 
 
 def is_static_content_query(sql):
@@ -2933,7 +2883,6 @@ def activate_lesson(lesson_id):
     c.execute("UPDATE lessons SET status='studying' WHERE id=?", (lesson_id,))
     c.commit()
     c.close()
-    award_crystals(f"lesson_started:{lesson_id}", 10)
     record_activity("lesson")
     # If Review was opened earlier in the same browser session, discard its
     # old denominator so newly added cards appear immediately in the queue.
@@ -3036,28 +2985,6 @@ def daily_lessons():
     """, (today(),))
 
 
-def _reward_once_in_transaction(connection, event_key, amount, created_at):
-    """Add one idempotent reward without opening another database transaction."""
-    if amount <= 0:
-        return
-    params = (event_key, amount, created_at)
-    if is_postgres_connection(connection):
-        inserted = connection.execute(
-            "INSERT INTO reward_events(event_key,amount,created_at) VALUES(?,?,?) "
-            "ON CONFLICT (event_key) DO NOTHING RETURNING event_key",
-            params,
-        ).fetchone()
-        was_inserted = inserted is not None
-    else:
-        cursor = connection.execute(
-            "INSERT OR IGNORE INTO reward_events(event_key,amount,created_at) VALUES(?,?,?)",
-            params,
-        )
-        was_inserted = bool(getattr(cursor, "rowcount", 0))
-    if was_inserted:
-        connection.execute("UPDATE wallet SET crystals=crystals+? WHERE id=1", (amount,))
-
-
 def grade(card_id, result):
     # Keep the read and the write on one connection.  The previous path first
     # opened/closed a separate helper query and then opened another connection
@@ -3091,11 +3018,8 @@ def grade(card_id, result):
         WHERE card_id=?
     """, (new_level, next_date, due_text, now, result, mistakes, active, card_id))
     c.execute("INSERT INTO answer_history(card_id,result,created_at) VALUES(?,?,?)", (card_id, result, now))
-    # Keep the review write, activity counter and both idempotent rewards in
-    # one database transaction.  The old path committed the review, opened a
-    # second reward transaction, then opened a third activity transaction and
-    # a fourth streak query; that made every Enter feel like a freeze on a
-    # remote PostgreSQL database.
+    # Keep the review write and activity counter in one database transaction.
+    # Crystal reward writes are disabled; streak activity remains enabled.
     day = today()
     c.execute(
         "INSERT OR IGNORE INTO study_activity(day,lessons,reviews,last_activity) VALUES(?,?,?,?)",
@@ -3105,8 +3029,6 @@ def grade(card_id, result):
         "UPDATE study_activity SET reviews=reviews+1, last_activity=? WHERE day=?",
         (now, day),
     )
-    _reward_once_in_transaction(c, f"card_review:{card_id}:{due_text}:{result}", {"correct": 3, "incorrect": 0}[result], now)
-    _reward_once_in_transaction(c, f"streak_bonus:{day}", 5, now)
     c.commit()
     c.close()
     # Both a correct and an incorrect submission finish this card in the
@@ -3433,7 +3355,6 @@ def page_dashboard():
     a.metric("Due reviews", due)
     b.metric("Active cards", active)
     c.metric("Mastered cards", mastered)
-    st.markdown(f"<div class='cute-note'>💎 <b>{crystals()}</b> crystals · collect more in reviews and daily lessons</div>", unsafe_allow_html=True)
     current_streak = streak_info()
     streak_status = "Your flame is lit today — keep it glowing!" if current_streak["active_today"] else "Study today to keep the flame glowing."
     st.markdown(
@@ -3477,7 +3398,7 @@ def page_dashboard():
         st.markdown(f'''<div class="quest-card">
             <div class="quest-title"><span>Today's learning quest</span><span>{completed} / {len(todays)}</span></div>
             <div class="quest-track"><div class="quest-fill" style="width:{quest_ratio * 100:.1f}%"></div><div class="progress-mascot" style="left:clamp(0px,calc({quest_ratio * 100:.1f}% - 19px),calc(100% - 38px))">{quest_icon}</div></div>
-            <div class="quest-caption">Complete your tiny lesson quest and collect crystals ✨</div>
+            <div class="quest-caption">Complete your tiny lesson quest.</div>
         </div>''', unsafe_allow_html=True)
         for lesson in todays:
             with st.container(border=True):
@@ -3499,7 +3420,6 @@ def page_dashboard():
         st.success("No new topics for today.")
 
     if todays and completed == len(todays):
-        award_crystals(f"daily_goal:{today()}", 30)
         st.markdown('<div class="cute-note">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა No new topics for today. Great job!</div>', unsafe_allow_html=True)
     elif todays:
         st.markdown('<div class="cute-note">(ง •̀ᴗ•́)ง You can do it! Finish today\'s tiny quest.</div>', unsafe_allow_html=True)
@@ -3756,51 +3676,6 @@ def page_progress():
     st.markdown(table, unsafe_allow_html=True)
 
 
-def page_shop():
-    st.title("Crystal Shop ✨")
-    st.markdown(f"<div class='cute-note'>💎 You have <b>{crystals()} crystals</b></div>", unsafe_allow_html=True)
-    st.write("Earn crystals by studying and reviewing. Buy a cute companion or a new study-room design.")
-    categories = [("Faces", "face", "Choose your study buddy"), ("Characters", "character", "A little friend for your dashboard"), ("Room designs", "design", "Change the mood of your study room"), ("Card frames", "frame", "Decorate your Review screen"), ("Progress trackers", "tracker", "Choose how your progress grows")]
-    tabs = st.tabs([f"{name}  ✨" for name, _, _ in categories])
-    for tab, (name, kind, subtitle) in zip(tabs, categories):
-        with tab:
-            st.subheader(name)
-            st.caption(subtitle)
-            items = rows("SELECT * FROM shop_items WHERE kind=? ORDER BY price, id", (kind,))
-            for item in items:
-                owned = one("SELECT 1 FROM inventory WHERE item_id=?", (item["id"],))
-                active_key = f"active_{item['kind']}"
-                is_active = setting(active_key, "") == item["id"]
-                with st.container(border=True):
-                    left, middle, right = st.columns([1, 4, 1.5])
-                    with left:
-                        st.markdown(f"<div class='shop-item-icon'>{item['icon']}</div>", unsafe_allow_html=True)
-                    with middle:
-                        st.markdown(f"### {item['name']}")
-                        st.caption(item["description"])
-                        if kind == "frame":
-                            style = FRAME_STYLES.get(item["id"], FRAME_STYLES["frame_sakura"])
-                            st.markdown(
-                                f'''<div style="border:3px solid {style['border']};border-radius:18px;padding:9px 12px;background:{style['background']};color:#684d7b;text-align:center;font-weight:800">{style['decor']} Review card preview · {style['decor']}</div>''',
-                                unsafe_allow_html=True,
-                            )
-                        elif kind == "tracker":
-                            st.markdown(
-                                f'''<div class="quest-track" style="margin:7px 0 4px"><div class="quest-fill" style="width:55%;background:{TRACKER_COLORS.get(item['id'], '#f5a6c8')}"></div><div class="progress-mascot" style="left:clamp(0px,calc(55% - 19px),calc(100% - 38px))">{item['icon']}</div></div>''',
-                                unsafe_allow_html=True,
-                            )
-                    with right:
-                        if is_active:
-                            st.success("Active")
-                        elif owned:
-                            if st.button("Use", key=f"use_{item['id']}", use_container_width=True):
-                                buy_or_activate(item["id"]); st.rerun()
-                        elif st.button(f"Buy · {item['price']} 💎", key=f"buy_{item['id']}", use_container_width=True):
-                            if buy_or_activate(item["id"]):
-                                st.success("Purchased!")
-                                st.rerun()
-                            else:
-                                st.error("Not enough crystals yet.")
 
 
 import importlib
@@ -3828,10 +3703,13 @@ pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
 if pending_mobile_page in NAV_PAGES:
     st.session_state["nav"] = pending_mobile_page
 render_mobile_navigation()
-render_bts_motivation()
+# Temporarily disabled per user request to reduce work on every page render.
+# render_bts_motivation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Grammar & vocabulary</div></div></div>', unsafe_allow_html=True)
+if st.session_state.get("nav") not in NAV_PAGES:
+    st.session_state["nav"] = "Dashboard"
 page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
-st.sidebar.markdown(f"💎 **{crystals()} crystals**")
+# Crystal balance removed from the sidebar.
 if page == "Review":
     # Sidebar navigation enters Review without going through the Dashboard's
     # button callback. Start one queue snapshot for that visit as well.
@@ -3849,4 +3727,4 @@ elif page == "Vocabulary Review": page_vocabulary_review()
 elif page == "Themed Packs": page_themed_packs()
 elif page == "Music Packs": page_music_packs()
 elif page == "Import Anki Progress": page_anki_import()
-else: page_shop()
+else: page_dashboard()
