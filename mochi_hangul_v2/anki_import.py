@@ -550,6 +550,34 @@ def explicitly_selected_transfer_ids(bundle, mappings):
 def render(st, db):
     st.subheader("Import Anki Progress")
     st.caption("All Anki cards are checked by Korean headword, common inflection, and English sense. Ambiguous and unsupported matches are left for review; existing Mochi progress is preserved.")
+    reviewed_path = Path(__file__).with_name("vocabulary_examples_reviewed_6366.json")
+    reviewed_content = None
+    try:
+        if reviewed_path.is_file():
+            reviewed_content = json.loads(reviewed_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        reviewed_content = None
+    if reviewed_content is not None:
+        reviewed_count = len(reviewed_content.get("cards", [])) - len(reviewed_content.get("editorial_unresolved_ids", []))
+        st.markdown("### Apply reviewed card examples")
+        st.caption(f"Apply the reviewed wording to {reviewed_count:,} vocabulary cards. This content-only action does not change review intervals, due dates, review counts, lapses, or mastered status.")
+        if st.button("Apply reviewed examples (content only)", key="apply_reviewed_examples_only"):
+            conn = db()
+            try:
+                updated = sync_reviewed_vocab_content(conn, reviewed_content, ensure_progress=False)
+                conn.commit()
+            except Exception:
+                if hasattr(conn, "raw"):
+                    conn.raw.rollback()
+                else:
+                    conn.rollback()
+                st.error("The reviewed examples were not applied. No changes were committed.")
+            else:
+                st.session_state.pop("vocab_queue_ids", None)
+                st.success(f"Applied reviewed examples to {updated:,} cards. SRS progress and schedules were left unchanged.")
+            finally:
+                conn.close()
+        st.divider()
     upload = st.file_uploader("Anki deck with scheduling (.apkg)", type=["apkg"], key="anki_progress_upload")
     if not upload:
         return
@@ -649,8 +677,8 @@ def render(st, db):
         st.success(f"Transferred Anki schedules to {imported:,} mapped cards. Refreshed {refreshed_examples:,} reviewed vocabulary cards and added or refreshed {added_cards:,} separate Anki cards. Excluded by your decision: {counts['excluded by user']:,}.")
 
 
-def sync_reviewed_vocab_content(conn, reviewed):
-    """Refresh approved vocabulary text while leaving existing SRS rows intact."""
+def sync_reviewed_vocab_content(conn, reviewed, ensure_progress=True):
+    """Refresh reviewed card content; optionally create missing default SRS rows."""
     unresolved = set(reviewed.get("editorial_unresolved_ids", []))
     cards = [card for card in reviewed.get("cards", []) if card.get("id") not in unresolved]
     packs = reviewed.get("packs", [])
@@ -673,15 +701,17 @@ def sync_reviewed_vocab_content(conn, reviewed):
                 execute_values(cur, sql, card_values[start:start+250], page_size=250)
             finally:
                 cur.close()
-        for start in range(0, len(cards), 500):
-            cur = conn.raw.cursor()
-            try:
-                execute_values(cur, "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT(card_id) DO NOTHING", [(card["id"],) for card in cards[start:start+500]], page_size=500)
-            finally:
-                cur.close()
+        if ensure_progress:
+            for start in range(0, len(cards), 500):
+                cur = conn.raw.cursor()
+                try:
+                    execute_values(cur, "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT(card_id) DO NOTHING", [(card["id"],) for card in cards[start:start+500]], page_size=500)
+                finally:
+                    cur.close()
     else:
         conn.executemany("INSERT OR IGNORE INTO v2_vocab_packs(" + ",".join(pack_cols) + ") VALUES (" + ",".join("?" for _ in pack_cols) + ")", pack_values)
         sql = "INSERT INTO v2_vocab_cards(" + ",".join(card_cols) + ") VALUES (" + ",".join("?" for _ in card_cols) + ") ON CONFLICT(id) DO UPDATE SET " + ",".join(f"{col}=excluded.{col}" for col in card_cols[1:])
         conn.executemany(sql, card_values)
-        conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", [(card["id"],) for card in cards])
+        if ensure_progress:
+            conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", [(card["id"],) for card in cards])
     return len(cards)
