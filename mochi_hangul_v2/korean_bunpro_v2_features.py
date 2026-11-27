@@ -48,6 +48,8 @@ def install_v2(namespace):
     original_page_lessons = namespace["page_lessons"]
     original_page_progress = namespace["page_progress"]
     namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs", "Import Anki Progress")
+    # Review queues open from Dashboard; themed vocabulary lives inside Vocabulary Packs.
+    namespace["NAV_MENU_PAGES"] = tuple(p for p in namespace["NAV_PAGES"] if p not in {"Review", "Vocabulary Review", "Themed Packs"})
     namespace["SHOP_ITEMS"] = list(namespace["SHOP_ITEMS"]) + EXTRA_SHOP_ITEMS
     namespace["FRAME_STYLES"].update(EXTRA_FRAME_STYLES)
     namespace["TRACKER_COLORS"].update(EXTRA_TRACKER_COLORS)
@@ -270,13 +272,16 @@ def install_v2(namespace):
 
     def page_vocabulary_packs(title="Vocabulary Packs", pack_type_filter="topik"):
         st.title(title)
+        if title == "Vocabulary Packs" and pack_type_filter == "topik":
+            pack_choice = st.selectbox("Pack type", ["TOPIK vocabulary", "Themed vocabulary"], key="v2_pack_type")
+            pack_type_filter = "topik" if pack_choice == "TOPIK vocabulary" else "theme"
         caption = "TOPIK vocabulary packs." if pack_type_filter == "topik" else "Themed vocabulary packs, separate from TOPIK vocabulary."
         st.caption(caption)
         packs = v2_rows("SELECT * FROM v2_vocab_packs WHERE pack_type=? ORDER BY level, topic, artist, title", (pack_type_filter,))
         levels = ["All levels"] + sorted({p["level"] for p in packs})
-        selected_level = st.selectbox("Level", levels, key="v2_pack_level")
+        selected_level = st.selectbox("Level", levels, key=f"v2_pack_level_{pack_type_filter}")
         topics = ["All topics"] + sorted({p["topic"] for p in packs if selected_level == "All levels" or p["level"] == selected_level})
-        selected_topic = st.selectbox("Topic / artist", topics, key="v2_pack_topic")
+        selected_topic = st.selectbox("Topic / artist", topics, key=f"v2_pack_topic_{pack_type_filter}")
         visible = [p for p in packs if (selected_level == "All levels" or p["level"] == selected_level)
                    and (selected_topic == "All topics" or p["topic"] == selected_topic)]
         pack_counts = {row["pack_id"]: row["n"] for row in v2_rows(
@@ -918,7 +923,7 @@ def install_v2(namespace):
 
     def page_lessons_v2():
         st.title("Lessons")
-        st.caption("Browse by HTSK level/unit, lesson topic, and grammar point. Manual mastery badges do not alter SRS scheduling.")
+        st.caption("Browse grammar lessons by HTSK unit. Manual mastery badges do not alter SRS scheduling.")
         start = int(namespace["setting"]("start_unit", "2"))
         lessons = namespace["rows"]("SELECT * FROM lessons ORDER BY unit,lesson_number")
         stats = namespace["rows"]("""SELECT cards.lesson_id,
@@ -928,24 +933,14 @@ def install_v2(namespace):
         by_stats = {row["lesson_id"]: row for row in stats}
         mastered_lesson_nums = {int(row["item_id"]) for row in v2_rows(
             "SELECT item_id FROM manual_mastery WHERE item_kind='grammar_lesson' AND mastered=1")}
-        units = sorted({int(row["unit"]) for row in lessons})
-        unit_options = ["All levels"] + units
-        unit_pick = st.selectbox("HTSK level / unit", unit_options, key="v2_lesson_unit")
-        topic_options = ["All topics"] + sorted({row["title"] for row in lessons if unit_pick == "All levels" or int(row["unit"]) == unit_pick})
-        topic_pick = st.selectbox("Topic", topic_options, key="v2_lesson_topic")
-        filtered = [row for row in lessons if (unit_pick == "All levels" or int(row["unit"]) == unit_pick)
-                    and (topic_pick == "All topics" or row["title"] == topic_pick)]
-        patterns = ["All grammar points"] + sorted({row["pattern"] for row in filtered})
-        pattern_pick = st.selectbox("Grammar point", patterns, key="v2_lesson_pattern")
-        filtered = [row for row in filtered if pattern_pick == "All grammar points" or row["pattern"] == pattern_pick]
         grouped = {}
-        for lesson in filtered:
+        for lesson in lessons:
             grouped.setdefault(int(lesson["unit"]), []).append(lesson)
         requests = []
         for unit in sorted(grouped):
             title, lesson_range, status = namespace["UNIT_INFO"].get(unit, ("HTSK Korean", "", "locked"))
             badge = {"completed": "✅ Completed", "current": "🌸 Current unit"}.get(status, "📘 Unit")
-            with st.expander(f"Level {unit} · Unit {unit}: {title} · {lesson_range} · {badge}", expanded=(unit == start and unit_pick == "All levels")):
+            with st.expander(f"Level {unit} · Unit {unit}: {title} · {lesson_range} · {badge}", expanded=(unit == start)):
                 if unit < start:
                     st.caption("Completed before your starting point; lessons remain available to study manually.")
                 for lesson in grouped[unit]:

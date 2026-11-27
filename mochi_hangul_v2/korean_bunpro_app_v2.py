@@ -939,6 +939,7 @@ def render_mobile_navigation():
 
     def select_mobile_page(page_name):
         st.session_state["nav"] = page_name
+        st.session_state["nav_menu"] = page_name
         st.session_state["mobile_menu_open"] = False
 
     with st.container(key="mobile_nav_button"):
@@ -953,7 +954,7 @@ def render_mobile_navigation():
     with st.container(key="mobile_nav_panel"):
         st.markdown("### Navigate")
         current = st.session_state.get("nav", "Dashboard")
-        for page_name in NAV_PAGES:
+        for page_name in NAV_MENU_PAGES:
             label = ("● " if page_name == current else "○ ") + page_name
             st.button(
                 label,
@@ -3351,8 +3352,28 @@ def page_dashboard():
     due = summary["due"]
     active = summary["active"]
     mastered = summary["mastered"]
+    vocab_summary = one("""SELECT
+        (SELECT COUNT(*) FROM v2_vocab_progress WHERE reviews>0 AND next_review<=?) AS due,
+        (SELECT COUNT(*) FROM v2_vocab_daily_selection d JOIN v2_vocab_progress v ON v.card_id=d.card_id
+         WHERE d.study_date<=? AND v.reviews=0) AS fresh""", (datetime.now().isoformat(timespec="seconds"), today()))
+
+    # Make the two review actions the first decision on the dashboard.
+    st.markdown("#### Start your review")
+    review_col, vocab_col = st.columns(2, gap="large")
+    with review_col:
+        with st.container(key="dashboard_grammar_review_card", border=True):
+            st.markdown("### 📖 Grammar")
+            st.caption(f"{due} cards due" if due else "No grammar cards due right now")
+            st.button("Start grammar review", key="dashboard_review_top", type="primary", use_container_width=True, on_click=open_review)
+    with vocab_col:
+        with st.container(key="dashboard_vocabulary_review_card", border=True):
+            st.markdown("### 🗂️ Vocabulary")
+            st.caption(f"{vocab_summary['due']} due reviews · {vocab_summary['fresh']} new words for today")
+            st.button("Start vocabulary review", key="v2_dashboard_vocab_review", type="primary", use_container_width=True, on_click=go_vocab_review)
+            st.button("Find or add words", key="v2_dashboard_vocab_add", use_container_width=True, on_click=go_vocab_review)
+
     a, b, c = st.columns(3)
-    a.metric("Due reviews", due)
+    a.metric("Due reviews", due + vocab_summary["due"])
     b.metric("Active cards", active)
     c.metric("Mastered cards", mastered)
     current_streak = streak_info()
@@ -3369,23 +3390,6 @@ def page_dashboard():
         )
     else:
         st.caption("No cards are waiting in Review right now.")
-    vocab_summary = one("""SELECT
-        (SELECT COUNT(*) FROM v2_vocab_progress WHERE reviews>0 AND next_review<=?) AS due,
-        (SELECT COUNT(*) FROM v2_vocab_daily_selection d JOIN v2_vocab_progress v ON v.card_id=d.card_id
-         WHERE d.study_date<=? AND v.reviews=0) AS fresh""", (datetime.now().isoformat(timespec="seconds"), today()))
-    review_col, vocab_col = st.columns(2, gap="large")
-    with review_col:
-        with st.container(key="dashboard_grammar_review_card", border=True):
-            st.markdown("### 📖 Grammar Review")
-            st.caption(f"{due} grammar cards due" if due else "No grammar cards due right now")
-            st.button(f"Review · {due} cards" if due else "Review grammar", key="dashboard_review_top", type="primary", use_container_width=True, on_click=open_review)
-    with vocab_col:
-        with st.container(key="dashboard_vocabulary_review_card", border=True):
-            st.markdown("### 🗂️ Vocabulary Review")
-            st.caption(f"{vocab_summary['due']} due reviews · {vocab_summary['fresh']} new words for today")
-            st.button("Review vocabulary", key="v2_dashboard_vocab_review", type="primary", use_container_width=True, on_click=go_vocab_review)
-            st.button("Find or add words", key="v2_dashboard_vocab_add", use_container_width=True, on_click=go_vocab_review)
-
     st.header("Today's new lessons")
     todays = daily_lessons()
     lesson_request = None
@@ -3426,14 +3430,6 @@ def page_dashboard():
     else:
         st.markdown('<div class="cute-note">(｡•́‿•̀｡) Your lesson shelf is waiting for the next study day.</div>', unsafe_allow_html=True)
 
-    st.divider()
-    if st.button(
-        f"Review · {due} cards" if due else "Review",
-        key="dashboard_review_bottom",
-        type="primary",
-        use_container_width=True,
-    ):
-        open_review()
     if lesson_request:
         render_lesson_dialog(*lesson_request)
 
@@ -3700,15 +3696,24 @@ _render_room_theme_v2()
 if st.session_state.pop("go_review", False):
     st.session_state["nav"] = "Review"
 pending_mobile_page = st.session_state.pop("mobile_nav_target", None)
-if pending_mobile_page in NAV_PAGES:
+if pending_mobile_page in NAV_MENU_PAGES:
     st.session_state["nav"] = pending_mobile_page
+    st.session_state["nav_menu"] = pending_mobile_page
 render_mobile_navigation()
 # Temporarily disabled per user request to reduce work on every page render.
 # render_bts_motivation()
 st.sidebar.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">Grammar & vocabulary</div></div></div>', unsafe_allow_html=True)
 if st.session_state.get("nav") not in NAV_PAGES:
     st.session_state["nav"] = "Dashboard"
-page = st.sidebar.radio("Navigate", list(NAV_PAGES), key="nav")
+if st.session_state.get("nav") in {"Review", "Vocabulary Review"}:
+    # These queues are launched from dashboard buttons and pack actions, not sidebar items.
+    page = st.session_state["nav"]
+else:
+    current_menu_page = st.session_state.get("nav_menu", "Dashboard")
+    if current_menu_page not in NAV_MENU_PAGES:
+        current_menu_page = "Dashboard"
+    page = st.sidebar.radio("Navigate", list(NAV_MENU_PAGES), key="nav_menu", index=list(NAV_MENU_PAGES).index(current_menu_page))
+    st.session_state["nav"] = page
 # Crystal balance removed from the sidebar.
 if page == "Review":
     # Sidebar navigation enters Review without going through the Dashboard's
