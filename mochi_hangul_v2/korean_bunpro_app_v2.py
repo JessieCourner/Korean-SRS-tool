@@ -808,6 +808,123 @@ st.markdown("""
     [data-testid="stAlert"] {background:#fff8fc !important; border-color:#efc4de !important; color:#59446d !important;}
     [data-testid="stAlert"] * {color:#59446d !important;}
 
+
+    /* High-contrast Mochi colors for native selects, BaseWeb menus, and notices. */
+    select, select option, select optgroup {
+        background-color:#fff9fd !important;
+        color:#59446d !important;
+        color-scheme:light !important;
+    }
+    select:focus, select:focus-visible {
+        outline-color:#d66ea8 !important;
+    }
+    [data-baseweb="popover"], [data-baseweb="popover"] > div,
+    [data-baseweb="popover"] [role="listbox"],
+    [data-baseweb="popover"] [role="option"],
+    [data-baseweb="menu"], [data-baseweb="menu"] [role="option"],
+    [role="listbox"], [role="option"] {
+        color-scheme:light !important;
+        background-color:#fff9fd !important;
+        color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    [data-baseweb="popover"] [role="option"] *,
+    [data-baseweb="menu"] [role="option"] *, [role="option"] * {
+        background-color:transparent !important;
+        color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    [data-baseweb="popover"] [role="option"][aria-selected="true"],
+    [data-baseweb="menu"] [role="option"][aria-selected="true"],
+    [role="option"][aria-selected="true"] {
+        background-color:#f3dced !important;
+        color:#59446d !important;
+    }
+    [data-baseweb="popover"] [role="option"]:hover,
+    [data-baseweb="menu"] [role="option"]:hover, [role="option"]:hover {
+        background-color:#f9e4f2 !important;
+        color:#59446d !important;
+    }
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    [data-testid="stMultiSelect"] [data-baseweb="select"] > div {
+        background:#fff9fd !important;
+        background-color:#fff9fd !important;
+        color:#59446d !important;
+        border-color:#eac7df !important;
+        color-scheme:light !important;
+    }
+    [data-testid="stSelectbox"] [aria-invalid="true"],
+    [data-testid="stMultiSelect"] [aria-invalid="true"] {
+        border-color:#d66ea8 !important;
+        box-shadow:0 0 0 1px #d66ea8 !important;
+    }
+    [data-testid="stAlert"], .stAlert,
+    [data-testid="stNotification"] {
+        background:#fff8fc !important;
+        background-color:#fff8fc !important;
+        background-image:none !important;
+        border-color:#efc4de !important;
+        color:#59446d !important;
+        color-scheme:light !important;
+    }
+    [data-testid="stAlert"] > div,
+    [data-testid="stAlert"] [role="alert"],
+    [data-testid="stAlert"] [data-testid="stMarkdownContainer"],
+    .stAlert > div, [data-testid="stNotification"] > div {
+        background:transparent !important;
+        background-color:transparent !important;
+        color:#59446d !important;
+    }
+    [data-testid="stAlert"] *, .stAlert *,
+    [data-testid="stNotification"] * {
+        color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    [data-testid="stAlert"] svg, .stAlert svg,
+    [data-testid="stNotification"] svg {
+        color:#a85d8e !important;
+        fill:#a85d8e !important;
+    }
+
+
+    /* Final alert pass: Streamlit success/info children must not inherit dark theme fills. */
+    html body [data-testid="stAlert"],
+    html body [data-testid="stAlert"] > div,
+    html body [data-testid="stAlert"] > div > div,
+    html body [data-testid="stAlert"] [role="alert"],
+    html body [data-testid="stAlert"] [data-baseweb="notification"],
+    html body [data-testid="stNotification"],
+    html body [data-baseweb="notification"] {
+        background:#fff8fc !important;
+        background-color:#fff8fc !important;
+        background-image:none !important;
+        border-color:#efc4de !important;
+        color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+        color-scheme:light !important;
+    }
+    html body [data-testid="stAlert"] *,
+    html body [data-testid="stNotification"] *,
+    html body [data-baseweb="notification"] * {
+        background-color:#fff8fc !important;
+        background-image:none !important;
+        color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    html body [data-testid="stAlert"]::before,
+    html body [data-testid="stAlert"]::after,
+    html body [data-testid="stAlert"] *::before,
+    html body [data-testid="stAlert"] *::after {
+        background-color:#fff8fc !important;
+        background-image:none !important;
+    }
+    html body [data-testid="stAlert"] svg,
+    html body [data-testid="stNotification"] svg,
+    html body [data-baseweb="notification"] svg {
+        color:#a85d8e !important;
+        fill:#a85d8e !important;
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
