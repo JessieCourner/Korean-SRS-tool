@@ -400,7 +400,7 @@ st.markdown("""
     .stApp {background: transparent !important; color: #5b4770 !important;}
     h1, h2, h3, h4, h5, h6, p, label, [data-testid="stMarkdownContainer"], [data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stCaptionContainer"], [data-testid="stWidgetLabel"] {color: #5b4770 !important;}
     code, .stMarkdown code {background:#fff8fc !important; color:#5a4050 !important; border:2px solid #f2b8d5; border-radius:16px; padding:.35rem .75rem; box-shadow:0 4px 12px rgba(217,143,179,.16); font-size:clamp(1.05rem,2.5vw,1.35rem); font-weight:700; line-height:1.45; overflow-wrap:anywhere;}
-    .block-container {max-width: 1100px; padding-top: 2rem;}
+    .block-container {max-width: 1100px; padding-top: .45rem !important;}
     [data-testid="stSidebar"] {background: linear-gradient(180deg, #ffe9f2 0%, #eee7ff 100%);}
     [data-testid="stSidebar"] * {color: #5b4770 !important;}
     [data-testid="stMetric"] {background: rgba(255,255,255,.78); border: 2px solid #f4d8e7; border-radius: 22px; padding: 14px 18px; box-shadow: 0 6px 18px rgba(140,105,150,.08);}
@@ -670,7 +670,7 @@ st.markdown("""
         }
     }
     @media (max-width: 700px) {
-        .block-container {padding: 4rem .75rem 2rem;}
+        .block-container {padding: .75rem .75rem 1.5rem !important;}
         /* Streamlit's desktop sidebar is hidden on a phone; the fixed
            launcher above is the single, tappable mobile navigation control. */
         [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none !important;}
@@ -3337,7 +3337,6 @@ def render_review_dialog():
 
 
 def page_dashboard():
-    st.markdown('<div class="brand-logo"><div class="brand-mark">🍡</div><div><div class="brand-name">Mochi Hangul</div><div class="brand-subtitle">cute Korean grammar garden</div></div></div>', unsafe_allow_html=True)
     st.title("Mochi Hangul")
     summary = one("""
         SELECT
