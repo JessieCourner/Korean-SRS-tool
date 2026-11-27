@@ -337,24 +337,25 @@ def anki_card_from_report(row):
     """Build a standalone vocabulary card for a reviewed Anki-only mapping."""
     korean = clean(row.get("korean", ""))
     english = clean(row.get("english", ""))
-    example_ko = clean(row.get("example_korean", ""))
-    example_en = clean(row.get("example_english", ""))
+    # Preserve one example per line for multi-sense cards; ordinary clean() joins lines.
+    example_ko = "\n".join(part.strip() for part in str(row.get("example_korean", "") or "").splitlines() if part.strip())
+    example_en = "\n".join(part.strip() for part in str(row.get("example_english", "") or "").splitlines() if part.strip())
     return {
         "id": f"anki_{row.get('anki_id', '')}",
         "pack_id": "anki_import_reviewed",
         "card_type": "translation",
-        "target": korean,
-        "part_of_speech": "vocabulary",
+        "target": clean(row.get("example_target") or korean),
+        "part_of_speech": clean(row.get("part_of_speech") or "vocabulary"),
         "target_translation": english,
-        "prompt": f"Translate into Korean: {english}",
+        "prompt": clean(row.get("example_prompt") or f"Translate into Korean: {english}"),
         "source_sentence": example_ko,
         "translation": example_en,
-        "answer": korean,
-        "base_form": korean,
-        "answer_form": korean,
-        "explanation": "Imported from the reviewed Anki migration plan.",
+        "answer": clean(row.get("example_answer") or korean),
+        "base_form": clean(row.get("example_target") or korean),
+        "answer_form": clean(row.get("answer_form") or ("Enter the word in the form required by this sentence." if row.get("manual_example_review") else korean)),
+        "explanation": clean(row.get("card_explanation") or "Imported from the reviewed Anki migration plan."),
         "source_label": "Anki import",
-        "source_url": "",
+        "source_url": clean(row.get("source_url") or ""),
         "artist": "",
         "song": "",
     }
@@ -368,7 +369,7 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
     for destination_id in wanted:
         anki_id = destination_id.removeprefix("anki_")
         row = report_by_id.get(anki_id)
-        if row and row.get("final_status") == "new card":
+        if row and row.get("final_status") == "new card" and row.get("manual_example_review"):
             cards.append(anki_card_from_report(row))
 
     inserted = 0
@@ -390,7 +391,8 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
                 cursor = conn.raw.cursor()
                 try:
                     execute_values(cursor,
-                        "INSERT INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES %s ON CONFLICT(id) DO NOTHING",
+                        "INSERT INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES %s ON CONFLICT(id) DO UPDATE SET " + ",".join(
+                            f"{column}=EXCLUDED.{column}" for column in ("card_type", "prompt", "source_sentence", "translation", "answer", "answer_form")),
                         values[start:start + 250], page_size=250)
                     inserted += max(0, cursor.rowcount)
                 finally:
@@ -410,7 +412,9 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
                 cursor.close()
         else:
             cursor = conn.executemany(
-                "INSERT OR IGNORE INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES " + placeholders,
+                "INSERT INTO v2_vocab_cards(" + ",".join(columns) + ") VALUES " + placeholders +
+                " ON CONFLICT(id) DO UPDATE SET " + ",".join(
+                    f"{column}=excluded.{column}" for column in ("card_type", "prompt", "source_sentence", "translation", "answer", "answer_form")),
                 values)
             inserted = max(0, cursor.rowcount)
             conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)",
@@ -423,11 +427,11 @@ def ensure_reviewed_anki_cards(conn, bundle, mappings):
     else:
         present = 0
 
-    return inserted, max(0, int(present) - inserted)
+    return inserted
 
 
 def import_progress(conn, mappings):
-    """Replace the SRS schedule on every destination selected by the reviewed plan."""
+    """Apply imported schedules only to cards with no existing study progress."""
     rows = [(
         str(card["id"]), int(source["level"]), source["due"], source["last"],
         int(source["reviews"]), int(source["interval"]), int(source["lapses"]),
@@ -435,6 +439,7 @@ def import_progress(conn, mappings):
     if not rows:
         return 0
 
+    # Create missing progress rows with the schema defaults; existing rows are left intact.
     if hasattr(conn, "raw"):
         from psycopg2.extras import execute_values
         cursor = conn.raw.cursor()
@@ -450,7 +455,9 @@ def import_progress(conn, mappings):
                 interval_days=source.interval_days, lapses=source.lapses
             FROM (VALUES %s) AS source
                 (card_id, level, next_review, last_review, reviews, interval_days, lapses)
-            WHERE target.card_id=source.card_id"""
+            WHERE target.card_id=source.card_id
+              AND target.level=0 AND target.reviews=0 AND target.mastered=0
+              AND target.last_review IS NULL AND target.interval_days=0"""
         updated = 0
         for start in range(0, len(rows), 250):
             cursor = conn.raw.cursor()
@@ -465,7 +472,8 @@ def import_progress(conn, mappings):
                      [(row[0],) for row in rows])
     cursor = conn.executemany("""UPDATE v2_vocab_progress
         SET level=?, next_review=?, last_review=?, reviews=?, interval_days=?, lapses=?
-        WHERE card_id=?""",
+        WHERE card_id=? AND level=0 AND reviews=0 AND mastered=0
+          AND last_review IS NULL AND interval_days=0""",
         [(level, due, last, reviews, interval, lapses, card_id)
          for card_id, level, due, last, reviews, interval, lapses in rows])
     return max(0, cursor.rowcount)
@@ -483,9 +491,11 @@ def curated_plan(source, cards, bundle):
     for entry in bundle.get("progress_mappings", []):
         original = by_source.get(str(entry["anki_id"]))
         card = by_card.get(str(entry["destination_id"]))
-        if not card and str(entry["destination_id"]).startswith("anki_"):
+        if str(entry["destination_id"]).startswith("anki_"):
             reviewed_row = report_by_source.get(str(entry["anki_id"]))
-            if reviewed_row and reviewed_row.get("final_status") == "new card":
+            if reviewed_row and reviewed_row.get("final_status") == "new card" and not reviewed_row.get("manual_example_review"):
+                card = None
+            elif not card and reviewed_row and reviewed_row.get("final_status") == "new card" and reviewed_row.get("manual_example_review"):
                 card = anki_card_from_report(reviewed_row)
         if not original or not card:
             continue
@@ -619,7 +629,10 @@ def render(st, db):
                 already = conn.execute("SELECT 1 FROM anki_progress_import_runs WHERE deck_hash=?", (deck_hash,)).fetchone()
                 if already:
                     raise RuntimeError("This exact Anki deck has already been imported; no progress was changed.")
-                added_cards, existing_separate_cards = ensure_reviewed_anki_cards(conn, bundle, mappings)
+                reviewed_path = Path(__file__).with_name("vocabulary_examples_reviewed_6366.json")
+                reviewed = json.loads(reviewed_path.read_text(encoding="utf-8")) if curated is not None and reviewed_path.is_file() else None
+                refreshed_examples = sync_reviewed_vocab_content(conn, reviewed) if reviewed else 0
+                added_cards = ensure_reviewed_anki_cards(conn, bundle, mappings)
                 imported = import_progress(conn, mappings)
                 conn.execute("INSERT INTO anki_progress_import_runs(deck_hash,imported_at,mapped_cards,excluded_cards) VALUES(?,?,?,?)",
                              (deck_hash, datetime.now(LOCAL_TZ).isoformat(timespec="seconds"), len(mappings), counts["excluded by user"]))
@@ -633,4 +646,42 @@ def render(st, db):
             finally:
                 conn.close()
         st.session_state.pop("vocab_queue_ids", None)
-        st.success(f"Transferred Anki schedules to {imported:,} mapped cards. Separate cards: {added_cards:,} created and {existing_separate_cards:,} already present. Excluded by your decision: {counts['excluded by user']:,}.")
+        st.success(f"Transferred Anki schedules to {imported:,} mapped cards. Refreshed {refreshed_examples:,} reviewed vocabulary cards and added or refreshed {added_cards:,} separate Anki cards. Excluded by your decision: {counts['excluded by user']:,}.")
+
+
+def sync_reviewed_vocab_content(conn, reviewed):
+    """Refresh approved vocabulary text while leaving existing SRS rows intact."""
+    unresolved = set(reviewed.get("editorial_unresolved_ids", []))
+    cards = [card for card in reviewed.get("cards", []) if card.get("id") not in unresolved]
+    packs = reviewed.get("packs", [])
+    pack_cols = ("id", "title", "level", "topic", "pack_type", "description", "source_label", "source_url", "artist", "song", "catalog_url")
+    card_cols = ("id", "pack_id", "card_type", "target", "part_of_speech", "target_translation", "prompt", "source_sentence", "translation", "answer", "base_form", "answer_form", "explanation", "source_label", "source_url", "artist", "song")
+    pack_values = [tuple(pack.get(key, "") for key in pack_cols) for pack in packs]
+    card_values = [tuple(card.get(key, "") for key in card_cols) for card in cards]
+    if hasattr(conn, "raw"):
+        from psycopg2.extras import execute_values
+        for start in range(0, len(pack_values), 250):
+            cur = conn.raw.cursor()
+            try:
+                execute_values(cur, "INSERT INTO v2_vocab_packs(" + ",".join(pack_cols) + ") VALUES %s ON CONFLICT(id) DO NOTHING", pack_values[start:start+250], page_size=250)
+            finally:
+                cur.close()
+        sql = "INSERT INTO v2_vocab_cards(" + ",".join(card_cols) + ") VALUES %s ON CONFLICT(id) DO UPDATE SET " + ",".join(f"{col}=EXCLUDED.{col}" for col in card_cols[1:])
+        for start in range(0, len(card_values), 250):
+            cur = conn.raw.cursor()
+            try:
+                execute_values(cur, sql, card_values[start:start+250], page_size=250)
+            finally:
+                cur.close()
+        for start in range(0, len(cards), 500):
+            cur = conn.raw.cursor()
+            try:
+                execute_values(cur, "INSERT INTO v2_vocab_progress(card_id) VALUES %s ON CONFLICT(card_id) DO NOTHING", [(card["id"],) for card in cards[start:start+500]], page_size=500)
+            finally:
+                cur.close()
+    else:
+        conn.executemany("INSERT OR IGNORE INTO v2_vocab_packs(" + ",".join(pack_cols) + ") VALUES (" + ",".join("?" for _ in pack_cols) + ")", pack_values)
+        sql = "INSERT INTO v2_vocab_cards(" + ",".join(card_cols) + ") VALUES (" + ",".join("?" for _ in card_cols) + ") ON CONFLICT(id) DO UPDATE SET " + ",".join(f"{col}=excluded.{col}" for col in card_cols[1:])
+        conn.executemany(sql, card_values)
+        conn.executemany("INSERT OR IGNORE INTO v2_vocab_progress(card_id) VALUES(?)", [(card["id"],) for card in cards])
+    return len(cards)

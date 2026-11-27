@@ -635,7 +635,7 @@ def install_v2(namespace):
     namespace["page_music_packs"] = page_music_packs
 
     def highlight_translation(translation, target):
-        safe = escape(str(translation or ""))
+        safe = escape(str(translation or "")).replace("\n", "<br>")
         if not target:
             return safe
         pattern = re.compile(re.escape(str(target)), re.IGNORECASE)
@@ -707,19 +707,21 @@ def install_v2(namespace):
         st.session_state["vocab_queue_index"] = 0
         st.session_state["vocab_queue_pack"] = pack_id
         st.session_state["vocab_queue_mode"] = mode
+        st.session_state["vocab_queue_version"] = 3
         st.session_state.pop("vocab_result", None)
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
         # Drop any oversized queue created by the previous all-cards behavior.
-        if st.session_state.get("vocab_queue_version") != 2:
+        if st.session_state.get("vocab_queue_version") != 3:
             st.session_state.pop("vocab_queue_ids", None)
             st.session_state.pop("vocab_queue_index", None)
             st.session_state.pop("vocab_queue_pack", None)
             st.session_state.pop("vocab_queue_mode", None)
-            st.session_state["vocab_queue_version"] = 2
+            st.session_state["vocab_queue_version"] = 3
         st.title(title)
+        st.caption("Due reviews and new vocabulary are separate sessions.")
         if isinstance(pack_type_filter, (tuple, list)):
             pack_where = " WHERE pack_type IN (" + ",".join("?" for _ in pack_type_filter) + ")"
             pack_params = tuple(pack_type_filter)
@@ -764,6 +766,13 @@ def install_v2(namespace):
             else:
                 st.info("The card is complete. Review the full answer before continuing.")
             st.markdown(f'<div class="answer-results">Your answer: <b>{escape(result["user_answer"])}</b><br>Correct answer: <b>{escape(result["correct_answer"])}</b></div>', unsafe_allow_html=True)
+            example_text = str(card.get("source_sentence") or "").strip()
+            if example_text:
+                safe_example = escape(example_text).replace("\n", "<br>")
+                st.markdown(f'<div class="v2-source-note"><b>Example:</b><br>{safe_example}</div>', unsafe_allow_html=True)
+            explanation = str(card.get("explanation") or "").strip()
+            if explanation:
+                st.caption(explanation)
             st.markdown(f'<div class="v2-source-note">Base form: {escape(card["base_form"])} · Required form: {escape(card["answer_form"])}</div>', unsafe_allow_html=True)
             st.markdown(f'[Open source ↗]({card["source_url"]})')
             if card["catalog_url"]:

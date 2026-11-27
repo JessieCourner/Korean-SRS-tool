@@ -3508,8 +3508,10 @@ def page_shop():
                                 st.error("Not enough crystals yet.")
 
 
-from korean_bunpro_v2_features import install_v2
-install_v2(globals())
+import importlib
+import korean_bunpro_v2_features as _v2_features
+_v2_features = importlib.reload(_v2_features)
+_v2_features.install_v2(globals())
 
 # `bootstrap_app_data` is cached by Streamlit.  Run the V2 initializer once
 # outside that cache as well, so a warm process or a cache created by the
