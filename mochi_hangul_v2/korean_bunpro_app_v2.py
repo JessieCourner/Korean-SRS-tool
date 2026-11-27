@@ -1,6 +1,7 @@
 import base64
 import json
 import re
+import random
 import sqlite3
 import time
 from html import escape
@@ -2229,6 +2230,21 @@ def inferred_answer_form(card):
     return normalize(card["answer_form"] if "answer_form" in card.keys() else "")
 
 
+def explain_required_answer_form(card):
+    """Turn seed register labels into a direct instruction to the learner."""
+    raw = inferred_answer_form(card)
+    lowered = raw.lower()
+    if "informal polite" in lowered or "해요체" in raw:
+        return "Use polite conversational speech (해요체; typically an -아요/-어요 ending)."
+    if "formal polite" in lowered or "합니다체" in raw or "하십시오체" in raw:
+        return "Use formal polite speech (하십시오체; typically an -습니다/-ㅂ니다 ending)."
+    if "plain conversational" in lowered or "해체" in raw:
+        return "Use casual/plain speech (해체; omit 요 and use the requested plain ending)."
+    if not raw or "no speech-level ending required" in lowered:
+        return "No speech level is specified for this blank; enter the requested grammar or word form that fits the sentence."
+    return raw
+
+
 # The lesson guide is stored directly on each lesson record in the unit seed
 # files.  It is not reconstructed from SRS cards or lesson titles, and the
 # guide examples remain separate from the cards array in the same lesson.
@@ -2390,6 +2406,16 @@ def check_answer(card_id, answer_key):
     user_answer = st.session_state.get(answer_key, "")
     if not card or not normalize(user_answer):
         return
+    expected = normalize(card["answer"])
+    entered = normalize(user_answer)
+    if entered.casefold() != expected.casefold():
+        context = st.session_state.setdefault("_review_card_context", {}).get(card_id, {})
+        notice = detect_speech_level_nearmiss(entered, expected, context.get("answer_form", "")) or detect_grammar_nearmiss(entered, expected, context.get("pattern", ""))
+        if notice:
+            st.session_state["near_miss_feedback"] = {"card_id": card_id, "text": notice}
+            st.session_state[answer_key] = ""
+            return
+    st.session_state.pop("near_miss_feedback", None)
     result = "correct" if answer_is_correct(user_answer, card["answer"]) else "incorrect"
     st.session_state["result_card_id"] = card_id
     st.session_state["result_user_answer"] = user_answer
@@ -2398,6 +2424,83 @@ def check_answer(card_id, answer_key):
     # grade() performs the single SRS update and advances the queue.  The
     # callback returns normally so Streamlit performs one ordinary rerun.
     grade(card_id, result)
+
+
+def detect_speech_level_nearmiss(entered, expected, required):
+    """Recognize the same Korean stem with a different polite/plain ending."""
+    def remove_b_final(value):
+        if not value: return value
+        last = value[-1]
+        code = ord(last) - 0xAC00
+        if 0 <= code <= 11171 and code % 28 == 17:  # final ㅂ in e.g. 갑니다/합니다
+            return value[:-1] + chr(ord(last) - 17)
+        return value
+
+    def remove_n_final(value):
+        if not value: return value
+        last = value[-1]
+        code = ord(last) - 0xAC00
+        if 0 <= code <= 11171 and code % 28 == 4:  # final ㄴ in e.g. 간다
+            return value[:-1] + chr(ord(last) - 4)
+        return value
+
+    def stem_level(value):
+        value = re.sub(r"[\s.!?]+$", "", value)
+        formal = [("습니다", "formal polite"), ("습니까", "formal polite question"),
+                  ("니다", "formal polite"), ("니까", "formal polite question")]
+        for ending, level in formal:
+            if value.endswith(ending):
+                stem = value[:-len(ending)]
+                if ending in ("니다", "니까"):
+                    stem = remove_b_final(stem)
+                return stem, level
+        if value.endswith(("어요", "아요", "여요", "예요", "이에요")):
+            return value[:-2], "informal polite"
+        if value.endswith("요"):
+            return value[:-1], "informal polite"
+        if value.endswith(("는다", "ㄴ다")):
+            return value[:-2], "plain/casual"
+        if value.endswith(("다", "어", "아", "여")):
+            return remove_n_final(value[:-1]), "plain/casual"
+        return value, ""
+
+    submitted_stem, submitted_level = stem_level(entered)
+    expected_stem, expected_level = stem_level(expected)
+    if submitted_stem and expected_stem and submitted_stem == expected_stem and expected_level:
+        if not submitted_level and submitted_stem == entered:
+            submitted_level = "plain/casual"
+        if submitted_level and submitted_level != expected_level:
+            return f"The meaning is right, but your answer uses the {submitted_level} ending. This card requires {required or expected_level}. Please enter it again in that speech level."
+    return ""
+
+
+GRAMMAR_NEARMISS_PAIRS = (
+    ("~아/어야 하다", (("~ㄹ/을 필요가 있다", r"필요가\s*있"), ("~아/어야", r"(?:아|어|여)야"))),
+    ("~(으)면 안 되다", (("~아/어서는 안 되다", r"(?:아|어|여)서는\s*안"),)),
+    ("~아/어서", (("~기 때문에", r"기\s*때문에"), ("~(으)니까", r"(?:으)?니까"))),
+    ("~(으)니까", (("~아/어서", r"(?:아|어|여)서"), ("~기 때문에", r"기\s*때문에"))),
+    ("~아/어도 되다", (("~아/어도", r"(?:아|어|여)도(?!\s*(?:돼|되))"),)),
+    ("~아/어도", (("~아/어도 되다", r"(?:아|어|여)도\s*(?:돼|되)"), ("~더라도", r"더라도"))),
+    ("~ㄹ/을 것 같다", (("~나 보다", r"나\s*봐?"), ("~는가 보다", r"는가\s*봐?"))),
+    ("~(으)ㄹ 수 있다", (("~ㄹ/을 줄 알다", r"줄\s*알"),)),
+    ("~아/어 보다", (("~아/어 보이다", r"(?:아|어|여)\s*보이"), ("~아/어 주다", r"(?:아|어|여)\s*줘?"))),
+    ("~(으)면서", (("~는데", r"는데"),)),
+    ("~느라고", (("~는 바람에", r"는\s*바람에"), ("~아/어서", r"(?:아|어|여)서"))),
+    ("~는 바람에", (("~느라고", r"느라고"), ("~기 때문에", r"기\s*때문에"))),
+)
+
+
+def detect_grammar_nearmiss(entered, expected, pattern):
+    """Flag curated Korean constructions with overlapping meanings before grading."""
+    compact_pattern = re.sub(r"\s+", "", str(pattern or ""))
+    for required, alternatives in GRAMMAR_NEARMISS_PAIRS:
+        required_compact = re.sub(r"\s+", "", required)
+        if required_compact not in compact_pattern:
+            continue
+        for alternative, regex in alternatives:
+            if re.search(regex, entered) and not re.search(regex, expected):
+                return f"This is a related grammar form ({alternative}) with a similar meaning, but this card asks for {required}. Please enter the requested form again."
+    return ""
 
 
 def focus_answer_field():
@@ -2966,6 +3069,7 @@ def start_review_session():
             reviews.next_review, reviews.card_id
     """, (datetime.now().isoformat(timespec="seconds"), today(), today()))
     queue_ids = [int(row["card_id"]) for row in queue_rows]
+    random.shuffle(queue_ids)
     st.session_state["review_queue_ids"] = queue_ids
     st.session_state["review_graded_ids"] = []
     st.session_state["review_total"] = len(queue_ids)
@@ -2974,6 +3078,7 @@ def start_review_session():
     for key in (
         "result_card_id", "result_user_answer", "result_correct_answer",
         "result_grade", "checked", "retry_card_id", "wrong_feedback",
+        "near_miss_feedback",
     ):
         st.session_state.pop(key, None)
 
@@ -3001,6 +3106,7 @@ def meaningful_base_form_hint(card):
 
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
+    st.session_state.setdefault("_review_card_context", {})[card["id"]] = {"pattern": card.get("pattern", ""), "answer_form": inferred_answer_form(card) or ""}
     nonce = st.session_state.get("review_nonce", 0)
     answer_key = f"answer_{card['id']}_{nonce}"
     slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
@@ -3011,7 +3117,10 @@ def render_card(card):
     blank = f'<span class="inline-answer-slot" id="{slot_id}"></span>'
     prompt_html = escape(str(card["prompt"])).replace("___", blank, 1).replace("\n", "<br>")
     translation_html = highlight_grammar_translation(card["translation"], card["pattern"]).replace("\n", "<br>")
-    answer_form = inferred_answer_form(card) or "No speech-level ending required — enter the target word or grammar form"
+    answer_form = explain_required_answer_form(card)
+    notice = st.session_state.get("near_miss_feedback")
+    if notice and int(notice.get("card_id", -1)) == int(card["id"]):
+        st.warning(notice["text"] + " Your answer was not graded; enter it again below.")
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div><div class='answer-form-note'>Required answer form: {escape(answer_form)}</div></div>''',
         unsafe_allow_html=True,
@@ -3269,7 +3378,7 @@ def render_review_contents():
                 f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{highlight_grammar_translation(result_card["translation"], result_card["pattern"]).replace(chr(10), "<br>")}</div></div>''',
                 unsafe_allow_html=True,
             )
-            result_answer_form = inferred_answer_form(result_card) or "No speech-level ending required — enter the target word or grammar form"
+            result_answer_form = explain_required_answer_form(result_card)
             st.markdown(
                 f'''<div class="answer-form-note">Required answer form: {escape(result_answer_form)}</div>''',
                 unsafe_allow_html=True,

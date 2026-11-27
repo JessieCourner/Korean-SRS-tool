@@ -9,7 +9,9 @@ from __future__ import annotations
 import json
 import hashlib
 import re
-from datetime import datetime
+import random
+import uuid
+from datetime import datetime, timedelta
 from html import escape
 from pathlib import Path
 from urllib.parse import quote_plus
@@ -45,6 +47,7 @@ def install_v2(namespace):
     original_init_db = namespace["init_db"]
     original_page_lessons = namespace["page_lessons"]
     original_page_progress = namespace["page_progress"]
+    original_page_dashboard = namespace["page_dashboard"]
     namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs", "Import Anki Progress")
     namespace["SHOP_ITEMS"] = list(namespace["SHOP_ITEMS"]) + EXTRA_SHOP_ITEMS
     namespace["FRAME_STYLES"].update(EXTRA_FRAME_STYLES)
@@ -99,6 +102,13 @@ def install_v2(namespace):
                 next_review TEXT NOT NULL DEFAULT '1900-01-01T00:00:00',
                 last_review TEXT, reviews INTEGER NOT NULL DEFAULT 0,
                 mastered INTEGER NOT NULL DEFAULT 0
+            )""",
+            """CREATE TABLE IF NOT EXISTS v2_vocab_daily_selection (
+                study_date TEXT NOT NULL, card_id TEXT NOT NULL, created_at TEXT NOT NULL,
+                PRIMARY KEY(study_date, card_id)
+            )""",
+            """CREATE TABLE IF NOT EXISTS v2_vocab_daily_settings (
+                study_date TEXT PRIMARY KEY, daily_limit INTEGER NOT NULL
             )""",
             """CREATE TABLE IF NOT EXISTS manual_mastery (
                 item_kind TEXT NOT NULL, item_id TEXT NOT NULL,
@@ -672,85 +682,127 @@ def install_v2(namespace):
 
     namespace["grade_vocab"] = grade_vocab
 
-    def start_vocab_queue(pack_id, pack_type_filter=None, mode="due", new_limit=10):
-        now = datetime.now().isoformat()
-        params = []
-        filters = []
-        if mode == "new":
-            filters.append("COALESCE(v.reviews,0)=0")
-        else:
-            # New cards use the old 1900 sentinel and must never appear as overdue reviews.
-            filters.extend(["COALESCE(v.reviews,0)>0", "v.next_review<=?"])
-            params.append(now)
-        if pack_id != "__all__":
-            filters.append("c.pack_id=?")
-            params.append(pack_id)
-        elif pack_type_filter:
-            filters.append("p.pack_type=?")
-            params.append(pack_type_filter)
-        filters.extend([
-            "NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)",
-            "NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)",
-        ])
-        where = "WHERE " + " AND ".join(filters)
-        if mode == "new":
-            limit = max(1, min(20, int(new_limit)))
-            rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
-                JOIN v2_vocab_packs p ON p.id=c.pack_id
-                {where} ORDER BY c.pack_id,c.id LIMIT ?""", tuple(params + [limit]))
-        else:
-            rows_due = v2_rows(f"""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
-                JOIN v2_vocab_packs p ON p.id=c.pack_id
-                {where} ORDER BY v.next_review,c.pack_id,c.id""", tuple(params))
-        ids = [row["id"] for row in rows_due]
+    def assign_vocab_study_day(conn, card_id):
+        """Place each selected new word in the earliest day with room under its daily cap."""
+        first_day = datetime.now().date()
+        existing = conn.execute("SELECT study_date FROM v2_vocab_daily_selection WHERE card_id=? ORDER BY study_date LIMIT 1", (card_id,)).fetchone()
+        if existing:
+            return existing["study_date"]
+        for offset in range(3660):
+            day = (first_day + timedelta(days=offset)).isoformat()
+            setting = conn.execute("SELECT daily_limit FROM v2_vocab_daily_settings WHERE study_date=?", (day,)).fetchone()
+            cap = int(setting["daily_limit"]) if setting else 20
+            count = conn.execute("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", (day,)).fetchone()["n"]
+            if int(count) < cap:
+                conn.execute("INSERT INTO v2_vocab_daily_selection(study_date,card_id,created_at) VALUES(?,?,?)", (day,card_id,datetime.now().isoformat(timespec="seconds")))
+                return day
+        raise RuntimeError("Could not find an open study day for this vocabulary card.")
+
+    def start_vocab_queue(pack_id="__all__", pack_type_filter=None, mode="mixed", new_limit=20):
+        now = datetime.now().isoformat(timespec="seconds")
+        day = datetime.now().date().isoformat()
+        due = v2_rows("""SELECT c.id FROM v2_vocab_cards c JOIN v2_vocab_progress v ON v.card_id=c.id
+            WHERE COALESCE(v.reviews,0)>0 AND v.next_review<=?
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)""", (now,))
+        selected = v2_rows("""SELECT c.id FROM v2_vocab_daily_selection d
+            JOIN v2_vocab_cards c ON c.id=d.card_id JOIN v2_vocab_progress v ON v.card_id=c.id
+            WHERE d.study_date<=? AND COALESCE(v.reviews,0)=0
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_pack' AND m.item_id=c.pack_id AND m.mastered=1)
+            AND NOT EXISTS (SELECT 1 FROM manual_mastery m WHERE m.item_kind='vocab_word' AND m.item_id=(c.pack_id || ':' || c.target) AND m.mastered=1)""", (day,))
+        ids = list(dict.fromkeys([r["id"] for r in due] + [r["id"] for r in selected]))
+        random.shuffle(ids)
         st.session_state["vocab_queue_ids"] = ids
         st.session_state["vocab_queue_index"] = 0
-        st.session_state["vocab_queue_pack"] = pack_id
-        st.session_state["vocab_queue_mode"] = mode
-        st.session_state["vocab_queue_version"] = 3
+        st.session_state["vocab_queue_pack"] = "__all__"
+        st.session_state["vocab_queue_mode"] = "mixed"
+        st.session_state["vocab_queue_version"] = 4
         st.session_state.pop("vocab_result", None)
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
-        # Drop any oversized queue created by the previous all-cards behavior.
-        if st.session_state.get("vocab_queue_version") != 3:
+        if st.session_state.get("vocab_queue_version") != 4:
             st.session_state.pop("vocab_queue_ids", None)
             st.session_state.pop("vocab_queue_index", None)
             st.session_state.pop("vocab_queue_pack", None)
             st.session_state.pop("vocab_queue_mode", None)
-            st.session_state["vocab_queue_version"] = 3
+            st.session_state["vocab_queue_version"] = 4
         st.title(title)
-        st.caption("Due reviews and new vocabulary are separate sessions.")
-        if isinstance(pack_type_filter, (tuple, list)):
-            pack_where = " WHERE pack_type IN (" + ",".join("?" for _ in pack_type_filter) + ")"
-            pack_params = tuple(pack_type_filter)
-        elif pack_type_filter is None:
-            pack_where = ""
-            pack_params = ()
-        else:
-            pack_where = " WHERE pack_type=?"
-            pack_params = (pack_type_filter,) if pack_type_filter else ()
-        packs = v2_rows("SELECT id,title,pack_type,level,artist,song FROM v2_vocab_packs" + pack_where + " ORDER BY level,topic,artist,title", pack_params)
-        options = [("__all__", "All vocabulary packs")] + [(p["id"], p["title"]) for p in packs]
-        default_pack = st.session_state.get("vocab_review_pack", "__all__")
-        default_index = next((i for i, item in enumerate(options) if item[0] == default_pack), 0)
-        selected_id = st.selectbox("Choose a pack", [item[0] for item in options], index=default_index,
-                                   format_func=lambda item_id: next((name for key, name in options if key == item_id), item_id),
-                                   key="v2_review_select")
-        if "vocab_queue_ids" not in st.session_state or st.session_state.get("vocab_queue_pack") != selected_id:
-            new_limit = st.selectbox("New cards per session", [5, 10, 20], index=1, key="v2_new_vocab_limit")
-            due_col, new_col = st.columns(2)
-            with due_col:
-                if st.button("Start due reviews", key="v2_start_vocab_due", type="primary", use_container_width=True):
-                    start_vocab_queue(selected_id, pack_type_filter, mode="due")
+        st.caption("New words and due reviews are mixed into one shuffled deck. You can add 20 new words per day; extra selections are scheduled for the next open day.")
+        today_key = datetime.now().date().isoformat()
+        selected_today = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", (today_key,))["n"]
+        selected_tomorrow = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", ((datetime.now().date()+timedelta(days=1)).isoformat(),))["n"]
+        saved_limit = v2_one("SELECT daily_limit FROM v2_vocab_daily_settings WHERE study_date=?", (today_key,))
+        today_limit = int(saved_limit["daily_limit"]) if saved_limit else 20
+        today_limit = st.selectbox("New words to study today", list(range(1, 21)), index=today_limit-1, key="v2_vocab_daily_limit")
+        if not saved_limit or int(saved_limit["daily_limit"]) != today_limit:
+            conn=namespace["db"]()
+            try:
+                conn.execute("INSERT INTO v2_vocab_daily_settings(study_date,daily_limit) VALUES(?,?) ON CONFLICT(study_date) DO UPDATE SET daily_limit=excluded.daily_limit", (today_key,today_limit))
+                conn.commit()
+            finally: conn.close()
+        st.write(f"Scheduled: **{selected_today}/{today_limit} today** · **{selected_tomorrow}/20 tomorrow**")
+        total_cards = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_cards")["n"]
+        query = st.text_input("Find a word in your vocabulary", key="v2_vocab_search", placeholder="Type Korean or English")
+        if query.strip():
+            st.caption(f"Searching all {total_cards:,} vocabulary cards")
+            matches = v2_rows("""SELECT c.id,c.target,c.target_translation,c.part_of_speech,p.title,v.reviews,d.study_date
+                FROM v2_vocab_cards c JOIN v2_vocab_packs p ON p.id=c.pack_id
+                JOIN v2_vocab_progress v ON v.card_id=c.id
+                LEFT JOIN v2_vocab_daily_selection d ON d.card_id=c.id
+                WHERE lower(c.target) LIKE lower(?) OR lower(c.target_translation) LIKE lower(?)
+                ORDER BY CASE WHEN lower(c.target)=lower(?) THEN 0 WHEN lower(c.target_translation)=lower(?) THEN 1 ELSE 2 END, c.target LIMIT 100""", ("%"+query.strip()+"%", "%"+query.strip()+"%", query.strip(), query.strip()))
+            if matches:
+                st.caption("Choose the matching meaning/sense:")
+                for m in matches:
+                    cols = st.columns([5,1])
+                    cols[0].write(f"**{m['target']}** — {m['target_translation']} · {m['part_of_speech']} · {m['title']}")
+                    if m["study_date"]:
+                        cols[1].caption("Scheduled " + m["study_date"])
+                    elif int(m["reviews"] or 0)>0:
+                        cols[1].caption("Already in SRS")
+                    elif cols[1].button("Add", key="v2_add_existing_"+str(m["id"])):
+                        conn=namespace["db"]()
+                        try:
+                            day=assign_vocab_study_day(conn,m["id"])
+                            conn.commit()
+                        finally: conn.close()
+                        st.session_state["v2_vocab_added_flash"] = day
+                        st.rerun()
+            else:
+                st.info("No matching vocabulary found. Create a new card below.")
+        with st.expander("Create a vocabulary card", expanded=bool(query.strip() and not v2_rows("SELECT id FROM v2_vocab_cards WHERE lower(target)=lower(?) LIMIT 1",(query.strip(),)))):
+            with st.form("v2_manual_vocab_form"):
+                target=st.text_input("Korean word or expression", value=query.strip())
+                meaning=st.text_input("Meaning")
+                pos=st.text_input("Part of speech (optional)", value="word")
+                prompt=st.text_input("Korean example with exactly one ___ blank")
+                answer=st.text_input("Answer to fill the blank")
+                translation=st.text_input("English translation of the example")
+                submitted=st.form_submit_button("Create card and add to today")
+            if submitted:
+                if not all(x.strip() for x in (target,meaning,prompt,answer,translation)) or prompt.count("___")!=1:
+                    st.error("Complete the required fields and use exactly one ___ in the Korean example.")
+                else:
+                    conn=namespace["db"]()
+                    try:
+                        conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url) VALUES(?,?,?,?,?,?,?,?)",("user_manual","My vocabulary","Custom","User added","manual","Vocabulary you add yourself","User-created card",""))
+                        cid="manual_"+hashlib.sha256((target.strip()+"|"+meaning.strip()+"|"+uuid.uuid4().hex).encode()).hexdigest()[:20]
+                        conn.execute("""INSERT INTO v2_vocab_cards(id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,base_form,answer_form,explanation,source_label,source_url)
+                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",(cid,"user_manual","manual",target.strip(),pos.strip() or "word",meaning.strip(),prompt.strip(),prompt.replace("___",answer.strip(),1),translation.strip(),answer.strip(),target.strip(),"As used in the example","User-created vocabulary card","User-created card",""))
+                        conn.execute("INSERT INTO v2_vocab_progress(card_id) VALUES(?)",(cid,))
+                        assigned_day=assign_vocab_study_day(conn,cid)
+                        conn.commit()
+                    finally: conn.close()
+                    st.session_state["v2_vocab_added_flash"] = assigned_day
                     st.rerun()
-            with new_col:
-                if st.button(f"Study {new_limit} new cards", key="v2_start_vocab_new", use_container_width=True):
-                    start_vocab_queue(selected_id, pack_type_filter, mode="new", new_limit=new_limit)
-                    st.rerun()
-            st.caption("Due reviews include only cards you have already answered. New cards are studied separately in small sessions.")
-            return
+        added_flash=st.session_state.pop("v2_vocab_added_flash",None)
+        if added_flash:
+            st.success("Added to today’s deck." if added_flash==today_key else f"Added to your study queue for {added_flash}.")
+        if st.button("Start today’s mixed vocabulary deck", key="v2_start_vocab_mixed", type="primary", use_container_width=True):
+            start_vocab_queue()
+            st.rerun()
         queue = st.session_state.get("vocab_queue_ids", [])
         index = int(st.session_state.get("vocab_queue_index", 0))
         result = st.session_state.get("vocab_result")
@@ -788,12 +840,14 @@ def install_v2(namespace):
                 st.session_state.pop("vocab_result", None)
                 st.rerun()
             return
+        if "vocab_queue_ids" not in st.session_state:
+            st.info("Start the mixed deck when you are ready.")
+            return
         if not queue or index >= len(queue):
-            mode = st.session_state.get("vocab_queue_mode", "due")
             if not queue:
-                st.info("No due vocabulary reviews in this selection." if mode == "due" else "No new vocabulary cards in this selection.")
+                st.info("No due reviews or new words selected for today.")
             else:
-                st.success("Due vocabulary reviews are complete." if mode == "due" else "New-card session is complete.")
+                st.success("Today’s mixed vocabulary deck is complete.")
             st.progress(1.0)
             if st.button("Choose another pack or session", key="v2_vocab_restart"):
                 st.session_state.pop("vocab_queue_ids", None)
@@ -806,15 +860,21 @@ def install_v2(namespace):
         if not card:
             st.session_state["vocab_queue_index"] = index + 1
             st.rerun()
-        mode_label = "new" if st.session_state.get("vocab_queue_mode") == "new" else "due"
-        st.progress(index / max(1, len(queue)), text=f"{index} / {len(queue)} {mode_label} cards")
+        st.progress(index / max(1, len(queue)), text=f"{index} / {len(queue)} mixed vocabulary cards")
         slot_id = f"v2_vocab_slot_{card_id}"
         marker_id = f"v2_vocab_marker_{card_id}"
         label = f"Answer for card {card_id}"
         key = f"v2_vocab_answer_{card_id}"
         korean = escape(str(card["prompt"])).replace("___", f'<span class="inline-answer-slot" id="{slot_id}"></span>', 1)
         translation = highlight_translation(card["translation"], card["target_translation"])
-        st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{korean}</div><div class="review-translation">{translation}</div><div class="answer-form-note">Required answer form: {escape(card["answer_form"])}</div></div>', unsafe_allow_html=True)
+        answer_form = card["answer_form"]
+        if "해요체" in answer_form:
+            answer_form = "Use polite conversational speech (해요체; typically -아요/-어요)."
+        elif "해체" in answer_form:
+            answer_form = "Use casual/plain speech (해체; omit 요 and use the requested plain ending)."
+        elif "합니다체" in answer_form or "하십시오체" in answer_form:
+            answer_form = "Use formal polite speech (하십시오체; typically -습니다/-ㅂ니다)."
+        st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{korean}</div><div class="review-translation">{translation}</div><div class="answer-form-note">Required answer form: {escape(answer_form)}</div></div>', unsafe_allow_html=True)
         st.markdown(f'<div class="v2-source-note">{escape(card["pack_title"])} · {escape(card["card_type"].title())} card</div>', unsafe_allow_html=True)
         with st.expander("Show the word in its base form"):
             st.write(card["base_form"])
@@ -831,6 +891,21 @@ def install_v2(namespace):
 
     namespace["page_vocabulary_review"] = page_vocabulary_review
 
+    def go_vocab_review():
+        st.session_state["nav"] = "Vocabulary Review"
+        st.session_state.pop("vocab_queue_ids", None)
+
+    def page_dashboard_v2():
+        original_page_dashboard()
+        due = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_progress WHERE reviews>0 AND next_review<=?", (datetime.now().isoformat(timespec="seconds"),))["n"]
+        fresh = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection d JOIN v2_vocab_progress v ON v.card_id=d.card_id WHERE d.study_date<=? AND v.reviews=0", (datetime.now().date().isoformat(),))["n"]
+        st.subheader("Vocabulary")
+        a,b=st.columns(2)
+        a.metric("Due vocabulary reviews", due)
+        b.metric("New words for today", fresh)
+        st.button("Open vocabulary review", key="v2_dashboard_vocab_review", type="primary", on_click=go_vocab_review)
+
+    namespace["page_dashboard"] = page_dashboard_v2
 
     def page_lessons_v2():
         st.title("Lessons")
