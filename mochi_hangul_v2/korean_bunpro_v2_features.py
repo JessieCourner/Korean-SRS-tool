@@ -47,7 +47,6 @@ def install_v2(namespace):
     original_init_db = namespace["init_db"]
     original_page_lessons = namespace["page_lessons"]
     original_page_progress = namespace["page_progress"]
-    original_page_dashboard = namespace["page_dashboard"]
     namespace["NAV_PAGES"] = tuple(namespace["NAV_PAGES"]) + ("Vocabulary Packs", "Vocabulary Review", "Themed Packs", "Music Packs", "Import Anki Progress")
     namespace["SHOP_ITEMS"] = list(namespace["SHOP_ITEMS"]) + EXTRA_SHOP_ITEMS
     namespace["FRAME_STYLES"].update(EXTRA_FRAME_STYLES)
@@ -721,6 +720,9 @@ def install_v2(namespace):
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
+    def hide_manual_vocab_form():
+        st.session_state["v2_manual_card_open"] = False
+
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
         if st.session_state.get("vocab_queue_version") != 4:
             st.session_state.pop("vocab_queue_ids", None)
@@ -772,31 +774,44 @@ def install_v2(namespace):
                         st.rerun()
             else:
                 st.info("No matching vocabulary found. Create a new card below.")
-        with st.expander("Create a vocabulary card", expanded=bool(query.strip() and not v2_rows("SELECT id FROM v2_vocab_cards WHERE lower(target)=lower(?) LIMIT 1",(query.strip(),)))):
-            with st.form("v2_manual_vocab_form"):
-                target=st.text_input("Korean word or expression", value=query.strip())
-                meaning=st.text_input("Meaning")
-                pos=st.text_input("Part of speech (optional)", value="word")
-                prompt=st.text_input("Korean example with exactly one ___ blank")
-                answer=st.text_input("Answer to fill the blank")
-                translation=st.text_input("English translation of the example")
-                submitted=st.form_submit_button("Create card and add to today")
-            if submitted:
-                if not all(x.strip() for x in (target,meaning,prompt,answer,translation)) or prompt.count("___")!=1:
-                    st.error("Complete the required fields and use exactly one ___ in the Korean example.")
-                else:
-                    conn=namespace["db"]()
-                    try:
-                        conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url) VALUES(?,?,?,?,?,?,?,?)",("user_manual","My vocabulary","Custom","User added","manual","Vocabulary you add yourself","User-created card",""))
-                        cid="manual_"+hashlib.sha256((target.strip()+"|"+meaning.strip()+"|"+uuid.uuid4().hex).encode()).hexdigest()[:20]
-                        conn.execute("""INSERT INTO v2_vocab_cards(id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,base_form,answer_form,explanation,source_label,source_url)
-                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",(cid,"user_manual","manual",target.strip(),pos.strip() or "word",meaning.strip(),prompt.strip(),prompt.replace("___",answer.strip(),1),translation.strip(),answer.strip(),target.strip(),"As used in the example","User-created vocabulary card","User-created card",""))
-                        conn.execute("INSERT INTO v2_vocab_progress(card_id) VALUES(?)",(cid,))
-                        assigned_day=assign_vocab_study_day(conn,cid)
-                        conn.commit()
-                    finally: conn.close()
-                    st.session_state["v2_vocab_added_flash"] = assigned_day
-                    st.rerun()
+        if not st.session_state.get("v2_manual_card_open", False):
+            manual_label = "Create a new card manually" if query.strip() else "Add a word that is not in the database"
+            if st.button(manual_label, key="v2_open_manual_vocab_form", use_container_width=True):
+                st.session_state["v2_manual_card_open"] = True
+                st.rerun()
+        else:
+            with st.container(key="v2_manual_vocab_card", border=True):
+                title_col, close_col = st.columns([4,1])
+                with title_col:
+                    st.markdown("#### Create a vocabulary card")
+                    st.caption("Changed your mind? Close this form; nothing will be saved.")
+                with close_col:
+                    st.button("Hide form", key="v2_hide_manual_vocab_form", on_click=hide_manual_vocab_form, use_container_width=True)
+                with st.form("v2_manual_vocab_form"):
+                    target=st.text_input("Korean word or expression", value=query.strip())
+                    meaning=st.text_input("Meaning")
+                    pos=st.text_input("Part of speech (optional)", value="word")
+                    prompt=st.text_input("Korean example with exactly one ___ blank")
+                    answer=st.text_input("Answer to fill the blank")
+                    translation=st.text_input("English translation of the example")
+                    submitted=st.form_submit_button("Create card and add to study queue")
+                if submitted:
+                    if not all(x.strip() for x in (target,meaning,prompt,answer,translation)) or prompt.count("___")!=1:
+                        st.error("Complete the required fields and use exactly one ___ in the Korean example.")
+                    else:
+                        conn=namespace["db"]()
+                        try:
+                            conn.execute("INSERT OR IGNORE INTO v2_vocab_packs(id,title,level,topic,pack_type,description,source_label,source_url) VALUES(?,?,?,?,?,?,?,?)",("user_manual","My vocabulary","Custom","User added","manual","Vocabulary you add yourself","User-created card",""))
+                            cid="manual_"+hashlib.sha256((target.strip()+"|"+meaning.strip()+"|"+uuid.uuid4().hex).encode()).hexdigest()[:20]
+                            conn.execute("""INSERT INTO v2_vocab_cards(id,pack_id,card_type,target,part_of_speech,target_translation,prompt,source_sentence,translation,answer,base_form,answer_form,explanation,source_label,source_url)
+                                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",(cid,"user_manual","manual",target.strip(),pos.strip() or "word",meaning.strip(),prompt.strip(),prompt.replace("___",answer.strip(),1),translation.strip(),answer.strip(),target.strip(),"As used in the example","User-created vocabulary card","User-created card",""))
+                            conn.execute("INSERT INTO v2_vocab_progress(card_id) VALUES(?)",(cid,))
+                            assigned_day=assign_vocab_study_day(conn,cid)
+                            conn.commit()
+                        finally: conn.close()
+                        st.session_state["v2_manual_card_open"] = False
+                        st.session_state["v2_vocab_added_flash"] = assigned_day
+                        st.rerun()
         added_flash=st.session_state.pop("v2_vocab_added_flash",None)
         if added_flash:
             st.success("Added to today’s deck." if added_flash==today_key else f"Added to your study queue for {added_flash}.")
@@ -895,17 +910,7 @@ def install_v2(namespace):
         st.session_state["nav"] = "Vocabulary Review"
         st.session_state.pop("vocab_queue_ids", None)
 
-    def page_dashboard_v2():
-        original_page_dashboard()
-        due = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_progress WHERE reviews>0 AND next_review<=?", (datetime.now().isoformat(timespec="seconds"),))["n"]
-        fresh = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection d JOIN v2_vocab_progress v ON v.card_id=d.card_id WHERE d.study_date<=? AND v.reviews=0", (datetime.now().date().isoformat(),))["n"]
-        st.subheader("Vocabulary")
-        a,b=st.columns(2)
-        a.metric("Due vocabulary reviews", due)
-        b.metric("New words for today", fresh)
-        st.button("Open vocabulary review", key="v2_dashboard_vocab_review", type="primary", on_click=go_vocab_review)
-
-    namespace["page_dashboard"] = page_dashboard_v2
+    namespace["go_vocab_review"] = go_vocab_review
 
     def page_lessons_v2():
         st.title("Lessons")

@@ -404,6 +404,38 @@ st.markdown("""
     [data-testid="stSidebar"] {background: linear-gradient(180deg, #ffe9f2 0%, #eee7ff 100%);}
     [data-testid="stSidebar"] * {color: #5b4770 !important;}
     [data-testid="stMetric"] {background: rgba(255,255,255,.78); border: 2px solid #f4d8e7; border-radius: 22px; padding: 14px 18px; box-shadow: 0 6px 18px rgba(140,105,150,.08);}
+    /* Shared Mochi palette for dashboard review panels and default Streamlit controls. */
+    [class*="st-key-dashboard_grammar_review_card"] [data-testid="stVerticalBlockBorderWrapper"],
+    [class*="st-key-dashboard_vocabulary_review_card"] [data-testid="stVerticalBlockBorderWrapper"] {
+        min-height:190px !important; border:2px solid #f0c5df !important; border-radius:24px !important;
+        background:linear-gradient(115deg,#fff8fc,#f6f1ff 65%,#eefaff) !important;
+        box-shadow:0 8px 20px rgba(134,101,156,.10) !important; padding:14px 16px !important;
+    }
+    [data-testid="stTextInput"] input, [data-testid="stTextArea"] textarea,
+    [data-testid="stDateInput"] input, [data-testid="stTimeInput"] input,
+    [data-testid="stNumberInput"] input {
+        background:#fff9fd !important; background-color:#fff9fd !important; color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important; caret-color:#59446d !important;
+        border-color:#eac7df !important; color-scheme:light !important;
+    }
+    [data-testid="stTextArea"] textarea {border:2px solid #eac7df !important; border-radius:14px !important;}
+    [data-baseweb="input"] > div, [data-baseweb="base-input"] > div {
+        background:#fff9fd !important; border-color:#eac7df !important; color:#59446d !important;
+    }
+    [data-testid="stButton"] button, [data-testid="stFormSubmitButton"] button,
+    button[kind="primary"], button[kind="secondary"] {
+        color:#59446d !important; border-color:#eac7df !important; color-scheme:light !important;
+    }
+    [data-testid="stButton"] button[kind="primary"], [data-testid="stFormSubmitButton"] button,
+    button[kind="primary"] {background:linear-gradient(110deg,#fbe7f3,#eee7ff) !important;}
+    [data-testid="stButton"] button[kind="primary"]:hover, [data-testid="stFormSubmitButton"] button:hover,
+    button[kind="primary"]:hover {background:linear-gradient(110deg,#f6d8ea,#e3dcfb) !important;}
+    [data-testid="stCheckbox"] input, [data-testid="stRadio"] input {accent-color:#d66ea8 !important;}
+    [data-testid="stSlider"] [role="slider"] {background:#d66ea8 !important; border-color:#fff !important;}
+    [data-testid="stSlider"] [data-baseweb="slider"] div[role="progressbar"] {background:#eac7df !important;}
+    [data-testid="stTabs"] [role="tab"] {color:#765e87 !important;}
+    [data-testid="stTabs"] [role="tab"][aria-selected="true"] {color:#d66ea8 !important; border-bottom-color:#d66ea8 !important;}
+
     /* Music pack upload: match Mochi Hangul pastel theme. */
     [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"],
     [data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] {
@@ -748,6 +780,34 @@ st.markdown("""
         background:transparent !important; border:0 !important; padding:0 !important;
     }
     .mochi-lyric-link:hover {color:#772c76 !important; background:#fce4f1 !important; border-radius:3px;}
+
+    /* Final widget pass: keep all interactive controls on Mochi colors after Streamlit defaults. */
+    [data-testid="stTextInput"] input:not([aria-label^="Answer for card "]),
+    [data-testid="stTextArea"] textarea,
+    [data-testid="stDateInput"] input,
+    [data-testid="stTimeInput"] input,
+    [data-testid="stNumberInput"] input {
+        background:#fff9fd !important; background-color:#fff9fd !important;
+        border:2px solid #eac7df !important; border-radius:14px !important;
+        color:#59446d !important; -webkit-text-fill-color:#59446d !important;
+        caret-color:#59446d !important; color-scheme:light !important;
+    }
+    [data-testid="stTextInput"] input::placeholder,
+    [data-testid="stTextArea"] textarea::placeholder {color:#9b82a5 !important; -webkit-text-fill-color:#9b82a5 !important; opacity:1 !important;}
+    [data-testid="stTextInput"] [data-baseweb="base-input"] > div,
+    [data-testid="stTextArea"] [data-baseweb="base-input"] > div,
+    [data-testid="stDateInput"] [data-baseweb="input"] > div,
+    [data-testid="stNumberInput"] [data-baseweb="input"] > div {
+        background:#fff9fd !important; border-color:#eac7df !important; color:#59446d !important;
+    }
+    [data-testid="stButton"] button[kind="primary"],
+    [data-testid="stFormSubmitButton"] button,
+    button[kind="primary"] {background:linear-gradient(110deg,#fbe7f3,#eee7ff) !important; color:#59446d !important; border-color:#eac7df !important;}
+    [data-testid="stButton"] button[kind="secondary"],
+    [data-testid="stButton"] button:not([kind="primary"]) {background:#fff9fd !important; color:#59446d !important; border-color:#eac7df !important;}
+    [data-testid="stAlert"] {background:#fff8fc !important; border-color:#efc4de !important; color:#59446d !important;}
+    [data-testid="stAlert"] * {color:#59446d !important;}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -3271,13 +3331,22 @@ def page_dashboard():
         )
     else:
         st.caption("No cards are waiting in Review right now.")
-    if st.button(
-        f"Review · {due} cards" if due else "Review",
-        key="dashboard_review_top",
-        type="primary",
-        use_container_width=True,
-    ):
-        open_review()
+    vocab_summary = one("""SELECT
+        (SELECT COUNT(*) FROM v2_vocab_progress WHERE reviews>0 AND next_review<=?) AS due,
+        (SELECT COUNT(*) FROM v2_vocab_daily_selection d JOIN v2_vocab_progress v ON v.card_id=d.card_id
+         WHERE d.study_date<=? AND v.reviews=0) AS fresh""", (datetime.now().isoformat(timespec="seconds"), today()))
+    review_col, vocab_col = st.columns(2, gap="large")
+    with review_col:
+        with st.container(key="dashboard_grammar_review_card", border=True):
+            st.markdown("### 📖 Grammar Review")
+            st.caption(f"{due} grammar cards due" if due else "No grammar cards due right now")
+            st.button(f"Review · {due} cards" if due else "Review grammar", key="dashboard_review_top", type="primary", use_container_width=True, on_click=open_review)
+    with vocab_col:
+        with st.container(key="dashboard_vocabulary_review_card", border=True):
+            st.markdown("### 🗂️ Vocabulary Review")
+            st.caption(f"{vocab_summary['due']} due reviews · {vocab_summary['fresh']} new words for today")
+            st.button("Review vocabulary", key="v2_dashboard_vocab_review", type="primary", use_container_width=True, on_click=go_vocab_review)
+            st.button("Find or add words", key="v2_dashboard_vocab_add", use_container_width=True, on_click=go_vocab_review)
 
     st.header("Today's new lessons")
     todays = daily_lessons()
