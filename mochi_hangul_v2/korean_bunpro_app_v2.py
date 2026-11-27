@@ -2378,7 +2378,8 @@ def explain_required_answer_form(card):
 # guide examples remain separate from the cards array in the same lesson.
 
 
-def load_htsk_guides():
+@st.cache_data(show_spinner=False)
+def load_htsk_guides(_seed_signature):
     """Load and validate HTSK guide fields embedded in the lesson seeds."""
     guides = {}
     for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
@@ -2472,7 +2473,18 @@ def load_htsk_guides():
     return guides
 
 
-HTSK_GUIDES = load_htsk_guides()
+def htsk_seed_signature():
+    signature = []
+    for seed_path in [SEED_PATH, *EXTENDED_SEED_PATHS]:
+        try:
+            stat = seed_path.stat()
+            signature.append((str(seed_path), stat.st_mtime_ns, stat.st_size))
+        except FileNotFoundError:
+            signature.append((str(seed_path), None, None))
+    return tuple(signature)
+
+
+HTSK_GUIDES = load_htsk_guides(htsk_seed_signature())
 
 
 def lesson_guide(lesson):
@@ -3675,7 +3687,14 @@ def page_progress():
 
 import importlib
 import korean_bunpro_v2_features as _v2_features
-_v2_features = importlib.reload(_v2_features)
+_feature_path = Path(_v2_features.__file__)
+_feature_stamp = (_feature_path.stat().st_mtime_ns, _feature_path.stat().st_size)
+_loaded_feature_stamp = getattr(_v2_features, "_mochi_source_stamp", None)
+if _loaded_feature_stamp is None:
+    _v2_features._mochi_source_stamp = _feature_stamp
+elif _loaded_feature_stamp != _feature_stamp:
+    _v2_features = importlib.reload(_v2_features)
+    _v2_features._mochi_source_stamp = _feature_stamp
 _v2_features.install_v2(globals())
 
 # bootstrap_app_data initializes the legacy and V2 schemas itself. It is

@@ -754,10 +754,17 @@ def install_v2(namespace):
                 conn.commit()
             finally: conn.close()
         st.write(f"Scheduled: **{selected_today}/{today_limit} today** · **{selected_tomorrow}/20 tomorrow**")
-        total_cards = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_cards")["n"]
-        query = st.text_input("Find a word in your vocabulary", key="v2_vocab_search", placeholder="Type Korean or English")
+        if "v2_vocab_search_query" not in st.session_state:
+            # Preserve a search value entered before the form-based search update.
+            st.session_state["v2_vocab_search_query"] = st.session_state.get("v2_vocab_search", "")
+        with st.form("v2_vocab_search_form", clear_on_submit=False):
+            st.text_input("Find a word in your vocabulary", key="v2_vocab_search_input", placeholder="Type Korean or English")
+            search_submitted = st.form_submit_button("Search")
+        if search_submitted:
+            st.session_state["v2_vocab_search_query"] = st.session_state.get("v2_vocab_search_input", "").strip()
+        query = st.session_state.get("v2_vocab_search_query", "")
         if query.strip():
-            st.caption(f"Searching all {total_cards:,} vocabulary cards")
+            st.caption("Search results from your vocabulary cards")
             matches = v2_rows("""SELECT c.id,c.target,c.target_translation,c.part_of_speech,p.title,v.reviews,d.study_date
                 FROM v2_vocab_cards c JOIN v2_vocab_packs p ON p.id=c.pack_id
                 JOIN v2_vocab_progress v ON v.card_id=c.id
@@ -926,46 +933,78 @@ def install_v2(namespace):
         st.caption("Browse grammar lessons by HTSK unit. Manual mastery badges do not alter SRS scheduling.")
         start = int(namespace["setting"]("start_unit", "2"))
         lessons = namespace["rows"]("SELECT * FROM lessons ORDER BY unit,lesson_number")
-        stats = namespace["rows"]("""SELECT cards.lesson_id,
-            SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
-            SUM(CASE WHEN reviews.active=1 AND reviews.retired=0 THEN 1 ELSE 0 END) AS active
-            FROM cards JOIN reviews ON reviews.card_id=cards.id GROUP BY cards.lesson_id""")
-        by_stats = {row["lesson_id"]: row for row in stats}
-        mastered_lesson_nums = {int(row["item_id"]) for row in v2_rows(
-            "SELECT item_id FROM manual_mastery WHERE item_kind='grammar_lesson' AND mastered=1")}
         grouped = {}
         for lesson in lessons:
             grouped.setdefault(int(lesson["unit"]), []).append(lesson)
-        requests = []
-        for unit in sorted(grouped):
-            title, lesson_range, status = namespace["UNIT_INFO"].get(unit, ("HTSK Korean", "", "locked"))
-            badge = {"completed": "✅ Completed", "current": "🌸 Current unit"}.get(status, "📘 Unit")
-            with st.expander(f"Level {unit} · Unit {unit}: {title} · {lesson_range} · {badge}", expanded=(unit == start)):
-                if unit < start:
-                    st.caption("Completed before your starting point; lessons remain available to study manually.")
-                for lesson in grouped[unit]:
-                    lesson_id = int(lesson["id"])
-                    lesson_num = int(lesson["lesson_number"])
-                    row_stats = by_stats.get(lesson_id, {})
-                    active = row_stats.get("active", 0) or 0
-                    count = row_stats.get("cards", 0) or 0
-                    mastered = lesson_num in mastered_lesson_nums
-                    guide = namespace["lesson_guide"](lesson)
-                    with st.container(border=True):
-                        info, master_col, study_col = st.columns([5, 1.6, 1.1])
-                        with info:
-                            st.markdown(f"**Lesson {lesson_num}: {lesson['title']}**")
-                            st.caption(f"{lesson['pattern']} · {active}/{count} cards active")
-                            st.markdown(f"[Open the HTSK lesson ↗]({guide['source_url']})")
-                            if not guide.get("available"):
-                                st.caption("HTSK has not published this lesson yet.")
-                        with master_col:
-                            if st.button("✓ Mastered" if mastered else "Mark mastered", key=f"v2_grammar_master_{lesson_num}", use_container_width=True):
-                                set_mastery("grammar_lesson", lesson_num, not mastered)
+
+        selected_unit = st.session_state.get("v2_lessons_selected_unit")
+        if selected_unit is None or int(selected_unit) not in grouped:
+            st.session_state["v2_lessons_selected_unit"] = None
+            st.markdown("### Choose a unit")
+            units = sorted(grouped)
+            for offset in range(0, len(units), 2):
+                columns = st.columns(2)
+                for column, unit in zip(columns, units[offset:offset + 2]):
+                    title, lesson_range, status = namespace["UNIT_INFO"].get(unit, ("HTSK Korean", "", "locked"))
+                    unit_lessons = grouped[unit]
+                    badge = {"completed": "✅ Completed", "current": "🌸 Current unit", "locked": "📘 Unit"}.get(status, "📘 Unit")
+                    with column:
+                        with st.container(border=True):
+                            st.markdown(f"### Unit {unit}: {title}")
+                            st.caption(f"{lesson_range} · {len(unit_lessons)} lessons · {badge}")
+                            if unit < start:
+                                st.caption("Completed before your starting point; lessons remain available to study manually.")
+                            if st.button("Open unit", key=f"v2_open_lesson_unit_{unit}", use_container_width=True):
+                                st.session_state["v2_lessons_selected_unit"] = unit
                                 st.rerun()
-                        with study_col:
-                            if guide.get("available") and st.button("Study", key=f"v2_study_{lesson_id}", use_container_width=True):
-                                requests.append((lesson_id, False))
+            return
+
+        selected_unit = int(selected_unit)
+        if st.button("← All units", key="v2_back_to_lesson_units"):
+            st.session_state["v2_lessons_selected_unit"] = None
+            st.rerun()
+        title, lesson_range, status = namespace["UNIT_INFO"].get(selected_unit, ("HTSK Korean", "", "locked"))
+        st.subheader(f"Unit {selected_unit}: {title}")
+        st.caption(f"{lesson_range} · {len(grouped[selected_unit])} lessons")
+
+        lesson_ids = [int(lesson["id"]) for lesson in grouped[selected_unit]]
+        lesson_numbers = [int(lesson["lesson_number"]) for lesson in grouped[selected_unit]]
+        stats = namespace["rows"]("""SELECT cards.lesson_id,
+            SUM(CASE WHEN reviews.retired=0 THEN 1 ELSE 0 END) AS cards,
+            SUM(CASE WHEN reviews.active=1 AND reviews.retired=0 THEN 1 ELSE 0 END) AS active
+            FROM cards JOIN reviews ON reviews.card_id=cards.id
+            WHERE cards.lesson_id IN (""" + ",".join("?" for _ in lesson_ids) + ") GROUP BY cards.lesson_id", tuple(lesson_ids)) if lesson_ids else []
+        by_stats = {row["lesson_id"]: row for row in stats}
+        placeholders = ",".join("?" for _ in lesson_numbers)
+        mastered_lesson_nums = {int(row["item_id"]) for row in v2_rows(
+            f"SELECT item_id FROM manual_mastery WHERE item_kind='grammar_lesson' AND mastered=1 AND item_id IN ({placeholders})",
+            tuple(str(number) for number in lesson_numbers),
+        )} if lesson_numbers else set()
+
+        requests = []
+        for lesson in grouped[selected_unit]:
+            lesson_id = int(lesson["id"])
+            lesson_num = int(lesson["lesson_number"])
+            row_stats = by_stats.get(lesson_id, {})
+            active = row_stats.get("active", 0) or 0
+            count = row_stats.get("cards", 0) or 0
+            mastered = lesson_num in mastered_lesson_nums
+            guide = namespace["lesson_guide"](lesson)
+            with st.container(border=True):
+                info, master_col, study_col = st.columns([5, 1.6, 1.1])
+                with info:
+                    st.markdown(f"**Lesson {lesson_num}: {lesson['title']}**")
+                    st.caption(f"{lesson['pattern']} · {active}/{count} cards active")
+                    st.markdown(f"[Open the HTSK lesson ↗]({guide['source_url']})")
+                    if not guide.get("available"):
+                        st.caption("HTSK has not published this lesson yet.")
+                with master_col:
+                    if st.button("✓ Mastered" if mastered else "Mark mastered", key=f"v2_grammar_master_{lesson_num}", use_container_width=True):
+                        set_mastery("grammar_lesson", lesson_num, not mastered)
+                        st.rerun()
+                with study_col:
+                    if guide.get("available") and st.button("Study", key=f"v2_study_{lesson_id}", use_container_width=True):
+                        requests.append((lesson_id, False))
         for request in requests:
             namespace["render_lesson_dialog"](*request)
 
