@@ -656,21 +656,30 @@ def install_v2(namespace):
         return pattern.sub(lambda match: f'<span class="vocab-target">{match.group(0)}</span>', safe, count=1)
 
     def current_vocab_card(card_id):
-        return v2_one("""SELECT c.*,p.title AS pack_title,p.level,p.topic,p.catalog_url
+        cached = st.session_state.get("_vocab_review_card_cache", {}).get(str(card_id))
+        if cached:
+            return cached
+        card = v2_one("""SELECT c.*,p.title AS pack_title,p.level,p.topic,p.catalog_url
             FROM v2_vocab_cards c JOIN v2_vocab_packs p ON p.id=c.pack_id WHERE c.id=?""", (card_id,))
+        if card:
+            st.session_state.setdefault("_vocab_review_card_cache", {})[str(card_id)] = dict(card)
+        return card
 
     def grade_vocab(card_id, input_key):
         conn = namespace["db"]()
         try:
-            card = conn.execute("""SELECT c.*,p.title AS pack_title,p.level,p.topic,p.catalog_url
-                FROM v2_vocab_cards c JOIN v2_vocab_packs p ON p.id=c.pack_id WHERE c.id=?""", (card_id,)).fetchone()
+            card = conn.execute("""SELECT c.*,p.title AS pack_title,p.level,p.topic,p.catalog_url,
+                    v.level AS progress_level
+                FROM v2_vocab_cards c
+                JOIN v2_vocab_packs p ON p.id=c.pack_id
+                LEFT JOIN v2_vocab_progress v ON v.card_id=c.id
+                WHERE c.id=?""", (card_id,)).fetchone()
             if not card:
                 return
             user_answer = namespace["normalize"](st.session_state.get(input_key, ""))
             correct_answer = namespace["normalize"](card["answer"])
             correct = user_answer.casefold() == correct_answer.casefold()
-            previous = conn.execute("SELECT * FROM v2_vocab_progress WHERE card_id=?", (card_id,)).fetchone()
-            old_level = max(0, int(previous["level"] or 0)) if previous else 0
+            old_level = max(0, int(card["progress_level"] or 0))
             new_level = min(namespace["SRS_MAX_LEVEL"], old_level + 1) if correct else max(0, old_level - 1)
             now_dt = datetime.now()
             interval = namespace["BUNPRO_INTERVALS"].get(old_level if correct else new_level)
@@ -679,6 +688,7 @@ def install_v2(namespace):
             conn.execute("""UPDATE v2_vocab_progress SET level=?,next_review=?,last_review=?,
                 reviews=reviews+1,mastered=? WHERE card_id=?""", (new_level, due.isoformat(timespec="seconds"), now, int(new_level >= namespace["SRS_MAX_LEVEL"]), card_id))
             conn.commit()
+            st.session_state.setdefault("_vocab_review_card_cache", {})[str(card_id)] = dict(card)
         finally:
             conn.close()
         st.session_state["vocab_result"] = {"card_id": card_id, "user_answer": user_answer,
@@ -726,11 +736,119 @@ def install_v2(namespace):
         st.session_state["vocab_queue_mode"] = "mixed"
         st.session_state["vocab_queue_version"] = 6
         st.session_state.pop("vocab_result", None)
+        st.session_state["_vocab_review_card_cache"] = {}
 
     namespace["start_vocab_queue"] = start_vocab_queue
 
     def hide_manual_vocab_form():
         st.session_state["v2_manual_card_open"] = False
+
+    def render_vocab_progress(current, total):
+        total = max(0, int(total))
+        current = max(0, min(int(current), total))
+        ratio = 1.0 if total == 0 else current / total
+        label = "No cards" if total == 0 else f"{current} / {total} cards"
+        st.markdown(f'''<div class="review-progress vocab-progress">
+            <div class="review-progress-title"><span>🌸 Vocabulary journey</span><span>{label}</span></div>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width:{ratio * 100:.2f}%"></div>
+                <div class="progress-mascot" style="left:clamp(0px,calc({ratio * 100:.2f}% - 19px),calc(100% - 38px))">🍡</div></div>
+        </div>''', unsafe_allow_html=True)
+
+    def install_vocab_continue_enter():
+        namespace["components"].html('''
+        <script>
+        (function() {
+            const win = window.parent;
+            if (win.__mochiVocabContinueHandler) {
+                win.document.removeEventListener('keydown', win.__mochiVocabContinueHandler, true);
+            }
+            win.__mochiVocabContinueHandler = function(event) {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                const button = Array.from(win.document.querySelectorAll('button')).find((item) =>
+                    item.getClientRects().length && (item.innerText || item.textContent || '').trim().startsWith('Continue')
+                );
+                if (!button) return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                button.click();
+            };
+            win.document.addEventListener('keydown', win.__mochiVocabContinueHandler, true);
+        })();
+        </script>
+        ''', height=1)
+
+    def close_vocab_review():
+        st.session_state["nav"] = "Dashboard"
+        st.session_state["nav_menu"] = "Dashboard"
+        for key in ("vocab_queue_ids", "vocab_queue_index", "vocab_queue_mode", "vocab_queue_pack", "vocab_result"):
+            st.session_state.pop(key, None)
+        st.rerun(scope="app")
+
+    def render_vocab_review_session():
+        st.markdown('<div class="review-page-heading">🌸 Vocabulary Review</div>', unsafe_allow_html=True)
+        close_col, _ = st.columns([1, 8])
+        if close_col.button("← Dashboard", key="v2_vocab_close_session"):
+            close_vocab_review()
+        queue = st.session_state.get("vocab_queue_ids", [])
+        index = int(st.session_state.get("vocab_queue_index", 0))
+        result = st.session_state.get("vocab_result")
+        if result:
+            card = current_vocab_card(result["card_id"])
+            if not card:
+                st.session_state.pop("vocab_result", None)
+                st.rerun(scope="fragment")
+            answered = escape(str(card["prompt"])).replace("___", f'<span class="answer-result-value">{escape(result["user_answer"])}</span>', 1)
+            st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{answered}</div><div class="review-translation">{highlight_translation(card["translation"], card["target_translation"])}</div></div>', unsafe_allow_html=True)
+            if result["correct"]:
+                st.markdown('<div class="review-result-chip is-correct">✓ Correct</div>', unsafe_allow_html=True)
+            else:
+                st.markdown(f'<div class="review-result-chip is-retry">Correct answer: <b>{escape(result["correct_answer"])}</b></div>', unsafe_allow_html=True)
+            if st.button("Continue →", key="v2_vocab_continue", type="primary", use_container_width=True):
+                st.session_state["vocab_queue_index"] = index + 1
+                st.session_state.pop("vocab_result", None)
+                st.rerun(scope="fragment")
+            install_vocab_continue_enter()
+            return
+        if "vocab_queue_ids" not in st.session_state:
+            st.info("Start the mixed deck when you are ready.")
+            return
+        if not queue or index >= len(queue):
+            render_vocab_progress(len(queue), len(queue))
+            st.markdown('<div class="review-result-chip is-correct">✨ Vocabulary review complete</div>', unsafe_allow_html=True)
+            if st.button("← Dashboard", key="v2_vocab_done_dashboard", type="primary", use_container_width=True):
+                close_vocab_review()
+            return
+        card_id = queue[index]
+        card = current_vocab_card(card_id)
+        if not card:
+            st.session_state["vocab_queue_index"] = index + 1
+            st.rerun()
+        render_vocab_progress(index + 1, len(queue))
+        slot_id = f"v2_vocab_slot_{card_id}"
+        marker_id = f"v2_vocab_marker_{card_id}"
+        label = f"Answer for card {card_id}"
+        key = f"v2_vocab_answer_{card_id}"
+        korean = escape(str(card["prompt"])).replace("___", f'<span class="inline-answer-slot" id="{slot_id}"></span>', 1)
+        translation = highlight_translation(card["translation"], card["target_translation"])
+        answer_form = card["answer_form"]
+        if "해요체" in answer_form:
+            answer_form = "Use polite conversational speech (해요체; typically -아요/-어요)."
+        elif "해체" in answer_form:
+            answer_form = "Use casual/plain speech (해체; omit 요 and use the requested plain ending)."
+        elif "합니다체" in answer_form or "하십시오체" in answer_form:
+            answer_form = "Use formal polite speech (하십시오체; typically -습니다/-ㅂ니다)."
+        st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{korean}</div><div class="review-translation">{translation}</div><div class="answer-form-note">Required answer form: {escape(answer_form)}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="v2-source-note">{escape(card["pack_title"])} · {escape(card["card_type"].title())} card</div>', unsafe_allow_html=True)
+        with st.expander("Show the word in its base form"):
+            st.write(card["base_form"])
+        with st.form(key=f"v2_vocab_form_{card_id}", clear_on_submit=False):
+            st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
+            st.text_input(label, key=key, placeholder="...", label_visibility="collapsed")
+            st.form_submit_button("Check answer", on_click=grade_vocab, args=(card_id, key))
+        namespace["mount_inline_answer"](slot_id, marker_id, label)
+        namespace["focus_answer_field"]()
+
+
 
     def page_vocabulary_review(title="Vocabulary Review", pack_type_filter=None):
         if st.session_state.get("vocab_queue_version") != 6:
@@ -739,14 +857,20 @@ def install_v2(namespace):
             st.session_state.pop("vocab_queue_pack", None)
             st.session_state.pop("vocab_queue_mode", None)
             st.session_state["vocab_queue_version"] = 6
-        st.title(title)
-        st.caption("The review deck includes all due cards, including reviews carried over from previous days. Unreviewed new-word selections stay in the queue too.")
+        if "vocab_queue_ids" in st.session_state:
+            render_vocab_review_session()
+            return
+        st.markdown(f'<div class="review-page-heading">🌸 {escape(title)}</div>', unsafe_allow_html=True)
+        close_col, _ = st.columns([1, 8])
+        if close_col.button("← Dashboard", key="v2_vocab_close_setup"):
+            close_vocab_review()
+        st.caption("The deck combines due reviews with your selected new words.")
         today_key = datetime.now().date().isoformat()
         selected_today = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", (today_key,))["n"]
         selected_tomorrow = v2_one("SELECT COUNT(*) AS n FROM v2_vocab_daily_selection WHERE study_date=?", ((datetime.now().date()+timedelta(days=1)).isoformat(),))["n"]
         saved_limit = v2_one("SELECT daily_limit FROM v2_vocab_daily_settings WHERE study_date=?", (today_key,))
         today_limit = int(saved_limit["daily_limit"]) if saved_limit else 20
-        today_limit = st.selectbox("New words to study today", list(range(1, 21)), index=today_limit-1, key="v2_vocab_daily_limit")
+        today_limit = int(st.number_input("New words to study today", min_value=1, max_value=20, value=today_limit, step=1, key="v2_vocab_daily_limit_number"))
         if not saved_limit or int(saved_limit["daily_limit"]) != today_limit:
             conn=namespace["db"]()
             try:
@@ -755,7 +879,6 @@ def install_v2(namespace):
             finally: conn.close()
         st.write(f"Scheduled: **{selected_today}/{today_limit} today** · **{selected_tomorrow}/20 tomorrow**")
         if "v2_vocab_search_query" not in st.session_state:
-            # Preserve a search value entered before the form-based search update.
             st.session_state["v2_vocab_search_query"] = st.session_state.get("v2_vocab_search", "")
         with st.form("v2_vocab_search_form", clear_on_submit=False):
             st.text_input("Find a word in your vocabulary", key="v2_vocab_search_input", placeholder="Type Korean or English")
@@ -830,97 +953,29 @@ def install_v2(namespace):
                         st.rerun()
         added_flash=st.session_state.pop("v2_vocab_added_flash",None)
         if added_flash:
-            st.success("Added to today’s deck." if added_flash==today_key else f"Added to your study queue for {added_flash}.")
+            st.caption("Added to today’s study queue." if added_flash==today_key else f"Added to your study queue for {added_flash}.")
         if st.button("Start today’s mixed vocabulary deck", key="v2_start_vocab_mixed", type="primary", use_container_width=True):
             start_vocab_queue(new_limit=today_limit)
             st.rerun()
-        queue = st.session_state.get("vocab_queue_ids", [])
-        index = int(st.session_state.get("vocab_queue_index", 0))
-        result = st.session_state.get("vocab_result")
-        if result:
-            card = current_vocab_card(result["card_id"])
-            if not card:
-                st.session_state.pop("vocab_result", None)
-                st.rerun()
-            answered = escape(str(card["prompt"])).replace("___", f'<span class="answer-result-value">{escape(result["user_answer"])}</span>', 1)
-            st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{answered}</div><div class="review-translation">{highlight_translation(card["translation"], card["target_translation"])}</div></div>', unsafe_allow_html=True)
-            if result["correct"]:
-                st.success("Correct — this word is scheduled for its next review.")
-            else:
-                st.info("The card is complete. Review the full answer before continuing.")
-            st.markdown(f'<div class="answer-results">Your answer: <b>{escape(result["user_answer"])}</b><br>Correct answer: <b>{escape(result["correct_answer"])}</b></div>', unsafe_allow_html=True)
-            example_text = str(card.get("source_sentence") or "").strip()
-            if example_text:
-                safe_example = escape(example_text).replace("\n", "<br>")
-                st.markdown(f'<div class="v2-source-note"><b>Example:</b><br>{safe_example}</div>', unsafe_allow_html=True)
-            explanation = str(card.get("explanation") or "").strip()
-            if explanation:
-                st.caption(explanation)
-            st.markdown(f'<div class="v2-source-note">Base form: {escape(card["base_form"])} · Required form: {escape(card["answer_form"])}</div>', unsafe_allow_html=True)
-            st.markdown(f'[Open source ↗]({card["source_url"]})')
-            if card["catalog_url"]:
-                st.markdown(f"[Artist's official catalog ↗]({card['catalog_url']})")
-            word_id = f"{card['pack_id']}:{card['target']}"
-            mastered = is_mastered("vocab_word", word_id)
-            if st.button("Undo word mastered" if mastered else "Mark this word mastered",
-                          key=f"v2_result_master_{card['pack_id']}_{card['target']}"):
-                set_mastery("vocab_word", word_id, not mastered)
-                st.rerun()
-            if st.button("Continue →", key="v2_vocab_continue", type="primary", use_container_width=True):
-                st.session_state["vocab_queue_index"] = index + 1
-                st.session_state.pop("vocab_result", None)
-                st.rerun()
-            return
-        if "vocab_queue_ids" not in st.session_state:
-            st.info("Start the mixed deck when you are ready.")
-            return
-        if not queue or index >= len(queue):
-            if not queue:
-                st.info("No due reviews or new words selected for today.")
-            else:
-                st.success("Today’s mixed vocabulary deck is complete.")
-            st.progress(1.0)
-            if st.button("Choose another pack or session", key="v2_vocab_restart"):
-                st.session_state.pop("vocab_queue_ids", None)
-                st.session_state.pop("vocab_queue_mode", None)
-                st.session_state.pop("vocab_review_pack", None)
-                st.rerun()
-            return
-        card_id = queue[index]
-        card = current_vocab_card(card_id)
-        if not card:
-            st.session_state["vocab_queue_index"] = index + 1
-            st.rerun()
-        st.progress(index / max(1, len(queue)), text=f"{index} / {len(queue)} mixed vocabulary cards")
-        slot_id = f"v2_vocab_slot_{card_id}"
-        marker_id = f"v2_vocab_marker_{card_id}"
-        label = f"Answer for card {card_id}"
-        key = f"v2_vocab_answer_{card_id}"
-        korean = escape(str(card["prompt"])).replace("___", f'<span class="inline-answer-slot" id="{slot_id}"></span>', 1)
-        translation = highlight_translation(card["translation"], card["target_translation"])
-        answer_form = card["answer_form"]
-        if "해요체" in answer_form:
-            answer_form = "Use polite conversational speech (해요체; typically -아요/-어요)."
-        elif "해체" in answer_form:
-            answer_form = "Use casual/plain speech (해체; omit 요 and use the requested plain ending)."
-        elif "합니다체" in answer_form or "하십시오체" in answer_form:
-            answer_form = "Use formal polite speech (하십시오체; typically -습니다/-ㅂ니다)."
-        st.markdown(f'<div class="review-question-paper"><div class="review-prompt">{korean}</div><div class="review-translation">{translation}</div><div class="answer-form-note">Required answer form: {escape(answer_form)}</div></div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="v2-source-note">{escape(card["pack_title"])} · {escape(card["card_type"].title())} card</div>', unsafe_allow_html=True)
-        with st.expander("Show the word in its base form"):
-            st.write(card["base_form"])
-        with st.form(key=f"v2_vocab_form_{card_id}", clear_on_submit=False):
-            st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
-            st.text_input(label, key=key, placeholder="...", label_visibility="collapsed")
-            st.form_submit_button("Check answer", on_click=grade_vocab, args=(card_id, key))
-        namespace["mount_inline_answer"](slot_id, marker_id, label)
-        namespace["focus_answer_field"]()
-        if st.button("Restart this queue", key="v2_restart_queue"):
-            st.session_state.pop("vocab_queue_ids", None)
-            st.session_state.pop("vocab_result", None)
-            st.rerun()
 
     namespace["page_vocabulary_review"] = page_vocabulary_review
+
+    if hasattr(st, "dialog"):
+        @st.dialog("🌸 Vocabulary Review", width="large")
+        def vocabulary_review_dialog():
+            page_vocabulary_review()
+    else:
+        vocabulary_review_dialog = None
+
+    def render_vocabulary_review_dialog():
+        if vocabulary_review_dialog is not None:
+            vocabulary_review_dialog()
+        else:
+            page_vocabulary_review()
+
+    namespace["render_vocabulary_review_dialog"] = render_vocabulary_review_dialog
+
+
 
     def go_vocab_review():
         st.session_state["nav"] = "Vocabulary Review"

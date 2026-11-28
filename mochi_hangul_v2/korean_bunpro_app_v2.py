@@ -477,7 +477,12 @@ st.markdown("""
     .review-question-paper {padding:13px 0 12px; margin:2px 0 10px; border:0; border-radius:0; background:transparent; box-shadow:none; text-align:center;}
     .review-question-paper .review-prompt {color:#4f3d64; font-size:clamp(1.16rem,2.7vw,1.45rem); font-weight:850; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
     .review-question-paper .review-translation {margin-top:8px; color:#654b78; font-family:"Aptos","Segoe UI",sans-serif; font-size:clamp(.98rem,2.2vw,1.08rem); font-weight:500; line-height:1.5; overflow-wrap:anywhere; text-align:center;}
-    .grammar-target, .vocab-target {color:#d66ea8; font-weight:800;}
+    .grammar-target {color:#a43e82; font-weight:800; background:#fce4f1; padding:0 .18em; border-radius:.35em; box-decoration-break:clone; -webkit-box-decoration-break:clone;}
+    .vocab-target {color:#9c326f !important; -webkit-text-fill-color:#9c326f !important; font-weight:850; background:#ffe1ef !important; padding:0 .2em; border-radius:.35em; box-decoration-break:clone; -webkit-box-decoration-break:clone;}
+    .review-result-chip {margin:12px 0 16px; padding:10px 15px; border-radius:16px; text-align:center; font-weight:800; color:#58416f; background:linear-gradient(105deg,#fff3fa,#f2efff); border:1px solid #edc4dc;}
+    .review-result-chip.is-correct {color:#286453; background:#eaf8f1; border-color:#b8e2d1;}
+    .review-result-chip.is-retry {color:#80512f; background:#fff5e8; border-color:#f0d2aa;}
+    .review-retry-hint {margin:8px auto 12px; padding:9px 13px; max-width:760px; border:1px solid #edc4dc; border-radius:14px; background:#fff5fa; color:#654b78; text-align:center; line-height:1.5;}
     .answer-form-note {margin-top:7px; color:#886d91; font-size:.9rem; line-height:1.4; text-align:center;}
     .inline-answer-slot {display:inline-block; vertical-align:baseline; width:1.25em; min-width:1.25em; min-height:1.15em; text-align:left; white-space:pre;}
     .inline-answer-slot > .inline-answer-element {display:inline-flex !important; align-items:baseline; width:auto !important; min-width:0 !important; margin:0 !important; padding:0 !important; vertical-align:baseline;}
@@ -923,6 +928,36 @@ st.markdown("""
     html body [data-baseweb="notification"] svg {
         color:#a85d8e !important;
         fill:#a85d8e !important;
+    }
+    :root, html, body, .stApp { color-scheme:light !important; }
+    html body [data-baseweb="popover"], html body [data-baseweb="popover"] *,
+    html body [data-baseweb="menu"], html body [data-baseweb="menu"] *,
+    html body [role="listbox"], html body [role="listbox"] *,
+    html body [role="option"], html body [role="option"] * {
+        color-scheme:light !important; color:#59446d !important;
+        -webkit-text-fill-color:#59446d !important;
+    }
+    html body [data-baseweb="popover"], html body [data-baseweb="menu"],
+    html body [role="listbox"] { background:#fff9fd !important; background-color:#fff9fd !important; }
+    html body [data-baseweb="popover"] [role="option"],
+    html body [data-baseweb="menu"] [role="option"], html body [role="option"] {
+        background:#fff9fd !important; background-color:#fff9fd !important;
+    }
+    html body [data-baseweb="popover"] [role="option"][aria-selected="true"],
+    html body [data-baseweb="menu"] [role="option"][aria-selected="true"],
+    html body [role="option"][aria-selected="true"] { background:#f4ddec !important; }
+    html body [data-baseweb="popover"] [role="option"]:hover,
+    html body [data-baseweb="menu"] [role="option"]:hover,
+    html body [role="option"]:hover { background:#f9e4f2 !important; }
+    html body [data-testid="stAlert"], html body [data-testid="stNotification"],
+    html body [data-baseweb="notification"] {
+        background:#fff8fc !important; background-color:#fff8fc !important;
+        background-image:none !important; border-color:#efc4de !important;
+        color:#59446d !important; color-scheme:light !important;
+    }
+    html body [data-testid="stAlert"] *, html body [data-testid="stNotification"] *,
+    html body [data-baseweb="notification"] * {
+        color:#59446d !important; -webkit-text-fill-color:#59446d !important;
     }
 
 </style>
@@ -2550,8 +2585,20 @@ def check_answer(card_id, answer_key):
     entered = normalize(user_answer)
     if entered.casefold() != expected.casefold():
         context = st.session_state.setdefault("_review_card_context", {}).get(card_id, {})
-        notice = detect_speech_level_nearmiss(entered, expected, context.get("answer_form", "")) or detect_grammar_nearmiss(entered, expected, context.get("pattern", ""))
+        retry_used = {
+            int(value) for value in st.session_state.get("grammar_retry_used", [])
+            if str(value).isdigit()
+        }
+        notice = ""
+        if int(card_id) not in retry_used:
+            notice = (
+                detect_speech_level_nearmiss(entered, expected, context.get("answer_form", ""))
+                or detect_grammar_nearmiss(entered, expected, context.get("pattern", ""))
+                or detect_grammar_word_retry(entered, expected, context.get("hint", ""), context.get("pattern", ""))
+            )
         if notice:
+            retry_used.add(int(card_id))
+            st.session_state["grammar_retry_used"] = sorted(retry_used)
             st.session_state["near_miss_feedback"] = {"card_id": card_id, "text": notice}
             st.session_state[answer_key] = ""
             return
@@ -2640,6 +2687,38 @@ def detect_grammar_nearmiss(entered, expected, pattern):
         for alternative, regex in alternatives:
             if re.search(regex, entered) and not re.search(regex, expected):
                 return f"This is a related grammar form ({alternative}) with a similar meaning, but this card asks for {required}. Please enter the requested form again."
+    return ""
+
+
+def detect_grammar_word_retry(entered, expected, hint, pattern):
+    """Offer one free retry when the lexical base is recognizable but the ending differs."""
+    pattern_text = str(pattern or "").strip().lower()
+    if not pattern_text or pattern_text in {"onomatopoeia", "mimetic words", "vocabulary"}:
+        return ""
+    hint_text = re.sub(r"(?i)^base\s+forms?:\s*", "", str(hint or "").strip())
+    hint_match = re.search(r"[가-힣]+", hint_text)
+    if not hint_match:
+        return ""
+    lemma = hint_match.group(0)
+    stem = lemma[:-1] if lemma.endswith("다") and len(lemma) > 1 else lemma
+    if len(stem) < 2:
+        return ""
+    entered_match = re.search(r"[가-힣]+", entered)
+    expected_match = re.search(r"[가-힣]+", expected)
+    if not entered_match or not expected_match:
+        return ""
+    typed, correct = entered_match.group(0), expected_match.group(0)
+    shared = 0
+    for left, right in zip(typed, correct):
+        if left != right:
+            break
+        shared += 1
+    # Require a two-syllable lexical match where possible. A single shared
+    # initial syllable is too weak to conclude that the learner chose the
+    # same word (e.g. two unrelated words beginning with 가).
+    threshold = min(2, len(stem))
+    if shared >= threshold and stem.startswith(correct[:shared]) and stem.startswith(typed[:shared]):
+        return "The target word looks right. Adjust the grammar form and try once more; this retry is not counted as an error. You can open the grammar hint below."
     return ""
 
 
@@ -3190,7 +3269,7 @@ def start_review_session():
     for key in (
         "result_card_id", "result_user_answer", "result_correct_answer",
         "result_grade", "checked", "retry_card_id", "wrong_feedback",
-        "near_miss_feedback",
+        "near_miss_feedback", "grammar_retry_used",
     ):
         st.session_state.pop(key, None)
 
@@ -3218,7 +3297,11 @@ def meaningful_base_form_hint(card):
 
 def render_card(card):
     st.session_state.setdefault("_review_answer_cache", {})[card["id"]] = card["answer"]
-    st.session_state.setdefault("_review_card_context", {})[card["id"]] = {"pattern": card.get("pattern", ""), "answer_form": inferred_answer_form(card) or ""}
+    st.session_state.setdefault("_review_card_context", {})[card["id"]] = {
+        "pattern": card.get("pattern", ""),
+        "answer_form": inferred_answer_form(card) or "",
+        "hint": card.get("hint", ""),
+    }
     nonce = st.session_state.get("review_nonce", 0)
     answer_key = f"answer_{card['id']}_{nonce}"
     slot_id = f"inline_answer_slot_{card['id']}_{nonce}"
@@ -3232,14 +3315,14 @@ def render_card(card):
     answer_form = explain_required_answer_form(card)
     notice = st.session_state.get("near_miss_feedback")
     if notice and int(notice.get("card_id", -1)) == int(card["id"]):
-        st.warning(notice["text"] + " Your answer was not graded; enter it again below.")
+        st.markdown(f'<div class="review-retry-hint">{escape(notice["text"])}</div>', unsafe_allow_html=True)
     st.markdown(
         f'''<div class="review-question-paper"><div class="review-prompt">{prompt_html}</div><div class="review-translation">{translation_html}</div><div class='answer-form-note'>Required answer form: {escape(answer_form)}</div></div>''',
         unsafe_allow_html=True,
     )
     with st.expander("Show the word in its base form"):
         st.write(meaningful_base_form_hint(card))
-    with st.expander("Show the grammar explanation"):
+    with st.expander("Show a grammar hint"):
         st.write(card["explanation"])
     with st.form(key=form_key, clear_on_submit=False):
         st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
@@ -3491,16 +3574,12 @@ def render_review_contents():
                 f'''<div class="review-question-paper"><div class="review-prompt">{answered_prompt.replace(chr(10), "<br>")}</div><div class="review-translation">{highlight_grammar_translation(result_card["translation"], result_card["pattern"]).replace(chr(10), "<br>")}</div></div>''',
                 unsafe_allow_html=True,
             )
-            result_answer_form = explain_required_answer_form(result_card)
-            st.markdown(
-                f'''<div class="answer-form-note">Required answer form: {escape(result_answer_form)}</div>''',
-                unsafe_allow_html=True,
-            )
-            st.markdown(
-                f'''<div class="answer-results"><div>Your answer: <span class="answer-result-value">{user_answer}</span></div><div>Correct answer: <span class="answer-result-value">{escape(str(st.session_state.get("result_correct_answer", "")))}</span></div></div>''',
-                unsafe_allow_html=True,
-            )
-            st.markdown(f"[Open HTSK Lesson {result_card['lesson_title']} ↗]({result_card['lesson_source_url']})")
+            result_grade = st.session_state.get("result_grade")
+            if result_grade == "correct":
+                st.markdown('<div class="review-result-chip is-correct">✓ Correct</div>', unsafe_allow_html=True)
+            else:
+                correct_value = escape(str(st.session_state.get("result_correct_answer", "")))
+                st.markdown(f'<div class="review-result-chip is-retry">Correct form: <b>{correct_value}</b></div>', unsafe_allow_html=True)
             if st.button("Continue →", key="continue_after_grade", type="primary", use_container_width=True):
                 for key in ("result_card_id", "result_user_answer", "result_correct_answer", "result_grade"):
                     st.session_state.pop(key, None)
@@ -3737,7 +3816,7 @@ elif page == "Review": render_review_dialog()
 elif page == "Lessons": page_lessons()
 elif page == "Progress": page_progress()
 elif page == "Vocabulary Packs": page_vocabulary_packs()
-elif page == "Vocabulary Review": page_vocabulary_review()
+elif page == "Vocabulary Review": render_vocabulary_review_dialog()
 elif page == "Themed Packs": page_themed_packs()
 elif page == "Music Packs": page_music_packs()
 elif page == "Import Anki Progress": page_anki_import()
