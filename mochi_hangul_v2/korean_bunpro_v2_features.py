@@ -649,11 +649,82 @@ def install_v2(namespace):
     namespace["page_music_packs"] = page_music_packs
 
     def highlight_translation(translation, target):
-        safe = escape(str(translation or "")).replace("\n", "<br>")
-        if not target:
-            return safe
-        pattern = re.compile(re.escape(str(target)), re.IGNORECASE)
-        return pattern.sub(lambda match: f'<span class="vocab-target">{match.group(0)}</span>', safe, count=1)
+        """Highlight the tested English sense, including one of its listed synonyms.
+
+        Vocabulary translations often list several senses (for example,
+        ``connection, linking``), while the example sentence uses only one.
+        Match the first sense that actually occurs, with simple English
+        inflections. If the sentence paraphrases the target too freely, show
+        the requested English cue as a highlighted label instead of leaving
+        the card without a visible target.
+        """
+        raw = str(translation or "")
+        target_text = str(target or "").strip()
+        if not target_text:
+            return escape(raw).replace("\n", "<br>")
+
+        def variants(candidate):
+            candidate = re.sub(r"\s+", " ", candidate.strip(" \t\r\n.;:"))
+            candidate = re.sub(r"^(?:(?:a|an|the|to)\s+)+", "", candidate, flags=re.IGNORECASE)
+            if not candidate:
+                return []
+            values = [candidate]
+            words = candidate.split(" ")
+            last = words[-1]
+            stems = [last]
+            if last.isalpha() and len(last) > 2:
+                if last.endswith("y") and len(last) > 3:
+                    stems.extend([last[:-1] + "ies", last[:-1] + "ied"])
+                else:
+                    stems.extend([last + "s", last + "es", last + "ed", last + "ing"])
+                    if last.endswith("e"):
+                        stems.extend([last[:-1] + "ed", last[:-1] + "ing"])
+                    if (len(last) >= 3 and last[-1] not in "aeiouwxy"
+                            and last[-2] in "aeiou" and last[-3] not in "aeiou"):
+                        stems.extend([last + last[-1] + "ed", last + last[-1] + "ing"])
+                for stem in dict.fromkeys(stems[1:]):
+                    values.append(" ".join(words[:-1] + [stem]))
+            return list(dict.fromkeys(values))
+
+        # Translation fields list alternatives with commas, semicolons, slashes,
+        # pipes, or “or”. Keep the order supplied by the card.
+        candidates = []
+        for part in re.split(r"\s*(?:[,;/|]|\bor\b)\s*", target_text, flags=re.IGNORECASE):
+            candidates.extend(variants(part))
+
+        match = None
+        for candidate in candidates:
+            tokens = candidate.split()
+            if not tokens:
+                continue
+            phrase = r"[\s-]+".join(re.escape(token) for token in tokens)
+            pattern = re.compile(r"(?<!\w)" + phrase + r"(?!\w)", re.IGNORECASE)
+            match = pattern.search(raw)
+            if match:
+                break
+
+        # If a multiword sense is paraphrased, highlight its longest useful
+        # content word that is actually present in the sentence.
+        if not match:
+            stop = {"a", "an", "the", "to", "be", "of", "in", "on", "at", "for", "with", "and", "or"}
+            words = sorted({w for candidate in candidates for w in re.findall(r"[A-Za-z][A-Za-z'-]*", candidate)
+                            if len(w) >= 3 and w.casefold() not in stop}, key=len, reverse=True)
+            for word in words:
+                pattern = re.compile(r"(?<!\w)" + re.escape(word) + r"(?!\w)", re.IGNORECASE)
+                match = pattern.search(raw)
+                if match:
+                    break
+
+        if match:
+            marked = (escape(raw[:match.start()])
+                      + f'<span class="vocab-target">{escape(match.group(0))}</span>'
+                      + escape(raw[match.end():]))
+            return marked.replace("\n", "<br>")
+
+        # A cue is still explicit on paraphrased translations, so every card
+        # tells the learner which English meaning the Korean blank represents.
+        return (escape(raw).replace("\n", "<br>")
+                + f'<br><span class="vocab-target">{escape(target_text)}</span>')
 
     def current_vocab_card(card_id):
         cached = st.session_state.get("_vocab_review_card_cache", {}).get(str(card_id))
