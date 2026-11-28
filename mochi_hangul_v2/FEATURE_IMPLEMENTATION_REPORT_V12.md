@@ -18,3 +18,9 @@
 - No production Supabase connection or data was modified.
 - Python syntax compilation passed for the two changed modules; ZIP integrity was checked after packaging.
 - No live-app or production import test was performed.
+
+## Vocabulary grammar retry clarification
+
+- If a wrong vocabulary answer begins with the card's Korean word stem, the app now offers one free retry before SRS grading.
+- The learner can retry without revealing anything, or select **Подсмотреть правильную грамматику** to see the required ending (for example, 씹다 → 씹- + -으면 → 씹으면).
+- If the second answer is still wrong, it is graded normally. The free retry allowance resets when a new review session starts.

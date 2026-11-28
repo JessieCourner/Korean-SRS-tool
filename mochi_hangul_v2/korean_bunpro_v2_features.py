@@ -665,6 +665,27 @@ def install_v2(namespace):
             st.session_state.setdefault("_vocab_review_card_cache", {})[str(card_id)] = dict(card)
         return card
 
+    def vocab_lexical_word_matches(user_answer, base_form, target):
+        """Return true when the typed Korean form begins with this card's word stem."""
+        typed = re.sub(r"[^가-힣]", "", str(user_answer or ""))
+        candidates = []
+        for value in (base_form, target):
+            word = re.sub(r"[^가-힣]", "", str(value or ""))
+            if word.endswith("다") and len(word) > 1:
+                word = word[:-1]
+            if len(word) >= 1:
+                candidates.append(word)
+        return bool(typed and any(typed.startswith(word) for word in candidates))
+
+    def vocab_grammar_peek(base_form, correct_answer):
+        """Show the requested ending when the regular stem is visible, else the exact form."""
+        base = re.sub(r"[^가-힣]", "", str(base_form or ""))
+        answer = re.sub(r"[^가-힣]", "", str(correct_answer or ""))
+        stem = base[:-1] if base.endswith("다") and len(base) > 1 else base
+        if stem and answer.startswith(stem) and len(answer) > len(stem):
+            return f"К основе **{escape(stem)}** добавляется окончание **-{escape(answer[len(stem):])}** → **{escape(correct_answer)}**."
+        return f"Правильная форма для этого предложения: **{escape(correct_answer)}**."
+
     def grade_vocab(card_id, input_key):
         conn = namespace["db"]()
         try:
@@ -679,6 +700,17 @@ def install_v2(namespace):
             user_answer = namespace["normalize"](st.session_state.get(input_key, ""))
             correct_answer = namespace["normalize"](card["answer"])
             correct = user_answer.casefold() == correct_answer.casefold()
+            retry_ids = {
+                str(value) for value in st.session_state.get("vocab_free_retry_used", [])
+            }
+            if (not correct and str(card_id) not in retry_ids
+                    and vocab_lexical_word_matches(user_answer, card["base_form"], card["target"])):
+                retry_ids.add(str(card_id))
+                st.session_state["vocab_free_retry_used"] = sorted(retry_ids)
+                st.session_state["vocab_free_retry_card"] = str(card_id)
+                st.session_state["vocab_grammar_peek_card"] = None
+                st.session_state[input_key] = ""
+                return
             old_level = max(0, int(card["progress_level"] or 0))
             new_level = min(namespace["SRS_MAX_LEVEL"], old_level + 1) if correct else max(0, old_level - 1)
             now_dt = datetime.now()
@@ -693,6 +725,8 @@ def install_v2(namespace):
             conn.close()
         st.session_state["vocab_result"] = {"card_id": card_id, "user_answer": user_answer,
                                              "correct": correct, "correct_answer": card["answer"]}
+        st.session_state.pop("vocab_free_retry_card", None)
+        st.session_state.pop("vocab_grammar_peek_card", None)
 
     namespace["grade_vocab"] = grade_vocab
 
@@ -736,6 +770,9 @@ def install_v2(namespace):
         st.session_state["vocab_queue_mode"] = "mixed"
         st.session_state["vocab_queue_version"] = 6
         st.session_state.pop("vocab_result", None)
+        st.session_state.pop("vocab_free_retry_card", None)
+        st.session_state.pop("vocab_grammar_peek_card", None)
+        st.session_state["vocab_free_retry_used"] = []
         st.session_state["_vocab_review_card_cache"] = {}
 
     namespace["start_vocab_queue"] = start_vocab_queue
@@ -780,7 +817,7 @@ def install_v2(namespace):
     def close_vocab_review():
         st.session_state["nav"] = "Dashboard"
         st.session_state["nav_menu"] = "Dashboard"
-        for key in ("vocab_queue_ids", "vocab_queue_index", "vocab_queue_mode", "vocab_queue_pack", "vocab_result"):
+        for key in ("vocab_queue_ids", "vocab_queue_index", "vocab_queue_mode", "vocab_queue_pack", "vocab_result", "vocab_free_retry_card", "vocab_grammar_peek_card", "vocab_free_retry_used"):
             st.session_state.pop(key, None)
         st.rerun(scope="app")
 
@@ -830,6 +867,14 @@ def install_v2(namespace):
         key = f"v2_vocab_answer_{card_id}"
         korean = escape(str(card["prompt"])).replace("___", f'<span class="inline-answer-slot" id="{slot_id}"></span>', 1)
         translation = highlight_translation(card["translation"], card["target_translation"])
+        retry_active = st.session_state.get("vocab_free_retry_card") == str(card_id)
+        if retry_active:
+            st.markdown('<div class="review-retry-hint">Слово распознано. Исправьте грамматическую форму и попробуйте ещё раз — эта попытка не считается ошибкой.</div>', unsafe_allow_html=True)
+            if st.button("Подсмотреть правильную грамматику", key=f"v2_vocab_peek_grammar_{card_id}"):
+                st.session_state["vocab_grammar_peek_card"] = str(card_id)
+            if st.session_state.get("vocab_grammar_peek_card") == str(card_id):
+                peek = vocab_grammar_peek(card["base_form"], card["answer"])
+                st.markdown(f'<div class="review-retry-hint">{peek}</div>', unsafe_allow_html=True)
         answer_form = card["answer_form"]
         if "해요체" in answer_form:
             answer_form = "Use polite conversational speech (해요체; typically -아요/-어요)."
@@ -844,7 +889,7 @@ def install_v2(namespace):
         with st.form(key=f"v2_vocab_form_{card_id}", clear_on_submit=False):
             st.markdown(f'<span id="{marker_id}" class="answer-widget-marker"></span>', unsafe_allow_html=True)
             st.text_input(label, key=key, placeholder="...", label_visibility="collapsed")
-            st.form_submit_button("Check answer", on_click=grade_vocab, args=(card_id, key))
+            st.form_submit_button("Try again" if retry_active else "Check answer", on_click=grade_vocab, args=(card_id, key))
         namespace["mount_inline_answer"](slot_id, marker_id, label)
         namespace["focus_answer_field"]()
 
